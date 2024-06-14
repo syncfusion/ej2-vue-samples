@@ -10,14 +10,14 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "DocumentEditor",
-            "description": "The Document Editor component is used to create, edit, view, and print Word documents in web applications.",
-            "type": "update"
+            "description": "The Document Editor component is used to create, edit, view, and print Word documents in web applications."
         },
         {
-            "url": "document-list",
-            "name": "Document List",
-            "category": "File Management",
-            "description": "This sample demonstrates opening a Word document in both read-only and editable modes using the Document Editor. It is presented in a modal dialog, initiated from a list of documents within the grid view."
+            "url": "bindui-to-document",
+            "name": "Bind UI To Document",
+            "category": "DocumentEditor",
+            "description": "The Document Editor component in Vue platform is used to create, edit, view, and print Word documents in web applications.",
+            "type": "new"
         },
         {
             "url": "mail-merge",
@@ -29,8 +29,7 @@
             "url": "comments",
             "name": "Comments",
             "category": "Review",
-            "description": "The Document Editor component supports add and edit comments in a Word document for a comment discussion.",
-            "type" : "update"
+            "description": "The Document Editor component supports add and edit comments in a Word document for a comment discussion."
         },
 		 {
             "url": "track-changes",
@@ -66,8 +65,7 @@
             "url": "color-picker-customization",
             "name": "Color Picker Customization",
             "category": "Customization",            
-            "description": "The Document Editor component supports to to customize color picker in appearance." ,
-            "type" :"new"
+            "description": "The Document Editor component supports to to customize color picker in appearance."
         },
         {
             "url": "right-to-left",
@@ -85,8 +83,7 @@
             "url": "advanced-exporting",
             "name": "Advanced Exporting",
             "category": "Exporting",
-            "description": "The Document Editor component is used to view and print Word documents in web applications by injecting only the modules that are necessary.",
-            "type": "new"
+            "description": "The Document Editor component is used to view and print Word documents in web applications by injecting only the modules that are necessary."
         },
         {
             "url": "table-of-contents",
@@ -116,8 +113,7 @@
             "url": "heading-navigation",
             "name": "Heading Navigation",
             "category": "View",
-            "description": "The Document Editor component supports navigating documents by heading allows users to move around the document very quickly.",
-            "type": "new" 
+            "description": "The Document Editor component supports navigating documents by heading allows users to move around the document very quickly."
         },
         {
             "url": "character-formatting",

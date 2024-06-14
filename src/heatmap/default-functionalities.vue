@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
     <div class="content-wrapper">
         <ejs-heatmap id='container' :cellSettings='cellSettings' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :tooltipSettings='tooltipSettings' :legendSettings='legendSettings' :load='load'></ejs-heatmap>
@@ -7,12 +7,13 @@
 </div>
 <div style="float: right; margin-right: 10px;">
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample visualizes the sales revenue of items sold by the employees in a week, where the revenue for the day is displayed in 1000 USD as cell data.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
      <p>
         In this example, you can see how to render a heat map with the provided data source. The palette color is applied to the items in heat map. The default legend is enabled in this example to represent the items.
     </p>
@@ -26,8 +27,8 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";

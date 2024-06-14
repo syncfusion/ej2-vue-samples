@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="col-lg-9 control-section">
         <div style="width:200px;margin:auto;padding-bottom:20px">
             <img src="src/maps/images/bus-icon.png" alt="Bus icon" style="width:25px;height:25px;float:left">
@@ -17,7 +17,7 @@
 
     <div class="col-lg-3 property-section">
         <br/>
-        <table id="property" title="Seat Selection" style="width: 100%;font-weight:400 !important">
+        <table role="none" id="property" title="Seat Selection" style="width: 100%;font-weight:400 !important">
             <br/>
             <tbody>
                 <tr style="height: 30px">
@@ -48,12 +48,13 @@
             <span id='clear-btn' v-on:click="clickClear" >Clear Selection</span><br/><br/>
             <div id="selectedseats"></div>
         </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
                 <p>
                     This sample visualizes a seating chart, in which the seats can be selected similarly to bus seat booking. Available, booked, and selected seats will be displayed in different colors.
                 </p>	
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Maps features demonstrated in this sample">
             <p>
               In this example, you can see how to render the normal geometry type shapes on the map. Selection is enabled in this sample. You can use the <code>fill</code>, <code>width</code>, and <code>color</code> properties in the <code>selectionSettings</code> to customize the appearance of the shapes after selection.
             </p>
@@ -62,8 +63,8 @@
             <p>
              Maps component features are segregated into individual feature-wise modules. To use the selection, inject the <code>Selection</code> module using the <code>Maps.Inject(Selection)</code> method.
             </p>       
-        </div>
-</div>
+        </section>
+        </main>
 </template>
 <style scoped>
             #control-container {

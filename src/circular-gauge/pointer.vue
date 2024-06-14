@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="control-section">
         <div class="row">
             <div class="col-sm-12">
@@ -81,12 +81,13 @@
             </div>
         </div>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of Circular Gauge sample">
         <p>
             This sample visualizes the different types of pointers which are available in the gauge.
         </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
         <p>
             In this example, you can see how to customize the pointer for an axis in the circular gauge. Gauge supports different types of pointers like <code>marker</code>, <code>image</code>, <code>needle</code>, <code>rangeBar</code>.
         </p>
@@ -98,8 +99,8 @@
             More information on the pointers can be found in this
             <a target="_blank" href="http://ej2.syncfusion.com/documentation">documentation section</a>.
         </p>
-    </div>
-</div>
+    </section>
+</main>
 </template>
 
 <script>

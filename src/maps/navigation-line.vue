@@ -1,5 +1,6 @@
 <template>
- <div>
+<main>
+<div>
 <div class="control-section">
 <ejs-maps id='navigationLine' align="center" :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :mapsArea='mapsArea' :centerPosition='centerPosition'>
     <template v-slot:altamiraTemplate="{}">
@@ -35,12 +36,13 @@
        <a href="http://www.lineaships.com/en/linea-peninsular/" target="_blank">www.lineaships.com</a>
     </div>
 </div>
-<div id="action-description">
+</div> 
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample illustrates the sea routes between various cities for shipping. 
        </p>
-    </div>
-<div id="description">
+    </section>
+<section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
           In this example, you can see how to render lines between two points in map. You can use <code>dashArray</code>, <code>width</code> and <code>color</code> properties to customize the appearance of the navigation lines. 
         </p>
@@ -50,8 +52,8 @@
           Maps component features are segregated into individual feature-wise modules. To use navigation lines, you need to inject <code>NavigationLine</code> module using <code>Maps.Inject(NavigationLine)</code> method.
         </p>
        
-    </div>
-</div> 
+    </section>
+    </main>
 </template>
 // custom code start
 <style scoped>
@@ -99,7 +101,6 @@ export default {
         zoomSettings: {
             enable: false,
             mouseWheelZoom: false,
-            toolbars: [],
             zoomFactor: 13
         },
         mapsArea: {

@@ -2,6 +2,7 @@
     "name": "Tree Grid",
     "directory": "tree-grid",
     "category": "Grids",
+    "type":"update",
     "ftName": "treegrid",
     "samples": [
       {  
@@ -92,7 +93,11 @@
       "description": "This demo for Essential JS 2 Tree Grid control shows the usage of the row template feature. We have rendered each Tree Grid row using template."
      },
      {  
-      "url":"drag-drop", "name": "Drag And Drop", "category":"Rows", "api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","allowRowDragAndDrop"] },
+      "url":"dragdrop-between-treegrid", "name": "Drag And Drop", "category":"Rows","type":"new", "api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","allowRowDragAndDrop","allowPaging","allowSelection","selectionSettings"] },
+      "description": "This demo for Essential JS 2 Tree Grid control shows how the rows can be dragged between two Tree Grid using the row drag-and-drop feature."
+     },
+     {  
+      "url":"drag-drop", "name": "Drag And Drop within TreeGrid", "category":"Rows", "api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","allowRowDragAndDrop"] },
       "description": "This demo for Essential JS 2 Tree Grid control shows how the rows can be dragged within the Tree Grid using the row drag-and-drop feature."
      },
      {  

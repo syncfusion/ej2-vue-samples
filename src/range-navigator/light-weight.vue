@@ -3,7 +3,7 @@
 <div class="control-section" align="center">
     <div id="container">
         <div class="row" align="center">
-            <h4 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">Calculate the Business and Weekend days in a period</h4>
+            <h1 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px; margin-top: 10px;">Calculate the Business and Weekend days in a period</h1>
             <div align="center" >
                 <ejs-rangenavigator style='display:block' align='center' id='datetimeLW' :valueType='valueType' :intervalType='intervalType'
                  :value='value' :labelFormat='labelFormat' :width='width' :dataSource='dataSource' animationDuration=500
@@ -69,7 +69,7 @@ import { GetDateTimeData } from "./data-service";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

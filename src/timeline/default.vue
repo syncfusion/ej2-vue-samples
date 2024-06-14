@@ -25,8 +25,8 @@
 <style>
 .default-timeline-section {
     height: 350px;
-    width: 520px;
-    margin: 30px auto 30px calc(50% - 350px);
+    width: 290px;
+    margin: 30px auto;
 }
 
 /* Customized dot color */

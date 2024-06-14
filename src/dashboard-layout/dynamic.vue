@@ -3,7 +3,7 @@
     <div class="control-section dashboard-dynamic">
       <div>
            <div style="width:100%;height: 30px;margin-bottom:5px">
-            <ejs-button style="float:right;width:75px;" id="toggleBtn" ref="toggleBtn" iconCss='edit' cssClass="e-outline e-flat e-primary" isToggle=true v-on:click='toggleClick'>Edit</ejs-button>
+            <ejs-button style="float:right;width:75px;" id="toggleBtn" ref="toggleBtn" :iconCss='iconCss' cssClass="e-outline e-flat e-primary" isToggle=true v-on:click='toggleClick'>Edit</ejs-button>
         </div>
         <div style="padding:5px;text-align: end;">
             <div class="add-widget-button e-control e-btn e-lib" id="dialogBtn" v-on:click="dialogButtonClick($event)">
@@ -23,7 +23,7 @@
 <div id="action-description">
     <p>
         The following sample demonstrates a editable dashboard layout. Initially the DashboardLayout component doesn't
-        allow to<a href="https://ej2.syncfusion.com/vue/documentation/api/dashboard-layout#allowdragging" target="_blank">drag</a>, 
+        allow to <a href="https://ej2.syncfusion.com/vue/documentation/api/dashboard-layout#allowdragging" target="_blank">drag</a>, 
         <a href="https://ej2.syncfusion.com/vue/documentation/api/dashboard-layout#allowresizing" target="_blank">resize</a> or reorder the panels. After clicking the edit button, 
         the layout becomes editable which allows to drag and reorder the
         panels as per the requirement and also you can add new panels to the layout with predefined templates by
@@ -60,6 +60,7 @@ export default {
     data: function() {
         return {
           spacing: [10,10],
+          iconCss: 'edit',
           header:'Add a Content',
           target:'.control-section',
           width:'43%',
@@ -82,13 +83,13 @@ export default {
                     this.$refs.DashbordInstance.$el.allowResizing = true;
                     this.$refs.DashbordInstance.$el.allowDragging = true;
                     this.$refs.toggleBtn.$el.textContent = 'Save';
-                    this.$refs.toggleBtn.$el.iconCss = "save";
+                    this.iconCss = "save";
                     document.getElementById('dialogBtn').style.display = 'block';
             } else {
                 this.$refs.DashbordInstance.$el.allowResizing = false;
                 this.$refs.DashbordInstance.$el.allowDragging = false;
                 this.$refs.toggleBtn.$el.textContent = 'Edit';
-                this.$refs.toggleBtn.$el.iconCss = "edit";
+                this.iconCss = "edit";
                 document.getElementById('dialogBtn').style.display = 'none';
             }
         },
@@ -274,6 +275,20 @@ body.highcontrast .dashboard-dynamic #edit_dashboard.e-dashboardlayout.e-control
 .fabric-dark .dialog-text,
 .bootstrap-dark .dialog-text {
     border: 1px solid #FFFFFF;
+}
+
+.e-bigger.material3 #togglebtn.e-btn .e-btn-icon.e-icon-left,
+.e-bigger.material3-dark #togglebtn.e-btn .e-btn-icon.e-icon-left,
+.e-bigger.bootstrap5 #togglebtn.e-btn .e-btn-icon.e-icon-left,
+.e-bigger.tailwind #togglebtn.e-btn .e-btn-icon.e-icon-left,
+.e-bigger.tailwind-dark #togglebtn.e-btn .e-btn-icon.e-icon-left {
+    margin-left: -0.2em;
+    width: 1em;
+}
+
+.e-bigger.highcontrast #togglebtn.e-btn .e-btn-icon.e-icon-left {
+    margin-left: -0.5em;
+    width: 1em;
 }
 
 </style>

@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-   <h4 id="days" style="font-family: Segoe UI; font-weight: 500; font-size: 15px; font-style: normal" align="center">Multi Level Labels</h4>
+   <h1 id="days" style="font-family: Segoe UI; font-weight: 500; font-size: 15px; font-style: normal; margin-top: 10px;" align="center">Multi Level Labels</h1>
     <div align="center">
          <ejs-rangenavigator style='display:block' align='center' id='containerMulitiLvl' :value='value' animationDuration=500
          labelPosition ='Outside' valueType='DateTime' :tooltip='tooltip' intervalType='Quarter' enableGrouping=true :width='width'
@@ -38,7 +38,7 @@ import { RangeNavigatorComponent, DateTime, RangeTooltip } from "@syncfusion/ej2
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

@@ -86,7 +86,7 @@
     
     <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>      
-        Smith chart component features are segregated into individual feature-wise modules. To use a tooltip, inject the <code>Tooltip</code> module using the <code>SmithChart.Inject(TooltipRender)</code> method, and use a legend by injecting the <code>Legend</code> module using the <code>SmithChart.Inject(Legend)</code> method
+        Smith chart component features are segregated into individual feature-wise modules. To use a tooltip, inject the <code>Tooltip</code> module using the <code>SmithChart.Inject(TooltipRender)</code> method, and use a legend by injecting the <code>Legend</code> module using the <code>SmithChart.Inject(Legend)</code> method.
     </p>
 </div>
 </div>
@@ -199,7 +199,7 @@ methods:{
      load:function(args){
             let theme = location.hash.split('/')[1];
             theme = theme ? theme : 'Material';
-            args.smithchart.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            args.smithchart.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
     },
     /* custom code end */
     // Code for Property Panel

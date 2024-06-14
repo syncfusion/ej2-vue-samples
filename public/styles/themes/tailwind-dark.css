@@ -120,6 +120,7 @@ body.tailwind-dark,
 .tailwind-dark .sb-setting-popup,
 .tailwind-dark .sb-search-result,
 .tailwind-dark .sb-src-code,
+.tailwind-dark .CodeMirror,
 .tailwind-dark .sb-api-section,
 .tailwind-dark .sb-theme-popup,
 .tailwind-dark .copy-tooltip,
@@ -136,6 +137,7 @@ body.tailwind-dark,
 .tailwind-dark .sb-setting-btn.active,
 .tailwind-dark .sb-switch-popup li:hover,
 .tailwind-dark .theme-wrapper:hover,
+.tailwind-dark #themeMode-switch-btn:hover,
 .tailwind-dark .theme-wrapper.active,
 .tailwind-dark .sb-theme-popup li:hover,
 .tailwind-dark .sb-search-result .e-list-item:hover,
@@ -210,9 +212,8 @@ body.tailwind-dark,
 .tailwind-dark .e-samplestatus.new,
 .tailwind-dark .e-samplestatus.update,
 .tailwind-dark .e-samplestatus.preview {
-    margin: 2px 0;
+    margin: 1px 0;
     height: 22px;
-    margin-top: 2px;
 }
 
 .tailwind-dark .sb-search-input .e-ddl .e-clear-icon {

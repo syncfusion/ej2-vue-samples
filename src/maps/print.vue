@@ -1,5 +1,5 @@
 <template>
-<div id="maps-print-sample">
+<main><div id="maps-print-sample">
    <div class="col-lg-9 control-section">
         <div class="content-wrapper">
 <ejs-maps ref="maps" id='container' :titleSettings='titleSettings' :load='load' :allowPrint='allowPrint' :tooltipRender='tooltipRender' format='n' :useGroupingSeparator='useGroupingSeparator' :legendSettings='legendSettings'>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">    
+        <table role="none" id="property" title="Properties" style="width: 100%">    
             <tbody><tr id="button-control" style="height: 50px">
                 <td align="center">
                     <div>
@@ -25,12 +25,13 @@
             </tr>
         </tbody></table>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample illustrates the print feature in Maps. By clicking the Print button, you can print the maps directly from the browser. 
         </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
             In this example, you can see how to render and configure the print functionality. The rendered maps can be printed directly from the browser by calling the <code>print</code> method when <code>allowPrint</code> is set as true. Also this sample visualizes the State-wise US population in the year 2010.
         </p>
@@ -46,8 +47,8 @@
           href="https://ej2.syncfusion.com/documentation/maps/print/#print"
         >documentation section</a>.
       </p> 
-    </div>
-</div>
+    </section>
+</main>
 </template>
 <style>
     #maps-print-sample #button-control {

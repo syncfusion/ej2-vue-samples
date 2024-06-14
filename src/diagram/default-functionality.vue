@@ -1161,10 +1161,9 @@ export default {
           })
         };
       },
-        fileuploadasyncSettings: {
-        saveUrl: "https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save",
-        removeUrl:
-          "https://aspnetmvc.syncfusion.com/services/api/uploadbox/Remove"
+      fileuploadasyncSettings: {
+        saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+        removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
       },
       fileuploadsuccess: onUploadSuccess,
       showFile: true,

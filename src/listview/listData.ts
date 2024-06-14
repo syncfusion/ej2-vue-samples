@@ -46,7 +46,7 @@ export let callHistory: any = [
     },
     {
         text: "Anderson",
-        id: "received-01",
+        id: "received-04",
         icon: "e-custom",
         type: "received",
         group: "Received",
@@ -55,7 +55,7 @@ export let callHistory: any = [
     },
     {
         text: "Thomas",
-        id: "received-02",
+        id: "received-05",
         icon: "e-custom",
         type: "received",
         group: "Received",
@@ -64,7 +64,7 @@ export let callHistory: any = [
     },
     {
         text: "Jackson",
-        id: "missed-01",
+        id: "missed-03",
         icon: "e-custom",
         type: "missed",
         group: "Missed",
@@ -73,7 +73,7 @@ export let callHistory: any = [
     },
     {
         text: "Emily",
-        id: "missed-01",
+        id: "missed-04",
         icon: "e-custom",
         type: "missed",
         group: "Missed",
@@ -82,7 +82,7 @@ export let callHistory: any = [
     },
     {
         text: "White",
-        id: "missed-02",
+        id: "missed-05",
         icon: "e-custom",
         type: "missed",
         group: "Missed",
@@ -91,7 +91,7 @@ export let callHistory: any = [
     },
     {
         text: "Jones",
-        id: "missed-02",
+        id: "missed-06",
         icon: "e-custom",
         type: "missed",
         group: "Missed",
@@ -100,7 +100,7 @@ export let callHistory: any = [
     },
     {
         text: "Grace",
-        id: "missed-02",
+        id: "missed-07",
         icon: "e-custom",
         type: "missed",
         group: "Missed",
@@ -109,7 +109,7 @@ export let callHistory: any = [
     },
     {
         text: "Brooklyn",
-        id: "missed-02",
+        id: "missed-08",
         icon: "e-custom",
         type: "missed",
         group: "Missed",
@@ -118,7 +118,7 @@ export let callHistory: any = [
     },
     {
         text: "Arianna",
-        id: "received-01",
+        id: "received-06",
         icon: "e-custom",
         type: "received",
         group: "Received",
@@ -127,7 +127,7 @@ export let callHistory: any = [
     },
     {
         text: "Katherine",
-        id: "received-02",
+        id: "received-07",
         icon: "e-custom",
         type: "received",
         group: "Received",
@@ -347,66 +347,76 @@ export let nestedListData: any = [
 export let virtualizationData = [{
     name: "Nancy",
     icon: "N",
-    id: "0"
+    id: "0",
+    altText: ""
 },
 {
     name: "Andrew",
     icon: "A",
-    id: "1"
+    id: "1",
+    altText: ""
 },
 {
     name: "Janet",
     icon: "J",
-    id: "2"
+    id: "2",
+    altText: ""
 },
 {
     name: "Margaret",
     imgUrl: "//ej2.syncfusion.com/demos/src/listview/images/margaret.png",
-    id: "3"
+    id: "3",
+    altText: ""
 },
 {
     name: "Steven",
     icon: "S",
-    id: "4"
+    id: "4",
+    altText: ""
 },
 {
     name: "Laura",
     imgUrl: "//ej2.syncfusion.com/demos/src/listview/images/laura.png",
-    id: "5"
+    id: "5",
+    altText: ""
 },
 {
     name: "Robert",
     icon: "R",
-    id: "6"
+    id: "6",
+    altText: ""
 },
 {
     name: "Michael",
     icon: "M",
-    id: "7"
+    id: "7",
+    altText: ""
 },
 {
     name: "Albert",
     imgUrl: "//ej2.syncfusion.com/demos/src/listview/images/albert.png",
-    id: "8"
+    id: "8",
+    altText: ""
 },
 {
     name: "Nolan",
     icon: "N",
-    id: "9"
+    id: "9",
+    altText: ""
 }
 ];
 
 export let foodData = [
-    { text: 'Hamburger', id: 'list-01', price: '$10', src: 'hamburger.jpg', type: 'non-veg', description: 'A patty of ground beef grilled and placed between two halves of a bun with slices of lettuce and mayonnaise', rating: 3 },
-    { text: 'Cheeseburger', id: 'list-02', price: '$12', src: 'cheeseburger.jpg', type: 'veg', description: 'A hamburger with a slice of melted cheese on top of the meat patty, added near the end of the cooking time', rating: 4 },
-    { text: 'Sandwich', id: 'list-03', price: '$8', src: 'sandwich.jpg', type: 'veg', description: 'A combination of vegetables, sliced cheese or meat, placed on or between slices of bread with layer of ingredients', rating: 5 },
-    { text: 'Milkshake', id: 'list-04', price: '$6', src: 'milkshake.jpg', type: 'veg', description: 'A sweet beverage made by blending milk, ice cream, and flavorings or fruit syrup into a thick, sweet, cold mixture', rating: 3 },
-    { text: 'Muffin', id: 'list-05', price: '$11', src: 'muffin.jpg', type: 'veg', description: 'Muffins are single-serving quick breads, which rise with the help of baking soda or baking powder and eggs instead of yeast', rating: 4 },
-    { text: 'Pizza', id: 'list-06', price: '$22', src: 'pizza.jpg', type: 'veg', description: 'A combination of a flattened disk of bread dough with olive oil, oregano, tomato, mozzarella cheese', rating: 3 },
-    { text: 'Onion ring', id: 'list-07', price: '$10', src: 'onionrings.jpg', type: 'veg', description: 'Consists of a cross-sectional "ring" of onion dipped in bread crumbs and then deep fried; variant is made with onion paste.', rating: 4 },
-    { text: 'Sausage', id: 'list-08', price: '$15', src: 'sausage.jpg', type: 'veg', description: 'Sausage is a combination of minced/ground meat, a binder, water and seasonings, mild but strongly spiced', rating: 5 },
-    { text: 'Pretzel', id: 'list-09', price: '$25', src: 'pretzel.jpg', type: 'veg', description: 'Made from a rope of dough, the pretzel is briefly boiled and then glazed with egg, salted, and baked', rating: 3 },
-    { text: 'Pancake', id: 'list-10', price: '$23', src: 'pancake.jpg', type: 'veg', description: 'A combination of eggs, milk on a hot surface such as a griddle or frying pan, often frying with oil or butter', rating: 4 },
+    { text: 'Hamburger', id: 'list-01', price: '$10', src: 'hamburger.jpg', altText: 'hamburger', type: 'non-veg', description: 'A patty of ground beef grilled and placed between two halves of a bun with slices of lettuce and mayonnaise', rating: 3 },
+    { text: 'Cheeseburger', id: 'list-02', price: '$12', src: 'cheeseburger.jpg', altText: 'cheeseburger', type: 'veg', description: 'A hamburger with a slice of melted cheese on top of the meat patty, added near the end of the cooking time', rating: 4 },
+    { text: 'Sandwich', id: 'list-03', price: '$8', src: 'sandwich.jpg', altText: 'sandwich', type: 'veg', description: 'A combination of vegetables, sliced cheese or meat, placed on or between slices of bread with layer of ingredients', rating: 5 },
+    { text: 'Milkshake', id: 'list-04', price: '$6', src: 'milkshake.jpg', altText: 'milkshake', type: 'veg', description: 'A sweet beverage made by blending milk, ice cream, and flavorings or fruit syrup into a thick, sweet, cold mixture', rating: 3 },
+    { text: 'Muffin', id: 'list-05', price: '$11', src: 'muffin.jpg', altText: 'muffin', type: 'veg', description: 'Muffins are single-serving quick breads, which rise with the help of baking soda or baking powder and eggs instead of yeast', rating: 4 },
+    { text: 'Pizza', id: 'list-06', price: '$22', src: 'pizza.jpg', altText: 'pizza', type: 'veg', description: 'A combination of a flattened disk of bread dough with olive oil, oregano, tomato, mozzarella cheese', rating: 3 },
+    { text: 'Onion ring', id: 'list-07', price: '$10', src: 'onionrings.jpg', altText: 'onionrings', type: 'veg', description: 'Consists of a cross-sectional "ring" of onion dipped in bread crumbs and then deep fried; variant is made with onion paste.', rating: 4 },
+    { text: 'Sausage', id: 'list-08', price: '$15', src: 'sausage.jpg', altText: 'sausage', type: 'veg', description: 'Sausage is a combination of minced/ground meat, a binder, water and seasonings, mild but strongly spiced', rating: 5 },
+    { text: 'Pretzel', id: 'list-09', price: '$25', src: 'pretzel.jpg', altText: 'pretzel', type: 'veg', description: 'Made from a rope of dough, the pretzel is briefly boiled and then glazed with egg, salted, and baked', rating: 3 },
+    { text: 'Pancake', id: 'list-10', price: '$23', src: 'pancake.jpg', altText: 'pancake', type: 'veg', description: 'A combination of eggs, milk on a hot surface such as a griddle or frying pan, often frying with oil or butter', rating: 4 },
 ];
 
 export let foodItems = [

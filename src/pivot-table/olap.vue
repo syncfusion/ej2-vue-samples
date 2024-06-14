@@ -122,7 +122,12 @@
           </td>
           <td>Provides option to alter the report dynamically through UI.</td>
         </tr>
-      </table>
+      </table><br />
+      <p>
+          More information on the olap can be found in this <a target="_blank"
+              href="https://ej2.syncfusion.com/vue/documentation/pivotview/olap">
+              documentation section</a>.
+      </p>
     </div>
   </div>
 </template>
@@ -212,6 +217,7 @@ export default {
         load: (args: ILoadedEventArgs) => {
           let selectedTheme: string = location.hash.split("/")[1];
           selectedTheme = selectedTheme ? selectedTheme : "Material";
+          args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast') as ChartTheme;
         }
       },
       toolbar: [

@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
     <div class="content-wrapper">
         <ejs-heatmap id='container' :tooltipSettings='tooltipSettings' :legendSettings='legendSettings' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :dataSourceSettings='dataSourceSettings' :paletteSettings='paletteSettings' :cellSettings='cellSettings' :load='load'></ejs-heatmap>
@@ -8,12 +8,13 @@
 <div style="float: right; margin-right: 10px;">Source:
     <a href="https://en.wikipedia.org/wiki/World_Tourism_rankings" target="_blank">https://en.wikipedia.org/</a>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample visualizes the number of international tourist arrivals in millions of the most visited destinations in the world.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
      <p>
         In this example, you can see how to bind JSON data and configure the Heatmap using the data adaptor support. You can bind
         the JSON data with information for each cell to the Heatmap using
@@ -34,8 +35,8 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a>, <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> and 
       <a href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/adaptorType/" target='_blank'>Adaptor</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend, Adaptor] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip, Legend, Adaptor } from "@syncfusion/ej2-vue-heatmap";

@@ -1,5 +1,5 @@
 <template>
-   <div class="control-section">
+   <main><div class="control-section">
          <div align='center'>
              <ejs-lineargauge :load='load' :background='background' style='display:block' align='center' id='defaultContainer' :orientation='orientation'>
                 <e-annotations>
@@ -18,13 +18,14 @@
                 </e-axes>
              </ejs-lineargauge>
         </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Linear Gauge sample">
     <p>
         This sample shows the linear gauge's basic rendering, which includes an axis, a pointer, major ticks, minor
         ticks and annotation.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Linear Gauge features demonstrated in this sample">
     <p>
         The linear gauge control shows scale values in either horizontal or vertical orientation. Axis, range, ticks,
         pointer, and container properties can be used to customize the basic appearance of the linear gauge.
@@ -35,8 +36,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/getting-started/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { LinearGaugeComponent, AxisDirective, AxesDirective, PointersDirective, PointerDirective, AnnotationsDirective, AnnotationDirective, Annotations } from "@syncfusion/ej2-vue-lineargauge";

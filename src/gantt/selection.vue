@@ -18,38 +18,38 @@
       </div>
     </div>
         <div class="col-md-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties">
         <tr>
-            <td style="width: 100%">
-                <div style="fontSize: 15px">Selection Mode</div>
+            <td style="width: 30%">
+                <div style="font-size: 15px">Selection Mode</div>
             </td>
         </tr>
         <tr>
-            <td style="width: 100%;padding-right: 10px">
+            <td style="width: 70%;padding-right: 5px">
                 <div style="width: 150px">
                      <ejs-dropdownlist ref='selectionmode' id='selectionmode' width='110px' :dataSource='selectionModeData' value='Row' :fields='selectionModeFields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 100%">
-                <div style="fontSize: 15px">Selection Type</div>
+            <td style="width: 30%">
+                <div style="font-size: 15px">Selection Type</div>
             </td>
         </tr>
         <tr>
-            <td style="width: 100%;padding-right: 10px">
+            <td style="width: 70%;padding-right: 5px">
                 <div style="width: 150px">
                     <ejs-dropdownlist ref='selectiontype' width='110px' id='selectiontype' :dataSource='selectionTypeData' value='Single' :fields='selectionTypeFields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 100%">
-                <div style="fontSize: 15px">Toggle Selection</div>
+            <td style="width: 30%">
+                <div style="font-size: 15px">Toggle Selection</div>
             </td>
         </tr>
         <tr>
-            <td style="width: 100%;padding-right: 10px">
+            <td style="width: 70%;padding-right: 5px">
                 <div style="width: 150px">
                     <ejs-dropdownlist ref='toggle' width='110px' id='toggle' :dataSource='selectionToggleData' :value='toggleValue' :fields='selectionToggleFields'></ejs-dropdownlist>
                 </div>
@@ -131,8 +131,8 @@ export default {
                 type: 'Single',
                 enableToggle: false
             },
-            projectStartDate: new Date('03/27/2019'),
-            projectEndDate: new Date('07/06/2019'),
+            projectStartDate: new Date('03/27/2024'),
+            projectEndDate: new Date('07/06/2024'),
             selectionModeData: [
                 { id: 'Row', type: 'Row' },
                 { id: 'Cell', type: 'Cell' }

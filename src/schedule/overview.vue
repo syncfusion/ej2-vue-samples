@@ -241,7 +241,7 @@
     </div>
 </div>
 <div id="action-description">
-    <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-scheduler" target="_blank">Vue Scheduler example</a> demonstrates the overview of Vue Scheduler with its overall features. Use the toolbar buttons
+    <p>This <a aria-label="Vue scheduler example" href="https://www.syncfusion.com/vue-ui-components/vue-scheduler" target="_blank">Vue Scheduler example</a> demonstrates the overview of Vue Scheduler with its overall features. Use the toolbar buttons
         to play with Scheduler functionalities.</p>
 </div>
 <div id="description">
@@ -324,6 +324,18 @@
 
     .material3-dark .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #2a2731;
+    }
+
+    .fluent2 .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #FFFFFF;
+    }
+
+    .fluent2-dark .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #292929;
+    }
+
+    .fluent2-highcontrast .schedule-overview .overview-content .right-panel .control-panel {
+        background-color: #000000;
     }
 
     .schedule-overview .overview-toolbar.e-rtl + *{
@@ -490,6 +502,12 @@
         height: 20px;
     }
 
+    .fluent2 .schedule-overview .overview-toolbar .e-template .template .icon-child .e-checkbox-wrapper .e-frame,
+    .fluent2-dark .schedule-overview .overview-toolbar .e-template .template .icon-child .e-checkbox-wrapper .e-frame,
+    .fluent2-highcontrast .schedule-overview .overview-toolbar .e-template .template .icon-child .e-checkbox-wrapper .e-frame {
+        margin: 0;
+    }
+
     .fluent .e-appbar .e-btn-icon.e-icons,
     .fluent-dark .e-appbar .e-btn-icon.e-icons {
         margin-top: -2px;
@@ -609,19 +627,19 @@
                 if (value) {
                     switch (value.getDay()) {
             case 0:
-                return '<img class="weather-image" src="src/schedule/images/weather-clear.svg"/>';
+                return '<img class="weather-image" src="src/schedule/images/weather-clear.svg" alt="Clear Weather"/>';
             case 1:
-                return '<img class="weather-image" src="src/schedule/images/weather-clouds.svg"/>';
+                return '<img class="weather-image" src="src/schedule/images/weather-clouds.svg" alt="Clouds Weather"/>';
             case 2:
-                return '<img class="weather-image" src="src/schedule/images/weather-rain.svg"/>';
+                return '<img class="weather-image" src="src/schedule/images/weather-rain.svg" alt="Rain Weather"/>';
             case 3:
-                return '<img class="weather-image" src="src/schedule/images/weather-clouds.svg"/>';
+                return '<img class="weather-image" src="src/schedule/images/weather-clouds.svg" alt="Clouds Weather"/>';
             case 4:
-                return '<img class="weather-image" src="src/schedule/images/weather-rain.svg"/>';
+                return '<img class="weather-image" src="src/schedule/images/weather-rain.svg" alt="Rain Weather"/>';
             case 5:
-                return '<img class="weather-image" src="src/schedule/images/weather-clear.svg"/>';
+                return '<img class="weather-image" src="src/schedule/images/weather-clear.svg" alt="Clear Weather"/>';
             case 6:
-                return '<img class="weather-image" src="src/schedule/images/weather-clouds.svg"/>';
+                return '<img class="weather-image" src="src/schedule/images/weather-clouds.svg" alt="Clouds Weather"/>';
             default:
                 return null;
                 }
@@ -1045,7 +1063,7 @@
         scheduleObj.timezone = args.value;
         this.updateLiveTime(scheduleObj.timezone);
         document.querySelector('.schedule-overview #timezoneBtn').innerHTML =
-            '<span class="e-btn-icon e-icons e-time-zone e-icon-left"></span>' + args.itemData.text;
+          args.itemData.text;
     },
     onDayStartHourChange: function(args) {
         let scheduleObj = document.getElementById('scheduler').ej2_instances[0];

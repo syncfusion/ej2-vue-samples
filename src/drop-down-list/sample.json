@@ -37,10 +37,20 @@
             "url": "object-value-binding",
             "name": "Object Value Binding",
             "category": "Dropdown List",
-            "type": "new",
             "description": "This example demonstrates how to bind with data source in the Vue drop-down list component.",
             "sourceFiles":[
                 { "displayName": "object-value-binding.vue", "path":"src/drop-down-list/object-value-binding.vue" },
+                { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "disabled-items",
+            "name": "Disabled Items",
+            "category": "Dropdown List",
+            "type": "new",
+            "description": "This example demonstrates the disabled items of Vue drop-down list component.",
+            "sourceFiles":[
+                { "displayName": "disabled-items.vue", "path":"src/drop-down-list/disabled-items.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
             ]
         },

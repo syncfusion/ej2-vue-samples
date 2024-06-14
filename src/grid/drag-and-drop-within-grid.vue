@@ -6,14 +6,14 @@
     </div>
     <div>
         <div class="control-section">
-        <ejs-grid ref="grid" :dataSource="data" :height="400" :allowRowDragAndDrop="true" :allowSorting='true' :allowGrouping='true' :selectionSettings="selection" :created='created'>
+        <ejs-grid ref="grid" :dataSource="data" :height="400" :allowRowDragAndDrop="true" :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar' :allowGrouping='true' :selectionSettings="selection" :created='created'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
-                <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right'></e-column>
-                <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
-                <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" textAlign='Right'></e-column>
-                <e-column field='ShipCountry' headerText='Ship Country' width='150' :allowGrouping='false'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' width='150' :validationRules='customeridrules'></e-column>
+                <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right' editType='datepickeredit'></e-column>
+                <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right' editType='numericedit' :validationRules='freightrules'></e-column>
+                <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" textAlign='Right' editType='datepickeredit'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' width='150' :allowGrouping='false' editType='dropdownedit'></e-column>
             </e-columns>
         </ejs-grid>
         </div>
@@ -45,7 +45,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Selection, RowDD, Group, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Selection, RowDD, Group, Sort, Toolbar, Edit, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
@@ -67,6 +67,12 @@ export default {
       alertDlgButtons: [{ click: ((<any>this).alertDlgBtnClick as any), buttonModel: { content: 'OK', isPrimary: true } }],
       data: orderDetails,
       selection: { type: 'Multiple' },
+      filterSettings: { type: 'Excel' },
+      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+      orderidrules: { required: true, number: true },
+      customeridrules: { required: true, minLength: 5 },
+      freightrules:  { required: true, min: 0 },
+      toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
     };
   },
   methods: {
@@ -83,7 +89,7 @@ export default {
     },
   },
   provide: {
-      grid: [Selection, RowDD, Group, Sort]
+      grid: [Selection, RowDD, Group, Sort, Toolbar, Edit, Filter]
   }
 }
 </script>

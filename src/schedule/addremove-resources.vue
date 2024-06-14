@@ -93,7 +93,9 @@
 
     .highcontrast .schedule-vue-sample .property-panel-content .property-panel-table.schedule-add-remove-resources .e-checkbox-wrapper .e-frame.e-check,
     .bootstrap .schedule-vue-sample .property-panel-content .property-panel-table.schedule-add-remove-resources .e-checkbox-wrapper .e-frame.e-check,
-    .material3-dark .schedule-vue-sample .property-panel-content .property-panel-table.schedule-add-remove-resources .e-checkbox-wrapper .e-frame.e-check {
+    .material3-dark .schedule-vue-sample .property-panel-content .property-panel-table.schedule-add-remove-resources .e-checkbox-wrapper .e-frame.e-check,
+    .fluent2-dark .schedule-vue-sample .property-panel-content .property-panel-table.schedule-add-remove-resources .e-checkbox-wrapper .e-frame.e-check,
+    .fluent2-highcontrast .schedule-vue-sample .property-panel-content .property-panel-table.schedule-add-remove-resources .e-checkbox-wrapper .e-frame.e-check {
         color: #fff;
     }
 

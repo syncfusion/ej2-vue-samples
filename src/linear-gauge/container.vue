@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="col-md-8 control-section">
     <div class="content-wrapper">
             <div align='center'>
@@ -22,7 +22,7 @@
     </div>
 <br>
 <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -10px;">
         <colgroup>
             <col span="1" style="width: 30%;">
             <col span="1" style="width: 70%;">
@@ -52,13 +52,14 @@
             </tbody>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Linear Gauge sample">
     <p>
         This sample shows the different types of containers, such as normal, thermometer, and rounded rectangle. The
         linear gauge's orientation can also be changed from vertical to horizontal.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Linear Gauge features demonstrated in this sample">
     <p>
         The linear gauge can be rendered vertically or horizontally depending on the option selected in the
         <b>Orientation</b> drop-down list. You can also select the container type from the <b>Container Type</b>
@@ -72,8 +73,8 @@
             section</a>.
     </p>
     <br>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { LinearGaugeComponent, AxisDirective, AxesDirective, PointersDirective, PointerDirective } from "@syncfusion/ej2-vue-lineargauge";

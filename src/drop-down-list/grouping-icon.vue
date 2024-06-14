@@ -4,13 +4,13 @@
         <div class="content-wrapper">
             <div id='group' class='col-lg-6'>
                 <div class="content">
-                    <h3>Grouping</h3>
+                    <label class="h4">Grouping</label>
                     <ejs-dropdownlist id='vegetables' :dataSource='vegetableData' :placeholder='groupWaterMark' :popupHeight='height' :fields='groupFields'></ejs-dropdownlist>
                 </div>
             </div>
             <div id='icon' class='col-lg-6'>
                 <div class="content">
-                    <h3> Icons</h3>
+                    <label class="h4"> Icons</label>
                     <ejs-dropdownlist id='icons' :showPopupButton='true' cssClass='ddl-icons-css' :dataSource='socialMediaData' :placeholder='iconWaterMark' :fields='iconFields' popupHeight='height'></ejs-dropdownlist>
                 </div>
             </div>
@@ -32,6 +32,12 @@
     .content {
         width: 250px;
         margin: 0 auto;
+    }
+
+    .content .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
     }
     
     #group,

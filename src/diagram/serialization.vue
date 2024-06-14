@@ -52,6 +52,10 @@
     <p>
         The diagram component’s features are segregated into individual feature-wise modules. To enable undo/redo support, inject <code>UndoRedo</code> module using <code>provide: { diagram: [UndoRedo] }</code> method. To enable  context menu, inject <code>DiagramContextMenu</code> module using <code>provide: { diagram: [DiagramContextMenu] }</code> method.
     </p>
+    <p>
+        Uploader API control is used to load the JSON Data in to diagram asynchronously. Define the properties
+        <code>saveUrl</code> which will receive the uploaded files and save them on the server and <code>removeUrl</code> which will receive the files information and  handle the removal of files from server.
+    </p>
     <br>
 </div>
 </div>
@@ -439,9 +443,8 @@ export default {
         }
       ],
       fileuploadasyncSettings: {
-        saveUrl: "https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save",
-        removeUrl:
-          "https://aspnetmvc.syncfusion.com/services/api/uploadbox/Remove"
+        saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+        removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
       },
       fileuploadsuccess: onUploadSuccess,
       showFile: true

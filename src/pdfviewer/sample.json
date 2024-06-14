@@ -22,14 +22,13 @@
         {
             "url": "multi-format-viewer",
             "name": "Multi-Format Viewer",
-            "category": "File Management",
-            "type": "new"
+            "category": "File Management"
         },
         {
             "url": "organize-pages",
             "name": "Organize Pages",
             "category": "Editor",
-            "type": "new"
+            "type": "update"
         },
 		{
             "url": "custom-toolbar",
@@ -40,8 +39,7 @@
         {
             "url": "custom-context-menu",
             "name": "Context Menu",
-            "category": "Customization",
-            "type": "new"
+            "category": "Customization"
         },
         {
             "url": "right-to-left",

@@ -176,6 +176,20 @@ For Spring Expression Language (SpEL) output, use the "spel" format. The Spring 
            display: block !important;
         }
     }
+
+    .highcontrast .e-query-preview .e-cel-content,
+    .highcontrast .e-query-preview .e-spel-content,
+    .fluent2-dark .e-query-preview .e-cel-content,
+    .fluent2-dark .e-query-preview .e-spel-content,
+    .fluent2-highcontrast .e-query-preview .e-cel-content,
+    .fluent2-highcontrast .e-query-preview .e-spel-content {
+        background-color: #1f1f1f;
+    }
+    .fluent2-dark .e-query-preview .e-icons.copycode,
+    .fluent2-highcontrast .e-query-preview .e-icons.copycode {
+        padding-bottom: 3px;
+        color: white;
+    }
 </style>
 
 <!-- custom code end -->
@@ -303,7 +317,6 @@ export default {
         }, 100);
     },
     updateCELContentTemplate: function() {
-        debugger
         var validRule = this.$refs.querybuilder.ej2Instances.getValidRules();
         var celQuery = '';
         this.content = getCELQuery(validRule, celQuery);

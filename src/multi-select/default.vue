@@ -4,18 +4,18 @@
     <div id="multiselect-sample" class="control-section" style="height: 500px">
            <div id='content'>
             <div class="control-styles">
-            <h4> Default Mode</h4>
+                <label class="h4"> Default Mode</label>
             <ejs-multiselect id='sample-list1' :dataSource='sportsData' :mode='defaultMode' :placeholder='waterMark'></ejs-multiselect>
             </div>
         </div>
         
         <div class="control-styles" style="padding-top: 30px">
-            <h4>Box Mode</h4>
+            <label class="h4">Box Mode</label>
             <ejs-multiselect id='sample-list2' :dataSource='sportsData' :mode='boxMode' :placeholder='waterMark'></ejs-multiselect>
         </div>
         
         <div class="control-styles" style="padding-top: 30px">
-            <h4>Delimiter Mode</h4>
+            <label class="h4">Delimiter Mode</label>
             <ejs-multiselect id='sample-list3' :dataSource='sportsData' :mode='delimiterMode' :placeholder='waterMark'></ejs-multiselect>
         </div>
         </div>
@@ -39,6 +39,11 @@
     .m-control-wrapper {
         margin: 0 auto;
         width: 64%;
+    }
+    .control-styles .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
     }
 </style>
 <script>

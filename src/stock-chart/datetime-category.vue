@@ -15,7 +15,7 @@
         </div>
         <div id="description">
             <p>
-                In this example, you can see how to render and configure a stock chart to visualize stock data using the <code>DateTimeCategory</code> axis type. Use series <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/series/#type"> Type </a> as <code>Spline</code> to render a spline series.
+                In this example, you can see how to render and configure a stock chart to visualize stock data using the <code>DateTimeCategory</code> axis type. Use series <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/series/#type" aria-label="Navigate to the type property reference for Vue Stock Chart component">type</a> as <code>Spline</code> to render a spline series.
             </p>
             <p>
                 <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the chart or tap on it in touch enabled devices.
@@ -30,7 +30,7 @@
             </p>
             <p>
                 More information about axis type can be found in this
-                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/axis-types">documentation
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/axis-types" aria-label="Navigate to the documentation for axis types in Vue Stock Chart component">documentation
                     section</a>.
             </p>
   
@@ -70,7 +70,7 @@
   
   let selectedTheme = location.hash.split("/")[1];
   selectedTheme = selectedTheme ? selectedTheme : "Material";
-  let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+  let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
   
   export default {
     components: {

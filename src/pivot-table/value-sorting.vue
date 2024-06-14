@@ -21,7 +21,13 @@
         <code>valueSortSettings</code>, separated by a delimiter string. The purpose of providing complete header text here is to indicate exactly which
         value column needs to be sorted. The string which is used to separate the headers is given in the property
         <code>headerDelimiters</code>. The sorting direction is performed by the
-        <code>sortOrder</code> property.</p>
+        <code>sortOrder</code> property.
+    </p><br />
+    <p>
+        More information on the value sorting can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/pivotview/sorting#value-sorting">
+        documentation section</a>.
+    </p>
 </div>
 </div>
 </template>

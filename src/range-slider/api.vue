@@ -15,41 +15,41 @@
         <tbody>
             <tr>
                 <td style="width: 50%">
-                    <div class="userselect">Value</div>
+                    <div id="valueLabel" class="userselect">Value</div>
                 </td>
                 <td style="width: 50%">
                     <div>
-                        <ejs-numerictextbox format="n0" :value="numericvalue" :change="valueChange"></ejs-numerictextbox>
+                        <ejs-numerictextbox format="n0" :value="numericvalue" :change="valueChange" aria-labelledby="valueLabel"></ejs-numerictextbox>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td style="width: 50%">
-                    <div class="userselect">Min</div>
+                    <div id="minLabel" class="userselect">Min</div>
                 </td>
                 <td style="width: 50%">
                     <div>
-                        <ejs-numerictextbox id='min'  format="n0" value="0" :change="minvalueChange"></ejs-numerictextbox>
+                        <ejs-numerictextbox id='min'  format="n0" value="0" :change="minvalueChange" aria-labelledby="minLabel"></ejs-numerictextbox>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td style="width: 50%">
-                    <div class="userselect">Max</div>
+                    <div id="maxLabel" class="userselect">Max</div>
                 </td>
                 <td style="width: 50%">
                     <div>
-                        <ejs-numerictextbox id='max'  format="n0" value="100" :change="maxvalueChange"></ejs-numerictextbox>
+                        <ejs-numerictextbox id='max'  format="n0" value="100" :change="maxvalueChange" aria-labelledby="maxLabel"></ejs-numerictextbox>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td style="width: 50%">
-                    <div class="userselect">Step</div>
+                    <div id="stepLabel" class="userselect">Step</div>
                 </td>
                 <td style="width: 50%">
                     <div>
-                        <ejs-numerictextbox id='step' value="1" format="n0" :change="stepvalueChange"></ejs-numerictextbox>
+                        <ejs-numerictextbox id='step' value="1" format="n0" :change="stepvalueChange" aria-labelledby="stepLabel"></ejs-numerictextbox>
                     </div>
                 </td>
             </tr>

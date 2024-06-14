@@ -1,6 +1,6 @@
 <template>
     <div id="app" ref="homeEle">
-        <aside id='left-sidebar' role="complementary" aria-labelledby="sb-toggle-left">
+        <aside id='left-sidebar'>
             <div class='sb-left-pane e-view'>
                 <div class="sb-left-pane-header">
                     <div class="sb-header-top">
@@ -10,12 +10,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="sb-home" role="button" tabindex="0" aria-label="Essential JS2 home page" onclick="document.getElementById('sb-home').click()">
+                <div class="sb-home" role="button" tabindex="0" aria-label="Essential JS2 home page"
+                    onclick="document.getElementById('sb-home').click()">
                     <div class="sb-home-link sb-icons sb-icon-Home"></div>
                     <div class="sb-home-text">
                         <span>HOME</span>
                     </div>
-                    <a id="sb-home" href="https://ej2.syncfusion.com/home/vue.html" aria-label="Essential JS2 home page"></a>
+                    <a id="sb-home" href="https://ej2.syncfusion.com/home/vue.html"
+                        aria-label="Essential JS2 home page"></a>
                 </div>
                 <div class='sb-control-navigation'>
                     <div id="controlTree" class='e-view'></div>
@@ -56,8 +58,9 @@
             <div id='sample-header' class="sb-header e-view" role="banner">
                 <div class='sb-header-left sb-left sb-table'>
                     <div class='sb-header-item sb-table-cell'>
-                        <div id="sb-toggle-left" role="button" tabindex="0" class="sb-slide-nav sb-icons toggle-active sb-icon-Hamburger"
-                            aria-label="Toggle all controls navigation" aria-controls="left-sidebar" title='toggle left pane'></div>
+                        <div id="sb-toggle-left" tabindex="0" class="sb-slide-nav sb-icons toggle-active sb-icon-Hamburger"
+                            aria-label="Toggle all controls navigation" aria-controls="left-sidebar"
+                            title='toggle left pane' aria-selected="true"></div>
                     </div>
                     <div class='sb-header-item sb-table-cell'>
                         <div id='sb-header-text' class='e-sb-header-text'>
@@ -79,14 +82,24 @@
                                 <span class="sb-header-text-left">CHOOSE THEME</span>
                             </div>
                             <div class="sb-theme-switcher-wrapper">
-                                <span id="sb-theme-switcher" class="sb-theme-switch sb-icons sb-icon-Dropdown" role="presentation" aria-label="Theme selection"></span>
+                                <span id="sb-theme-switcher" class="sb-theme-switch sb-icons sb-icon-Dropdown"
+                                    role="presentation" aria-label="Theme selection"></span>
                             </div>
                         </div>
                     </div>
+                    <div class="sb-header-item sb-table-cell">
+                        <div id="themeMode-switch-btn">
+                            <span class="sb-icons sb-icon-dark-theme" id="icon-dark"></span>
+                            <span class="sb-icons sb-icon-light-theme" id="icon-light"></span>
+                            <span id="sb-icon-text">DARK</span>
+                        </div>
+                    </div>
+                    <div class="sb-header-splitter sb-search-splitter"></div>
                     <div class='sb-header-item sb-table-cell sb-search-wrapper'>
                         <div class='sb-search-btn' id='sb-trigger-search' role="button" tabindex="0"
                             aria-label="toggle sample search" title="Toggle sample search">
-                            <span class='sb-settings sb-icons sb-icon-Search' role="presentation" aria-label="Search sample"></span>
+                            <span class='sb-settings sb-icons sb-icon-Search' role="presentation"
+                                aria-label="Search sample"></span>
                         </div>
                     </div>
                     <div class='sb-header-item sb-table-cell sb-settings-wrapper'>
@@ -97,7 +110,8 @@
                     <div class="sb-header-item sb-table-cell  sb-header-settings sb-icons"></div>
                     <div class="sb-header-splitter sb-download-splitter"></div>
                     <div class='sb-header-item sb-table-cell sb-download-wrapper'>
-                        <a href='https://www.syncfusion.com/downloads?tag=es-seo-ej2-vue-demo-menu-trail' target="_blank" aria-label="Free Trail (Opens in a new window)">
+                        <a href='https://www.syncfusion.com/downloads?tag=es-seo-ej2-vue-demo-menu-trail' target="_blank"
+                            aria-label="Free Trail (Opens in a new window)">
                             <button id='download-now' type="button" class='sb-download-btn'>
                                 <span class='sb-download-text'>FREE TRIAL</span>
                             </button>
@@ -111,10 +125,10 @@
                 <div id='sb-switcher-popup' role='navigation' class='sb-switch-popup'>
                     <ul id='switch-sb' role="list">
                         <li class='sb-current' role="listiem">Vue</li>
-                        <li role="listiem">
-                            <a id='nextjs'>Next.js</a>
+                        <li>
+                           <a id='nextjs'>Next.js</a>
                         </li>
-                        <li role="listiem">
+                        <li>
                             <a id='angular'>Angular</a>
                         </li>
                         <li role="listiem">
@@ -139,69 +153,29 @@
                 </div>
                 <div id='theme-switcher-popup' class='sb-theme-popup'>
                     <ul id="themelist" class="options" role="list">
-                        <li class="e-list" id="fluent" role="listitem">
+                        <li class='active' id="material3" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Fluent</span>
-                        </li>
-                        <li class="e-list" id="fluent-dark" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Fluent Dark</span>
+                            <span class="switch-text">Material 3</span>
                         </li>
                         <li class="e-list" id="bootstrap5" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Bootstrap v5</span>
+                            <span class="switch-text">Bootstrap 5</span>
                         </li>
-                        <li class="e-list" id="bootstrap5-dark" role="listitem">
+                        <li class="e-list" id="fluent2" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Bootstrap v5 Dark</span>
+                            <span class="switch-text">Fluent 2</span>
                         </li>
                         <li class="e-list" id="tailwind" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Tailwind CSS</span>
                         </li>
-                        <li class="e-list" id="tailwind-dark" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Tailwind CSS Dark</span>
-                        </li>
-                        <li class='e-list' id="material" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Material</span>
-                        </li>
-                        <li class="e-list" id="material-dark" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Material Dark</span>
-                        </li>
-                        <li class='active' id="material3" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Material 3</span>
-                        </li>
-                        <li class="e-list" id="material3-dark" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Material 3 Dark</span>
-                        </li>
-                        <li class="e-list" id="fabric" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Fabric</span>
-                        </li>
-                        <li class="e-list" id="fabric-dark" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Fabric Dark</span>
-                        </li>
-                        <li class="e-list" id="bootstrap4" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Bootstrap v4</span>
-                        </li>
-                        <li class="e-list" id="bootstrap" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Bootstrap</span>
-                        </li>
-                        <li class="e-list" id="bootstrap-dark" role="listitem">
-                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
-                            <span class="switch-text">Bootstrap Dark</span>
-                        </li>
                         <li class="e-list" id="highcontrast" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">High Contrast</span>
+                        </li>
+                        <li class="e-list" id="fluent" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Fluent</span>
                         </li>
                     </ul>
                     <div class="sb-theme-studio"><a target="_blank"
@@ -221,22 +195,25 @@
                             </div>
                             <div class='setting-content  setting-theme-change'>
                                 <select id='sb-setting-theme' class='sb-setting-theme-select'>
-                                    <option value="fluent">Fluent</option>
-                                    <option value="fluent-dark">Fluent Dark</option>
-                                    <option value="bootstrap5">Bootstrap v5</option>
-                                    <option value="bootstrap5-dark">Bootstrap v5 Dark</option>
-                                    <option value="tailwind">Tailwind CSS</option>
-                                    <option value="tailwind-dark">Tailwind CSS Dark</option>
-                                    <option value="material">Material</option>
-                                    <option value="material-dark">Material Dark</option>
                                     <option value="material3">Material 3</option>
-                                    <option value="material3-dark">Material 3 Dark</option>
-                                    <option value="fabric">Fabric</option>
-                                    <option value="fabric-dark">Fabric Dark</option>
-                                    <option value="bootstrap4">Bootstrap v4</option>
-                                    <option value="bootstrap">Bootstrap</option>
-                                    <option value="bootstrap-dark">Bootstrap Dark</option>
+                                    <option value="bootstrap5">Bootstrap v5</option>
+                                    <option value="fluent2">Fluent 2</option>
+                                    <option value="tailwind">Tailwind CSS</option>
                                     <option value="highcontrast">High Contrast</option>
+                                    <option value="fluent">Fluent</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="sb-setting-item sb-setting-themeModes-section">
+                            <div class="setting-label">
+                                <div class="sb-icons sb-setting-icons sb-icon-dark-theme" id="sb-icon-mobileDark"></div>
+                                <div class="sb-icons sb-setting-icons sb-icon-light-theme" id="sb-icon-mobileLight"></div>
+                                <div class="sb-setting-text">Theme Modes</div>
+                            </div>
+                            <div>
+                                <select id="sb-setting-themeMode">
+                                    <option value="light">Light</option>
+                                    <option value="dark">Dark</option>
                                 </select>
                             </div>
                         </div>
@@ -355,35 +332,36 @@
                         </div>
                         <div class='description-section sb-rightpane-padding'>
                         </div>
-                        <div class="ad-wrapper">
-                            <div id='ad-image' class="ad-img">
+                        <div class="banner-wrapper">
+                            <div id='ad-image' class="banner-img">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="col-sm-12">
-                                            <div id="ad-banner-head" class="ad-header">Transform your Vue web apps today
+                                            <div id="banner-head" class="banner-header">Transform your Vue web apps today
                                                 with Syncfusion Vue components</div>
                                         </div>
                                         <div class="col-sm-12 cnt-area">
                                             <div class="content-area">
-                                                <div class="ad-cnt-pt">
-                                                    <div class="ad-cnt-icon  click-icon sb-icons sb-icon-icon-selection">
+                                                <div class="banner-cnt-pt">
+                                                    <div class="banner-cnt-icon  click-icon sb-icons sb-icon-icon-selection">
                                                     </div>
-                                                    <div class="ad-cnt-text">80+ high-performance and responsive UI
+                                                    <div class="banner-cnt-text">80+ high-performance and responsive UI
                                                         components</div>
                                                 </div>
-                                                <div class="ad-cnt-pt">
-                                                    <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection">
+                                                <div class="banner-cnt-pt">
+                                                    <div class="banner-cnt-icon click-icon sb-icons sb-icon-icon-selection">
                                                     </div>
-                                                    <div class="ad-cnt-text">Dedicated support</div>
+                                                    <div class="banner-cnt-text">Dedicated support</div>
                                                 </div>
-                                                <div class="ad-cnt-pt">
-                                                    <div class="ad-cnt-icon click-icon sb-icons sb-icon-icon-selection">
+                                                <div class="banner-cnt-pt">
+                                                    <div class="banner-cnt-icon click-icon sb-icons sb-icon-icon-selection">
                                                     </div>
-                                                    <div class="ad-cnt-text">Hassle-free licensing</div>
+                                                    <div class="banner-cnt-text">Hassle-free licensing</div>
                                                 </div>
                                             </div>
                                             <a style="color:#ffff;text-decoration:none;"
-                                                href="https://www.syncfusion.com/downloads?tag=es-seo-ej2-vue-demo-ads-trail" aria-label="TRY IT FOR FREE (Opens in a new window)">
+                                                href="https://www.syncfusion.com/downloads?tag=es-seo-ej2-vue-demo-ads-trail"
+                                                aria-label="TRY IT FOR FREE (Opens in a new window)">
                                                 <div class="free-trial">TRY IT FOR FREE</div>
                                             </a>
                                         </div>
@@ -398,13 +376,16 @@
                                         aria-label="Documentation (Opens in a new window)">
                                         <div class="sb-footer-link">Documentation</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank" aria-label="Forum (Opens in a new window)">
+                                    <a href="https://www.syncfusion.com/forums/vue" target="_blank"
+                                        aria-label="Forum (Opens in a new window)">
                                         <div class="sb-footer-link">Forum</div>
                                     </a>
-                                    <a href="https://syncfusion.com/blogs" target="_blank" aria-label="Blog (Opens in a new window)">
+                                    <a href="https://syncfusion.com/blogs" target="_blank"
+                                        aria-label="Blog (Opens in a new window)">
                                         <div class="sb-footer-link">Blog</div>
                                     </a>
-                                    <a href="https://www.syncfusion.com/kb/" target="_blank" aria-label="Knowledge base (Opens in a new window)">
+                                    <a href="https://www.syncfusion.com/kb/" target="_blank"
+                                        aria-label="Knowledge base (Opens in a new window)">
                                         <div class="sb-footer-link">Knowledge Base</div>
                                     </a>
                                 </div>
@@ -478,8 +459,13 @@ import * as enCultureData from './common/cldr-data/main/en/all.json';
 import * as chinaCultureData from './common/cldr-data/main/zh/all.json';
 import * as samplesJSON from './common/samplelist';
 import { ListView, ListBase } from '@syncfusion/ej2-lists';
-// import * as elasticlunr from './common/lib/elasticlunr';
-// import * as hljs from './common/lib/highlightjs';
+import * as elasticlunr from 'elasticlunr';
+import * as CodeMirror from 'codemirror';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/mbo.css';
+import 'codemirror/mode/css/css.js';
+import 'codemirror/mode/xml/xml.js';
+import 'codemirror/mode/htmlmixed/htmlmixed.js';
 let searchJson: any = require('./common/search-index.json');
 import { Controls, MyWindow, DestroyMethod, Samples } from './model';
 // import { setTimeout } from "timers";
@@ -490,11 +476,11 @@ setCulture('en');
 registerLicense((window as any).syncfusion_license);
 const urlRegex: RegExp = /(npmci\.syncfusion\.com|ej2\.syncfusion\.com)(\/)(development|production)*/;
 const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
-const sbArray: string[] = ['angular', 'react','nextjs' , 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
+const sbArray: string[] = ['angular', 'react', 'nextjs', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
-let selectedTheme: string = location.hash.split('/')[1] || 'material3';
-const themeCollection: string[] = ['fluent', 'fluent-dark', 'bootstrap5', 'bootstrap5-dark', 'tailwind', 'tailwind-dark', 'material', 'material-dark', 'material3', 'material3-dark', 'fabric', 'fabric-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'highcontrast'];
+let selectedTheme: string = location.hash.split('/')[1] || 'fluent2';
+const themeCollection: string[] = ['material3', 'bootstrap5', 'fluent2', 'tailwind', 'highcontrast', 'fluent'];
 let resizeManualTrigger: boolean = false;
 const matchedCurrency: { [key: string]: string } = {
     'en': 'USD',
@@ -520,6 +506,7 @@ let prevAction: string;
 let samplesAr: string[] = [];
 let switcherPopup: Popup;
 let themeDropDown: DropDownList;
+let themeModeDropDown: DropDownList;
 let currencyDropDown: DropDownList;
 let settingPopup: Popup;
 let sidebar: Sidebar;
@@ -530,8 +517,6 @@ let sbHeader: HTMLElement;
 let settingElement: HTMLElement
 let resetSearch: Element;
 let searchEle: any;
-declare let hljs: any;
-declare let elasticlunr: any;
 declare let window: MyWindow;
 let apiGrid: Grid;
 let samplesList: Controls[] | { [key: string]: Object }[];
@@ -804,7 +789,7 @@ const controlSelect = (arg: any): void => {
         controlListRefresh(arg.node || arg.item);
         if (path !== curHashCollection) {
             sampleOverlay();
-            let theme: string = location.hash.split('/')[1] || 'material3';
+            let theme: string = location.hash.split('/')[1] || 'fluent2';
             if (arg.item && ((isMobile) ||
                 ((isTablet || (Browser.isDevice && isPc)) && isLeftPaneOpen()))) {
                 toggleLeftPane();
@@ -967,6 +952,7 @@ const rendersbPopup = (): void => {
                     expand: true,
                     boolean: 'AND'
                 });
+                val.map((item: any) => item['doc'] = searchInstance.documentStore.docs[item.ref]);
                 let value: any = [];
                 if (Browser.isDevice) {
                     for (let file of val) {
@@ -1011,15 +997,36 @@ const rendersbPopup = (): void => {
     settingSidebar = new Sidebar({ position: 'Right', zIndex: '1003', width: '282', closeOnDocumentClick: true, close: closeRightSidebar, showBackdrop: true, type: 'Over' });
     settingSidebar.appendTo('#right-sidebar');
     themeDropDown = new DropDownList({
-        index: 0,
-        change: (e: any) => { switchTheme(e.value); }
+        index: themeCollection.indexOf(selectedTheme.replace("-dark", "")),
+        change: (e: any) => {
+            if (!(select("#sb-icon-mobileDark") as HTMLElement).classList.contains("hide") && !e.value.includes("highcontrast")) {
+                let currentTheme = e.value + "-dark";
+                switchTheme(currentTheme);
+            }
+            else {
+                switchTheme(e.value);
+            }
+        },
     });
     themeDropDown.appendTo('#sb-setting-theme');
     currencyDropDown = new DropDownList({
         index: 0,
         change: (e: any) => { setCurrencyCode(e.value); }
     });
-
+    themeModeDropDown = new DropDownList({
+        index: (selectedTheme.endsWith("-dark") ? 1 : 0),
+        change: (e: any) => {
+            let themeModeName = e.value;
+            if (themeModeName === "dark" && !selectedTheme.endsWith("-dark")) {
+                selectedTheme += "-dark";
+            }
+            else {
+                selectedTheme = selectedTheme.replace("-dark", "");
+            }
+            switchTheme(selectedTheme);
+        },
+    });
+    themeModeDropDown.appendTo("#sb-setting-themeMode");
     cultureDropDown = new DropDownList({
         index: 0,
         change: (e: any) => {
@@ -1118,7 +1125,7 @@ const dynamicTab = (e: any): void => {
     codeEle.innerHTML = sb.vars.sourceTab.items[e.selectedIndex].data;
     codeEle.innerHTML = codeEle.innerHTML.replace(reg, '');
     codeEle.classList.add('sb-src-code');
-    highlightCode(codeEle);
+    highlightCode(codeEle, sb.vars.sourceTab.items[e.selectedIndex].properties.content.split('.')[1]);
 };
 
 const dynamicTabCreation = (obj: any): void => {
@@ -1126,12 +1133,29 @@ const dynamicTabCreation = (obj: any): void => {
     blockEle.innerHTML = obj.items[obj.selectedItem].data;
     blockEle.innerHTML = blockEle.innerHTML.replace(reg, '');
     blockEle.classList.add('sb-src-code');
-    highlightCode(blockEle);
+    highlightCode(blockEle, obj.items[obj.selectedItem].properties.content.split('.')[1]);
 };
 
-const highlightCode = (codeEle: Element): void => {
+const highlightCode = (codeEle: Element, fileType: string): void => {
     codeEle.classList.add("sb-src-code");
-    hljs.highlightBlock(codeEle);
+    const types: { [key: string]: string } = {
+        'ts': 'text/typescript',
+        'vue': 'text/html',
+        'css': 'text/css',
+        'json': 'application/json'
+    }
+    const parentEle: ParentNode = codeEle.parentNode!;
+    if (!parentEle.querySelector('.sb-src-code-area')) {
+        const textELe: HTMLTextAreaElement = document.createElement('textarea');
+        textELe.classList.add("sb-src-code-area");
+        textELe.innerHTML = codeEle.innerHTML;
+        parentEle.replaceChild(textELe, codeEle);
+        CodeMirror.fromTextArea(document.querySelector(`#${(parentEle as HTMLElement).id} .sb-src-code-area`)!, {
+            mode: `${types[fileType]}`,
+            readOnly: true,
+            theme: `${selectedTheme.includes('-dark') || selectedTheme.includes('highcontrast') ? 'mbo' : 'default'}`
+        });
+    }
 };
 
 const eventBinding = (): void => {
@@ -1201,8 +1225,12 @@ const eventBinding = (): void => {
     select('#mobile-next-sample').addEventListener('click', onNextButtonClick);
     select('#openNew').addEventListener('click', onOpenNewButtonClick);
     select('#mobile-prev-sample').addEventListener('click', onPrevButtonClick);
+    select("#themeMode-switch-btn").addEventListener("click", onSwitchMode);
 };
-
+const onSwitchMode = (arg: any): void => {
+    selectedTheme = selectedTheme.endsWith("-dark") ? selectedTheme.replace("-dark", "") : selectedTheme + "-dark";
+    switchTheme(selectedTheme);
+};
 const changeRtl = (args: any): void => {
     let elementlist: HTMLElement[] = selectAll('.e-control', (rootEle.querySelector('#control-content') as HTMLElement));
 
@@ -1304,7 +1332,8 @@ const SbLink = (): void => {
             ele.href = sb === 'aspnetcore' ? 'https://ej2.syncfusion.com/aspnetcore/' : 'https://ej2.syncfusion.com/aspnetmvc/';
         } else if (sb === 'nextjs') {
             ele.href = 'https://ej2.syncfusion.com/nextjs/demos/';
-        } else if (sb === 'blazor') {
+        } 
+        else if (sb === 'blazor') {
             ele.href = 'https://blazor.syncfusion.com/demos/';
         } else {
             ele.href = ((link) ? ('http://' + link[1] + '/' + (link[3] ? (link[3] + '/') : '')) : ('https://ej2.syncfusion.com/')) +
@@ -1317,6 +1346,9 @@ const changeTheme = (e: MouseEvent): void => {
     let target: Element = <HTMLElement>e.target;
     target = closest(target, 'li');
     let themeName: string = target.id;
+    if ((select("#sb-icon-text") as HTMLElement).textContent === "LIGHT" && !['highcontrast', 'fluent2-highcontrast'].includes(themeName)) {
+        themeName += "-dark";
+    }
     switchTheme(themeName);
     let imageEditorElem = document.querySelector(".e-image-editor") as HTMLElement;
     if (imageEditorElem != null) {
@@ -1333,7 +1365,26 @@ const switchTheme = (str: string): void => {
         location.reload();
     }
 };
-
+const setThemeModesButton = (): void => {
+    let themeModeText = select("#sb-icon-text") as HTMLElement;
+    let darkThemeIcon = select("#icon-dark") as HTMLElement;
+    let lightThemeIcon = select("#icon-light") as HTMLElement;
+    let mobileLightThemeIcon = select("#sb-icon-mobileLight") as HTMLElement;
+    let mobileDarkThemeIcon = select("#sb-icon-mobileDark") as HTMLElement;
+    if (selectedTheme.endsWith("-dark")) {
+        darkThemeIcon.classList.add("hide");
+        lightThemeIcon.classList.remove("hide");
+        themeModeText.textContent = "LIGHT";
+        mobileLightThemeIcon.classList.add("hide");
+        mobileDarkThemeIcon.classList.remove("hide");
+    } else {
+        darkThemeIcon.classList.remove("hide");
+        lightThemeIcon.classList.add("hide");
+        themeModeText.textContent = "DARK";
+        mobileLightThemeIcon.classList.remove("hide");
+        mobileDarkThemeIcon.classList.add("hide");
+    }
+};
 const loadTheme = (theme: string): void => {
     let body: HTMLElement = document.body;
     if (body.classList.length > 0) {
@@ -1342,9 +1393,17 @@ const loadTheme = (theme: string): void => {
         }
     }
     body.classList.add(theme);
-    themeList.querySelector('.active').classList.remove('active');
-    themeList.querySelector('#' + theme).classList.add('active');
-    selectedTheme = theme;
+    themeList.querySelector(".active").classList.remove("active");
+    if (selectedTheme.endsWith("-dark")) {
+        theme = theme.replace("-dark", "");
+    }
+    else if (["highcontrast", "fluent2-highcontrast"].includes(selectedTheme)) {
+        (select("#themeMode-switch-btn") as HTMLElement).classList.add("hide");
+        (select(".sb-setting-themeModes-section") as HTMLElement).classList.add("hide");
+    }
+    themeList.querySelector("#" + theme)?.classList.add("active");
+    selectedTheme = selectedTheme.endsWith("-dark") ? theme + "-dark" : theme;
+    setThemeModesButton();
     renderLeftPaneComponents();
     rendersbPopup();
     eventBinding();
@@ -1406,41 +1465,41 @@ const resetInput = (arg: any): void => {
 };
 
 const stackEditor = (results?: any) => {
-        let stackFile: any = results;
-        let prevForm: Element = select('#stack-form');
-        if (prevForm) {
-            detach(prevForm);
-        }
-        let form: HTMLFormElement = createElement('form') as HTMLFormElement;
-        let res: string = 'https://stackblitz.com/run';
-        form.setAttribute('action', res);
-        form.setAttribute('method', 'post');
-        form.setAttribute('target', '_blank');
-        form.id = 'stack-form';
-        form.style.display = 'none';
-        document.body.appendChild(form);
-        let stacks: string[] = Object.keys(stackFile);
-        for (let x: number = 0; x < stacks.length; x++) {
-            createStackInput((stacks[x] === 'dependencies' ? 'project[dependencies]' : 'project[files][' + stacks[x] + ']'),
+    let stackFile: any = results;
+    let prevForm: Element = select('#stack-form');
+    if (prevForm) {
+        detach(prevForm);
+    }
+    let form: HTMLFormElement = createElement('form') as HTMLFormElement;
+    let res: string = 'https://stackblitz.com/run';
+    form.setAttribute('action', res);
+    form.setAttribute('method', 'post');
+    form.setAttribute('target', '_blank');
+    form.id = 'stack-form';
+    form.style.display = 'none';
+    document.body.appendChild(form);
+    let stacks: string[] = Object.keys(stackFile);
+    for (let x: number = 0; x < stacks.length; x++) {
+        createStackInput((stacks[x] === 'dependencies' ? 'project[dependencies]' : 'project[files][' + stacks[x] + ']'),
             stackFile[stacks[x]] as string, form);
-        }
-        createStackInput('project[template]', 'vue', form);
-        createStackInput('project[tag][0]', 'vue', form);
-        createStackInput('project[description]', 'Essential JS 2 Sample', form);
-        createStackInput('project[settings]', '{"compile":{"clearConsole":true}}', form);
+    }
+    createStackInput('project[template]', 'vue', form);
+    createStackInput('project[tag][0]', 'vue', form);
+    createStackInput('project[description]', 'Essential JS 2 Sample', form);
+    createStackInput('project[settings]', '{"compile":{"clearConsole":true}}', form);
 }
 
 const createStackInput = (name: string, value: string, form: HTMLFormElement) => {
     let input: HTMLElement = createElement('input');
     input.setAttribute('type', 'hidden');
     input.setAttribute('value', value.replace(/{{theme}}/g, selectedTheme).replace(/{{ripple}}/,
-    (selectedTheme === 'material') ? 'import { enableRipple } from \'@syncfusion/ej2-base\';\nenableRipple(true);\n' : ''));
+        (selectedTheme === 'material') ? 'import { enableRipple } from \'@syncfusion/ej2-base\';\nenableRipple(true);\n' : ''));
     input.setAttribute('name', name);
     form.appendChild(input);
 }
 
 const updateStackBlitz = () => {
-    let hash: string[] =  location.hash.split('/').slice(1);
+    let hash: string[] = location.hash.split('/').slice(1);
     let path: string = hash.slice(1).join('/').replace('.html', '');
     let fileName: string = 'src/' + path + '-stack.json';
     let stack: Fetch = new Fetch(fileName, 'GET');
@@ -1649,7 +1708,7 @@ const sampleArray = (): void => {
         let samples: Samples[] & { [key: string]: Object }[] = <Samples[] & { [key: string]: Object }[]>
             dataManager.executeLocal(new Query().sortBy('order', 'ascending'));
         for (let sample of samples) {
-            let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'material3';
+            let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'fluent2';
             let control: string = node.directory;
             let sampleUrl: string = sample.url;
             let loc: string = '/' + selectedTheme + '/' + control + '/' + sampleUrl + '.html';
@@ -1718,6 +1777,7 @@ const updatesourceTab = (): void => {
                 data: '',
                 content: sourceFiles[i].displayName
             });
+            updateStackBlitz();
         }
     }
     Promise.all(sourcePromise).then((results: Object[]): void => {
@@ -1765,7 +1825,7 @@ const updatesourceTab = (): void => {
                             content: `${hideLocation} component not supported in mobile device`
                         });
                     }, 200);
-                window.location.hash = "#/material3/grid/grid-overview.html"
+                window.location.hash = "#/fluent2/grid/grid-overview.html"
             }
         }
         let curIndex: number = samplesAr.indexOf(location.hash);

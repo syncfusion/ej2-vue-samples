@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <main><div>
     <div class="col-md-8 control-section">
       <div class="content-wrapper">
         <ejs-circulargauge ref="circulargauge" :background='background' :load="load" style="display:block" align="center" id="user-container" :enablePointerDrag="enablePointerDrag" :dragMove="dragMove" :dragEnd="dragEnd" >
           <e-axes>
             <e-axis :radius="gaugeradius" :startAngle="startAngle" minimum="0" maximum="120" :endAngle="endAngle" :majorTicks="majorTicks" :lineStyle="lineStyle" :minorTicks="minorTicks" :labelStyle="labelStyle" :annotations="annotations" :ranges="ranges" >
               <e-pointers>
-                  <e-pointer :value="value" :type="type" :radius="pointerRadius" :color="color" :markerShape="markerShape" :markerHeight="markerHeight" :markerWidth="markerWidth" ></e-pointer>
-                  <e-pointer :value="value2" :cap="cap2" :radius="pointerRadius2" :color="color2" :needleTail="needleTail2" :markerWidth="markerWidth" ></e-pointer>
+                  <e-pointer description='Marker pointer value : 70' :value="value" :type="type" :radius="pointerRadius" :color="color" :markerShape="markerShape" :markerHeight="markerHeight" :markerWidth="markerWidth" ></e-pointer>
+                  <e-pointer description='Needle pointer value : 70' :value="value2" :cap="cap2" :radius="pointerRadius2" :color="color2" :needleTail="needleTail2" :markerWidth="markerWidth" ></e-pointer>
               </e-pointers>
             </e-axis>
           </e-axes>
@@ -16,7 +16,7 @@
 </div>
 <br>
     <div class="col-md-4 property-section">
-      <table id="property" title="Properties" style="width: 100%; margin-left: -20px;">
+      <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -20px;">
     <colgroup>
         <col span="1" style="width: 40%;">
         <col span="1" style="width: 30%;">
@@ -61,13 +61,14 @@
         </tbody>
       </table>
     </div>
-<div id="action-description">
+  </div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample illustrates dragging a pointer and a range in a circular gauge. End-user can drag the pointer and
         the range by enabling the pointer drag and range drag options.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to move the pointer and range in the circular gauge via drag action. The <a
             target="_blank"
@@ -83,8 +84,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-ranges/#dragging-range">documentation
             section</a>.
     </p>
-</div>
-  </div>
+</section>
+</main>
 </template>
 <style scoped>
 .property-panel-content td {

@@ -7,13 +7,13 @@
     </div>
     <div>
         <ejs-grid :dataSource="data" id="gridcomp" :allowPaging='true' :allowGrouping='true' :allowSorting='true' :showColumnMenu='true'
-        :groupSettings='groupOptions' :allowFiltering='true' :filterSettings='filterSettings'>
+        :groupSettings='groupOptions' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='140' textAlign='Right'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' :showInColumnChooser='false' width='200'></e-column>
-                <e-column field='Freight' headerText='Freight' format='C2' textAlign='Right' width='140'></e-column>
-                <e-column field='ShippedDate' headerText='Shipped Date' width='160' format="yMd" textAlign='Right'></e-column>
-                <e-column field='ShipCountry' headerText='Ship Country' :visible='false' width='180'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='140' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' :showInColumnChooser='false' width='200' :validationRules='customeridrules'></e-column>
+                <e-column field='Freight' headerText='Freight' format='C2' textAlign='Right' width='140' editType='numericedit' :validationRules='freightrules'></e-column>
+                <e-column field='ShippedDate' headerText='Shipped Date' width='160' format="yMd" textAlign='Right' editType='datepickeredit'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' :visible='false' width='180' editType='dropdownedit'></e-column>
                 <e-column field='ShipCity' headerText='Ship City' width='150'></e-column>
             </e-columns>
         </ejs-grid>
@@ -68,7 +68,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Group, Sort, Resize, ColumnMenu, Page, Filter } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Group, Sort, Resize, ColumnMenu, Page, Toolbar, Edit, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 export default {
   components: {
@@ -81,10 +81,15 @@ export default {
       data: orderDetails,
       groupOptions: { showGroupedColumn: true },
       filterSettings: { type: "CheckBox" },
+      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+      orderidrules: { required: true, number: true },
+      customeridrules: { required: true, minLength: 5 },
+      freightrules:  { required: true, min: 0 },
+      toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
     };
   },
   provide: {
-      grid: [Group, Sort, Resize, ColumnMenu, Page, Filter]
+      grid: [Group, Sort, Resize, ColumnMenu, Page, Toolbar, Edit, Filter]
   }
 }
 </script>

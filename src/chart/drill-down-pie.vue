@@ -30,7 +30,7 @@
     <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p> Accumulation chart component features are segregated into individual feature-wise modules. To use datalabel, we need to inject <code>AccumulationDataLabelService</code> into the <code>provide</code> option of accumulation. </p>
     More information about the drilldown in accumulation chart can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pie-dough-nut/#multi-level-pie-chart">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pie-dough-nut/#multi-level-pie-chart" aria-label="Navigate to the documentation for Multi Level Pie Chart in Vue Accumulation Chart component">documentation section</a>.
 </div>
 </div>
 
@@ -53,7 +53,7 @@ import { getElement, indexFinder, AccumulationLegend, PieSeries, AccumulationToo
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {
@@ -218,8 +218,8 @@ export default {
             args.accumulation.annotations[0].x = '50%';
             args.accumulation.annotations[0].y = '50%';
             args.accumulation.annotations[0].content = (selectedTheme === 'highcontrast') || (args.accumulation.theme.indexOf('Dark') > -1)  ?
-                '<div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/white.png" id="back"/></div>' :
-                '<div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/back.png" id="back" /></div>';
+                '<div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/white.png" id="back" alt="White Icon"/></div>' :
+                '<div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/back.png" id="back" alt="Back Icon"/></div>';
         }
     }
   },

@@ -9,6 +9,7 @@
           :gridSettings="gridSettings"
           :showGroupingBar="showGroupingBar"
           :allowDrillThrough="allowDrillThrough"
+          :enableValueSorting="enableValueSorting"
           :width="width"
           :height="height"
           :allowExcelExport="allowExcelExport"
@@ -669,14 +670,11 @@
             </li>
           </ul>
         </li>
-      </ul>
+      </ul><br />
       <p>
-        More information can be found in this
-        <a
-          target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/pivotview/accessibility"
-          >documentation section</a
-        >.
+          More information on the keyboard navigation can be found in this <a target='_blank'
+              href='https://ej2.syncfusion.com/vue/documentation/pivotview/accessibility#keyboard-interaction'>
+          documentation section</a>.
       </p>
     </div>
   </div>
@@ -738,6 +736,7 @@ export default {
       allowNumberFormatting: true,
       allowPdfExport: true,
       showGroupingBar: true,
+      enableValueSorting: true,
       allowDrillThrough: true,
       editSettings: {
         allowEditing: true,
@@ -751,8 +750,7 @@ export default {
         load: (args: ILoadedEventArgs) => {
           let selectedTheme: string = location.hash.split("/")[1];
           selectedTheme = selectedTheme ? selectedTheme : "Material";
-          args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)) as ChartTheme;
+          args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast') as ChartTheme;
         },
       },
       showToolbar: true,

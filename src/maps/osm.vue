@@ -1,13 +1,13 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
 <div>
 <ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :centerPosition='centerPosition'>
     <template v-slot:markerTemplate="{}">
-        <div><img src="src/maps/images/ballon.png" style="height:30px;width:20px;"/></div>
+        <div><img alt="Balloon image" src="src/maps/images/ballon.png" style="height:30px;width:20px;"/></div>
     </template>
     <e-layers>
-        <e-layer :layerType='layerType' :animationDuration='animationDuration'>
+        <e-layer :urlTemplate= 'urlTemplate' :animationDuration='animationDuration'>
             <e-markerSettings>
                 <e-markerSetting visible='true' :dataSource='markerDataSource' :tooltipSettings='markerTooltipSettings' :template="'markerTemplate'"></e-markerSetting>
             </e-markerSettings>
@@ -24,12 +24,13 @@
         <a href="https://en.wikipedia.org/wiki/Headquarters_of_the_United_Nations" target="_blank">en.wikipedia.org</a>
     </div>   
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample visualizes the location of United Nations Headquarters in the OpenStreetMap with marker.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
             In this example, you can see how to render the OpenStreetMap. The location of United Nations Headquarters is denoted using marker. The EJ2 Dialog is displayed on the top of the marker and the zooming feature is enabled to zoom and pan the map for detailed analysis.
         </p>
@@ -39,8 +40,8 @@
             The maps component features are segregated into individual modules by feature. To use a marker, inject the Marker module using the <code>Maps.Inject(Marker)</code> method and inject the zoom module using the <code>maps.Inject(Zoom)</code> method.
         </p>
        
-    </div>
-</div>
+    </section>
+</main>
 </template>
 <style scoped>
         #popuposm_dialog-content {
@@ -93,7 +94,7 @@ data:function(){
             latitude: 40.7209,
             longitude: -73.9680
         },
-        layerType: 'OSM',
+        urlTemplate: 'https://tile.openstreetmap.org/level/tileX/tileY.png',
         zoomSettings: {
             zoomFactor: 10,
             enable: false

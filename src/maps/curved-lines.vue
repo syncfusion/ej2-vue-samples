@@ -1,33 +1,33 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
 <ejs-maps id='container' align="center" :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :centerPosition='centerPosition' :mapsArea='mapsArea'>
     <template v-slot:newDelhiTextTemplate="{}">
-        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">New Delhi</div>
+        <div style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">New Delhi</div>
     </template>
     <template v-slot:mumbaiTextTemplate="{}">
-        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Mumbai</div>        
+        <div style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Mumbai</div>        
     </template>
     <template v-slot:chennaiTextTemplate="{}">
-        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Chennai</div>
+        <div style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Chennai</div>
     </template>
     <template v-slot:kolkataTextTemplate="{}">
-        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Kolkata</div>
+        <div style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Kolkata</div>
     </template>
     <template v-slot:kunmingTextTemplate="{}">
-        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Kunming</div>
+        <div style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Kunming</div>
     </template>
     <template v-slot:beijingTextTemplate="{}">
-        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Beijing</div>
+        <div style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Beijing</div>
     </template>
     <template v-slot:shanghaiTextTemplate="{}">
-        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Shanghai</div>
+        <div style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Shanghai</div>
     </template>
     <template v-slot:hongKongTextTemplate="{}">
         <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Hong Kong</div>
     </template>
     <template v-slot:guangzhouTextTemplate="{}">
-        <div id="marker1" style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Guangzhou</div>
+        <div style="font-size:12px;color:black;font-weight: 500; font-family: Segoe UI;">Guangzhou</div>
     </template>
     <e-layers>
         <e-layer :shapeData='shapeData' :animationDuration='animationDuration' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :navigationLineSettings='navigationLineSettings'>
@@ -51,12 +51,13 @@
        <a href="https://www.tibettravel.org/nepal-map/nepal-india-map.html" target="_blank">www.tibettravel.org</a>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
            This sample demonstrates the flight routes from India to China.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
            In this example, you can see how to render the curved lines between two points in a map. You can use the <code>dashArray</code>, <code>width</code>, and <code>color</code> properties to customize the appearance of the navigation lines.
     
@@ -67,8 +68,8 @@
           Maps component features are segregated into individual feature-wise modules. To use the navigation lines, inject the <code>NavigationLine</code> module using the <code>Maps.Inject(NavigationLine)</code> method.
         </p>
        
-    </div>
-</div>
+    </section>
+</main>
 </template>
 <script>
 import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, NavigationLine,Zoom } from '@syncfusion/ej2-vue-maps';
@@ -93,8 +94,7 @@ export default {
         zoomSettings: {
             enable: false,
             zoomFactor: 3.5,
-            mouseWheelZoom: false,
-            toolbars: []
+            mouseWheelZoom: false
         },
         mapsArea: {
             background: '#AEE2FA'

@@ -68,18 +68,18 @@
         <tbody>
           <tr>
             <td style="width: 30%">
-              <div class="userselect">Ticks</div>
+              <div id="ticksLabel" class="userselect">Ticks</div>
             </td>
             <td style="width: 70%;padding-right: 10px">
-              <ejs-checkbox id="ticks" :checked="check" :change="enableDisableTicks"></ejs-checkbox>
+              <ejs-checkbox id="ticks" :checked="check" :change="enableDisableTicks" aria-labelledby="ticksLabel"></ejs-checkbox>
             </td>
           </tr>
           <tr>
             <td style="width: 30%">
-              <div class="userselect">Tooltip</div>
+              <div id="tooltipLabel" class="userselect">Tooltip</div>
             </td>
             <td style="width: 70%;padding-right: 10px">
-              <ejs-checkbox id="tooltip" :checked="check" :change="enableDisableTooltip"></ejs-checkbox>
+              <ejs-checkbox id="tooltip" :checked="check" :change="enableDisableTooltip" aria-labelledby="tooltipLabel"></ejs-checkbox>
             </td>
           </tr>
         </tbody>
@@ -109,16 +109,16 @@
         </li>
         <li>Reverse – Allows to render the component in reverse order. To utilise this, set the maximum value to the Min
             property and set the minimum value to the Max property</li>
-        <p>In this demo, the default, MinRange, and range slider types can be seen.</p>
-        <p>The dragInterval is used to drag both handles using the range bar which is also applicable only to the range slider.</p>
-        <p>
-          For more information, refer to the
-          <a
-            target="_blank"
-            href="http://ej2.syncfusion.com/vue/documentation/slider/getting-started.html#orientation"
-          >orientation</a> section from the documentation.
-        </p>
       </ul>
+      <p>In this demo, the default, MinRange, and range slider types can be seen.</p>
+      <p>The dragInterval is used to drag both handles using the range bar which is also applicable only to the range slider.</p>
+      <p>
+        For more information, refer to the
+        <a
+          target="_blank"
+          href="http://ej2.syncfusion.com/vue/documentation/slider/getting-started.html#orientation"
+        >orientation</a> section from the documentation.
+      </p>
     </div>
   </div>
 </template>

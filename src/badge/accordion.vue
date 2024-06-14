@@ -131,6 +131,24 @@
     .e-bigger.material3-dark .sample_container.badge-accordion #accordion .e-toggle-icon {
         top: 11px;
     }
+
+    .fluent2 .sample_container.badge-accordion #accordion .e-toggle-icon,
+    .fluent2-dark .sample_container.badge-accordion #accordion .e-toggle-icon,
+    .fluent2-highcontrast .sample_container.badge-accordion #accordion .e-toggle-icon {
+        top: 4px;
+    }
+
+    .e-bigger.fluent2 .sample_container.badge-accordion #accordion .e-toggle-icon,
+    .e-bigger.fluent2-dark .sample_container.badge-accordion #accordion .e-toggle-icon,
+    .e-bigger.fluent2-highcontrast .sample_container.badge-accordion #accordion .e-toggle-icon {
+        top: 10px;
+    }
+
+    .e-bigger.fluent2 .badge-accordion #accordion .e-acrdn-header-content,
+    .e-bigger.fluent2-dark.e-bigger .badge-accordion #accordion .e-acrdn-header-content,
+    .e-bigger.fluent2-highcontrast.e-bigger .badge-accordion #accordion .e-acrdn-header-content {
+        height: 25px;
+    }
 </style>
 
 <script>

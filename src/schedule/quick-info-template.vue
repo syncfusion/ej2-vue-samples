@@ -233,7 +233,9 @@
     .bootstrap5-dark .quick-info-template .quick-info-header,
     .fluent-dark .quick-info-template .quick-info-header,
     .fabric-dark .quick-info-template .quick-info-header,
-    .material3-dark .quick-info-template .quick-info-header {
+    .material3-dark .quick-info-template .quick-info-header,
+    .fluent2-dark .quick-info-template .quick-info-header,
+    .fluent2-highcontrast .quick-info-template .quick-info-header {
         background-color: transparent;
     }
 
@@ -243,7 +245,9 @@
     .material-dark .quick-info-template .quick-info-header-content,
     .highcontrast .quick-info-template .quick-info-header-content,
     .fluent-dark .quick-info-template .quick-info-header-content,
-    .material3-dark .quick-info-template .quick-info-header-content {
+    .material3-dark .quick-info-template .quick-info-header-content,
+    .fluent2-dark .quick-info-template .quick-info-header-content,
+    .fluent2-highcontrast .quick-info-template .quick-info-header-content {
         color: #fff !important;
     }
 
@@ -262,7 +266,11 @@
     .highcontrast .quick-info-content .event-content div label,
     .highcontrast .quick-info-content .event-content div span,
     .material3-dark .quick-info-content .event-content div label,
-    .material3-dark .quick-info-content .event-content div span {
+    .material3-dark .quick-info-content .event-content div span,
+    .fluent2-dark .quick-info-content .event-content div label,
+    .fluent2-dark .quick-info-content .event-content div span,
+    .fluent2-highcontrast .quick-info-content .event-content div label,
+    .fluent2-highcontrast .quick-info-content .event-content div span {
         color: #fff;
     }
 

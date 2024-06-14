@@ -80,8 +80,8 @@ export default {
                leftLabel: 'TaskName',
                taskLabel: '${Progress}%'
             },
-            projectStartDate: new Date('01/30/2019'),
-            projectEndDate: new Date('03/04/2019'),
+            projectStartDate: new Date('01/30/2024'),
+            projectEndDate: new Date('03/04/2024'),
             splitterSettings: {
                 position: "35%"
             }

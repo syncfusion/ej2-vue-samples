@@ -18,7 +18,7 @@
           <div class="columnTemplate" v-if="data.ganttProperties.resourceNames">
             <img
               :src="'src/gantt/images/' + data.ganttProperties.resourceNames + '.png'"
-              style="height: 40px;" />
+              style="height: 40px;" :alt="data.ganttProperties.resourceNames"/>
             <div style="display:inline-block;width:100%;position:relative;">
               {{data.ganttProperties.resourceNames}}</div>
           </div>
@@ -84,8 +84,8 @@ export default {
             splitterSettings:{
                 columnIndex: 4
             },
-            projectStartDate: new Date('03/24/2019'),
-            projectEndDate: new Date('07/06/2019'),
+            projectStartDate: new Date('03/24/2024'),
+            projectEndDate: new Date('07/06/2024'),
         };
   },
    provide : {

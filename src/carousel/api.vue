@@ -15,7 +15,7 @@
       <div id="action-description">
         <p>
           This sample demonstrates the properties available in the
-          <a href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component.
+          <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component.
         </p>
       </div>
       <div id="description">
@@ -29,7 +29,7 @@
         <p>
           More information about the properties available in the Carousel
           component can be found in this
-          <a
+          <a aria-label="Vue carousel"
             target="_blank"
             href="https://ej2.syncfusion.com/vue/documentation/api/carousel/"
             >documentation section</a

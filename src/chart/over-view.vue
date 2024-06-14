@@ -10,9 +10,7 @@
         </ejs-dashboardlayout>   
         </div>
         <div id="action-description">
-        <p>
-            This sample shows an overview of <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts" >Vue Charts</a> that allows users to visualize data easily and take decisions based on it. There are different types of charts to create feature rich apps.
-        </p>
+        <p>This sample shows an overview of <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts" aria-label="Navigate to explore the Syncfusion Vue Charts">Vue Charts</a> that allows users to visualize data easily and take decisions based on it. There are different types of charts to create feature rich apps.</p>
         </div>
         <div id="description">
             <p>
@@ -21,7 +19,7 @@
             </p>
             <p>
                 More information about the Vue Chart can be found in this
-                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/getting-started/">documentation</a> section.
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/getting-started/" aria-label="Navigate to the documentation for getting started in Vue Chart component">documentation</a> section.
             </p>
         </div>
     </div>

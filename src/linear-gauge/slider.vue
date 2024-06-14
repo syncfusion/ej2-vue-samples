@@ -1,5 +1,5 @@
 <template>
-<div class="control-section" style="min-height: 290px;">
+<main><div class="control-section" style="min-height: 290px;">
     <div style="justify-content: center; display: flex; align-items: center;">
         <ejs-lineargauge ref="lineargauge" :background='background' :title='title1' :format='format' :tooltip='tooltip' :dragMove='dragMove' :titleStyle='titleStyle' :load='load' style='display:block' align='center' :height='heightData1' :width='widthData1' id='enableSliderGauge' :orientation='orientation' >
         <e-axes>
@@ -24,13 +24,14 @@
             </e-axes>
         </ejs-lineargauge>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Linear Gauge sample">
     <p>
         This sample demonstrates how to create a slider by utilizing the functionalities available in the
         linear gauge.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Linear Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure a new slider in the linear gauge. This can be
         accomplished by combining axis, range, and pointer. The pointer has been made interactive, so the value changes
@@ -42,8 +43,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/getting-started/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { LinearGaugeComponent, AxisDirective, AxesDirective, GaugeTooltip, PointersDirective, PointerDirective} from "@syncfusion/ej2-vue-lineargauge";

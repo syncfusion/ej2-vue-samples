@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="control-section">
         <ejs-treemap id='container' :load='load' :titleSettings='titleSettings' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings' :dataSource='dataSource' :weightValuePath='weightValuePath'></ejs-treemap>
     </div>
@@ -7,12 +7,13 @@
     <div style="float: right; margin-right: 10px;">Source:
         <a href=" https://en.wikipedia.org/wiki/United_States_at_the_2016_Summer_Olympics" target="_blank"> en.wikipedia.org</a>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of TreeMap sample">
     <p>
         This sample depicts the gold medal categories of the 2016 U.S. Summer Olympics. Each category is denoted with label template.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the TreeMap features demonstrated in this sample">
     <p>
         In this example, you can see how to place custom HTML templates in the TreeMap items. The default text of the labels also have been formatted.
     </p>
@@ -25,8 +26,8 @@
         TreeMap component features are segregated into individual feature-wise modules. To use a tooltip, inject the 
         <code>Tooltip</code> module using the <code>TreeMap.Inject(TreeMapTooltip)</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { createApp } from "vue";

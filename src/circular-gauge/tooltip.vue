@@ -1,5 +1,5 @@
 <template>
- <div>
+ <main><div>
     <div class="control-section">
         <ejs-circulargauge ref="circulargauge" :animationDuration=2000 :background='background' style='display:block' :load='load' align='center' id='tooltip-container' :title='title' :titleStyle='titleStyle' :enablePointerDrag='enablePointerDrag' :tooltipRender='tooltipRender' :dragEnd='dragEnd' :tooltip='tooltip'>
             <e-axes>
@@ -11,20 +11,21 @@
             </e-axes>
         </ejs-circulargauge>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample helps in visualizing the tooltip of the pointer and the range in a circular gauge.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to display the tooltip for the pointer and the range in a circular gauge. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/circular-gauge/tooltipSettings/">tooltip</a> settings is used to enable and customize the tooltip. To see the tooltip in action, hover your mouse over the pointer or the range, or tap them on touch-enabled devices.
     </p>
     <p>
         More information on the tooltip can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-user-interaction/">documentation section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 
@@ -42,8 +43,8 @@ export default {
             },
             majorTicks: {
                 color: 'white',
-                offset: -5,
-                height: 12
+                offset: -3.7,
+                height: 10
             },
             minorTicks: {
                 width: 0

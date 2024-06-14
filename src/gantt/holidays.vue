@@ -67,21 +67,21 @@ export default {
             },
             holidays: [
             {
-                from: new Date('04/04/2019'),
-                to: new Date('04/04/2019'),
+                from: new Date('04/04/2024'),
+                to: new Date('04/04/2024'),
                 label: 'Local Holiday'
             }, {
-                from: new Date('04/19/2019'),
-                to: new Date('04/19/2019'),
+                from: new Date('04/19/2024'),
+                to: new Date('04/19/2024'),
                 label: 'Good Friday'
             }, {
-                from: new Date('04/30/2019'),
-                to: new Date('04/30/2019'),
+                from: new Date('04/30/2024'),
+                to: new Date('04/30/2024'),
                 label: 'Release Holiday'
             }, 
         ],
-            projectStartDate: new Date('03/24/2019'),
-            projectEndDate: new Date('07/06/2019'),
+            projectStartDate: new Date('03/24/2024'),
+            projectEndDate: new Date('07/06/2024'),
       };
   },
   provide: {

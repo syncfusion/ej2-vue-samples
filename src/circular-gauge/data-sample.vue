@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="control-section">
         <div class="row">
             <div class="col-sm-12">
@@ -7,7 +7,7 @@
                     <div class="col-sm-4">
                         <ejs-circulargauge :load='load' :background='background' style='display:block; height:230px' align='center' id='gauge1'>
                             <template v-slot:firstImageTemplate="{}">
-                                <div class='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/>&nbsp;&nbsp;<p class="gauge_text">{{value1}}%</p></div>
+                                <div class='templateWrap'><img src='./images/positive.png' alt='Positive value for Germany'/>&nbsp;&nbsp;<p class="gauge_text">{{value1}}%</p></div>
                             </template>
                             <template v-slot:firstTextTemplate="{}">
                                 <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">Germany</div>
@@ -15,8 +15,8 @@
                             <e-axes>
                                 <e-axis :startAngle='gauge1startAngle' :endAngle='gauge1endAngle' :majorTicks='gauge1majorTicks' :lineStyle='gauge1lineStyle' :minorTicks='gauge1minorTicks' :labelStyle='gauge1labelStyle' :ranges='gauge1ranges'>
                                     <e-annotations>
-                                        <e-annotation angle='180' zIndex='1' radius='30%' :content="'firstImageTemplate'"></e-annotation>
-                                        <e-annotation angle='180' zIndex='1' radius='65%' :content="'firstTextTemplate'"></e-annotation>
+                                        <e-annotation description='Positive arrow' angle='180' zIndex='1' radius='30%' :content="'firstImageTemplate'"></e-annotation>
+                                        <e-annotation description='Germany' angle='180' zIndex='1' radius='65%' :content="'firstTextTemplate'"></e-annotation>
                                     </e-annotations>
                                     <e-pointers>
                                         <e-pointer :value='value1' :radius='pointerRadius1' :pointerWidth='pointerWidth1' :cap='cap1' :needleTail='needleTail1' :animation='animation1'></e-pointer>
@@ -28,7 +28,7 @@
                     <div class="col-sm-4">
                         <ejs-circulargauge :load='load' :background='background' style='display:block; height:230px' align='center' id='gauge2'>
                             <template v-slot:twoImageTemplate="{}">
-                                <div class='templateWrap'><img src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/>&nbsp;&nbsp;<p class="gauge_text">{{value2}}%</p></div>
+                                <div class='templateWrap'><img src='./images/positive.png' alt='Positive value for USA'/>&nbsp;&nbsp;<p class="gauge_text">{{value2}}%</p></div>
                             </template>
                             <template v-slot:twoTextTemplate="{}">
                                 <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">USA</div>
@@ -36,8 +36,8 @@
                             <e-axes>
                                 <e-axis :startAngle='gauge2startAngle' :endAngle='gauge2endAngle' :majorTicks='gauge2majorTicks' :lineStyle='gauge2lineStyle' :minorTicks='gauge2minorTicks' :labelStyle='gauge2labelStyle' :ranges='gauge2ranges'>
                                     <e-annotations>
-                                        <e-annotation angle='180' zIndex='1' radius='30%' :content="'twoImageTemplate'"></e-annotation>
-                                        <e-annotation angle='180' zIndex='1' radius='65%' :content="'twoTextTemplate'"></e-annotation>
+                                        <e-annotation description='Positive arrow ' angle='180' zIndex='1' radius='30%' :content="'twoImageTemplate'"></e-annotation>
+                                        <e-annotation description='USA' angle='180' zIndex='1' radius='65%' :content="'twoTextTemplate'"></e-annotation>
                                     </e-annotations>
                                     <e-pointers>
                                         <e-pointer :value='value2' :radius='pointerRadius2' :pointerWidth='pointerWidth2' :cap='cap2' :needleTail='needleTail2' :animation='animation2'></e-pointer>
@@ -49,7 +49,7 @@
                     <div class="col-sm-4">
                         <ejs-circulargauge :load='load' :background='background' style='display:block; height:230px' align='center' id='gauge3'>
                             <template v-slot:threeImageTemplate="{}">
-                                <div class='templateWrap'><img src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/>&nbsp;&nbsp;<p class="gauge_text">{{value3}}%</p></div>
+                                <div class='templateWrap'><img src='./images/negative.png' alt='Negative value for UK'/>&nbsp;&nbsp;<p class="gauge_text">{{value3}}%</p></div>
                             </template>
                             <template v-slot:threeTextTemplate="{}">
                                 <div style="color:#9E9E9E;font-size:16px;font-family:Segoe UI">UK</div>
@@ -57,8 +57,8 @@
                             <e-axes>
                                 <e-axis :startAngle='gauge3startAngle' :endAngle='gauge3endAngle' :majorTicks='gauge3majorTicks' :lineStyle='gauge3lineStyle' :minorTicks='gauge3minorTicks' :labelStyle='gauge3labelStyle' :ranges='gauge3ranges'>
                                     <e-annotations>
-                                        <e-annotation angle='180' zIndex='1' radius='30%' :content="'threeImageTemplate'"></e-annotation>
-                                        <e-annotation angle='180' zIndex='1' radius='65%' :content="'threeTextTemplate'"></e-annotation>
+                                        <e-annotation  description='Negative arrow' angle='180' zIndex='1' radius='30%' :content="'threeImageTemplate'"></e-annotation>
+                                        <e-annotation description='UK' angle='180' zIndex='1' radius='65%' :content="'threeTextTemplate'"></e-annotation>
                                     </e-annotations>
                                     <e-pointers>
                                         <e-pointer :value='value3' :radius='pointerRadius3' :pointerWidth='pointerWidth3' :cap='cap3' :needleTail='needleTail3' :animation='animation3'></e-pointer>
@@ -86,12 +86,13 @@
             </div>
         </div>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of Circular Gauge sample">
         <p>
             This sample shows live stock price data displayed in multiple circular gauges.
         </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
         <p>
             The pointer value in the circular gauge can be dynamically updated using the <a target="_blank"
                 href="https://ej2.syncfusion.com/vue/documentation/api/circular-gauge/#setpointervalue">setPointerValue</a>
@@ -102,8 +103,8 @@
                 href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/getting-started/"> documentation
                 section</a>.
         </p>
-    </div>
-</div>
+    </section>
+</main>
 </template>
 
 <script>
@@ -149,6 +150,7 @@ export default {
                 width: 0
             },
             gauge1labelStyle: {
+			    format:'positive {value}',
                 font: {
                     size: '0'
                 }
@@ -193,6 +195,7 @@ export default {
                 width: 0
             },
             gauge2labelStyle: {
+			    format:'positive {value} ',
                 font: {
                     size: '0'
                 }
@@ -237,6 +240,7 @@ export default {
                 width: 0
             },
             gauge3labelStyle: {
+			    format:'negative {value}',
                 font: {
                     size: '0'
                 }
@@ -335,9 +339,9 @@ export default {
                     germany.ej2_instances[0].setPointerValue(0, 0, value1);
                     usa.ej2_instances[0].setPointerValue(0, 0, value2);
                     uk.ej2_instances[0].setPointerValue(0, 0, value3);
-                    germany.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px; display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
-                    usa.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px;display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
-                    uk.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px; display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; color:#424242; font-size:20px; font-family:Roboto;'>-${pointers[0].value}%</p></div>");
+                    germany.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px; display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/positive.png' alt='Positive value for Germany'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
+                    usa.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px;display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/positive.png' alt='Positive value for USA'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; font-size:20px; font-family:Roboto;'>${pointers[0].value}%</p></div>");
+                    uk.ej2_instances[0].setAnnotationValue(0, 0, "<div style='display: inline;margin-left: -10px;'><img style='width: 16px; height: 16px; display: inline-block; vertical-align: middle;' src='src/circular-gauge/images/negative.png' alt='Negative value for UK'/>&nbsp;&nbsp;<p style='display: inline-block; vertical-align: sub; font-size:20px; font-family:Roboto;'>-${pointers[0].value}%</p></div>");
                 } else {
                     clearInterval(this.toolTipInterval1);
                 }

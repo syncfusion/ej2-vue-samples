@@ -1,16 +1,17 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
     <div class="content-wrapper">
         <ejs-heatmap id='container' :cellSettings='cellSettings' :tooltipSettings='tooltipSettings' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
        This sample visualizes the GDP growth rate for the countries which are the world's major economies over the years. 
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         In this example, you can see how to bind array object as data source for Heatmap and configure the Heatmap using the data adaptor support. You can directly bind the array object to the Heatmap data source with default property settings.</p>
     <p>The tooltip is enabled in this example. To see the tooltip in action, hover the mouse over an item or tap an item on touch-enabled devices.</p>
@@ -21,8 +22,8 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";

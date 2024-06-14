@@ -23,7 +23,7 @@
                                 </ejs-dropdownlist>
                             </div>
                             <div class="e-rule-value-delete">
-                                <button class="e-removerule e-custom-delete e-rule-delete e-css e-btn e-small e-round">
+                                <button class="e-removerule e-custom-delete e-rule-delete e-css e-btn e-small e-round" title="Delete Rule">
                                     <span class="e-btn-icon e-icons e-delete-icon"/>
                                 </button>
                             </div>

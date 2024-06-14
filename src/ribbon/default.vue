@@ -207,7 +207,7 @@
                       </e-ribbon-collection>
                     </e-ribbon-collections>
                   </e-ribbon-group>
-                  <e-ribbon-group header="show" :isCollapsible=false>
+                  <e-ribbon-group header="Show" :isCollapsible=false>
                     <e-ribbon-collections>
                       <e-ribbon-collection>
                         <e-ribbon-items>
@@ -360,7 +360,7 @@ export default {
         iconCss: 'e-icons e-search', content: 'Find',
         items: [
           { text: 'Find', iconCss: 'e-icons e-search' },
-          { text: 'Advanced find', iconCss: 'e-icons e-search' },
+          { text: 'Advanced Find', iconCss: 'e-icons e-search' },
           { text: 'Go to', iconCss: 'e-icons e-arrow-right' }
         ],
         select:(args) => { this.updateContent( "Find -> " + args.item.text)},

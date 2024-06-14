@@ -8,7 +8,7 @@
                 <p>Rich Text Editor allows inserting images from online sources as well as the local computers where you want to insert the image in your content.</p>
                 <p><b>Get started Quick Toolbar to click on the image</b></p>
                 <p>It is possible to add custom style on the selected image inside the Rich Text Editor through the quick toolbar.</p>
-                <img id="rteImageID" style="width:300px; height:300px;transform: rotate(0deg);" alt="Logo" src="./images/RTEImage-Feather.png"></ejs-richtexteditor>
+                <img id="rteImageID" style="width:300px; height:300px;transform: rotate(0deg);" alt="Sky" src="https://cdn.syncfusion.com/ej2/richtexteditor-resources/RTE-Portrait.png" /></ejs-richtexteditor>
                 </div>
             </div>
         </div>
@@ -87,6 +87,10 @@
     .bootstrap5-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .fluent .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .fluent-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .fluent2 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .fluent2-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .fluent2 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .fluent2-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .tailwind-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .material3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
@@ -98,6 +102,8 @@
     .bootstrap5-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .fluent .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .fluent-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
+    .fluent2 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
+    .fluent2-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .tailwind-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .material3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,

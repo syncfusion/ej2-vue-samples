@@ -78,8 +78,8 @@ export default {
             labelSettings: {
                 leftLabel: 'TaskName'
             },
-            projectStartDate: new Date('02/20/2017'),
-            projectEndDate: new Date('03/30/2017'),
+            projectStartDate: new Date('02/20/2024'),
+            projectEndDate: new Date('03/30/2024'),
             splitterSettings: {
                 position: "35%"
             }

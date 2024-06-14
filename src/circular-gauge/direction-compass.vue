@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="control-section">
         <div class="content-wrapper">
             <ejs-circulargauge ref="circulargauge" :background='background' :load='load' style='display:block' align='center' id='direction-container' :axisLabelRender='axisLabelRender'>
@@ -14,13 +14,14 @@
             </ejs-circulargauge>
         </div>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of Circular Gauge sample">
             <p>
                 This sample demonstrates how to create a direction compass by modifying the circular gauge's functionalities to
                 meet the needs of the user.
             </p>
-        </div>
-        <div id="description">
+        </section>
+        <section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
             <p>
                 In this example, a direction compass has been depicted by adding a couple of needle pointers in the circular
                 gauge and customizing labels to show the direction.
@@ -30,8 +31,8 @@
                     href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/getting-started/">documentation
                     section</a>.
             </p>
-        </div>
-</div>
+        </section>
+        </main>
 </template>
 <script>
 import { CircularGaugeComponent, AxesDirective, Gradient, AxisDirective, PointersDirective, PointerDirective } from "@syncfusion/ej2-vue-circulargauge";

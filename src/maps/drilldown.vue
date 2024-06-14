@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div id="button" style="font-size:14px;margin-left: 10px;margin-top: 20px;display:none;left:50px;top:50px;">
     <a id="category" style="visibility:hidden; display:inline-block" v-on:click="clickCategory">
         World Map
@@ -28,7 +28,7 @@
         <div id="marker6" class="markerTemplate" style="width:50px">South America</div>
     </template>
     <e-layers>
-        <e-layer :shapeData='shapeData' :layerType='layerType' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :tooltipSettings='tooltipSettings'>
+        <e-layer :shapeData='shapeData' :shapePropertyPath='shapePropertyPath' :shapeDataPath='shapeDataPath' :dataSource='dataSource' :shapeSettings='shapeSettings' :tooltipSettings='tooltipSettings'>
             <e-markerSettings>
                 <e-markerSetting visible='true' animationDuration='0' :template="'asiaTextTemplate'" :dataSource='asiaTextDataSource'></e-markerSetting>
                 <e-markerSetting visible='true' animationDuration='0' :template="'australiaTextTemplate'" :dataSource='australiaTextDataSource'></e-markerSetting>
@@ -38,12 +38,12 @@
                 <e-markerSetting visible='true' animationDuration='0' :template="'southAmericaTextTemplate'" :dataSource='southAmericaTextDataSource'></e-markerSetting>
             </e-markerSettings>
         </e-layer>
-        <e-layer :shapeData='shapeData1' :layerType='layerType1' :highlightSettings='highlightSettings1' :shapeSettings='shapeSettings1' :tooltipSettings='tooltipSettings1'></e-layer>
-        <e-layer :shapeData='shapeData2' :layerType='layerType2' :highlightSettings='highlightSettings2' :shapeSettings='shapeSettings2' :tooltipSettings='tooltipSettings2'></e-layer>
-        <e-layer :shapeData='shapeData3' :layerType='layerType3' :highlightSettings='highlightSettings3' :shapeSettings='shapeSettings3' :tooltipSettings='tooltipSettings3'></e-layer>
-        <e-layer :shapeData='shapeData4' :layerType='layerType4' :highlightSettings='highlightSettings4' :shapeSettings='shapeSettings4' :tooltipSettings='tooltipSettings4'></e-layer>
-        <e-layer :shapeData='shapeData5' :layerType='layerType5' :highlightSettings='highlightSettings5' :shapeSettings='shapeSettings5' :tooltipSettings='tooltipSettings5'></e-layer>
-        <e-layer :shapeData='shapeData6' :layerType='layerType6' :highlightSettings='highlightSettings6' :shapeSettings='shapeSettings6' :tooltipSettings='tooltipSettings6'></e-layer>
+        <e-layer :shapeData='shapeData1' :highlightSettings='highlightSettings1' :shapeSettings='shapeSettings1' :tooltipSettings='tooltipSettings1'></e-layer>
+        <e-layer :shapeData='shapeData2' :highlightSettings='highlightSettings2' :shapeSettings='shapeSettings2' :tooltipSettings='tooltipSettings2'></e-layer>
+        <e-layer :shapeData='shapeData3' :highlightSettings='highlightSettings3' :shapeSettings='shapeSettings3' :tooltipSettings='tooltipSettings3'></e-layer>
+        <e-layer :shapeData='shapeData4' :highlightSettings='highlightSettings4' :shapeSettings='shapeSettings4' :tooltipSettings='tooltipSettings4'></e-layer>
+        <e-layer :shapeData='shapeData5' :highlightSettings='highlightSettings5' :shapeSettings='shapeSettings5' :tooltipSettings='tooltipSettings5'></e-layer>
+        <e-layer :shapeData='shapeData6' :highlightSettings='highlightSettings6' :shapeSettings='shapeSettings6' :tooltipSettings='tooltipSettings6'></e-layer>
     </e-layers>
 </ejs-maps>    
     <div align="center">
@@ -56,18 +56,19 @@
         </p>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
     <p>
         This sample demonstrates drill down with all the continents in the initial view. By clicking a continent, you can view all
         the countries available in that continent.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Maps features demonstrated in this sample">
     <p>
         In this example, you can see how to display an another layer by clicking a shape in previous layer.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <style scoped>
     .backLabel:hover {
@@ -119,7 +120,6 @@ data:function(){
         zoomSettings: {
             enable: false
         },
-        layerType: 'Geometry',
         shapePropertyPath: 'continent',
         shapeDataPath: 'continent',
         dataSource: defaultData,
@@ -140,7 +140,6 @@ data:function(){
         europeTextDataSource:  [{ latitude: 47.95121990866204, longitude: 18.468749999999998 }],
         northAmericaTextDataSource: [{ latitude: 59.88893689676585, longitude: -109.3359375 }],
         southAmericaTextDataSource: [{ latitude: -6.64607562172573, longitude: -55.54687499999999 }],
-            layerType1: 'Geometry',
             shapeData1: africa,
             shapeSettings1: {
                     fill: '#80306A'
@@ -153,7 +152,6 @@ data:function(){
                     visible: true,
                     valuePath: 'name'
             },
-            layerType2: 'Geometry',
             shapeData2: europe,
             shapeSettings2: {
                     fill: '#622D6C'
@@ -166,7 +164,6 @@ data:function(){
                     visible: true,
                     valuePath: 'name'
             },
-            layerType3: 'Geometry',
             shapeData3: asia,
             shapeSettings3: {
                     fill: '#462A6D'
@@ -179,7 +176,6 @@ data:function(){
                     visible: true,
                     valuePath: 'name'
             },
-            layerType4: 'Geometry',
             shapeData4: northAmerica,
             shapeSettings4: {
                     fill: '#C13664'
@@ -192,7 +188,6 @@ data:function(){
                     visible: true,
                     valuePath: 'name'
             },
-            layerType5: 'Geometry',
             shapeData5: southAmerica,
             shapeSettings5: {
                     fill: '#9C3367'
@@ -205,7 +200,6 @@ data:function(){
                     visible: true,
                     valuePath: 'name'
             },
-            layerType6: 'Geometry',
             shapeData6: oceania,
             shapeSettings6: {
                     fill: '#2A2870'

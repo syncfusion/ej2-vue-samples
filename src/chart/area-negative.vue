@@ -17,7 +17,7 @@
   </div>
   <div id="description">
     <p>
-      In this example, you can see how to render an area series with negative values. Similar to line type series, but the area gets closed and filled with series color. You can use <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/border/">border</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/seriesModel/#fill">fill</a> properties to customize the area. Also, the legend is enabled with the shape of the series type.
+      In this example, you can see how to render an area series with negative values. Similar to line type series, but the area gets closed and filled with series color. You can use <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/border/" aria-label="Navigate to the border property reference for Vue Chart component">border</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/seriesModel/#fill" aria-label="Navigate to the fill property reference for Vue Chart component">fill</a> properties to customize the area. Also, the legend is enabled with the shape of the series type.
      </p>    
        
           <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -27,7 +27,7 @@
           </p>
           <p>
               More information on the negative points can be found in this
-              <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/working-with-data#empty-points">documentation section</a>.
+              <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/working-with-data#empty-points" aria-label="Navigate to the documentation for Empty points in Vue Chart component">documentation section</a>.
           </p> 
   </div>
   </div>
@@ -42,7 +42,7 @@
   
   let selectedTheme = location.hash.split("/")[1];
   selectedTheme = selectedTheme ? selectedTheme : "Material";
-  let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+  let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
   
   export default {
     components: {

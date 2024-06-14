@@ -152,7 +152,7 @@
             <div id="description">
                 <p>Tab items can be disabled dynamically by passing the index and boolean value to the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/tab/#enabletab">enableTab</a> method.</p>
                 <p>You can design wizard like sample with Tab using the in-built API and customizing the content with proper validations.</p>
-                <p>More information about Tab can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
+                <p>More information about Tab can be found in this <a aria-label="Tab getting started" href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
             </div>
         </div>
     </div>

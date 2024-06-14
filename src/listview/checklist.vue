@@ -2,12 +2,12 @@
   <div class="checklist control-section">
     <div id="checklist-wrapper">
       <div id = 'flat-list'>
-        <h4>Flat List</h4>
+        <p class="displayText">Flat List</p>
         <!-- ListView element -->
         <ejs-listview id='sample-list-flat' :dataSource='data' showCheckBox='true'></ejs-listview>
       </div>
       <div id = 'group-list'>
-        <h4>Group List</h4>
+        <p class="displayText">Group List</p>
         <!-- Group ListView element -->
         <ejs-listview id='sample-list-group' :dataSource='groupData' :fields='fields' showCheckBox='true'></ejs-listview>
       </div>
@@ -53,8 +53,13 @@
 .checklist #group-list {
     float: right;
 }
-.checklist #flat-list h4, .checklist #group-list h4 {
+.checklist #flat-list .displayText, .checklist #group-list .displayText {
     padding-left: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .checklist .e-listview .e-list-icon {
     height: 24px;

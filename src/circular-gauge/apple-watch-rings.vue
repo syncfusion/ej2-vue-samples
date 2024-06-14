@@ -1,30 +1,30 @@
 <template>
-<div class="control-section">
+<main><div class="control-section">
     <div class="row">
          <div class="col-lg-12 col-md-12">
                 <div class="row">
                     <div class="col-lg-9 col-md-9" id="column1" style="margin-left: -5%">
                         <ejs-circulargauge ref="circulargauge" :background='background' style='display:block' align='center' id='gauge1' :load='load' width ='400px' height ='400px' >
                             <template v-slot:mainOneTemplate="{}">
-                                <div class="annotation1"><img style="width:22px;height:22px;" src="src/circular-gauge/images/image1.svg" /></div>
+                                <div class="annotation1"><img style="width:22px;height:22px;" alt="Red arrow" src="./images/image1.svg" /></div>
                             </template>
                             <template v-slot:mainTwoTemplate="{}">
-                                <div class="annotation2"><img style="width:20px;height:20px;" src="src/circular-gauge/images/image2.svg" /></div>
+                                <div class="annotation2"><img style="width:20px;height:20px;" alt="Green arrow" src="./images/image2.svg" /></div>
                             </template>
                             <template v-slot:mainThreeTemplate="{}">
-                                <div class="annotation3"><img style="width:22px;height:22px;" src="src/circular-gauge/images/image3.svg" /></div>
+                                <div class="annotation3"><img style="width:22px;height:22px;" alt="Blue arrow" src="./images/image3.svg" /></div>
                             </template>
                     <e-axes>
                         <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
                             <e-annotations>
-                                <e-annotation angle='8' radius='80%' zIndex='1' :content="'mainOneTemplate'"></e-annotation>
-                                <e-annotation angle='11' radius='58%' zIndex='1' :content="'mainTwoTemplate'"></e-annotation>
-                                <e-annotation angle='16' radius='36%' zIndex='1' :content="'mainThreeTemplate'"></e-annotation>
+                                <e-annotation description='The Gauge is indicated with a red arrow' angle='8' radius='80%' zIndex='1' :content="'mainOneTemplate'"></e-annotation>
+                                <e-annotation description='The Gauge is indicated with a green arrow' angle='11' radius='58%' zIndex='1' :content="'mainTwoTemplate'"></e-annotation>
+                                <e-annotation description='The Gauge is indicated with a blue arrow' angle='16' radius='36%' zIndex='1' :content="'mainThreeTemplate'"></e-annotation>
                             </e-annotations>
                             <e-pointers>
-                                 <e-pointer :roundedCornerRadius=25 value=65 radius='90%' color='#fa114f' :type='type' :pointerWidth=40></e-pointer>
-                                 <e-pointer :roundedCornerRadius=25 value=43 radius='68%' color='#99ff01' :type='type' :pointerWidth=40></e-pointer>
-                                 <e-pointer :roundedCornerRadius=25 value=58 radius='46%' color='#00d8fe' :type='type' :pointerWidth=40></e-pointer>
+                                 <e-pointer description='RangeBar pointer value :65' :roundedCornerRadius=25 value=65 radius='90%' color='#fa114f' :type='type' :pointerWidth=40></e-pointer>
+                                 <e-pointer description='RangeBar pointer value :43' :roundedCornerRadius=25 value=43 radius='68%' color='#99ff01' :type='type' :pointerWidth=40></e-pointer>
+                                 <e-pointer description='RangeBar pointer value :58' :roundedCornerRadius=25 value=58 radius='46%' color='#00d8fe' :type='type' :pointerWidth=40></e-pointer>
                             </e-pointers>
                         </e-axis>
                     </e-axes>
@@ -36,15 +36,15 @@
                       <div style="float:left;">
                         <ejs-circulargauge ref="circulargauge1" :background='background' style='display:block:height:250px; margin-top: 5px' align='center' id='gauge2' :load='load1' width ='65px' height ='65px' >
                         <template v-slot:oneTemplate="{}">
-                            <div class="annotation4"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image1.svg" /></div>
+                            <div class="annotation4"><img alt="Arrow placed within the small red gauge" style="width:17px;height:17px;" src="./images/image1.svg" /></div>
                         </template>
                     <e-axes>
-                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges_1'>
+                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyleSmallRed' :ranges='ranges_1'>
                             <e-annotations>
-                                <e-annotation angle='0' radius='0%' zIndex='1' :content="'oneTemplate'"></e-annotation>
+                                <e-annotation description='The small gauge is indicated with a green arrow' angle='0' radius='0%' zIndex='1' :content="'oneTemplate'"></e-annotation>
                             </e-annotations>
                             <e-pointers>
-                                 <e-pointer :roundedCornerRadius=5 value=65 radius='100%' color='#fa114f' :type='type' :pointerWidth= 8></e-pointer>
+                                 <e-pointer description='RangeBar pointer value: 65' :roundedCornerRadius=5 value=65 radius='100%' color='#fa114f' :type='type' :pointerWidth= 8></e-pointer>
                             </e-pointers>
                         </e-axis>
                     </e-axes>
@@ -61,15 +61,15 @@
                       <div style="float:left;">
                          <ejs-circulargauge ref="circulargauge2" style='display:block; margin-top: 5px;' align='center' id='gauge3' :load='load2' width ='65px' height ='65px' >
                          <template v-slot:twoTemplate="{}">
-                             <div class="annotation5"><img style="width:15px;height:15px;" src="src/circular-gauge/images/image2.svg" /></div>
+                             <div class="annotation5"><img alt="Arrow placed within the small green gauge" style="width:15px;height:15px;" src="./images/image2.svg" /></div>
                          </template>
                     <e-axes>
-                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges_2'>
+                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyleSmallGreen' :ranges='ranges_2'>
                             <e-annotations>
-                                <e-annotation angle='0' radius='0%' zIndex='1' :content="'twoTemplate'"></e-annotation>
+                                <e-annotation description='The small gauge is indicated with a blue arrow' angle='0' radius='0%' zIndex='1' :content="'twoTemplate'"></e-annotation>
                             </e-annotations>
                             <e-pointers>
-                                 <e-pointer :roundedCornerRadius=5 value=43 radius='100%' color='#99ff01' :type='type' :pointerWidth= 8></e-pointer>
+                                 <e-pointer description='RangeBar pointer value:43' :roundedCornerRadius=5 value=43 radius='100%' color='#99ff01' :type='type' :pointerWidth= 8></e-pointer>
                             </e-pointers>
                         </e-axis>
                     </e-axes>
@@ -86,15 +86,15 @@
                       <div style="float:left;">
                          <ejs-circulargauge ref="circulargauge3" style='display:block; margin-top: 5px;' align='center' id='gauge4' :load='load3' width ='65px' height ='65px' >
                         <template v-slot:threeTemplate={}>
-                            <div class="annotation6"><img style="width:17px;height:17px;" src="src/circular-gauge/images/image3.svg" /></div>
+                            <div class="annotation6"><img alt="Arrow placed within the small blue gauge" style="width:17px;height:17px;" src="./images/image3.svg" /></div>
                         </template>
                     <e-axes>
-                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges_3'>
+                        <e-axis :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyleSmallBlue' :ranges='ranges_3'>
                             <e-annotations>
                                 <e-annotation angle='0' radius='0%' zIndex='1' :content="'threeTemplate'"></e-annotation>
                             </e-annotations>
                             <e-pointers>
-                                 <e-pointer :roundedCornerRadius=5 value=58 radius='100%' color='#00d8fe' :type='type' :pointerWidth= 8></e-pointer>
+                                 <e-pointer description='RangeBar pointer value:58' :roundedCornerRadius=5 value=58 radius='100%' color='#00d8fe' :type='type' :pointerWidth= 8></e-pointer>
                             </e-pointers>
                         </e-axis>
                     </e-axes>
@@ -111,13 +111,14 @@
              </div>
            </div>
         </div>
-<div id="action-description">
+    </div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample resembles the appearance of Apple watch rings. This is similar to an activity tracker, which records
         the specifics of each move, exercise, and stand.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to make the circular gauge look like the Apple watch rings. Ranges have rounded
         corners and annotations are used to indicate the move, exercise, and stand values.
@@ -127,8 +128,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-annotations/">documentation
             section</a>.
     </p>
-</div>
-        </div>
+</section>
+</main>
 </template>
  <style scoped>    
    .panel {
@@ -291,7 +292,22 @@ export default {
             minorTicks: {
                 width: 0
             },
-             labelStyle: {
+            labelStyle: {
+                position: 'Inside', useRangeColor: true,
+                font: { size: '0px', color: 'white', fontFamily: 'Roboto', fontStyle: 'Regular' }
+            },
+			labelStyleSmallRed: {
+			    format: 'Red {value}',
+                position: 'Inside', useRangeColor: true,
+                font: { size: '0px', color: 'white', fontFamily: 'Roboto', fontStyle: 'Regular' }
+            },
+			labelStyleSmallGreen: {
+			    format: 'Green {value}',
+                position: 'Inside', useRangeColor: true,
+                font: { size: '0px', color: 'white', fontFamily: 'Roboto', fontStyle: 'Regular' }
+            },
+			labelStyleSmallBlue: {
+			    format: 'Blue {value}',
                 position: 'Inside', useRangeColor: true,
                 font: { size: '0px', color: 'white', fontFamily: 'Roboto', fontStyle: 'Regular' }
             },
@@ -371,7 +387,7 @@ methods: {
       args.gauge.theme =
        (selectedTheme.charAt(0).toUpperCase() +
             selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-         if (selectedTheme === 'highcontrast') {
+         if (selectedTheme === 'highcontrast' || selectedTheme.indexOf('dark') > -1) {
             args.gauge.axes[0].annotations[0].content = annotationTemplate_7;
         }
       /*custom code end */
@@ -383,7 +399,7 @@ methods: {
       args.gauge.theme =
         (selectedTheme.charAt(0).toUpperCase() +
             selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-        if (selectedTheme === 'highcontrast') {
+        if (selectedTheme === 'highcontrast' || selectedTheme.indexOf('dark') > -1) {
             args.gauge.axes[0].annotations[0].content = annotationTemplate_8;
         }
       /*custom code end */
@@ -395,7 +411,7 @@ methods: {
       args.gauge.theme =
         (selectedTheme.charAt(0).toUpperCase() +
             selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-        if (selectedTheme === 'highcontrast') {
+        if (selectedTheme === 'highcontrast' || selectedTheme.indexOf('dark') > -1) {
             args.gauge.axes[0].annotations[0].content = annotationTemplate_9;
         }
       /*custom code end */

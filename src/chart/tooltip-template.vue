@@ -8,7 +8,7 @@
             <table style="width:100%;  border: 1px solid black;" class="table-borderless">
               <tr>
                 <th rowspan="2" style="background-color: #C1272D">
-                  <img src="./images/grain.png" />
+                  <img src="./images/grain.png" alt="Grain Picture"/>
                 </th>
                 <td
                   style="height: 25px; width: 50px; background-color: #C1272D; font-size: 14px; color: #E7C554; font-weight: bold; padding-left: 5px">
@@ -48,7 +48,7 @@
       </p>
       <p>
         More information on the tooltip template can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/tool-tip/#tooltip-template">documentation
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/tool-tip/#tooltip-template" aria-label="Navigate to the documentation for Tooltip template in Vue Chart component">documentation
           section</a>.
       </p>
     </div>
@@ -70,7 +70,7 @@ let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

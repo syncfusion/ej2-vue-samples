@@ -29,8 +29,9 @@
 <style>
 .tooltip-smart #targetContainer {
     border: 1px solid #dddddd;
-    margin: 15px;
     min-height: 350px;
+    position: relative;
+    overflow: hidden;
 }
 .tooltip-smart #demoSmart {
     background-image: url('./images/smartposition.png');

@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section col-lg-9">
     <div>
         <div class="content-wrapper" style='width:99%'>
@@ -11,7 +11,7 @@
 </div>
 </div>
 <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%;margin-left: -10px;">
+        <table id="property" role="none" title="Properties" style="width: 100%;margin-left: -10px;">
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 40%">
@@ -24,12 +24,13 @@
             </tbody>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description"aria-label="Description of HeatMap sample">
     <p>
         This sample visualizes the female participation rate of the total female population in the country’s work force. In Bubble Heatmap, the data points can be visualized using bubble size, bubble shade and sector view types. In property panel, the options are available to change the view of the data points in the bubble Heatmap by means of dropdown.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         In this example, you can see how to display the data points in bubble heatmap using multiple views such as bubble size, bubble shade and the sector. You can change the cell type to bubble by using the <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/cellSettingsModel/#tiletype">tileType</a> property in <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/cellSettingsModel/">cellSettings</a> , and you can change the view of the bubble heatmap by using the <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/cellSettingsModel/#bubbletype">bubbleType</a> property in <code>cellSettings</code>.
     </p>
@@ -43,8 +44,8 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
    </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";

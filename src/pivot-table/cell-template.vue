@@ -39,6 +39,11 @@
         <code>dataBound</code>
         event.
         Based on the applied condition, we are showing the appropriate trend icons.
+      </p><br />
+      <p>
+          More information on the cell template can be found in this <a target="_blank"
+              href="https://ej2.syncfusion.com/vue/documentation/pivotview/row-and-column#cell-template">
+          documentation section</a>.
       </p>
     </div>
   </div>

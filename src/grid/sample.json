@@ -1,8 +1,8 @@
 {
     "name": "Data Grid",
-    "type":"update",
     "directory": "grid",
     "category": "Grids",
+    "type": "update",
     "ftName": "datagrid",
     "samples": [{
             "url": "grid-overview",
@@ -175,7 +175,6 @@
         {
             "url": "column-spanning",
             "name": "Column Spanning",
-            "type": "update",
             "category": "Columns",
             "description": "This demo for Essential JS 2 grid component shows the usage of the column spanning feature.",
             "hideOnDevice": false,
@@ -235,7 +234,6 @@
         {
             "url": "row-spanning",
             "name": "Row Spanning",
-            "type": "update",
             "category": "Rows",
             "description": "This demo for Essential JS 2 grid control shows the usage of the row and column spanning feature.",
             "hideOnDevice": true,
@@ -244,7 +242,6 @@
         {
             "url": "inline-editing",
             "name": "Inline Editing",
-            "type": "update",
             "category": "Editing",
             "description": "This demo for Essential JS 2 grid component shows the inline editing operation.",
             "hideOnDevice": false,
@@ -449,7 +446,6 @@
         {
             "url": "infinite-scrolling",
             "name": "Infinite Scrolling",
-            "type": "update",
             "category": "Scrolling",
             "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows.",
             "hideOnDevice": false,
@@ -461,6 +457,7 @@
         {
             "url": "lazy-load-grouping-with-paging",
             "name": "Grouping with Paging",
+            "type": "update",
             "category": "Lazy Load Grouping",
             "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature.",
             "hideOnDevice": false,
@@ -469,6 +466,7 @@
         {
             "url": "lazy-load-grouping-with-infinite-scrolling",
             "name": "Grouping with Infinite Scrolling",
+            "type": "update",
             "category": "Lazy Load Grouping",
             "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature with infinite scrolling.",
             "hideOnDevice": false,
@@ -477,6 +475,7 @@
         {
             "url": "lazy-load-grouping-with-virtual-scrolling",
             "name": "Grouping with Virtual Scrolling",
+            "type": "update",
             "category": "Lazy Load Grouping",
             "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature with virtual scrolling.",
             "hideOnDevice": false,

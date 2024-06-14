@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="control-section">
         <ejs-maps id='mapContainer' :loaded='loaded' :load='load' :resize='resize' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
             <template v-slot:pieOneTemplate="{}">
@@ -38,12 +38,13 @@
             <a href="http://www.nationmaster.com/country-info/stats/People/Age-structure/55--64-years" target="_blank">www.nationmaster.com</a>
         </div>
     </div>
-    <div id="action-description">
+</div>    
+    <section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample visualizes the placing of pie charts on the maps. Pie chart is rendered with the age group detais of top 6 largest countries.
         </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
             <div id="description">
                 <p>
@@ -57,8 +58,8 @@
                 </p>
             </div>
         </p>
-    </div>
-</div>
+    </section>
+</main>
 </template>
 
 <script>

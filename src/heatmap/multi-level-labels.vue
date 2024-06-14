@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
     <div class="content-wrapper">
         <ejs-heatmap id='container' :tooltipSettings='tooltipSettings' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :cellSettings='cellSettings' :load='load' :cellRender='cellRender' :tooltipRender='tooltipRender'></ejs-heatmap>
@@ -7,12 +7,13 @@
 </div>
 <div style="float: right; margin-right: 10px;">
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample visualizes the product wise monthly sales revenue of the items sold by an online retailer in a year. The products are grouped based on the purchase domains and revenue is displayed as cell data.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         In this example, you can see how to group axis labels. 
         You can customize text in each level by using <a href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/multiLevelLabelsModel/#alignment" target="_blank">alignment</a>,<a href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/multiLevelLabelsModel/#textstyle" target="_blank">textStyle</a> and <a href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/multiLevelLabelsModel/#border" target="_blank">border</a> properties.
@@ -34,8 +35,8 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
@@ -159,7 +160,7 @@ methods: {
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
       selectedTheme = selectedTheme.toLowerCase();
     /* custom code end */
-       if(selectedTheme === 'highcontrast' || selectedTheme === 'bootstrap5-dark' || selectedTheme === 'material-dark' || selectedTheme === 'fabric-dark' || selectedTheme === 'bootstrap-dark' || selectedTheme === 'tailwind-dark' || selectedTheme === 'material3-dark' || selectedTheme === 'fluent-dark')
+            if (selectedTheme.indexOf('dark') > -1 || selectedTheme.indexOf('highcontrast') > -1)
             {
                 args.heatmap.xAxis.textStyle.color = 'White';
                 args.heatmap.yAxis.textStyle.color = 'White';

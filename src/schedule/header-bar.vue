@@ -42,7 +42,7 @@
             <p>
                 In this demo, a popup has been designed separately with a person’s profile info and kept in a hidden state initially. A custom
                 item has been added to the Scheduler header bar by using the
-                <code><a href="https://ej2.syncfusion.com/vue/documentation/api/schedule/#toolbaritems">toolbarItems</a></code> property.
+                <code><a aria-label="Toolbar items" href="https://ej2.syncfusion.com/vue/documentation/api/schedule/#toolbaritems">toolbarItems</a></code> property.
                 Here, the default items such as previous, next, date range text, and today have been used along with external icon as custom items.
             </p>
             <p>
@@ -178,6 +178,16 @@
     .material3-dark .e-profile-wrapper {
         border: 0.5px solid #444746;
         background-color: #302c38;
+    }
+
+    .fluent2-dark .e-profile-wrapper {
+        border: 0.5px solid #525252;
+        background-color: #1F1F1F;
+    }
+
+    .fluent2-highcontrast .e-profile-wrapper {
+        border: 0.5px solid #FFFFFF;
+        background-color: #000000;
     }
 </style>
 <script>

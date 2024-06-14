@@ -80,8 +80,8 @@ export default {
                 allowTaskbarEditing: true,
                 showDeleteConfirmDialog: true
             },
-            projectStartDate: new Date('03/25/2019'),
-            projectEndDate: new Date('07/06/2019'),
+            projectStartDate: new Date('03/25/2024'),
+            projectEndDate: new Date('07/06/2024'),
             splitterSettings: {
                 columnIndex: 3
             }

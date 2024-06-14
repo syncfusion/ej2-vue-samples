@@ -56,7 +56,7 @@
 </div>
 <div id="description">
 <p>
-   Tooltip is enabled in this example, to see the tooltip in action, hover a feature bar or comparative bar on the bullet chart.
+    Tooltip is enabled in this example, to see the tooltip in action, hover a feature bar or comparative bar on the bullet chart.
 </p>
 </div>
   </div>
@@ -84,7 +84,8 @@ selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1))
   .replace(/-dark/i, "Dark")
   .replace(/light/i, "Light")
-  .replace(/contrast/i, "Contrast");
+  .replace(/contrast/i, "Contrast")
+  .replace(/-highContrast/i, "HighContrast");
 
 export default {
   components: {
@@ -113,7 +114,7 @@ export default {
             var selectedTheme = location.hash.split('/')[1];
             selectedTheme = selectedTheme ? selectedTheme : 'Material';
             args.bulletChart.theme = (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/light/i, 'Light').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/light/i, 'Light').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
         }
     };
   },

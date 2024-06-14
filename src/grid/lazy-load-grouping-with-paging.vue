@@ -4,7 +4,7 @@
         <p>This sample demonstrates the lazy load grouping feature of the Grid component.</p>
     </div>
     <div>
-        <ejs-grid ref='grid' :dataSource="lazyLoadData" :allowSorting='true' :allowPaging='true' :allowGrouping='true' :groupSettings='groupSettings'>
+        <ejs-grid ref='grid' :dataSource="lazyLoadData" :allowSorting='true' :allowPaging='true' :allowGrouping='true' :groupSettings='groupSettings' height='400'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' textAlign= 'Right' width='120'></e-column>
                 <e-column field='ProductName' headerText='Product Name' width='160'></e-column>

@@ -1,5 +1,5 @@
 <template>
-<div class="control-section">
+<main><div class="control-section">
  <div id="chart"></div>
 <ejs-maps id='container' align="center" :load='load' :itemSelection='itemSelection' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
     <e-layers>
@@ -13,7 +13,7 @@
  
  <div class="popup" id="closepopup">
 	 <span id='closebutton'>x</span>
-     <table style="margin-top:5px;width:auto">
+     <table role="none" style="margin-top:5px;width:auto">
          <tr>
              <td align="left" style="padding:0.3px">
                  <label id="winner" style="color:#666666;font-size:12px;font-family:Roboto;font-weight:700;"></label>
@@ -54,11 +54,12 @@
          </tr>
      </table>
  </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample visualizes USA president election results in the year 2016. Vote details of a state will be displayed in a popup on clicking a state. Placed interactive legend at the top of the map. </p>
-    </div>
-<div id="description">
+    </section>
+<section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
            In this example, you can see how to apply various styles for a shape in the map, when it is clicked or mouse hovered. 
         </p>
@@ -68,8 +69,8 @@
            Maps component features are segregated into individual feature-wise modules. To use selection, inject the <code>Selection</code> module using the <code>Maps.Inject(Selection)</code> method, and use highlight by injecting the <code>Highlight</code> module.
         </p>
        
-    </div>
-</div>
+    </section>
+    </main>
 </template>
 <style type="text/css" scoped>
 #container{

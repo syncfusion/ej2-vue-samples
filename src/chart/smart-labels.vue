@@ -17,7 +17,7 @@
     <p> In this example, you can see how the labels can be arranged smartly without overlapping. You can use the <code>EnableSmartLabels</code> property to enable or disable the support.</p>
     <p style="font-weight: 500"> <b>Injecting Module</b> </p>
     <p> Accumulation chart component features are segregated into individual feature-wise modules. To use DataLabel, we need to inject <code>AccumulationDataLabel</code> using <code>provide: {accumulationchart: [AccumulationDataLabel]},</code> method.</p>
-    <p>More information on the smart labels can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/data-label/#smart-labels">documentation section</a>.</p>
+    <p>More information on the smart labels can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/data-label/#smart-labels" aria-label="Navigate to the documentation for Smart Labels in Vue Accumulation Chart component">documentation section</a>.</p>
 </div>
 </div>
 
@@ -31,7 +31,7 @@ import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, Accu
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

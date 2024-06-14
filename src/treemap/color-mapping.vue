@@ -1,11 +1,11 @@
 <template>
-<div>
+<main><div id="tree_colormap">
     <div class="col-lg-9 control-section">
         <ejs-treemap ref="treemap" id='container' align="center" :load='load' :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :leafItemSettings='leafItemSettings' :legendSettings='legendSettings' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%;">
+        <table role="none" id="property" title="Properties" style="width: 100%;">
          <colgroup>
             <col span="1" style="width: 50%;">
             <col span="1" style="width: 50%;">
@@ -70,12 +70,13 @@
                 </div>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of TreeMap sample">
      <p>
         This sample visualizes the top 10 largest islands in the world based on area. The color mapping is applied to the items to differentiate them from other items.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the TreeMap features demonstrated in this sample">
    <p>
         In this example, you can see how to render a tree map with color mapping. The range color mapping and desaturation color mapping group the shapes based on the area size, whereas the equal color mapping groups the shapes based on the continent value. The legend is enabled in this example to represent each color mapping.
     </p>
@@ -87,8 +88,8 @@
     <p>
             The TreeMap component features are segregated into individual modules by feature. To use a legend, inject the <code>Legend</code> module using the <code>TreeMap.Inject(TreeMapLegend)</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 
 <style scoped>
@@ -115,6 +116,10 @@
         }
         div.text {
             padding-left: 0px; padding-top: 0px;
+        }
+
+        .e-view.fluent2 #tree_colormap .property-panel-table div.property-text, .e-view.fluent2-dark #tree_colormap .property-panel-table div.property-text {
+                padding-left: 0px;
         }
 </style>
 <script>

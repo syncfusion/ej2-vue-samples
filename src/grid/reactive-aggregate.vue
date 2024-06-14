@@ -4,7 +4,7 @@
             <p>This sample demonstrates reactive aggregate update on data change functionality of the Grid. In this sample, the batch editing  is enabled and the corresponding aggregate values will be refreshed when 'Freight' cell value is changed.</p>
         </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true' :allowGrouping='true' :groupSettings='groupSettings' :editSettings='editSettings' :toolbar='toolbar'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :allowGrouping='true' :groupSettings='groupSettings' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='120' ></e-column>
@@ -53,7 +53,7 @@
 </template>
 <script lang="ts">
 import { createApp } from "vue";
-import { GridComponent, ColumnsDirective, ColumnDirective, Toolbar, Edit, Sort, Page, Group, AggregateDirective, AggregatesDirective, Aggregate, } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, Toolbar, Edit, Sort, Page, Group, AggregateDirective, AggregatesDirective, Aggregate, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -67,6 +67,7 @@ export default {
   data: () => {
     return {
       data: orderDetails.slice(0),
+      filterSettings: { type: 'Excel' },
       editSettings: { allowEditing: true, allowDeleting: true, mode: 'Batch' },
       toolbar: [ 'Delete', 'Update', 'Cancel'],   
       pageSettings: {pageCount: 5},
@@ -90,7 +91,7 @@ export default {
     };
   },
   provide: {
-      grid: [Toolbar, Edit, Page, Group, Aggregate, Sort]
+      grid: [Toolbar, Edit, Page, Group, Aggregate, Sort, Filter]
   }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div id="opposed">
 <div class="control-section col-lg-9">
     <div>
         <div class="content-wrapper" style='width:99%'>
@@ -8,7 +8,7 @@
     </div>
 </div>
 <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%;margin-left: -10px;">
+        <table role="none" id="property" title="Properties" style="width: 100%;margin-left: -10px;">
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 40%;">
@@ -23,12 +23,13 @@
             </tbody>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample illustrates the monthly flight arrivals at JFK international airport, New York. The data label is disabled in this sample, the tooltip displays the data point values.  In property panel, the options are available to change the position of the axes by means of checkbox for each axis.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         In this example, you can see how to change the display position of the axis. You can change the display position of axes by enabling the
         <a href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/axisModel/#opposedposition" target="_blank">opposedPosition</a> property for each axis.
@@ -41,9 +42,15 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
+<style scoped>
+
+    .e-view.fluent2 #opposed #property, .e-view.fluent2-dark #opposed #property {
+        margin-left: -20px !important; 
+    }
+</style>
 <script>
 import { HeatMapComponent, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";

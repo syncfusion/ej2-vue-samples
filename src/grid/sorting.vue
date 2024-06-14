@@ -7,14 +7,14 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" class="sortingenabled" :allowPaging='true' :allowSorting='true' :sortSettings='initialSort' :pageSettings='pageSettings'>
+        <ejs-grid :dataSource="data" class="sortingenabled" :allowPaging='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar' :sortSettings='initialSort' :pageSettings='pageSettings'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' width='170'></e-column>
-                <e-column field='OrderDate' headerText='Order Date' format="yMd" width='150' textAlign='Right'></e-column>
-                <e-column field='Freight' headerText='Freight' width='180' format='C2' textAlign='Right'></e-column>
-                <e-column field='ShippedDate' headerText='Shipped Date' format="yMd" width='140' textAlign='Right'></e-column>
-                <e-column field='ShipCountry' headerText='Ship Country' width='160'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' width='170' :validationRules='customeridrules'></e-column>
+                <e-column field='OrderDate' headerText='Order Date' format="yMd" width='150' textAlign='Right' editType='datepickeredit'></e-column>
+                <e-column field='Freight' headerText='Freight' width='180' format='C2' textAlign='Right' editType='numericedit' :validationRules='freightrules'></e-column>
+                <e-column field='ShippedDate' headerText='Shipped Date' format="yMd" width='140' textAlign='Right' editType='datepickeredit'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' width='160' editType='dropdownedit'></e-column>
             </e-columns>
         </ejs-grid>
     </div>
@@ -60,7 +60,7 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Sort, Page } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Sort, Page, Toolbar, Edit, Filter } from "@syncfusion/ej2-vue-grids";
 import { data } from "./data-source";
 
 export default {
@@ -77,10 +77,16 @@ export default {
             { field: 'CustomerName', direction: 'Descending' }]
         },
       pageSettings: { pageCount: 5 },
+      filterSettings: { type: 'Excel' },
+      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+      orderidrules: { required: true, number: true },
+      customeridrules: { required: true, minLength: 5 },
+      freightrules:  { required: true, min: 0 },
+      toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
     };
   },
   provide: {
-      grid: [Sort, Page]
+      grid: [Sort, Page, Toolbar, Edit, Filter]
   }
 }
 </script>

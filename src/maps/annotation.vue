@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
 <ejs-maps id='maps' :load='load' :annotations='annotations' :zoomSettings='zoomSettings'>
     <template v-slot:markerTemplate="{}">
@@ -26,12 +26,13 @@
         </linearGradient>
     </defs>
 </svg>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
     <p>
         This sample depicts the facts about Africa in an annotation. Africa shape is filled with gradient color.
    </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
           In this example, you can see how to place a desired HTML element at desired location in the maps. Any number of annotation can be placed on the maps. In this sample, the gradient fill color has been applied for the shape.
         </p>
@@ -40,8 +41,8 @@
         <p>
          Maps component features are segregated into individual feature-wise modules. To use an annotation, inject the <code>Annotations</code> module using the <code>Maps.Inject(Annotations)</code> method.
         </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { createApp } from 'vue';

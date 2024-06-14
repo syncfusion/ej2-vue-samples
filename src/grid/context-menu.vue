@@ -6,7 +6,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" id="gridcomp" :allowPaging='true' :allowExcelExport='true' :allowPdfExport='true' :allowSorting='true'
+        <ejs-grid :dataSource="data" id="gridcomp" :allowPaging='true' :allowExcelExport='true' :allowPdfExport='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings'
         :contextMenuItems="contextMenuItems" :editSettings  ='editing'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' isPrimaryKey='true'></e-column>
@@ -80,7 +80,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, ContextMenu, Sort, Edit, ExcelExport, PdfExport, Page, Resize } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, ContextMenu, Sort, Edit, ExcelExport, PdfExport, Page, Resize, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -92,6 +92,7 @@ export default {
   data: () => {
     return {
     data: orderDetails,
+    filterSettings: { type: 'Excel' },
     contextMenuItems: ['AutoFit', 'AutoFitAll', 'SortAscending', 'SortDescending',
             'Copy', 'Edit', 'Delete', 'Save', 'Cancel',
             'PdfExport', 'ExcelExport', 'CsvExport', 'FirstPage', 'PrevPage',
@@ -100,7 +101,7 @@ export default {
     };
   },
   provide: {
-      grid: [ContextMenu, Sort, Edit, ExcelExport, PdfExport, Page, Resize]
+      grid: [ContextMenu, Sort, Edit, ExcelExport, PdfExport, Page, Resize, Filter]
     }
 }
 </script>

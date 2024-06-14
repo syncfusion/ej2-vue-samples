@@ -3,7 +3,6 @@
     "directory": "ribbon",
     "category": "Navigation",
     "ftName": "ribbon",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -30,7 +29,6 @@
             "url": "contextual-tab",
             "name": "Contextual Tabs",
             "category": "Ribbon",
-            "type": "new",
             "api":{ "Ribbon":["tabs", "fileMenu", "contextualTabs"] },
             "description": "This sample demonstrates the contextual tab functionality of the Syncfusion JavaScript (ES5) Ribbon component."
         },
@@ -45,7 +43,6 @@
             "url": "keytip",
             "name": "Ribbon KeyTips",
             "category": "Ribbon",
-            "type": "new",
             "api":{ "Ribbon":["tabs", "backStageMenu", "enableKeyTips", "layoutSwitcherKeyTip", "created"] },
             "description": "This sample demonstrates the keytip functionality of the Syncfusion Vue Ribbon component."
         },
@@ -53,7 +50,6 @@
             "url": "gallery",
             "name": "Ribbon Gallery",
             "category": "Ribbon",
-            "type": "new",
             "api":{ "Ribbon":["tabs", "fileMenu", "cssClass"] },
             "description": "This sample demonstrates the Gallery Support provided in the Syncfusion JavaScript(ES5) Ribbon component."
         }

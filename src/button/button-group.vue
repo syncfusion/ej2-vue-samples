@@ -5,9 +5,9 @@
             <div class="row">                
                 <p class="h5">Default</p>
                 <div id="icon" class="e-btn-group">
-                    <ejs-button id='watch' iconCss="sb-bg-icons e-btngrp-watch"></ejs-button>
-                    <ejs-button id='star' iconCss="sb-bg-icons e-btngrp-star"></ejs-button>
-                    <ejs-button id='download' iconCss="sb-bg-icons e-btngrp-download"></ejs-button>
+                    <ejs-button id='watch' iconCss="sb-bg-icons e-btngrp-watch" aria-label="watch"></ejs-button>
+                    <ejs-button id='star' iconCss="sb-bg-icons e-btngrp-star" aria-label="star"></ejs-button>
+                    <ejs-button id='download' iconCss="sb-bg-icons e-btngrp-download" aria-label="download"></ejs-button>
                 </div>
             </div>
             <div class="row">                

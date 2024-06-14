@@ -78,8 +78,11 @@
 <style scoped>
     /* custom code start */
         #EventLog b{
-            color: #388e3c;
+            color: #018607;
         }
+          .material3-dark #EventLog b, .fluent-dark #EventLog b, .bootstrap5-dark #EventLog b, .bootstrap-dark #EventLog b, .tailwind-dark #EventLog b, .highcontrast #EventLog b, .material-dark #EventLog b, .fabric-dark #EventLog b {
+        color: #21A32E;
+    }
         hr {
             margin: 1px 10px 1px 0px;
             border-top: 1px solid #eee;
@@ -129,7 +132,7 @@ export default {
             items: ['Bold', 'Italic', 'Underline', 'StrikeThrough', 'SuperScript', 'SubScript', '|',
                 'FontName', 'FontSize', 'FontColor', 'BackgroundColor', '|',
                 'LowerCase', 'UpperCase', '|',
-                'Formats', 'Alignments', '|', 'NumberFormatList', 'BulletFormatList', '|',
+                'Formats', 'Alignments', 'Blockquote', '|', 'NumberFormatList', 'BulletFormatList', '|',
                 'Outdent', 'Indent', '|', 'CreateLink', 'Image', 'FileManager', 'Video', 'Audio', 'CreateTable', '|', 'FormatPainter', 'ClearFormat',
                 '|', 'EmojiPicker', 'Print', '|',
                 'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']

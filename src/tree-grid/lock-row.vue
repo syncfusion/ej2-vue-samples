@@ -1,5 +1,5 @@
 <template>
-<div class="control-section">
+<div class="control-section" role="region" aria-label="Tree Grid Control Section">
       <div class="col-md-9 control-section">
             <ejs-treegrid :dataSource='data' ref='treegrid' :height='350' :enableHover='false' childMapping='subtasks' :treeColumnIndex='1' :allowPaging= 'true' :editSettings='editSettings' :toolbar='toolbar' :pageSettings='pageSettings' :rowDataBound='rowDataBound' :beginEdit='beginEdit'>
             <e-columns>
@@ -11,14 +11,14 @@
         </ejs-treegrid>
       </div>
       <div>
-        <div class="col-md-3 property-section">
+        <div class="col-md-3 property-section" aria-label="Properties Panel">
             <table id="property" title="Properties" style="width: 100%">
                 <tr style="height: 50px">
                     <td style="width: 70%">
                         <div>Disable Rows</div>
                     </td>
                     <td style="width: 70%">
-                         <ejs-multiselect ref='rows' width='140px' id='multiselect-checkbox' :dataSource='ddldata' mode='CheckBox' :showDropDownIcon='true' :value='value' :select='onselect' :removed='removed'></ejs-multiselect>
+                         <ejs-multiselect ref='rows' width='140px' id='multiselect-checkbox' :dataSource='ddldata' mode='CheckBox' :showDropDownIcon='true' :value='value' :select='onselect' :removed='removed' aria-label="Select Rows to Disable"></ejs-multiselect>
                     </td>
                 </tr>
             </table>
@@ -62,6 +62,15 @@
 </style>
 <!-- custom code start -->
 <style>
+.fluent2 .disableRow .e-rowcell{
+    color: rgba(0, 0, 0, .38) !important;
+}
+.fluent2-dark .disableRow .e-rowcell{
+    color: #757575 !important;
+}
+.fluent2-highcontrast .disableRow .e-rowcell{
+    color: #757575 !important;
+}
 .material-dark .disableRow .e-rowcell, .fabric-dark .disableRow .e-rowcell,
 .bootstrap-dark .disableRow .e-rowcell, .bootstrap5-dark .disableRow .e-rowcell, .highcontrast .disableRow .e-rowcell, 
 .tailwind .disableRow .e-rowcell, .tailwind-dark .disableRow .e-rowcell, .fluent-dark .disableRow .e-rowcell, .material3-dark .disableRow .e-rowcell {

@@ -19,8 +19,8 @@
                     <td style="width: 70%">
                         <div>Selection Type</div>
                     </td>
-                    <td style="width: 70%;padding-left: 10px; padding-right:10px;padding-top:5px">
-                        <ejs-dropdownlist ref='type' width='90px' id='type' :dataSource='typedata' value='Multiple' :fields='ddlfields' :change="ontypeChange"></ejs-dropdownlist>                      
+                    <td style="width: 70%;padding-left: 0px; padding-right:10px;padding-top:5px">
+                        <ejs-dropdownlist ref='type' width='92px' id='type' :dataSource='typedata' value='Multiple' :fields='ddlfields' :change="ontypeChange"></ejs-dropdownlist>                 
                     </td>
                 </tr>
                 <tr style="height: 50px">
@@ -28,7 +28,7 @@
                         <div>Selection Mode</div>
                     </td>
                     <td style="width: 80%; padding-left: 10px; padding-right:10px;padding-top:5px">
-                        <ejs-dropdownlist ref='mode' width='90px' id='mode' :dataSource='modedata' value='Row' :fields='ddlfields' :change="onmodeChange"></ejs-dropdownlist>
+                        <ejs-dropdownlist ref='mode' width='92px' id='mode' :dataSource='modedata' value='Row' :fields='ddlfields' :change="onmodeChange"></ejs-dropdownlist>
                     </td>
                 </tr>
                 <tr class='con-prop' style="height: 50px;display: none">
@@ -36,7 +36,7 @@
                         <div> Cell Selection Mode</div>
                     </td>
                     <td style="width: 80%; padding-left: 10px; padding-right:10px;padding-top:5px">
-                        <ejs-dropdownlist ref='cellmode' width='90px' id='cellmode' :dataSource='celldata' value='Flow' :fields='ddlfields' :change="oncellChange"></ejs-dropdownlist>
+                        <ejs-dropdownlist ref='cellmode' width='92px' id='cellmode' :dataSource='celldata' value='Flow' :fields='ddlfields' :change="oncellChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>

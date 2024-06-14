@@ -38,17 +38,17 @@
         <tbody>
           <tr>
             <td style="width: 50%">
-              <div class="userselect">MinStart</div>
+              <div id="minStartLabel" class="userselect">MinStart</div>
             </td>
             <td style="width: 50%;padding-right: 10px">
               <div>
-                <ejs-numerictextbox :value="minstartvalue" :change="minstartChange"></ejs-numerictextbox>
+                <ejs-numerictextbox :value="minstartvalue" :change="minstartChange" aria-labelledby="minStartLabel"></ejs-numerictextbox>
               </div>
             </td>
           </tr>
           <tr>
             <td style="width: 50%">
-              <div class="userselect">MinEnd</div>
+              <div id="minEndLabel" class="userselect">MinEnd</div>
             </td>
             <td style="width: 50%;padding-right: 10px">
               <div>
@@ -57,13 +57,14 @@
                   :max="max"
                   :value="minendvalue"
                   :change="minendChange"
+                  aria-labelledby="minEndLabel"
                 ></ejs-numerictextbox>
               </div>
             </td>
           </tr>
           <tr>
             <td style="width: 50%">
-              <div class="userselect">MaxStart</div>
+              <div id="maxStartLabel" class="userselect">MaxStart</div>
             </td>
             <td style="width: 50%;padding-right: 10px">
               <div>
@@ -72,13 +73,14 @@
                   :max="max"
                   :value="maxstartvalue"
                   :change="maxstartChange"
+                  aria-labelledby="maxStartLabel"
                 ></ejs-numerictextbox>
               </div>
             </td>
           </tr>
           <tr>
             <td style="width: 50%">
-              <div class="userselect">MaxEnd</div>
+              <div id="maxEndLabel" class="userselect">MaxEnd</div>
             </td>
             <td style="width: 50%;padding-right: 10px">
               <div>
@@ -87,24 +89,25 @@
                   :max="max"
                   :value="maxendvalue"
                   :change="maxendChange"
+                  aria-labelledby="maxEndLabel"
                 ></ejs-numerictextbox>
               </div>
             </td>
           </tr>
           <tr>
             <td style="width: 50%">
-              <div class="labeltext">Lock First Handle</div>
+              <div id="lockFirstHandleLabel" class="labeltext">Lock First Handle</div>
             </td>
             <td style="width: 50%">
-              <ejs-checkbox id="button" :change="lockFirstHandle"></ejs-checkbox>
+              <ejs-checkbox id="button" :change="lockFirstHandle"  aria-labelledby="lockFirstHandleLabel"></ejs-checkbox>
             </td>
           </tr>
           <tr>
             <td style="width: 50%">
-              <div class="labeltext">Lock Second Handle</div>
+              <div id="lockSecondHandleLabel" class="labeltext">Lock Second Handle</div>
             </td>
             <td style="width: 50%">
-              <ejs-checkbox id="disabled" :change="lockSecondHandle"></ejs-checkbox>
+              <ejs-checkbox id="disabled" :change="lockSecondHandle"  aria-labelledby="lockSecondHandleLabel"></ejs-checkbox>
             </td>
           </tr>
         </tbody>

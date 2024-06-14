@@ -1,5 +1,5 @@
 <template>
-<div class="control-section">
+<div class="control-section" aria-label="Tree Grid control Section">
       <div class="col-md-9 control-section">
            <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :height='350' :editSettings='editSettings' :allowSorting='true' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings'
            :load='load' :created='create' :actionBegin='actionBegin' :expanded='expanded' :collapsed='collapsed'
@@ -15,18 +15,18 @@
         </ejs-treegrid>
       </div>
       <div>
-        <div class="col-md-3 property-section">
+        <div class="col-md-3 property-section" aria-label="Event Trace Section">
              <table id="property" title="Event Trace">
                     <tr>
                         <td>
-                            <div class="eventarea" style="height: 245px;overflow: auto;width: 100%;padding-right: 10px;">
+                            <div class="eventarea" style="height: 245px;overflow: auto;width: 100%;padding-right: 10px;" aria-label="Event Area">
                                 <span class="EventLog" id="EventLog" style="word-break: normal;"></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="evtbtn" style="padding-bottom: 10px">
+                            <div class="evtbtn" style="padding-bottom: 10px" aria-label="Clear button">
                                <ejs-button v-on:click="clear">Clear</ejs-button>
                             </div>
                         </td>

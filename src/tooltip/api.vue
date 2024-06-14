@@ -25,7 +25,7 @@
                     </td>
                     <td style="width: 50%;padding-right: 10px">
                         <div>
-                            <ejs-numerictextbox id="height" cssClass="e-input" value="45" :change='hChange'></ejs-numerictextbox>
+                            <ejs-numerictextbox id="height" cssClass="e-input" value="45" :change='hChange' aria-label="height value"></ejs-numerictextbox>
                         </div>
                     </td>
                 </tr>
@@ -35,7 +35,7 @@
                     </td>
                     <td style="width: 50%;padding-right: 10px">
                         <div>
-                            <ejs-numerictextbox id="width" cssClass="e-input" value="100" :change='wChange'></ejs-numerictextbox>
+                            <ejs-numerictextbox id="width" cssClass="e-input" value="100" :change='wChange' aria-label="width value"></ejs-numerictextbox>
                         </div>
                     </td>
                 </tr>
@@ -55,7 +55,7 @@
                     </td>
                     <td style="width: 50%;padding-right: 10px">
                         <div>
-                            <ejs-checkbox :change='cChange' id="sticky"></ejs-checkbox>
+                            <ejs-checkbox :change='cChange' id="sticky" aria-label="sticky"></ejs-checkbox>
                         </div>
                     </td>
                 </tr>

@@ -22,7 +22,7 @@
                  <p>The <code>Tab</code> is adaptable to the available space when the tab items exceed the view space.</p>
                  <p>The <code>Tab</code> allows to place the header section inside the Tab component either at <code>top/bottom/left/right</code> position by using <code>headerPlacement</code> property.</p>
                  <p>You can assign overflowMode property value as <code>Scrollable/Popup</code>. By default scrollable mode of tab is enabled when tab item exceeds the view range. In this sample, users can change the <code>overflowMode</code> by selecting the dropdown options.</p>
-                 <p>More information about Tab can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
+                 <p>More information about Tab can be found in this <a aria-label="Tab getting started" href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
             </div>
         </div>
     </div>

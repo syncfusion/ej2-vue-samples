@@ -5,7 +5,7 @@
          To select/unselect particular row, click the desired row.</p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :enableHover="false" :allowSorting='true' :allowSelection="true" :selectionSettings="selectOptions" :editSettings='editSettings' :toolbar='toolbar'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :enableHover="false" :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :allowSelection="true" :selectionSettings="selectOptions" :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
                 <e-column type='checkbox' width='50'></e-column>
                 <e-column field='OrderID' isPrimaryKey='true' headerText='Order ID' width='120' textAlign='Right' ></e-column>
@@ -51,7 +51,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Page, Edit, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Edit, Toolbar, Sort, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -63,13 +63,14 @@ export default {
   data: () => {
     return {
       data: orderDetails.slice(0),
+      filterSettings: { type: 'Excel' },
       selectOptions: { persistSelection: true },
       toolbar: ['Delete'],
       editSettings: { allowDeleting: true},
     };
   },
   provide: {
-      grid: [Page, Edit, Toolbar, Sort]
+      grid: [Page, Edit, Toolbar, Sort, Filter]
   }
 }
 </script>

@@ -17,6 +17,30 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
         </div>
       </div>
     </div>
+    <div id="action-description">
+      <p>This sample demonstrates markdown editing in the Rich Text Editor with complete features.</p>
+    </div>
+    <div id="description">
+      <p>The Rich Text Editor supports markdown editing when the <code>editorMode</code> is set to mode property of the
+        Rich Text Editor</p>
+      <p>The editor’s toolbar contains commands to format the markdown content. The toolbar consists of:</p>
+      <ul>
+        <li><code>Lists</code> - Ordered and unordered list types.</li>
+        <li><code>Links</code> - A hyperlink can be inserted into the editor for quick access to related information.
+        </li>
+        <li><code>Image</code> - Inserts and manages images.</li>
+        <li><code>Alignment</code> - Aligns the content with left, center, and right margins.</li>
+        <li><code>Format</code> – Formats the sentence in different ways such as heading level, quotation, and code
+          snippet</li>
+        <li><code>Styles</code> – Allows you to apply inline styles to the selected content like bold, italic, and more.
+        </li>
+        <li><code>Tables</code> – Allows you to insert a table with header.</li>
+      </ul>
+      <p><b>Injecting Module</b></p>
+      <p>Rich Text Editor component features are segregated into individual feature-wise modules. To use Rich Text
+        Editor feature, we need to inject <code>Toolbar, Link, Image, MarkdownEditor, Table</code> into the <code>provide</code> section.</p>
+      <p>The third-party library <code>Marked</code> is used in this sample to convert markdown into HTML content.</p>
+    </div>
   </div>
 </template>
 
@@ -41,6 +65,8 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   }  
   .fluent .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .fluent-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
+  .fluent2 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
+  .fluent2-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .tailwind .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .tailwind-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .bootstrap5 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
@@ -55,6 +81,8 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   .bootstrap5-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .fluent .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .fluent-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before,
+  .fluent2 .rte-markdown-overview .e-icon-btn .e-md-preview::before,
+  .fluent2-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .material3 .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .material3-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before {
       content: '\e7de';
@@ -64,6 +92,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   import { RichTextEditorComponent, Toolbar, Link, Image, MarkdownEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";
   import { MarkdownFormatter } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from "@syncfusion/ej2-vue-base";  
+  import { marked } from 'marked';
 
   export default {
     components: {
@@ -78,11 +107,12 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
         previewTextArea: null,
         height: "250px",
         editorMode: "Markdown",
+        placeholder : "Enter your text here...",
         formatter: new MarkdownFormatter({ listTags: { 'OL': '1., 2., 3.'} }),
         toolbarSettings: {
-          items: ["Bold", "Italic", "StrikeThrough", "|", "Formats", "OrderedList", "UnorderedList", 'SuperScript', 'SubScript', "|",
+          items: ["Bold", "Italic", "StrikeThrough", "|", "Formats", 'Blockquote', "OrderedList", "UnorderedList", 'SuperScript', 'SubScript', "|",
             "CreateLink", "Image", "CreateTable", "|",
-            { tooltipText: "Preview", template: '<button id="preview-code" class="e-tbar-btn e-control e-btn e-icon-btn">' +
+            { tooltipText: "Preview", template: '<button id="preview-code" class="e-tbar-btn e-control e-btn e-icon-btn" aria-label="Preview Code">' +
               '<span class="e-btn-icon e-md-preview e-icons"></span></button>'
               }, "|", "Undo", "Redo"
           ]
@@ -103,9 +133,9 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
         this.mdsource.onclick = e => {
           this.fullPreview();
           if (e.currentTarget.classList.contains("e-active")) {
-            this.$refs.rteInstance.disableToolbarItem(["Bold", "Italic", 'SuperScript', 'SubScript', "StrikeThrough", "Formats", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
+            this.$refs.rteInstance.disableToolbarItem(["Bold", "Italic", 'SuperScript', 'SubScript', "StrikeThrough", "Formats", "Blockquote", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
           } else {
-            this.$refs.rteInstance.enableToolbarItem(["Bold", "Italic", 'SuperScript', 'SubScript', "StrikeThrough", "Formats", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
+            this.$refs.rteInstance.enableToolbarItem(["Bold", "Italic", 'SuperScript', 'SubScript', "StrikeThrough", "Formats", "Blockquote", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
           }
         };
       },

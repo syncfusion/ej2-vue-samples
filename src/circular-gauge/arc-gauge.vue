@@ -1,5 +1,5 @@
 <template>
- <div id="arc-gauge">
+ <main><div id="arc-gauge">
     <div class="control-section">
         <ejs-circulargauge ref="circulargauge" :background='background' :load='load' style='display:block' align='center' id='range-container' :loaded='loaded' :title='title' :titleStyle='titleStyle'>
             <template v-slot:indicatorTemplate="{}">
@@ -11,8 +11,8 @@
             <e-axes>
                 <e-axis :radius='gaugeRadius' :minimum=0 :maximum=100 :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
                     <e-annotations>
-                    <e-annotation :content="'indicatorTemplate'" angle='0' zIndex='1' radius='0%'></e-annotation>
-                    <e-annotation :content="'sliderTemplate'" angle='0' zIndex='1' radius='-100%'></e-annotation>
+                    <e-annotation description='RangeBar pointer value from the slider' :content="'indicatorTemplate'" angle='0' zIndex='1' radius='0%'></e-annotation>
+                    <e-annotation description='Slider' :content="'sliderTemplate'" angle='0' zIndex='1' radius='-100%'></e-annotation>
                     </e-annotations>
                     <e-pointers>
                     <e-pointer :roundedCornerRadius=20 :value='value' :radius='pointerRadius' :color='color' :type='type' :animation='animation' :border='border' :pointerWidth=30  :cap='cap' :needleTail='needleTail'></e-pointer>
@@ -26,12 +26,13 @@
 <div id='default' ></div>
 </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample shows the work progress using a circular gauge and a range bar pointer with rounded corners.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render the range and range bar pointer with rounded corners. A slider is
         placed at the bottom of the circular gauge using annotation to change the range bar pointer value. Based on the
@@ -42,8 +43,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-ranges/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
  <style>    
         #arc-gauge .sliderwrap {
@@ -85,6 +86,12 @@
         }
         .fabric #slider.e-control.e-slider .e-handle {
             margin-top: 2px;
+        }
+
+        .e-view.fluent2 #slider.e-control.e-slider .e-handle,
+        .e-view.fluent2-dark #slider.e-control.e-slider .e-handle
+        {
+            margin-top: 3px;
         }
 </style>
 <script>

@@ -12,12 +12,7 @@
             </ejs-chart>
         </div>
         <div id="action-description">
-            <p>
-                This <a target="_blank"
-                    href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/hilo-chart">Vue Hilo
-                    Chart</a> example visualizes the AAPL stock price with a default Hilo series in the chart. The
-                tooltip and crosshair show information about the stock price.
-            </p>
+            <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/hilo-chart" aria-label="Navigate to explore the Syncfusion Vue Hilo Chart">Vue Hilo Chart</a> example visualizes the AAPL stock price with a default Hilo series in the chart. The tooltip and crosshair show information about the stock price.</p>
         </div>
         <div id="description">
             <p>
@@ -37,7 +32,7 @@
             <p>
                 More information on the HILO series can be found in this
                 <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/high-low">documentation
+                    href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/high-low" aria-label="Navigate to the documentation for Hilo Chart in Vue Chart component">documentation
                     section</a>.
             </p>
         </div>
@@ -54,7 +49,7 @@ import { chartValue } from './financial-data';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
     components: {

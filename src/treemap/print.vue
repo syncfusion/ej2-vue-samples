@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
              <ejs-treemap ref="treemap" id='container' :load='load' :titleSettings='titleSettings' :allowPdfExport='allowPdfExport' :allowPrint='allowPrint' :allowImageExport='allowImageExport' :dataSource='dataSource' :layoutType='layoutType' :weightValuePath='weightValuePath' :rangeColorValuePath='rangeColorValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings'></ejs-treemap>
@@ -9,25 +9,8 @@
             <a href=" http://zeenews.india.com/photos/business/worlds-10-best-selling-smartphone-brands-2033958/samsung-2033959" target="_blank">zeenews.india.com</a>
         </div>
     </div>
-   <div id="action-description">
-        <p>
-            This sample depicts the top 10 best-selling smartphone brands. Print and export options have been enabled in this sample.
-        </p>
-    </div>
-    <div id="description">
-        <p>
-            In this example, you can see how to export and print the rendered treemap. The TreeMap can
-            be exported to JPEG, PNG, SVG, and PDF formats. Print functionality is done by <code>print</code>
-            method when <code>allowPrint</code> is set as true. Export functionality is done by
-            <code>export</code> method when <code>allowImageExport</code> and
-            <code>allowPdfExport</code> is set as true.</p>
-             <br>
-             <p style="font-weight: 500"> <b>Injecting Module</b></p>
-            <p>To make use of the print and export support, we need to inject the <code>Print</code>, <code>ImageExport</code> and <code>PdfExport</code> modules using the <code>provide</code> section. </p>
-    </div>
-
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -10px;">
             <tbody>
                 <tr style="height: 50px">
                     <td>
@@ -45,8 +28,8 @@
                         <div>File Name</div>
                     </td>
                     <td>
-                        <div class="e-float-input" style='margin-top: 0px;'>
-                            <input type="text" value="Treemap" id="fileName" style="width: 100%">
+                        <div style='margin-top: 0px;'>
+                            <ejs-textbox type="text" value="Treemap" id="fileName" style="width:100%"></ejs-textbox>
                         </div>
                     </td>
                 </tr>
@@ -66,6 +49,23 @@
         </table>
     </div>
 </div>
+   <section id="action-description" aria-label="Description of TreeMap sample">
+        <p>
+            This sample depicts the top 10 best-selling smartphone brands. Print and export options have been enabled in this sample.
+        </p>
+    </section>
+    <section id="description" aria-label="Description of the TreeMap features demonstrated in this sample">
+        <p>
+            In this example, you can see how to export and print the rendered treemap. The TreeMap can
+            be exported to JPEG, PNG, SVG, and PDF formats. Print functionality is done by <code>print</code>
+            method when <code>allowPrint</code> is set as true. Export functionality is done by
+            <code>export</code> method when <code>allowImageExport</code> and
+            <code>allowPdfExport</code> is set as true.</p>
+             <br>
+             <p style="font-weight: 500"> <b>Injecting Module</b></p>
+            <p>To make use of the print and export support, we need to inject the <code>Print</code>, <code>ImageExport</code> and <code>PdfExport</code> modules using the <code>provide</code> section. </p>
+    </section>
+</main>
 </template>
 <style scoped>
     #button-control {
@@ -98,18 +98,21 @@
     #togglebtn1 {
         width: 80px;
     }
+
 </style>
 <script>
 import { TreeMapComponent, TreeMapTooltip, Print, ImageExport, PdfExport } from "@syncfusion/ej2-vue-treemap";
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 import { ProductSale } from '../treemap/treemap-data/product';
 
 export default {
 components: {
     'ejs-treemap': TreeMapComponent,
     'ejs-dropdownlist': DropDownListComponent,
-    'ejs-button': ButtonComponent
+    'ejs-button': ButtonComponent,
+    'ejs-textbox': TextBoxComponent 
 },
 data:function(){
 return{

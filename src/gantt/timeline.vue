@@ -1,6 +1,6 @@
 <template>
 <div>
-      <div class="col-md-9 control-section">
+      <div class="col-md-8 control-section">
         <div class="content-wrapper">
         <ejs-gantt ref='gantt' id="GanttContainer" :dataSource = "data"
         :taskFields = "taskFields"
@@ -17,11 +17,15 @@
         </ejs-gantt>
       </div>
     </div>
-        <div class="col-md-3 property-section">
+        <div class="col-md-4 property-section">
         <table id="property" title="Properties" style="width: 100%">
+        <colgroup>
+            <col style="width:30%" />
+            <col style="width:70%" />
+        </colgroup>
         <tr>
             <td style="width: 30%">
-                <div style="padding-top: 8px">Unit width</div>
+                <div>Unit width</div>
             </td>
             <td style="width: 70%;">
                 <div>
@@ -41,7 +45,7 @@
         </tr>
         <tr>
             <td style="width: 30%">
-                <div style="padding-top: 8px">Count</div>
+                <div>Count</div>
             </td>
             <td style="width: 70%;">
                 <div id='numericbox'>
@@ -101,7 +105,7 @@
         </tr>
         <tr>
             <td style="width: 30%">
-                <div style="padding-top: 8px">Count</div>
+                <div>Count</div>
             </td>
             <td style="width: 70%;">
                 <div id='numericbox'>
@@ -142,7 +146,7 @@
         </tr>
               <tr>
           <td style="width: 30%">
-            <div>Enable multiTaskbar</div>
+            <div><strong>Enable multiTaskbar</strong></div>
           </td>
           <td style="width: 70%">
             <div style="padding-top: 0px">
@@ -217,8 +221,8 @@ export default {
                 child: 'subtasks',
             },
             check:'true',
-            projectStartDate: new Date('02/03/2019'),
-            projectEndDate: new Date('03/23/2019'),
+            projectStartDate: new Date('02/03/2024'),
+            projectEndDate: new Date('03/23/2024'),
             timelineSettings: {
                 topTier: {
                     format: 'MMM dd, yyyy',

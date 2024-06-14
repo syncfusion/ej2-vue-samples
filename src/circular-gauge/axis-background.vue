@@ -1,5 +1,5 @@
 <template>
- <div>
+ <main><div>
     <div class="control-section">
         <ejs-circulargauge  ref="circulargauge" :background='background' :load='load' :resized='resized' :loaded='loaded' style='display:block' align='center' :centerY='centerY' id='gauge'>
             <e-axes>
@@ -11,12 +11,13 @@
             </e-axes>
         </ejs-circulargauge>
     </div>
-   <div id="action-description">
+</div>
+   <section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample demonstrates a circular gauge with an axis and a background image set for the axis.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure the axis in the circular gauge with a background image.
         To accomplish this, the <a target="_blank"
@@ -28,8 +29,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-annotations/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 
@@ -51,6 +52,7 @@ export default {
                 width:0
             },
             labelStyle: {
+			    format:'{value} %',
                 font: {
                     size: '0px'
                 }
@@ -65,14 +67,14 @@ export default {
                     length: '25%',
             },
             annotations: [{
-                content: '<div style="margin-top: -45%;"><img src="src/circular-gauge/images/axis-background.png" height="400" width="400" /></div>',
-                radius: '0%', angle: 0, zIndex: '1'
+                content: '<div style="margin-top: -45%;"><img alt="Axis background image" src="src/circular-gauge/images/axis-background.png" height="400" width="400" /></div>',
+                description:'Sub gauge', radius: '0%', angle: 0, zIndex: '1'
             }, {
                 content: '<div id="subGauge" ref="subGaugeRef" style="margin-left: -100%; margin-top: -52%"></div>',
-                radius: '0%', angle: 0, zIndex: '1'
+                description:'Annotation value : 90', radius: '0%', angle: 0, zIndex: '1'
             }, {
                 content: '<div style="color:orange;margin-top: -84px;margin-left: -2px;font-size: 18px;">90</div>',
-                radius: '10%', angle: 0, zIndex: '1'
+                description:'Marker pointer value : 90', radius: '10%', angle: 0, zIndex: '1'
             }
             ],
     }

@@ -70,8 +70,8 @@
             "description": "This demo for Essential JS2 progress bar control",
             "sourceFiles": [
                 {
-                    "displayName": "progress_segment.vue",
-                    "path": "./src/progress-bar/progress_segment.vue"
+                    "displayName": "tooltip.vue",
+                    "path": "./src/progress-bar/tooltip.vue"
                 }
             ]
         },

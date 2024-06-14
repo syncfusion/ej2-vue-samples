@@ -1,5 +1,5 @@
 <template>
- <div>
+ <main><div>
     <div class="control-section">
         <ejs-circulargauge :load='load' :background='background' :resized='resized' ref="gauge" :loaded='loaded' style='display:block' align='center' id='clock'>
             <e-axes>
@@ -13,12 +13,13 @@
             </e-axes>
         </ejs-circulargauge>
     </div>
- <div id="action-description">
+</div>
+ <section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample demonstrates how to create an analog clock that displays the time.
     </p>
-  </div>
-<div id="description">
+  </section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, a clock has been created by adding axis, minor ticks, major ticks, and needles in a circular
         gauge and customizing it accordingly. In addition, the clock ticks, displaying the time in a lively manner.
@@ -28,8 +29,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/getting-started/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 
@@ -88,10 +89,10 @@ export default {
             animation: { enable: false },
             annotations: [{
                 content: '<div id="subGaugeOne" style="margin-left: -100%"></div>',
-                radius: '0%', angle: 290, zIndex: '1'
+                description:'Sub gauge one', radius: '0%', angle: 290, zIndex: '1'
             }, {
                 content: '<div id="subGaugeTwo" style="margin-left: -218%;margin-top: -50%;"></div>',
-                radius: '0%', angle: 90, zIndex: '1'
+                description:'Sub gauge two', radius: '0%', angle: 90, zIndex: '1'
             }
         ],
     }

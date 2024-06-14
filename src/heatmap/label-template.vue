@@ -1,16 +1,17 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
     <div class="content-wrapper">
         <ejs-heatmap id='container' :tooltipSettings='tooltipSettings' :legendSettings='legendSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :dataSourceSettings='dataSourceSettings' :paletteSettings='paletteSettings' :cellSettings='cellSettings' :load='load'></ejs-heatmap>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
        This sample illustrates a comprehensive view of the likelihood and impact of an organization’s risks. Risks that fall into the HeatMap's green zones require no action. Action is required in the yellow areas. Risks that fall into the red zone require immediate action.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>In this example, you can see how to use the <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/cellSettingsModel/#labeltemplate">labelTemplate</a> to display images in the HeatMap cells. The <code>labelTemplate</code> can be used to add any HTML elements into the HeatMap cells, such as images, text, and so on.</p>
     <p>The tooltip is enabled in this example. To see the tooltip in action, hover the mouse over an item or tap an item on touch-enabled devices.</p>
     <br>
@@ -21,8 +22,8 @@
       <a href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/adaptorType/" target='_blank'>Adaptor</a> modules using the <code>provide:{ heatmap:[Tooltip, Adaptor] }</code> method.
     </p>
     <p>More information about label template can be found in this <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/appearance#template">documentation section</a>.</p>   
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip, Adaptor } from "@syncfusion/ej2-vue-heatmap";
@@ -107,7 +108,7 @@ return{
             visible: false
         },
         cellSettings: {
-            labelTemplate: '<div><img src="${image}" style="width: 35px; height: 35px;"/></div>',
+            labelTemplate: '<div><img alt="Description of the label template" src="${image}" style="width: 35px; height: 35px;"/></div>',
             textStyle: {
                 fontFamily: 'inherit'
             }

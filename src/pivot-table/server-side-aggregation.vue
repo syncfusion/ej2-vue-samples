@@ -1,6 +1,6 @@
 <template>
 <div>
-<div class="control-section" style="overflow: auto">
+<div class="control-section">
     <div class="content-wrapper">
         <ejs-pivotview id="pivotview" ref="pivotview" :dataSourceSettings="dataSourceSettings" :width="width" :height="height" :showFieldList="showFieldList" :showGroupingBar="showGroupingBar" :enableVirtualization="enableVirtualization" :dataBound="dataBound" :allowDataCompression="allowDataCompression">        
         </ejs-pivotview>

@@ -21,7 +21,7 @@
                documentation section</a>.
         </p>
 </div>
-    <div>
+    <div aria-label="TreeGrid">
         <ejs-treegrid :dataSource='data' childMapping='Children' :treeColumnIndex='0' :height='380' :rowHeight='83' :rowDataBound='rowDataBound'>
             <e-columns>
                 <e-column field='EmpID' headerText='Employee ID' width='180'></e-column>
@@ -32,13 +32,13 @@
                 <e-column headerText='Year GR' width='180' :template="'template3'" ></e-column>
             </e-columns>
             <template v-slot:template1="{data}">
-               <div :id="`spkline${data.EmployeeID}`"></div>
+               <div :id="`spkline${data.EmployeeID}`" aria-label="Sparkline Chart"></div>
            </template>
            <template v-slot:template2="{data}">
-               <div :id="`spkarea${data.EmployeeID}`"></div>
+               <div :id="`spkarea${data.EmployeeID}`" aria-label="Sparkarea"></div>
            </template>
            <template v-slot:template3="{data}">
-               <div :id="`spkwl${data.EmployeeID}`"></div>
+               <div :id="`spkwl${data.EmployeeID}`" aria-label="Sparkwinloss"></div>
            </template>
         </ejs-treegrid>
     </div>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <main><div>
         <div class="control-section">
             <ejs-circulargauge :load='load' :animationDuration=2000 :background='background' style='display:block' align='center' id='gauge'>
                 <e-axes>
@@ -11,13 +11,14 @@
                 </e-axes>
             </ejs-circulargauge>
         </div>
-<div id="action-description">
+    </div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample shows temperature variations in a circular gauge using multiple ranges. In addition, the needle
         pointer and annotation help in displaying the temperature that has been measured.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure multiple ranges in the circular gauge. The <a
             target="_blank"
@@ -29,8 +30,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-ranges/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 

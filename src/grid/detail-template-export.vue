@@ -6,7 +6,7 @@
     </div>
     <div>
         <ejs-grid id='DetailTemplateExport' ref='grid' :dataSource='data' :detailTemplate ="'detailTemplate'" :toolbar='toolbar' :toolbarClick='toolbarClick'
-        height=350 :exportDetailTemplate="exportDetailTemplate" :allowExcelExport='true' :allowSorting='true' :allowPdfExport='true' >
+        height=350 :exportDetailTemplate="exportDetailTemplate" :allowExcelExport='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :allowPdfExport='true' >
             <e-columns>
                 <e-column field='EmployeeID' headerText='Employee ID' width='125' textAlign='Right'></e-column>
                 <e-column field='FirstName' headerText='Name' width='120'></e-column>
@@ -110,7 +110,7 @@
 </style>
 
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, DetailRow, PdfExport, Sort, ExcelExport, Toolbar, ExportDetailTemplateEventArgs } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, DetailRow, PdfExport, Sort, Filter, ExcelExport, Toolbar, ExportDetailTemplateEventArgs } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { employeeData } from "./data-source";
 import detailTemplate from "./detail-temp.vue";
@@ -127,6 +127,7 @@ export default {
   data: () => {
     return {
       data: employeeData,
+      filterSettings: { type: 'Excel' },
       toolbar: ['ExcelExport', 'PdfExport'],
     };
   },
@@ -183,7 +184,7 @@ export default {
     }
   },
   provide: {
-      grid: [DetailRow, Toolbar, PdfExport, ExcelExport, Sort]
+      grid: [DetailRow, Toolbar, PdfExport, ExcelExport, Sort, Filter]
   }
 }
 </script>

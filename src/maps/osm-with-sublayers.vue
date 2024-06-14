@@ -1,10 +1,10 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
 <div>
 <ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings'>
     <e-layers>
-        <e-layer layerType='OSM'></e-layer>
+        <e-layer :urlTemplate= 'urlTemplate'></e-layer>
         <e-layer type='Sublayer' :animationDuration='animationDuration' :shapeData='shapeData' :shapeSettings='shapeSettings'></e-layer>
     </e-layers>
 </ejs-maps>
@@ -18,12 +18,13 @@
         <a href="https://www.whatarethe7continents.com/biggest-largest-smallest-continents/" target="_blank">Seven Continents</a>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample visualizes the location of Africa continent in the World map.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
             In this example, you can see how to render the geometric layers as sublayer on the OpenStreetMap. The outline of Africa continent is rendered using GeoJSON data on the top of the OpenStreetMap.
         </p>
@@ -32,8 +33,8 @@
             The maps component features are segregated into individual modules by feature. To use the zooming feature, inject the Zoom module using the <code>Maps.Inject(Zoom)</code> method.
         </p>
        
-    </div>
-</div>
+    </section>
+</main>
 </template>
 <script>
 import { MapsComponent, LayersDirective, LayerDirective, Bubble, Zoom, MapsTooltip } from '@syncfusion/ej2-vue-maps';
@@ -47,6 +48,7 @@ components: {
 },
 data:function(){
     return{
+        urlTemplate: 'https://tile.openstreetmap.org/level/tileX/tileY.png',
         titleSettings: {
             text: 'Location of Africa continent in the World map',
             textStyle: {

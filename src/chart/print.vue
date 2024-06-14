@@ -40,7 +40,7 @@
       <p>
         More information on the print can be found in this
         <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/chart/chart-print/#print">documentation
+          href="https://ej2.syncfusion.com/vue/documentation/chart/chart-print/#print" aria-label="Navigate to the documentation for Print in Vue Chart component">documentation
           section</a>.
       </p>
     </div>
@@ -49,56 +49,55 @@
 </template>
 
 <style>
-.e-print-icon::before {
-  content: "\e34b";
-}
-.e-view.material3 .e-print-icon::before,
-.e-view.material3-dark .e-print-icon::before {
-  content: "\e75d";
-}
-.e-view.fabric .e-print-icon::before,
-.e-view.fabric-dark .e-print-icon::before {
-  content: "\e7df";
-}
-
-.e-view.bootstrap .e-print-icon::before {
-  content: "\ebd2";
-}
-
-.e-view.bootstrap4 .e-print-icon::before {
-  content: "\e743";
-}
-
-.e-view.tailwind .e-print-icon::before,
-.e-view.tailwind-dark .e-print-icon::before {
-  content: "\e76c";
-}
-
-.e-view.highcontrast .e-print-icon::before {
-  content: "\ebf9";
-}
-
-.e-view.bootstrap5 .e-print-icon::before,
-.e-view.bootstrap5-dark .e-print-icon::before {
-  content: "\e75d";
-}
-
-.e-view.fluent .e-print-icon::before,
-.e-view.fluent-dark .e-print-icon::before {
-  content: "\e75d";
-}
+ .e-print-icon::before {
+        content: '\e34b';
+    }
+ 
+    .e-view.fabric .e-print-icon::before, .e-view.fabric-dark .e-print-icon::before {
+        content: '\e7df';
+    }
+ 
+    .e-view.bootstrap .e-print-icon::before {
+        content: '\ebd2';
+    }
+ 
+   .e-view.bootstrap4 .e-print-icon::before {
+        content: '\e743';
+    }
+ 
+    .e-view.tailwind .e-print-icon::before, .e-view.tailwind-dark .e-print-icon::before {
+        content: '\e76c';
+    }
+ 
+    .e-view.highcontrast .e-print-icon::before {
+        content: '\ebf9';
+    }
+ 
+    .e-view.bootstrap5 .e-print-icon::before, .e-view.bootstrap5-dark .e-print-icon::before {
+        content: '\e75d';
+    }
+ 
+    .e-view.fluent .e-print-icon::before, .e-view.fluent-dark .e-print-icon::before {
+        content: '\e75d';
+    }
+    .e-view.fluent2 .e-print-icon::before, .e-view.fluent2-dark .e-print-icon::before, .e-view.fluent2-highcontrast .e-print-icon::before {
+        content: '\e75d';
+    }
+    .e-view.material3 .e-print-icon::before, .e-view.material3-dark .e-print-icon::before {
+        content: '\e75d';
+    }
 </style>
 
 <script>
 import { Browser } from "@syncfusion/ej2-base";
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2DarkColors } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Legend, DataLabel } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {
@@ -201,6 +200,12 @@ export default {
       }
       else if (selectedTheme === 'highcontrast') {
         args.fill = pointHighContrastColors[args.point.index % 10];
+      }
+      else if (selectedTheme === 'fluent2') {
+        args.fill = pointFluent2Colors[args.point.index % 10];
+      } 
+      else if (selectedTheme === 'fluent2-dark') {
+        args.fill = pointFluent2DarkColors[args.point.index % 10];
       }
       else {
         args.fill = pointBootstrapColors[args.point.index % 10];

@@ -1,5 +1,5 @@
 <template>
-<div id="map-with-slider">
+<main><div id="map-with-slider">
 <div class="control-section">
     <div>
     <ejs-maps ref="maps" id='mapslider' :load='load' :loaded='loaded' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :annotations='annotations'>
@@ -17,12 +17,13 @@
         <a href="https://en.wikipedia.org/wiki/List_of_North_American_countries_by_population" target="_blank">Population growth in North America</a>
      </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample visualizes the average annual population growth of the countries in the North America continent.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
             In this example, the range color mapping is applied to the shapes based on the population growth of the countries in percentage. The EJ2 Slider control is placed at the bottom of the maps to control the minimum and maximum color ranges.
         </p>
@@ -34,8 +35,8 @@
         <p>
             The maps component features are segregated into individual modules by feature. To use a marker, inject the <code>Marker</code> module using the <code>Maps.Inject(Marker)</code> method, and to use a legend, inject the <code>Legend</code> module.
         </p>
-    </div>
-</div>
+    </section>
+</main>
 </template>
 <style>
     #mapannotation.e-control.e-slider .e-handle {

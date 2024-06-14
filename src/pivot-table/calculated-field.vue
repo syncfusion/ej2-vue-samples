@@ -33,7 +33,13 @@
             <br>
             <br>The pivot table features are segregated into individual modules. To add calculated field, we need to inject
             <code>CalculatedField</code> module into the
-            <code>provide</code> section.</p>
+            <code>provide</code> section.
+          </p><br />
+        <p>
+            More information on the calculated field can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/pivotview/calculated-field">
+            documentation section</a>.
+        </p>
     </div>
 </div>
 </template>

@@ -5,12 +5,12 @@
     </div>
 
     <div>
-        <ejs-grid :dataSource="data" :allowSorting='true'>
+        <ejs-grid :dataSource="data" :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
-                <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right' :headerTemplate="'employeetemplate'"></e-column>
-                <e-column field='FirstName' headerText='Name' width='140'></e-column>
+                <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right' :headerTemplate="'employeetemplate'" :isPrimaryKey='true' :validationRules='employeeidrules'></e-column>
+                <e-column field='FirstName' headerText='Name' width='140' :validationRules='firstnamerules'></e-column>
                 <e-column field='Title' headerText='Title' width='170'></e-column>
-                <e-column field='HireDate' headerText='Hire Date' width='130' format="yMd" textAlign='Right' :headerTemplate="'datetemplate'"></e-column>
+                <e-column field='HireDate' headerText='Hire Date' width='130' format="yMd" textAlign='Right' :headerTemplate="'datetemplate'" editType='datepickeredit'></e-column>
                 <e-column field='ReportsTo' headerText='Reports To' width='120' textAlign='Right'></e-column>
             </e-columns>
             <template v-slot:employeetemplate="{data}">
@@ -41,7 +41,7 @@
 @import "../../styles/Grid/header-template.css";
 </style>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Sort, Toolbar, Edit, Filter } from "@syncfusion/ej2-vue-grids";
 import { employeeData } from "./data-source";
 
 export default {
@@ -53,10 +53,15 @@ export default {
   data: () => {
     return {
       data: employeeData,
+      filterSettings: { type: 'Excel' },
+      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+      employeeidrules: { required: true, number: true },
+      firstnamerules: { required: true, minLength: 5 },
+      toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
     };
   },
   provide: {
-      grid: [Sort]
+      grid: [Sort, Toolbar, Edit, Filter]
   }
 }
 </script>

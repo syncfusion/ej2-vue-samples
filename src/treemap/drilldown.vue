@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="col-lg-9 control-section">
         <ejs-treemap id='container' ref='treemap' align="center" :load='load' :drillStart='drillStart' :tooltipRendering='tooltipRendering' :palette='palette' :titleSettings='titleSettings' :enableDrillDown='enableDrillDown' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :weightValuePath='weightValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings' :levels='levels'></ejs-treemap>
     <div style="float: right; margin-right: 10px;">Source:
@@ -8,7 +8,7 @@
     </div>
     
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%;">
+        <table role="none" id="property" title="Properties" style="width: 100%;">
          <colgroup>
             <col span="1" style="width: 50%;">
             <col span="1" style="width: 50%;">
@@ -65,17 +65,18 @@
             </tr>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of TreeMap sample">
     <p>
         This sample demonstrates drill-down with the continents at the top level followed by regions and countries. By clicking a continent, you can view all the countries available in that continent clearly.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the TreeMap features demonstrated in this sample">
     <p>
         In this example you can see how to render a TreeMap with multiple items and drill it further. Tooltip is enabled in this example. To see the tooltip in action, hover the mouse over an item or tap an item in touch enabled devices.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <style scoped> 
     div.property-text {

@@ -25,7 +25,7 @@
                 </td>
                 <td>
                     <div>
-                        <ejs-dropdownlist id='expandall' ref='expandall' type="text" tabindex="1" :change="onChangeOption" enabled="true" :fields="optionData" :dataSource='options' index=0 value='rowHeaders'></ejs-dropdownlist>
+                        <ejs-dropdownlist id='expandall' ref='expandall' type="text" tabindex="0" :change="onChangeOption" enabled="true" :fields="optionData" :dataSource='options' index=0 value='rowHeaders'></ejs-dropdownlist>
                     </div>
                 </td>
             </tr>
@@ -116,7 +116,12 @@
             <td style="padding-top: 3px;">Allows to expand specific header(s) within the respective field available in the pivot table's row or column axes.
                  It can be achieved by specifying the respective field name and its member(s), aka header name(s), inside the <code>drilledMembers</code> property in the <code>dataSourceSettings</code>.</td>
         </tr>
-    </table>
+    </table><br />
+    <p>
+        More information on the drill down can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/pivotview/drill-down">
+        documentation section</a>.
+    </p>
 </div>
 
 </div>

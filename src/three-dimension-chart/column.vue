@@ -38,7 +38,7 @@
 <script>
 import { Browser, EmitType } from '@syncfusion/ej2-base';
 import { Chart3DComponent, Chart3DSeriesDirective, Chart3DSeriesCollectionDirective, ChartTheme, Chart3D, Category3D, Legend3D, ColumnSeries3D, Tooltip3D, Highlight3D} from "@syncfusion/ej2-vue-charts";
-import { pointFabricColors, pointMaterialDarkColors, pointMaterialColors, pointBootstrap5DarkColors, pointBootstrap5Colors, pointBootstrapColors, pointHighContrastColors, pointFluentDarkColors, pointFluentColors, pointTailwindDarkColors, pointTailwindColors, pointMaterial3Colors, pointMaterial3DarkColors } from './theme-color';
+import { pointFabricColors, pointMaterialDarkColors, pointMaterialColors, pointBootstrap5DarkColors, pointBootstrap5Colors, pointBootstrapColors, pointHighContrastColors, pointFluentDarkColors, pointFluentColors, pointTailwindDarkColors, pointTailwindColors, pointMaterial3Colors, pointMaterial3DarkColors, pointFluent2Colors, pointFluent2DarkColors } from './theme-color';
 
 export default {
   components: {
@@ -82,7 +82,7 @@ export default {
             var selectedTheme = location.hash.split('/')[1];
             selectedTheme = selectedTheme ? selectedTheme : 'Material';
             args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
         },
         pointRender: function(args){
     let selectedTheme = location.hash.split('/')[1];
@@ -115,9 +115,12 @@ export default {
         args.fill = pointTailwindColors[args.point.index % 10];
     } else if (selectedTheme === 'material3') {
         args.fill = pointMaterial3Colors[args.point.index % 10];
-    }
-    else if (selectedTheme === 'material3-dark') {
+    } else if (selectedTheme === 'material3-dark') {
         args.fill = pointMaterial3DarkColors[args.point.index % 10];
+    } else if (selectedTheme === 'fluent2') {
+        args.fill = pointFluent2Colors[args.point.index % 10];
+    } else if (selectedTheme === 'fluent2-dark') {
+        args.fill = pointFluent2DarkColors[args.point.index % 10];
     }
   }
     };

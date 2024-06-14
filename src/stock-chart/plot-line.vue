@@ -34,7 +34,7 @@
         <code>LineSeries</code> is used to represent selected data value.
       </p>
       <p>
-        Stock Chart provides support to 6 types of <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/trend-lines">trendlines</a> namely <code>Linear</code>, <code>Exponential</code>, <code>Logarithmic</code>, <code>Polynomial</code>, <code>Power</code>, <code>Moving Average</code>. By using trendline dropdown button, the required trendline type can be added or removed.
+        Stock Chart provides support to 6 types of <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/trend-lines" aria-label="Navigate to the documentation for Trendlines in Vue Stock Chart component">trendlines</a> namely <code>Linear</code>, <code>Exponential</code>, <code>Logarithmic</code>, <code>Polynomial</code>, <code>Power</code>, <code>Moving Average</code>. By using trendline dropdown button, the required trendline type can be added or removed.
       </p>
       
            <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -82,7 +82,7 @@ import {
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

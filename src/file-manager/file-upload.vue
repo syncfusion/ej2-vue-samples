@@ -69,6 +69,10 @@
     .bootstrap-dark #openBtn {
         top: 30px;
     }
+
+    .fluent2 .fileupload .e-file-select-wrap {
+        padding: 20px 0 20px 20px;
+    }
 </style>
 
 <script>
@@ -80,7 +84,6 @@
     * File Manager real time use case sample
      */
     let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
-    let contextmenuItems = ['Open', '|', 'Cut', 'Copy', 'Delete', 'Rename', '|', 'Details'];
 
     export default {
         components: {
@@ -104,9 +107,9 @@
                 },
                 toolbarSettings: {items: ["NewFolder", "Upload", 'Cut', 'Copy', "Delete", "Rename", "SortBy", "Refresh", "Selection", "View", "Details"]},
                 contextMenuSettings: {
-                    file: this.contextmenuItems,
-                    folder: this.contextmenuItems
-                }
+                    file: ["Cut", "Copy", "|", "Delete", "Download", "Rename", "|", "Details"],
+                    visible: true
+                },
             }
         },
         provide: {

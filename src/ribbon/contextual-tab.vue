@@ -3,86 +3,6 @@
         <div id="ribbonContainer">
             <div id="ribbon">
                 <ejs-ribbon id="contextualTab" ref="ribbonContextualTab" :enablePersistence="true" :fileMenu="fileSettings" :launcherIconClick="launcherIconClicked">
-                    <!-- Contextual Tab 1 -->
-                    <e-ribbon-contextual-tabs>
-                        <e-ribbon-contextual-tab visible=true>
-                            <e-ribbon-tabs>
-                                <e-ribbon-tab id="TableDesign" header="Table Design">
-                                    <e-ribbon-groups>
-                                        <e-ribbon-group header="Table Style" groupIconCss="e-icons e-field-settings">
-                                            <e-ribbon-collections>
-                                                <e-ribbon-collection>
-                                                    <e-ribbon-items>
-                                                        <e-ribbon-item type="DropDown" :allowedSizes="largeSize" :dropDownSettings="tableDropdown">
-                                                        </e-ribbon-item>
-                                                    </e-ribbon-items>
-                                                </e-ribbon-collection>
-                                            </e-ribbon-collections>
-                                        </e-ribbon-group>
-                                        <e-ribbon-group header="Borders Style" groupIconCss="e-icons e-field-settings">
-                                            <e-ribbon-collections>
-                                                <e-ribbon-collection>
-                                                    <e-ribbon-items>
-                                                        <e-ribbon-item type="DropDown" :allowedSizes="largeSize" :dropDownSettings="borderDropdown">
-                                                        </e-ribbon-item>
-                                                    </e-ribbon-items>
-                                                </e-ribbon-collection>
-                                            </e-ribbon-collections>
-                                        </e-ribbon-group>
-                                    </e-ribbon-groups>
-                                </e-ribbon-tab>
-                                <e-ribbon-tab id="TableLayout" header="Table Layout">
-                                    <e-ribbon-groups>
-                                        <e-ribbon-group header="Data" groupIconCss="e-icons e-custom-sort">
-                                            <e-ribbon-collections>
-                                                <e-ribbon-collection>
-                                                    <e-ribbon-items>
-                                                        <e-ribbon-item type="Button" :allowedSizes="largeSize" :buttonSettings="sortAscendingButton">
-                                                        </e-ribbon-item>
-                                                    </e-ribbon-items>
-                                                </e-ribbon-collection>
-                                                <e-ribbon-collection>
-                                                    <e-ribbon-items>
-                                                        <e-ribbon-item type="Button" :allowedSizes="largeSize" :buttonSettings="sortDescendingButton">
-                                                        </e-ribbon-item>
-                                                    </e-ribbon-items>
-                                                </e-ribbon-collection>
-                                            </e-ribbon-collections>
-                                        </e-ribbon-group>
-                                        <e-ribbon-group header="Merge" groupIconCss="e-icons e-merge-cells">
-                                            <e-ribbon-collections>
-                                                <e-ribbon-collection>
-                                                    <e-ribbon-items>
-                                                        <e-ribbon-item type="DropDown" :allowedSizes="largeSize" :dropDownSettings="mergeDropdown">
-                                                        </e-ribbon-item>
-                                                    </e-ribbon-items>
-                                                </e-ribbon-collection>
-                                            </e-ribbon-collections>
-                                        </e-ribbon-group>
-                                    </e-ribbon-groups>
-                                </e-ribbon-tab>
-                            </e-ribbon-tabs>
-                        </e-ribbon-contextual-tab>
-                        <!-- Contextual Tab 2 -->
-                        <e-ribbon-contextual-tab visible=false>
-                            <e-ribbon-tabs>
-                                <e-ribbon-tab id="Format" header="Picture Format">
-                                    <e-ribbon-groups>
-                                        <e-ribbon-group header="Background" groupIconCss="e-icons e-image">
-                                            <e-ribbon-collections>
-                                                <e-ribbon-collection>
-                                                    <e-ribbon-items>
-                                                        <e-ribbon-item type="Button" :allowedSizes="largeSize" :buttonSettings="backgroundButton">
-                                                        </e-ribbon-item>
-                                                    </e-ribbon-items>
-                                                </e-ribbon-collection>
-                                            </e-ribbon-collections>
-                                        </e-ribbon-group>
-                                    </e-ribbon-groups>
-                                </e-ribbon-tab>
-                            </e-ribbon-tabs>
-                        </e-ribbon-contextual-tab>
-                    </e-ribbon-contextual-tabs>
                     <e-ribbon-tabs>
                         <e-ribbon-tab header="Home">
                         <e-ribbon-groups>
@@ -286,7 +206,7 @@
                                 </e-ribbon-collection>
                             </e-ribbon-collections>
                             </e-ribbon-group>
-                            <e-ribbon-group header="show" :isCollapsible=false>
+                            <e-ribbon-group header="Show" :isCollapsible=false>
                             <e-ribbon-collections>
                                 <e-ribbon-collection>
                                 <e-ribbon-items>
@@ -313,6 +233,86 @@
                         </e-ribbon-groups>
                         </e-ribbon-tab>
                     </e-ribbon-tabs>
+                    <!-- Contextual Tab 1 -->
+                    <e-ribbon-contextual-tabs>
+                        <e-ribbon-contextual-tab :visible="true">
+                            <e-ribbon-tabs>
+                                <e-ribbon-tab id="TableDesign" header="Table Design">
+                                    <e-ribbon-groups>
+                                        <e-ribbon-group header="Table Style" groupIconCss="e-icons e-field-settings">
+                                            <e-ribbon-collections>
+                                                <e-ribbon-collection>
+                                                    <e-ribbon-items>
+                                                        <e-ribbon-item type="DropDown" :allowedSizes="largeSize" :dropDownSettings="tableDropdown">
+                                                        </e-ribbon-item>
+                                                    </e-ribbon-items>
+                                                </e-ribbon-collection>
+                                            </e-ribbon-collections>
+                                        </e-ribbon-group>
+                                        <e-ribbon-group header="Borders Style" groupIconCss="e-icons e-field-settings">
+                                            <e-ribbon-collections>
+                                                <e-ribbon-collection>
+                                                    <e-ribbon-items>
+                                                        <e-ribbon-item type="DropDown" :allowedSizes="largeSize" :dropDownSettings="borderDropdown">
+                                                        </e-ribbon-item>
+                                                    </e-ribbon-items>
+                                                </e-ribbon-collection>
+                                            </e-ribbon-collections>
+                                        </e-ribbon-group>
+                                    </e-ribbon-groups>
+                                </e-ribbon-tab>
+                                <e-ribbon-tab id="TableLayout" header="Table Layout">
+                                    <e-ribbon-groups>
+                                        <e-ribbon-group header="Data" groupIconCss="e-icons e-custom-sort">
+                                            <e-ribbon-collections>
+                                                <e-ribbon-collection>
+                                                    <e-ribbon-items>
+                                                        <e-ribbon-item type="Button" :allowedSizes="largeSize" :buttonSettings="sortAscendingButton">
+                                                        </e-ribbon-item>
+                                                    </e-ribbon-items>
+                                                </e-ribbon-collection>
+                                                <e-ribbon-collection>
+                                                    <e-ribbon-items>
+                                                        <e-ribbon-item type="Button" :allowedSizes="largeSize" :buttonSettings="sortDescendingButton">
+                                                        </e-ribbon-item>
+                                                    </e-ribbon-items>
+                                                </e-ribbon-collection>
+                                            </e-ribbon-collections>
+                                        </e-ribbon-group>
+                                        <e-ribbon-group header="Merge" groupIconCss="e-icons e-merge-cells">
+                                            <e-ribbon-collections>
+                                                <e-ribbon-collection>
+                                                    <e-ribbon-items>
+                                                        <e-ribbon-item type="DropDown" :allowedSizes="largeSize" :dropDownSettings="mergeDropdown">
+                                                        </e-ribbon-item>
+                                                    </e-ribbon-items>
+                                                </e-ribbon-collection>
+                                            </e-ribbon-collections>
+                                        </e-ribbon-group>
+                                    </e-ribbon-groups>
+                                </e-ribbon-tab>
+                            </e-ribbon-tabs>
+                        </e-ribbon-contextual-tab>
+                        <!-- Contextual Tab 2 -->
+                        <e-ribbon-contextual-tab :visible="false">
+                            <e-ribbon-tabs>
+                                <e-ribbon-tab id="Format" header="Picture Format">
+                                    <e-ribbon-groups>
+                                        <e-ribbon-group header="Background" groupIconCss="e-icons e-image">
+                                            <e-ribbon-collections>
+                                                <e-ribbon-collection>
+                                                    <e-ribbon-items>
+                                                        <e-ribbon-item type="Button" :allowedSizes="largeSize" :buttonSettings="backgroundButton">
+                                                        </e-ribbon-item>
+                                                    </e-ribbon-items>
+                                                </e-ribbon-collection>
+                                            </e-ribbon-collections>
+                                        </e-ribbon-group>
+                                    </e-ribbon-groups>
+                                </e-ribbon-tab>
+                            </e-ribbon-tabs>
+                        </e-ribbon-contextual-tab>
+                    </e-ribbon-contextual-tabs>                    
                 </ejs-ribbon>
             </div>
             <div id="contextualRibbonPlaceHolder" @click="handleRibbonPlaceHolderClick">
@@ -403,17 +403,21 @@
           ],
           select:(args) => { this.selectMenuItem(args) }
         },
-        tableDropdownOptions: [{ text: "Header Row" }, { text: "Banded Rows" }, { text: "Banded Columns" }],
-        borderDropdownOptions: [
-            { text: 'Border Right', iconCss: 'e-icons e-border-right' },
-            { text: 'Border Left', iconCss: 'e-icons e-border-left' },
-            { text: 'Border Bottom', iconCss: 'e-icons e-border-bottom' },
-            { text: 'Border Top', iconCss: 'e-icons e-border-top' }
-        ],
-        mergeDropdownOptions: [ { text: 'Merge Cells', iconCss: 'e-icons e-merge-cells' }, { text: 'Split Cells', iconCss: 'e-icons e-split-horizontal' } ],
-        tableDropdown: { isDropDownButton: true, iconCss: "e-icons e-field-settings", content: "Table Style", items: this.tableDropdownOptions, select: (args) => { this.updateContent("Table Style -> " + args.item.text); } },
-        borderDropdown: { isDropDownButton: true, iconCss: "e-icons e-border-all", content: "Borders", items: this.borderDropdownOptions, select: (args) => { this.updateContent("Borders -> " + args.item.text); } },
-        mergeDropdown: { isDropDownButton: true, iconCss: "e-icons e-merge-cells", content: "Merge", items: this.mergeDropdownOptions, select: (args) => { this.updateContent("Merge -> " + args.item.text); } },
+        tableDropdown: {
+            iconCss: 'e-icons e-field-settings', content: 'Table Style', isDropDownButton: true,
+            items: [{ text: 'Header Row' }, { text: 'Banded Rows' }, { text: 'Banded Columns' }],
+            select: (args) => { this.updateContent("Table Style -> " + args.item.text)}
+        },
+        borderDropdown: {
+            iconCss: 'e-icons e-border-all', content: 'Borders', isDropDownButton: true,
+            items: [{ text: 'Border Right', iconCss: 'e-icons e-border-right' }, { text: 'Border Left', iconCss: 'e-icons e-border-left' }, { text: 'Border Bottom', iconCss: 'e-icons e-border-bottom' }, { text: 'Border Top', iconCss: 'e-icons e-border-top' }],
+            select: (args) => { this.updateContent("Borders -> " + args.item.text); }
+        },
+        mergeDropdown: {
+            iconCss: 'e-icons e-merge-cells', content: 'Merge', isDropDownButton: true,
+            items: [{ text: 'Merge Cells', iconCss: 'e-icons e-merge-cells' }, { text: 'Split Cells', iconCss: 'e-icons e-split-horizontal' }],
+            select: (args) => { this.updateContent("Merge -> " + args.item.text); }
+        },
         sortAscendingButton: { iconCss: "e-icons e-sort-ascending", content: "Sort Table Ascending", clicked: () => { this.updateContent("Sort Table Ascending"); } },
         sortDescendingButton: { iconCss: "e-icons e-sort-descending", content: "Sort Table Descending", clicked: () => { this.updateContent("Sort Table Descending"); } },
         backgroundButton: { iconCss: "e-icons e-image", content: "Remove Background", clicked: () => { this.updateContent("Remove Background"); } },
@@ -477,7 +481,7 @@
           iconCss: 'e-icons e-search', content: 'Find',
           items: [
             { text: 'Find', iconCss: 'e-icons e-search' },
-            { text: 'Advanced find', iconCss: 'e-icons e-search' },
+            { text: 'Advanced Find', iconCss: 'e-icons e-search' },
             { text: 'Go to', iconCss: 'e-icons e-arrow-right' }
           ],
           select:(args) => { this.updateContent( "Find -> " + args.item.text)},

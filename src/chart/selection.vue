@@ -20,10 +20,10 @@
         <table id="property" title="Properties" style="width: 100%">
           <tr id style="height: 50px">
             <td style="width: 80%">
-              <div>Enable Multi-selection:</div>
+              <div id="multiSelection">Enable Multi-selection:</div>
             </td>
             <td style="width: 50%; padding-left: 10px; padding-right:10px">
-              <input type="checkbox" id="multiselect" @change="check">
+              <input type="checkbox" id="multiselect" @change="check" aria-labelledby="Checkbox unchecked">
             </td>
           </tr>
           <tr style="height: 50px">
@@ -46,10 +46,10 @@
           </tr>
           <tr id style="height: 50px">
             <td style="width: 80%">
-              <div>Enable Highlight:</div>
+              <div id="highLight">Enable Highlight:</div>
             </td>
             <td style="width: 50%; padding-left: 10px; padding-right:10px">
-              <input type="checkbox" id="highlightCheckbox" style="margin-top: 15px" @change="highlightPatternChange">
+              <input type="checkbox" id="highlightCheckbox" style="margin-top: 15px" @change="highlightPatternChange" aria-labelledby="Checkbox unchecked">
             </td>
           </tr>
           <tr style="height: 50px">
@@ -122,7 +122,7 @@
       <p>
         More information on the selection can be found in this
         <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/chart/selection/">documentation
+          href="https://ej2.syncfusion.com/vue/documentation/chart/selection/" aria-label="Navigate to the documentation for Selection in Vue Chart component">documentation
           section</a>.
       </p>
     </div>
@@ -153,7 +153,7 @@ let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

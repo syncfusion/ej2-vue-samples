@@ -106,7 +106,6 @@
 #uploader-pdfviewer {
     display: none;
 }
-
 .flex-container {
     display: flex;
     justify-content: flex-end;
@@ -140,7 +139,6 @@
     Width: 40px;
     Height: 24px;
 }
-
 </style>
 <script>
 import { UploaderComponent } from "@syncfusion/ej2-vue-inputs";

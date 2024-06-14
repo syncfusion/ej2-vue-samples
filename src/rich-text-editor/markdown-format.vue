@@ -60,6 +60,8 @@
   }
   .fluent .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .fluent-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .fluent2 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .fluent2-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .tailwind .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .tailwind-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .bootstrap5 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
@@ -74,6 +76,8 @@
   .bootstrap5-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .fluent .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .fluent-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .fluent2 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .fluent2-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .material3 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .material3-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before {
       content: '\e7de';
@@ -84,6 +88,7 @@
  
   import { RichTextEditorComponent, Toolbar, Link, Image, Table, MarkdownFormatter, MarkdownEditor } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from "@syncfusion/ej2-vue-base";
+  import { marked } from 'marked';
   
   export default {
     components: {
@@ -97,12 +102,13 @@
         textArea: null,
         previewTextArea: null,
         editorMode: "Markdown",
+        placeholder : "Enter your text here...",
         toolbarSettings: {
-          items: ["Bold", "Italic", "StrikeThrough", "|", "Formats", "OrderedList", "UnorderedList", "|", "CreateLink", "Image", "|",
+          items: ["Bold", "Italic", "StrikeThrough", "|", "Formats", 'Blockquote', "OrderedList", "UnorderedList", "|", "CreateLink", "Image", "|",
             {
               tooltipText: "Preview",
               template:
-                '<button id="preview-code" class="e-tbar-btn e-control e-btn e-icon-btn">' +
+                '<button id="preview-code" class="e-tbar-btn e-control e-btn e-icon-btn" aria-label="Preview Code">' +
                 '<span class="e-btn-icon e-icons e-md-preview"></span></button>'
             }, "Undo", "Redo"
           ]
@@ -128,9 +134,9 @@
         this.mdsource.onclick = e => {
           this.fullPreview();
           if (e.currentTarget.classList.contains("e-active")) {
-            this.$refs.rteInstance.disableToolbarItem(["Bold", "Italic", "StrikeThrough", "Formats", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
+            this.$refs.rteInstance.disableToolbarItem(["Bold", "Italic", "StrikeThrough", "Formats", "Blockquote", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
           } else {
-            this.$refs.rteInstance.enableToolbarItem(["Bold", "Italic", "StrikeThrough", "Formats", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
+            this.$refs.rteInstance.enableToolbarItem(["Bold", "Italic", "StrikeThrough", "Formats", "Blockquote", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
           }
         };
       },

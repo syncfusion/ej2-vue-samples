@@ -1,5 +1,5 @@
 <template>
-   <div class="control-section">
+   <main><div class="control-section">
         <div align='center'>
             <ejs-lineargauge :load='load' :animationDuration=2000 :background='background' style='display:block' :container= 'container' align='center' id='defaultContainer' :orientation='orientation'>
                 <e-annotations>
@@ -18,12 +18,13 @@
                 </e-axes>
             </ejs-lineargauge>
         </div>
-<div id="action-description">
+    </div>
+<section id="action-description" aria-label="Description of Linear Gauge sample">
     <p>
         This sample shows a linear gauge that resembles a progress bar and indicates a task completion rate of 41%.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Linear Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure a new progress bar using the linear gauge. This can be accomplished by combining axis, pointer, and annotation.
     </p>
@@ -31,8 +32,8 @@
         More information on the linear gauge can be found in this
         <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/getting-started/">documentation section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { LinearGaugeComponent, AxisDirective, AxesDirective, PointersDirective, PointerDirective, AnnotationsDirective, AnnotationDirective, Annotations } from "@syncfusion/ej2-vue-lineargauge";

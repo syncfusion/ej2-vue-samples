@@ -24,7 +24,7 @@
     </div>
 
     <div style="float: right; margin-right: 10px;">Source:
-    <a href=" http://carsalesbase.com/global-car-sales-2017" target="_blank">carsalesbase.com</a>
+    <a href=" http://carsalesbase.com/global-car-sales-2017" target="_blank" aria-label="Navigate to the documentation for car sales base">carsalesbase.com</a>
 </div>
 </div>
 
@@ -236,7 +236,7 @@ methods:{
     load:function(args){
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast') ;
+        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast') ;
     },
     /* custom code end */
     // Code for Property Panel

@@ -19,7 +19,7 @@
                         <div>Column</div>
                     </td>
                     <td style="width: 70%; padding-left: 10px; padding-right:10px;">
-                        <ejs-dropdownlist width='100px' ref='columns' id='columns' :dataSource='columnNames' value='price' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
+                        <ejs-dropdownlist width='110px' ref='columns' id='columns' :dataSource='columnNames' value='price' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
                     </td>
                 </tr>
                 <tr style="height: 50px">

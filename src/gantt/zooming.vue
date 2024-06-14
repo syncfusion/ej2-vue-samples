@@ -24,19 +24,21 @@
        <p>
         The sample demonstrates the zooming support in Gantt chart. 
             You can zoom in or zoom out the project timeline dynamically with following toolbar buttons.
-
+        <ul>
         <li><code>ZoomIn</code> - To perform zoom in action on Gantt timeline.</li>
         <li><code>ZoomOut </code> - To perform zoom out action on Gantt timeline.</li>
         <li><code>ZoomToFit </code> - To show all tasks with timeline fit into available chart width.</li>
-        
+        </ul>
         The zooming feature enables you to view the tasks in the project clearly from minute to year timespan. You need to include 
         <code>ZoomIn</code>, <code>ZoomOut </code> and <code>ZoomToFit </code> buttons in the toolbar for performing zooming actions in Gantt chart.
+        <ul>
         <li><code>ZoomIn</code> - If the user clicks on the <code>ZoomIn</code> icon we have increased the timeline cell width, 
             when the cell size exceeds the specified range then we have changed the timeline view mode.</li>
         <li><code>ZoomOut </code> - If the user clicks on the <code>ZoomOut</code> icon we have decrease the timeline cell width, when the cell size falls
              behind the specified range then we have changed the timeline view mode based on the zooming levels.</li>
         <li><code>ZoomToFit </code> - In project, if the tasks are rendered in different time ranges, when the user clicks on the  <code>ZoomToFit</code> icon, 
             then all the tasks are rendered within the current viewable chart container width.</li>
+        </ul>
     </p>
     <p>
         To use a zoom support related icons, inject the <code>Toolbar</code> module into the <code>provide</code> section.
@@ -67,8 +69,8 @@ export default {
         child: "subtasks"
       },
       toolbar: ["ZoomIn", "ZoomOut", "ZoomToFit"],
-      projectStartDate: new Date("03/24/2019"),
-      projectEndDate: new Date("04/28/2019"),
+      projectStartDate: new Date("03/24/2024"),
+      projectEndDate: new Date("04/28/2024"),
       columns: [
                 { field: 'TaskID'},
                 { field: 'TaskName', width: '250' },

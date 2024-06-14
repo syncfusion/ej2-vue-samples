@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
             <ejs-circulargauge ref="circulargauge" :load='load' style='display:block' align='center' id='direction-container' :axisLabelRender='axisLabelRender'>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <table id="property" role="none" title="Properties" style="width: 100%; margin-left: -10px;">
          <colgroup>
             <col span="1" style="width: 50%;">
             <col span="1" style="width: 50%;">
@@ -45,13 +45,14 @@
             </tbody>
         </table>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of Circular Gauge sample">
         <p>
             This sample illustrates how to make a direction compass by using the features in gauge. Color of the needle and direction labels can be customized by using options.
         </p>
-    </div>
+    </section>
 
-    <div id="description">
+    <section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
         <p>
             Circular gauge can be customized as per a user requirement. In this example, a direction compass has been depicted by adding <code>needles</code> and by customizing the <code>labels</code> to show the direction.
         </p>
@@ -59,8 +60,8 @@
             More information on the needle and labels can be found in this
             <a target="_blank" href="http://ej2.syncfusion.com/documentation"> documentation section</a>.
         </p>
-    </div>
-</div>
+    </section>
+</main>
 </template>
 
 <script>

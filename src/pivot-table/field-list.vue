@@ -30,6 +30,11 @@
     <p>
         <strong>NOTE:</strong> To enable calculated field, inject
         <code> CalculatedField</code>
+    </p><br />
+    <p>
+        More information on the field list can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/pivotview/field-list">
+        documentation section</a>.
     </p>
 </div>
 

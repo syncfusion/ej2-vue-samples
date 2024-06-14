@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div id="inversed">
 <div class="control-section col-lg-9">
     <div>
         <div class="content-wrapper" style='width:99%'>
@@ -11,7 +11,7 @@
 </div>
 </div>
 <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%;margin-left: -10px;">
+        <table role="none" id="property" title="Properties" style="width: 100%;margin-left: -10px;">
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 40%;">
@@ -26,12 +26,13 @@
             </tbody>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample illustrates the population growth rate of the most populous countries over the years. The data label is disabled in this sample, the tooltip displays the data point values.  In property panel, the options are available to reverse the origin of the axes by means of checkbox for each axis.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         In this example, you can see how to reverse the axis origin for both axes, once the axis origin has been reversed the axis data will be displayed inverted. You can reverse the axis origin by enabling the <a href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/axisModel/#isinversed" target="_blank">isInversed </a> property for each axis. 
     </p>
@@ -43,9 +44,16 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
      </p>
-</div>
-</div>
+</section>
+</main>
 </template>
+<style scoped>
+
+    .e-view.fluent2 #inversed #property, .e-view.fluent2-dark #inversed #property {
+        margin-left: -20px !important; 
+    }
+
+</style>
 <script>
 import { HeatMapComponent, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";

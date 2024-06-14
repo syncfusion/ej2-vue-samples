@@ -7,7 +7,7 @@
         <div id="action-description">
           <p>
             This sample demonstrates the basic rendering of the
-            <a href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component by binding
+            <a aria-label="Carousel geeting started" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component by binding
             <code>dataSource</code> property.
           </p>
         </div>
@@ -88,7 +88,7 @@ var productVue = app.component("product", {
     '<div class="card">' +
     '<img class="card-img-top" :src="getImage" :alt="getAlt" style="height:210px;width:100%;" />' +
     '<div class="card-body" style="padding:1rem;">' +
-    "<h5>{{data.Title}}</h5>" +
+    "<h1>{{data.Title}}</h1>" +
     '<p class="card-text">{{data.Content}}</p>' +
     "</div>" +
     "</div>",

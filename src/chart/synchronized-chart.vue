@@ -76,7 +76,7 @@
         <p>
             More information on the user interaction can be found in this
             <a target="_blank"
-                href="https://ej2.syncfusion.com/vue/documentation/chart/cross-hair-and-track-ball">documentation
+                href="https://ej2.syncfusion.com/vue/documentation/chart/cross-hair-and-track-ball" aria-label="Navigate to the documentation for Crosshair and Trackball in Vue Chart component">documentation
                 section</a>.
         </p>
     </div>
@@ -103,7 +103,7 @@ import { synchronizedData } from './financial-data'
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 let zoomFactor = 0;
 let zoomPosition = 0;
@@ -355,7 +355,7 @@ export default {
             let selectedTheme = location.hash.split('/')[1];
             selectedTheme = selectedTheme ? selectedTheme : 'Material';
             args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
             let themeColor = [];
             let materialColors = ['#00bdae', '#404041', '#357cd2', '#e56590'];
             let materialDarkColors = ['#9ECB08', '#56AEFF', '#C57AFF', '#61EAA9'];
@@ -371,6 +371,8 @@ export default {
             let fabricdarkColors = ['#4472c4', '#ed7d31', '#ffc000', '#70ad47'];
             let material3Colors = ['#6355C7', '#00AEE0', '#FFB400', '#F7523F'];
             let material3DarkColors = ['#4EAAFF', '#FA4EAB', '#FFF500', '#17EA58'];
+            let fluent2Colors = ['#6200EE', '#09AF74', '#0076E5', '#CB3587'];
+            let fluent2DarkColors = ['#9BB449', '#2A72D5', '#43B786', '#3F579A'];
             // check the theme
             if (args.chart.theme === 'MaterialDark') {
                 themeColor = materialDarkColors;
@@ -416,6 +418,12 @@ export default {
             }
             else if (args.chart.theme === 'Material3Dark') {
                 themeColor = material3DarkColors;
+            }
+            else if (args.chart.theme === 'Fluent2') {
+                themeColor = fluent2Colors;
+            }
+            else if (args.chart.theme === 'Fluent2Dark') {
+                themeColor = fluent2DarkColors;
             }
             else {
                 themeColor = fluentColors;

@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
     <div class="content-wrapper">
         <ejs-heatmap id='container' :tooltipSettings='tooltipSettings' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :dataSourceSettings='dataSourceSettings' :cellSettings='cellSettings' :legendSettings='legendSettings' :paletteSettings='paletteSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
@@ -8,12 +8,13 @@
         <a href="https://en.wikipedia.org" target='_blank'>https://en.wikipedia.org/</a>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample illustrates the number of commercial air craft accidents and the fatalities across the world between 2012 and 2017. Each data point interprets the accident count and the fatality associated with the accident, the size of the bubble depicts the accident count and the shade of the bubble depicts the fatality count.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         In this example, you can see how to map more than one data for each data point or cell of the bubble heatmap. The <code>size</code> and <code>shade</code> parameters of the bubble is used to depict the data source values. The legend will be displayed only for the shade parameter of the bubble. For JSON data, you can specify which data source value should be mapped to either size or shade of the bubble parameters using the <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/dataModel/#bubbledatamapping">bubbleDataMapping</a> property. The data source field should be mapped to the <a target='_blank' href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/bubbleDataModel/#size">size</a> and <a target='_blank' href="https://ej2.syncfusion.com/javascript/documentation/api/heatmap/bubbleDataModel/#color">color</a> properties of the <code>bubbleDataMapping</code> property.
     </p>
@@ -25,8 +26,8 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a>, <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> and 
       <a href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/adaptorType/" target='_blank'>Adaptor</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend, Adaptor] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip, Legend, Adaptor } from "@syncfusion/ej2-vue-heatmap";

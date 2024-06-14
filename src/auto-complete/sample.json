@@ -37,10 +37,20 @@
             "url": "object-value-binding",
             "name": "Object Value Binding",
             "category": "AutoComplete",
-            "type": "new",
             "description": "This example demonstrates how to bind with data source in the Vue autocomplete component.",
             "sourceFiles":[
                 { "displayName": "object-value-binding.vue", "path":"src/auto-complete/object-value-binding.vue" },
+                { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "disabled-items",
+            "name": "Disabled Items",
+            "category": "AutoComplete",
+            "type": "new",
+            "description": "This example demonstrates the disabled items of Vue autocomplete component.",
+            "sourceFiles":[
+                { "displayName": "disabled-items.vue", "path":"src/auto-complete/disabled-items.vue" },
                 { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 
             ]
         },

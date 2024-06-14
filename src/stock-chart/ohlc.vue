@@ -33,7 +33,7 @@
     </div>
 
     <div id="action-description">
-      <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-stock-chart">Vue Stock Chart</a> example visualizes the AAPL stock price with OHLC chart. Tooltip and crosshair show the information about the data and period.</p>
+      <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-stock-chart" aria-label="Vue Stock Chart in OHLC">Vue Stock Chart</a> example visualizes the AAPL stock price with OHLC chart. Tooltip and crosshair show the information about the data and period.</p>
     </div>
     <div id="description">
       <p>
@@ -51,7 +51,7 @@
       </p>
       <p>
         More information about the series type can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/series-types">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/series-types" aria-label="Navigate to the documentation for Vue Stock Chart Series Types">documentation section</a>.
       </p>
 
     </div>
@@ -91,7 +91,7 @@ import {
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

@@ -8,8 +8,8 @@
               <div id="list-container">
                   <div class="tabContainer">
                       <!-- Tab element -->
-                      <div id="tab" tabindex="1">
-                          <ejs-tab id="tab_default" ref="listTab" tabindex="1" :selected='onSelected'>
+                      <div id="tab" tabindex="0">
+                          <ejs-tab id="tab_default" ref="listTab" tabindex="0" :selected='onSelected'>
                               <e-tabitems>
                                   <e-tabitem :header='tabHeader[0]' content="#all">
                                   </e-tabitem>

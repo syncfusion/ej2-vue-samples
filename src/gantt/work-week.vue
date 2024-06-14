@@ -19,21 +19,21 @@
     </div>
         <div class="col-md-4 property-section">
             <table id="property" title="Properties" style="width: 100%;">
-        <colgroup>
-            <col style="width:30%" />
-            <col style="width:70%" />
-        </colgroup>
-        <tr>
+                <colgroup>
+                    <col style="width:30%" />
+                    <col style="width:70%" />
+                </colgroup>
+                <tr>
                     <td style="width: 30%">
                         <div>Working Days</div>
                     </td>
                     <td style="width: 70%">
-                    <div style="padding-top: 0px">
+                    <div style="padding-top: 0px; width: 210px;">
                         <ejs-multiselect ref='multiselect' id='WorkingDays' :dataSource='workDays' :value='defaultWeek' :fields='workFields' :select="selectWeek" :removed="removeWeek" mode='CheckBox' :showDropDownIcon='showDropDownIcon'  :popupHeight='popHeight'></ejs-multiselect>
                     </div>
                     </td>
-        </tr>
-    </table>
+                 </tr>
+            </table>
         </div>
     <div id="action-description">
     <p>This sample visualizes the support for changing different set of working days in a week. The selected working days in drop down list will be applied to Gantt chart.</p>
@@ -87,12 +87,12 @@ export default {
                 leftLabel: 'TaskName'
             },
             splitterSettings: {
-                columnIndex: 2
+                columnIndex: 1
             },
             gridLines: "Both",
             workWeek: ["Monday", "Tuesday", "Wednesday","Thursday","Friday"],
-            projectStartDate: new Date('03/24/2019'),
-            projectEndDate: new Date('07/06/2019'),
+            projectStartDate: new Date('03/24/2024'),
+            projectEndDate: new Date('07/06/2024'),
             workFields: { text: 'day', value: 'id' },
             workDays: [
                 { id: 'Sunday', day: 'Sunday' },

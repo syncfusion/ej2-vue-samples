@@ -127,7 +127,7 @@ beforeCreate: function() {
                   gTemplate: '<div class="e-list-wrapper e-list-avatar">' +
             '<span class="e-avatar e-avatar-circle ${icon} ${$imgUrl ? \'hideUI\' : \'showUI\' }">' +
             '${icon}</span> <img class="e-avatar e-avatar-circle ${$imgUrl ? \'showUI\' : \'hideUI\' }" ' +
-            'src="${imgUrl}" />' +
+            'src="${imgUrl}" alt="${name}" />' +
             '<span class="e-list-content">${name}</span></div>',
             listData: dataSource.data1,
             cssClass: 'e-list-template',

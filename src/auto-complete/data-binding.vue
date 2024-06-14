@@ -3,15 +3,15 @@
     <div>
         <div class="col-lg-9 autocomplete_databinding control-section ">
             <div id='local' class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
-                <div style="width: 250px;margin: 0 auto;">
-                    <h4> Local Data</h4>
+                <div class='drop-down-list-content'>
+                <label class="h4"> Local Data</label>
                     <ejs-autocomplete id='country' :dataSource='countries' :autofill='autofill' :fields='localFields' filterType='StartsWith'
                         :placeholder='localWaterMark'></ejs-autocomplete>
                 </div>
             </div>
             <div id='remote' class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
-                <div style="width: 250px; margin: 0 auto;">
-                    <h4>Remote Data</h4>
+                <div class='drop-down-list-content'>
+                <label class="h4">Remote Data</label>
                     <ejs-autocomplete id='products' :dataSource='data' :suggestionCount='suggestionCount' filterType='StartsWith' :fields='remoteFields'
                         :autofill='autofill' :query='query' :placeholder='remoteWaterMark' sortOrder='Ascending'></ejs-autocomplete>
                 </div>
@@ -63,6 +63,15 @@
         margin: 0 auto;
         min-width: 185px;
         padding: 25px 0px;
+    }
+    .drop-down-list-content {
+        margin: 0 auto;
+        width: 250px;
+    }
+    .drop-down-list-content .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
     }
 
     .control-label {

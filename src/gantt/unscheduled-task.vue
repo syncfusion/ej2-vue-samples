@@ -74,8 +74,8 @@ export default {
           columnIndex: 4
         },
         allowUnscheduledTasks: true,
-        projectStartDate: new Date('01/01/2019'),
-        projectEndDate: new Date('01/20/2019')
+        projectStartDate: new Date('01/01/2024'),
+        projectEndDate: new Date('01/20/2024')
     };
   },
   provide: {
@@ -89,14 +89,14 @@ export default {
             EndDate: null,
             TaskType: ''
         };
-        this.$refs.unscheduleGantt.addRecord(data);
+         this.$refs.unscheduleGantt.addRecord(data);
     }
   }
 }
 </script>
 
 <style scoped>
-    #unscheduledGantt /deep/  .e-add-icon:before {
+   #unscheduledGantt /deep/  .e-add-icon:before {
         content: "\e506"
     }
     .bootstrap4 #unscheduledGantt /deep/  .e-add-icon:before {
@@ -104,10 +104,18 @@ export default {
     }
     .bootstrap5 #unscheduledGantt /deep/  .e-add-icon:before,
 	  .bootstrap5-dark #unscheduledGantt /deep/  .e-add-icon:before,
-    .tailwind #Unscheduled .e-add-icon:before,.tailwind-dark #Unscheduled .e-add-icon:before,
-    .fluent #Unscheduled .e-add-icon:before, .fluent-dark #Unscheduled .e-add-icon:before,
-    .material3-dark #Unscheduled .e-add-icon:before ,.material3 #Unscheduled .e-add-icon:before  {
+    .tailwind #unscheduledGantt /deep/ .e-add-icon:before,.tailwind-dark #unscheduledGantt /deep/ .e-add-icon:before,
+    .material3-dark #unscheduledGantt /deep/ .e-add-icon:before ,.material3 #unscheduledGantt /deep/ .e-add-icon:before 
+    {
         content: "\e836"
+    }
+    .fluent #unscheduledGantt /deep/ .e-add-icon:before,
+    .fluent-dark #unscheduledGantt /deep/ .e-add-icon:before,
+    .fluent2 #unscheduledGantt /deep/ .e-add-icon:before,
+    .fluent2-highcontrast #unscheduledGantt /deep/ .e-add-icon:before,
+    .fluent2-dark #unscheduledGantt /deep/ .e-add-icon:before 
+    {
+      content: "\e836" !important
     }
 
 </style>

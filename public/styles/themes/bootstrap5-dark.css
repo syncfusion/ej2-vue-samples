@@ -5,9 +5,8 @@
 .bootstrap5-dark .e-samplestatus.new.tree,
 .bootstrap5-dark .e-samplestatus.update.tree,
 .bootstrap5-dark .e-samplestatus.preview.tree {
-    margin: 8px 0;
+    margin: 6px 0;
     height: 22px;
-    margin-top: 6px;
 }
 
 .bootstrap5-dark #msg {
@@ -122,6 +121,7 @@ body.bootstrap5-dark,
 .bootstrap5-dark .sb-setting-popup,
 .bootstrap5-dark .sb-search-result,
 .bootstrap5-dark .sb-src-code,
+.bootstrap5-dark .CodeMirror,
 .bootstrap5-dark .sb-api-section,
 .bootstrap5-dark .sb-theme-popup,
 .bootstrap5-dark .copy-tooltip,
@@ -138,6 +138,7 @@ body.bootstrap5-dark,
 .bootstrap5-dark .sb-setting-btn.active,
 .bootstrap5-dark .sb-switch-popup li:hover,
 .bootstrap5-dark .theme-wrapper:hover,
+.bootstrap5-dark #themeMode-switch-btn:hover,
 .bootstrap5-dark .theme-wrapper.active,
 .bootstrap5-dark .sb-theme-popup li:hover,
 .bootstrap5-dark .sb-search-result .e-list-item:hover,
@@ -212,16 +213,8 @@ body.bootstrap5-dark,
 .bootstrap5-dark .e-samplestatus.new,
 .bootstrap5-dark .e-samplestatus.update,
 .bootstrap5-dark .e-samplestatus.preview {
-    margin: 2px 0;
+    margin: auto 0;
     height: 22px;
-}
-
-.bootstrap5-dark .e-samplestatus.new.tree,
-.bootstrap5-dark .e-samplestatus.update.tree,
-.bootstrap5-dark .e-samplestatus.preview.tree {
-    margin: 8px 0;
-    height: 22px;
-    margin-top: 4px;
 }
 
 .bootstrap5-dark .sb-theme-popup li:hover .sb-theme-select {

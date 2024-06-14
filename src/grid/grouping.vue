@@ -6,7 +6,7 @@
     </div>
     <div>
         <div class="control-section">
-        <ejs-grid ref="grid" :dataSource="data" :allowGrouping='true' :allowPaging='true' :allowSorting='true' :groupSettings='groupOptions' :editSettings='editSettings' :toolbar='toolbar' :pageSettings='pageOptions' :created='created' height=320>
+        <ejs-grid ref="grid" :dataSource="data" :allowGrouping='true' :allowPaging='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :groupSettings='groupOptions' :editSettings='editSettings' :toolbar='toolbar' :pageSettings='pageOptions' :created='created' height=320>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
@@ -52,7 +52,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Group, Page, Sort, Edit, Toolbar } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Group, Page, Sort, Edit, Toolbar, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDataSource } from "./data-source";
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
@@ -81,7 +81,8 @@ export default {
       freightrules:  { required: true },
       editparams: { params: { popupHeight: '300px' }},
       pageOptions: { pageCount: 5 },
-      groupOptions: { columns: ["ShipCountry"] }
+      groupOptions: { columns: ["ShipCountry"] },
+      filterSettings: { type: 'Excel' },
     };
   },
   methods: {
@@ -98,7 +99,7 @@ export default {
     },
   },
   provide: {
-    grid: [Group, Page, Sort, Edit, Toolbar]
+    grid: [Group, Page, Sort, Edit, Toolbar, Filter]
   }
 }
 </script>

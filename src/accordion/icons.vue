@@ -10,40 +10,48 @@
                  </e-accordionitems>
              </ejs-accordion>
              <div id="athletics" style="display:none">
-        <li><span class="e-acrdn-icons e-content-icon marathon"></span> Marathon</li>
-        <li><span class="e-acrdn-icons e-content-icon javelin"></span> Javelin Throw</li>
-        <li><span class="e-acrdn-icons e-content-icon discus"></span> Discus Throw</li>
-        <li><span class="e-acrdn-icons e-content-icon highjump"></span> High Jump</li>
-        <li><span class="e-acrdn-icons e-content-icon longjump"></span> Long Jump</li>
-    </div>
-    <div id="water_games" style="display:none">
-        <li><span class="e-acrdn-icons e-content-icon dive"></span> Diving</li>
-        <li><span class="e-acrdn-icons e-content-icon swimming"></span> Swimming</li>
-        <li><span class="e-acrdn-icons e-content-icon marathan_swim"></span> Marathon Swimming</li>
-        <li><span class="e-acrdn-icons e-content-icon sync_swim"></span> Synchronized Swimming</li>
-        <li><span class="e-acrdn-icons e-content-icon waterpolo"></span> Water Polo</li>
-    </div>
-    <div id="racing_games" style="display:none">
-        <li><span class="e-acrdn-icons e-content-icon cycle_BMX"></span> Cycling BMX</li>
-        <li> <span class="e-acrdn-icons e-content-icon cycle_Mountain"></span> Cycling Mountain Bike</li>
-        <li> <span class="e-acrdn-icons e-content-icon cycle"></span> Cycle Racing</li>
-        <li> <span class="e-acrdn-icons e-content-icon sailing"></span> Sailing</li>
-        <li> <span class="e-acrdn-icons e-content-icon rowing"></span> Rowing</li>
-    </div>
-    <div id="indoor_games" style="display:none">
-        <li><span class="e-acrdn-icons e-content-icon tennis"></span> Table Tennis</li>
-        <li> <span class="e-acrdn-icons e-content-icon badminton"></span> Badminton</li>
-        <li> <span class="e-acrdn-icons e-content-icon volleyball"></span> Volleyball</li>
-        <li> <span class="e-acrdn-icons e-content-icon boxing"></span> Boxing</li>
-        <li> <span class="e-acrdn-icons e-content-icon swimming_In"></span> Swimming</li>
-    </div>
+                <ul>
+                    <li><span class="e-acrdn-icons e-content-icon marathon"></span> Marathon</li>
+                    <li><span class="e-acrdn-icons e-content-icon javelin"></span> Javelin Throw</li>
+                    <li><span class="e-acrdn-icons e-content-icon discus"></span> Discus Throw</li>
+                    <li><span class="e-acrdn-icons e-content-icon highjump"></span> High Jump</li>
+                    <li><span class="e-acrdn-icons e-content-icon longjump"></span> Long Jump</li>
+                </ul>
+            </div>
+            <div id="water_games" style="display:none">
+                <ul>
+                    <li><span class="e-acrdn-icons e-content-icon dive"></span> Diving</li>
+                    <li><span class="e-acrdn-icons e-content-icon swimming"></span> Swimming</li>
+                    <li><span class="e-acrdn-icons e-content-icon marathan_swim"></span> Marathon Swimming</li>
+                    <li><span class="e-acrdn-icons e-content-icon sync_swim"></span> Synchronized Swimming</li>
+                    <li><span class="e-acrdn-icons e-content-icon waterpolo"></span> Water Polo</li>
+                </ul>
+            </div>
+            <div id="racing_games" style="display:none">
+                <ul>
+                    <li><span class="e-acrdn-icons e-content-icon cycle_BMX"></span> Cycling BMX</li>
+                    <li> <span class="e-acrdn-icons e-content-icon cycle_Mountain"></span> Cycling Mountain Bike</li>
+                    <li> <span class="e-acrdn-icons e-content-icon cycle"></span> Cycle Racing</li>
+                    <li> <span class="e-acrdn-icons e-content-icon sailing"></span> Sailing</li>
+                    <li> <span class="e-acrdn-icons e-content-icon rowing"></span> Rowing</li>
+                </ul>
+            </div>
+            <div id="indoor_games" style="display:none">
+                <ul>
+                    <li><span class="e-acrdn-icons e-content-icon tennis"></span> Table Tennis</li>
+                    <li> <span class="e-acrdn-icons e-content-icon badminton"></span> Badminton</li>
+                    <li> <span class="e-acrdn-icons e-content-icon volleyball"></span> Volleyball</li>
+                    <li> <span class="e-acrdn-icons e-content-icon boxing"></span> Boxing</li>
+                    <li> <span class="e-acrdn-icons e-content-icon swimming_In"></span> Swimming</li>
+                </ul>
+            </div>
            <div id="action-description">
         <p>This sample demonstrates the icon representation of the Accordion. Click on the header element to expand/collapse the corresponding Accordion panel, and displays its content.</p>
     </div>
 
     <div id="description">
         <p>This Accordion is populated with icons which renders by mapping the <code>iconCss</code> field. This sample illustrates the some of the games list.</p>
-        <p>More information about Accordion can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/accordion/getting-started/" target="_blank">documentation</a> section.</p>
+        <p>More information about Accordion can be found in this <a aria-label="Accordion getting started" href="https://ej2.syncfusion.com/vue/documentation/accordion/getting-started/" target="_blank">documentation</a> section.</p>
     </div>
          </div>
     </div>

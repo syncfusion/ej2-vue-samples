@@ -3,7 +3,7 @@
     <div class="control-section">
         <div class="content-wrapper">
             <div id='customvalue' class='col-lg-6' style="margin: 0px auto; width:64%; padding-top: 40px;margin-left: 165px;">
-                    <h4>Custom Value Support</h4>
+                <label class="h4"> Custom Values</label>
                     <ejs-multiselect id='countries' :dataSource='countries' :placeholder='placeholder' :fields='customFields' :allowCustomValue='allowCustomValue' :mode='boxMode'></ejs-multiselect>
             </div>
         </div>
@@ -40,3 +40,11 @@ export default {
     }
 }
 </script>
+
+<style>
+ .col-lg-6 .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
+    }
+</style>

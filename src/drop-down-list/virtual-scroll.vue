@@ -3,20 +3,20 @@
     <div class="control-section ddl-databinding">
         <div class="col-lg-9 ddl-data-binding">
             <div id='local' class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
-                <div style="width: 250px;margin: 0 auto;">
-                    <h4> Local Data</h4>
+                <div class='drop-down-list-content'>
+                <label class="h4">Local Data</label>
                     <ejs-dropdownlist id='dropdownlist1' :dataSource='itemData' placeholder='e.g Item 1' :fields='fields' :allowFiltering='allowFiltering' :enableVirtualization='true' popupHeight="200px"></ejs-dropdownlist>
                 </div>
             </div>
             <div id='remote' class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
-                <div style="width: 250px; margin: 0 auto;">
-                    <h4>Remote Data</h4>
+                <div class='drop-down-list-content'>
+                <label class="h4">Remote Data</label>
                     <ejs-dropdownlist id='dropdownlist2' :dataSource='data' placeholder='OrderID' :fields='customerfields' :allowFiltering='allowFiltering' :enableVirtualization='true' popupHeight="200px"></ejs-dropdownlist>
                 </div>
             </div>
             <div id='group' class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
-                <div style="width: 250px; margin: 0 auto;">
-                    <h4>Grouping</h4>
+                <div class='drop-down-list-content'>
+                <label class="h4">Grouping</label>
                     <ejs-dropdownlist id='dropdownlist3' :dataSource='itemData' placeholder='e.g Item 1' :fields='groupfields' :allowFiltering='allowFiltering' :enableVirtualization='true' popupHeight="200px"></ejs-dropdownlist>
                 </div>
             </div>
@@ -35,6 +35,16 @@
 <style scoped>
     .property-panel-content {
         padding: 0 10px 10px 0;
+    }
+
+    .drop-down-list-content {
+        margin: 0 auto; 
+        width: 250px;
+    }
+    .drop-down-list-content .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
     }
 
     .content {

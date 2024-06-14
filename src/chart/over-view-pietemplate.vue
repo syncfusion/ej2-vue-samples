@@ -11,7 +11,7 @@
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, PieSeries, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {
@@ -94,6 +94,10 @@ export default {
         {
           args.border.color = '#000000' ;
           this.layoutColor= '#000000' ;
+        }
+        else if(selectedTheme.indexOf('fluent2-highcontrast') > -1) {
+          args.border.color = '#000000';
+          this.layoutColor = '#000000';
         }
         else
         {

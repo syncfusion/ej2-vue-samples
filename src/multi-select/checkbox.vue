@@ -3,7 +3,7 @@
     <div id="multiselect-sample">
         <div class="col-lg-8 control-section">
             <div class="control-styles">
-                <h4>CheckBox</h4>
+                <label class="h4">CheckBox</label>
                 <ejs-multiselect id='multiselect-checkbox' cssClass="e-specific" :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'
                     :mode='multiMode' :popupHeight='popHeight' :showDropDownIcon='showDropDownIcon' :showSelectAll='showSelectAll'
                     :enableSelectionOrder='enableSelectionOrder' :filterBarPlaceholder='filterPlaceholder'></ejs-multiselect>
@@ -60,6 +60,11 @@
         margin: 0 auto; 
         width:300px; 
         padding-top: 25px
+    }
+    .control-styles .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
     }
     .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
         transform: translateY(1px);

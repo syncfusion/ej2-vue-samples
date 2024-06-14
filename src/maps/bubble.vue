@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
 <ejs-maps id='container' align="center" :load='load' :bubbleRendering='bubbleRendering' format='n' :useGroupingSeparator='useGroupingSeparator' :titleSettings='titleSettings' :zoomSettings='zoomSettings'>
     <e-layers>
@@ -28,12 +28,13 @@
        <a href="https://en.wikipedia.org/wiki/List_of_countries_by_number_of_Internet_users" target="_blank">en.wikipedia.org</a>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample illustrates the top 30 countries which has highest Internet users in bubbles of the year 2016. 
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
           In this example, you can see how to render the bubbles for each shape in a map. Values of the shapes can be determined from the size and color of the bubbles. You can bind the desired colors from the data source to the bubbles.
     
@@ -47,8 +48,8 @@
           Maps component features are segregated into individual feature-wise modules. To use the bubbles, inject the <code>Bubble</code> module using the <code>Maps.Inject(Bubble)</code> method.
         </p>
        
-    </div>
-</div>
+    </section>
+</main>
 </template>
 <style scoped>
     .toolback {
@@ -89,8 +90,10 @@ data:function(){
         useGroupingSeparator: true,
         zoomSettings: {
             enable: true,
-            horizontalAlignment: 'Near',
-            toolBarOrientation: 'Vertical',
+            toolbarSettings: {
+                orientation:'Vertical',
+                horizontalAlignment: 'Near',
+            },
             pinchZooming: true
         },
         titleSettings: {

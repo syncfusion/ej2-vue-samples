@@ -39,10 +39,10 @@
     <div id="description">
       <p>
         In this example, you can see how to render and configure the spline range area type chart.
-        You can use <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/border/">border</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/seriesModel/#fill">fill</a> properties to customize the spline range area. Both <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/marker/">marker</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/dataLabel/">dataLabel</a> are used to represent individual data and its value.
+        You can use <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/border/" aria-label="Navigate to the border property reference for Vue Chart component">border</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/seriesModel/#fill" aria-label="Navigate to the fill property reference for Vue Chart Series">fill</a> properties to customize the spline range area. Both <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/marker/" aria-label="Navigate to the documentation for Data Markers in Vue Chart component">marker</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/dataLabel/" aria-label="Navigate to the documentation for dataLabel in Vue Chart component">dataLabel</a> are used to represent individual data and its value.
       </p>
       <p>
-       The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/tooltip/">tooltip</a> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+       The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/tooltip/" aria-label="Navigate to the documentation for tooltip in Vue Chart component">tooltip</a> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
       </p>
       
       <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -53,7 +53,7 @@
       </p>
       <p>
         More information about the spline range area series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/spline-range-area">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/spline-range-area" aria-label="Navigate to the documentation for Spline Range Area Chart in Vue Chart component">documentation section</a>.
       </p>
     </div>
   </div>
@@ -79,7 +79,7 @@ let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

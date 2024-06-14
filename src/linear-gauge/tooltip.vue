@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
     <ejs-lineargauge ref="lineargauge1" :background='background' style='display:block' align='center' id='tooltipContainer' :loaded='loaded' :orientation='orientation' :container='container' :tooltip='tooltip' :axisLabelRender='labelRender' :tooltipRender='renderTooltip' :load='load' :annotations='annotations'>
         <e-axes>
@@ -16,12 +16,13 @@
         </e-axes>
     </ejs-lineargauge>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Linear Gauge sample">
     <p>
         This sample depicts the linear gauge as a measuring scale and shows the tooltip in the linear gauge.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Linear Gauge features demonstrated in this sample">
     <p>
         The tooltip is used to track the current value that is closest to the mouse position or touch contact. When
         using a touch-enabled device, the tooltip is displayed by hovering or tapping.
@@ -31,8 +32,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/user-interaction/#tooltip">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { LinearGaugeComponent, AxisDirective, AxesDirective, PointersDirective, PointerDirective, GaugeTooltip, Annotations } from "@syncfusion/ej2-vue-lineargauge";
@@ -64,7 +65,8 @@ export default {
         minimum: 0,
         maximum: 10,
         line: {
-            offset: 140
+            offset: 140,
+            color:'#a6a6a6'
         },
         majorTicks: {
             interval: 1, height: 20, color: '#9E9E9E'
@@ -102,6 +104,7 @@ export default {
         maximum2: 25,
         line2: {
             offset: -140,
+            color:'#a6a6a6'
         },
         majorTicks2: {
             interval: 1, height: 20, color: '#9E9E9E'

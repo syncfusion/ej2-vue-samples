@@ -1,10 +1,10 @@
 <template>
-   <div class="control-section">
+   <main><div class="control-section">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12"
             style="display: flex;justify-content: center; align-items: center;">
             <div style="margin: auto;padding: 10px;">
-                <table>
+                <table role="none">
                     <tbody>
                         <tr>
                             <td>
@@ -73,13 +73,14 @@
             </e-axes>
         </ejs-lineargauge>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Linear Gauge sample">
     <p>
         This sample shows ticks in various positions such as inside, middle, and outside. Additionally, the position of
         the ticks can be customized using offset.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Linear Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure ticks in the linear gauge. The <a target="_blank"
             href="https://ej2.syncfusion.com/vue/documentation/api/linear-gauge/tickModel/#position">position</a>
@@ -96,8 +97,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/axis/#ticks-customization">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { LinearGaugeComponent, AxisDirective, AxesDirective, PointersDirective, PointerDirective } from "@syncfusion/ej2-vue-lineargauge";

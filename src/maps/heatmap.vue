@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
 <ejs-maps id='container'  align="center" :load='load' format='n' :useGroupingSeparator='useGroupingSeparator' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
     <e-layers>
@@ -11,12 +11,13 @@
        <a href="https://en.wikipedia.org/wiki/List_of_states_and_union_territories_of_India_by_population" target="_blank">en.wikipedia.org</a>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
            This sample visualizes the state wise population of India in the year 2011. Color for each state will be applied based on its value.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
            In this example, you can see how to apply the desired colors for the shapes, if its value is within the specified range using the ColorMapping property. Also, the interactive legend has been placed at the bottom of the map.
     
@@ -24,8 +25,8 @@
         <p>
         Tooltip is enabled in this example. To see the tooltip in action, hover the mouse over a shape or tap a shape in touch enabled devices.
          </p>       
-    </div>
-</div>
+    </section>
+    </main>
 </template>
 <script>
 import { MapsComponent, LayersDirective, LayerDirective,Legend, Marker, MapsTooltip } from '@syncfusion/ej2-vue-maps';

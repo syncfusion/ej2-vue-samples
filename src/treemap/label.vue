@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="col-lg-9 control-section">
         <ejs-treemap ref="treemap" id='container' align="center" :load='load' :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :leafItemSettings='leafItemSettings' :legendSettings='legendSettings' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
         <div style="float: right; margin-right: 10px;">Source:
@@ -8,7 +8,7 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -10px;">
             <tbody>
                 <tr style="height: 50px">
                     <td>
@@ -23,12 +23,13 @@
             </tbody>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of TreeMap sample">
     <p>
         This sample illustrates the population level of various countries in 2017. The leaf item’s labels intersect action can be changed by using the <code>Label Intersect Action</code> in properties panel.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the TreeMap features demonstrated in this sample">
     <p>
         In this example, you can see the various label intersect actions available in TreeMap. Range color mapping has been specified, and the default legend has been enabled in this example.
     </p>
@@ -40,8 +41,8 @@
     <p>
         TreeMap component features are segregated into individual feature-wise modules. To use a tooltip, inject the <code>Tooltip</code> module using the <code>TreeMap.Inject(TreeMapTooltip)</code> method, and use a legend by injecting the <code>Legend</code> module using the <code>TreeMap.Inject(TreeMapLegend)</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 
 <script>

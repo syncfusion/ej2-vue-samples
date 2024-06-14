@@ -1,6 +1,6 @@
 <template>
   <div class="control-section tooltip-ajax">
-    <h4 class="list-header">National Sports</h4>
+    <p class="list-header">National Sports</p>
       <ejs-tooltip ref="tooltip" style="display:block;" class="e-prevent-select" :content="content" target="#countrylist [title]" position='RightCenter' cssClass= 'e-ajax-content'
         :beforeRender="onBeforeRender">
 
@@ -93,6 +93,11 @@
 
     .tooltip-ajax .list-header {
         text-align: center;
+        font-size: 18px;
+	    font-weight: 500;
+	    line-height: 1.1;
+	    margin-top: 10px;
+	    margin-bottom: 10px;
     }
 
     @media (max-width: 481px) {
@@ -102,6 +107,11 @@
 
         .tooltip-ajax .list-header {
             text-align: left;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.1;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
     }
 	@media only screen and (max-width: 600px) {

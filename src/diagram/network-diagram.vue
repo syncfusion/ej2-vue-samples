@@ -644,9 +644,8 @@ export default {
       symbolHeight: 48,
       symbolWidth: 48,
       path: {
-        saveUrl: "https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save",
-        removeUrl:
-          "https://aspnetmvc.syncfusion.com/services/api/uploadbox/Remove"
+        saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+        removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
       },
        //Sets the default values of a node
     getNodeDefaults: (node) => {

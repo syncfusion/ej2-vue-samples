@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="col-lg-9 control-section">
-    <ejs-grid ref='grid' :dataSource="data" :allowPaging='true' :allowSorting='true' :allowFiltering='true' :pageSettings='pageSettings' :loadingIndicator='loadingIndicator'>
+    <ejs-grid ref='grid' :dataSource="data" :allowPaging='true' :allowSorting='true' :allowFiltering='true' :pageSettings='pageSettings' :loadingIndicator='loadingIndicator' :query='query'>
         <e-columns>
             <e-column field='EmployeeID' headerText='Employee ID' width='130' textAlign='Right'></e-column>
             <e-column field='Employees' headerText='Employee Name' width='150'></e-column>
@@ -63,7 +63,7 @@
 
 <script lang="ts">
 import { GridComponent, ColumnDirective, ColumnsDirective, Page, Sort, Filter } from "@syncfusion/ej2-vue-grids";
-import { DataManager, UrlAdaptor } from "@syncfusion/ej2-data";
+import { DataManager, UrlAdaptor, Query } from "@syncfusion/ej2-data";
 import { ChangeEventArgs, DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 
 export default {
@@ -79,6 +79,7 @@ export default {
         url: 'https://services.syncfusion.com/vue/production/api/UrlDataSource',
         adaptor: new UrlAdaptor()
       }),
+      query: new Query().addParams('dataCount', '1000'),
       pageSettings: { pageCount: 3 },
       loadingIndicator: { indicatorType: 'Shimmer' },
       fields: { text: 'name', value: 'id' },

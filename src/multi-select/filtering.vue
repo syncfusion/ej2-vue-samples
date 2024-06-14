@@ -3,7 +3,7 @@
     <div class="control-section">
         <div class="content-wrapper">
             <div id='filtering' class='col-lg-6' style="margin: 0px auto; width:64%; padding-top: 40px;margin-left: 165px;">
-                    <h4>Filtering</h4>
+                <label class="h4">Filtering</label>
                     <ejs-multiselect id='countries' :dataSource='countries' :placeholder='placeholder' :fields='filterFields' :allowFiltering='allowFiltering'></ejs-multiselect>
             </div>
         </div>
@@ -19,6 +19,13 @@
 </div>
 </div>
 </template>
+<style>
+.content-wrapper .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
+    }
+</style>
 <script>
 import { MultiSelectComponent } from "@syncfusion/ej2-vue-dropdowns";
 import data from './dataSource.json';

@@ -29,7 +29,7 @@
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure stock chart to visualize the stock data. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockChartModel/#enableperiodselector">enablePeriodSelector</a> property allows to toggle the visibility of period selector.
+        In this example, you can see how to render and configure stock chart to visualize the stock data. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockChartModel/#enableperiodselector" aria-label="Navigate to the enablePeriodSelector property reference for Vue Stock Chart component">enablePeriodSelector</a> property allows to toggle the visibility of period selector.
       </p>
       <p>
         <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the chart or tap on it in touch enabled devices.
@@ -43,7 +43,7 @@
       </p>
       <p>
         More information about the series type can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/series-types">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/series-types" aria-label="Navigate to the documentation for Vue Stock Chart Series Types">documentation section</a>.
       </p>
     </div>
     <svg style="height: 0">
@@ -112,6 +112,18 @@
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
+        <linearGradient id="fluent2-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fluent2-highcontrast-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fluent2-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
     </defs>
   </svg>
 </div>
@@ -168,6 +180,15 @@
     #material3-dark-gradient-chart stop {
         stop-color: #4EAAFF;
     }
+    #fluent2-gradient-chart stop {
+        stop-color: #6200EE;
+    }
+    #fluent2-dark-gradient-chart stop {
+        stop-color: #9BB449;
+    }
+    #fluent2-highcontrast-gradient-chart stop {
+        stop-color: #9BB449;
+    }
 
     .chart-gradient stop[offset="0"] {
         stop-opacity: 0.9;
@@ -200,7 +221,7 @@ import {
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

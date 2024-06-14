@@ -4,13 +4,13 @@
         <div class="content-wrapper">
             <div id='group' class='col-lg-6'>
                 <div class="content">
-                    <h4>Grouping</h4>
+                    <label class="h4">Grouping</label>
                     <ejs-combobox id='vegetables' :showPopupButton='true' :dataSource='vegetableData' :placeholder='groupWaterMark' :fields='groupFields' :popupHeight='height'></ejs-combobox>
                 </div>
             </div>
             <div id='icon' class='col-lg-6'>
                 <div class="content">
-                    <h4> Icons</h4>
+                    <label class="h4"> Icons</label>
                     <ejs-combobox id='icons' :showPopupButton='true' :dataSource='socialMediaData' :placeholder='iconWaterMark' :fields='iconFields' cssClass='combobox-icons-css' :popupHeight='height'></ejs-combobox>
                 </div>
             </div>
@@ -34,6 +34,12 @@
         margin: 0 auto;
     }
     
+    .content .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
+    }
+
     #group,
     #icon {
         margin: 0 auto;

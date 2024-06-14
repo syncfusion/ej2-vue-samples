@@ -8,7 +8,7 @@
     </div>
     <div>
         <ejs-grid id='DefaultExport' ref='grid' :dataSource="data" :toolbar='toolbar' :toolbarClick='toolbarClick' height=350
-                :allowExcelExport='true' :allowSorting='true' :allowPdfExport='true' :allowGrouping="true" :excelQueryCellInfo='exportQueryCellInfo' :pdfQueryCellInfo='exportQueryCellInfo'
+                :allowExcelExport='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :allowPdfExport='true' :allowGrouping="true" :excelQueryCellInfo='exportQueryCellInfo' :pdfQueryCellInfo='exportQueryCellInfo'
                 :dataBound="dataBound">
             <e-columns>
                 <e-column headerText='Employee Image' width='150' textAlign='Center' :template='imageTemplate'></e-column>
@@ -67,7 +67,7 @@
 </template>
 <script lang="ts">
 import { createApp } from "vue";
-import { GridComponent, ColumnDirective, ColumnsDirective, PdfExport, ExcelExport, Group, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, PdfExport, ExcelExport, Group, Toolbar, Sort, Filter } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { employeeDetails } from "./data-source";
@@ -84,6 +84,7 @@ export default {
   data: () => {
     return {
       data: employeeDetails,
+      filterSettings: { type: 'Excel' },
       flag: false,
       toolbar: ['ExcelExport', 'PdfExport', 'CsvExport'],
        imageTemplate: function () {
@@ -142,7 +143,7 @@ export default {
   }
   },
   provide: {
-      grid: [PdfExport, ExcelExport, Group, Toolbar, Sort]
+      grid: [PdfExport, ExcelExport, Group, Toolbar, Sort, Filter]
   }
 }
 </script>

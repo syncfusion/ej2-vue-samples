@@ -50,7 +50,7 @@
                 </td>
                 <td style="padding-bottom: 16px">
                     <div class="value1cls">
-                        <ejs-numerictextbox id="value1" ref="value1" :value='input1Value' width='100%' :change="onValue1Change" :placeholder="Input1PlaceHolder"></ejs-numerictextbox>
+                        <ejs-numerictextbox id="value1" ref="value1" :value='input1Value' width='100%' :change="onValue1Change" :placeholder="Input1PlaceHolder" aria-label="valueselect"></ejs-numerictextbox>
                     </div>
                 </td>
             </tr>
@@ -76,7 +76,12 @@
               </td>
             </tr>
         </tbody>
-    </table>
+    </table><br />
+    <p>
+        More information on the value filtering can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/pivotview/filtering#value-filtering">
+        documentation section</a>.
+    </p>
 </div>
 
 <div id="action-description">

@@ -103,8 +103,8 @@ export default {
             labelSettings: {
                 rightLabel: 'resources'
             },
-            projectStartDate: new Date('03/28/2019'),
-            projectEndDate: new Date('07/28/2019'),
+            projectStartDate: new Date('03/28/2024'),
+            projectEndDate: new Date('07/28/2024'),
             splitterSettings: {
                 columnIndex: 5.1
             }

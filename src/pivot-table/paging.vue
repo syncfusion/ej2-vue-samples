@@ -53,7 +53,7 @@
             </td>
             <td>
               <div>
-                <ejs-checkbox id='Compact_View' ref="Compact_View" :change="onCompactCheckBoxChange"></ejs-checkbox>
+                <ejs-checkbox id='Compact_View' ref="Compact_View" :change="onCompactCheckBoxChange" aria-label="CompactView"></ejs-checkbox>
               </div>
             </td>
           </tr>
@@ -64,7 +64,7 @@
             </td>
             <td>
               <div>
-                <ejs-checkbox id='Inverse' ref="Inverse" :change="onInverseCheckBoxChange"></ejs-checkbox>
+                <ejs-checkbox id='Inverse' ref="Inverse" :change="onInverseCheckBoxChange" aria-label="InversePager"></ejs-checkbox>
               </div>
             </td>
           </tr>
@@ -194,6 +194,11 @@
         need to inject the
         <code>Pager</code> module using the
         <code>provide</code> section.
+      </p><br />
+      <p>
+        More information on the paging can be found in this <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/pivotview/paging">
+        documentation section</a>.
       </p>
     </div>
   </div>

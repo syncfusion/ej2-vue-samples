@@ -7,7 +7,7 @@
         <ejs-treegrid :dataSource='data' childMapping='states' :height='400' :allowReordering='true' :allowFiltering='true'
         :allowSorting='true' :filterSettings='filterSettings' :queryCellInfo='queryCellInfo' >
             <e-columns>
-                <e-column field='name' headerText='Province' width='195' :template="flagtemplate"></e-column>
+                <e-column field='name' headerText='Province' width='210' :template="flagtemplate"></e-column>
                 <e-column field='population' headerText='Population (Million)' width='188' textAlign='Right'></e-column>
                 <e-column field='gdp' headerText='GDP Rate %' :template='gdpTemplate' width='150'></e-column>
                 <e-column field='rating' headerText='Credit Rating' width='150' :template='ratingTemplate' :allowFiltering='false'></e-column>
@@ -178,7 +178,7 @@ export default {
     flagtemplate: function () {
         return {
             template: createApp({}).component('flagtemplate', {
-                template: `<div class="image" style="display: inline"><img class="e-image" :alt="data.name"> &nbsp {{data.name }}</div>`,
+                template: `<div class="image" style="display: inline"><img class="e-image" :alt="data.name" aria-label="Flag template"> &nbsp {{data.name }}</div>`,
             data: function () { return { data: { } }; },
             })
         }
@@ -186,7 +186,7 @@ export default {
     ratingTemplate: function () {
         return {
             template: createApp({}).component('ratingTemplate', {
-                template: '<div id="status" class="rating">\
+                template: '<div id="status" class="rating" aria-label="Rating template">\
                     <span v-for="i in item" :class="{checked: i <= data.rating, star: true}"></span>\
             </div>',
             data: function () { return { data: {}, item: [1, 2, 3, 4, 5] }; }
@@ -196,7 +196,7 @@ export default {
     locationTemplate: function () {
         return {
             template: createApp({}).component('locationTemplate', {
-                template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/${data.coordinates}">{{data.coordinates}}</a></div>',
+                template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates" aria-label="Location template"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/${data.coordinates}">{{data.coordinates}}</a></div>',
             data: function() { return { data: {} }; },
             })
         }
@@ -204,7 +204,7 @@ export default {
     gdpTemplate: function() {
         return {
             template: createApp({}).component('gdpTemplate', {
-                template: `<div class="statustemp">
+                template: `<div class="statustemp" aria-label="gdp template">
                 <span class="statustxt">{{data.gdp}} %</span>
             </div>`,
             data: function() {
@@ -218,7 +218,7 @@ export default {
     timezoneTemplate: function() {
         return {
             template: createApp({}).component('timezoneTemplate', {
-                template: `<div><img src="source/tree-grid/images/__Normal.png" class="e-img"> &nbsp {{data.timezone}}</div>`,
+                template: `<div><img src="source/tree-grid/images/__Normal.png" alt="TimeZone template" class="e-img" aria-label="Timezone template"> &nbsp {{data.timezone}}</div>`,
             data: function() {
                     return {
                         data: {}
@@ -276,9 +276,11 @@ export default {
            if (isNullOrUndefined(parentItem)) {
                let name: string = getObject('name', args.data);
                imageElement.src = "source/tree-grid/images/" + name + ".png";
+               imageElement.alt = name; 
            } else {
                let name: string = getObject('name', parentItem);
                imageElement.src = "source/tree-grid/images/" + name + ".png";
+               imageElement.alt = name; 
            }
         }
 
@@ -293,6 +295,7 @@ export default {
         if ((args.column as Column).field === 'timezone') {
             let imageElement = (args.cell as Element).querySelector('.e-img') as HTMLImageElement;
             imageElement.style.filter = "brightness(150%)";
+            imageElement.alt = "Timezone"; 
             let timeZone: string = getObject('timezone', args.data);
             if (timeZone.indexOf('-')!== -1) {
                 imageElement.className = 'negativeTimeZone';

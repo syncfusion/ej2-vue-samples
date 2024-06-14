@@ -1,5 +1,5 @@
 <template>
-<div class="control-section">
+<main><div class="control-section">
 <ejs-maps id='container' align="center" :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings'>
     <template v-slot:texasMarkerTemplate="{}">
         <div id="markercircle">
@@ -41,12 +41,13 @@
 <div style="float: right; margin-right: 10px;">Source:
     <a href="http://www.samsung.com/semiconductor/about-us/location/" target="_blank">www.samsung.com</a>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample illustrates the layers along with sublayers. California and Texas map is rendered on the top of US map to depict the office locations of Samsung in USA.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
         In this example, you can see how to render a sublayer in map. Sublayers are used to render the desired shapes over the existing layers. Any number of sublayers can be added to a map. You can use the <code>fill</code>, <code>width</code>, and <code>color</code> properties in the border to customize the appearance of the shapes. 
     
@@ -54,8 +55,8 @@
         <p> 
             Tooltip is enabled in this example. To see the tooltip in action, hover the mouse over a marker or tap a marker in touch enabled devices.
          </p>
-    </div>
-</div>
+    </section>
+    </main>
 </template>
 <style scoped>
     .markerTemplate {

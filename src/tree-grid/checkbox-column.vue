@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
-    <div>
-        <ejs-treegrid :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :height='400' :autoCheckHierarchy= 'true'>
+    <div aria-label="Task List with Checkbox">
+        <ejs-treegrid :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :height='400' :autoCheckHierarchy= 'true' aria-label="Task List with Checkbox">
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' width='70' textAlign='Right'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='200' :showCheckbox='true'></e-column>

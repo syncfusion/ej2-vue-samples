@@ -5,9 +5,9 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :allowResizing='true' :allowSorting='true'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :allowResizing='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign="Center" minWidth='10'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign="Center" minWidth='10' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                 <e-column headerText='Order Details' :columns='orderColumns'></e-column>
                 <e-column headerText='Ship Details' :columns='shipColumns'></e-column>
             </e-columns>
@@ -41,7 +41,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Page, Resize, Sort } from '@syncfusion/ej2-vue-grids';
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Resize, Sort, Toolbar, Edit, Filter } from '@syncfusion/ej2-vue-grids';
 import { orderDetails } from './data-source';
 
 export default {
@@ -53,6 +53,10 @@ export default {
   data: () => {
       return {
         data: orderDetails,
+        filterSettings: { type: 'Excel' },
+        editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+        orderidrules: { required: true, number: true },
+        toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
         orderColumns: [
             {
                 field: 'OrderDate',
@@ -61,6 +65,7 @@ export default {
                 width: 130,
                 textAlign: 'Right',
                 minWidth: 10,
+                editType: 'datepickeredit'
             },
             {
                 field: 'Freight',
@@ -69,6 +74,8 @@ export default {
                 format: 'C1',
                 textAlign: 'Right',
                 minWidth: 10,
+                editType: 'numericedit', 
+                validationRules: { required: true, min: 0 }
             }
         ],
         shipColumns: [
@@ -79,18 +86,20 @@ export default {
                 textAlign: 'Right',
                 width: 150,
                 minWidth: 10,
+                editType: 'datepickeredit'
             },
             {
                 field: 'ShipCountry',
                 headerText: 'Ship Country',
                 width: 150,
                 minWidth: 10,
+                editType: 'dropdownedit'
             }
         ]
         }
   },
   provide: {
-      grid: [Page, Resize, Sort]
+      grid: [Page, Resize, Sort, Toolbar, Edit, Filter]
   }
 }
 </script>

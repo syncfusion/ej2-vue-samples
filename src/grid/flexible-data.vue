@@ -38,7 +38,7 @@
                         </td>
                         <td style="width : 50%;">
                            <div><input class="e-input" style="width : 100%" type="text" readonly="true" id="adaptor_txt"
-                                    :value='adaptorName'></div>
+                                    :value='adaptorName' aria-label="Adaptor"></div>
                         </td>
                     </tr>
                     <tr style="height: 40px">
@@ -75,7 +75,7 @@
                         </td>
                         <td style="width : 50%;">
                             <div>
-                                <textarea style="width : 100%" class="e-textbox" rows="2" id="addParams" readonly
+                                <textarea style="width: 100%; height: 45px;" class="e-input e-textarea" rows="2" id="addParams" readonly aria-label="Additional parameter"
                                     ></textarea>
                             </div>
                         </td>
@@ -108,7 +108,7 @@
                         </td>
                         <td style="width : 50%;">
                             <div>
-                                <textarea style="width : 100%" class="e-textbox" rows="2" id="hdvalue" readonly
+                                <textarea style="width: 100%; height: 45px;" class="e-input e-textarea" rows="2" id="hdvalue" readonly aria-label="HTTP headers"
                                     ></textarea>
                             </div>
                         </td>
@@ -273,7 +273,7 @@ export default {
             BASE_URL: 'https://services.odata.org/V4/Northwind/Northwind.svc/Orders',
             serviceURL: [
                 { text: 'https://services.odata.org/V4/Northwind/Northwind.svc/Orders/', value: 'ODataV4Adaptor' },
-                { text: 'https://services.syncfusion.com/js/production/api/Orders', value: 'WebApiAdaptor' },
+                { text: 'https://services.syncfusion.com/vue/production/api/Orders', value: 'WebApiAdaptor' },
                 { text: 'https://services.syncfusion.com/js/production/api/UrlDataSource', value: 'UrlAdaptor' },
                 { text: 'https://services.odata.org/V4/Northwind/Northwind.svc/Orders', value: 'Custom Binding' }
             ],
@@ -390,7 +390,7 @@ export default {
                 let col = this.changedAdaptor === 'UrlAdaptor' ? this.empColumns : this.defaultColumns;
                 if (this.changedAdaptor === 'ODataV4Adaptor') {
                     newDataSource = new DataManager({
-                        url: 'https://services.syncfusion.com/js/production/api/Orders',
+                        url: 'https://services.odata.org/V4/Northwind/Northwind.svc/Orders/',
                         adaptor: new ODataV4Adaptor(),
                         headers: this.header,
                         crossDomain: true
@@ -403,10 +403,11 @@ export default {
                         headers: this.header,
                         crossDomain: true
                     });
+                    grid.query.addParams('dataCount', '1000');
                 }
                 else if (this.changedAdaptor === 'WebApiAdaptor') {
                     newDataSource = new DataManager({
-                        url: 'https://services.syncfusion.com/js/production/api/Orders',
+                        url: 'https://services.syncfusion.com/vue/production/api/Orders',
                         adaptor: new WebApiAdaptor(),
                         headers: this.header,
                         crossDomain: true

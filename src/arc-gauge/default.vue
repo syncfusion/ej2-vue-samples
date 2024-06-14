@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div id="dfarcgauge" class="control-section" align="center">
 <ejs-circulargauge height="500px" :load='load' title="Female (% usage) on popular social network" :titleStyle='titleStyleOne'>
       <e-axes>
@@ -12,13 +12,14 @@
       </e-axes>
      </ejs-circulargauge>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample shows the arc gauge's default rendering. It also shows the most popular social media platforms and
         the percentage of female users.
    </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render a default arc gauge. The arc gauge helps in the visualization of
         numerical values of scales in a semi-circular manner. You can use <a target="_blank"
@@ -33,8 +34,8 @@
         More information on the arc gauge can be found in this
         <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/getting-started/">documentation section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { CircularGaugeComponent, AxesDirective, AxisDirective, Annotations, PointersDirective, PointerDirective } from "@syncfusion/ej2-vue-circulargauge";
@@ -156,60 +157,70 @@ export default {
         }],
         annotations: [
             {
+            description:'Youtube',
             content: '<div class="youTubeText" style="color:#c8eab7;">YouTube</div>',
             angle: 344,
             radius: '94%',
             zIndex: '1',
             },
             {
+              description:'Instagram',
               content: '<div class="titleText" style="color:#82cdbc;">Instagram</div>',
               angle: 340,
               radius: '81%',
               zIndex: '1',
             },
             {
+              description:'Twitter',
               content: '<div class="tiktokText" style="color:#43b6c4;">Twitter</div>',
               angle: 340,
               radius: '66%',
               zIndex: '1',
             },
             {
+              description:'Facebook',
               content: '<div class="fbText" style="color:#1d91bf;">Facebook</div>',
               angle: 328,
               radius: '50%',
               zIndex: '1',
             },
             {
+              description:'Tiktok',
               content: '<div class="tiktokText" style="color:#205ea8;">TikTok</div>',
               angle: 328,
               radius: '40%',
               zIndex: '1',
             },
             {
+              description:'68%',
               content: '<div class="annotation">68%</div>',
               angle: 191,
               radius: '89%',
               zIndex: '1',
             },
             {
+              description:'43%',
               content: '<div class="annotation">43%</div>',
               angle: 125,
               radius: '75%',
               zIndex: '1',
             },
             {
+              description:'21%',
               content: '<div class="annotation">21%</div>',
               angle: 67,
               radius: '62%',
               zIndex: '1',
             },
             {
+              description:'75%',
               content: '<div class="annotation">75%</div>',
               angle: 215,
               radius: '48%',
               zIndex: '1',
             },
             {
+              description:'44%',
               content: '<div class="annotation">44%</div>',
               angle: 133,
               radius: '33%',
@@ -224,7 +235,7 @@ export default {
         load: function(args) {
         /* custom code start */
           let selectedTheme = location.hash.split("/")[1];
-          selectedTheme = selectedTheme ? selectedTheme : "Material";
+          selectedTheme = selectedTheme ? selectedTheme : "Material";          
           args.gauge.theme =
             (selectedTheme.charAt(0).toUpperCase() +
                 selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
@@ -242,7 +253,12 @@ export default {
           args.gauge.axes[0].annotations[5].angle = 192;
           args.gauge.axes[0].annotations[5].radius = "91%";
           args.gauge.axes[0].annotations[9].angle = 136;
-          args.gauge.axes[0].annotations[9].radius = "34%";
+          args.gauge.axes[0].annotations[9].radius = "31%";
+        } else if (selectedTheme.indexOf('fluent2') > -1 && args.gauge.axes[0].annotations != null) {
+          args.gauge.axes[0].annotations[8].angle = 217;
+          args.gauge.axes[0].annotations[8].radius = "45%";
+          args.gauge.axes[0].annotations[9].angle = 131;
+          args.gauge.axes[0].annotations[9].radius = "32%";
         }
         /* custom code end */
         }
@@ -250,12 +266,31 @@ export default {
 }
 </script>
 <style>
-    #dfarcgauge .titleText, 
-    #dfarcgauge .fbText {
-        font-family:inherit;
-        font-size: 22px;
+
+    .e-view.fluent2 div#dfarcgauge .titleText,
+    .e-view.fluent2-dark div#dfarcgauge .titleText {
         margin-top: -2px;
         margin-left: -18px;
+    }
+
+    .e-view.fluent2 div#dfarcgauge .fbText,
+    .e-view.fluent2-dark div#dfarcgauge .fbText {
+        margin-top: -14px;
+        margin-left: -18px;
+    }
+
+    #dfarcgauge .titleText {
+      font-family: inherit;
+      font-size: 22px;
+      margin-top: -2px;
+      margin-left: -16px;
+    }
+
+    #dfarcgauge .fbText {
+      font-family: inherit;
+      font-size: 22px;
+      margin-top: -14px;
+      margin-left: -19px;
     }
     
     #dfarcgauge .youTubeText {
@@ -276,7 +311,7 @@ export default {
     .e-view.tailwind div#dfarcgauge .fbText,
     .e-view.tailwind-dark div#dfarcgauge .fbText {
         font-size: 22px;
-        margin-top: 17px;
+        margin-top: -6px;
     }
     
     #dfarcgauge .tiktokText {

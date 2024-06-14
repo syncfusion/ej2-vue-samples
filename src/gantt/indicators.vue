@@ -21,10 +21,12 @@
 <div id="description">
     <p>
         In this example, <code>indicators</code> are displayed with some custom text in specified day of task, which are defined in dataSource. You can define the indicators with the following properties for tasks:
+       <ul>
        <li><code>date</code>: Defines the date value to where we want to display the indicators.</li>
        <li><code>iconClass </code>: Defines the icon to highlight the indicator.</li>
        <li><code>name</code>: Defines text to be displayed in the mentioned date.</li>
        <li><code>tooltip</code>: The text to be displayed when hover the mouse over the indicator.</li>
+       </ul>
     </p>
 </div>
 </div>
@@ -66,8 +68,8 @@ export default {
             splitterSettings: {
                 columnIndex: 2
             },
-            projectStartDate: new Date('03/24/2019'),
-            projectEndDate: new Date('07/06/2019'),
+            projectStartDate: new Date('03/24/2024'),
+            projectEndDate: new Date('07/06/2024'),
       };
   },
   provide: {
@@ -98,12 +100,13 @@ export default {
     content: '\e72b';
     }
     .tailwind #Indicators .okIcon::before, .tailwind-dark #Indicators .okIcon::before,
-    .fluent #Indicators .okIcon::before, .fluent-dark #Indicators .okIcon::before,
-     .material3-dark #Indicators .okIcon::before,.material3 #Indicators .okIcon::before {
-    content: '\e72b';
+    .material3-dark #Indicators .okIcon::before,.material3 #Indicators .okIcon::before,
+    .material3-dark #Indicators .description::before,.material3 #Indicators .description::before  {
+         content: '\e72b';
     }
-    .tailwind #Indicators .description::before, .tailwind-dark #Indicators .description::before,
-    .fluent #Indicators .description::before, .fluent-dark #Indicators .description::before {
+    .tailwind #Indicators .description::before,
+    .tailwind-dark #Indicators .description::before
+    {
     content: '\e7c0';
     }
     .fabric #Indicators /deep/ .description::before {
@@ -112,4 +115,19 @@ export default {
     .highcontrast #Indicators /deep/ .description::before {
     content: '\e310';
     }
+    .fluent #Indicators /deep/ .okIcon::before,
+    .fluent2 #Indicators /deep/ .okIcon::before,
+    .fluent2-dark #Indicators /deep/ .okIcon::before,
+    .fluent2-highcontrast#Indicators /deep/ .okIcon::before,
+    .fluent-dark #Indicators /deep/ .okIcon::before{
+        content: '\e72b';
+    }
+    .fluent #Indicators /deep/ .description::before,
+    .fluent2 #Indicators /deep/ .description::before,
+    .fluent2-highcontrast #Indicators /deep/ .description::before,
+    .fluent2-dark #Indicators /deep/ .description::before,
+    .fluent-dark #Indicators /deep/ .description::before{
+        content: '\e7c0';
+    }
+
 </style>

@@ -27,7 +27,7 @@
             <p>
                 More information on inversed axis can be found in this
                 <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/chart/axis-customization/#inversed-axis">documentation
+                    href="https://ej2.syncfusion.com/vue/documentation/chart/axis-customization/#inversed-axis" aria-label="Navigate to the documentation for Inversed Axis in Vue Chart component">documentation
                     section</a>.
             </p>
         </div>
@@ -38,12 +38,12 @@
 </style>
 <script>
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Tooltip, Legend, DataLabel } from "@syncfusion/ej2-vue-charts";
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2DarkColors } from './theme-color';
 import { Browser, EmitType } from '@syncfusion/ej2-base';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
     components: {
@@ -123,6 +123,12 @@ export default {
                 else if (selectedTheme === 'highcontrast') {
                     args.fill = pointHighContrastColors[args.point.index % 10];
                 }
+                else if (selectedTheme === 'fluent2') {
+                    args.fill = pointFluent2Colors[args.point.index % 10];
+                } 
+                else if (selectedTheme === 'fluent2-dark') {
+                    args.fill = pointFluent2Colors[args.point.index % 10];
+                } 
                 else {
                     args.fill = pointBootstrapColors[args.point.index % 10];
                 }

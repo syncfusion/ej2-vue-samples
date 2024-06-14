@@ -2,7 +2,7 @@
 <div>
     <div class="control-section folder-upload">
          <div class="sample-container">
-            <ejs-filemanager id="filemanager" ref="filemanagerInstance" :ajaxSettings='ajaxSettings' >
+            <ejs-filemanager id="filemanager" ref="filemanagerInstance" :ajaxSettings='ajaxSettings' :contextMenuSettings="contextMenuSettings" >
                 <e-toolbaritems>
                     <e-toolbaritem name="NewFolder"></e-toolbaritem>
                     <e-toolbaritem :template="'uploadTemplate'" name="Upload">
@@ -30,12 +30,13 @@
     </div>
     <div id="description">
         <p>In this demo, a folder upload enabled by setting <code>directoryUpload</code> as true. It allows to select or drop a folder to upload all its contents including hierarchy folders and files.</p>
-        <p>The folder (directory) upload is supported for the following file system providers,
+        <p>The folder (directory) upload is supported for the following file system providers,</p>
+        <ul>
             <li> Physical provider</li>
             <li> NodeJS provider</li>
             <li> Azure provider</li>
             <li> Amazon S3 provider</li>
-        </p>
+        </ul>
         <p>
             The <b>File Manager</b> component is used to explore a file system through a web application, similar to the windows explorer for windows. It supports all the basic file operations such as create, rename, delete, refresh and so on.
         </p>
@@ -74,7 +75,11 @@ export default {
                 uploadUrl: hostUrl + 'api/FileManager/Upload',
                 downloadUrl: hostUrl + 'api/FileManager/Download'
             },
-            items: [{ text: "Folder" }, { text: "Files" }]
+            items: [{ text: "Folder" }, { text: "Files" }],
+            contextMenuSettings: {
+				file: ["Cut", "Copy", "|", "Delete", "Download", "Rename", "|", "Details"],
+                visible: true
+            }
         };
     },
     provide: {

@@ -25,7 +25,7 @@
                                 </ejs-tooltip>
                             </div>
                     </div>
-                <textarea :readonly="isReadOnly" class="e-json-content" id="json-textarea"></textarea>
+                <textarea :readonly="isReadOnly" class="e-json-content" id="json-textarea" title="JSON Content"></textarea>
             </div>
         </div>
     </div>
@@ -119,6 +119,20 @@
         .e-query-json-preview .e-json-content {
             width: 95%;
         }
+    }
+
+    .highcontrast .e-query-json-preview .e-json-content,
+    .highcontrast .json-content-area,
+    .fluent2-dark .e-query-json-preview .e-json-content,
+    .fluent2-dark .json-content-area,
+    .fluent2-highcontrast .e-query-json-preview .e-json-content 
+    .fluent2-highcontrast .json-content-area {
+        background-color: #1f1f1f;
+    }
+    .fluent2-dark .e-query-json-preview .e-icons.copycode,
+    .fluent2-highcontrast .e-query-json-preview .e-icons.copycode {
+        padding-bottom: 3px;
+        color: white;
     }
 </style>
 <!-- custom code end -->

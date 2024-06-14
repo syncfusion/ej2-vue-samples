@@ -2,7 +2,7 @@
   <div class="control-section">
     <div class="control-section">
       <ejs-circularchart3d id="container" ref="pie" style='display:block;' :title='title' :theme='theme'
-        :tilt='tilt' :legendSettings="legendSettings" :tooltip="tooltip"
+        :tilt='tilt' :legendSettings="legendSettings" :tooltip="tooltip" :load='load'
         :enableAnimation='enableAnimation' :rotation="rotation">
         <e-circularchart3d-series-collection>
           <e-circularchart3d-series :dataSource='data' xName='x' yName='y' :radius='radius' :tooltipMappingName="radius"
@@ -23,7 +23,7 @@
           chart by using the <code>reverse</code> property.
       </p>
       <p><code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover over a point or tap on a
-          point on touch-enabled devices. </p>
+          point on touch-enabled devices.</p>
       <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         3D circular chart component features are segregated into individual feature-wise modules. To use legend, you need
@@ -45,7 +45,7 @@ import { CircularChart3DComponent, CircularChart3DSeriesCollectionDirective, Cir
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {
@@ -57,13 +57,13 @@ export default {
     return {
       theme: theme,
       data: [
-        { x: 'Argentina', y: 505370, r: Browser.isDevice ? '110' : '100', text: 'Argentina' },
-        { x: 'Belgium', y: 551500, r: Browser.isDevice ? '120' : '118.7', text: 'Belgium' },
+        { x: 'Belgium', y: 551500, r: Browser.isDevice ? '120' : '110.7', text: 'Belgium' },
         { x: 'Dominican Republic', y: 312685, r: '137.5', text: 'Dominican Republic' },
-        { x: 'Cuba', y: 350000, r: Browser.isDevice ? '104.6' : '124.6', text: 'Cuba' },
+        { x: 'Cuba', y: 350000, r: '124.6', text: 'Cuba' },
         { x: 'Egypt', y: 301000, r: Browser.isDevice ? '130.8' : '150.8', text: 'Egypt' },
         { x: 'Kazakhstan', y: 300000, r: Browser.isDevice ? '135.5' : '155.5', text: 'Kazakhstan' },
-        { x: 'Somalia', y: 357022, r: '160.6', text: 'Somalia' }
+        { x: 'Somalia', y: 357022, r: Browser.isDevice ? '104.6' : '160.6', text: 'Somalia' },
+        { x: 'Argentina', y: 505370, r: Browser.isDevice ? '110' : '100', text: 'Argentina' },
       ],
       radius: 'r',
       legendSettings: {
@@ -88,6 +88,12 @@ export default {
     circularchart3d: [CircularChartLegend3D, PieSeries3D, CircularChartDataLabel3D, CircularChartTooltip3D, CircularChartHighlight3D]
   },
   methods: {
+    load: function (args) {
+      var selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+    }
 
   },
 };

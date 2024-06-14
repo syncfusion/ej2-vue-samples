@@ -12,7 +12,7 @@
         </ejs-carousel>
         <div id="action-description">
           <p>
-            This sample demonstrates the keyboard interactions with the <a href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component.
+            This sample demonstrates the keyboard interactions with the <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component.
           </p>
         </div>
         <div id="description">
@@ -30,7 +30,7 @@
           </ul>
           <p>
             More information about accessibility's of Vue Carousel component can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started/">
+            <a aria-label="Carousel getting started" target="_blank" href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started/">
               documentation</a> section.
           </p>
         </div>
@@ -151,7 +151,9 @@
   .fabric-dark .keyboard-carousel-section .carousel-sample,
   .bootstrap-dark .keyboard-carousel-section .carousel-sample,
   .highcontrast .keyboard-carousel-section .carousel-sample,
-  .material3-dark .keyboard-carousel-section .carousel-sample {
+  .material3-dark .keyboard-carousel-section .carousel-sample,
+  .fluent2-dark .keyboard-carousel-section .carousel-sample,
+  .fluent2-highcontrast .keyboard-carousel-section .carousel-sample {
     background-color: #26292E;
   }
 
@@ -162,7 +164,9 @@
   .fabric-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading,
   .bootstrap-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading,
   .highcontrast .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading,
-  .material3-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading {
+  .material3-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading,
+  .fluent2-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading,
+  .fluent2-highcontrast .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading {
     color: #bbbbbb;
   }
 
@@ -173,7 +177,9 @@
   .fabric-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .description,
   .bootstrap-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .description,
   .highcontrast .kb-carousel .e-carousel-items .e-carousel-item .product-container .description,
-  .material3-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .description {
+  .material3-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .description,
+  .fluent2-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .description,
+  .fluent2-highcontrast .kb-carousel .e-carousel-items .e-carousel-item .product-container .description {
     color: #9f9f9f
   }
 
@@ -192,7 +198,11 @@
   .highcontrast .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):hover,
   .highcontrast .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):focus,
   .material3-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):hover,
-  .material3-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):focus {
+  .material3-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):focus,
+  .fluent2-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):hover,
+  .fluent2-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):focus,
+  .fluent2-highcontrast .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):hover,
+  .fluent2-highcontrast .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):focus {
     background-color: #4e4e4e;
   }
 
@@ -203,7 +213,9 @@
   .fabric-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon,
   .bootstrap-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon,
   .highcontrast .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon,
-  .material3-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon {
+  .material3-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon,
+  .fluent2-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon,
+  .fluent2-highcontrast .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon {
     color: #dfdfdf;
   }
 
@@ -214,7 +226,9 @@
   .fabric-dark .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div,
   .bootstrap-dark .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div,
   .highcontrast .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div,
-  .material3-dark .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div {
+  .material3-dark .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div,
+  .fluent2-dark .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div,
+  .fluent2-highcontrast .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div {
     background-color: #626262;
   }
 

@@ -653,7 +653,6 @@ L10n.load({
             'Next Page': 'الصفحة التالية',
             'Continuous': 'مستمر'
 
-
         },
         'colorpicker': {
             'Apply': 'تطبيق',
@@ -762,6 +761,32 @@ export default {
         
         this.$nextTick(function () {
           var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
+                this.$refs.doceditcontainer.ej2Instances.toolbarItems = ['New', 'Open', 'Separator', 'Undo',
+          'Redo',
+          'Separator',
+          'Image',
+          'Table',
+          'Hyperlink',
+          'Bookmark',
+          'TableOfContents',
+          'Separator',
+          'Header',
+          'Footer',
+          'PageSetup',
+          'PageNumber',
+          'Break',
+          'Separator',
+          'Find',
+          'Separator',
+          'Comments',
+          'TrackChanges',
+          'Separator',
+          'LocalClipboard',
+          'RestrictEditing',
+          'Separator',
+          'FormFields',
+          'UpdateFields'
+        ];
           obj.open(JSON.stringify(rtlDocument));
           obj.documentName='Right to Left';
           this.$refs.doceditcontainer.ej2Instances.documentEditorSettings.showRuler = true;

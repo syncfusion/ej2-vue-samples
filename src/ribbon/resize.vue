@@ -195,7 +195,7 @@
                       </e-ribbon-collection>
                     </e-ribbon-collections>
                   </e-ribbon-group>
-                  <e-ribbon-group header="show" :isCollapsible=false>
+                  <e-ribbon-group header="Show" :isCollapsible=false>
                     <e-ribbon-collections>
                       <e-ribbon-collection>
                         <e-ribbon-items>
@@ -226,7 +226,7 @@
         </div>
         <div id="ribbonPlaceHolder-resize">
           <div style="width:100%; height:40px">
-            <h4 style="margin: 0 0 0 15px;">Resize Ribbon</h4>
+            <p class="displayText"> Resize Ribbon</p>
             <div id ='ribbonSlider' style="width:200px; margin:0 15px">
               <ejs-slider id="slider"  v-on:created="onCreated" v-on:change="onChange"></ejs-slider>
             </div>
@@ -357,7 +357,7 @@ export default {
         iconCss: 'e-icons e-search', content: 'Find',
         items: [
           { text: 'Find', iconCss: 'e-icons e-search' },
-          { text: 'Advanced find', iconCss: 'e-icons e-search' },
+          { text: 'Advanced Find', iconCss: 'e-icons e-search' },
           { text: 'Go to', iconCss: 'e-icons e-arrow-right' }
         ],
         select:(args) => { this.updateContent( "Find -> " + args.item.text)},
@@ -514,6 +514,12 @@ export default {
       box-shadow: 0 0 2px;
   }
 
+  p.displayText {
+    margin: 0 0 0 15px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.1;
+  }
   #pictureddl-popup #pictureList {
       display: block;
   }

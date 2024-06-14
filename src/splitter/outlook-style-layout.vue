@@ -107,15 +107,15 @@ var pane3Content = {
         <table>
             <tr>
                 <td><ejs-button cssClass='e-flat e-outline' isprimary=true >To...</ejs-button></td>
-                <td><ejs-textbox id="firstname" /></td>
+                <td><ejs-textbox id="firstname" aria-label="firstname" /></td>
             </tr>
             <tr>
                 <td><ejs-button cssClass='e-flat e-outline'>Cc...</ejs-button></td>
-                <td><ejs-textbox id="lastname" /></td>
+                <td><ejs-textbox id="lastname" aria-label="lastname" /></td>
             </tr>
             <tr>
                 <td><div id="subject-text">Subject</div></td>
-                <td><ejs-textbox id="subject" /></td>
+                <td><ejs-textbox id="subject" aria-label="subject" /></td>
             </tr>
         </table>
     </div>

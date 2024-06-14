@@ -3,7 +3,7 @@
     <div id="multiselect-sample">
         <div class="col-lg-12 control-section">
             <div class="control-styles">
-                <h4>Grouping with CheckBox</h4>
+                <label class="h4">Grouping with CheckBox</label>
                 <ejs-multiselect id='multiselect-checkbox' cssClass="e-specific" :dataSource='vegetables' :placeholder='checkWaterMark' :fields='checkFields'
                     :mode='multiMode' :popupHeight='popupHeight' :showDropDownIcon='showDropDownIcon' :showSelectAll='showSelectAll'
                     :enableSelectionOrder='enableSelectionOrder' :filterBarPlaceholder='filterPlaceholder' :enableGroupCheckBox='enableGroupCheck'></ejs-multiselect>
@@ -28,6 +28,11 @@
         margin: 0 auto; 
         width:300px; 
         padding-top: 25px
+    }
+    .control-styles .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
     }
     .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
         transform: translateY(1px);

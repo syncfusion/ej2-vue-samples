@@ -80,7 +80,7 @@
             "api": {},
             "sourceFiles": [
                 {"displayName": "color-mapping.vue", "path": "src/treemap/color-mapping.vue"},
-                {"displayName": "color.json", "path": "src/treemap/treemap-data/color.json"}
+                {"displayName": "color.ts", "path": "src/treemap/treemap-data/color.ts"}
             ]
         },
         {

@@ -160,7 +160,9 @@
     border-color: transparent;
     box-shadow: none !important;
 }
-
+.fluent2-highcontrast .schedule-vue-sample .treeview-external-drag .e-list-item.e-hover>.e-text-content .e-list-text {
+    color: #fff;
+}
 .schedule-vue-sample .treeview-external-drag .e-text-content,
 .e-bigger .schedule-vue-sample .treeview-external-drag .e-text-content,
 .schedule-vue-sample .treeview-external-drag.e-rtl .e-text-content,

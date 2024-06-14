@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section" align="center">
     <ejs-circulargauge :load='load' height="400px" :allowMargin='allowmargin' title='Customer Satisfaction Score' :titleStyle='titleStyle' :tooltip='tooltip' :legendSettings='legendSettings'>
       <e-axes>
@@ -8,12 +8,13 @@
       </e-axes>
     </ejs-circulargauge>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample shows an arc gauge with a real-time scenario of a customer satisfaction score ranging from 0 to 10.
    </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render an arc gauge showing customer satisfaction score. You can use <a
             target="_blank"
@@ -32,8 +33,8 @@
         More information on the arc gauge can be found in this
         <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/getting-started/">documentation section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { CircularGaugeComponent, AxesDirective, AxisDirective, Annotations, GaugeTooltip, Legend } from "@syncfusion/ej2-vue-circulargauge";

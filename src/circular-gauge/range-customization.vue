@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="col-md-8 control-section">
         <div class="content-wrapper">
             <ejs-circulargauge :load='load' :background='background' ref="circulargauge" style='display:block' align='center' id='range-container'>
@@ -15,7 +15,7 @@
     </div>
 <br>
 <div class="col-md-4 property-section">
- <table id="property" title="Properties" style="width: 100%; margin-left: -20px;">
+ <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -20px;">
     <colgroup>
         <col span="1" style="width: 30%;">
         <col span="1" style="width: 40%;">
@@ -100,14 +100,14 @@
             </tbody>
         </table>
 </div>
-
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample demonstrates how to highlight a region in an axis using ranges in the circular gauge. The width,
         corner radius, and start and end range of a range can all be customized.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure the ranges in the circular gauge. Ranges are used to
         group the axis values, and you can use <a target="_blank"
@@ -132,8 +132,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-ranges/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <style scoped>
 .property-panel-content td {
@@ -164,9 +164,11 @@ data:function(){
                 font: { size: '12px', fontFamily: 'inherit', fontStyle: 'Regular' }
             }, majorTicks: { height: 10, offset: 5 }, minorTicks: { height: 0 },
             annotations: [{
+                description:'Speedometer',
                 content: '<div><span style="font-size:14px; font-family:inherit">Speedometer</span></div>',
                 radius: '30%', angle: 0, zIndex: '1'
             }, {
+                description:'65 MPH',
                 content: '<div><span style="font-size:20px; font-family:inherit">65 MPH</span></div>',
                 radius: '40%', angle: 180, zIndex: '1'
             }],

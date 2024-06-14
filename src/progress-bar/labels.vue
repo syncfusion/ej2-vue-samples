@@ -3,7 +3,7 @@
     <div class="row linear-parent">
       <div id="percentage" class="linear-progress">
           <ejs-progressbar
-            id="percentage"
+            id="Percentage"
             ref="percentage"
             type='Linear'
             height='30'
@@ -162,7 +162,7 @@ export default {
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
         args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
         if(args.progressBar.theme === 'Material') {
                 args.progressBar.trackColor = '#EAEAEA';
             }

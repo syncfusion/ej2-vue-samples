@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <main><div>
         <div class="col-md-8 control-section">
         <div class="content-wrapper">
             <ejs-circulargauge ref="circulargauge" :background='background' :load='load' style='display:block' align='center' id='legend-container' :legendSettings='legendSettings' :title='title' :titleStyle='titleStyle'>
@@ -15,7 +15,7 @@
     </div>
 <br>
     <div class="col-md-4 property-section">
-                    <table id="property" title="Properties" style="width: 100%; margin-left: -20px;">
+                    <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -20px;">
                     <colgroup>
                         <col span="1" style="width: 50%;">
                         <col span="1" style="width: 50%;">
@@ -74,13 +74,14 @@
                         </tbody>
                     </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample directs the visualization of moving wind types based on their speed via the legend of the circular
         gauge component. The visibility, shape, alignment, and position of the legend can all be customized.
     </p>
-</div>
-        <div id="description">
+</section>
+        <section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
             <p>
                 The legend provides useful information for interpreting what the circular gauge's axis range displays,
                 and it can be represented in a variety of colors, shapes, and other identifiers depending on the data.
@@ -93,8 +94,8 @@
                     href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-legend/">documentation
                     section</a>.
             </p>
-        </div>
-</div>
+        </section>
+</main>
 </template>
 <style scoped>
 .property-panel-content td {

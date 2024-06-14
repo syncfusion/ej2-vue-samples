@@ -23,7 +23,7 @@
     </p>
     <p>
         More information about the pyramid series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pyramid/">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pyramid/" aria-label="Navigate to the documentation for Pyramid Chart in Vue Accumulation Chart component">documentation section</a>.
     </p>
 </div>
 </div>
@@ -38,7 +38,7 @@ import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, Accu
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

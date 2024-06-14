@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
     <div class="content-wrapper">
         <ejs-treemap id='default-container' :load='load' :itemMove='itemMove' :itemClick='itemMove' :leafItemSettings='leafItemSettings' :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :legendSettings='legendSettings' :palette='palette' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath' :levels='levels'></ejs-treemap>
@@ -9,12 +9,13 @@
 <div style="float: right; margin-right: 10px;">Source:
     <a href=" https://www.factorywarrantylist.com/car-sales-by-country.html/" target="_blank"> www.factorywarrantylist.com</a>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of TreeMap sample">
     <p>
         This sample visualizes the sales of cars across various countries in 2017 by rendering the countries at the top level and car manufacturing companies as leaf items.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the TreeMap features demonstrated in this sample">
     <p>
         In this example, you can see how to render a TreeMap with the provided data source. The palette color is applied to the items in TreeMap. The default legend is enabled in this example to represent the items at the top level.
     </p>
@@ -27,8 +28,8 @@
         TreeMap component features are segregated into individual feature-wise modules. To use a tooltip, inject the 
         <code>Tooltip</code> module using the <code>TreeMap.Inject(TreeMapTooltip)</code> method, and use a legend by injecting the <code>Legend</code> module using the <code>TreeMap.Inject(TreeMapLegend)</code> method.
     </p>
-</div>
-</div>  
+</section>
+</main>  
 </template>
 <script>
 import { TreeMapComponent, TreeMapTooltip, TreeMapLegend } from "@syncfusion/ej2-vue-treemap";

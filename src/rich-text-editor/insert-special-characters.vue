@@ -8,7 +8,7 @@
         <ejs-dialog id='rteDialog' :buttons='dlgButtons' :header='header' ref="dialogObj" :overlayClick='dialogOverlay' :visible='visible' height='340px' width='43%' :showCloseIcon='showCloseIcon' :isModal='modal'  :target='target' :created="dialogCreate">
         </ejs-dialog>
         <div id="customTbarDialog" style="display: none">
-                <div id="rteSpecial_char">
+                <div id="rteSpecial_char" ref="rteSpecialCharEle">
                    <div class="char_block" title="&#94;">&#94;</div>
                     <div class="char_block" title="&#95;">&#95;</div>
                     <div class="char_block" title="&#96;">&#96;</div>
@@ -154,8 +154,14 @@
         border-color: #0078DE;
     }
 
-    .material3 .e-rte-custom-tbar-section .char_block.e-active,
-    .material3-dark .e-rte-custom-tbar-section .char_block.e-active {
+    .fluent2 .e-rte-custom-tbar-section .char_block.e-active,
+    .fluent2-dark .e-rte-custom-tbar-section .char_block.e-active {
+        outline: 1px solid #0f6cbd;
+        border-color: #0f6cbd;
+    }
+
+    .material3 #rteSpecial_char .char_block.e-active,
+    .material3-dark #rteSpecial_char .char_block.e-active {
         outline: 1px solid #7D69B1;
         border-color: #7D69B1;
     }
@@ -230,6 +236,7 @@ export default {
     data: function() {
         return {
             selection: new NodeSelection(),
+            rteSpecialCharEle: null,
             range: null,
             customBtn: null,
             dialogCtn: null,
@@ -241,7 +248,7 @@ export default {
             showCloseIcon: false,
             dlgButtons: [{ click: this.onInsert.bind(this), buttonModel: { isPrimary:'true', content: 'Insert' } }, { buttonModel: { content: 'Cancel' }, click: this.dialogOverlay.bind(this) }],
             toolbarSettings: {
-                items: ['Bold', 'Italic', 'Underline', '|', 'Formats', 'Alignments', 'OrderedList',
+                items: ['Bold', 'Italic', 'Underline', '|', 'Formats', 'Alignments', 'Blockquote', 'OrderedList',
                 'UnorderedList', '|', 'CreateLink', 'Image', '|', 'SourceCode',
                 {
                     tooltipText: 'Insert Symbol',
@@ -259,7 +266,7 @@ export default {
             proxy.$refs.rteObj.ej2Instances.contentModule.getEditPanel().focus();
             proxy.range = proxy.selection.getRange(document);
             proxy.saveSelection = proxy.selection.save(proxy.range, document);
-            proxy.$refs.dialogObj.ej2Instances.content = document.getElementById('rteSpecial_char');
+            proxy.$refs.dialogObj.ej2Instances.content = proxy.$refs.rteSpecialCharEle;
             proxy.$refs.dialogObj.ej2Instances.dataBind();
             proxy.$refs.dialogObj.show();
         };
@@ -272,7 +279,7 @@ export default {
         }
         },
         dialogCreate: function() {
-            var dialogCtn = document.getElementById('rteSpecial_char');
+            var dialogCtn = this.$refs.rteSpecialCharEle;
             var proxy = this;
             dialogCtn.onclick = function (e) {
             var target = e.target;

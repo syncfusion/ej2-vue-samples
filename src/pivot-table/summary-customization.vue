@@ -19,7 +19,7 @@
                 </td>
                 <td style="width: auto">
                   <div style="padding-left: 0;">
-                    <ejs-dropdownlist id='options' ref='options' type="text" tabindex="1" :change="onChange0"
+                    <ejs-dropdownlist id='options' ref='options' type="text" tabindex="0" :change="onChange0"
                       enabled="true" :fields="optionData" :dataSource='options' index=0 value='grandTotals'>
                     </ejs-dropdownlist>
                   </div>
@@ -258,7 +258,12 @@
                 showSubTotals</a> property as <b>false</b> inside the field definition.</td>
           </tr>
         </tbody>
-      </table>
+      </table><br />
+      <p>
+        More information on the show/hide totals can be found in this <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/pivotview/summary-customization">
+        documentation section</a>.
+      </p>
     </div>
   </div>
 </template>

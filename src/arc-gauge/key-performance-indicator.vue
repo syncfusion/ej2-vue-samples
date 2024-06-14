@@ -1,5 +1,5 @@
 <template>
-<div id="kpiarcgauge">
+<main><div id="kpiarcgauge">
 <div class="control-section" >
     <ejs-circulargauge id="keyperform" :load='load'>
        <e-axes>
@@ -8,13 +8,14 @@
        </e-axes>
     </ejs-circulargauge>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample shows an arc gauge with a key performance indicator (KPI), which is a measurable value that shows
         how an organization meets key business objectives.
    </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render an arc gauge showing key performance indicator (KPI). You can use <a
             target="_blank"
@@ -31,8 +32,8 @@
         More information on the arc gauge can be found in this
         <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/getting-started/">documentation section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <style>
     #keyperform_Annotations_0 {
@@ -160,6 +161,7 @@ export default {
              width:0
         },
         labelStyle:{
+           format:'{value} %',
            position: 'Inside',
         font: {
             size: '0px'
@@ -170,12 +172,14 @@ export default {
         },
         annotationsThree: [
         {
+            description:'Triangle',
             content: '<div class="triangle-up"></div>',
             angle: 259,
             zIndex: '1',
             radius: '36%',
         },
         {
+          description:'Current',
           content:
             '<div class="text" style="color:#84cbb5;">Current</div>',
           angle: 0,
@@ -183,6 +187,7 @@ export default {
           radius: '25%',
         },
         {
+          description:'76.6%',
           content:
             '<div class="percentage" style="color:#84cbb5;">76.6%</div>',
           angle: 125,
@@ -190,6 +195,7 @@ export default {
           radius: '12%',
         },
         {
+          description:'0',
           content:
             '<div style="font-size:22px;font-family:inherit;">0</div>',
           angle: 213,
@@ -197,6 +203,7 @@ export default {
           radius: '83%',
         },
         {
+          description:'100',
           content:
             '<div style="font-size:22px;font-family:inherit;">100</div>',
           angle: 150,

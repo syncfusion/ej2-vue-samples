@@ -34,7 +34,7 @@
                 </td>
                 <td>
                     <div>
-                        <ejs-dropdownlist id='sorting-fields' ref='sorting_fields' type="text" tabindex="1" :change="fieldOnChange" enabled="true" :fields="fields" :dataSource='fieldData' index=0></ejs-dropdownlist>
+                        <ejs-dropdownlist id='sorting-fields' ref='sorting_fields' type="text" tabindex="0" :change="fieldOnChange" enabled="true" :fields="fields" :dataSource='fieldData' index=0></ejs-dropdownlist>
                     </div>
                 </td>
             </tr>
@@ -45,7 +45,7 @@
                 </td>
                 <td>
                     <div>
-                        <ejs-multiselect id='sorting-members' ref='sorting_members' placeholder="Select headers" type="text" tabindex="1" :select="memberOnSelect" :removed="memberOnRemoved" :open="memberOnOpened" enabled="true" :fields="members" mode="CheckBox" showDropDownIcon="true" :dataSource="memberDataSource" index=0></ejs-multiselect>
+                        <ejs-multiselect id='sorting-members' ref='sorting_members' placeholder="Select headers" type="text" tabindex="0" :select="memberOnSelect" :removed="memberOnRemoved" :open="memberOnOpened" enabled="true" :fields="members" mode="CheckBox" showDropDownIcon="true" :dataSource="memberDataSource" index=0 aria-label="multiselect"></ejs-multiselect>
                     </div>
                 </td>
             </tr>
@@ -56,7 +56,7 @@
                 </td>
                 <td>
                     <div>
-                        <ejs-dropdownlist id='sorting-order' ref='sorting_order' type="text" tabindex="1" enabled="true" :change="orderOnChange" :dataSource='orderData' index=0></ejs-dropdownlist>
+                        <ejs-dropdownlist id='sorting-order' ref='sorting_order' type="text" tabindex="0" enabled="true" :change="orderOnChange" :dataSource='orderData' index=0></ejs-dropdownlist>
                     </div>
                 </td>
             </tr>
@@ -79,7 +79,12 @@
     <p>In this sample, any field from the <b>Field</b> dropdown list and its member(s), aka header name(s), from the <b>Headers</b> dropdown list can be ordered ascending or descending.
     It is possible to achieve this by setting the <code>enableSorting</code> property to <b>true</b>, 
     as well as the field name, sort order, and member(s) (which can be in any order) inside the pivot table's <code>sortSettings</code> property.
-    The <code>dataSourceSettings</code> includes <code>enableSorting</code> and <code>sortSettings</code> properties.</p>
+    The <code>dataSourceSettings</code> includes <code>enableSorting</code> and <code>sortSettings</code> properties.</p><br />
+    <p>
+        More information on the custom sorting can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/pivotview/sorting#custom-sorting">
+        documentation section</a>.
+    </p>
 </div>
 
 </div>

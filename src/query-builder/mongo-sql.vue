@@ -184,6 +184,24 @@
         display: block !important;
     }
 }
+
+.highcontrast .mongo-text-area,
+.highcontrast .e-query-preview .e-sql-content,
+.highcontrast .e-query-preview .e-mongo-content,
+.fluent2-dark .mongo-text-area,
+.fluent2-dark .e-query-preview .e-sql-content,
+.fluent2-dark .e-query-preview .e-mongo-content,
+.fluent2-highcontrast .mongo-text-area,
+.fluent2-highcontrast .e-query-preview .e-sql-content,
+.fluent2-highcontrast .e-query-preview .e-mongo-content {
+    background-color: #1f1f1f;
+}
+
+.fluent2-dark .e-query-preview .e-icons.copycode,
+.fluent2-highcontrast .e-query-preview .e-icons.copycode {
+    padding-bottom: 3px;
+    color: white;
+}
 </style>
 <!-- custom code end -->
 

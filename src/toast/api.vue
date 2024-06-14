@@ -7,14 +7,14 @@
             <div class='col-lg-6 padding'>
                 <div class="input-form">
                     <div class="e-float-input">
-                        <input class="e-input" id="toast_input_title" required="">
+                        <input class="e-input" id="toast_input_title" required="" aria-label="title">
                         <span class="e-float-line"></span>
                         <label class="e-float-text">Enter the title</label>
                     </div>
                 </div>
                 <div class="input-form">
                     <div class="e-float-input">
-                        <textarea class="e-input" id="toast_input_content" rows="3" required=""></textarea>
+                        <textarea class="e-input" id="toast_input_content" rows="3" aria-label="content" required=""></textarea>
                         <label class="e-float-text">Enter the content</label>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
             </div>
             <div class='col-lg-6 padding'>
                 <div class="input-form">
-                    <h4> Show Animation</h4>
+                    <label class="h4"> Show Animation</label>
                     <div class="e-float-input">
                         <input class="e-input" id="showDuration" value="400" required="">
                         <span class="e-float-line"></span>
@@ -63,7 +63,7 @@
                         placeholder='Select an Animation' :change='showChange' :value='animationValue'></ejs-dropdownlist>
                 </div>
                 <div class="input-form e-group">
-                    <h4> Hide Animation</h4>
+                    <label class="h4"> Hide Animation</label>
                     <div class="e-float-input">
                         <input class="e-input" id="hideDuration" value="400" required="">
                         <span class="e-float-line"></span>
@@ -110,6 +110,13 @@
         padding-top: 0;
     }
 
+    .input-form .h4,
+    .input-form.e-group .h4 {
+      font-size: 16px;
+      margin: 0 0 10px;
+      font-weight: bold;
+  }
+
     .toast-api-section .control-section {
         min-height: 650px;
     }
@@ -150,6 +157,7 @@ export default {
     components: {
         'ejs-toast': ToastComponent,
         'ejs-checkbox': CheckBoxComponent,
+        'ejs-button': ButtonComponent,
         'ejs-dropdownlist': DropDownListComponent
     },
     data: function(){

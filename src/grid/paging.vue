@@ -7,13 +7,13 @@
         </p>
     </div>
     <div class="paging-api">
-        <ejs-grid :dataSource="data" locale='en-US' height='365' :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true'>
+        <ejs-grid :dataSource="data" locale='en-US' height='365' :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' width='150' ></e-column>
-                <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right'></e-column>
-                <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
-                <e-column field='ShipCountry' headerText='Ship Country' width='170'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' width='150' :validationRules='customeridrules'></e-column>
+                <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right' editType='datepickeredit'></e-column>
+                <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right' editType='numericedit' :validationRules='freightrules'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' width='170' editType='dropdownedit'></e-column>
             </e-columns>
         </ejs-grid>
     </div>
@@ -78,7 +78,7 @@
 </style>
 <script lang="ts">
 import { L10n, setCulture } from '@syncfusion/ej2-base';
-import { GridComponent, ColumnDirective, ColumnsDirective, Page, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Page, Sort, Toolbar, Edit, Filter } from "@syncfusion/ej2-vue-grids";
 import { data } from "./data-source";
 
 setCulture('de-DE');
@@ -101,11 +101,17 @@ export default {
   data: () => {
     return {
       data: data,
-       pageSettings: { pageSizes: [12,50,100,200], pageCount: 4 },
+      pageSettings: { pageSizes: [12,50,100,200], pageCount: 4 },
+      filterSettings: { type: 'Excel' },
+      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+      orderidrules: { required: true, number: true },
+      customeridrules: { required: true, minLength: 5 },
+      freightrules:  { required: true, min: 0 },
+      toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
     };
   },
   provide: {
-      grid: [Page, Sort]
+      grid: [Page, Sort, Toolbar, Edit, Filter]
   }
 }
 </script>

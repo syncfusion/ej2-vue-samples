@@ -7,7 +7,7 @@
             <div id="lineardeterminate">
             <ejs-progressbar
             ref="determinate"
-            id="lineardeterminate"
+            id="linear-determinate"
             type='Linear'
             height='60'
             width='90%'
@@ -208,9 +208,9 @@ export default {
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
         args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
         if(args.progressBar.theme === 'HighContrast' || args.progressBar.theme === 'Bootstrap5Dark' || args.progressBar.theme === 'BootstrapDark' || args.progressBar.theme === 'FabricDark'
-                || args.progressBar.theme === 'TailwindDark' || args.progressBar.theme === 'MaterialDark' || args.progressBar.theme === 'FluentDark' || args.progressBar.theme === 'Material3Dark') {
+                || args.progressBar.theme === 'TailwindDark' || args.progressBar.theme === 'MaterialDark' || args.progressBar.theme === 'FluentDark' || args.progressBar.theme === 'Material3Dark' || args.progressBar.theme === 'Fluent2Dark') {
             for (let i = 0; i < div.length; i++) {
                 div[i].setAttribute('style', 'color:white');
             }
@@ -243,6 +243,10 @@ export default {
           args.progressBar.secondaryProgressColor = '#386e7f'
         } else if (selectedTheme === 'tailwind') {
           args.progressBar.secondaryProgressColor = '#b1afe9'
+        } else if (selectedTheme === 'fluent2') {
+          args.progressBar.secondaryProgressColor = '#0F6CBD'
+        } else if (selectedTheme === 'fluent2-dark') {
+          args.progressBar.secondaryProgressColor = '#115EA3'
         }
   }
   }

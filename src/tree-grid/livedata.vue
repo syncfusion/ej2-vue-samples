@@ -10,10 +10,10 @@
             <div style="padding-bottom: 10px;">
                 <h4 style="display: inline-block; font-size: 14px">Feed Delay(ms):</h4>
                 <ejs-numerictextbox ref="feeddelay" :value="value" format="N0" :min="min" :max="max" :step="step"
-                    :width="width" style="margin-left: 7px;"></ejs-numerictextbox>
-                <ejs-button ref="updatebtn" id="update" v-on:click.native="updateClick" style="margin-left: 10px;">Start
+                    :width="width" style="margin-left: 7px;" aria-label="Feed Delay in milliseconds"></ejs-numerictextbox>
+                <ejs-button ref="updatebtn" id="update" v-on:click.native="updateClick" style="margin-left: 10px;" aria-label="Start Data update">Start
                     Data Update</ejs-button>
-                <ejs-button ref="clearbtn" id="clear" v-on:click.native="clearClick" style="margin-left: 10px;">Stop Data
+                <ejs-button ref="clearbtn" id="clear" v-on:click.native="clearClick" style="margin-left: 10px;" aria-label="Stop Data update">Stop Data
                     Update</ejs-button>
             </div>
             <ejs-treegrid ref='livedata' id="livedata"
@@ -233,6 +233,8 @@ function updateCellDetails(cell, className) {
 
 /* Color varying based on theme so need to adjust that */
     .fluent .e-treegrid .e-rowcell.e-increase,
+    .fluent2 .e-treegrid .e-rowcell.e-increase,
+    .fluent2-highcontrast .e-treegrid .e-rowcell.e-increase,
     .bootstrap5 .e-treegrid .e-rowcell.e-increase,
     .tailwind .e-treegrid .e-rowcell.e-increase,
     .material .e-treegrid .e-rowcell.e-increase,
@@ -241,6 +243,8 @@ function updateCellDetails(cell, className) {
     .bootstrap .e-treegrid .e-rowcell.e-increase,
     .highcontrast .e-treegrid .e-rowcell.e-increase,
     .fluent .e-treegrid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
+    .fluent2 .e-treegrid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
+    .fluent2-highcontrast .e-treegrid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
     .bootstrap5 .e-treegrid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
     .tailwind .e-treegrid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
     .material .e-treegrid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
@@ -254,12 +258,14 @@ function updateCellDetails(cell, className) {
         color: #00A653;
     }
     .fluent-dark .e-treegrid .e-rowcell.e-increase,
+    .fluent2-dark .e-treegrid .e-rowcell.e-increase,
     .bootstrap5-dark .e-treegrid .e-rowcell.e-increase,
     .tailwind-dark .e-treegrid .e-rowcell.e-increase,
     .material-dark .e-treegrid .e-rowcell.e-increase,
     .fabric-dark .e-treegrid .e-rowcell.e-increase,
     .bootstrap-dark .e-treegrid .e-rowcell.e-increase,
     .fluent-dark .e-treegrid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
+    .fluent2-dark .e-treegrid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
     .bootstrap5-dark .e-treegrid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
     .tailwind-dark .e-treegrid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
     .material-dark .e-treegrid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
@@ -274,6 +280,8 @@ function updateCellDetails(cell, className) {
         color: #8EDA94;
     }
     .fluent .e-treegrid .e-rowcell.e-decrease,
+    .fluent2 .e-treegrid .e-rowcell.e-decrease,
+    .fluent2-highcontrast .e-treegrid .e-rowcell.e-decrease,
     .bootstrap5 .e-treegrid .e-rowcell.e-decrease,
     .tailwind .e-treegrid .e-rowcell.e-decrease,
     .material .e-treegrid .e-rowcell.e-decrease,
@@ -282,6 +290,8 @@ function updateCellDetails(cell, className) {
     .bootstrap .e-treegrid .e-rowcell.e-decrease,
     .highcontrast .e-treegrid .e-rowcell.e-decrease,
     .fluent .e-treegrid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
+    .fluent2 .e-treegrid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
+    .fluent2-highcontrast .e-treegrid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
     .bootstrap5 .e-treegrid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
     .tailwind .e-treegrid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
     .material .e-treegrid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
@@ -295,12 +305,14 @@ function updateCellDetails(cell, className) {
         color: #FF3740;
     }
     .fluent-dark .e-treegrid .e-rowcell.e-decrease,
+    .fluent2-dark .e-treegrid .e-rowcell.e-decrease,
     .bootstrap5-dark .e-treegrid .e-rowcell.e-decrease,
     .tailwind-dark .e-treegrid .e-rowcell.e-decrease,
     .material-dark .e-treegrid .e-rowcell.e-decrease,
     .fabric-dark .e-treegrid .e-rowcell.e-decrease,
     .bootstrap-dark .e-treegrid .e-rowcell.e-decrease,
     .fluent-dark .e-treegrid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
+    .fluent2-dark .e-treegrid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
     .bootstrap5-dark .e-treegrid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
     .tailwind-dark .e-treegrid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
     .material-dark .e-treegrid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
@@ -319,6 +331,8 @@ function updateCellDetails(cell, className) {
         line-height: 39px;
     }
     .fluent .above-0,
+    .fluent2 .above-0,
+    .fluent2-highcontrast .above-0,
     .bootstrap5 .above-0,
     .tailwind .above-0,
     .material .above-0,
@@ -327,6 +341,8 @@ function updateCellDetails(cell, className) {
     .bootstrap .above-0,
     .highcontrast .above-0,
     .fluent .e-rowcell .e-icons.above-0,
+    .fluent2 .e-rowcell .e-icons.above-0,
+    .fluent2-highcontrast .e-rowcell .e-icons.above-0,
     .bootstrap5 .e-rowcell .e-icons.above-0,
     .tailwind .e-rowcell .e-icons.above-0,
     .material .e-rowcell .e-icons.above-0,
@@ -339,12 +355,14 @@ function updateCellDetails(cell, className) {
         color: #00A653;
     }
     .fluent-dark .above-0,
+    .fluent2-dark .above-0,
     .bootstrap5-dark .above-0,
     .tailwind-dark .above-0,
     .material-dark .above-0,
     .fabric-dark .above-0,
     .bootstrap-dark .above-0,
     .fluent-dark .e-rowcell .e-icons.above-0,
+    .fluent2-dark .e-rowcell .e-icons.above-0,
     .bootstrap5-dark .e-rowcell .e-icons.above-0,
     .tailwind-dark .e-rowcell .e-icons.above-0,
     .material-dark .e-rowcell .e-icons.above-0,
@@ -353,6 +371,8 @@ function updateCellDetails(cell, className) {
         color: #38FF9C;
     }
     .fluent .below-0,
+    .fluent2 .below-0,
+    .fluent2-highcontrast .below-0,
     .bootstrap5 .below-0,
     .tailwind .below-0,
     .material .below-0,
@@ -361,6 +381,8 @@ function updateCellDetails(cell, className) {
     .bootstrap .below-0,
     .highcontrast .below-0,
     .fluent .e-rowcell .e-icons.below-0,
+    .fluent2 .e-rowcell .e-icons.below-0,
+    .fluent2-highcontrast .e-rowcell .e-icons.below-0,
     .bootstrap5 .e-rowcell .e-icons.below-0,
     .tailwind .e-rowcell .e-icons.below-0,
     .material .e-rowcell .e-icons.below-0,
@@ -373,12 +395,14 @@ function updateCellDetails(cell, className) {
         color: #FF3740;
     }
     .fluent-dark .below-0,
+    .fluent2-dark .below-0,
     .bootstrap5-dark .below-0,
     .tailwind-dark .below-0,
     .material-dark .below-0,
     .fabric-dark .below-0,
     .bootstrap-dark .below-0,
     .fluent-dark .e-rowcell .e-icons.below-0,
+    .fluent2-dark .e-rowcell .e-icons.below-0,
     .bootstrap5-dark .e-rowcell .e-icons.below-0,
     .tailwind-dark .e-rowcell .e-icons.below-0,
     .material-dark .e-rowcell .e-icons.below-0,
@@ -387,6 +411,8 @@ function updateCellDetails(cell, className) {
         color: #FF9CA0;
     }
     .fluent .e-treegrid .e-treecell.e-parent,
+    .fluent2 .e-treegrid .e-treecell.e-parent,
+    .fluent2-highcontrast .e-treegrid .e-treecell.e-parent,
     .fabric .e-treegrid .e-treecell.e-parent,
     .bootstrap4 .e-treegrid .e-treecell.e-parent,
     .bootstrap .e-treegrid .e-treecell.e-parent,
@@ -396,6 +422,7 @@ function updateCellDetails(cell, className) {
         color: #0278d7;
     }
     .fluent-dark .e-treegrid .e-treecell.e-parent,
+    .fluent2-dark .e-treegrid .e-treecell.e-parent,
     .bootstrap5-dark .e-treegrid .e-treecell.e-parent {
         color: #0d6efd;
     }

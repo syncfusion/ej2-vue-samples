@@ -39,7 +39,7 @@ export default {
     data: function() {
         return {
         toolbarSettings: {
-            items: ['Bold',  'Italic',  'Underline',  '|',  'Formats',  'Alignments',
+            items: ['Bold',  'Italic',  'Underline',  '|',  'Formats',  'Alignments', 'Blockquote',
                 'OrderedList',  'UnorderedList',  '|',  'CreateLink',  'Image',  '|',  'SourceCode',  'Undo',  'Redo', 'Print']
         }
         };

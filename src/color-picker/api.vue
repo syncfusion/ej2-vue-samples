@@ -15,7 +15,7 @@
                         </td>
                         <td style="width: 50%">
                             <div style="max-width: 200px">
-                                <input ref="inputValue" class="e-input" :maxlength="9" value="#0db1e7" type="text" v-on:input="onChange"/>
+                                <input ref="inputValue" aria-label="Value" class="e-input" :maxlength="9" value="#0db1e7" type="text" v-on:input="onChange"/>
                             </div>
                         </td>
                     </tr>
@@ -35,7 +35,7 @@
                       <div>Disable</div>
                     </td>
                     <td style="width: 50%;padding-top:15px">
-                      <ejs-checkbox :change="disabled_onChange"></ejs-checkbox>
+                      <ejs-checkbox aria-label="Disable" :change="disabled_onChange"></ejs-checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -43,7 +43,7 @@
                     <div>Show Buttons</div>
                   </td>
                   <td style="width: 50%;padding-top:15px">
-                    <ejs-checkbox :checked="true" :change="button_onChange"></ejs-checkbox>
+                    <ejs-checkbox  aria-label="Show Buttons" :checked="true" :change="button_onChange"></ejs-checkbox>
                   </td>
                 </tr>
                 <tr>
@@ -51,7 +51,7 @@
                         <div>Mode Switcher</div>
                     </td>
                     <td style="width: 50%;padding-top:15px">
-                      <ejs-checkbox :checked="true" :change="mode_onChange"></ejs-checkbox>
+                      <ejs-checkbox aria-label="Mode Switcher" :checked="true" :change="mode_onChange"></ejs-checkbox>
                     </td>
                 </tr>
             </tbody>

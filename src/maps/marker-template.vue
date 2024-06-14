@@ -1,27 +1,27 @@
 <template>
-<div id="maps-marker-temp-sample">
+<main><div id="maps-marker-temp-sample">
 <div class="control-section">
 <ejs-maps id='markertemp' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings'>
     <template v-slot:templatePerth="{}">
-        <div id="marker1"><img class="markerTemplate" alt="Weather clear" src="src/maps/images/weather-clear.png"/><p>Perth:31.6°C</p></div>
+        <div><img class="markerTemplate" alt="Marker weather clear image" src="src/maps/images/weather-clear.png"/><p>Perth:31.6°C</p></div>
     </template>
     <template v-slot:templateAdelaide="{}">
-        <div id="marker1"><img class="markerTemplate" alt="Weather cloud" src="src/maps/images/weather-clouds.png"/><p>Adelaide:28.5°C</p></div>
+        <div><img class="markerTemplate" alt="Marker weather cloud image" src="src/maps/images/weather-clouds.png"/><p>Adelaide:28.5°C</p></div>
     </template>
     <template v-slot:templateTownsville="{}">
-        <div id="marker1"><img class="markerTemplate" alt="Weather clear" src="src/maps/images/weather-clear.png"/><p>Townsville:31.3°C</p></div>
+        <div><img class="markerTemplate" alt="Marker weather clear image" src="src/maps/images/weather-clear.png"/><p>Townsville:31.3°C</p></div>
     </template>
     <template v-slot:templateSydney="{}">
-        <div id="marker1"><img class="markerTemplate" alt="Weather rain" src="src/maps/images/weather-rain.png"/><p>Sydney:26.4°C</p></div>
+        <div><img class="markerTemplate" alt="Marker weather rain image" src="src/maps/images/weather-rain.png"/><p>Sydney:26.4°C</p></div>
     </template>
     <template v-slot:templateAlice="{}">
-        <div id="marker1"><img class="markerTemplate" alt="Weather clear" src="src/maps/images/weather-clear.png"/><p>Alice Springs:36.4°C</p></div>
+        <div><img class="markerTemplate" alt="Marker weather clear image" src="src/maps/images/weather-clear.png"/><p>Alice Springs:36.4°C</p></div>
     </template>
     <template v-slot:templateBrisbane="{}">
-        <div id="marker1"><img class="markerTemplate" alt="Wether cloud" src="src/maps/images/weather-clouds.png"/><p>Brisbane:29.1°C</p></div>
+        <div><img class="markerTemplate" alt="Marker weather cloud image" src="src/maps/images/weather-clouds.png"/><p>Brisbane:29.1°C</p></div>
     </template>
     <e-layers>
-        <e-layer :shapeData='shapeData' :shapeDataPath='shapeDataPath' :tooltipSettings='tooltipSettings' :shapeSettings='shapeSettings'>
+        <e-layer :shapeData='shapeData' shapePropertyPath='STATE_NAME' :shapeDataPath='shapeDataPath' :tooltipSettings='tooltipSettings' :shapeSettings='shapeSettings'>
             <e-markerSettings>
                 <e-markerSetting height='30' width='30' visible='true' :dataSource='dataSourcePerth' :template="'templatePerth'"></e-markerSetting>
                 <e-markerSetting height='30' width='30' visible='true' :dataSource='dataSourceAdelaide' :template="'templateAdelaide'"></e-markerSetting>
@@ -35,12 +35,13 @@
 </ejs-maps>
 
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample indicates the temperature of various cities of Australia in marker templates.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
           In this example, you can see how to place a template as a marker in the map. Any custom HTML elements can be used as a marker. You can use the <code>palette</code> property in the <code>shapeSettings</code> to apply desired fill colors for the shapes.
         </p>
@@ -50,8 +51,8 @@
            Maps component features are segregated into individual feature-wise modules. To use a marker template, inject the <code>Marker</code> module using the <code>Maps.Inject(Marker)</code> method.
         </p>
        
-    </div>
-</div>
+    </section>
+</main>
 </template>
 <style>
     #maps-marker-temp-sample .markerTemplate {

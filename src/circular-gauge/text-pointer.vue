@@ -1,14 +1,14 @@
 <template>
-<div>
+<main><div>
     <div class="control-section">
         <ejs-circulargauge :load='load' style='display:block' :background='background' :centerY='centerY' align='center' id='gauge'>
             <e-axes>
                 <e-axis :radius='gaugeRadius' :startAngle='startAngle' :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :minimum=0 :maximum=120 :rangeGap=3 :labelStyle='labelStyle'>
                     <e-pointers>
-                        <e-pointer :value='value1' :radius='pointerRadius1' :color='color' :needleStartWidth= 'needleStartWidth' :needleEndWidth ='needleEndWidth'  :pointerWidth='pointerWidth' :cap='cap' :textStyle='textStyle' ></e-pointer>
-                        <e-pointer :value='value2' :radius='pointerRadius2' :color='color'  :pointerWidth='pointerWidth' :textStyle='textStyle' :markerShape='markerShape' :text='text1' :type='type' :animation='animation' ></e-pointer>
-                        <e-pointer :value='value3' :radius='pointerRadius3' :color='color'  :pointerWidth='pointerWidth' :textStyle='textStyle' :markerShape='markerShape' :text='text2' :type='type' :animation='animation'></e-pointer>
-                        <e-pointer :value='value4' :radius='pointerRadius4' :color='color'  :pointerWidth='pointerWidth' :textStyle='textStyle' :markerShape='markerShape' :text='text3' :type='type' :animation='animation'></e-pointer>
+                        <e-pointer :value='value1' :radius='pointerRadius1' :needleStartWidth= 'needleStartWidth' :needleEndWidth ='needleEndWidth'  :pointerWidth='pointerWidth' :cap='cap' :textStyle='textStyle' ></e-pointer>
+                        <e-pointer :value='value2' :radius='pointerRadius2' :pointerWidth='pointerWidth' :textStyle='textStyle' :markerShape='markerShape' :text='text1' :type='type' :animation='animation' ></e-pointer>
+                        <e-pointer :value='value3' :radius='pointerRadius3' :pointerWidth='pointerWidth' :textStyle='textStyle' :markerShape='markerShape' :text='text2' :type='type' :animation='animation'></e-pointer>
+                        <e-pointer :value='value4' :radius='pointerRadius4' :pointerWidth='pointerWidth' :textStyle='textStyle' :markerShape='markerShape' :text='text3' :type='type' :animation='animation'></e-pointer>
                     </e-pointers>
                     <e-ranges>
                         <e-range :start='start1' :end='end1' :startWidth='startWidth' :endWidth='endWidth' :color='color1' :radius='rangeRadius'></e-range>
@@ -22,12 +22,13 @@
             </e-axes>
         </ejs-circulargauge>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample visualizes the performance outcome of a work using the text pointer in the circular gauge.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to use a text to customize the pointer in the circular gauge. The text can be
         added to the circular gauge's pointer primarily through the use of the <a target="_blank"
@@ -44,8 +45,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-pointers/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 

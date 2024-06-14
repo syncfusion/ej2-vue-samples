@@ -1,7 +1,7 @@
 <template>
     <div class="control-section">
         <div class="control-section">
-            <ejs-circularchart3d id="container" ref="pie" style='display:block;' :title='title' :theme='theme'
+            <ejs-circularchart3d id="container" ref="pie" style='display:block;' :title='title' :theme='theme' :load='load'
                 :enableRotation='enableRotation' :tilt='tilt' :legendSettings="legendSettings" :tooltip="tooltip"
                 :enableAnimation='enableAnimation'>
                 <e-circularchart3d-series-collection>
@@ -24,7 +24,7 @@
                 the pie chart using a mouse or touch-enabled devices.
             </p>
             <p><code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover over a point or tap on a
-                point on touch-enabled devices. </p>
+                point on touch-enabled devices.</p>
             <p><b>Injecting Module</b></p>
             <p>3D circular chart component features are segregated into individual feature-wise modules. To use pie series,
                 you need to inject the
@@ -45,7 +45,7 @@ import { CircularChart3DComponent, CircularChart3DSeriesCollectionDirective, Cir
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
     components: {
@@ -88,6 +88,12 @@ export default {
         circularchart3d: [CircularChartLegend3D, PieSeries3D, CircularChartDataLabel3D, CircularChartTooltip3D]
     },
     methods: {
+        load: function (args) {
+            var selectedTheme = location.hash.split('/')[1];
+            selectedTheme = selectedTheme ? selectedTheme : 'Material';
+            args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+        }
 
     },
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-cell-template">
-      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :allowResizing="false" :showFormulaBar="false" cssClass="e-custom-spreadsheet" :allowOpen="false" :allowSave="false" :scrollSettings="scrollSettings" :created="created" :allowEditing="false" :selectionSettings="selectionSettings">
+      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :allowResizing="false" :allowPrint="false" :showFormulaBar="false" cssClass="e-custom-spreadsheet" :allowOpen="false" :allowSave="false" :scrollSettings="scrollSettings" :created="created" :allowEditing="false" :selectionSettings="selectionSettings">
         <e-sheets>
           <e-sheet name="Registration Form" :rowCount="40" :colCount="30" :showGridLines="false">
             <e-ranges>
@@ -58,7 +58,7 @@
               <e-range :template="'addressTextbox'" address="C9">
                 <template v-slot:addressTextbox>
                   <div>
-                    <ejs-textbox rows="2" :multiline="true"></ejs-textbox>
+                    <ejs-textbox placeholder="Address" rows="2" :multiline="true"></ejs-textbox>
                   </div>
                 </template>
               </e-range>
@@ -212,6 +212,10 @@
 
     .material-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-btn.e-flat {
       color: #000;
+    }
+
+    .fluent2-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-btn.e-flat {
+      background-color: #292929;
     }
 </style>
 <!-- custom code end -->

@@ -29,7 +29,7 @@
     </p>
     <p>
         More information about the bubble series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/bubble">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/bubble" aria-label="Navigate to the documentation for Bubble Chart in Vue Chart component">documentation section</a>.
     </p>
 </div>
 </div>
@@ -44,11 +44,11 @@
 import { EmitType } from '@syncfusion/ej2-base';
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, BubbleSeries, Tooltip, Legend, DataLabel} from "@syncfusion/ej2-vue-charts";
-import {bubblePointMaterialColors, bubblePointMaterialDarkColors, bubblePointFabricColors, bubblePointBootstrapColors, bubblePointHighContrastColors, bubblePointBootstrap5Colors, bubblePointBootstrap5DarkColors, bubblePointFluentColors, bubblePointFluentDarkColors, bubblePointTailwindColors, bubblePointTailwindDarkColors, pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, bubbleMaterial3Colors, pointMaterial3Colors, bubbleMaterial3DarkColors, pointMaterial3DarkColors } from './theme-color';
+import {bubblePointMaterialColors, bubblePointMaterialDarkColors, bubblePointFabricColors, bubblePointBootstrapColors, bubblePointHighContrastColors, bubblePointBootstrap5Colors, bubblePointBootstrap5DarkColors, bubblePointFluentColors, bubblePointFluentDarkColors, bubblePointTailwindColors, bubblePointTailwindDarkColors, pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, bubbleMaterial3Colors, pointMaterial3Colors, bubbleMaterial3DarkColors, pointMaterial3DarkColors, pointFluent2Colors, bubbleFluent2Colors, pointFluent2DarkColors, bubbleFluent2DarkColors } from './theme-color';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {
@@ -176,6 +176,14 @@ export default {
         else if (selectedTheme === 'material3-dark') {
             args.fill = bubbleMaterial3DarkColors[args.point.index % 10];
             args.border.color = pointMaterial3DarkColors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'fluent2') {
+            args.fill = bubbleFluent2Colors[args.point.index % 10];
+            args.border.color = pointFluent2Colors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'fluent2-dark') {
+            args.fill = bubbleFluent2DarkColors[args.point.index % 10];
+            args.border.color = pointFluent2DarkColors[args.point.index % 10];
         }
         else
         {

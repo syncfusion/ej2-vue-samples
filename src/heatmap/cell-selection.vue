@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section col-lg-9">
     <div>
         <div class="content-wrapper" style='width:99%;margin-left: -10px;'>
@@ -11,7 +11,7 @@
     </div>
 </div>
 <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table role="none" id="property" title="Properties" style="width: 100%">
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 40%;">
@@ -21,12 +21,13 @@
             </tbody>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample visualizes the revenue from the top exported products between the year 2014 and 2018, valued in USD million.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         In this example, you can see how to selected the cell in heat map and render the column chart based on selected data.
     </p>
@@ -36,8 +37,8 @@
     <p>
       Heatmap component features are separated into discrete feature-based modules. To use a tooltip, inject the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> module using the <code>provide:{ heatmap:[Tooltip] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip } from "@syncfusion/ej2-vue-heatmap";

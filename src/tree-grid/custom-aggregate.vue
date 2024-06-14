@@ -37,7 +37,7 @@
             <e-columns>
                 <e-column field='ID' headerText='S.No' width='90' textAlign='Right'></e-column>
                 <e-column field='Name' headerText='ShipMent Name' width='220'></e-column>
-                <e-column field='category' headerText='Category' width='230'></e-column>
+                <e-column field='category' headerText='Category' width='250'></e-column>
                 <e-column field='unitPrice' headerText='Unit Price($)' format='c2' width='120' textAlign='Right'></e-column>
                 <e-column field='price' headerText='Price($)' width='100' format='c' textAlign='Right'></e-column>
             </e-columns>
@@ -62,6 +62,14 @@
   /deep/ .e-treegrid .e-summarycell.e-templatecell {
     pointer-events:visible !important;
   };
+
+    .fluent2,
+    .fluent2-dark,
+    .fluent2-highcontrast {
+        /deep/ .e-treegrid .e-summarycell.e-templatecell .e-input-group {
+            width: 150px !important;
+        }
+    }
 
 </style>
 <!-- custom code end -->

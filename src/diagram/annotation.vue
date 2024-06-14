@@ -43,14 +43,14 @@
         </div>
           <div class="row" style="padding-top: 8px">
               <div class="col-xs-4 column-style">
-                  <ejs-button ref="boldObj" id="bold" style="width:100%"  iconCss="e-icons e-bold"
+                  <ejs-button ref="boldObj" id="bold" style="width:100%"  iconCss="e-icons e-bold" aria-label="bold"
                               ></ejs-button>
               </div>
               <div class="col-xs-4 column-style">
-                  <ejs-button ref= "italicObj" id="italic" style="width:100%" iconCss="e-icons e-italic"></ejs-button>
+                  <ejs-button ref= "italicObj" id="italic" style="width:100%" iconCss="e-icons e-italic" aria-label="italic"></ejs-button>
               </div>
               <div class="col-xs-4 column-style">
-                  <ejs-button ref="underlineObj" id="underline" style="width:100%" iconCss="e-icons e-underline"></ejs-button>
+                  <ejs-button ref="underlineObj" id="underline" style="width:100%" iconCss="e-icons e-underline" aria-label="underline"></ejs-button>
               </div>
           </div>
         <div class="row" style="padding-top: 8px">

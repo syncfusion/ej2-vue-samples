@@ -4,13 +4,13 @@
         <div class="content-wrapper">
             <div id='group' class='col-lg-6'>
                 <div class="content">
-                    <h3>Grouping</h3>
+                    <label class="h4">Grouping</label>
                     <ejs-autocomplete id='vegetables' :showPopupButton='true' :dataSource='vegetableData' :placeholder='groupWaterMark' :fields='groupFields'></ejs-autocomplete>
                 </div>
             </div>
             <div id='icon' class='col-lg-6'>
                 <div class="content">
-                    <h3> Icons</h3>
+                    <label class="h4"> Icons</label>
                     <ejs-autocomplete id='icons' :showPopupButton='true' 
                     cssClass='autocomplete-icon-css'
                     :dataSource='socialMediaData' :placeholder='iconWaterMark' :fields='iconFields'></ejs-autocomplete>
@@ -41,6 +41,12 @@
     .content {
         width: 250px;
         margin: 0 auto;
+    }
+
+    .content .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
     }
     
     #group,

@@ -87,7 +87,7 @@ import {
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 function GetZoomingData() {
   let series = [];
@@ -124,7 +124,8 @@ export default {
       primaryXAxis: {
         valueType: "DateTime",
         majorGridLines: { color: "transparent" },
-        crosshairTooltip: { enable: true }
+        crosshairTooltip: { enable: true },
+        edgeLabelPlacement: 'Shift'
       },
       primaryYAxis: {
         lineStyle: { color: "transparent" },

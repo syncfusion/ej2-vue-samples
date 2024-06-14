@@ -2,7 +2,7 @@
 <div>
     <div class="control-section file-overview">
          <div class="sample-container">
-            <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings'>
+            <ejs-filemanager id="overview_file" :ajaxSettings='ajaxSettings' :toolbarSettings="toolbarSettings" :contextMenuSettings="contextMenuSettings">
             </ejs-filemanager>
         </div>
     </div>
@@ -44,6 +44,12 @@ export default {
                 getImageUrl: hostUrl + 'api/FileManagerAccess/GetImage',
                 uploadUrl: hostUrl + 'api/FileManagerAccess/Upload',
                 downloadUrl: hostUrl + 'api/FileManagerAccess/Download'
+            },
+            toolbarSettings: { items: ['NewFolder', 'SortBy', 'Cut', 'Copy', 'Paste', 'Delete', 'Refresh', 'Download', 'Rename', 'Selection', 'View', 'Details']},
+            contextMenuSettings: {
+				file: ["Cut", "Copy", "|", "Delete", "Download", "Rename", "|", "Details"],
+                layout: ["SortBy", "View", "Refresh", "|", "Paste",  "|", "NewFolder", "|", "Details", "|", "SelectAll"],
+                visible: true
             }
         };
     },

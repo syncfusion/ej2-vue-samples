@@ -63,6 +63,7 @@
   .bootstrap5-dark .markdown-preview .title,
   .bootstrap-dark .markdown-preview .title,
   .fluent-dark .markdown-preview .title,
+  .fluent2-dark .markdown-preview .title,
   .material-dark .markdown-preview .title,
   .tailwind-dark .markdown-preview .title,
   .highcontrast .markdown-preview .title {
@@ -75,6 +76,7 @@
   import { RichTextEditorComponent, Toolbar, Link, Image, MarkdownEditor, Table, Count } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from '@syncfusion/ej2-vue-base';
   import { SplitterComponent, PanesDirective, PaneDirective ,SplitterPlugin} from "@syncfusion/ej2-vue-layouts";
+  import { marked } from 'marked';
 
   export default {
     components: {
@@ -87,11 +89,12 @@
       return {
         textArea: null,
         srcArea: null,
+        placeholder : "Enter your text here...",
         editorMode: 'Markdown',
         toolbarSettings: {
           enableFloating: false,
           type: "Expand",
-          items: ['Bold', 'Italic', 'StrikeThrough', '|', 'Formats', 'OrderedList', 'UnorderedList', '|', 'CreateLink', 'Image', 'CreateTable', '|', 'Undo', 'Redo']
+          items: ['Bold', 'Italic', 'StrikeThrough', '|', 'Formats', 'Blockquote', 'OrderedList', 'UnorderedList', '|', 'CreateLink', 'Image', 'CreateTable', '|', 'Undo', 'Redo']
         },
         value: `In Rich Text Editor, you click the toolbar buttons to format the words and the changes are visible immediately. 
 Markdown is not like that. When you format the word in Markdown format, you need to add Markdown syntax to the word to indicate which words 

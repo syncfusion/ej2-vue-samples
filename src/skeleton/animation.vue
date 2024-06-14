@@ -5,7 +5,7 @@
                 <ejs-button id="reloadSkeleton" class="e-primary" v-on:click="reloadClick">Reload</ejs-button>
             </div>
             <div class="col-sm-6">
-                <h5>Fade Effect</h5>
+                <p class="displayText">Fade Effect</p>
                 <br />  
                 <div id="skeletondatacard"  v-if="isDataLoaded" class="e-card">
                     <div class="cardProfile">
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <h5>Pulse Effect</h5>
+            <p class="displayText">Pulse Effect</p>
                 <br />
                 <div class="skeleton-listcard e-card">
                  <ejs-listview  v-if="isDataLoaded" id='skeleton-listview' ref="listObj"  height='420px'  :dataSource='contactdata' cssClass='e-list-template' :template="'listTemplate'" sortOrder='Ascending' >
@@ -112,11 +112,15 @@
     .fluent-dark #skeletonCard,
     .fluent-dark #skeleton-list{
         background-color: #313131;
-}
+    }
+    .fluent2 #skeletonCard,
+    .fluent2 #skeleton-list{
+        background-color: #fff;
+    }
     .skeleton-listcard,
     .e-bigger .skeleton-listcard{
         line-height: 20px;
-}
+    }
 
     .cardProfile {
         float: left;
@@ -232,6 +236,10 @@
 
     #skeleton-listview .pic04 {
         background-image: url("./images/2.png");
+    }
+    p.displayText {
+        margin: 10px 0px;
+        font-weight: 500;
     }
 </style>
   

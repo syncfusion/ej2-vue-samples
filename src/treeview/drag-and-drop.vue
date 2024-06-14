@@ -3,19 +3,19 @@
     <div class="col-lg-12 control-section custom-tree">
         <div id="control-wrapper">
             <div class="col-lg-4 tree1-data">
-                <h4>TreeView-1</h4>
+                <p class="displayText">TreeView-1</p>
                 <div class="tree-content">
                     <ejs-treeview id='tree1' :fields='fields1' :created="onCreate" :allowDragAndDrop=true :nodeDragStop="onDragStop"></ejs-treeview>
                 </div>
             </div>
             <div class="col-lg-4 tree2-data">
-                <h4>TreeView-2</h4>
+                <p class="displayText">TreeView-2</p>
                 <div class="tree-content">
                     <ejs-treeview id='tree2' :fields='fields2' :allowDragAndDrop=true :nodeDragStop="onDragStop"></ejs-treeview>
                 </div>
             </div>
             <div class="col-lg-4 list-data">
-                <h4>ListView</h4>
+                <p class="displayText">ListView</p>
                 <div class="tree-content">
                     <ejs-listview id='list' ref="list_instance"  :dataSource='listData' class="e-droppable" :cssClass="cssClass" :template="listTemplate"></ejs-listview>
                 </div>
@@ -98,6 +98,11 @@
 			height: 300px;
 			overflow: auto;
 	}
+    .fluent2 #list.e-listview .e-list-item,
+    .fluent2-dark #list.e-listview .e-list-item,
+    .fluent2-high-contrast #list.e-listview .e-list-item {
+        padding: 7px 12px;
+    }
 	.fabric.e-bigger .custom-tree #list.e-listview .e-list-item,
     .highcontrast.e-bigger .custom-tree #list.e-listview .e-list-item {
         line-height: 43px;
@@ -159,6 +164,13 @@
         font-weight: normal;
         font-style: normal;
     }
+    .displayText{
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.1;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }	
 </style>
 /* custom code end */
 <script>

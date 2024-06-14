@@ -1,10 +1,12 @@
 {
     "name": "Rich Text Editor",
+    "type": "update",
     "directory": "rich-text-editor",
     "category": "File Viewers & Editors",
     "samples": [{
             "url": "tools",
             "name": "Overview",
+            "type": "update",
             "category": "Rich Text Editor",
             "description": "This demo describes basic and advanced features of the vue Rich Text Editor control (WYSIWYG HTML Editor) with all its tools and functionalities."
         },
@@ -127,6 +129,20 @@
             "name": "Image Editor Integration",
             "category": "Rich Text Editor",
             "description": "This example shows how to integrate Image Editor into Rich Text Editor component, the edited image will be inserted into the Rich Text Editor."
+        },
+        {
+            "url": "export-word",
+            "name": "Export to Word / PDF",
+            "description": "This demo explains how to export the content of the Rich Text Editor to Word and PDF document formats using the Syncfusion Document processing libraries.",
+            "category": "Export / Import",
+            "type": "new"
+        },
+        {
+            "url": "import-word",
+            "name": "Import from Word",
+            "description": "This demo explains how to import the content from Word document to the Rich Text Editor using the Syncfusion Document processing libraries.",
+            "category": "Export / Import",
+            "type": "new"
         },
         {
             "url": "mention-integration",

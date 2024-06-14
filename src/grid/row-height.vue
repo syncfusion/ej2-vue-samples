@@ -5,14 +5,14 @@
     changed as <b>20px</b>, <b>40px</b> and <b>60px</b> on ToolBar button click.</p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :rowHeight='rowHeight' :toolbar='toolbar' height='400' :allowSorting='true' :toolbarClick='clickHandler'>
+        <ejs-grid :dataSource="data" :rowHeight='rowHeight' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar' height='400' :allowSorting='true' :toolbarClick='clickHandler'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' width='150'></e-column>
-                <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right'></e-column>
-                <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
-                <e-column field='ShippedDate' headerText='Shipped Date' width='140' format='yMd' textAlign='Right'></e-column>
-                <e-column field='ShipCountry' headerText='Ship Country' width='150'></e-column> 
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' width='150' :validationRules='customeridrules'></e-column>
+                <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right' editType='datepickeredit'></e-column>
+                <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right' editType='numericedit' :validationRules='freightrules'></e-column>
+                <e-column field='ShippedDate' headerText='Shipped Date' width='140' format='yMd' textAlign='Right' editType='datepickeredit'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' width='150' editType='dropdownedit'></e-column> 
             </e-columns>
         </ejs-grid>
     </div>
@@ -31,7 +31,7 @@
 </style>
 
 <script lang="ts">
-import { GridComponent, ColumnsDirective, ColumnDirective, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, Toolbar, Edit, Filter, Sort } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
 import { orderDetails } from "./data-source";
 
@@ -45,7 +45,12 @@ export default {
     return {
       data: orderDetails,
       rowHeight: 20,
-      toolbar: [
+      filterSettings: { type: 'Excel' },
+      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+      orderidrules: { required: true, number: true },
+      customeridrules: { required: true, minLength: 5 },
+      freightrules:  { required: true, min: 0 },
+      toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 
             { prefixIcon: 'e-small-icon', id: 'big', align: 'Right', tooltipText: 'Row-height-big' },
             { prefixIcon: 'e-medium-icon', id: 'medium', align: 'Right', tooltipText: 'Row-height-medium' },
             { prefixIcon: 'e-big-icon', id: 'small', align: 'Right', tooltipText: 'Row-height-small' }
@@ -66,7 +71,7 @@ export default {
       }
   },
   provide: {
-      grid: [Toolbar, Sort]
+      grid: [Toolbar, Edit, Filter, Sort]
   }
 }
 </script>

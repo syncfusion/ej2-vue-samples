@@ -118,3 +118,14 @@ export default {
 
 }
 </script>
+<!-- custom code start -->
+<style>
+    .fluent2,
+    .fluent2-dark,
+    .fluent2-highcontrast {
+        .property-section #columns {
+            width: 75px;
+        }
+    }
+</style>
+<!-- custom code end -->

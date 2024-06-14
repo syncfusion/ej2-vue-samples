@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main><div>
     <div class="col-md-8 control-section">
       <div class="content-wrapper">
         <ejs-circulargauge
@@ -52,7 +52,7 @@
     </div>
 
     <div class="col-md-4 property-section">
-      <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+      <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -10px;">
     <colgroup>
         <col span="1" style="width: 40%;">
         <col span="1" style="width: 30%;">
@@ -107,13 +107,14 @@
         </tbody>
       </table>
     </div>
-    <div id="action-description">
+  </div>
+    <section id="action-description" aria-label="Description of Circular Gauge sample">
       <p>
         This sample visualizes pointer drag in circular gauge. Position of pointer value can be changed by using
         <code>Pointer Value</code> and we can drag the pointer by enabling drag option.
       </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
       <p>
         In this example, you can see how to move pointers in gauge using drag and drop. Use
         <code>enablePointerDrag</code> property, to achieve this behavior.
@@ -130,8 +131,8 @@
           href="http://ej2.syncfusion.com/documentation"
         >documentation section</a>.
       </p>
-    </div>
-  </div>
+    </section>
+  </main>
 </template>
 <script>
 import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, AnnotationsDirective, AnnotationDirective, getRangeColor , Annotations, Range} from "@syncfusion/ej2-vue-circulargauge";

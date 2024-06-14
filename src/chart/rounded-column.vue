@@ -58,7 +58,7 @@
       </p>
       <p>
         More information about the column type series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/column">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/column" aria-label="Navigate to the documentation for Column Chart in Vue Chart component">documentation section</a>.
       </p>
     </div>
   </div>
@@ -74,7 +74,7 @@ let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {
@@ -230,6 +230,15 @@ export default {
         {
             if (args.series.yName == "Rate")
                 args.fill = "#f9fafb";
+        }
+        else if (location.hash.indexOf("fluent2-highcontrast") || selectedTheme === 'fluent2-dark') 
+        {
+            if (args.series.yName == "Rate")
+                args.fill = "#f9fafb";
+        } 
+        else if (location.hash.indexOf("fluent2")) {
+            if (args.series.yName == "Rate")
+                args.fill = "grey";
         }
         else
         {

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <main><div>
       <div class="col-md-8 control-section">
         <div class="content-wrapper" align='center'>
             <ejs-circulargauge ref="circulargauge" :background='background' style='display:block' align='center' :load='load' id='semi-container' :moveToCenter='false' :centerX='centerX' :centerY='centerY'>
@@ -15,7 +15,7 @@
     </div>
     <br>
     <div class="col-md-4 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin-left: -20px;">
+        <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -20px;">
           <colgroup>
              <col span="1" style="width: 50%;">
              <col span="1" style="width: 30%;">
@@ -120,13 +120,14 @@
             </tbody>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample shows how to create semi-circular or quarter-circular gauges by modifying a circular gauge with
         different start and end angles.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, a circular gauge is rendered with different start and end angles to create semi-circular or
         quarter-circular gauges. The radius, start angle, end angle, and center position of the circular gauge can all
@@ -137,8 +138,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-appearance#radius-calculation-based-on-angles">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 

@@ -2,6 +2,7 @@
     "name": "Spreadsheet",
     "directory": "spreadsheet",
     "category": "Grids",
+    "type": "update",
     "ftName": "spreadsheet",
     "samples": [
         {
@@ -341,6 +342,50 @@
                 ]
             },
             "description": "This demo for Essential JS 2 Spreadsheet control shows cell template feature."
+        },
+        {
+            "url": "notes",
+            "name": "Notes",
+            "category": "Review",
+            "type": "new",
+            "api": {
+                "Spreadsheet": [
+                    "sheets"
+                ]
+            },
+            "description": "This demo for Vue Spreadsheet control showcases notes feature.",
+            "sourceFiles": [
+                {
+                    "displayName": "notes.vue",
+                    "path": "src/spreadsheet/notes.vue"
+                },
+                {
+                    "displayName": "notes-data.json",
+                    "path": "src/spreadsheet/notes-data.json"
+                }
+            ]
+        },
+        {
+            "url": "print",
+            "name": "Print",
+            "category": "Printing",
+            "type": "new",
+            "api": {
+                "Spreadsheet": [
+                    "sheets"
+                ]
+            },
+            "description": "This example demonstrates the printing functionalities of the Vue Spreadsheet.",
+            "sourceFiles": [
+                {
+                    "displayName": "print.vue",
+                    "path": "src/spreadsheet/print.vue"
+                },
+                {
+                    "displayName": "print-data.json",
+                    "path": "src/spreadsheet/print-data.json"
+                }
+            ]
         }
     ]
 }

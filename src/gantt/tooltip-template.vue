@@ -143,8 +143,8 @@ export default {
                 taskbar: "taskbarTooltipTemplate",
                 baseline: "baselineTooltipTemplate"
             },
-            projectStartDate: new Date('03/24/2019'),
-            projectEndDate: new Date('05/04/2019'),
+            projectStartDate: new Date('03/24/2024'),
+            projectEndDate: new Date('05/04/2024'),
       };
   },
   provide: {

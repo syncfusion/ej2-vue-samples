@@ -9,7 +9,6 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "Query Builder",
-            "type": "update",
             "description": "This sample demonstrates the Query Builder component showing how to import and export a query in JSON format. The query preview can be showcased in the tab component, and the query can be imported to Query Builder using the Import button.",
             "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "created"]  }
         },
@@ -24,7 +23,6 @@
             "url": "mongo-sql",
             "name": "Mongo and SQL Query",
             "category": "Query Builder",
-            "type": "new",
             "description": "This sample demonstrates the Query Builder component by showing different types of queries such as SQL and MongoDB. The query preview can be changed using the tab component. Queries can be imported to the Query Builder using the import dropdown button.",
             "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "created"]  }
         },
@@ -32,7 +30,6 @@
             "url": "lock-group",
             "name": "Lock Group/Rule",
             "category": "Query Builder",
-            "type": "new",
             "description": "This sample demonstrates the lock support of the Query Builder component. Click the lock button to lock the group or rule.",
             "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "fieldMode"]  }
         },
@@ -40,15 +37,29 @@
             "url": "clone-group",
             "name": "Clone Group/Rule",
             "category": "Query Builder",
-            "type": "new",
             "description": "This sample demonstrates the clone support of the Query Builder component. Click the clone button to clone the group or rule.",
+            "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "fieldMode"]  }
+        },
+        {
+            "url": "drag-drop",
+            "name": "Drag and Drop",
+            "category": "Query Builder",
+            "type": "new",
+            "description": "This sample demonstrates the Drag Drop support of the Query Builder component.",
+            "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "fieldMode"]  }
+        },
+        {
+            "url": "separate-connector",
+            "name": "Separate Connector",
+            "category": "Query Builder",
+            "type": "new",
+            "description": "This sample demonstrates the Drag Drop support of the Query Builder component.",
             "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "fieldMode"]  }
         },
         {
             "url": "template",
             "name": "Value Template",
             "category": "Template",
-            "type": "update",
             "api": { "QueryBuilder": ["width","columns", "rule", "ruleChange"] },
             "description": "This sample demonstrates the integration of the Dropdown List and Slider components as templates in the Query Builder component and also showing the different types of queries such as CEL and SpEL. The query preview can be changed using the tab component.",
             "sourceFiles": [

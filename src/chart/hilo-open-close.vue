@@ -37,7 +37,7 @@
             <p>
                 More information on the HILO Open Close series can be found in this
                 <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/high-low-open-close">documentation
+                    href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/high-low-open-close" aria-label="Navigate to the documentation for High Low Open Close in Vue Chart component">documentation
                     section</a>.
             </p>
         </div>
@@ -54,7 +54,7 @@ import { chartValue } from './financial-data';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
     components: {

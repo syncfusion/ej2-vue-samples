@@ -11,7 +11,7 @@
         <p>By default, a new row will be added at the top of the grid. You can change it by setting <code>editSettings.newRowPosition</code> as <code>Bottom</code></p>
     </div>
     <div class="col-lg-9 control-section">
-        <ejs-grid ref='grid' id='grid' :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true' :editSettings='editSettings' :toolbar='toolbar' :actionBegin='actionBegin'>
+        <ejs-grid ref='grid' id='grid' :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar' :actionBegin='actionBegin'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
@@ -79,7 +79,7 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Page, Toolbar, Sort, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDataSource } from "./data-source";
 import { DropDownListComponent, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
 
@@ -96,6 +96,7 @@ export default {
       fields: { text: 'text', value: 'value' },
       dropdownValue: 'Top',
       data: orderDataSource.slice(0),
+      filterSettings: { type: 'Excel' },
       editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true, showAddNewRow: true, },
       toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
       orderidrules: { required: true, number: true },
@@ -107,7 +108,7 @@ export default {
     };
   },
   provide: {
-      grid: [Edit, Page, Toolbar, Sort]
+      grid: [Edit, Page, Toolbar, Sort, Filter]
   },
   methods: {
     valueChange: function (args:any) {

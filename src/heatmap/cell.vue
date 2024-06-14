@@ -1,16 +1,17 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
     <div class="content-wrapper">
         <ejs-heatmap id='container' :titleSettings='titleSettings' :tooltipSettings='tooltipSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :dataSourceSettings='dataSourceSettings' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :cellSettings='cellSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample visualizes the percentage growth rate of individuals using the internet in a country compared to the overall population to the country. 
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         In this example, you can see how to bind two-dimensional array object as datasource for heatmap and configure the Heatmap
         using the data adaptor support.
@@ -23,8 +24,8 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a>, <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> and 
       <a href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/adaptorType/" target='_blank'>Adaptor</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend, Adaptor] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip, Legend, Adaptor } from "@syncfusion/ej2-vue-heatmap";

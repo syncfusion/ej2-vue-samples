@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="control-section">
         <div style="width:300px;margin:0 auto;padding-bottom:10px">
             <img src="src/maps/images/atm.png" alt="ATM indication" style="width:25px;height:25px;float:left">
@@ -15,12 +15,13 @@
             <a href="https://www.google.co.in/maps/search/atm+in+oklahoma/@35.3864432,-98.2888719,8z/data=!3m1!4b1" target="_blank">www.google.co.in/maps</a>
         </div>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample depicts the ATM populated areas in Oklahoma by highlighting the regions.
         </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
             In this example, you can see how to highlight some specific region by rendering circles. Any custom HTML element can be used as a marker.
         </p>
@@ -29,8 +30,8 @@
         <p>
             Maps component features are segregated into individual feature-wise modules. To use marker template, you need to inject <code>Marker</code> module using <code>Maps.Inject(Marker)</code> method.
         </p>
-    </div>
-</div>
+    </section>
+</main>
 </template>
 
 <script>
@@ -53,7 +54,6 @@ export default {
             },
             zoomSettings: {
                 enable: false,
-                toolbars: [],
                 mouseWheelZoom: false,
                 zoomFactor: 1.75
             },

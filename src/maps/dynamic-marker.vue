@@ -1,9 +1,9 @@
 <template>
-<div>
+<main><div>
 <div class="col-lg-9 control-section">
 <ejs-maps ref="maps" id='container' :load='load' :click='click' :zoomSettings='zoomSettings'>
     <e-layers>
-        <e-layer layerType='OSM'></e-layer>
+        <e-layer :urlTemplate= 'urlTemplate'></e-layer>
     </e-layers>
 </ejs-maps>
 <div align="center">
@@ -18,7 +18,7 @@
 </div>
 
 <div class="col-lg-3 property-section">
-    <table id="property" title="Properties" style="width: 100%;">
+    <table role="none" id="property" title="Properties" style="width: 100%;">
           <colgroup>
             <col span="1" style="width: 60%;">
             <col span="1" style="width: 40%;">
@@ -84,13 +84,13 @@
             </tbody>
     </table>
 </div>
-
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample shows how custom markers and lines can be dynamically added to our maps with UI interaction. Marker or line can be chosen from the properties panel.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
           Using UI interaction, the markers or line can be added as follows: You can get the currently clicked geo location by passing "PointerEvent" or "MouseEvent" argument 
           and layer index to the "getGeoLocation" method. Then, use that geo position to place the marker or line in the appropriate position.
@@ -99,8 +99,8 @@
         <p>
            The features of maps component are segregated into individual feature-wise modules. To use navigation lines and marker, you need to inject the NavigationLine and Marker module using the Maps.Inject(NavigationLine, Marker) method.
         </p>
-    </div>
-</div>
+    </section>
+</main>
 </template>
 <style scoped>
     #width {
@@ -139,6 +139,7 @@ components: {
 },
 data:function(){
     return{
+        urlTemplate: 'https://tile.openstreetmap.org/level/tileX/tileY.png',
         zoomSettings: {
             enable: true
         },

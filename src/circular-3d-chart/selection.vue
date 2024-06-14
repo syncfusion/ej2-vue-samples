@@ -3,7 +3,7 @@
     <div class="control-section">
       <ejs-circularchart3d id="container" ref="pie" style='display:block;' :title='title' :theme='theme'
         :tooltip='tooltip' :selectionPattern='selectionPattern' :legendSettings="legendSettings"
-        :isMultiSelect='isMultiSelect' :tilt='tilt' :enableAnimation='enableAnimation'
+        :isMultiSelect='isMultiSelect' :tilt='tilt' :enableAnimation='enableAnimation' :load='load'
         :highlightMode='highlightMode' :selectionMode='selectionMode'>
         <e-circularchart3d-series-collection>
           <e-circularchart3d-series :dataSource='data' xName='x' yName='y' :radius='radius' innerRadius="0%" :dataLabel="dataLabel">
@@ -23,7 +23,7 @@
           <code>selectedDataIndexes</code> option.
       </p>
       <p><code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover over a point or tap on a
-          point on touch-enabled devices. </p>
+          point on touch-enabled devices.</p>
       <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         3D circular chart component features are segregated into individual feature-wise modules. To use selection, you
@@ -45,7 +45,7 @@ import { CircularChart3DComponent, CircularChart3DSeriesCollectionDirective, Cir
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {
@@ -93,6 +93,12 @@ export default {
     circularchart3d: [PieSeries3D, CircularChartDataLabel3D, CircularChartLegend3D, CircularChartTooltip3D, CircularChartHighlight3D, CircularChartSelection3D]
   },
   methods: {
+    load: function (args) {
+      var selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+    }
 
   },
 };

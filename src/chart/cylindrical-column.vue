@@ -30,7 +30,7 @@
         </p>
         <p>
           More information on the column series can be found in this
-          <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/column">documentation
+          <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/column#cylindrical-column-chart" aria-label="Navigate to the documentation for Cylindrical Column Chart in Vue Chart component">documentation
             section</a>.
         </p>
       </div>
@@ -43,7 +43,7 @@
   
   let selectedTheme = location.hash.split("/")[1];
   selectedTheme = selectedTheme ? selectedTheme : "Material";
-  let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+  let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
   export default {
     components: {
       'ejs-chart': ChartComponent,
@@ -99,7 +99,7 @@
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
         args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-          selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+          selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
       }
     },
   };

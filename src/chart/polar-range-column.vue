@@ -53,7 +53,7 @@
       <p>
         More information on the polar and radar chart with a range column series can be found in this
         <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/polar#range-column">documentation
+          href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/polar#range-column" aria-label="Navigate to the documentation for Polar Range Column in Vue Chart component">documentation
           section</a>.
       </p>
     </div>
@@ -85,7 +85,7 @@ let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

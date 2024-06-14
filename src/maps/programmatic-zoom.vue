@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main><div>
     <div class="col-lg-9 control-section">
       <div class="content-wrapper">
         <div align="center">
@@ -34,7 +34,7 @@
     </div>
 
     <div class="col-lg-3 property-section">
-      <table id="property" title="Properties" style="width: 100%">
+      <table role="none" id="property" title="Properties" style="width: 100%">
         <tbody>
           <tr style="height: 50px">
             <td style="width: 70%">
@@ -51,13 +51,14 @@
         </tbody>
       </table>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of Maps sample">
       <p>
         This sample visualizes the capitals of all the countries in the South
         America continent by displaying the markers in their locations.
       </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
       <p>
         In this example, you can see how to zoom the maps dynamically based on
         the location of the markers in the map. The map is scaled and the center
@@ -75,8 +76,8 @@
         modules. To use a marker, inject the <code>Marker</code> module using
         the <code>Maps.Inject(Marker)</code> method.
       </p>
-    </div>
-  </div>
+    </section>
+    </main>
 </template>
 <script>
 import Vue from "vue";

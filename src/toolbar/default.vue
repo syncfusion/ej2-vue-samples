@@ -1,7 +1,7 @@
 <template>
   <div class="control-section e-tbar-section" style="padding-bottom: 120px">
-    <div class="e-sample-resize-container">
-        <h5 style="display: inline-block">Simple Toolbar</h5>
+    <div class="e-sample-resize-container toolbar-type-section">
+        <h1 style="display: inline-block">Simple Toolbar</h1>
        <ejs-toolbar>
          <e-items>
             <e-item prefixIcon='e-icons e-cut' tooltipText='Cut'></e-item>
@@ -22,7 +22,7 @@
           </e-items>
        </ejs-toolbar>
        <br> <br>
-       <h5 style="display: inline-block">Scrollable Toolbar</h5>
+       <h1 style="display: inline-block">Scrollable Toolbar</h1>
         <ejs-toolbar overflowMode='Scrollable' id="toolbar_Scrollable">
             <e-items>
             <e-item prefixIcon='e-icons e-cut' tooltipText='Cut' text='Cut'></e-item>
@@ -51,7 +51,7 @@
           </e-items>
         </ejs-toolbar>
         <br> <br>
-        <h5 style="display: inline-block">Popup Toolbar</h5>
+        <h1 style="display: inline-block">Popup Toolbar</h1>
         <ejs-toolbar overflowMode='Popup' id="toolbar_Popalways">
             <e-items>
             <e-item prefixIcon='e-icons e-cut' tooltipText='Cut' text='Cut'></e-item>
@@ -80,7 +80,7 @@
           </e-items>
         </ejs-toolbar>
         <br> <br>
-        <h5 style="display: inline-block">MultiRow Toolbar</h5>
+        <h1 style="display: inline-block">MultiRow Toolbar</h1>
         <ejs-toolbar overflowMode='MultiRow' id="toolbar_MultiRow">
             <e-items>
             <e-item prefixIcon='e-icons e-cut' tooltipText='Cut' text='Cut'></e-item>
@@ -109,7 +109,7 @@
           </e-items>
         </ejs-toolbar>
         <br> <br>
-        <h5 style="display: inline-block">Extended Toolbar</h5>
+        <h1 style="display: inline-block">Extended Toolbar</h1>
         <ejs-toolbar overflowMode='Extended' id="toolbar_Extended">
             <e-items>
             <e-item prefixIcon='e-icons e-cut' tooltipText='Cut' text='Cut'></e-item>
@@ -182,6 +182,11 @@
 </div>
 </template>
 <style>
+
+.toolbar-type-section h1 {
+    font-size: 18px;
+}
+
 @media only screen and (min-width: 1224px) {
     .e-tbar-section .e-sample-resize-container {
        width: 80%;

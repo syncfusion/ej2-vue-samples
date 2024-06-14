@@ -56,7 +56,7 @@
       <p>
         More information on the empty points can be found in this
         <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/chart/working-with-data/#empty-points">documentation
+          href="https://ej2.syncfusion.com/vue/documentation/chart/working-with-data/#empty-points" aria-label="Navigate to the documentation for Empty points in Vue Chart component">documentation
           section</a>.
       </p>
     </div>
@@ -85,7 +85,7 @@ import {
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

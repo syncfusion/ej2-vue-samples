@@ -3,12 +3,20 @@
     "directory": "file-manager",
     "category": "Navigation",
     "ftName" :"file-manager",
+    "type": "update",
     "samples": [{
         "url": "overview",
         "name": "Overview",
         "category": "File Manager",
         "description":"This example demonstrates full view of the File Manager like a windows explorer UI  in a Vue File Manager",
         "api": { "FileManager": ["ajaxSettings", "view"] }
+    },
+    {
+        "url": "flat-data",
+        "name": "Flat Data",
+        "category": "File Manager",
+        "description":"This example demonstrates how to render the File Manager with flat data in a Vue File Manager.",
+        "type": "new"
     },
     {
         "url": "custom-thumbnail",

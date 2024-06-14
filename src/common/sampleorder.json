@@ -55,7 +55,8 @@
     "Dropdown Tree",
     "MultiSelect Dropdown",
     "List Box",
-    "Mention"
+    "Mention",
+    "MultiColumn ComboBox"
   ],
   "Navigation": [
     "Accordion",
@@ -89,7 +90,8 @@
     "Range Slider",
     "Signature",
     "InPlaceEditor",
-    "Rating"
+    "Rating",
+    "OTP Input"
   ],
   "Layout": [
     "Avatar",

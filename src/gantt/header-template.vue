@@ -21,27 +21,27 @@
         </e-columns>
             <template v-slot:nametemplate="{data}">
             <div>
-                    <img src="src/gantt/images/taskname.png" style="height: 20; width: 20;" class="e-image"/> Task Name
+                    <img src="src/gantt/images/taskname.png" class="e-image" alt="TaskName"/> Task Name
                 </div>
                 </template>
             <template v-slot:datetemplate="{data}">
             <div>
-                    <img src="src/gantt/images/startdate.png" style="height: 20; width: 20;"  class="e-image"/> Start Date
+                    <img src="src/gantt/images/startdate.png" class="e-image" alt="StartDate"/> Start Date
                 </div>
                 </template>
             <template v-slot:resourcetemplate="{data}">
             <div>
-                    <img src="src/gantt/images/resources.png" style="height: 20; width: 20;"  class="e-image"/> Resources
+                    <img src="src/gantt/images/resources.png" class="e-image" alt="Resources"/> Resources
                 </div>
                 </template>
             <template v-slot:durationtemplate="{data}">
             <div>
-                    <img src="src/gantt/images/duration.png" style="height: 20; width: 20;"  class="e-image"/> Duration
+                    <img src="src/gantt/images/duration.png" class="e-image" alt="Duration"/> Duration
                 </div>
                 </template>
             <template v-slot:progresstemplate="{data}">
             <div>
-                    <img src="src/gantt/images/progress.png" style="height: 20; width: 20;"  class="e-image"/> Progress
+                    <img src="src/gantt/images/progress.png" class="e-image" alt="Progress"/> Progress
                 </div>
                 </template>
     </ejs-gantt>       
@@ -64,9 +64,12 @@
 </template>
 <!-- custom code start -->
 <style scoped>
-   /deep/ .e-image {
-        margin-right: 8px;
-    }
+    .e-image {
+    height: 20px;
+    width: 20px;
+    margin-right: 8px;
+    display: inline-block;
+}
 </style>
 <!-- custom code end -->
 <script lang="ts">
@@ -105,8 +108,8 @@ export default {
             splitterSettings:{
                 columnIndex: 4
             },
-            projectStartDate: new Date('03/24/2019'),
-            projectEndDate: new Date('07/06/2019'),
+            projectStartDate: new Date('03/24/2024'),
+            projectEndDate: new Date('07/06/2024'),
     };
   },
    provide : {

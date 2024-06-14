@@ -170,7 +170,9 @@
   color: #fff;
 }
 .fluent-dark .CodeMirror-gutters,
-.fluent-dark .CodeMirror {
+.fluent-dark .CodeMirror,
+.fluent2-dark .CodeMirror-gutters,
+.fluent2-dark .CodeMirror {
   background-color: #1b1a19;
   color: #fff;
 }
@@ -203,6 +205,7 @@
 .bootstrap5-dark .title,
 .bootstrap-dark .title,
 .fluent-dark .title,
+.fluent2-dark .title,
 .material-dark .title,
 .tailwind-dark .title,
 .highcontrast .title {
@@ -214,6 +217,7 @@
 import { SplitterComponent, PanesDirective, PaneDirective } from "@syncfusion/ej2-vue-layouts";
 import { RichTextEditorComponent, Toolbar, Link, Image, Table, Count, HtmlEditor, QuickToolbar, PasteCleanup, EmojiPicker, Audio, Video, FormatPainter } from "@syncfusion/ej2-vue-richtexteditor";
 import { Browser } from "@syncfusion/ej2-base";
+import CodeMirror from 'codemirror';
 
 export default {
   components: {
@@ -239,7 +243,7 @@ export default {
         type: "Expand",
          items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
           'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
-          'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
+          'Formats', 'Alignments', 'Blockquote', 'OrderedList', 'UnorderedList',
           'Outdent', 'Indent',
           'CreateLink', 'Image', 'Video', 'Audio', 'CreateTable', '|', 'FormatPainter', 'ClearFormat',
           '|', 'EmojiPicker', 'SourceCode', '|', 'Undo', 'Redo'
@@ -266,7 +270,8 @@ export default {
       this.updateValue();
     },
     updateHtmlValue: function () {
-      this.textArea.innerHTML = this.myCodeMirror.getValue();
+      this.$refs.rteObj.ej2Instances.value = this.myCodeMirror.getValue();
+      this.$refs.rteObj.ej2Instances.dataBind();
     },
     updateValue: function (e) {
       var mirrorView = document.querySelector("#src-view");

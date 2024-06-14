@@ -1,5 +1,5 @@
 <template>
-<div id="maps-cyber-sample">
+<main><div id="maps-cyber-sample">
 
 <div class="control-section">
 <ejs-maps id='container' :load='load' :loaded='loaded' :titleSettings='titleSettings' :zoomSettings='zoomSettings' >
@@ -11,13 +11,14 @@
         <a href="https://craft.co/youtube/locations" target="_blank">craft.co/youtube/locations</a>
      </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
     <p>
         This sample depicts a cyberattack map, which displays the cyberattacks and threats from various countries to the
         USA.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Maps features demonstrated in this sample">
     <p>
         In this example, you can see how to dynamically display a navigation line with linear animation. Marker
         templates are added to denote the source and destination locations. Any custom HTML element can be used as a
@@ -30,8 +31,8 @@
         the <code>Marker</code> module using the <code>Maps.Inject(Marker)</code> method, and use the navigation lines
         by injecting the <code>NavigationLine</code> module.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <style>
     #maps-cyber-sample .name {

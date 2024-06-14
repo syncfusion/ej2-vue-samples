@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "25.1.35",
+  "version": "26.1.35",
   "description": "Examples of Vue UI Components",
   "keywords": [],
   "dependencies": {
@@ -40,8 +40,8 @@
     "@syncfusion/ej2-vue-treemap": "*",
     "@syncfusion/ej2-vue-progressbar": "*",
     "@syncfusion/ej2-vue-image-editor": "*",
-    "codemirror": "6.0.1",
-    "vue": "3.3.4",
+    "@syncfusion/ej2-vue-multicolumn-combobox": "*",
+    "vue": "3.4.21",
     "vue-router": "4.2.4"
   },
   "devDependencies": {
@@ -49,14 +49,19 @@
     "@vue/cli-plugin-babel": "5.0.8",
     "@vue/cli-plugin-typescript": "5.0.8",
     "@vue/cli-service": "5.0.8",
+    "@types/codemirror": "5.60.10",
+    "@types/node": "20.8.5",
+    "codemirror": "5.65.16",
     "browser-sync": "2.29.3",
     "css-loader": "3.6.0",
     "elasticlunr": "0.9.5",
+    "fuse.js": "6.6.2",
     "file-loader": "6.2.0",
     "gulp": "4.0.2",
     "gulp-connect": "5.7.0",
     "gulp-gzip": "1.4.2",
     "gulp-jsoncombine": "1.0.4",
+    "marked": "4.3.0",
     "shelljs": "0.8.5",
     "ts-loader": "5.2.0",
     "typescript": "5.1.6",

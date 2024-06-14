@@ -2,6 +2,7 @@
     "name": "Chart",
     "directory": "chart",
     "category": "Data Visualization",
+    "type": "update",
     "ftName": "chart",
     "samples": [
     {
@@ -653,6 +654,46 @@
         "category": "Benchmark",
         "sourceFiles": [
             {"displayName": "chart-performance.vue", "path": "./src/chart/chart-performance.vue"}
+        ]
+    },
+    {
+        "url": "update-spline",
+        "name": "Spline updating each second",
+        "type": "new",
+        "description": "This demo for Essential JS2 Chart control shows the spline updating each second in real time charts.",
+        "category": "Real-time Charts",
+        "sourceFiles": [
+            {"displayName": "update-spline.vue", "path": "./src/chart/update-spline.vue"}
+        ]
+    },
+    {
+        "url": "live-stock-data",
+        "name": "Live stock data",
+        "type": "new",
+        "description": "This demo for Essential JS2 Chart control shows the live stock data in real time charts.",
+        "category": "Real-time Charts",
+        "sourceFiles": [
+            {"displayName": "live-stock-data.vue", "path": "./src/chart/live-stock-data.vue"}
+        ]
+    },
+    {
+        "url": "update-data-source",
+        "name": "Update data source",
+        "type": "new",
+        "description": "This demo for Essential JS2 Chart control shows the update data source in real time charts.",
+        "category": "Real-time Charts",
+        "sourceFiles": [
+            {"displayName": "update-data-source.vue", "path": "./src/chart/update-data-source.vue"}
+        ]
+    },
+    {
+        "url": "click-add-point",
+        "name": "Click to add a point",
+        "type": "new",
+        "description": "This demo for Essential JS2 Chart control shows the click to add a point in real time charts.",
+        "category": "Real-time Charts",
+        "sourceFiles": [
+            {"displayName": "click-add-point.vue", "path": "./src/chart/click-add-point.vue"}
         ]
     },
     {

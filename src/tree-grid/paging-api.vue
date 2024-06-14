@@ -1,5 +1,5 @@
 <template>
-    <div class="control-section">
+    <div class="control-section" role="region" aria-label="Tree Grid Control Section">
       <div class="col-md-9 control-section">
           <ejs-treegrid ref='treegrid' :dataSource='data' :allowPaging='true' childMapping='subtasks' :height='350' :treeColumnIndex='1' >
             <e-columns>
@@ -20,55 +20,55 @@
             </td>
             <td style="width: 50%;padding-right: 10px">
                 <div>
-                    <ejs-checkbox ref='checkbox' :checked="true" :change="oncheck"></ejs-checkbox>
+                    <ejs-checkbox ref='checkbox' :checked="true" :change="oncheck" aria-label="Toggle Paging"></ejs-checkbox>
                 </div>
             </td>
         </tr>
         <tr class='con-prop1'>
             <td style="width: 70%">
-                <div style="padding-top: 7px;">
+                <div style="padding-top: 7px;" aria-label="Page Size Mode">
                     Page Size Mode
                 </div>
             </td>
             <td style="width: 30%;  padding:10px 10px 10px 0px">
-                <div id='dropdown'>
-                    <ejs-dropdownlist ref='ddl' width='100px' id='ddl' :dataSource='ddldata' value='All' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
+                <div id='dropdown' aria-label="Page Size Mode Dropdown">
+                    <ejs-dropdownlist ref='ddl' width='102px' id='ddl' :dataSource='ddldata' value='All' :fields='ddlfields' :change="onChange" aria-label="Page Size Mode"></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr class='con-prop2'>
             <td style="width: 70%">
-                <div style="padding-top: 7px;">
+                <div style="padding-top: 7px;" aria-label="Page Size">
                     Page Size
                 </div>
             </td>
             <td style="width: 30%;  padding:10px 10px 10px 0px">
-                <div id='numericbox'>
-                    <ejs-numerictextbox ref='pagesize' :min=1 :max=200 :value=10 format='##' :change='sizechange'></ejs-numerictextbox>
+                <div id='numericbox' role="spinbutton" aria-label="Page Size Numeric Textbox">
+                    <ejs-numerictextbox ref='pagesize' :min=1 :max=200 :value=10 format='##' :change='sizechange' aria-label="Page Size Numeric Textbox"></ejs-numerictextbox>
                 </div>
             </td>
         </tr>
         <tr class='con-prop2'>
             <td style="width: 70%">
-                <div style="padding-top: 7px">
+                <div style="padding-top: 7px" aria-label="Page Count">
                     Page Count
                 </div>
             </td>
             <td style="width: 30%; padding:10px 10px 10px 0px">
-                <div>
-                    <ejs-numerictextbox ref='pagecount' :min=1 :max=4 :value=4 format='##' :change='countchange'></ejs-numerictextbox>
+                <div role="spinbutton" aria-label="Page Size Numeric Textbox">
+                    <ejs-numerictextbox ref='pagecount' :min=1 :max=4 :value=4 format='##' :change='countchange' aria-label="Page Size Numeric Textbox"></ejs-numerictextbox>
                 </div>
             </td>
         </tr>
         <tr class='con-prop2'>
             <td style="width: 70%">
-                <div style="padding-top: 7px">
+                <div style="padding-top: 7px" aria-label="Current Page">
                     Current Page
                 </div>
             </td>
             <td style="width: 30%; padding:10px 10px 10px 0px">
-                <div>
-                    <ejs-numerictextbox ref='currentpage' :min=1 :max=17 :value=1 format='##' :change='pagechange'></ejs-numerictextbox>
+                <div role="spinbutton" aria-label="Current Page Numeric Textbox">
+                    <ejs-numerictextbox ref='currentpage' :min=1 :max=17 :value=1 format='##' :change='pagechange' aria-label="Current Page Numeric Textbox"></ejs-numerictextbox>
                 </div>
             </td>
         </tr>

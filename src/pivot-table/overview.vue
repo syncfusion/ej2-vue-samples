@@ -189,6 +189,7 @@ export default {
         load: (args: ILoadedEventArgs) => {
           let selectedTheme: string = location.hash.split("/")[1];
           selectedTheme = selectedTheme ? selectedTheme : "Material";
+          args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast') as ChartTheme;
         }
       },
       showToolbar: true,
@@ -247,7 +248,7 @@ export default {
           className: 'university-logo',
           attrs: {
             'src': pivotObj.dataSourceSettings.dataSource[args.cellInfo.index[0]].logo,
-            'alt': args.cellInfo.formattedText,
+            'alt': args.cellInfo.formattedText + ' Image',
             'width': '30',
             'height': '30'
           },

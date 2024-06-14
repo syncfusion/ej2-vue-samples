@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="control-section" style="overflow: auto">
+    <div class="control-section">
       <div id="dropdown-control" style="margin-bottom:5px;">
         <table style="width: 350px;">
           <tbody>
@@ -58,7 +58,12 @@
       </ul>In this demo, with respect to JSON remote data, is bound by assigning service data as an instance of
       <code>DataManager</code> to the
       <code>dataSourceSettings->dataSource</code> property. But for CSV, the service URL is directly set to
-      <code>url</code> for remote data consumption.
+      <code>url</code> for remote data consumption.<br />
+      <p>
+          More information on the Essential JS2 Pivot Table can be found in these <a target="_blank"
+              href="https://ej2.syncfusion.com/vue/documentation/pivotview/data-binding#binding-json-data-via-remote">JSON</a> & <a target="_blank"
+              href="https://ej2.syncfusion.com/vue/documentation/pivotview/data-binding#binding-csv-data-via-remote">CSV</a> documentation section.
+      </p>
     </div>
   </div>
 </template>
@@ -95,6 +100,7 @@ export default {
   data: () => {
     return {
       jsonReport: {
+        url: "",
         dataSource: remoteData,
         type: "JSON",
         expandAll: true,

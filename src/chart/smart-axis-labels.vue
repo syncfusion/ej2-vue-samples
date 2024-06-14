@@ -51,23 +51,23 @@
           </tr>
           <tr style="height: 50px">
             <td>
-              <div>Enable Trim:
+              <div id="trim">Enable Trim:
               </div>
             </td>
             <td>
               <div>
-                <input type="checkbox" id="Trim" unchecked=true @change='trimChange' :width=120>
+                <input type="checkbox" id="Trim" unchecked=true @change='trimChange' :width=120 aria-labelledby="Checkbox unchecked">
               </div>
             </td>
           </tr>
           <tr style="height: 50px">
             <td>
-              <div>Maximum Label Width: </div>
+              <div id="labelWidth">Maximum Label Width: </div>
             </td>
             <td>
               <div>
                 <ejs-numerictextbox value=34 :min="1" width=120 :change='widthChange'
-                  id='labelWidth'></ejs-numerictextbox>
+                  id='labelWidth' aria-labelledby="Text"></ejs-numerictextbox>
               </div>
             </td>
           </tr>
@@ -110,7 +110,7 @@
       <p>
         More information on the smart axis labels can be found in this
         <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/chart/axis-labels/#smart-axis-labels">documentation
+          href="https://ej2.syncfusion.com/vue/documentation/chart/axis-labels/#smart-axis-labels" aria-label="Navigate to the documentation for Smart Axis Labels in Vue Chart component">documentation
           section</a>.
       </p>
     </div>
@@ -126,11 +126,11 @@ import { Browser } from "@syncfusion/ej2-base";
 import { NumericTextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Tooltip, DataLabel, Category } from "@syncfusion/ej2-vue-charts";
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2DarkColors } from './theme-color';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {
@@ -231,6 +231,12 @@ export default {
         }
         else if (selectedTheme === 'highcontrast') {
           args.fill = pointHighContrastColors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'fluent2') {
+          args.fill = pointFluent2Colors[args.point.index % 10];
+        } 
+        else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
+          args.fill = pointFluent2DarkColors[args.point.index % 10];
         }
         else {
           args.fill = pointBootstrapColors[args.point.index % 10];

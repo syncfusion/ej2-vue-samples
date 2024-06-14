@@ -187,6 +187,7 @@ body.material3-dark,
 .material3-dark .sb-setting-popup,
 .material3-dark .sb-search-result,
 .material3-dark .sb-src-code,
+.material3-dark .CodeMirror,
 .material3-dark .sb-api-section,
 .material3-dark .copy-tooltip,
 .material3-dark .e-icons.copycode,
@@ -220,6 +221,7 @@ body.material3-dark,
 .material3-dark .sb-setting-btn.active,
 .material3-dark .sb-switch-popup li:hover,
 .material3-dark .theme-wrapper:hover,
+.material3-dark #themeMode-switch-btn:hover,
 .material3-dark .theme-wrapper.active,
 .material3-dark .sb-theme-popup li:hover,
 .material3-dark .sb-search-result .e-list-item:hover,
@@ -334,4 +336,10 @@ body.material3-dark,
 
 .material3-dark .sb-left-pane .e-treeview .e-list-item.e-active.e-hover>.e-text-content .e-list-text {
     color: #000 !important;
+}
+
+.material3-dark .sb-search-input .e-ddl .e-clear-icon,
+.material3-dark .e-input-group .e-clear-icon:hover,
+.material3-dark .e-input-group.e-control-wrapper .e-clear-icon:hover {
+    background: #2B2831;
 }

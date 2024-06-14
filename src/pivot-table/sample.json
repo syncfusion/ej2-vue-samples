@@ -2,7 +2,6 @@
   "name": "Pivot Table",
   "directory": "pivot-table",
   "category": "Grids",
-  "type": "update",
   "ftName": "pivot-table",
   "samples": [{
       "url": "overview",
@@ -57,7 +56,6 @@
       "name": "OLAP",
       "category": "Data Binding",
       "hideOnDevice": false,
-      "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control demonstrate the basic rendering of the pivot table with olap data",
       "api": {}
     },
@@ -234,7 +232,6 @@
       "name": "Virtual Scrolling",
       "category": "Scrolling",
       "hideOnDevice": false,
-      "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control shows virtual scrolling option available vertically and horizontally to load large records with ease",
       "api": {}
     },

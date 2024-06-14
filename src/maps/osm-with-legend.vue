@@ -1,11 +1,12 @@
 <template>
+<main>
 <div>
 <div class="control-section">
 <div>
 <ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings' useGroupingSeparator='true'
             format='n'>
     <e-layers>
-        <e-layer layerType='OSM'>
+        <e-layer :urlTemplate= 'urlTemplate'>
             <e-markerSettings>
                 <e-markerSetting visible='true' legendText='name' colorValuePath='color' shape='Circle' height='15' width='15' :dataSource='markerShapeDataSource' :tooltipSettings='markerTooltipSettings' />
             </e-markerSettings> 
@@ -14,12 +15,13 @@
 </ejs-maps>
 </div>    
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
        <p>
            This sample illustrates the world's top 10 most populated cities by displaying markers in their locations and legend with the city names.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
             In this example, you can see how to display markers and a legend on the OpenStreetMap. To enable the legend, set the <code>visible</code> property in <code>legendSettings</code> to <b>true</b>, and then use properties like <code>title</code>, <code>position</code>, <code>type</code>, <code>height</code>, <code>width</code>, and so on to customize the legend.
         </p>       
@@ -28,8 +30,8 @@
             The maps component features are segregated into individual modules by feature. To use markers and a legend, we need to inject the <code>Marker</code> and <code>Legend</code> module using the provide section.
         </p>
        
-    </div>
-</div>
+    </section>
+    </main>
 </template>
 <script>
 import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, Zoom, MapsTooltip, Legend } from '@syncfusion/ej2-vue-maps';
@@ -44,6 +46,7 @@ components: {
 },
 data:function(){
     return{
+        urlTemplate: 'https://tile.openstreetmap.org/level/tileX/tileY.png',
         titleSettings: {
             text: 'Top 10 populated cities in the World',
             textStyle: {

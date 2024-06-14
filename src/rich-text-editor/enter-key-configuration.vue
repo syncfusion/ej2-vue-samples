@@ -96,6 +96,7 @@
 import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import * as data from './data-source.json';
+import CodeMirror from 'codemirror';
 
 export default {
     components: {

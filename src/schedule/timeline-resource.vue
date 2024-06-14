@@ -93,11 +93,17 @@
 
     .bootstrap4 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
     .bootstrap5 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
-    .bootstrap5-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+    .bootstrap5-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .fluent2 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .fluent2-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .fluent2-highcontrast .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
         height: 37px;
     }
 
-    .bootstrap4 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+    .bootstrap4 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .fluent2 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .fluent2-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .fluent2-highcontrast .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         height: 37px;
         line-height: 37px;
     }
@@ -111,6 +117,21 @@
     .material3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         height: 40px;
         line-height: 40px;
+    }
+
+    .fluent2 .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .fluent2 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        border-color: #e0e0e0;
+    }
+
+    .fluent2-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .fluent2-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        border-color: #525252;
+    }
+
+    .fluent2-highcontrast .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .fluent2-highcontrast .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+        border-color: #fff;
     }
 
     .material3 .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
@@ -157,11 +178,17 @@
     }
 
     .bootstrap4.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
-    .bootstrap5.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+    .bootstrap5.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .fluent2.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .fluent2-dark.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .fluent2-highcontrast.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
         height: 39px;
     }
 
-    .bootstrap4.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+    .bootstrap4.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .fluent2.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .fluent2-dark.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .fluent2-highcontrast.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         height: 39px;
         line-height: 39px;
     }

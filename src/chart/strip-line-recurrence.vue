@@ -15,17 +15,17 @@
       <div class="col-md-4 property-section">
         <table id="property" title="Properties" style="width: 100%">
           <tr style="height: 50px">
-            <td style="width: 80%"> X Axis Striplines:
+            <td style="width: 80%" id="xAxis"> X Axis Striplines:
             </td>
             <td>
-              <input type="checkbox" id="xIndex" checked=true @change='xChange'>
+              <input type="checkbox" id="xIndex" checked=true @change='xChange' aria-labelledby="Checkbox checked">
             </td>
           </tr>
           <tr style="height: 50px">
-            <td style="width: 80%">Y Axis Striplines:
+            <td style="width: 80%" id="yAxis">Y Axis Striplines:
             </td>
             <td>
-              <input type="checkbox" id="yIndex" checked=true @change='yChange'>
+              <input type="checkbox" id="yIndex" checked=true @change='yChange' aria-labelledby="Checkbox checked">
             </td>
           </tr>
         </table>
@@ -54,7 +54,7 @@
       <p>
         More information on the strip line can be found in this
         <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/chart/strip-line/#recurrence-stripline">documentation
+          href="https://ej2.syncfusion.com/vue/documentation/chart/strip-line/#recurrence-stripline" aria-label="Navigate to the documentation for Recurrence Stripline in Vue Chart component">documentation
           section</a>.
       </p>
     </div>
@@ -89,7 +89,7 @@ import {
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

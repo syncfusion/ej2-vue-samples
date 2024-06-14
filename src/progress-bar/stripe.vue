@@ -3,7 +3,7 @@
     <div class="row linear-parent">
       <div id="success" class="linear-progress">
         <ejs-progressbar
-          id="success"
+          id="Success"
           ref="success"
           type="Linear"
           height="30"
@@ -20,7 +20,7 @@
       </div>
       <div id="info" class="linear-progress">
         <ejs-progressbar
-          id="info"
+          id="Info"
           ref="info"
           type="Linear"
           height="30"
@@ -37,7 +37,7 @@
       </div>
       <div id="warning" class="linear-progress">
         <ejs-progressbar
-          id="warning"
+          id="Warning"
           ref="warning"
           type="Linear"
           height="30"
@@ -54,7 +54,7 @@
       </div>
       <div id="danger" class="linear-progress">
         <ejs-progressbar
-          id="danger"
+          id="Danger"
           ref="danger"
           type="Linear"
           height="30"
@@ -138,7 +138,8 @@ export default {
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
       )
         .replace(/-dark/i, "Dark")
-        .replace(/contrast/i, "Contrast");
+        .replace(/contrast/i, "Contrast")
+        .replace(/-highContrast/i, "HighContrast");
     },
     onclick: function() {
       let button = document.getElementById("reLoad");

@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="control-section col-lg-9">
         <div>
         <div class="content-wrapper" style='width:99%'>
@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%;margin-left: -10px;">
+        <table role="none" id="property" title="Properties" style="width: 100%;margin-left: -10px;">
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 60%">
@@ -26,12 +26,13 @@
             </tbody>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample visualizes the net migration rate for the northern European countries over the years. The data label is disabled in this sample, the tooltip displays the data point values.  In property panel, the options are available to change the rendering mode between Canvas and SVG means of radio button.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         In this example, you can see how to change the rendering mode between <code>Canvas</code> and <code>SVG</code> types in Heatmap. You can change the rendering mode using the <a href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/rendering-mode" target="_blank">renderingMode</a> property.
     </p>
@@ -43,8 +44,8 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";

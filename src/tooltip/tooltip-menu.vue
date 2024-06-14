@@ -321,6 +321,19 @@ export default {
   font-family: "e-tooltip-menu-icons";
 }
 
+.fluent2 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.fluent2-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.fluent2-highcontrast .e-tooltip-menu-settings.e-tooltip-wrap.e-popup {
+    background-color: var(--color-sf-tooltip-bg-color);
+}
+
+.fluent2 #tooltipMenu-list .e-list-icon,
+.fluent2-dark #tooltipMenu-list .e-list-icon,
+.fluent2-highcontrast #tooltipMenu-list .e-list-icon {
+    padding: 0;
+    margin-top: 4px;
+}
+
 .e-tooltip-menu-settings #tooltipMenu-list .wifi:before {
   content: "\e700";
 }

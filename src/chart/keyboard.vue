@@ -138,9 +138,11 @@ import { Browser, EmitType } from '@syncfusion/ej2-base';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 let FillColors=[] ;
 let TextColor;
+let seriesIndex = 0;
+let Segments = [[0, 5], [7, 12], [14, 19], [21, 26]];
 if(theme === "Material"){
     FillColors = ["#00bdae", "#404041", "#357cd2", "#e56590", "#f8b883", "#70ad47", "#dd8abd", "#7f84e8", "#7bb4eb","#ea7a57", "#404041", "#00bdae"];
     TextColor = '#000000';
@@ -209,6 +211,14 @@ else if(theme === 'Material3'){
 else if(theme === 'Material3Dark'){
     FillColors = ["#4EAAFF", "#FA4EAB", "#FFF500", "#17EA58", "#38FFE7",
         "#FF9E45", "#B3F32F", "#B93CE4", "#FC5664", "#9B55FF"];
+    TextColor = "#FFFFFF";
+}
+else if (theme === 'Fluent2') {
+    FillColors = ["#6200EE", "#09AF74", "#0076E5", "#CB3587", "#E7910F", "#0364DE", "#66CD15", "#F3A93C", "#107C10", "#C19C00"];
+    TextColor = "#000000";
+}
+else if (theme === 'Fluent2Dark') {
+    FillColors = ["#9BB449", "#2A72D5", "#43B786", "#3F579A", "#584EC6", "#E85F9C", "#6E7A89", "#EA6266", "#0B6A0B", "#C19C00"];
     TextColor = "#FFFFFF";
 }
 else {
@@ -345,12 +355,11 @@ export default {
         this.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         },
         legendClick : function(ILegendClickEventArgs) {
+            seriesIndex = 0;
             this.getStriplineValues(ILegendClickEventArgs.series.name);
          },
         getStriplineValues : function(legendClickedName) {
           let chart =this.$refs.chart.ej2Instances;
-          let seriesIndex =0;
-          let Segments = [[0, 5], [7, 12], [14, 19], [21, 26]];
           for (let i = 0; i < chart.series.length; i++) {
             let name = chart.series[i].name; 
             let visible = name === legendClickedName ? !chart.series[i].visible: chart.series[i].visible;
@@ -390,7 +399,7 @@ export default {
                 }
             }
         }
-        this.$refs.chart.refreshLiveData();
+        chart.refresh();
       }
     },
 };

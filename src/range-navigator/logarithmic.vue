@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-      <h4 align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">Inflation vs Goods Consumers</h4>
+      <h1 align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px; margin-top: 10px;">Inflation vs Goods Consumers</h1>
     <div align="center">
          <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerLog' :value='value' labelIntersectAction='None'
          labelPosition ='Outside' valueType='Logarithmic' :width='width' :load='load' :labelRender='labelRender' :changed='changed'
@@ -30,13 +30,10 @@
 <div id="description">
     <p>
         Logarithmic axis uses logarithmic scale and it is very useful in visualizing when the data has values with both lower order of magnitude (eg: 10^-6) and higher order of magnitude (eg: 10^6). To render Logarithmic axis, set <code>valueType</code> to <code>Logarithmic</code>. 
-
-    </p>
-    
+    </p>   
     <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
-        The range navigator component features are segregated into individual feature-wise modules. To use logarithmic axis, inject the <code>Logarithmic</code> module using <code>provide: { rangeNavigator: [Logarithmic] }</code> method.
-       
+        The range navigator component features are segregated into individual feature-wise modules. To use logarithmic axis, inject the <code>Logarithmic</code> module using <code>provide: { rangeNavigator: [Logarithmic] }</code> method.      
     </p>
 </div>
 <svg style="height: 0">
@@ -105,6 +102,18 @@
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
+        <linearGradient id="fluent2-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fluent2-highcontrast-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="fluent2-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
     </defs>
 </svg>
 </div>
@@ -139,7 +148,7 @@
     }
 
     #bootstrap5-gradient-chart stop {
-        stop-color: #262E0B;
+        stop-color: #8F80F4;
     }
 
     #material-dark-gradient-chart stop {
@@ -178,6 +187,18 @@
         stop-color: #4EAAFF;
     }
 
+    #fluent2-gradient-chart stop {
+        stop-color: #6200EE;
+    }
+
+    #fluent2-highcontrast-gradient-chart stop {
+        stop-color: #9BB449;
+    }
+
+    #fluent2-dark-gradient-chart stop {
+        stop-color: #9BB449;
+    }
+
     .chart-gradient stop[offset="0"] {
         stop-opacity: 0.9;
     }
@@ -193,13 +214,13 @@ import { RangeNavigatorComponent, RangenavigatorSeriesDirective, RangenavigatorS
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
-let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3','material3dark'];
-let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6355C7', '#4EAAFF'];
-let regionColor = ['rgba(38, 46, 11, 0.3)', 'rgba(94, 203, 155, 0.3)', 'rgba(90, 97, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(0, 189, 174, 0.3)',
+let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark', 'fluent2', 'Fluent2Dark'];
+let borderColor = ['#6355C7', '#8F80F4', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#1AC9E6', '#1AC9E6', '#6355C7', '#4EAAFF', '#6200EE', '#9BB449', '#9BB449'];
+let regionColor = ['rgba(99, 85, 199, 0.3)', 'rgba(143, 128, 244, 0.3)', 'rgba(90, 97, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(0, 189, 174, 0.3)',
     'rgba(158, 203, 8, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(68, 114, 196, 0.3)',
-    'rgba(68, 114, 196, 0.3)', 'rgba(121, 236, 228, 0.3)', 'rgba(97, 69, 112, 0.3)', 'rgba(138, 177, 19, 0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)' ];
+     'rgba(68, 114, 196, 0.3)', 'rgba(121, 236, 228, 0.3)', 'rgba(26, 201, 230, 0.3)', 'rgba(26, 201, 230, 0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)', 'rgba(98, 0, 238, 0.3)', 'rgba(155, 180, 73, 0.3)', 'rgba(155, 180, 73, 0.3)'];
 
 export default {
   components: {

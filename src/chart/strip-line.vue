@@ -37,7 +37,7 @@
       <p>
         More information on the strip line can be found in this
         <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/chart/strip-line/">documentation
+          href="https://ej2.syncfusion.com/vue/documentation/chart/strip-line/" aria-label="Navigate to the documentation for Stripline in Vue Chart component">documentation
           section</a>.
       </p>
     </div>
@@ -65,7 +65,7 @@ import {
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 let fontSize = Browser.isDevice ? "14px" : "16px";
 
 export default {

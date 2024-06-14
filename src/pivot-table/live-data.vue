@@ -2,7 +2,7 @@
   <div>
     <div class="control-section">
       <div style="margin-bottom: 10px">
-        <h4 style="display: inline-block; font-size: 14px padding-left:5px">Feed Delay(ms):</h4>
+        <strong style="display: inline-block; font-size: 14px padding-left:5px">Feed Delay(ms):</strong>
         <ejs-numerictextbox
           ref="feeddelay"
           :value="value"
@@ -10,6 +10,7 @@
           :min="min"
           :step="step"
           :width="textBoxWidth"
+          placeholder="0"
           style="margin-left: 7px"
         ></ejs-numerictextbox>
         <ejs-button
@@ -70,7 +71,12 @@
           Displayed the <strong>"Change(%)"</strong> values in the pivot table as red for negative values and
           green for positive values using the cell template concept.
         </li>
-    </ul>
+    </ul><br />
+    <p>
+        More information on the Essential JS2 Pivot Table can be found in these <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/pivotview/row-and-column#cell-template">Cell Template</a> & <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/pivotview/pivot-chart">Pivot Chart</a> documentation section.
+    </p>
 </div>
   </div>
 </template>
@@ -397,6 +403,7 @@ export default {
         load: (args: ILoadedEventArgs) => {
           let selectedTheme = location.hash.split('/')[1];
           selectedTheme = selectedTheme ? selectedTheme : 'Material';
+          args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast') as ChartTheme;
         }
       },
       width: '100%',

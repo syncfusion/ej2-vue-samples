@@ -159,6 +159,7 @@ body.fluent-dark,
 .fluent-dark .sb-setting-popup,
 .fluent-dark .sb-search-result,
 .fluent-dark .sb-src-code,
+.fluent-dark .CodeMirror,
 .fluent-dark .sb-api-section,
 .fluent-dark .sb-theme-popup,
 .fluent-dark .copy-tooltip,
@@ -186,7 +187,7 @@ body.fluent-dark,
 .fluent-dark hr {
     border-top: 1px solid #484644;
 }
-
+.fluent-dark #themeMode-switch-btn:hover,
 .fluent-dark .sb-search-btn:hover,
 .fluent-dark .sb-search-btn.active,
 .fluent-dark .sb-setting-btn:hover,

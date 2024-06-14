@@ -39,7 +39,7 @@
     </p>
     <p>
         More information about the dashed line series can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/line#series-customization">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/line#series-customization" aria-label="Navigate to the documentation for Series customization in Vue Chart component">documentation section</a>.
     </p>
 </div>
 </div>
@@ -55,6 +55,7 @@
             stroke-dasharray: 10px 10px;
             stroke-linejoin: round;
             stroke-linecap: round;
+            animation: dash 1s linear infinite;
         }
     
     
@@ -91,7 +92,7 @@ import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AnnotationD
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {
@@ -173,7 +174,7 @@ export default {
     load: function(args) {
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
-        args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+        args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
         args.chart.annotations[0].content = '<div style="color:black; font-family: bold ">Actual</div>';
         args.chart.annotations[1].content = '<div style="color:black; font-family: bold ">Forecast</div>';
         if (selectedTheme==='material-dark')
@@ -237,6 +238,13 @@ export default {
         }
         else if (selectedTheme === 'material3') {
             this.AnnotationColor = "light"; 
+        }
+        else if (selectedTheme === 'fluent2') {
+            this.AnnotationColor = 'light';
+        } 
+        else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') 
+        {
+            this.AnnotationColor = 'dark';
         }
         else
         {

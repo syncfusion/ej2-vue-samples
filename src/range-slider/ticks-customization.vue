@@ -123,6 +123,12 @@
         left: calc(0% - 5px);
     }
 
+    .fluent2 #slider_wrapper .e-rtl #ticks_slider .e-scale :nth-child(1)::before,
+    .fluent2-dark #slider_wrapper .e-rtl #ticks_slider .e-scale :nth-child(1)::before,
+    .fluent2-highcontrast #slider_wrapper .e-rtl #ticks_slider .e-scale :nth-child(1)::before,
+    .fluent2 #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
+    .fluent2-dark #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
+    .fluent2-highcontrast #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
     .fluent .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .fluent-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
     .material3 .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .material3-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
     .bootstrap5 .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .bootstrap5-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
@@ -188,6 +194,8 @@
         line-height: 2.3;
     }
 
+    .fluent2 #ticks_slider .e-scale .e-tick.e-custom::before, .fluent2-dark #ticks_slider .e-scale .e-tick.e-custom::before,
+    .fluent2-highcontrast #ticks_slider .e-scale .e-tick.e-custom::before,
     .fluent #ticks_slider .e-scale .e-tick.e-custom::before, .fluent-dark #ticks_slider .e-scale .e-tick.e-custom::before,
     .bootstrap5 #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5-dark #ticks_slider .e-scale .e-tick.e-custom::before,
     .tailwind #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind-dark #ticks_slider .e-scale .e-tick.e-custom::before {
@@ -199,10 +207,32 @@
         top: 2px;
     }
 
+    .fluent2 #slider_wrapper .e-rtl #ticks_slider .e-scale :nth-child(6)::before, .fluent2-dark #slider_wrapper .e-rtl #ticks_slider .e-scale :nth-child(6)::before,
+    .fluent2-highcontrast #slider_wrapper .e-rtl #ticks_slider .e-scale :nth-child(6)::before,
+    .fluent2 #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .fluent2-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
+    .fluent2-highcontrast #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
     .fluent #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .fluent-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
     .bootstrap5 #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .bootstrap5-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
     .tailwind #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .tailwind-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before {
         left: calc(0% - 6px);
+    }
+
+    .fluent2 #ticks_slider .e-scale,
+    .fluent2-dark #ticks_slider .e-scale,
+    .fluent2-highcontrast #ticks_slider .e-scale {
+        font-size: 14px;
+    }
+
+    .fluent2.e-bigger #ticks_slider .e-scale,
+    .fluent2-dark.e-bigger #ticks_slider .e-scale,
+    .fluent2-highcontrast.e-bigger #ticks_slider .e-scale {
+        font-size: 16px;
+    }
+
+    .fluent2.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before,
+    .fluent2-dark.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before,
+    .fluent2-highcontrast.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before {
+        top: 8px;
     }
 
     @media (max-width:550px){

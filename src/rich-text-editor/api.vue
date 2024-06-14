@@ -38,7 +38,7 @@
                     </td>
                     <td>
                         <div style="padding-left: 0;padding-top: 0">
-                            <ejs-checkbox ref="checkInstance1" :change="changeCheck" id="readonly" :checked=checked></ejs-checkbox>
+                            <ejs-checkbox ref="checkInstance1" :change="changeCheck" id="readonly" :checked=checked ></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
@@ -48,7 +48,7 @@
                     </td>
                     <td>
                         <div style="padding-left: 0;padding-top: 0">
-                            <ejs-checkbox ref="checkInstance2" :change="changeState" id="enable" checked=true></ejs-checkbox>
+                            <ejs-checkbox ref="checkInstance2" :change="changeState" id="enable" checked=true ></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
@@ -58,7 +58,7 @@
                     </td>
                     <td>
                         <div style="padding-left: 0;padding-top: 0">
-                            <ejs-checkbox ref="checkInstance3" :change="changeHtml" id="enablehtml" :checked=checked></ejs-checkbox>
+                            <ejs-checkbox ref="checkInstance3" :change="changeHtml" id="enablehtml" :checked=checked ></ejs-checkbox>
                         </div>
                     </td>
                 </tr>
@@ -148,7 +148,8 @@ export default {
             enableHtmlEncode: false,
             format: 'n0',
             min: 500,
-            max: 2000
+            max: 2000,
+            placeholder : "Maximum Length"
         };
     },
     methods: {

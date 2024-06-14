@@ -19,7 +19,7 @@
                         </td>
                         <td style="width: 70%;padding-right: 10px">
                             <div>
-                                <select id="positions" @change="onChange" class="form-control">
+                                <select id="positions" @change="onChange" class="form-control" aria-label="positions">
                                     <option value="TopLeft">Top Left</option>
                                     <option value="TopCenter" selected>Top Center</option>
                                     <option value="TopRight">Top Right</option>

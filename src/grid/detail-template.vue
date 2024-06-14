@@ -6,7 +6,7 @@
     </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :detailTemplate ="'detailTemplate'" :allowSorting='true'>
+        <ejs-grid :dataSource="data" :detailTemplate ="'detailTemplate'" :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings'>
             <e-columns>
                 <e-column field='EmployeeID' headerText='Employee ID' width='125' textAlign='Right'></e-column>
                 <e-column field='FirstName' headerText='Name' width='120'></e-column>
@@ -87,7 +87,7 @@
 </style>
 
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, DetailRow, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, DetailRow, Sort, Filter } from "@syncfusion/ej2-vue-grids";
 import { employeeData } from "./data-source";
 import detailTemplate from "./detail-temp.vue";
 import { Internationalization } from '@syncfusion/ej2-base';
@@ -103,6 +103,7 @@ export default {
   data: () => {
     return {
       data: employeeData,
+      filterSettings: { type: 'Excel' },
     };
   },
   methods: {
@@ -111,7 +112,7 @@ export default {
     }
   },
   provide: {
-      grid: [DetailRow, Sort]
+      grid: [DetailRow, Sort, Filter]
   }
 }
 </script>

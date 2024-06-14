@@ -2,23 +2,23 @@
 <div>
     <div class="control-section col-lg-9">
     <div class="control-wrapper">
-        <h4>Local Data</h4>
+        <label class="h4">Local Data</label>
         <ejs-multiselect id='local' ref='localObj' :dataSource='itemData' :mode='boxMode' placeholder='e.g Item 1' :fields='fields' :allowFiltering='allowFiltering' :allowCustomValue='allowCustomValue' :hideSelectedItem='hideSelectedItem' :closePopupOnSelect='closePopupOnSelect' :enableVirtualization='true' popupHeight="200px"></ejs-multiselect>
     </div>
     <div class="control-wrapper">
-        <h4>Remote Data</h4>
+        <label class="h4">Remote Data</label>
         <ejs-multiselect id='remote' ref='remoteObj' :dataSource='data' :mode='delimiterMode' placeholder='e.g OrderID' :fields='customerfields' :allowFiltering='allowFiltering' :allowCustomValue='allowCustomValue' :hideSelectedItem='hideSelectedItem' :closePopupOnSelect='closePopupOnSelect' :enableVirtualization='true' popupHeight="200px"></ejs-multiselect>
     </div>
     <div class="control-wrapper">
-        <h4>Default Values</h4>
-        <ejs-multiselect id='default' ref='defaultObj' :dataSource='data' :value='chipValue' :mode='defaultMode' placeholder='e.g OrderID' :fields='customerfields' :allowFiltering='allowFiltering' :allowCustomValue='allowCustomValue' :hideSelectedItem='hideSelectedItem' :closePopupOnSelect='closePopupOnSelect' :enableVirtualization='true' popupHeight="200px"></ejs-multiselect>
+        <label class="h4">Default Values</label>
+        <ejs-multiselect id='default' ref='defaultObj' :dataSource='itemData' :value='chipValue' :mode='defaultMode' placeholder='e.g Item 1' :fields='fields' :allowFiltering='allowFiltering' :allowCustomValue='allowCustomValue' :hideSelectedItem='hideSelectedItem' :closePopupOnSelect='closePopupOnSelect' :enableVirtualization='true' popupHeight="200px"></ejs-multiselect>
     </div>
     <div class="control-wrapper">
-        <h4>Grouping</h4>
+        <label class="h4">Grouping</label>
         <ejs-multiselect id='group' ref='groupObj' :dataSource='itemData' :mode='multiMode' placeholder='e.g Item 1' :enableSelectionOrder='enableSelectionOrder' :fields='groupfields' :allowFiltering='allowFiltering' :allowCustomValue='allowCustomValue' :enableVirtualization='true' popupHeight="200px"></ejs-multiselect>
     </div>
     <div class="control-wrapper">
-        <h4>Template</h4>
+        <label class="h4">Template</label>
         <ejs-multiselect id='template' ref='templateObj' :dataSource='itemData' :mode='defaultMode' placeholder='e.g Item 1' :fields='fields' :allowFiltering='allowFiltering' :allowCustomValue='allowCustomValue' :hideSelectedItem='hideSelectedItem' :closePopupOnSelect='closePopupOnSelect' :enableVirtualization='true' popupHeight="200px" :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :valueTemplate="'vTemplate'">
             <template v-slot:hTemplate="{data}">
                 <div class="header"><span style="margin-left:17px">Items Info</span></div>
@@ -88,6 +88,12 @@
         padding-top: 15px;
         height: 90px !important;
     } 
+
+    .control-wrapper .h4 {
+      font-size: 16px;
+      margin: 0 0 10px;
+      font-weight: bold;
+  }
 
     .header {
         font-weight: 600;
@@ -198,7 +204,7 @@ function dataSource() {
 }
 dataSource();
 var remoteData = new DataManager({
-    url: 'https://services.syncfusion.com/js/production/api/orders',
+    url: 'https://services.syncfusion.com/vue/production/api/orders',
     adaptor: new WebApiAdaptor,
     crossDomain: true
 });
@@ -224,7 +230,7 @@ export default {
             hideSelectedItem: true,
             closePopupOnSelect: true,
             enableSelectionOrder: false,
-            chipValue: ["20003", "10025", "10044", "custom"],
+            chipValue: ['id10', 'id50', 'id100', "custom"],
             fields: { value: 'id', text: 'text' },
             customerfields: { text: 'OrderID', value: 'OrderID' },
             groupfields: { groupBy: 'group', text: 'text', value: 'id' },

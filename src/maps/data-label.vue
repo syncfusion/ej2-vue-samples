@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="col-lg-9 control-section">
 <ejs-maps ref="maps" id='datalabel' :zoomSettings='zoomSettings' :load='load'>
     <e-layers>
@@ -9,7 +9,7 @@
 </div>
 
 <div class="col-lg-3 property-section">
-    <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+    <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -10px;">
     <colgroup>
             <col span="1" style="width: 50%;">
             <col span="1" style="width: 50%;">
@@ -46,13 +46,14 @@
             </td>
         </tr>
     </tbody></table>
-<div id="action-description">
+</div>
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
             <p>
                This sample visualizes the names of all the states in USA in data labels. Options have been provided to change the intersect action and smart labels mode of the data labels.
            </p>
-        </div>
-        </div>
-        <div id="description">
+        </section>
+        <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
             <p>
                In this example, you can see how to render the data labels for each shape in a map. Data labels are used to display the values of the shapes. You can use the <code>autoFill</code> property in the <code>shapeSettings</code> to apply the default palette colors to the shapes.
         
@@ -66,8 +67,8 @@
              Maps component features are segregated into individual feature-wise modules. To use a data label, inject the <code>DataLabel</code> module using the <code>Maps.Inject(DataLabel)</code> method.
             </p>
            
-        </div>
-</div>
+        </section>
+</main>
 </template>
 <style scoped>
             #control-container {
@@ -100,6 +101,7 @@ export default {
                     }
                 },
         shapeData: usa,
+        shapePropertyPath:'iso_3166_2',
         shapeSettings: {
                     autofill: true
         },

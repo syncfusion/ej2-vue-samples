@@ -45,11 +45,11 @@
         </tr>
         <tr>
             <td>
-                <div>Point Length</div>
+                <div id="pointLength">Point Length</div>
             </td>
             <td>
                 <div>
-                  <ejs-numerictextbox id="numeric" :min='minvalue' :max='maxvalue' format='n' width='120' :value='value' :step='stepvalue' :enabled='enabledtextbox' :change='pointlength' disabled='true' ></ejs-numerictextbox>
+                  <ejs-numerictextbox id="numeric" :min='minvalue' :max='maxvalue' format='n' width='120' :value='value' :step='stepvalue' :enabled='enabledtextbox' :change='pointlength' disabled='true' aria-labelledby="Text"></ejs-numerictextbox>
                 </div>
             </td>
         </tr>
@@ -108,7 +108,7 @@ import {
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 let intl = new Internationalization();
 //let spinnerEle = document.getElementById("spinner");
 

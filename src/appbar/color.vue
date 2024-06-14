@@ -5,7 +5,7 @@
                 <div v-for="appBarColor in appBarColors" :key="appBarColor.colorMode">
                     <div class="row">
                         <div class="col-md-12">
-                            <h5>{{appBarColor.colorMode}}</h5>
+                            <h1>{{appBarColor.colorMode}}</h1>
                         </div>
                     </div>
                     <div class="row">
@@ -52,6 +52,10 @@
     .color-appbar-section .e-dropdown-btn.e-inherit,
     .color-appbar-section .e-btn.e-inherit.home {
         margin: 0 5px;
+    }
+
+    .color-appbar-section h1 {
+        font-size: 18px;
     }
 
     .color-appbar-section .e-appbar-icon-menu {

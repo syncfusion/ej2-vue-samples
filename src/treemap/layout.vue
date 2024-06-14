@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="col-lg-9 control-section">
         <ejs-treemap ref="treemap" id='layout-container' :load='load' align="center" :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :leafItemSettings='leafItemSettings' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
 
@@ -9,7 +9,7 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -10px;">
          <colgroup>
             <col span="1" style="width: 50%;">
             <col span="1" style="width: 50%;">
@@ -34,18 +34,19 @@
             </tbody>
         </table>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of TreeMap sample">
     <p>This sample illustrates the GDP nominal of top 10 countries in the year 2015. The layout and rendering direction of the TreeMap can be changed by using the <code>Layout Type</code> and <code>Render Direction</code> in the properties panel.
     </p>
-  </div>
-<div id="description">
+  </section>
+<section id="description" aria-label="Description of the TreeMap features demonstrated in this sample">
     <p>In this example, you can change the layout of the TreeMap as desaturation color mapping has been applied to denote the weightage of the items by varying the fill color. The label's text also has been formatted and placed in multiple lines.
     </p>
     <p>
        The tooltip is enabled in this example. To see the tooltip in action, hover the mouse over an item or tap an item in touch-enabled devices.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { TreeMapComponent,TreeMapTooltip, RenderingMode } from "@syncfusion/ej2-vue-treemap";

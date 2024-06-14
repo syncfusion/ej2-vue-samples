@@ -1,7 +1,7 @@
 <template>
-    <div class="control-section">
+    <div class="control-section" role="region" aria-label="Tree Grid Control Section">
       <div class="col-md-9 control-section">
-          <ejs-treegrid ref='treegrid' :dataSource='data' :allowPaging='true' childMapping='subtasks' :height='350' :treeColumnIndex='1' :pageSettings='pageSettings'>
+          <ejs-treegrid ref='treegrid' :dataSource='data' :allowPaging='true' childMapping='subtasks' :height='350' :treeColumnIndex='1' :pageSettings='pageSettings' aria-label="Tree Grid">
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' width='80' textAlign='Right'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190'></e-column>
@@ -20,19 +20,19 @@
             </td>
             <td style="width: 70%;padding-right: 10px">
                 <div id='columnddl'>
-                    <ejs-dropdownlist width='100px' ref='columns' id='columns' :dataSource='columnNames' value='taskID' :fields='colfields' :change="onColChange"></ejs-dropdownlist>
+                    <ejs-dropdownlist width='100px' ref='columns' id='columns' :dataSource='columnNames' value='taskID' :fields='colfields' :change="onColChange" aria-label="Select column"></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr>
             <td style="width: 30%">
                 <div>
-                   <ejs-button ref='hide' v-on:click="hide">Hide</ejs-button>
+                   <ejs-button ref='hide' v-on:click="hide" aria-label="Hide button">Hide</ejs-button>
                 </div>
             </td>
             <td style="width: 70%">
                 <div>
-                    <ejs-button ref='show' disabled='true' v-on:click="show">Show</ejs-button>
+                    <ejs-button ref='show' disabled='true' v-on:click="show" aria-label="Show button">Show</ejs-button>
                 </div>
             </td>
         </tr>
@@ -45,7 +45,7 @@
             <td style="width: 70%; padding:10px 10px 10px 0px">
                 <div>
                     <textarea id="hiddencolumns" style="resize: none;height:65px;background-color: #fff; padding: 6px" 
-                    class="form-control"></textarea>
+                    class="form-control" aria-label="Hidden columns"></textarea>
                 </div>
             </td>
         </tr>
@@ -80,6 +80,11 @@
     #hide:disabled:hover,
     #show:disabled:hover {
         color: #000000;
+    }
+    .fluent2 .btn,
+    .fluent2-dark .btn,
+    .fluent2-highcontrast .btn{
+        outline: none !important;
     }    
 </style>
 <!-- custom code end -->

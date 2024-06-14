@@ -1,6 +1,6 @@
 
 <template>
-<div id="maps-zoom-sample">
+<main><div id="maps-zoom-sample">
 <div class="col-lg-8 control-section">
 <ejs-maps ref="maps" id='mapszooming' :zoomSettings='zoomSettings' :load='load'>
     <e-layers>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="col-lg-4 property-section">
-        <table id="property" title="Properties" style="width: 100%;">
+        <table role="none" id="property" title="Properties" style="width: 100%;">
         <colgroup>
             <col span="1" style="width: 50%;">
             <col span="1" style="width: 50%;">
@@ -93,12 +93,13 @@
                 </tbody>
         </table>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of Maps sample">
             <p>
                 This sample depicts the zooming and panning options in the maps. You can customize these options by changing the Zooming, Panning, Mouse wheel zoom, Pinch zoom, Single-click zoom, and Double-click zoom in the Properties panel.
            </p>
-        </div>
-        <div id="description">
+        </section>
+        <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
             <p>
                 In this example, you can see how to zoom and pan the map. The support has been provided for zooming with the toolbar, rectangle zoom, pinch zoom, mouse wheel zoom, single-click, and double-click zoom.Panning can be enabled or disabled using
                 the Panning option. When it is disabled, the map will switch to zooming mode.
@@ -109,8 +110,8 @@
               Maps component features are segregated into individual feature-wise modules. To use the zooming feature, inject the <code>Zoom</code> module using the <code>Maps.Inject(Zoom)</code> method.
             </p>
             
-        </div>
-</div>
+        </section>
+        </main>
 </template>
 
  <style scoped>
@@ -216,7 +217,11 @@ export default {
       return{
             zoomSettings: {
             enable: true,
-            toolbars: ['Zoom', 'ZoomIn', 'ZoomOut', 'Pan', 'Reset'],
+            toolbarSettings:{
+                buttonSettings: {
+                   toolbarItems: ['Zoom', 'ZoomIn', 'ZoomOut', 'Pan', 'Reset']
+                }
+            },
             pinchZooming: true
         },
         shapeData: worldMap,

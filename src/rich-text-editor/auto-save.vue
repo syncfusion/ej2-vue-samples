@@ -120,6 +120,8 @@
     .bootstrap5-dark .e-icons.e-icon-refresh::before,
     .fluent .e-icons.e-icon-refresh::before,
     .fluent-dark .e-icons.e-icon-refresh::before,
+    .fluent2 .e-icons.e-icon-refresh::before,
+    .fluent2-dark .e-icons.e-icon-refresh::before,
     .material3 .e-icons.e-icon-refresh::before,
     .material3-dark .e-icons.e-icon-refresh::before  {        
         content: "\e706";
@@ -129,6 +131,8 @@
     .bootstrap5-dark .e-icons.e-icon-tick::before,
     .fluent .e-icons.e-icon-tick::before,
     .fluent-dark .e-icons.e-icon-tick::before,
+    .fluent2 .e-icons.e-icon-tick::before,
+    .fluent2-dark .e-icons.e-icon-tick::before,
     .material3 .e-icons.e-icon-tick::before,
     .material3-dark .e-icons.e-icon-tick::before {        content: "\e774";
     }
@@ -149,7 +153,7 @@ export default {
   data: function () {
     return {
       toolbarSettings: {
-        items: ['Bold', 'Italic', 'Underline', '|', 'Formats', 'Alignments',
+        items: ['Bold', 'Italic', 'Underline', '|', 'Formats', 'Alignments', 'Blockquote',
           'OrderedList', 'UnorderedList', '|', 'CreateLink', 'Image', '|', 'SourceCode', 'Undo', 'Redo']
       },
       Saving: false,

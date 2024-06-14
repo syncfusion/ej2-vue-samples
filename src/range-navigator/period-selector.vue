@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-sm-4" align="right" style="margin-top: 1%">
                     <div>
-                        <label for="switch" style="font-size: 16px; margin-right: 2%">Closing Price </label>
+                        <label for="e-switch-0" style="font-size: 16px; margin-right: 2%">Closing Price </label>
                         <ejs-switch id="checked" name='Closing Value' cssClass='custom-iOS' :change='changeSwitch' value='Closing value' checked=true></ejs-switch>
                         <label for="switch1" style="font-size: 16px; margin-left: 2%">OHLC</label>
                     </div>
@@ -107,7 +107,7 @@ import { Browser, remove } from "@syncfusion/ej2-base";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 let dataBind = [];
 for (let i = 2110; i < periodData.length - 20; i++) {

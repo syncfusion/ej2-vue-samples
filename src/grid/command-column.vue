@@ -9,7 +9,7 @@
             </ul>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true' :editSettings='editSettings'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='120' textAlign='Right' :validationRules='customeridrules'></e-column>
@@ -53,7 +53,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Page, CommandColumn, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Edit, Page, CommandColumn, Sort, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -65,6 +65,7 @@ export default {
   data: () => {
     return {
       data: orderDetails.slice(0),
+      filterSettings: { type: 'Excel' },
       editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Normal', allowEditOnDblClick: false },
       orderidrules: { required: true },
       customeridrules: { required: true },
@@ -78,7 +79,7 @@ export default {
     };
   },
   provide: {
-      grid: [Edit, Page, CommandColumn, Sort]
+      grid: [Edit, Page, CommandColumn, Sort, Filter]
   }
 }
 </script>

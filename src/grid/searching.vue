@@ -6,7 +6,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging="true" :pageSettings='pageSettings' :allowSorting='true' :toolbar='toolbar'>
+        <ejs-grid :dataSource="data" :allowPaging="true" :pageSettings='pageSettings' :allowSorting='true' :toolbar='toolbar' :allowFiltering='true' :filterSettings='filterSettings'>
             <e-columns>
                 <e-column field='CategoryName' headerText='Category Name' width='150'></e-column>
                 <e-column field='ProductName' headerText='Product Name' width='150'></e-column>
@@ -31,7 +31,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnsDirective, ColumnDirective, Page, Toolbar, Sort} from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnsDirective, ColumnDirective, Page, Toolbar, Sort, Filter} from "@syncfusion/ej2-vue-grids";
 import { categoryData } from "./data-source";
 
 export default {
@@ -44,11 +44,12 @@ export default {
     return {
       data: categoryData,
       pageSettings: { pageCount: 5 },
-      toolbar: ["Search"]
+      toolbar: ["Search"],
+      filterSettings: { type: 'Excel' },
     };
   },
   provide: {
-      grid: [Page, Toolbar, Sort]
+      grid: [Page, Toolbar, Sort, Filter]
   }
 }
 </script>

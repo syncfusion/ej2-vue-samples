@@ -44,6 +44,7 @@
                   id="values"
                   ref="values"
                   placeholder="Select members"
+                  aria-expanded="false"
                   :dataSource="memberDataSource"
                   mode="CheckBox"
                   showDropDownIcon="true"
@@ -103,6 +104,11 @@
         <code>name</code> and
         <code>items</code> options inside the
         <code>filterSettings</code> property in the pivot table.
+      </p><br />
+      <p>
+          More information on the filtering can be found in this <a target="_blank"
+              href="https://ej2.syncfusion.com/vue/documentation/pivotview/filtering">
+          documentation section</a>.
       </p>
     </div>
   </div>

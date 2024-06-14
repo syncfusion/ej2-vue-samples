@@ -1,10 +1,10 @@
 <template>
-   <div class="control-section">
+   <main><div class="control-section">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12"
             style="display: flex;justify-content: center; align-items: center;">
             <div style="margin: auto;padding: 10px;">
-                <table>
+                <table role="none">
                     <tbody>
                         <tr>
                             <td>
@@ -85,13 +85,14 @@
             </e-axes>
         </ejs-lineargauge>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Linear Gauge sample">
     <p>
         This sample demonstrates the various customization options for the linear gauge's range. For example, an
         exponential appearance, a gradient color, and a multiple range.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Linear Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure ranges in the linear gauge. The <a target="_blank"
             href="https://ej2.syncfusion.com/vue/documentation/api/linear-gauge/rangeModel/">ranges</a> and <a
@@ -105,8 +106,8 @@
         <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/ranges/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { LinearGaugeComponent, AxisDirective, Gradient, AxesDirective, PointersDirective, PointerDirective } from "@syncfusion/ej2-vue-lineargauge";

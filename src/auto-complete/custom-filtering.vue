@@ -26,6 +26,7 @@
 </template>
 <script>
 import { AutoCompleteComponent } from "@syncfusion/ej2-vue-dropdowns";
+import Fuse from 'fuse.js';
 import data from './dataSource.json';
 
 export default {

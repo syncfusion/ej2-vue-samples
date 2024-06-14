@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="col-lg-9 control-section">
 <ejs-maps ref="maps" id='container' align="center" :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
     <e-layers>
@@ -32,12 +32,13 @@
         </tbody>
     </table>
 </div>
-<div id="action-description">
+</div>  
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
            This sample illustrates the details of permanent and non-permanent countries in the UN security council, in 2017. Projection of the map can be changed by using the <code>Projection type</code> in properties panel.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
           In this example, you can see how to render a map with various projections. You can use the <code>ColorMapping</code> property to customize the color of the shapes. 
         </p>
@@ -50,8 +51,8 @@
         Maps component features are segregated into individual feature-wise modules. To use a legend, inject the <code>Legend</code> module using the <code>Maps.Inject(Legend)</code> method.
         </p>
        
-    </div>
-</div>  
+    </section>
+    </main>
 </template>
 <style scoped>
     #control-container {

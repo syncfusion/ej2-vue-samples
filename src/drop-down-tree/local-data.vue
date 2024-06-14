@@ -4,13 +4,13 @@
         <div class="col-lg-12 content_wrapper">
             <div  class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
                 <div style="width: 250px;margin: 0 auto;">
-                    <h4> Hierarchical Data</h4>
+                    <p class="displayText"> Hierarchical Data</p>
                     <ejs-dropdowntree id="ddtlocal" :fields='fields' :popupHeight='height' :placeholder='waterMark'></ejs-dropdowntree>
                 </div>
             </div>
             <div  class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
                 <div style="width: 250px; margin: 0 auto;">
-                    <h4>List Data</h4>
+                    <p class="displayText">List Data</p>
                     <ejs-dropdowntree id="ddtlist" :fields='listfields' :popupHeight='height' :placeholder='waterMark'></ejs-dropdowntree>
                 </div>
             </div>
@@ -37,6 +37,13 @@
     .control-section.dropdowntree-local,
     .dropdowntree-local .content_wrapper {
         min-height: 350px;
+    }
+    .displayText {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.1;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 </style>
 /* custom code end */

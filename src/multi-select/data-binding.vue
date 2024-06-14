@@ -1,13 +1,13 @@
 <template>
 <div>
     <div class="control-section multiselect-databinding">
-            <div id='local' style="margin: 0px auto; width:64%; padding-top: 40px;">
-                    <h4> Local Data</h4>
+            <div id='local' class="control-styles" style="margin: 0px auto; width:64%; padding-top: 40px;">
+                <label class="h4"> Local Data</label>
                     <ejs-multiselect id='localData' :dataSource='countries' :fields='localFields'
                         :placeholder='localWaterMark'></ejs-multiselect>
             </div>
-            <div id='remote' style="margin: 0px auto; width:64%; padding-top: 20px;">
-                    <h4>Remote Data</h4>
+            <div id='remote' class="control-styles" style="margin: 0px auto; width:64%; padding-top: 20px;">
+                <label class="h4">Remote Data</label>
                     <ejs-multiselect id='remoteData' :dataSource='data' :fields='remoteFields'
                         :query='query' :placeholder='remoteWaterMark' sortOrder='Ascending'></ejs-multiselect>
             </div>
@@ -47,6 +47,12 @@
 <style scoped>
     .property-panel-content {
         padding: 0 10px 10px 0;
+    }
+
+    .control-styles .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
     }
 
     .content {

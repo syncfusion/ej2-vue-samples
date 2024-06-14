@@ -36,6 +36,11 @@
         To enable drill-through, inject the
         <code>DrillThrough</code> module using the
         <code>provide</code> section.
+      </p><br />
+      <p>
+          More information on the drill-through can be found in this <a target="_blank"
+              href="https://ej2.syncfusion.com/vue/documentation/pivotview/drill-through">
+          documentation section</a>.
       </p>
     </div>
   </div>

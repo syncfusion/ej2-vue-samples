@@ -30,7 +30,7 @@
     </p>
     <p>
         More information on the waterfall series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/waterfall">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/waterfall" aria-label="Navigate to the documentation for Waterfall Chart in Vue Chart component">documentation section</a>.
     </p>
 </div>
 </div>
@@ -38,7 +38,7 @@
 </template>
 <style >
    #waterfallContainer_Series_0_Connector_ {
-        stroke-dasharray: 4px 4px;
+        stroke-dasharray: 10px 10px;
         stroke-linejoin: round; 
         stroke-linecap: round;
         -webkit-animation: dash 1s linear infinite;
@@ -63,7 +63,7 @@ import { ChartComponent, SeriesDirective, SeriesCollectionDirective, WaterfallSe
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

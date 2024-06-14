@@ -12,9 +12,7 @@
 </div>
 
 <div id="action-description">
-    <p>
-        This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/box-and-whisker-chart">Vue Box and Whisker</a> example visualizes the employee’s age group in various departments of a company with box and whisker chart.
-    </p>
+    <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/box-and-whisker-chart" aria-label="Navigate to explore the Syncfusion Vue Box and Whisker Chart">Vue Box and Whisker</a> example visualizes the employee’s age group in various departments of a company with box and whisker chart.</p>
 </div>
 <div id="description">
     <p>
@@ -29,7 +27,7 @@
     </p>
     <p>
         More information on the box and whisker series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/box-whisker">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/box-whisker" aria-label="Navigate to the documentation for Box and Whisker in Vue Chart component">documentation section</a>.
     </p>
 </div>
 </div>
@@ -42,11 +40,11 @@
 import { EmitType } from '@syncfusion/ej2-base';
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, Category, Tooltip, BoxAndWhiskerSeries } from "@syncfusion/ej2-vue-charts";
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors} from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2DarkColors } from './theme-color';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');     
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');     
 export default {
     components: {
         'ejs-chart': ChartComponent,
@@ -159,6 +157,12 @@ export default {
             }
             else if (selectedTheme === 'highcontrast') {
                 args.fill = pointHighContrastColors[args.point.index % 10];
+            }
+            else if (selectedTheme === 'fluent2') {
+                args.fill = pointFluent2Colors[args.point.index % 10];
+            } 
+            else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
+                args.fill = pointFluent2DarkColors[args.point.index % 10];
             }
             else {
                 args.fill = pointBootstrapColors[args.point.index % 10];

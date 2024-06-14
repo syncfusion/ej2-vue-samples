@@ -3,7 +3,16 @@
         <div class="col-md-12 control-section">
             <div class="schedule-container">
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :cssClass='cssClass' :selectedDate='selectedDate' :eventSettings='eventSettings'
-                    :group='group' :currentView='currentView' :resourceHeaderTemplate='resourceHeaderTemplate'>
+                    :group='group' :currentView='currentView' :resourceHeaderTemplate= "'resourceHeaderTemplate'">
+                    <template v-slot:resourceHeaderTemplate="{data}">
+                        <div class="template-wrap">
+                            <div class="employee-category">
+                                <div><img class="employee-image" :src="getImage(data)" :alt="getImage(data)"/></div>
+                                <div class="employee-name">{{getEmployeeName(data)}}</div>
+                                <div class="employee-designation">{{getEmployeeDesignation(data)}}</div>
+                            </div>
+                        </div>
+                    </template>
                     <e-views>
                         <e-view option="Day"></e-view>
                         <e-view option="TimelineDay"></e-view>
@@ -70,37 +79,9 @@
 </style>
 
 <script>
-    import { createApp } from "vue";
     import { extend } from '@syncfusion/ej2-base';
     import { blockData } from './datasource';
     import { ScheduleComponent, ViewDirective, ViewsDirective, ResourceDirective, ResourcesDirective, Day, TimelineViews, TimelineMonth, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
-    
-    const app = createApp({})
-
-    var resourceHeaderVue = app.component("resource-headerTemplate", {
-        template: '<div className="template-wrap"><div class="employee-category"><div><img class="employee-image" :src="getImage" :alt="getImage"/></div><div class="employee-name">' +
-                  '{{getEmployeeName(data)}}</div><div class="employee-designation">{{getEmployeeDesignation(data)}}</div></div></div>',
-        data() {
-            return {
-                data: {}
-            };
-        },
-        computed: {
-            getImage: function() {
-                return 'source/schedule/images/' + this.getEmployeeName(this.data).toLowerCase() + '.png';
-            }
-        },
-        methods: {
-            getEmployeeName: function (data) {
-                let value = JSON.parse(JSON.stringify(data));
-                return (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
-            },
-            getEmployeeDesignation: function (data) {
-                let value = JSON.parse(JSON.stringify(data));
-                return value.resourceData.Designation;
-            }
-        }
-    });
 
     export default {
         components: {
@@ -129,14 +110,28 @@
                     { Text: 'Robson', Id: 4, GroupId: 2, Color: '#9e5fff', Designation: 'Support Engineer' },
                     { Text: 'Laura', Id: 5, GroupId: 1, Color: '#bbdc00', Designation: 'Human Resource' },
                     { Text: 'Margaret', Id: 6, GroupId: 2, Color: '#9e5fff', Designation: 'Content Analyst' }
-                ],
-                resourceHeaderTemplate: function () {
-                    return { template: resourceHeaderVue }
-                }
+                ]
             }
         },
         provide: {
             schedule: [Day, TimelineViews, TimelineMonth, Resize, DragAndDrop]
+        },
+         computed: {
+            getImage() {
+                return (data) => {
+                    return 'https://ej2.syncfusion.com/vue/demos/source/schedule/images/' + this.getEmployeeName(data).toLowerCase() + '.png';
+                };
+            }
+        },
+        methods: {
+            getEmployeeName: function (data) {
+                let value = JSON.parse(JSON.stringify(data));
+                return (value.resourceData) ? value.resourceData[value.resource.textField] : value.resourceName;
+            },
+            getEmployeeDesignation: function (data) {
+                let value = JSON.parse(JSON.stringify(data));
+                return value.resourceData.Designation;
+            }
         }
     }
 

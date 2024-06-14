@@ -67,7 +67,7 @@
            <li>In bootstrap theme, all the styles such as <code>e-fill</code> & <code>e-background e-accent</code> will have the same look with no difference.</li>
         </ul>
         <p>If above classes not included in root element default style will applied in Tab component.</p>
-        <p>More information about Tab can be found in this <a href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
+        <p>More information about Tab can be found in this <a aria-label="Tab getting started" href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
     </div>
     </div>
     <div class="col-lg-4 property-section">

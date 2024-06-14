@@ -31,7 +31,7 @@
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure stock chart to visualize the stock data with spline area series. Use series <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockSeries/#type">type</a> as <b>SplineArea</b> to render a spline area series.
+        In this example, you can see how to render and configure stock chart to visualize the stock data with spline area series. Use series <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockSeries/#type" aria-label="Navigate to the type property reference for Vue Stock Chart component">type</a> as <b>SplineArea</b> to render a spline area series.
       </p>
       <p>
         <code>Crosshair</code> is enabled in this example. To see the crosshair in action, hover the chart or tap on it in touch enabled devices.
@@ -45,7 +45,7 @@
       </p>
       <p>
         More information about the series type can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/series-types">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/series-types" aria-label="Navigate to the documentation for Vue Stock Chart Series Types">documentation section</a>.
       </p>
 
     </div>
@@ -83,7 +83,7 @@ import {
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

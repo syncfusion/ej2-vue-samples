@@ -105,7 +105,12 @@
           <code>Command Columns</code> - An additional column appends to the grid with icons to perform CRUD
           operations. Editing using cell double-click is restricted here.
         </li>
-      </ul>
+      </ul><br />
+      <p>
+          More information on the editing can be found in this <a target="_blank"
+              href="https://ej2.syncfusion.com/vue/documentation/pivotview/editing">
+          documentation section</a>.
+      </p>
     </div>
   </div>
 </template>

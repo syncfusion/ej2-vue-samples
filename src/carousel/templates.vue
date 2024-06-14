@@ -66,7 +66,7 @@
         <div id="action-description">
           <p>
             This sample demonstrates the customization of the
-            <a href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component using various templates.
+            <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component using various templates.
           </p>
         </div>
         <div id="description">
@@ -81,7 +81,7 @@
           <p>
             More information about customizing Vue Carousel component can be
             found in this
-            <a
+            <a aria-label="Carousel getting started"
               target="_blank"
               href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started"
               >documentation section</a

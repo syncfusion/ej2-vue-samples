@@ -1,5 +1,5 @@
 <template>
-<div id="map-export-sample">
+<main><div id="map-export-sample">
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
 <ejs-maps ref="maps" :allowPdfExport='allowPdfExport' :allowImageExport='allowImageExport' id='container' :load='load' :titleSettings='titleSettings'>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -10px;">
         <colgroup>
             <col span="1" style="width: 40%;">
             <col span="1" style="width: 60%;">
@@ -48,8 +48,8 @@
                     <div>File Name</div>
                 </td>
                 <td>
-                    <div class="e-float-input" style="margin-top: 0px; padding-left: 0px;">
-                        <input type="text" value="Maps" id="fileName" style="width:100%;">
+                    <div style="margin-top: 0px; padding-left: 0px;">
+                        <ejs-textbox type="text" value="Maps" id="fileName" style="width:100%"></ejs-textbox>
                     </div>
                 </td>
             </tr>
@@ -63,12 +63,13 @@
             </tbody>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
     <p> 
         This sample illustrates the exporting feature in Maps. You can modify the map type to geometric or OSM using the Map type dropdown list in this sample. By clicking the Export button, you can export the map in PNG, JPEG, SVG or in PDF formats.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Maps features demonstrated in this sample">
     <p>
        In this example, you can see how to render and configure the export functionality. The rendered map can be exported as either JPEG, PNG, SVG and PDF formats. Also this sample visualizes the locations of the wonders in the world using markers. Export functionality is done by <code>export</code> method when <code>allowImageExport</code> and <code>allowPdfExport</code> is set as true.
     </p>
@@ -84,8 +85,8 @@
           href="https://ej2.syncfusion.com/documentation/maps/print/#export"
         >documentation section</a>.
       </p> 
-</div>
-</div>
+</section>
+</main>
 </template>
 <style>
     #map-export-sample #button-control {
@@ -129,6 +130,7 @@
 import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Marker, MapsTooltip, ImageExport, PdfExport } from '@syncfusion/ej2-vue-maps';
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 import { worldMap } from '../maps/map-data/world-map';
 
 export default {
@@ -137,7 +139,8 @@ export default {
     'e-layers': LayersDirective,
     'e-layer': LayerDirective,
     'ejs-button': ButtonComponent,
-    'ejs-dropdownlist': DropDownListComponent
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-textbox': TextBoxComponent 
   },
   data:function(){
       return{
@@ -201,19 +204,22 @@ methods:{
             // let tickPosition=document.getElementById('tickposition');
             let modeData = ['JPEG','PNG','PDF','SVG'];
             if (this.$refs.layertype.ej2Instances.value === 'OSM') {
+                this.$refs.maps.ej2Instances.layers[this.$refs.maps.ej2Instances.layers.length - 1].urlTemplate = 'https://tile.openstreetmap.org/level/tileX/tileY.png';
+                this.$refs.maps.ej2Instances.layers[this.$refs.maps.ej2Instances.layers.length - 1].shapeData = null;
                 if (this.$refs.mode.ej2Instances.value === 'SVG') {
                     this.$refs.mode.ej2Instances.value = modeData[0];
                 }
                     this.$refs.mode.ej2Instances.dataSource = modeData.slice(0, 3);
                 } else {
+                    this.$refs.maps.ej2Instances.layers[this.$refs.maps.ej2Instances.layers.length - 1].shapeData = worldMap;
+                    this.$refs.maps.ej2Instances.layers[this.$refs.maps.ej2Instances.layers.length - 1].urlTemplate = '';
                     this.$refs.mode.ej2Instances.dataSource = modeData;
                 }
-                this.$refs.maps.ej2Instances.layers[this.$refs.maps.ej2Instances.layers.length - 1].layerType = this.$refs.layertype.ej2Instances.value;
                 this.$refs.maps.ej2Instances.refresh();
     },
     /* custom code end */
     clickExport:function(args){     
-           let fileName = ((document.getElementById('fileName'))).value;
+           let fileName = document.getElementById('fileName').value;
            this.$refs.maps.ej2Instances.export(this.$refs.mode.ej2Instances.value, fileName);
     }
 

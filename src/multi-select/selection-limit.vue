@@ -3,7 +3,7 @@
     <div>
         <div class="col-lg-8 control-section">
             <div class="control-styles">
-                <h4>Selection Limit</h4>
+                <label class="h4">Selection Limit</label>
                 <ejs-multiselect ref="multiselectInstance" cssClass="e-specific" id='multiselect-checkbox' :dataSource='countries' :placeholder='checkWaterMark' :fields='checkFields'
                     :mode='mode' :popupHeight='popHeight' :showDropDownIcon='true' :maximumSelectionLength='maxSelection'
                     :filterBarPlaceholder='filterPlaceholder'></ejs-multiselect>
@@ -19,7 +19,7 @@
                     </td>
                     <td style="width: 50%; padding:10px 10px 10px 0px">
                         <div>
-                            <ejs-numerictextbox id="maxSel" value="3" :min="min"></ejs-numerictextbox>
+                            <ejs-numerictextbox id="maxSel" aria-label="number"  value="3" :min="min"></ejs-numerictextbox>
                         </div>
                     </td>
                 </tr>
@@ -54,6 +54,11 @@
     }
     .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
         transform: translateY(1px);
+    }
+    .control-styles .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
     }
 
     .e-bigger .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {

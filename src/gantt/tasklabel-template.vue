@@ -17,7 +17,7 @@
           <div v-if="data.ganttProperties.resourceInfo">
             <span v-for="resource in data.ganttProperties.resourceInfo">
               <img :src="'src/gantt/images/' + resource.resourceName + '.png'"
-              style="height: 40px;"/>
+              style="height: 40px;" :alt="resource.resourceName"/>
               <span style="marginLeft:5px;marginRight:5px">{{ resource.resourceName }}</span>
             </span>
           </div>
@@ -82,8 +82,8 @@ export default {
             splitterSettings: {
                 position: "35%"
             },
-            projectStartDate: new Date('03/25/2019'),
-            projectEndDate: new Date('05/04/2019'),
+            projectStartDate: new Date('03/25/2024'),
+            projectEndDate: new Date('05/04/2024'),
       };
   },
   provide: {

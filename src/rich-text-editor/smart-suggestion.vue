@@ -67,10 +67,10 @@ data: function() {
            items: ['Bold', 'Italic', 'Underline', 'StrikeThrough', 'SuperScript', 'SubScript', '|',
                 'FontName', 'FontSize', 'FontColor', 'BackgroundColor', '|',
                 'LowerCase', 'UpperCase', '|',
-                'Formats', 'Alignments', '|', 'NumberFormatList', 'BulletFormatList', '|',
+                'Formats', 'Alignments', 'Blockquote', '|', 'NumberFormatList', 'BulletFormatList', '|',
                 'Outdent', 'Indent', '|', 'CreateLink', 'Image', 'Video', 'Audio', 'CreateTable', '|', 'FormatPainter', 'ClearFormat',
                 '|', 'EmojiPicker', '|',
-                'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+                'SourceCode', '|', 'Undo', 'Redo']
         }
     };
 },

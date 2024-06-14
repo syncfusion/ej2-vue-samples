@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="control-section col-lg-9">
         <div>
         <div class="content-wrapper" style='width:99%'>
@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table role="none" id="property" title="Properties" style="width: 100%">
             <tbody>
                 <tr style="height: 50px">
                     <td style="width: 60%">
@@ -26,12 +26,13 @@
             </tbody>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample visualizes the energy consumption in trillion British thermal units (btu) by the various public sectors in US government over the years. The data label is disabled in this sample, the tooltip displays the data point values.  In property panel, the options are available to change palette type in Heatmap by means of radio button.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         This example explains how to provide a specific color for specific range in heatmap. The <code> startValue </code> and <code> endValue </code> properties are used to define the range start and end values. The <code> minColor </code> and <code> maxColor </code> properties represent the colors of given range.    </p>
     <p>
@@ -44,8 +45,8 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import Vue from 'vue';

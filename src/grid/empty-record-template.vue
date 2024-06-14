@@ -16,7 +16,7 @@
                 </e-columns>
                 <template v-slot:emptyRecordTemplate>
                     <div class='emptyRecordTemplate'>
-                        <img src="./images/emptyRecordTemplate.svg" class="e-emptyRecord" alt="No record">
+                        <img v-bind:src="imageSrc()" class="e-emptyRecord" alt="No record">
                         <span>There is no data available to display at the moment.</span>
                     </div>
                 </template>
@@ -56,6 +56,15 @@ export default {
             editparams: { params: { dataSource: orderDataSource, fields: {text:"ShipCountry",value:"ShipCountry"}}},
             customeridrules: { required: true },
         };
+    },
+    methods: {
+        imageSrc: function() {
+            if (document.body.classList.value.indexOf('dark') > -1 || document.body.classList.value.indexOf('highcontrast') > -1) {
+                return 'source/grid/images/emptyRecordTemplate_dark.svg';
+            } else {
+                return 'source/grid/images/emptyRecordTemplate_light.svg';
+            }
+        }
     },
     provide: {
       grid: [Edit, Page, Toolbar]

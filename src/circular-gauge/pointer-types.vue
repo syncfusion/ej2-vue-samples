@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="control-section">
         <div class="row">
             <div class="col-sm-12">
@@ -9,7 +9,7 @@
                             <e-axes>
                                 <e-axis :radius='gauge2Radius' :startAngle='gauge2startAngle' minimum=0 maximum=100 :endAngle='gauge2endAngle' :majorTicks='gauge2majorTicks' :lineStyle='gauge2lineStyle' :minorTicks='gauge2minorTicks' :labelStyle='gauge2labelStyle' :annotations='gauge2annotations'>
                                     <e-pointers>
-                                        <e-pointer :type='type2' :value='value2' :radius='pointerRadius2' :color='color2' :markerShape='markerShape2' :markerWidth='markerWidth2' :markerHeight='markerHeight2'></e-pointer>
+                                        <e-pointer description= 'Needle pointer value:80' :type='type2' :value='value2' :radius='pointerRadius2' :color='color2' :markerShape='markerShape2' :markerWidth='markerWidth2' :markerHeight='markerHeight2'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
@@ -20,7 +20,7 @@
                             <e-axes>
                                 <e-axis :radius='gauge1Radius' :startAngle='gauge1startAngle' minimum=0 maximum=100 :endAngle='gauge1endAngle' :majorTicks='gauge1majorTicks' :lineStyle='gauge1lineStyle' :minorTicks='gauge1minorTicks' :labelStyle='gauge1labelStyle' :annotations='gauge1annotations'>
                                     <e-pointers>
-                                        <e-pointer :type='type1' :value='value1' :radius='pointerRadius1' :color='color1' :pointerWidth='pointerWidth1' :animation='animation1'></e-pointer>
+                                        <e-pointer description= 'RangeBar pointer value : 66' :type='type1' :value='value1' :radius='pointerRadius1' :color='color1' :pointerWidth='pointerWidth1' :animation='animation1'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
@@ -31,7 +31,7 @@
                             <e-axes>
                                 <e-axis :radius='gauge4Radius' :startAngle='gauge4startAngle' minimum=0 maximum=100 :endAngle='gauge4endAngle' :majorTicks='gauge4majorTicks' :lineStyle='gauge4lineStyle' :minorTicks='gauge4minorTicks' :labelStyle='gauge4labelStyle' :annotations='gauge4annotations'>
                                     <e-pointers>
-                                        <e-pointer :value='value4' :radius='pointerRadius4' :color='color4' :pointerWidth='pointerWidth4' :animation='animation4' :cap='cap4' :needleTail='needleTail4'></e-pointer>
+                                        <e-pointer description= 'Needle pointer value : 70' :value='value4' :radius='pointerRadius4' :color='color4' :pointerWidth='pointerWidth4' :animation='animation4' :cap='cap4' :needleTail='needleTail4'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
@@ -46,7 +46,7 @@
                             <e-axes>
                                 <e-axis :radius='gauge3Radius' :startAngle='gauge3startAngle' minimum=0 maximum=100 :endAngle='gauge3endAngle' :majorTicks='gauge3majorTicks' :lineStyle='gauge3lineStyle' :minorTicks='gauge3minorTicks' :labelStyle='gauge3labelStyle' :annotations='gauge3annotations'>
                                     <e-pointers>
-                                        <e-pointer value=70 radius='80%' color='green' :pointerWidth='pointerWidth3' :needleStartWidth='needleStartWidth3' :needleEndWidth='needleEndWidth3' :animation='animation3' :cap='cap3' :needleTail='needleTail3'></e-pointer>
+                                        <e-pointer description= 'Needle pointer value: 70' value=70 radius='80%' color='green' :pointerWidth='pointerWidth3' :needleStartWidth='needleStartWidth3' :needleEndWidth='needleEndWidth3' :animation='animation3' :cap='cap3' :needleTail='needleTail3'></e-pointer>
                                     </e-pointers>
                                 </e-axis>
                             </e-axes>
@@ -81,12 +81,13 @@
             </div>
         </div>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of Circular Gauge sample">
         <p>
             This sample demonstrates the various pointer types available in the circular gauge.
         </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
         <p>
             In this example, you can see how to customize the pointer for an axis in the circular gauge. The circular gauge
             supports a variety of pointers, including marker, needle, and range bar. Additionally, the pointer can be
@@ -97,8 +98,8 @@
                 href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-pointers/">documentation
                 section</a>.
         </p>
-    </div>
-</div>
+    </section>
+</main>
 </template>
 <script>
 
@@ -115,6 +116,7 @@ export default {
                 color: '#ff5985'
             },
             gauge1labelStyle: {
+			    format:'{value}%',
                 position: 'Outside',
                 font: {
                     size: '0px',
@@ -141,6 +143,7 @@ export default {
                 duration: 1000
             },
             gauge1annotations: [{
+                description:'Range bar pointer',
                 angle: 180,
                 zIndex: '1',
                 radius: '20%',
@@ -153,6 +156,7 @@ export default {
                 color: '#01aebe'
             },
             gauge2labelStyle: {
+			    format:'$ {value}',
                 position: 'Outside',
                 font: {
                     size: '0px',
@@ -177,6 +181,7 @@ export default {
             markerHeight2: 15,
             color2: 'rgb(0,171,169)',
             gauge2annotations: [{
+			    description:'Marker pointer',
                 angle: 180,
                 zIndex: '1',
                 radius: '20%',
@@ -189,6 +194,7 @@ export default {
                 color: '#1E7145'
             },
             gauge3labelStyle: {
+			    format:'{value} s',
                 position: 'Outside',
                 font: {
                     size: '0px',
@@ -222,6 +228,7 @@ export default {
             needleEndWidth3: 4,
             color3: '#1E7145',
             gauge3annotations: [{
+                description:'Customized pointer',
                 angle: 180,
                 zIndex: '1',
                 radius: '32%',
@@ -235,6 +242,7 @@ export default {
                 color: '#9250e6'
             },
             gauge4labelStyle: {
+			    format:'${value}',
                 position: 'Outside',
                 font: {
                     size: '0px',
@@ -267,6 +275,7 @@ export default {
                 color: '#923C99'
             },
             gauge4annotations: [{
+                description:'Needle pointer',
                 angle: 180,
                 zIndex: '1',
                 radius: '20%',
@@ -279,6 +288,7 @@ export default {
                 width: 0
             },
             gauge5labelStyle: {
+			    format:'{value} seconds',
                 position: 'Outside',
                 font: {
                     size: '0px',
@@ -318,6 +328,7 @@ export default {
             color6: '#067bc2',
             pointerWidth6: 5,
             gauge5annotations: [{
+                description:'Live update',
                 angle: 180,
                 zIndex: '1',
                 radius: '32%',
@@ -370,6 +381,7 @@ export default {
                 color: '#e3a21a'
             },
             gauge6annotations: [{
+                description:'Multiple pointers',
                 angle: 180,
                 zIndex: '1',
                 radius: '32%',

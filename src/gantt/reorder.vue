@@ -19,20 +19,19 @@
       </div>
        <div class="col-md-3 property-section">
             <table id="property" title="Properties" style="width: 100%">
-                <br/><br/>
                 <tr style="height: 50px">
-                    <td style="width: 30%">
-                        <div>Column</div>
+                    <td style="width: 40%">
+                        <div style="padding-top: 10px">Column</div>
                     </td>
-                    <td style="width: 70%;padding-top:7px; padding-left: 10px;">
+                    <td style="width: 30%;padding-top:7px; padding-right: 10px">
                         <ejs-dropdownlist ref='columns' width='100px' id='columns' :dataSource='columnsdata' value='TaskID' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
                     </td>
                 </tr>
                 <tr id='' style="height: 50px">
-                    <td style="width: 70%">
+                    <td style="width: 30%">
                         <div>Column Index</div>
                     </td>
-                    <td style="width: 70%; padding-left: 10px; padding-right:10px;padding-top:7px">
+                    <td style="width: 30%;padding: 10px 10px 10px 0px">
                         <ejs-dropdownlist ref='index' width='100px' id='index' :dataSource='indexdata' :value=0 :fields='indexfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
@@ -97,8 +96,8 @@ export default {
             splitterSettings: {
                 columnIndex: 2
             },
-            projectStartDate: new Date('03/24/2019'),
-            projectEndDate: new Date('07/06/2019'),
+            projectStartDate: new Date('03/24/2024'),
+            projectEndDate: new Date('07/06/2024'),
             columns: [
                 { field: 'TaskID', headerText: 'ID', width: 100 },
                 { field: 'TaskName', headerText: 'Name', width: 250 },

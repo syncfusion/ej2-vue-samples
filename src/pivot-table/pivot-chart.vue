@@ -91,6 +91,11 @@
     <p>
         The pivot table features are segregated into individual modules. To take advantage of chart support,
         we need to inject the <code>PivotChart</code> module using the <code>provide</code> section.
+    </p><br />
+    <p>
+        More information on the pivot chart can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/pivotview/pivot-chart">
+        documentation section</a>.
     </p>
 </div>
   </div>
@@ -149,6 +154,7 @@ export default {
         load: (args: ILoadedEventArgs) => {
           let selectedTheme = location.hash.split('/')[1];
           selectedTheme = selectedTheme ? selectedTheme : 'Material';
+          args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast') as ChartTheme;
         }
       },
       chartTypes: [

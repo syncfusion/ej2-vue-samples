@@ -9,7 +9,7 @@
             <li><code>Update</code> and <code>Cancel</code> - Save or discard changes by clicking the toolbar update and cancel button respectively.</li>
         </ul>
     </div>
-    <ejs-grid ref='grid' id='grid' :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true' :editSettings='editSettings' :toolbar='toolbar'>
+    <ejs-grid ref='grid' id='grid' :dataSource="data" :allowPaging='true' :pageSettings='pageSettings' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar'>
         <e-columns>
             <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
             <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
@@ -58,7 +58,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, Toolbar, Edit, Page, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, Toolbar, Edit, Page, Sort, Filter } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 export default {
   components: {
@@ -70,6 +70,7 @@ export default {
   data: () => {
     return {
       data: orderDetails.slice(0),
+      filterSettings: { type: 'Excel' },
       editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Batch' },
       toolbar: ['Add', 'Delete', 'Update', 'Cancel'],
       orderidrules: { required: true, number: true },
@@ -80,7 +81,7 @@ export default {
     };
   },
   provide: {
-      grid: [Toolbar, Edit, Page, Sort]
+      grid: [Toolbar, Edit, Page, Sort, Filter]
   }
 }
 </script>

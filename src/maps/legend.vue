@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="col-lg-8 control-section">
     <div class="content-wrapper">
     <div align="center">
@@ -17,7 +17,7 @@
 </div>
 
 <div class="col-lg-4 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -10px;">
          <colgroup>
             <col span="1" style="width: 60%;">
             <col span="1" style="width: 40%;">
@@ -62,12 +62,13 @@
             </tbody>
         </table>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
            This sample visualizes grouping of countries in the legend based on its population density. The legend will be displayed at the top of the map.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
           In this example, you can see how to render a legend in the maps. A legend item denotes the value of a shape. Any number of legend items can be added to the legend. You can bind the desired colors to the shapes, if its values are within the specified range using the <code>ColorMapping</code> property. You can also show or hide color mapping related to population density while toggling the legend item
     
@@ -81,8 +82,8 @@
            Maps component features are segregated into individual feature-wise modules. To use a legend, inject the <code>Legend</code> module using the <code>Maps.Inject(Legend)</code> method.
         </p>
        
-    </div>
-</div>
+    </section>
+</main>
 </template>
 <style>
 div.property-text {

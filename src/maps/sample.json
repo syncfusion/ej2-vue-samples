@@ -2,7 +2,6 @@
     "name": "Maps",
     "directory": "maps",
     "category": "Data Visualization",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -137,8 +136,7 @@
                 {
             "url": "polygon",
             "name": "Polygon",
-            "category": "Polygon", 
-            "type": "update",
+            "category": "Polygon",
             "api": {},
             
             "sourceFiles": [

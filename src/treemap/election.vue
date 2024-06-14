@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="col-lg-9 control-section">
          <ejs-treemap ref="treemap" id='container' :load='load' :titleSettings='titleSettings' :dataSource='dataSource' :weightValuePath='weightValuePath' :tooltipSettings='tooltipSettings' :legendSettings='legendSettings' format='n' :useGroupingSeparator='useGroupingSeparator' :rangeColorValuePath='rangeColorValuePath' :equalColorValuePath='equalColorValuePath' :leafItemSettings='leafItemSettings'></ejs-treemap>
 
@@ -9,7 +9,7 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -10px;">
         <colgroup>
             <col span="1" style="width: 40%;">
             <col span="1" style="width: 60%;">
@@ -38,13 +38,14 @@
                   </tbody>
         </table>
     </div>
-   <div id="action-description">
+</div>
+   <section id="action-description" aria-label="Description of TreeMap sample">
     <p>
         This sample visualizes the 2016 U.S.A. presidential election results. The type of the legend can be changed by using the
         <code>Legend Type</code> in properties panel.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the TreeMap features demonstrated in this sample">
     <p>
         In this example, you can see the type of legend available in TreeMap. Equal color mapping has been applied based on certain
         value in this example.
@@ -60,8 +61,8 @@
         <code>Legend</code> module using the
         <code>TreeMap.Inject(TreeMapLegend)</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <style scoped>
     .property-text {

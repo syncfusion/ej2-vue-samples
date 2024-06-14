@@ -331,7 +331,7 @@ body {
 .slider-azure #pricing-slider .sub-heading {
   margin-top: -8px;
   font-size: 13px;
-  color: #808080;
+  color: #636363;
 }
 
 .slider-azure #pricing-slider .label-text.right-text {
@@ -355,15 +355,15 @@ body {
 }
 
 .slider-azure #processor {
-  background-color: #a06aff;
+  background-color:#6300FF;
 }
 
 .slider-azure #memory {
-  background-color: #7ed321;
+  background-color:#4A850F;
 }
 
 .slider-azure #storage {
-  background-color: #4a90e2;
+  background-color:#2476D1;
 }
 
 .slider-azure #memory,
@@ -503,9 +503,15 @@ body {
 .fabric-dark .slider-azure .pricing-slider,
 .fabric-dark .slider-azure #pricing-slider .label-text,
 .fabric-dark .slider-azure #pricing-slider .sub-heading,
-.fluent-dark .slider-azure .pricing-slider,
-.fluent-dark .slider-azure #pricing-slider .label-text,
-.fluent-dark .slider-azure #pricing-slider .sub-heading,
+.fluent2-dark .slider-azure .pricing-slider,
+.fluent2-dark .slider-azure #pricing-slider .label-text,
+.fluent2-dark .slider-azure #pricing-slider .sub-heading,
+.fluent2-highcontrast .slider-azure .pricing-slider,
+.fluent2-highcontrast .slider-azure #pricing-slider .label-text,
+.fluent2-highcontrast .slider-azure #pricing-slider .sub-heading,
+.fluent2-highcontrast .slider-azure .pricing-slider,
+.fluent2-highcontrast .slider-azure #pricing-slider .label-text,
+.fluent2-highcontrast .slider-azure #pricing-slider .sub-heading,
 .tailwind-dark .slider-azure .pricing-slider,
 .tailwind-dark .slider-azure #pricing-slider .label-text,
 .tailwind-dark .slider-azure #pricing-slider .sub-heading,
@@ -553,6 +559,18 @@ body {
 .fluent-dark .slider-azure #StorageDialog,
 .fluent-dark .slider-azure #CloudDialog,
 .fluent-dark .slider-azure #processorDialog,
+.fluent2-dark .slider-azure #dollar,
+.fluent2-dark .slider-azure #pricevalue,
+.fluent2-dark .slider-azure #dialog-header,
+.fluent2-dark .slider-azure #StorageDialog,
+.fluent2-dark .slider-azure #CloudDialog,
+.fluent2-dark .slider-azure #processorDialog,
+.fluent2-highcontrast .slider-azure #dollar,
+.fluent2-highcontrast .slider-azure #pricevalue,
+.fluent2-highcontrast .slider-azure #dialog-header,
+.fluent2-highcontrast .slider-azure #StorageDialog,
+.fluent2-highcontrast .slider-azure #CloudDialog,
+.fluent2-highcontrast .slider-azure #processorDialog,
 .bootstrap-dark .slider-azure #dollar,
 .bootstrap-dark .slider-azure #pricevalue,
 .bootstrap-dark .slider-azure #dialog-header,
@@ -580,6 +598,8 @@ body {
 .bootstrap5-dark .slider-azure #pricing-slider .row,
 .fabric-dark .slider-azure #pricing-slider .row,
 .fluent-dark .slider-azure #pricing-slider .row,
+.fluent2-dark .slider-azure #pricing-slider .row,
+.fluent2-highcontrast .slider-azure #pricing-slider .row,
 .material-dark .slider-azure #pricing-slider .row,
 .material3-dark .slider-azure #pricing-slider .row {
   border: 1px solid #969696;
@@ -591,6 +611,8 @@ body {
 .bootstrap5-dark .slider-azure #cloud-right-pane,
 .fabric-dark .slider-azure #cloud-right-pane,
 .fluent-dark .slider-azure #cloud-right-pane,
+.fluent2-dark .slider-azure #cloud-right-pane,
+.fluent2-highcontrast .slider-azure #cloud-right-pane,
 .material-dark .slider-azure #cloud-right-pane,
 .material3-dark .slider-azure #cloud-right-pane {
   border-left: 1px solid #969696;
@@ -606,6 +628,10 @@ body {
 .fabric-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size,
 .fluent-dark .slider-azure #cloud-slider-text,
 .fluent-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size,
+.fluent2-dark .slider-azure #cloud-slider-text,
+.fluent2-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size,
+.fluent2-highcontrast .slider-azure #cloud-slider-text,
+.fluent2-highcontrast .slider-azure #pricing-slider #cloud-right-pane .btn-size,
 .bootstrap-dark .slider-azure #cloud-slider-text,
 .bootstrap-dark .slider-azure #pricing-slider #cloud-right-pane .btn-size,
 .bootstrap5-dark .slider-azure #cloud-slider-text,
@@ -622,6 +648,8 @@ body {
 .bootstrap5-dark .slider-azure #processor,
 .fabric-dark .slider-azure #processor,
 .fluent-dark .slider-azure #processor,
+.fluent2-dark .slider-azure #processor,
+.fluent2-highcontrast .slider-azure #processor,
 .tailwind-dark .slider-azure #processor {
   background-color: #ae80ff;
 }
@@ -631,6 +659,8 @@ body {
 .material3-dark #memory,
 .fabric-dark .slider-azure #memory,
 .fluent-dark .slider-azure #memory,
+.fluent2-dark .slider-azure #memory,
+.fluent2-highcontrast .slider-azure #memory,
 .tailwind-dark .slider-azure #memory,
 .bootstrap5-dark .slider-azure #memory,
 .bootstrap-dark .slider-azure #memory {
@@ -642,6 +672,8 @@ body {
 .material3-dark #storage,
 .fabric-dark .slider-azure #storage,
 .fluent-dark .slider-azure #storage,
+.fluent2-dark .slider-azure #storage,
+.fluent2-highcontrast .slider-azure #storage,
 .tailwind-dark .slider-azure #storage,
 .bootstrap5-dark .slider-azure #storage,
 .bootstrap-dark .slider-azure #storage {
@@ -653,6 +685,8 @@ body {
 .material3-dark #cloud-left-pane,
 .fabric-dark .slider-azure #cloud-left-pane,
 .fluent-dark .slider-azure #cloud-left-pane,
+.fluent2-dark .slider-azure #cloud-left-pane,
+.fluent2-highcontrast .slider-azure #cloud-left-pane,
 .tailwind-dark .slider-azure #cloud-left-pane,
 .bootstrap5-dark .slider-azure #cloud-left-pane,
 .bootstrap-dark .slider-azure #cloud-left-pane {
@@ -664,6 +698,8 @@ body {
 .material3-dark .slider-azure #cloud-right-pane,
 .fabric-dark .slider-azure #cloud-right-pane,
 .fluent-dark .slider-azure #cloud-right-pane,
+.fluent2-dark .slider-azure #cloud-right-pane,
+.fluent2-highcontrast .slider-azure #cloud-right-pane,
 .tailwind-dark .slider-azure #cloud-right-pane,
 .bootstrap5-dark .slider-azure #cloud-right-pane,
 .bootstrap-dark .slider-azure #cloud-right-pane {
@@ -694,6 +730,14 @@ body {
 .fluent-dark .slider-azure #memoryPriceName,
 .fluent-dark .slider-azure #storagePriceName,
 .fluent-dark .slider-azure #cloudPriceName,
+.fluent2-dark .slider-azure #processorPriceName,
+.fluent2-dark .slider-azure #memoryPriceName,
+.fluent2-dark .slider-azure #storagePriceName,
+.fluent2-dark .slider-azure #cloudPriceName,
+.fluent2-highcontrast .slider-azure #processorPriceName,
+.fluent2-highcontrast .slider-azure #memoryPriceName,
+.fluent2-highcontrast .slider-azure #storagePriceName,
+.fluent2-highcontrast .slider-azure #cloudPriceName,
 .material-dark .slider-azure #processorPriceName,
 .material-dark .slider-azure #memoryPriceName,
 .material-dark .slider-azure #storagePriceName,

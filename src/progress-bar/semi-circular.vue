@@ -6,7 +6,7 @@
           <div id="angle-container">
            <ejs-progressbar
             ref="angle"
-            id="angle-container"
+            id="angle-progress"
             type='Circular'
             :startAngle='startAngle1'
             :endAngle='endAngle1'
@@ -35,7 +35,7 @@
              <div id="vertical-container">
             <ejs-progressbar
             ref="vertical"
-            id="vertical-container"
+            id="vertical-progress"
             type='Circular'
             :startAngle='startAngle2'
             :endAngle='endAngle2'
@@ -64,7 +64,7 @@
                 <div id="vsemi-container">
             <ejs-progressbar
             ref="vsemi"
-            id="vsemi-container"
+            id="vsemi-progress"
             type='Circular'
             :startAngle='startAngle3'
             :endAngle='endAngle3'
@@ -93,7 +93,7 @@
              <div id="semi-container">
            <ejs-progressbar
             ref="semi"
-            id="semi-container"
+            id="semi-progress"
             type='Circular'
             :startAngle='startAngle4'
             :endAngle='endAngle4'
@@ -201,7 +201,7 @@ import {
         }
         return ('<div id="point1" style="font-size:24px;font-weight:bold;color: ' + color + ' "><span>' + content + '</span></div>');
     }
-    let annotationColors = ['#e91e63', '#0078D6', '#317ab9', '#007bff', '#4F46E5', '#FFD939', '#9A9A9A', '#22D3EE', '#0D6EFD', '#6750A4', '#D0BCFF'];
+    let annotationColors = ['#e91e63', '#0078D6', '#317ab9', '#007bff', '#4F46E5', '#FFD939', '#9A9A9A', '#22D3EE', '#0D6EFD', '#6750A4', '#D0BCFF', '#0F6CBD', '#1AEBFF', '#115EA3'];
 
 export default {
   components: {
@@ -256,7 +256,7 @@ export default {
         let selectedTheme = location.hash.split('/')[1];
         selectedTheme = selectedTheme ? selectedTheme : 'Material';
         args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
         switch (selectedTheme) {
             case 'material':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[0], args.progressBar.element.id);
@@ -292,6 +292,12 @@ export default {
                 break;
             case 'material3-dark':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[10], args.progressBar.element.id);
+                break;
+            case "fluent2":
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[11], args.progressBar.element.id);
+                break;
+            case "fluent2-dark":
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[13], args.progressBar.element.id);
                 break;
             default:
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[5], args.progressBar.element.id);

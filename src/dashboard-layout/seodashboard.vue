@@ -185,6 +185,9 @@ export default {
     width: 100%;
   }
 
+  .fluent-dark .card-content.text,
+  .fluent2-dark .card-content.text,
+  .fluent2-highcontrast .card-content.text,
   .bootstrap5-dark .card-content.text,
   .tailwind-dark .card-content.text,
   .material-dark .card-content.text,
@@ -200,6 +203,16 @@ export default {
   .dashboard-seo #sidebar-section {
     padding: 0px !important;
     border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .fluent2-dark .dashboard-seo #sidebar-section,
+  .fluent2-highcontrast .dashboard-seo #sidebar-section {
+    border: 1px solid var(--color-sf-border-light);
+  }
+
+  .fluent2-dark .dashboard-seo .header,
+  .fluent2-highcontrast .dashboard-seo .header {
+    border-bottom: 1px solid var(--color-sf-border-light);
   }
 
   .e-bigger #search {
@@ -498,6 +511,9 @@ body.highcontrast .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-
     color: rgba(255, 255, 255, 0.54);
 }
 
+.fluent-dark .li.sidebar-item.filterHover,
+.fluent2-dark li.sidebar-item.filterHover,
+.fluent2-highcontrast li.sidebar-item.filterHover,
 .bootstrap-dark li.sidebar-item.filterHover,
 .material-dark li.sidebar-item.filterHover,
 .fabric-dark li.sidebar-item.filterHover,

@@ -1,28 +1,29 @@
 <template>
+<main>
 <div>
 <div class="control-section">
 <div>
 <ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :centerPosition='centerPosition'>
     <template v-slot:mexicoSvgTemplate="{}">
-        <div><img src="src/maps/images/group.svg" style="height:15px;width:15px;"></div>
+        <div><img alt="Group image" src="src/maps/images/group.svg" style="height:15px;width:15px;"></div>
     </template>
     <template v-slot:mexicoBalloonTemplate="{}">
-        <div><img src="src/maps/images/ballon.png" style="height:30px;width:20px;"></div>
+        <div><img alt="Balloon image" src="src/maps/images/ballon.png" style="height:30px;width:20px;"></div>
     </template>
     <template v-slot:mexicoTextTemplate="{}">
-        <div style= "font-weight:500; font-size: 13px; text-align: left; font-family:Segoe UI; ">Mexico</div>
+        <div style= "font-weight:500; font-size: 13px; text-align: left; font-family:Segoe UI; color:#000;">Mexico</div>
     </template>
     <template v-slot:laSvgTemplate="{}">
-        <div><img src="src/maps/images/oval.svg" style="height:15px;width:15px;"></div>
+        <div><img alt="Oval image" src="src/maps/images/oval.svg" style="height:15px;width:15px;"></div>
     </template>
     <template v-slot:laBalloonTemplate="{}">
-        <div><div style="text-align: right; font-weight:500; font-size: 13px; font-family:Segoe UI;">Los Angeles<br>International Airport</div></div>
+        <div><div style="text-align: right; font-weight:500; font-size: 13px; font-family:Segoe UI; color:#000;">Los Angeles<br>International Airport</div></div>
     </template>
     <template v-slot:laTextTemplate="{}">
-        <div><img src="src/maps/images/map-tooltip.svg" style="height:50px;width:100px;"></div>
+        <div><img alt="Map tooltip" src="src/maps/images/map-tooltip.svg" style="height:50px;width:100px;"></div>
     </template>
     <e-layers>
-        <e-layer layerType='OSM' :navigationLineSettings='navigationLineSettings'>
+        <e-layer :urlTemplate= 'urlTemplate' :navigationLineSettings='navigationLineSettings'>
             <e-markerSettings>
                 <e-markerSetting visible='true' :dataSource='mexicoSvgDataSource' :template="'mexicoSvgTemplate'" :tooltipSettings='mexicoSvgTooltipSettings'></e-markerSetting>
                 <e-markerSetting visible='true' :dataSource='mexicoBalloonDataSource' :template="'mexicoBalloonTemplate'" :tooltipSettings='mexicoBalloonTooltipSettings'></e-markerSetting>
@@ -44,12 +45,13 @@
         <a href="https://www.google.co.in/maps/dir/Los+Angeles,+CA,+USA/Mexico+City,+Mexico/@26.3645122,-117.6940069,5z/data=!4m14!4m13!1m5!1m1!1s0x80c2c75ddc27da13:0xe22fdf6f254608f4!2m2!1d-118.2436849!2d34.0522342!1m5!1m1!1s0x85ce0036b1352927:0xdefd9e4ee8d18a5b!2m2!1d-99.1013498!2d19.2464696!3e4?hl=en" target="_blank">www.google.co.in/maps</a>
     </div>  
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample illustrates the flight route from Los Angeles to Mexico City using navigation lines in the OpenStreetMap.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
             In this example, you can see how to render the navigation lines in the OpenStreetMap. The source and destination locations have been denoted using the marker template.
         </p>
@@ -57,8 +59,8 @@
         <p>
             The maps component features are segregated into individual modules by feature. To use a marker, inject the Marker module using the <code>Maps.Inject(Marker)</code> method.
         </p>
-    </div>
-</div>
+    </section>
+</main>
 </template>
 <script>
 import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Bubble, Zoom, MapsTooltip, Marker, NavigationLine } from '@syncfusion/ej2-vue-maps';
@@ -73,6 +75,7 @@ components: {
 },
 data:function(){
     return{
+        urlTemplate: 'https://tile.openstreetmap.org/level/tileX/tileY.png',
         titleSettings: {
             text: 'Flight route from Los Angeles to Mexico city',
             textStyle: {

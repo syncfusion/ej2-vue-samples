@@ -2,7 +2,6 @@
 <div>
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:64%; padding-top: 40px;">
-         <h4>Template</h4>
             <ejs-multiselect id='multi-template' :dataSource='data' :fields='fields' cssClass='multiselect-template' :placeholder='watermark'
              :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :valueTemplate="'vTemplate'" mode='Box' popupHeight="450px">
               <template v-slot:hTemplate="{data}">

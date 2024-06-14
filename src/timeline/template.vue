@@ -30,7 +30,7 @@
                   </path>
                 </svg>
                 <div class="mention-content">
-                  <h5 style="font-weight: bold"> 87231 - Updated Roadmap for new control </h5>
+                  <p style="font-weight: bold"> 87231 - Updated Roadmap for new control </p>
                   <span> Updated new control roadmap </span>
                   <div class="diffstats">
                     <span class="color-success"> +95 </span>
@@ -138,7 +138,7 @@
 .custom-timeline .content-container .repo-name {
   font-family: Tahoma, Verdana !important;
   font-size: 11px;
-  color: #6ea4e6;
+  color: #2f77cf;
   cursor: pointer;
 }
 
@@ -235,6 +235,17 @@
   .custom-timeline .template-container .mention-group {
     padding: 5px;
   }
+}
+
+/* Generic dark theme modifications */
+body[class$="-dark"] .custom-timeline .template-container .indicator,
+.highcontrast .custom-timeline .template-container .indicator {
+  color: #000;
+}
+
+body[class$="-dark"] .custom-timeline .template-container .mention-group:hover,
+.highcontrast .custom-timeline .template-container .mention-group:hover {
+  background-color: #545353;
 }
 </style>
 <script>

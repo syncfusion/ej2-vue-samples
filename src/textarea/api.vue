@@ -1,5 +1,5 @@
 <template>
-    <div class="col-lg-8 control-section api-textarea">
+    <div id="textarea-api"  class="col-lg-8 control-section api-textarea">
     <div class="content_wrapper">
         <div class="api-row">
             <ejs-textarea id="api" placeholder='Enter your comments' floatLabelType='Auto' :enabled='enabled' :readonly='readOnly' :showClearButton='showClearButton' :maxLength='maxLength' :value='value' :rowsCount='rowsCount' :columnsCount='columnsCount'></ejs-textarea>
@@ -76,6 +76,10 @@
     .api-property.property-panel-table div.api {
         padding-left: 0px;
     }
+
+    #textarea-api .e-multi-line-input {
+        max-width: 100%;
+    }
 </style>
 
 <script>
@@ -91,8 +95,8 @@ export default {
             enabled: true,
             readOnly: false,
             maxLength: null,
-            rowsCount: null,
-            columnsCount: null,
+            rows: null,
+            cols: null,
             value: "",
             showClearButton: false,
             enabledHandler: (args) => {
@@ -105,10 +109,10 @@ export default {
                 this.showClearButton = args.checked;
             },
             rowHandler: (args) => {
-                this.rowsCount = args.value;
+                this.rows = args.value;
             },
             columnHandler: (args) => {
-                this.columnsCount = args.value;
+                this.cols = args.value;
             },
             maxLengthHandler: (args) => {
                 this.maxLength = args.value;
@@ -126,3 +130,4 @@ export default {
     }
 };
 </script>
+

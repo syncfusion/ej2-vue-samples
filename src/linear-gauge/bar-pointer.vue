@@ -1,10 +1,10 @@
 <template>
-   <div class="control-section">
+   <main><div class="control-section">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12"
             style="display: flex;justify-content: center; align-items: center;">
             <div style="margin: auto;padding: 10px;">
-                <table>
+                <table role="none">
                     <tbody>
                         <tr>
                             <td>
@@ -70,13 +70,13 @@
             </e-axes>
         </ejs-lineargauge>
     </div>
-<div id="action-description">
+<section id="action-description" aria-label="Description of Linear Gauge sample">
     <p>
         This sample shows the various bar pointer shapes available in the linear gauge. Additionally, multiple bar
         pointer and animation support are enabled.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Linear Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure bar pointer in the linear gauge. The <a target="_blank"
             href="https://ej2.syncfusion.com/vue/documentation/api/linear-gauge/pointerModel/">pointers</a>
@@ -88,8 +88,9 @@
         More information on the bar pointer can be found in this <a target="_blank"
             href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/pointers/#bar-pointer">documentation section</a>.
     </p>
+</section>
 </div>
-</div>
+</main>
 </template>
 <script>
 import { LinearGaugeComponent, AxisDirective, AxesDirective, PointersDirective, PointerDirective, Gradient } from "@syncfusion/ej2-vue-lineargauge";

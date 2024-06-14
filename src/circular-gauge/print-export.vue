@@ -1,5 +1,5 @@
 <template>
-<div id="CG-export-sample">
+<main><div id="CG-export-sample">
   <div class="col-md-8 control-section">
     <div class="control-section">
         <ejs-circulargauge ref="gauge" :background='background' :load="load" style="display:block" align="center" id="gauge" :allowPdfExport='allowPdfExport' :allowPrint='allowPrint' :allowImageExport='allowImageExport'>
@@ -15,7 +15,7 @@
 </div>
 <br>
     <div class="col-md-4 property-section">
-      <table id="property" title="Properties" style="width: 100%; margin-left: -20px;">
+      <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -20px;">
        <colgroup>
             <col span="1" style="width: 50%;">
             <col span="1" style="width: 50%;">
@@ -36,8 +36,8 @@
             <div style="font-size: 14px">File Name</div>
           </td>
           <td>
-            <div class="e-float-input" style="margin-top: 0px;">
-              <input type="text" value="Circular Gauge" id="fileName" style=" width:100%" />
+            <div style="margin-top: 0px;">
+              <ejs-textbox type="text" value="Circular Gauge" id="fileName" style="width:100%"></ejs-textbox>
             </div>
           </td>
         </tr>
@@ -56,12 +56,13 @@
         </tbody>
       </table>
     </div>
-  <div id="action-description">
+  </div>
+  <section id="action-description" aria-label="Description of Circular Gauge sample">
       <p>
           This sample demonstrates the print and export functionalities of the circular gauge.
       </p>
-  </div>
-<div id="description">
+  </section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to print and export the rendered circular gauge. You can add print
         functionality by using the <a target="_blank"
@@ -80,8 +81,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/gauge-print-and-export/">documentation
             section</a>.
     </p>
-</div>
-  </div>
+</section>
+</main>
 </template>
 <style>
 #CG-export-sample #button-control {
@@ -152,11 +153,13 @@
 .e-view.bootstrap5 #CG-export-sample .e-play-icon1::before, .e-view.bootstrap5-dark #CG-export-sample .e-play-icon1::before {
     content: "\e75d";
 }
+
 </style>
 <script>
 import { CircularGaugeComponent, Print, ImageExport, PdfExport, Gradient, AxesDirective, AxisDirective, PointersDirective, PointerDirective} from "@syncfusion/ej2-vue-circulargauge";
 import { ButtonComponent  } from "@syncfusion/ej2-vue-buttons";
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
+import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 
 export default {
   components: {
@@ -167,6 +170,7 @@ export default {
         'e-pointers': PointersDirective   ,
         'ejs-dropdownlist': DropDownListComponent,
         'ejs-button': ButtonComponent,
+        'ejs-textbox': TextBoxComponent 
   },
   data: function() {
     return {

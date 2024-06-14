@@ -166,7 +166,7 @@
                       </e-ribbon-collection>
                     </e-ribbon-collections>
                   </e-ribbon-group>
-                  <e-ribbon-group header="show" :isCollapsible=false>
+                  <e-ribbon-group header="Show" :isCollapsible=false>
                     <e-ribbon-collections>
                       <e-ribbon-collection>
                         <e-ribbon-items>
@@ -250,11 +250,11 @@ export default {
         select: (args) => {
           this.updateContent("Gallery -> " + args.currentItem.content);
         },
-        popupWidth: '580px',
+        popupWidth: '544px',
         itemCount: 3,
         groups: [{
           itemWidth: '100',
-          itemHeight: '30',
+          itemHeight: '40',
           header: 'Title and Headings',
           items: [
             {
@@ -280,7 +280,7 @@ export default {
           ]
         }, {
           itemWidth: '100',
-          itemHeight: '30',
+          itemHeight: '40',
           header: 'Data and Model',
           items: [
             {
@@ -306,7 +306,7 @@ export default {
           ]
         }, {
           itemWidth: '100',
-          itemHeight: '30',
+          itemHeight: '40',
           header: 'Good, Bad and Neutral',
           items: [{
             content: 'Normal',
@@ -489,91 +489,122 @@ export default {
 
 <style>
 
-.e-ribbon-gallery-item.normal{
+.e-ribbon-gallery-item.normal {
   background: #f0f0f0;
+}
+
+.e-ribbon-gallery-item.normal .e-ribbon-gallery-text {
   color: #333;
 }
 
 .e-ribbon-gallery-item.bad {
   background: #ffb6b6;
+}
+
+.e-ribbon-gallery-item.bad .e-ribbon-gallery-text {
   color: #800000;
 }
 
 .e-ribbon-gallery-item.good {
   background: #c7ebc9;
+}
+
+.e-ribbon-gallery-item.good .e-ribbon-gallery-text {
   color: #004d00;
 }
 
 .e-ribbon-gallery-item.neutral {
   background: #eedd9d;
+}
+
+.e-ribbon-gallery-item.neutral .e-ribbon-gallery-text {
   color: #6c5429;
 }
 
 .e-ribbon-gallery-item.calculation {
   background: #d9d9d9;
+}
+
+.e-ribbon-gallery-item.calculation .e-ribbon-gallery-text {
   color: #a67d00;
 }
 
 .e-ribbon-gallery-item.check-cell {
   background: #f0f0f0;
+}
+
+.e-ribbon-gallery-item.check-cell .e-ribbon-gallery-text {
   color: #333;
 }
 
 .e-ribbon-gallery-item.hyperlink {
   background: #f5f5f5;
+}
+
+.e-ribbon-gallery-item.hyperlink .e-ribbon-gallery-text {
   color: #333;
   text-decoration: underline;
 }
 
 .e-ribbon-gallery-item.input {
   background: #e0ac70;
+}
+
+.e-ribbon-gallery-item.input .e-ribbon-gallery-text {
   color: #333;
 }
 
 .e-ribbon-gallery-item.linked-cell {
   background: #f0f0d8;
+}
+
+.e-ribbon-gallery-item.linked-cell .e-ribbon-gallery-text {
   color: #333;
 }
 
 .e-ribbon-gallery-item.note {
   background: #f5f5b5;
+}
+
+.e-ribbon-gallery-item.note .e-ribbon-gallery-text {
   color: #333;
 }
-.e-ribbon-gallery-item.heading_1 {
-  color: #003366;
-}
-.e-ribbon-gallery-item.heading_1 {
+
+.e-ribbon-gallery-item.heading_1 .e-ribbon-gallery-text {
   color: #003366;
   font-size: 16px;
   text-decoration: underline;
 }
 
-.e-ribbon-gallery-item.heading_2 {
+.e-ribbon-gallery-item.heading_2 .e-ribbon-gallery-text {
   color: #003366;
   font-size: 14px;
   text-decoration: underline;
 }
 
-.e-ribbon-gallery-item.heading_3 {
+.e-ribbon-gallery-item.heading_3 .e-ribbon-gallery-text {
   color: #003366;
   font-size: 13px;
   text-decoration: underline;
 }
 
-.e-ribbon-gallery-item.heading_4 {
+.e-ribbon-gallery-item.heading_4 .e-ribbon-gallery-text {
   color: #003366;
   font-size: 12px;
   text-decoration: underline;
 }
 
-.e-ribbon-gallery-item.title {
-  color: #1d2834;
+.e-ribbon-gallery-item.title .e-ribbon-gallery-text {
+  color: #003366;
+  font-size: 14px;
+}
+
+.e-ribbon-gallery-item.total .e-ribbon-gallery-text {
+  color: #003366;
   font-size: 14px;
 }
 
 .e-ribbon-gallery-item.total {
-  color: #003366;
-  font-size: 14px;
   position: relative;
 }
 
@@ -593,6 +624,11 @@ export default {
 
 .e-ribbon-gallery-item.total::after {
   bottom: 0;
+}
+
+body[class*="dark"] .e-ribbon-gallery-item:not(.heading_1,.heading_2,.heading_3,.heading_4,.title,.total) .e-ribbon-gallery-text,
+body[class*="high"] .e-ribbon-gallery-item:not(.heading_1,.heading_2,.heading_3,.heading_4,.title,.total) .e-ribbon-gallery-text {
+  color: #000;
 }
 
 #pictureList {

@@ -18,10 +18,10 @@
         <div class="col-md-3 property-section">
              <table id="property" title="Properties" style="width: 100%">
         <tr>
-            <td style="width: 30%">
+            <td style="width: 30%; padding-bottom: 10px;">
                 <div>Column</div>
             </td>
-            <td style="width: 70%;padding-right: 10px">
+            <td style="width: 70%;padding-right: 10px; padding-bottom: 10px;">
                 <div id='columnddl'>
                     <ejs-dropdownlist width='100px' ref='columns' id='columns' :dataSource='columnNames' value='TaskID' :fields='colfields' :change="onColChange"></ejs-dropdownlist>
                 </div>
@@ -40,10 +40,8 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
-                <div style="padding-top: 10px">
-                    Hidden Columns
-                </div>
+            <td style="width: 30%; padding-left: 10px;">
+                <label for="hiddencolumns"> Hidden Columns</label>
             </td>
             <td style="width: 70%; padding:10px 10px 10px 0px">
                 <div>
@@ -116,8 +114,8 @@ export default {
             splitterSettings:{
                 columnIndex: 3
             },
-            projectStartDate: new Date('03/24/2019'),
-            projectEndDate: new Date('07/06/2019'),
+            projectStartDate: new Date('03/24/2024'),
+            projectEndDate: new Date('07/06/2024'),
             columnNames: [
                 { id: 'TaskID', name: 'ID' },
                 { id: 'StartDate', name: 'Start Date' },

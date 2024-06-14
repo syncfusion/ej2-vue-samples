@@ -54,11 +54,11 @@
         
         <ul>
           <li>In first Toolbar, the popup will be shown when the content exceeds the available viewing area.</li>
-          <li>The second Toolbar is set with priority for specific toolbar items using <strong><code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#showalwaysinpopup">showAlwaysInPopup</a></code></strong>, which is always displayed in the popup.</li>
+          <li>The second Toolbar is set with priority for specific toolbar items using <strong><code><a aria-label="Show always in Popup" target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#showalwaysinpopup">showAlwaysInPopup</a></code></strong>, which is always displayed in the popup.</li>
         </ul>
         <br>
         <br>
-        <p>You can set priority to toolbar item using <strong><code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#overflow"> overflow</a></code></strong> property. Possible values are as follows,</p>
+        <p>You can set priority to toolbar item using <strong><code><a aria-label="Overflow" target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#overflow"> overflow</a></code></strong> property. Possible values are as follows,</p>
         <table style="width:100%">
           <tr>
             <th><strong>Overflow</strong></th>

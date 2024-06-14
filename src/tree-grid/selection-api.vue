@@ -1,5 +1,5 @@
 <template>
-    <div class="control-section">
+    <div class="control-section" role="region" aria-label="Tree Grid Control Section"   >
       <div class="col-md-9 control-section">
           <ejs-treegrid ref='treegrid' :dataSource='data' childMapping='subtasks' :height='350' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings' :selectionSettings='selectionSettings' >
             <e-columns>
@@ -25,7 +25,7 @@
 
             </td>
             <td style="width: 70%;padding-right: 5px">
-                <div id='numericbox'>
+                <div id='numericbox' aria-label="Start Input">
                     <ejs-numerictextbox ref='start' width='110px' :min=0 format='##'></ejs-numerictextbox>
                 </div>
             </td>
@@ -35,14 +35,14 @@
                 <div style="padding-top: 8px">To</div>
             </td>
             <td style="width: 70%;padding-right: 5px">
-                <div>
+                <div id='numericbox' aria-label="Start Input">
                     <ejs-numerictextbox ref='to' width='110px' :min=0 format='##'></ejs-numerictextbox>
                 </div>
             </td>
         </tr>
         <tr style='padding-top: 10px'>
             <td colspan="2">
-                <ejs-button ref='select' v-on:click="select">Select Rows</ejs-button>
+                <ejs-button ref='select' v-on:click="select" aria-label="Select Rows Button">Select Rows</ejs-button>
             </td>
         </tr>
         <tr>
@@ -53,7 +53,7 @@
         <tr>
             <td colspan="2">
                 <div class="col-md-6" style="padding-bottom: 10px">
-                    <ejs-button ref='clear' v-on:click="clear">Clear Selection</ejs-button>
+                    <ejs-button ref='clear' v-on:click="clear" aria-label="Clear Selection Button">Clear Selection</ejs-button>
                 </div>
             </td>
         </tr>

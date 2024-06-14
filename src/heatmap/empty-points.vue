@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
     <div>
         <div class="content-wrapper" style='width:99%'>
@@ -7,13 +7,14 @@
         </div>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample visualizes the number of defective product count per 1000 units coming out from a manufacturing unit
         Data points are enhanced with labels and tooltip. Some data points were not marked with any values which indicates there are no defective products and these data points are termed as empty points.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         In this example, you can see how to render empty points in the Heatmap. The empty points or the points with no data
         can be marked using <code>null</code> in the data source. You can also customize the background color of the
@@ -27,8 +28,8 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";

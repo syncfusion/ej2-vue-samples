@@ -104,9 +104,6 @@
     #spreadsheet-protect-sheet {
       height: 550px;
     }
-.control-section .control-wrapper {
-        height: 550px;
-    }
 
     #sb-content .e-spreadsheet .e-tab .e-tab-text {
         display: inherit;

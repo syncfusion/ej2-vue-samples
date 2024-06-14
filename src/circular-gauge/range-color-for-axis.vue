@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="control-section">
         <ejs-circulargauge :load='load' :animationDuration=2000 :background='background' style='display:block' align='center' id='gauge'>
             <e-axes>
@@ -16,13 +16,14 @@
             </e-axes>
         </ejs-circulargauge>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample shows the basic rendering of the circular gauge, which includes an axis and a range. Here, the
         appropriate range color is applied to its respective axis labels, minor ticks, and major ticks.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure the range and axis in the circular gauge with the same
         color. To accomplish this, set the <a target="_blank"
@@ -35,8 +36,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/api/circular-gauge/tickModel/">minorTicks</a> to
         <b>true</b>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 

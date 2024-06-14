@@ -16,10 +16,10 @@
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure points in a particular range by using <code>MultiColoredArea</code> series. Points within the range can be configured with the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/chartSegment/#color">color</a> property in chart segment.
+        In this example, you can see how to render and configure points in a particular range by using <code>MultiColoredArea</code> series. Points within the range can be configured with the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/chartSegment/#color" aria-label="Navigate to the color property reference for Vue Chart component">color</a> property in chart segment.
      </p>
      <p>
-        The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/tooltip/">tooltip</a> is enabled in this example, to see the tooltip in action, hover a point or tap a point in touch enabled devices.
+        The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chart/tooltip/" aria-label="Navigate to the tooltip property reference for Vue Chart component">tooltip</a> is enabled in this example, to see the tooltip in action, hover a point or tap a point in touch enabled devices.
     </p>     
       
         <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -29,7 +29,7 @@
         </p>
         <p>
             More information about the multi-colored area series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/area#multicolored-area">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/area#multicolored-area" aria-label="Navigate to the documentation for Multicolored Area Chart in Vue Chart component">documentation section</a>.
         </p> 
        
 </div>
@@ -101,7 +101,7 @@ import { ChartComponent, SeriesDirective, SeriesCollectionDirective, DateTime, T
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

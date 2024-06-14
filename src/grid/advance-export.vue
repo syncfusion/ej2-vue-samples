@@ -7,10 +7,10 @@
     </div>
     <div>
         <ejs-grid id='AdvancedExport' ref='grid' :dataSource="data" :toolbar='toolbar' :toolbarClick='toolbarClick' 
-        :allowExcelExport='true' :pageSettings='pageSettings' :allowPaging='true' :allowSorting='true' :allowPdfExport='true'>
+        :allowExcelExport='true' :pageSettings='pageSettings' :allowPaging='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :allowPdfExport='true'>
             <e-columns>
-                <e-column field='ProductID' headerText='Product ID' width='170' textAlign='Right'></e-column>
-                <e-column field='ProductName' headerText='Product Name' width='150'></e-column>
+                <e-column field='ProductID' headerText='Product ID' width='170' textAlign='Right' :isPrimaryKey='true' :validationRules='productidrules'></e-column>
+                <e-column field='ProductName' headerText='Product Name' width='150' :validationRules='productnamerules'></e-column>
                 <e-column field='QuantityPerUnit' headerText='Quantity per unit' width='180' textAlign='Right'></e-column>
                 <e-column field='UnitsInStock' headerText='Units In Stock' width='150' textAlign='Right'></e-column>
             </e-columns>
@@ -34,7 +34,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, PdfExport, ExcelExport, Page, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, PdfExport, ExcelExport, Page, Toolbar, Sort, Edit, Filter } from "@syncfusion/ej2-vue-grids";
 import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
 import { categoryData } from "./data-source";
 
@@ -47,8 +47,12 @@ export default {
   data: () => {
     return {
       data: categoryData,
-      toolbar: ['ExcelExport', 'PdfExport'],
-      pageSettings: { pageSize: 10 },
+      filterSettings: { type: 'Excel' },
+      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+      productidrules: { required: true, number: true },
+      productnamerules: { required: true, minLength: 5 }, 
+      toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'ExcelExport', 'PdfExport'],
+      pageSettings: { pageSize: 10 }, 
     };
   },
   methods: {
@@ -102,7 +106,7 @@ export default {
                         index: 5,
                         cells: [
                             { index: 1, colSpan: 2, value: 'Tel +1 888.936.8638 Fax +1 919.573.0306' },
-                            { index: 4, value: 'CUSOTMER ID', style: { fontColor: '#C67878', bold: true } },
+                            { index: 4, value: 'CUSTOMER ID', style: { fontColor: '#C67878', bold: true } },
                             { index: 5, value: 'TERMS', width: 150, style: { fontColor: '#C67878', bold: true } }
                         ]
                     },
@@ -230,7 +234,7 @@ export default {
     }
   },
   provide: {
-      grid: [PdfExport, ExcelExport, Page, Toolbar, Sort]
+      grid: [PdfExport, ExcelExport, Page, Toolbar, Sort, Edit, Filter]
   }
 }
 </script>

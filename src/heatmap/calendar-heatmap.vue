@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
     <div>
         <div class="content-wrapper" style='width:99%'>
@@ -7,12 +7,13 @@
     </div>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of HeatMap sample">
     <p>
         This sample visualizes the summary of user activities in GitLab account such as merge requests, push events and comments across 52 weeks in a year.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the HeatMap features demonstrated in this sample">
     <p>
         In this example, you can see how to display a calendar data using heatmap. You can make the axis labels to display at specific time intervals along the datetime axis using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/heatmap/axisModel/#showlabelon">showLabelOn</a> property.
     </p>
@@ -24,8 +25,8 @@
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/tooltip">Tooltip</a> and <a target="_blank"
       href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/legend">Legend</a> modules using the <code>provide:{ heatmap:[Tooltip, Legend] }</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { HeatMapComponent, Tooltip, Legend } from "@syncfusion/ej2-vue-heatmap";
@@ -71,9 +72,6 @@ return{
         dataSource: data.calendarDataSource,
         cellSettings: {
             showLabel: false,
-            border: {
-                color: 'white'
-            }
         },
         tooltipSettings:{
             textStyle: {
@@ -115,6 +113,7 @@ methods: {
       args.heatmap.theme =
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
       /* custom code end */
+      args.heatmap.cellSettings.border.color = selectedTheme.indexOf('dark') > -1 || selectedTheme.indexOf('highcontrast') > -1 ? '#000' : '#fff';
     },
     tooltipRender: function(args)
     {

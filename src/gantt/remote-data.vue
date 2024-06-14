@@ -38,19 +38,23 @@
         <code>DataManager</code> to bind remote data.
         The DataManager, which will act as an interface between the service endpoint and the Gantt chart, will require
         the below minimal information to interact with service endpoint properly.
+        <ul>
         <li><code>DataManager->url</code> - Defines the service endpoint to fetch data</li>
         <li><code>DataManager->adaptor</code> - Defines the adaptor option. By default, ODataAdaptor is used for remote
             binding.</li>
+        </ul>
         Adaptor is responsible for processing response and request from/to the service endpoint.
         <code>@syncfusion/ej2-data</code>
         package provides some predefined adaptors which are designed to interact with particular service endpoints. They
         are,
+        <ul>
         <li><code>UrlAdaptor</code> - Use this to interact any remote services. This is the base adaptor for all remote
             based adaptors.</li>
         <li><code>ODataAdaptor</code> - Use this to interact with OData endpoints.</li>
         <li><code>ODataV4Adaptor</code> - Use this to interact with OData V4 endpoints.</li>
         <li><code>WebApiAdaptor</code> - Use this to interact with Web API created under OData standards.</li>
         <li><code>WebMethodAdaptor</code> - Use this to interact with web methods.</li>
+        </ul>
         In this demo, remote data is bound by assigning service data as an instance of <code>DataManager</code> to the
         <code>dataSource</code>
         property.

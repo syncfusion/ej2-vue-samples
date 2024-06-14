@@ -1,10 +1,10 @@
 <template>
-   <div class="control-section" id="lineargauge-volume-settings">
+   <main><div class="control-section" id="lineargauge-volume-settings">
         <div style="display: flex; justify-content: center;padding-top: 12px;">
             <div style="padding:6px">
                 <ejs-lineargauge :load='loadMusic' :background='background' :container='container' :annotations='annotations1' style='display:block'  :width='widthData' :height='heightData' align='center' id='defaultContainer' :orientation='orientation'>
                 <e-axes>
-                    <e-axis :majorTicks='majorTicks' :line='line' :minorTicks='minorTicks' :labelStyle='labelStyle' >
+                    <e-axis :majorTicks='majorTicks' :line='line' :minorTicks='minorTicks' :labelStyle='labelStyleMusic' >
                         <e-pointers>
                             <e-pointer :value='value' :width='width' :color='pointerColor' :offset='offset' :roundedCornerRadius='roundedCornerRadius' :position='position' :type='type' ></e-pointer>
                         </e-pointers>
@@ -15,7 +15,7 @@
         <div style="padding:6px">
             <ejs-lineargauge :load='loadBell' :background='background' :container='container' :annotations='annotations2' style='display:block'  :width='widthData' :height='heightData' align='center' id='defaultContainer1' :orientation='orientation'>
                 <e-axes>
-                    <e-axis :majorTicks='majorTicks' :line='line' :minorTicks='minorTicks' :labelStyle='labelStyle' >
+                    <e-axis :majorTicks='majorTicks' :line='line' :minorTicks='minorTicks' :labelStyle='labelStyleBell' >
                         <e-pointers>
                             <e-pointer :value=85 :width='width' :color='pointerColor' :offset='offset' :roundedCornerRadius='roundedCornerRadius' :position='position' :type='type' ></e-pointer>
                         </e-pointers>
@@ -26,7 +26,7 @@
         <div style="padding:6px">
             <ejs-lineargauge :load='loadClock' :background='background' :container='container' :annotations='annotations3' style='display:block'  :width='widthData' :height='heightData' align='center' id='defaultContainer2' :orientation='orientation'>
                 <e-axes>
-                    <e-axis :majorTicks='majorTicks' :line='line'  :minorTicks='minorTicks' :labelStyle='labelStyle' >
+                    <e-axis :majorTicks='majorTicks' :line='line'  :minorTicks='minorTicks' :labelStyle='labelStyleClock' >
                         <e-pointers>
                             <e-pointer :value=65 :width='width' :color='pointerColor' :offset='offset' :roundedCornerRadius='roundedCornerRadius' :position='position' :type='type' ></e-pointer>
                         </e-pointers>
@@ -35,12 +35,13 @@
             </ejs-lineargauge>
         </div>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Linear Gauge sample">
     <p>
         This sample demonstrates volume adjustments made for music/video and alarm clock applications.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Linear Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure a linear gauge to look like a sound tracker. This can
         be accomplished by combining axis, pointer and annotation.
@@ -51,8 +52,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/getting-started/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 /* custom code start */
 <style>
@@ -129,7 +130,16 @@ export default {
         minorTicks: {
             interval: 10, height: 0
         },
-        labelStyle: {
+        labelStyleMusic: {
+            format:'Music {value} %',
+            font: { size: '0px' }
+        },
+        labelStyleBell: {
+            format:'Bell {value} %',
+            font: { size: '0px' }
+        },
+        labelStyleClock: {
+            format:'Clock {value} %',
             font: { size: '0px' }
         },
         container: {

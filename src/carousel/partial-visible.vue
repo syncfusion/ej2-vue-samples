@@ -29,7 +29,7 @@
           </p>
           <p>See also</p>
           <p>
-            <a
+            <a aria-label="Carousel getting started"
               target="_blank"
               href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started/"
               >Vue Carousel Getting Started</a

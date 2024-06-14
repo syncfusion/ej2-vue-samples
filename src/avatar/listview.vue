@@ -101,7 +101,7 @@ body.highcontrast #letterAvatarList{
     .avatar-listview #letterAvatarList .listWrapper .e-avatar {
         position: absolute;
         top: calc(100% - 40px);
-        font-size: 10px;
+        font-size: 16px;
         left: 5px;
     }
 

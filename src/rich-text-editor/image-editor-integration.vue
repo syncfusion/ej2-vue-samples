@@ -16,6 +16,7 @@
                     :showCloseIcon="showCloseIcon"
                     width="800px"
                     height="800px"
+                    :close="onClose"
                     :isModal="isModal">
                 <div>
                     <ejs-imageeditor                
@@ -48,6 +49,8 @@ import Vue from "vue";
 import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, Table, NodeSelection, QuickToolbar, PasteCleanup, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
 import { DialogComponent } from "@syncfusion/ej2-vue-popups";
 import { ImageEditorComponent } from "@syncfusion/ej2-vue-image-editor";
+import{ getComponent }from'@syncfusion/ej2-base';
+import { ImageEditor } from '@syncfusion/ej2-image-editor';
 
 export default {
     components: {
@@ -65,6 +68,8 @@ export default {
             saveSelection: null,
             dataURL: null,
             isLoaded: false,
+            imageELement: null,
+            imageEditorObj:null,
             dlgButtons: [
                 {
                 buttonModel: { content: "Insert", isPrimary: true },
@@ -78,7 +83,8 @@ export default {
                     <img
                       id="img1"
                       style="height: 350px;"
-                      src="./source/rich-text-editor/images/bridge.png" />
+                      src="./source/rich-text-editor/images/bridge.png"
+                      aria-label="Bridge" />
                     </p>
                     <p>
                         It allows users to quickly and easily add an Image Editor to their Rich Text Editor.
@@ -126,7 +132,7 @@ export default {
             this.saveSelection.restore();
             var canvas = document.createElement("CANVAS");
             var ctx = canvas.getContext("2d");
-            const imgData = this.$refs.imageEditorObj.getImageData();
+            const imgData = this.imageEditorObj.getImageData();
             canvas.height = imgData.height;
             canvas.width = imgData.width;
             ctx.putImageData(imgData, 0, 0);
@@ -136,36 +142,63 @@ export default {
                 width: { width: canvas.width },
                 height: { height: canvas.height },
                 selection: this.saveSelection,
+                cssClass: this.imageELement.getAttribute('class').replace('e-rte-image', '')
             });
             this.$refs.defaultRTE.ej2Instances.formatter.saveData();            
+            this.dispose();
             this.$refs.dialogObj.hide();
-            this.isLoaded = false;
+            this.imageELement.crossOrigin = null;
         },
         onCancel: function () {
-            this.$refs.imageEditorObj.reset();
+            this.dispose();
             this.$refs.dialogObj.hide();
+            this.isLoaded = true;
+            this.imageELement.crossOrigin = null;
+        },
+        onClose: function () {
+            this.dispose();
+            this.$refs.dialogObj.hide();
+            this.isLoaded = true;
+            this.imageELement.crossOrigin = null;
+        },
+        dispose:function () {
+            var imageEditorInstance = getComponent(document.getElementById('image-editor'), 'image-editor');
+            if (imageEditorInstance !== null && imageEditorInstance !== undefined) {
+                imageEditorInstance.destroy();
+            }
         },
         OnBeforeOpen: function () {
-            var imageELement;
+            this.dispose();
+            this.isLoaded = false;
             var selectNodes = this.$refs.defaultRTE.ej2Instances.formatter.editorManager.nodeSelection.getNodeCollection(
                 this.range
             );
             if (selectNodes.length == 1 && selectNodes[0].tagName == "IMG") {
-                imageELement = selectNodes[0];
-                imageELement.crossOrigin = "anonymous";
+                this.imageELement = selectNodes[0];
+                this.imageELement.crossOrigin = "anonymous";
                 var canvas = document.createElement("CANVAS");
                 var ctx = canvas.getContext("2d");
-                canvas.height = imageELement.offsetHeight;
-                canvas.width = imageELement.offsetWidth;
-                var editorobj = this.$refs.imageEditorObj;
-                imageELement.onload = function () {
-                ctx.drawImage(imageELement, 0, 0, canvas.width, canvas.height);
+                canvas.height = this.imageELement.offsetHeight;
+                canvas.width = this.imageELement.offsetWidth;
+                var imageELe = this.imageELement;
+              var isLoded = this.isLoaded;
+              const onImageLoadEvent = () => {
+                ctx.drawImage(imageELe, 0, 0, canvas.width, canvas.height);
                 this.dataURL = canvas.toDataURL();
-                    if (!this.isLoaded) {
-                        editorobj.open(this.dataURL);
-                    }
-                };
+                if (!isLoded) {
+                    this.imageEditorObj = new ImageEditor({
+                        height: '450px',
+                        created: () => {
+                            this.imageEditorObj.open(this.dataURL);
+                        }
+                    });
+                    this.imageEditorObj.appendTo('#image-editor');
+                    isLoded = true;
+                }
+                this.imageELement.removeEventListener('load', onImageLoadEvent);
             }
+            this.imageELement.addEventListener('load', onImageLoadEvent);
+        }
         },
     },
     provide:{
@@ -181,6 +214,8 @@ export default {
 
 .fluent .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
 .fluent-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
+.fluent2 .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
+.fluent2-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
 .bootstrap5 .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
 .bootstrap5-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
 .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,

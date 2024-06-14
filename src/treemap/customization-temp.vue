@@ -1,5 +1,5 @@
 <template>
-    <div><img :src="image" :style="style"/></div>
+    <div><img alt="Custom label template for illustrations" :src="image" :style="style"/></div>
 </template>
 
 <script>

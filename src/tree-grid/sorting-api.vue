@@ -18,8 +18,8 @@
                 <div>Column</div>
             </td>
             <td style="width: 70%;padding-right: 10px">
-                <div id='columnddl'>
-                     <ejs-dropdownlist ref='columns' width='110px' id='columns' :dataSource='columnsName' value='taskID' :fields='ddlfields'></ejs-dropdownlist>
+                <div>
+                     <ejs-dropdownlist ref='columns' width='127px' id='columns' :dataSource='columnsName' value='taskID' :fields='ddlfields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
@@ -29,12 +29,12 @@
             </td>
             <td style="width: 70%;padding-right: 10px">
                 <div>
-                    <ejs-dropdownlist ref='direction' width='110px' id='direction' :dataSource='direction' value='Ascending' :fields='ddlfields'></ejs-dropdownlist>
+                    <ejs-dropdownlist ref='direction' width='127px' id='direction' :dataSource='direction' value='Ascending' :fields='ddlfields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
+            <td style="width: 30%; padding:10px 10px 10px 0px">
                 <div>
                     <ejs-button ref='sort' v-on:click="sort">Sort</ejs-button>
                 </div>

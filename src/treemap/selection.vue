@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div id="tree_selection">
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
              <ejs-treemap ref="treemap" id='import-container' :load='load' :titleSettings='titleSettings' :selectionSettings='selectionSettings' :highlightSettings='highlightSettings' :leafItemSettings='leafItemSettings' :dataSource='dataSource' :weightValuePath='weightValuePath' :levels='levels' ></ejs-treemap>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="col-lg-3 property-section">
-        <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+        <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -10px;">
         <colgroup>
             <col span="1" style="width: 50%;">
             <col span="1" style="width: 50%;">
@@ -27,7 +27,7 @@
                        <div> Enable</div>
                     </td>
                     <td>
-                        <div style="margin-top: -10px; margin-left: -10px;">
+                        <div class="property-checkbox" style="margin-top: -10px; margin-left: -10px;">
                             <ejs-checkbox ref="highlightEnable" id="highlightEnable"  checked="true" :change="changeHighlight"></ejs-checkbox>
                         </div>
                     </td>
@@ -52,7 +52,7 @@
                        <div>Enable</div>
                     </td>
                     <td>
-                        <div style="margin-left: -10px; margin-top: -10px;">
+                        <div class="property-checkbox" style="margin-left: -10px; margin-top: -10px;">
                             <ejs-checkbox ref="selectionEnable" checked="true" id="SelectionEnable" :change="changeSelection"></ejs-checkbox>
                         </div>
                     </td>
@@ -70,12 +70,13 @@
                   </tbody>
         </table>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of TreeMap sample">
         <p>
             This sample depicts the details of goods imported by Japan. Selection and highlight options have been enabled in this sample.
         </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the TreeMap features demonstrated in this sample">
         <p>
             In this example, you can see the modes available for performing highlight and selection in TreeMap. It can be either enabled or disabled.
         </p>
@@ -84,8 +85,8 @@
         <p>
             TreeMap component features are segregated into individual feature-wise modules. To use highlight and selection, inject the <code>Selection</code> module using the <code>TreeMap.Inject(TreeMapSelection)</code>inject the <code>Highlight</code> module using the <code>TreeMap.Inject(TreeMapHighlight)</code> method.
         </p>
-    </div>
-</div>
+    </section>
+</main>
 </template>
  <style scoped>
          .check{
@@ -97,6 +98,11 @@
     label{
         height: 32px !important;
     }
+
+    .e-view.fluent2 #tree_selection #property.property-panel-table div.property-checkbox, .e-view.fluent2-dark #tree_selection #property.property-panel-table div.property-checkbox {
+            padding-left: 0px;
+    }
+    
 </style>
 <script>
 import { TreeMapComponent,TreeMapHighlight, TreeMapSelection} from "@syncfusion/ej2-vue-treemap";

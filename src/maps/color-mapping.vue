@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="col-lg-9 control-section">
     <div class="content-wrapper">
         <div>
@@ -34,7 +34,7 @@
 </div>
 
 <div class="col-lg-3 property-section">
-    <table id="property" title="Properties" style="width: 100%;">
+    <table role="none" id="property" title="Properties" style="width: 100%;">
      <colgroup>
             <col span="1" style="width: 50%;">
             <col span="1" style="width: 50%;">
@@ -83,12 +83,13 @@
         </tbody>
     </table>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
     <p>
         This sample shows the average amount of rainfall and snowfall in spring season of all the states in the United States. The color mapping is applied to the shapes to differentiate them from other shapes.
    </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Maps features demonstrated in this sample">
     <p>
         In this example, you can see how to render a map with color mapping. The range color mapping and desaturation color mapping group the shapes based on the inches value, whereas the equal color mapping groups the shapes based on the category (low, moderate, or high) values. Legend is enabled in this example to represent each color mapping.
     </p>
@@ -100,8 +101,8 @@
     <p>
         The maps component features are segregated into individual modules by feature. To use a legend, inject the <code>Legend</code> module using the <code>Maps.Inject(Legend)</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <style scoped>
     .toolback {

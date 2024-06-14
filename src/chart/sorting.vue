@@ -19,11 +19,11 @@
             <tbody>
                 <tr style="height: 50px">
                     <td>
-                        <div>Descending</div>
+                        <div id="checkValue">Descending</div>
                     </td>
                     <td>
                         <div>
-                             <input type="checkbox" id="dec" @change='changeEvent'  disabled />
+                             <input type="checkbox" id="dec" @change='changeEvent' disabled aria-labelledby="Checkbox unchecked"/>
                         </div>
                     </td>
                 </tr>
@@ -53,7 +53,7 @@
     <p>Chart component features are segregated into individual feature-wise modules. To use stacking column series, we need to inject StackingColumnSeries module using  <code>provide: { chart: [StackingColumnSeries] },</code> method.</p>
     <p>
         More information on the stacked column series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/stack-column">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/stack-column" aria-label="Navigate to the documentation for Stacked Column Chart in Vue Chart component">documentation section</a>.
     </p>
 </div>
 </div>
@@ -71,7 +71,7 @@
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
   export default {
     components: {

@@ -3,7 +3,7 @@
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-6 carousel-sample">
-            <h4>Default Indicator</h4>
+            <h1>Default Indicator</h1>
             <ejs-carousel cssClass="indicator-type" indicatorsType="Default" :autoPlay="false">
                 <e-carousel-items>
                     <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
@@ -30,7 +30,7 @@
             </ejs-carousel>
         </div>
         <div class="col-lg-6 carousel-sample">
-            <h4>Dynamic Indicator</h4>
+            <h1>Dynamic Indicator</h1>
             <ejs-carousel cssClass="indicator-type" indicatorsType="Dynamic" :autoPlay="false">
                 <e-carousel-items>
                     <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
@@ -59,7 +59,7 @@
         </div>
         <div class="row">
             <div class="col-lg-6 carousel-sample">
-            <h4>Fraction Indicator</h4>
+            <h1>Fraction Indicator</h1>
             <ejs-carousel cssClass="indicator-type" indicatorsType="Fraction" :autoPlay="false">
                 <e-carousel-items>
                     <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
@@ -87,7 +87,7 @@
         </div> 
 
         <div class="col-lg-6 carousel-sample">
-            <h4>Progress Indicator</h4>
+            <h1>Progress Indicator</h1>
             <ejs-carousel cssClass="indicator-type" indicatorsType="Progress" :autoPlay="false">
                 <e-carousel-items>
                     <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
@@ -115,10 +115,10 @@
         </div> 
         </div>
         <div id="action-description">
-            <p>This sample demonstrates the types of indicators in the <a href="https://www.syncfusion.com/javascript-ui-controls/js-carousel" target="_blank">React Carousel</a> component.</p>
+            <p>This sample demonstrates the types of indicators in the <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-components/vue-carousel" target="_blank">Vue Carousel</a> component.</p>
         </div>
         <div id="description">
-            <p>In this demo, the available types of indicators of JavaScript Carousel are showcased. They are <code>default</code>, <code>dynamic</code>, <code>progress</code> and <code>fraction</code>, and can be set using the <strong>indicatorsType</strong> property. </p>
+            <p>In this demo, the available types of indicators of Vue Carousel are showcased. They are <code>default</code>, <code>dynamic</code>, <code>progress</code> and <code>fraction</code>, and can be set using the <strong>indicatorsType</strong> property. </p>
             <p><code>Default</code> - The Carousel displays indicators with a bullet design.</p>
             <p><code>Dynamic</code> - The Carousel applies dynamic animation to the indicators.</p>
             <p><code>Fraction</code> - The Carousel displays slides numerically as indicators.</p>
@@ -132,6 +132,10 @@
     .indicator-type-section .carousel-sample {
         margin: -0.5em 0 5.6em 0;
         height: 200px;
+    }
+
+    .indicator-type-section .carousel-sample h1 {
+        font-size: 18px;
     }
 
     .indicator-type .e-carousel-items .e-carousel-item .img-container {

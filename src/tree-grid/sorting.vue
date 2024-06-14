@@ -1,5 +1,5 @@
 <template>
-    <div class="control-section">
+    <div class="control-section" role="region" aria-label="Tree Grid Control Section" >
       <div class="col-md-9 control-section">
           <ejs-treegrid ref='treegrid' id='treegrid' :dataSource='data' cssClass='sortingenabled' :actionComplete='sort' :allowPaging='true' :height='350' :allowSorting='true' :sortSettings='sortSettings' childMapping='subtasks' :treeColumnIndex='0' :pageSettings='pageSettings' >
             <e-columns>
@@ -11,7 +11,7 @@
         </ejs-treegrid>
       </div>
       <div>
-        <div class="col-md-3 property-section">
+        <div class="col-md-3 property-section" aria-label="Properties Panel">
             <table id="property" title="Properties" style="width: 100%">
         <tr>
             <td style="width: 70%">
@@ -20,8 +20,8 @@
                 </div>
             </td>
             <td style="width: 30%;padding:10px 10px 10px 0px">
-                <div class="col-md-6">
-                    <ejs-checkbox ref='ordername' :checked="true" :change="namecheck"></ejs-checkbox>
+                <div class="col-md-6" aria-label="Toggle Order Name Sorting">
+                    <ejs-checkbox ref='ordername' :checked="true" :change="namecheck" aria-label="Toggle Order Name Sorting"></ejs-checkbox>
                 </div>
             </td>
         </tr>
@@ -32,8 +32,8 @@
                 </div>
             </td>
             <td style="width: 30%;padding:10px 10px 10px 0px">
-                <div class="col-md-6">
-                    <ejs-checkbox ref='category' :checked="true" :change="categorycheck"></ejs-checkbox>
+                <div class="col-md-6" aria-label="Toggle Category Sorting">
+                    <ejs-checkbox ref='category' :checked="true" :change="categorycheck" aria-label="Toggle Category Sorting"></ejs-checkbox>
                 </div>
             </td>
         </tr>
@@ -44,8 +44,8 @@
                 </div>
             </td>
             <td style="width: 30%; padding:10px 10px 10px 0px">
-                <div class="col-md-6">
-                    <ejs-checkbox ref='orderdate' :change="datecheck"></ejs-checkbox>
+                <div class="col-md-6" aria-label="Toggle Date Sorting">
+                    <ejs-checkbox ref='orderdate' :change="datecheck" aria-label="Toggle Date Sorting"></ejs-checkbox>
                 </div>
             </td>
         </tr>
@@ -56,8 +56,8 @@
                 </div>
             </td>
             <td style="width: 30%; padding:10px 10px 10px 0px">
-                <div class="col-md-6">
-                    <ejs-checkbox ref='units' :change="unitscheck"></ejs-checkbox>
+                <div class="col-md-6" aria-label="Toggle units Sorting">
+                    <ejs-checkbox ref='units' :change="unitscheck" aria-label="Toggle units Sorting"></ejs-checkbox>
                 </div>
             </td>
         </tr>

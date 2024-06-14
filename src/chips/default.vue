@@ -2,11 +2,11 @@
 <div>
     <div class="control-section chip-default">
       <div id="chip-default-wrapper">
-          <div class="chips-headers">Chips</div>
+          <div id="chips" class="chips-headers">Chips</div>
 
           <div class="sample-padding">
             <!-- initialize default chip component -->
-              <ejs-chiplist id="chip-default">
+              <ejs-chiplist id="chip-default" aria-labelledby="chips">
                   <e-chips>
                       <e-chip text="Apple" cssClass="e-primary"></e-chip>
                       <e-chip text="Microsoft" cssClass="e-info"></e-chip>
@@ -19,11 +19,11 @@
 
           <div class="separator"></div>
 
-          <div class="chips-headers">Input Chips</div>
+          <div id="inputChips" class="chips-headers">Input Chips</div>
 
           <div class="sample-padding">
             <!-- initialize avatar chip component -->
-              <ejs-chiplist id="chip-avatar" enableDelete="true">
+              <ejs-chiplist id="chip-avatar" enableDelete="true" aria-labelledby="inputChips">
                   <e-chips>
                       <e-chip text="Anne" leadingIconCss="anne"></e-chip>
                       <e-chip text="Janet" leadingIconCss="janet"></e-chip>
@@ -35,11 +35,11 @@
 
           <div class="separator"></div>
 
-          <div class="chips-headers">Filter Chips</div>
+          <div id="filterChips" class="chips-headers">Filter Chips</div>
 
           <div class="sample-padding">
             <!-- initialize filter chip component -->
-              <ejs-chiplist id="chip-filter" selection="Multiple" :selectedChips='filterSelected'>
+              <ejs-chiplist id="chip-filter" selection="Multiple" :selectedChips='filterSelected' aria-labelledby="filterChips">
                   <e-chips>
                       <e-chip text="Extra small"></e-chip>
                       <e-chip text="Small"></e-chip>
@@ -52,11 +52,11 @@
 
           <div class="separator"></div>
 
-          <div class="chips-headers">Choice Chips</div>
+          <div id="choiceChips" class="chips-headers">Choice Chips</div>
 
           <div class="sample-padding">
             <!-- initialize choice chip component -->
-              <ejs-chiplist id="chip-choice" selection="Single" cssClass="e-outline" :selectedChips='choiceSelected'>
+              <ejs-chiplist id="chip-choice" selection="Single" cssClass="e-outline" :selectedChips='choiceSelected' aria-labelledby="choiceChips">
                   <e-chips>
                       <e-chip text="Send a text" leadingIconCss="text"></e-chip>
                       <e-chip text="Set a reminder" leadingIconCss="alarm"></e-chip>

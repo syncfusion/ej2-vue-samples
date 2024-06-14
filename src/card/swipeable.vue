@@ -135,6 +135,7 @@
     .material3 .card-control-section.swipe_card_layout .e-card:active {
        background-color: #fff;
     }
+
     .material3-dark .card-control-section.swipe_card_layout .e-card:hover,
     .material3-dark .card-control-section.swipe_card_layout .e-card:focus,
     .material3-dark .card-control-section.swipe_card_layout .e-card:active {

@@ -3,15 +3,15 @@
     <div>
         <div class="col-lg-9 control-section">
             <div id='local' class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
-                <div style="width: 250px;margin: 0 auto;">
-                    <h4> Local Data</h4>
+                <div class='drop-down-list-content'>
+                <label class="h4"> Local Data</label>
                     <ejs-combobox id='games' :dataSource='sportsData' :autofill='autofill' :fields='localFields' :popupHeight='height'
                         :placeholder='localWaterMark'></ejs-combobox>
                 </div>
             </div>
             <div id='remote' class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
-                <div style="width: 250px; margin: 0 auto;">
-                    <h4>Remote Data</h4>
+                <div class='drop-down-list-content'>
+                <label class="h4">Remote Data</label>
                     <ejs-combobox id='customers' :dataSource='data' :fields='remoteFields' :autofill='autofill' :query='query'
                      :placeholder='remoteWaterMark' sortOrder='Ascending'></ejs-combobox>
                 </div>
@@ -56,6 +56,16 @@
 <style scoped>
     .property-panel-content {
         padding: 0 10px 10px 0;
+    }
+
+    .drop-down-list-content {
+        margin: 0 auto;
+        width: 250px;
+    }
+    .drop-down-list-content .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
     }
 
     .content {

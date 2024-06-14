@@ -45,7 +45,7 @@
 
 <div id="description">
     <p><strong>Toolbar</strong> commands can be aligned in left, right and center positions. By default, all the commands are left aligned. User can customize the alignment of each toolbar item using
-    <code> <a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#align">align</a> </code> property. Possible values are as follows.</p>
+    <code> <a aria-label="Align" target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#align">align</a> </code> property. Possible values are as follows.</p>
     <br>
     <table style="width:100%">
         <tr>

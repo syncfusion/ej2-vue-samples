@@ -15,7 +15,7 @@
                 <ejs-checkbox id="sequentialUpload" label="Sequential Upload" :change= "changed" :checked="false" name="FileUploader"></ejs-checkbox>
             </div>
         </div>
-    </div>
+    </div> 
     <div id="action-description">
       <p>This <a href="https://www.syncfusion.com/vue-ui-components/vue-file-upload"
             target="_blank">&nbsp;Vue File Upload</a> example demonstrates the default functionalities of the file upload component with auto upload and sequential upload options.

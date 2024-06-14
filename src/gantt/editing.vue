@@ -35,6 +35,7 @@
     <p>This sample visualizes the various phases involved in constructing a residential house, from testing the soil to
         handing over the fully constructed property to the owner. This sample also demonstrates CRUD operations in Gantt
         chart. You can perform CRUD operations as follows,
+        <ul>
         <li><code>Add</code> - To add new task, click Add toolbar button</li>
         <li><code>Edit </code>- To edit a task, double click a row or double click a taskbar or click toolbar Edit
             button after selected a row</li>
@@ -43,6 +44,7 @@
         <li><code>Delete</code> - To delete a task, click toolbar Delete button after selected a row</li>
         <li><code>Update,Cancel</code> - You can save or discard changes by click toolbar Update and Cancel button
             respectively</li>
+        </ul>
     </p>
 </div>
 
@@ -126,10 +128,10 @@ export default {
                 { field: 'Predecessor' }
             ],
             eventMarkers: [
-                { day: '4/17/2019', label: 'Project approval and kick-off' },
-                { day: '5/3/2019', label: 'Foundation inspection' },
-                { day: '6/7/2019', label: 'Site manager inspection' },
-                { day: '7/16/2019', label: 'Property handover and sign-off' },
+                { day: '4/17/2024', label: 'Project approval and kick-off' },
+                { day: '5/3/2024', label: 'Foundation inspection' },
+                { day: '6/7/2024', label: 'Site manager inspection' },
+                { day: '7/16/2024', label: 'Property handover and sign-off' },
             ],
             labelSettings: {
                 leftLabel: 'TaskName',
@@ -141,8 +143,8 @@ export default {
                 { type: 'Resources' },
                 { type: 'Notes' },
             ],
-            projectStartDate: new Date('03/25/2019'),
-            projectEndDate: new Date('07/28/2019'),
+            projectStartDate: new Date('03/25/2024'),
+            projectEndDate: new Date('07/28/2024'),
             splitterSettings: {
                 position: "35%"
             }

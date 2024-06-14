@@ -1,5 +1,5 @@
 <template>
-   <div class="control-section">
+   <main><div class="control-section">
          <div align='center'>
              <ejs-lineargauge :load='load' :background='background' style='display:block' align='center' :container='container' :width='widthData' id='defaultContainer' :orientation='orientation'>
                 <e-annotations>
@@ -22,12 +22,13 @@
                 </e-axes>
              </ejs-lineargauge>
          </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Linear Gauge sample">
     <p>
         This sample shows the battery indicator charged up to 75% by utilizing the linear gauge's functionalities.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Linear Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure a linear gauge to look like a battery indicator. This
         can be accomplished by combining axis, pointer, multiple ranges, and multiple annotation.
@@ -37,8 +38,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/linear-gauge/getting-started/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { LinearGaugeComponent, AxisDirective, AxesDirective, PointersDirective, PointerDirective, RangesDirective, RangeDirective, Gradient, AnnotationsDirective, AnnotationDirective, Annotations } from "@syncfusion/ej2-vue-lineargauge";
@@ -104,10 +105,10 @@ methods: {
         if (args.gauge.theme == 'FabricDark' || args.gauge.theme == 'BootstrapDark' || args.gauge.theme == 'MaterialDark' || args.gauge.theme == 'HighContrast' || args.gauge.theme == 'Material' || args.gauge.theme == 'Fabric' || args.gauge.theme == 'Bootstrap') {
             borderColor = "#bfbfbf";
         }
-        if (args.gauge.theme == 'Fluent') {
+        if (args.gauge.theme == 'Fluent' || args.gauge.theme == 'Fluent2') {
             borderColor = "#EDEBE9";
         }
-        if (args.gauge.theme == 'FluentDark') {
+        if (args.gauge.theme == 'FluentDark' || args.gauge.theme == 'Fluent2Dark') {
             borderColor = "#292827";
         }
         if (args.gauge.theme == 'Bootstrap5' || args.gauge.theme == 'Tailwind') {

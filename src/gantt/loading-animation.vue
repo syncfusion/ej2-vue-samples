@@ -22,7 +22,7 @@
         </ejs-gantt>
       </div>
       <div>
-        <div class="col-md-3 property-section">
+        <div class="col-md-3 property-section" style="padding-left: 0px;">
           <table id="property" title="Properties" style="width: 100%">
             <br /><br />
             <tr style="height: 50px">
@@ -32,7 +32,7 @@
               <td style="width: 70%; padding-left: 10px">
                 <ejs-dropdownlist
                   id="element"
-                  width="90px"
+                  width="109px"
                   :dataSource="typedata"
                   value="Shimmer"
                   :fields="typefields"

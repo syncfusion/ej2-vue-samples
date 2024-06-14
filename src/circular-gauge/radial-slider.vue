@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
     <div class="control-section">
         <ejs-circulargauge :load='load' ref="circulargauge" :background='background'  style='display:block' align='center' id='gauge' :enablePointerDrag= 'enablePointerDrag' :dragMove='dragMove'>
             <e-axes>
@@ -11,13 +11,14 @@
             </e-axes>
         </ejs-circulargauge>
     </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Circular Gauge sample">
     <p>
         This sample demonstrates how to create a range slider component by utilizing the functions available in the circular
         gauge.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
     <p>
         In this example, you can see how to render and configure a new range slider in the circular gauge. It is
         possible to achieve this by combining ranges and a marker pointer. The marker pointer has been made interactive,
@@ -28,8 +29,8 @@
             href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/getting-started/">documentation
             section</a>.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 

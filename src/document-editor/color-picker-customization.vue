@@ -1,6 +1,6 @@
 <template>
-    <div class="control-section">
-      <div class="col-lg-9">
+    <div>
+      <div class="col-lg-9 control-section">
         <div class="default-section">
           <div
             ref="de_titlebar"

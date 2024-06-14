@@ -9,7 +9,7 @@
     <div class="col-lg-9 control-section">
         <div class="content-wrapper">
             <br>
-            <h4 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;"> Conns,Inc Stock Close Details</h4>
+            <h1 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px; margin-top: 10px;"> Conns,Inc Stock Close Details</h1>
             <div align="center">
                 <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerExport' :value='value' groupBy='Quarter'
                     valueType='DateTime' intervalType='Months' labelFormat='MMM' enableGrouping=true :dataSource='dataSource' xName='xDate'
@@ -42,11 +42,11 @@
                     </tr>
                     <tr style="height: 50px">
                         <td style="width: 40%">
-                            <div>File Name:</div>
+                            <div id="filename">File Name:</div>
                         </td>
                         <td style="width: 40%;">
                             <div class="e-float-input" style='margin-top: 0px;  width: 100px;'>
-                                <input type="text" value="Chart" id="fileName">
+                                <input type="text" value="Chart" id="fileName" aria-labelledby="Chart">
                             </div>
                         </td>
                     </tr>
@@ -74,7 +74,7 @@
     </p>
     <p>
         More information on the export can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype">documentation section</a>.
+        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype" aria-label="Navigate to the documentation for series in EJ2 TypeScript Chart component">documentation section</a>.
     </p>
 </div>
 </div>
@@ -91,39 +91,73 @@
     }
   
     .e-print-icon::before {
-        content: "\e34b";
+        content: '\e34b';
     }
-    .e-view.material3 .e-print-icon::before,
-    .e-view.material3-dark .e-print-icon::before {
-    	content: "\e75d";
+ 
+    .e-view.fabric .e-print-icon::before, .e-view.fabric-dark .e-print-icon::before {
+        content: '\e7df';
     }
-
-   .e-view.fabric .e-print-icon::before, .e-view.fabric-dark .e-print-icon::before {
-        content: "\e7df";
-    }
-
+ 
     .e-view.bootstrap .e-print-icon::before {
-        content: "\ebd2";
+        content: '\ebd2';
     }
-
-    .e-view.bootstrap4 .e-print-icon::before {
-        content: "\e743";
+ 
+   .e-view.bootstrap4 .e-print-icon::before {
+        content: '\e743';
     }
-
+ 
     .e-view.tailwind .e-print-icon::before, .e-view.tailwind-dark .e-print-icon::before {
-        content: "\e76c";
+        content: '\e76c';
     }
-
+ 
     .e-view.highcontrast .e-print-icon::before {
-        content: "\ebf9";
+        content: '\ebf9';
     }
-
+ 
     .e-view.bootstrap5 .e-print-icon::before, .e-view.bootstrap5-dark .e-print-icon::before {
-        content: "\e75d";
+        content: '\e75d';
     }
-
-    .e-view.material .e-export-icon::before, .e-view.material-dark .e-export-icon::before, .e-view.bootstrap .e-export-icon::before, .e-view.bootstrap-dark .e-export-icon::before {
+ 
+    .e-view.fluent .e-print-icon::before, .e-view.fluent-dark .e-print-icon::before {
+        content: '\e75d';
+    }
+    .e-view.fluent2 .e-print-icon::before, .e-view.fluent2-dark .e-print-icon::before, .e-view.fluent2-highcontrast .e-print-icon::before {
+        content: '\e75d';
+    }
+    .e-view.material3 .e-print-icon::before, .e-view.material3-dark .e-print-icon::before {
+        content: '\e75d';
+    }
+    .e-export-icon::before {
         content: '\e728';
+    }
+ 
+    .e-view.fabric .e-export-icon::before, .e-view.fabric-dark .e-export-icon::before {
+        content: '\e710';
+    }
+ 
+    .e-view.bootstrap4 .e-export-icon::before {
+        content: '\e780';
+    }
+ 
+    .e-view.tailwind-dark .e-export-icon::before, .e-view.tailwind .e-export-icon::before {
+        content: '\e7bf';
+    }
+ 
+    .e-view.highcontrast .e-export-icon::before {
+        content: '\e710';
+    }
+ 
+    .e-view.bootstrap5 .e-export-icon::before, .e-view.bootstrap5-dark .e-export-icon::before {
+        content: '\e72e';
+    }
+    .e-view.fluent .e-export-icon::before, .e-view.fluent-dark .e-export-icon::before {
+        content: '\e72e';
+    }
+    .e-view.fluent2 .e-export-icon::before, .e-view.fluent2-dark .e-export-icon::before, .e-view.fluent2-highcontrast .e-export-icon::before {
+        content: '\e72e';
+    }
+    .e-view.material3 .e-export-icon::before, .e-view.material3-dark .e-export-icon::before {
+        content: '\e72e';
     }
 </style>
 <script>
@@ -136,12 +170,12 @@ import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
-let themes = ['Material', 'Fabric', 'Bootstrap', 'HighContrast', 'Bootstrap5', 'Tailwind', 'MaterialDark', 'FabricDark', 'BootstrapDark', 'TailwindDark', 'Bootstrap5Dark', 'Bootstrap4', 'Fluent', 'FluentDark', 'Material3', 'Material3Dark'];
-let borderColor = ['#FF4081', '#007897', '#428BCA', '#FFD939', '#4F46E5', '#4F46E5', '#FF4081', '#007897', '#428BCA', '#22D3EE', '#ADB5BD', '#FFD939', '#614570', '#8AB113', '#6355C7', '#4EAAFF'];
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+let themes = ['Material', 'Fabric', 'Bootstrap', 'HighContrast', 'Bootstrap5', 'Tailwind', 'MaterialDark', 'FabricDark', 'BootstrapDark', 'TailwindDark', 'Bootstrap5Dark', 'Bootstrap4', 'Fluent', 'FluentDark', 'Material3', 'Material3Dark', 'Fluent2', 'Fluent2Dark'];
+let borderColor = ['#FF4081', '#007897', '#428BCA', '#FFD939', '#4F46E5', '#4F46E5', '#FF4081', '#007897', '#428BCA', '#22D3EE', '#ADB5BD', '#FFD939', '#614570', '#8AB113', '#6355C7', '#4EAAFF', '#6200EE', '#9BB449'];
 let regionColor = ['rgba(255, 64, 129, 0.3)', ' rgba(0, 120, 151, 0.3)', 'rgba(66, 139, 202, 0.3)', 'rgba(255, 217, 57, 0.3)', 'rgba(79, 70, 229, 0.3)',
     'rgba(79, 70, 229, 0.3)', 'rgba(255, 64, 129, 0.3)', 'rgba(0, 120, 151, 0.3)', 'rgba(66, 139, 202, 0.3)', 'rgba(34, 211, 238, 0.3)',
-    'rgba(173,181,189,0.3)', 'rgba(255, 217, 57, 0.3)', 'rgba(97,69,112,0.3)', 'rgba(138,177,19,0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)'];
+    'rgba(173,181,189,0.3)', 'rgba(255, 217, 57, 0.3)', 'rgba(97,69,112,0.3)', 'rgba(138,177,19,0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)', 'rgba(98, 0, 238, 0.3)', 'rgba(155, 180, 73, 0.3)', 'rgba(155, 180, 73, 0.3)'];
 
 export default {
   components: {

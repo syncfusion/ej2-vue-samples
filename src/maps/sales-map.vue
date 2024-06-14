@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main><div>
      <div class="control-section">
           <ejs-maps
             id="container"
@@ -29,12 +29,13 @@
             >
           </div>
         </div>
-    <div id="action-description">
+    </div>
+    <section id="action-description" aria-label="Description of Maps sample">
       <p>
         This sample illustrates the sales details of the products and users location by rendering the markers. Marker clustering is also enabled in this sample.
       </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
       <p>
         In this example, you can see how to render cluster for more number of markers if it is at the exact latitude and longitude values. On clicking the cluster, it will gets expanded. 
       </p>
@@ -45,8 +46,8 @@
       <p>
      Maps component features are segregated into individual feature-wise modules. To use a marker and cluster, inject the <code>Marker</code> module using the <code>Maps.Inject(Marker)</code> method.
       </p>
-    </div>
-  </div>
+    </section>
+    </main>
 </template>
 <script>
 import Vue from "vue";

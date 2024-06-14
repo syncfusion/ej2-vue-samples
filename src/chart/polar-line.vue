@@ -30,11 +30,11 @@
           </tr>
           <tr style="height: 50px">
             <td style="width: 50%">
-              <div>Closed:</div>
+              <div id="closed">Closed:</div>
             </td>
             <td style="width: 50%;">
               <div>
-                <input type="checkbox" @change='isClosedFunc' id="select" checked>
+                <input type="checkbox" @change='isClosedFunc' id="select" checked aria-labelledby="Checkbox checked">
               </div>
             </td>
           </tr>
@@ -45,17 +45,17 @@
             <td style="width: 50%;">
               <div>
                 <input type="range" min="0" max="360" value="0" @touchmove='startAngle' @pointermove='startAngle'
-                  @change='startAngle' id="startangle" style="width:90%">
+                  @change='startAngle' id="startangle" style="width:90%" aria-labelledby="Slider">
               </div>
             </td>
           </tr>
           <tr style="height: 50px">
             <td style="width: 50%">
-              <div>Inversed:</div>
+              <div id="Inversed">Inversed:</div>
             </td>
             <td style="width: 50%;">
               <div>
-                <input type="checkbox" @change='isInversedFunc' id="inversed">
+                <input type="checkbox" @change='isInversedFunc' id="inversed" aria-labelledby="Checkbox unchecked">
               </div>
             </td>
           </tr>
@@ -63,9 +63,7 @@
       </div>
     </div>
     <div id="action-description">
-      <p>
-        This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/radar-chart">Vue Polar Radar Line Chart</a> example visualizes data about Alaska Weather Statistics - 2016 with a default polar line series.
-      </p>
+      <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/radar-chart" aria-label="Navigate to explore the Syncfusion Vue Polar Radar Line Chart">Vue Polar Radar Line Chart</a> example visualizes data about Alaska Weather Statistics - 2016 with a default polar line series.</p>
     </div>
     <div id="description">
       <p>
@@ -85,7 +83,7 @@
       </p>
       <p>
         More information on the polar and radar chart with a line series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/polar#line">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/polar#line" aria-label="Navigate to the documentation for Polar Line in Vue Chart component">documentation section</a>.
     </p>
     </div>
   </div>
@@ -106,7 +104,7 @@ import { Tooltip, Legend, PolarSeries, Category, LineSeries, RadarSeries, ChartC
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

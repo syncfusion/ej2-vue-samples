@@ -27,15 +27,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <td> Opposite content </td>
+                        <td><label for="opposite"> Opposite content </label></td>
                         <td> <ejs-switch id="opposite" checked="true" :change="(args) => handleTogglers(args, 'oppositeContent')"></ejs-switch> </td>
                     </tr>
                     <tr>
-                        <td> Show Icon </td>
+                        <td><label for="icon"> Show Icon </label></td>
                         <td> <ejs-switch id="icon" checked="true" :change="(args) => handleTogglers(args, 'dotCss')"></ejs-switch> </td>
                     </tr>
                     <tr>
-                        <td> Reverse </td>
+                        <td><label for="reverse"> Reverse </label></td>
                         <td> <ejs-switch id="reverse" :change="(args) => handleReverse(args)"></ejs-switch> </td>
                     </tr>
                 </tbody>

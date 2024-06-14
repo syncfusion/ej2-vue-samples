@@ -108,7 +108,7 @@
 }
 
 .slider-events #EventLog b {
-  color: #388e3c;
+  color: #27642a;
 }
 
 .slider-events hr {

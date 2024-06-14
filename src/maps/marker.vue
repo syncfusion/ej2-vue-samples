@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main><div>
     <div class="col-lg-9 control-section">
       <div class="content-wrapper">
         <div align="center">
@@ -52,7 +52,7 @@
     </div>
 
     <div class="col-lg-3 property-section">
-      <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+      <table role="none" id="property" title="Properties" style="width: 100%; margin-left: -10px;">
         <tbody>
           <tr style="height: 50px">
             <td>
@@ -81,13 +81,14 @@
         </tbody>
       </table>
     </div>
-    <div id="action-description">
+  </div>
+    <section id="action-description" aria-label="Description of Maps sample">
       <p>
         This sample visualizes the top 25 populated cities in the world by
         displaying the markers in their locations.
       </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
       <p>
         In this example, you can see how to render the markers in a map. Markers
         are used to indicate or mark a particular location on the map with
@@ -106,8 +107,8 @@
         modules. To use a marker, inject the <code>Marker</code> module using
         the <code>Maps.Inject(Marker)</code> method.
       </p>
-    </div>
-  </div>
+    </section>
+</main>
 </template>
 <style scoped>
     .toolback {

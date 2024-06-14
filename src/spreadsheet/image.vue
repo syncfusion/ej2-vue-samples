@@ -106,9 +106,6 @@
 </template>
 <!-- custom code start -->
 <style>
-    .control-section .control-wrapper {
-        height: 550px;
-    }
 
     #sb-content .e-spreadsheet .e-tab .e-tab-text {
         display: inherit;

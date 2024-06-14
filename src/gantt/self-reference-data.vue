@@ -68,8 +68,8 @@ export default {
             splitterSettings: {
                 columnIndex: 2
             },
-            projectStartDate: new Date('01/28/2019'),
-            projectEndDate: new Date('03/10/2019'),
+            projectStartDate: new Date('01/28/2024'),
+            projectEndDate: new Date('03/10/2024'),
       };
   },
   provide: {

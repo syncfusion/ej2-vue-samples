@@ -1,6 +1,6 @@
 <template>
 <div class="col-lg-12 control-section">
-    <div>
+    <div role="grid" aria-label="TreeGrid">
          <ejs-treegrid :dataSource='data' childMapping='subtasks' :height='350' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings' :queryCellInfo='queryCellInfo'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' width='70' textAlign='Right'></e-column>
@@ -59,6 +59,7 @@ export default {
            if ((args.cell as HTMLElement).innerHTML === 'High') {
              let x: HTMLElement = document.createElement('IMG');
              x.setAttribute('src', 'source/tree-grid/images/high.png');
+             x.setAttribute('alt', 'High');
              x.setAttribute('height', '15px');
              let span: HTMLElement = document.createElement('span');
              span.innerHTML = (args.cell as HTMLElement).innerHTML;
@@ -69,6 +70,7 @@ export default {
            } else if ((args.cell as HTMLElement).innerHTML === 'Critical') {
              let y: HTMLElement = document.createElement('IMG');
              y.setAttribute('src', 'source/tree-grid/images/critical.png');
+             y.setAttribute('alt', 'Critical');
              y.setAttribute('height', '15px');
              let span: HTMLElement = document.createElement('span');
              span.innerHTML = (args.cell as HTMLElement).innerHTML;
@@ -79,6 +81,7 @@ export default {
            } else if ((args.cell as HTMLElement).innerHTML === 'Low') {
              let z: HTMLElement = document.createElement('IMG');
              z.setAttribute('src', 'source/tree-grid/images/low.png');
+             z.setAttribute('alt', 'Low');
              z.setAttribute('height', '15px');
              let span: HTMLElement = document.createElement('span');
              span.innerHTML = (args.cell as HTMLElement).innerHTML;
@@ -89,6 +92,7 @@ export default {
            } else if ((args.cell as HTMLElement).innerHTML === 'Normal') {
              let a: HTMLElement = document.createElement('IMG');
              a.setAttribute('src', 'source/tree-grid/images/normal.png');
+             a.setAttribute('alt', 'Normal');
              a.setAttribute('height', '15px');
              let span: HTMLElement = document.createElement('span');
              span.innerHTML = (args.cell as HTMLElement).innerHTML;

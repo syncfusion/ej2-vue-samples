@@ -36,12 +36,11 @@
       <div>
         <div class="col-md-3 property-section">
           <table id="property" title="Properties" style="width: 100%">
-            <br /><br />
             <tr style="height: 50px">
-              <td style="width: 70%">
+              <td style="width: 50%">
                 <div>Filter Type</div>
               </td>
-              <td style="width: 70%; padding-left: 10px">
+              <td style="width: 100%; padding-right: 10px">
                 <ejs-dropdownlist
                   id="element"
                   width="90px"
@@ -53,10 +52,10 @@
               </td>
             </tr>
             <tr style="height: 50px">
-              <td style="width: 70%">
+              <td style="width: 50%">
                 <div>Hierarchy Mode</div>
               </td>
-              <td style="width: 70%; padding-left: 10px">
+              <td style="width: 100%; padding-left: 10px">
                 <ejs-dropdownlist
                   id="element1"
                   width="90px"
@@ -96,6 +95,7 @@
             </ul>
         Gantt chart also provides support for a set of filtering modes with <code>hierarchyMode</code> property. 
         The below are the type of filter mode available in Gantt chart.
+        <ul>
         <li>
           <code>Parent</code> - This is the default filter hierarchy mode in
           Gantt chart. The filtered records are displayed with its parent
@@ -113,6 +113,7 @@
           parent and child record then only the filtered records are displayed.
         </li>
         <li><code>None</code> - Only the filtered records are displayed.</li>
+        </ul>
       </p>
 
       <p>

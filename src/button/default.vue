@@ -43,7 +43,7 @@
             <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6">
               <ejs-button
                 iconCss="e-btn-sb-icons e-add-icon"
-                cssClass="e-small e-round"
+                cssClass="e-small e-round" aria-label="button"
                 :isPrimary="true"
               ></ejs-button>
             </div>

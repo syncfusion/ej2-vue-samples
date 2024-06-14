@@ -4,7 +4,7 @@
             <div class="default-appbar-container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h5>Simple AppBar</h5>
+                        <h1>Simple AppBar</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -20,7 +20,7 @@
                 <br />
                 <div class="row">
                     <div class="col-md-12">
-                        <h5>Prominent</h5>
+                        <h1>Prominent</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -36,7 +36,7 @@
                 <br />
                 <div class="row">
                     <div class="col-md-12">
-                        <h5>Dense</h5>
+                        <h1>Dense</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -101,6 +101,9 @@
     .default-appbar-section .prominent-appbar .e-inherit.e-css.e-btn.e-active {
         background: rgba(255, 255, 255, .08);
     }
+    .default-appbar-section h1 {
+        font-size: 18px;
+    }
     @media only screen and (max-width: 480px) {
       .default-appbar-section .prominent {
         font-size: 20px;
@@ -112,7 +115,10 @@
       }
       .e-bigger .default-appbar-section .e-inherit.e-btn.login,
       .e-bigger.tailwind-dark .default-appbar-section .e-inherit.e-btn.e-icon-btn.menu,
-      .e-bigger.tailwind .default-appbar-section .e-inherit.e-btn.e-icon-btn.menu {
+      .e-bigger.tailwind .default-appbar-section .e-inherit.e-btn.e-icon-btn.menu,
+      .e-bigger.fluent2-dark .default-appbar-section .e-inherit.e-btn.e-icon-btn.menu,
+      .e-bigger.fluent2-highcontrast .default-appbar-section .e-inherit.e-btn.e-icon-btn.menu,
+      .e-bigger.fluent2 .default-appbar-section .e-inherit.e-btn.e-icon-btn.menu {
         padding-left: 7px;
         padding-right: 7px;
       }

@@ -34,7 +34,7 @@
             <p>
                 More information on the candle series can be found in this
                 <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/candle">documentation
+                    href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/candle" aria-label="Navigate to the documentation for Candle in Vue Chart component">documentation
                     section</a>.
             </p>
         </div>
@@ -53,7 +53,7 @@ import { CandleSeries, RangeNavigatorComponent, StripLine, Category, Tooltip, Da
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
     components: {

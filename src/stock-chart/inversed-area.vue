@@ -31,7 +31,7 @@
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure stock chart to visualize the stock data with inversed axis and it can be inversed by setting <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockChartAxis/#isinversed">isInversed</a> property as <b>true</b>.
+        In this example, you can see how to render and configure stock chart to visualize the stock data with inversed axis and it can be inversed by setting <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockChartAxis/#isinversed" aria-label="Navigate to the isInversed property reference for Vue Stock Chart Axis">isInversed</a> property as <b>true</b>.
       </p>
       <p>
         <code>Crosshair</code> is enabled in this example. To see the crosshair in action, hover the chart or tap on touch enabled devices.
@@ -45,7 +45,7 @@
       </p>
       <p>
         More information about the axis can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/axis-types">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/stock-chart/axis-types" aria-label="Navigate to the documentation for Axis types in Vue Stock Chart component">documentation section</a>.
       </p>
     </div>
   </div>
@@ -82,7 +82,7 @@ import {
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

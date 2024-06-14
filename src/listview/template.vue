@@ -4,7 +4,7 @@
             <template v-slot:listTemplate="{data}">
                 <div id="postContainer" v-bind:class="{'clearfix desc e-list-wrapper e-list-multi-line e-list-avatar':
                     (data.category !== undefined), 'clearfix e-list-wrapper e-list-multi-line e-list-avatar': (data.category === undefined)}">
-                    <img v-if="data.imgSrc" class="e-avatar" :src="data.imgSrc" />
+                    <img v-if="data.imgSrc" class="e-avatar" :src="data.imgSrc" :alt="image"/>
                     <span class="e-list-item-header">{{data.title}} </span>
                     <span class="e-list-content e-text-overflow" >{{data.description}} </span>
                     <div v-if="data.timeStamp" id="list-logo">

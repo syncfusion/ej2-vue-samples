@@ -3,13 +3,13 @@
 <div class="col-lg-12 control-section tree-local">
     <div class="col-lg-6 nested-data">
             <div class='tree-content'>
-                <h4>Hierarchical Data</h4>
+                <p class="displayText">Hierarchical Data</p>
                 <ejs-treeview id="tree" :fields='fields'></ejs-treeview>
             </div>
         </div>
         <div class='col-lg-6 list-data'>
             <div class='tree-content'>
-                <h4>List Data</h4>
+                <p class="displayText">List Data</p>
                 <ejs-treeview id="listtree" :fields='listfields'></ejs-treeview>
             </div>
         </div>
@@ -36,8 +36,13 @@
         border: 1px solid #dddddd;
         border-radius: 3px;
     }
-    .tree-local .tree-content h4 {
+    .tree-local .tree-content .displayText {
         padding: 0 10px;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.1;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 </style>
 /* custom code end */

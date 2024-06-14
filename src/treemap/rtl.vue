@@ -1,25 +1,26 @@
 <template>
-<div>
+<main><div>
     <div class="control-section">
         <ejs-treemap id='container' align="center" :load='load' :palette='palette' :titleSettings='titleSettings' :enableRtl='enableRtl' :renderDirection='renderDirection' :enableDrillDown='enableDrillDown' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :weightValuePath='weightValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings' :levels='levels'></ejs-treemap>
     </div>
     <div style="float: right; margin-right: 10px;">Source:
         <a href="https://en.wikipedia.org/wiki/List_of_continents_by_population" target="_blank">en.wikipedia.org</a>
-    </div>    
-<div id="action-description">
+    </div>   
+</div> 
+<section id="action-description" aria-label="Description of TreeMap sample">
     <p>
         This sample orders the countries based on the unemployment rate by rendering TreeMap in the right-to-left (RTL)
         direction.
     </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the TreeMap features demonstrated in this sample">
     <p>
         In this example, you can see how to render a TreeMap from the right-to-left direction. The tooltip is enabled in
         this example. To see the tooltip in action, hover the mouse over an item or tap an item in touch-enabled
         devices.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <script>
 import { TreeMapComponent, TreeMapTooltip } from "@syncfusion/ej2-vue-treemap";

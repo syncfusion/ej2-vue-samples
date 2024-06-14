@@ -13,6 +13,7 @@
 <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>            
         </div>
     </div>
+    
 <div id="action-description">
     <p>This example demonstrates how to enable the heading navigation pane in Document Editor.</p>
 </div>

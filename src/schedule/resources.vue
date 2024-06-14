@@ -146,7 +146,9 @@
     .fabric-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
     .material-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
     .highcontrast .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
-    .material3-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap {
+    .material3-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
+    .fluent2-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
+    .fluent2-highcontrast .schedule-vue-sample .e-schedule .e-appointment .template-wrap {
         color: #fff;
     }
 
@@ -170,7 +172,9 @@
     .fabric-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
     .material-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
     .highcontrast .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
-    .material3-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells) {
+    .material3-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
+    .fluent2-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
+    .fluent2-highcontrast .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells) {
         color: #33DB33;
     }
 
@@ -181,7 +185,9 @@
     .fabric-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
     .material-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
     .highcontrast .schedule-vue-sample .e-schedule .e-work-cells.best-price,
-    .material3-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price {
+    .material3-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
+    .fluent2-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
+    .fluent2-highcontrast .schedule-vue-sample .e-schedule .e-work-cells.best-price {
         background-color: #393939;
     }
 
@@ -341,19 +347,19 @@
         font-weight: 500
     }
     
-    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.e-resource.e-airways-1 .e-frame {
-        background-color: #EA7A57;
-        border-color: transparent;
+    .property-panel-content .e-checkbox-wrapper.e-resource.e-airways-1 .e-frame {
+        background-color: #EA7A57 !important;
+        border-color: transparent !important;
     }
 
-    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.e-resource.e-airways-2 .e-frame {
-        background-color: #357CD2;
-        border-color: transparent;
+    .property-panel-content .e-checkbox-wrapper.e-resource.e-airways-2 .e-frame {
+        background-color: #357CD2 !important;
+        border-color: transparent !important;
     }
 
-    .schedule-vue-sample .property-panel-content .e-checkbox-wrapper.e-resource.e-airways-3 .e-frame {
-        background-color: #7FA900;
-        border-color: transparent;
+    .property-panel-content .e-checkbox-wrapper.e-resource.e-airways-3 .e-frame {
+        background-color: #7FA900 !important;
+        border-color: transparent !important;
     }
 
     @media (max-width: 550px) {

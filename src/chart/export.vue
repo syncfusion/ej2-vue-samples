@@ -26,11 +26,11 @@
           </tr>
           <tr style="height: 50px">
             <td style="width: 40%">
-              <div>File Name</div>
+              <div id="exportFile">File Name</div>
             </td>
             <td>
               <div style="margin-left: -10px; margin-top: -10px;" class="e-float-input">
-                <input style="width: 90px;" type="text" requires="" value='Chart' id="fileName" />
+                <input style="width: 90px;" type="text" requires="" value='Chart' id="fileName" aria-labelledby="Chart"/>
               </div>
             </td>
           </tr>
@@ -61,7 +61,7 @@
       <p>
         More information on the export can be found in this
         <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/chart/chart-print/#export">documentation
+          href="https://ej2.syncfusion.com/vue/documentation/chart/chart-print/#export" aria-label="Navigate to the documentation for Export in Vue Chart component">documentation
           section</a>.
       </p>
     </div>
@@ -69,51 +69,50 @@
 
 </template>
 <style>
-.e-export-icon::before {
-  content: '\e728';
-}
-
-.e-view.fabric .e-export-icon::before,
-.e-view.fabric-dark .e-export-icon::before {
-  content: '\e710';
-}
-
-.e-view.bootstrap4 .e-export-icon::before {
-  content: '\e780';
-}
-
-.e-view.tailwind-dark .e-export-icon::before,
-.e-view.tailwind .e-export-icon::before {
-  content: '\e7bf';
-}
-
-.e-view.highcontrast .e-export-icon::before {
-  content: '\e710';
-}
-
-.e-view.bootstrap5 .e-export-icon::before,
-.e-view.bootstrap5-dark .e-export-icon::before {
-  content: '\e72e';
-}
-
-.e-view.material .e-export-icon::before,
-.e-view.material-dark .e-export-icon::before,
-.e-view.bootstrap .e-export-icon::before,
-.e-view.bootstrap-dark .e-export-icon::before {
-  content: '\e728';
-}
+.e-icons.e-export::before {
+        content: '\e728';
+    }
+ 
+    .e-view.fabric .e-icons.e-export::before, .e-view.fabric-dark .e-icons.e-export::before {
+        content: '\e710';
+    }
+ 
+    .e-view.bootstrap4 .e-icons.e-export::before {
+        content: '\e780';
+    }
+ 
+    .e-view.tailwind-dark .e-icons.e-export::before, .e-view.tailwind .e-icons.e-export::before {
+        content: '\e7bf';
+    }
+ 
+    .e-view.highcontrast .e-icons.e-export::before {
+        content: '\e710';
+    }
+ 
+    .e-view.bootstrap5 .e-icons.e-export::before, .e-view.bootstrap5-dark .e-icons.e-export::before {
+        content: '\e72e';
+    }
+    .e-view.fluent .e-icons.e-export::before, .e-view.fluent-dark .e-icons.e-export::before {
+        content: '\e72e';
+    }
+    .e-view.fluent2 .e-icons.e-export::before, .e-view.fluent2-dark .e-icons.e-export::before, .e-view.fluent2-highcontrast .e-icons.e-export::before {
+        content: '\e72e';
+    }
+    .e-view.material3 .e-icons.e-export::before, .e-view.material3-dark .e-icons.e-export::before {
+        content: '\e72e';
+    }
 </style>
 <script>
 import { Browser } from "@syncfusion/ej2-base";
 import { ButtonComponent} from '@syncfusion/ej2-vue-buttons';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2DarkColors } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Legend, Export, DataLabel } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {
@@ -244,6 +243,12 @@ export default {
       }
       else if (selectedTheme === 'highcontrast') {
         args.fill = pointHighContrastColors[args.point.index % 10];
+      }
+      else if (selectedTheme === 'fluent2') {
+        args.fill = pointFluent2Colors[args.point.index % 10];
+      } 
+      else if (selectedTheme === 'fluent2-dark') {
+        args.fill = pointFluent2DarkColors[args.point.index % 10];
       }
       else {
         args.fill = pointBootstrapColors[args.point.index % 10];

@@ -39,7 +39,7 @@
     <div id="description">
       <p>
         In this example, you can see how to render and configure polar and radar charts with an area series. 
-      Switching between polar and radar series can be done using <b>Series Type </b>in the property panel.
+      Switching between polar and radar series can be done using <b>Series Type</b>in the property panel.
       </p>
       <p>
         <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the mouse over a
@@ -56,7 +56,7 @@
       <p>
         More information on the polar and radar chart with an area series can be found in this
         <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/polar#area">documentation
+          href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/polar#area" aria-label="Navigate to the documentation for Polar Area in Vue Chart component">documentation
           section</a>.
       </p>
     </div>
@@ -88,7 +88,7 @@ import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

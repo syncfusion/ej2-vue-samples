@@ -28,16 +28,16 @@
             </div>
                 </div>
             </div>
-        <ejs-grid ref='grid' :dataSource="data" height='410' :enableHover='false' :frozenRows='rows' :allowSorting='true'>
+        <ejs-grid ref='grid' :dataSource="data" height='410' :enableHover='false' :frozenRows='rows' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' freeze='Left'></e-column>
-                <e-column field='Freight' minWidth='10' width='125' format='C2' textAlign='Right'></e-column>
-                <e-column field='CustomerID' headerText='Customer ID' minWidth='10' width='130' freeze='Right'></e-column>
-                <e-column field='OrderDate' headerText='Order Date' width='150' format="yMd" textAlign='Right' minWidth='10'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' freeze='Left' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+                <e-column field='Freight' minWidth='10' width='125' format='C2' textAlign='Right' editType='numericedit' :validationRules='freightrules'></e-column>
+                <e-column field='CustomerID' headerText='Customer ID' minWidth='10' width='130' freeze='Right' :validationRules='customeridrules'></e-column>
+                <e-column field='OrderDate' headerText='Order Date' width='150' format="yMd" textAlign='Right' minWidth='10' editType='datepickeredit'></e-column>
                 <e-column field='ShipName' headerText='Ship Name' width='300' minWidth='10'></e-column>
                 <e-column field='ShipAddress' headerText='Ship Address' width='270' minWidth='10' freeze='Fixed'></e-column>
                 <e-column field='ShipCity' headerText='Ship City' width='250' minWidth='10'></e-column>
-                <e-column field='ShipCountry' headerText='Ship Country' width='250' minWidth='10'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' width='250' minWidth='10' editType='dropdownedit'></e-column>
             </e-columns>
         </ejs-grid>
     </div>
@@ -79,7 +79,7 @@
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, freezeDirection, Column, Sort, Freeze } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, freezeDirection, Column, Sort, Freeze, Toolbar, Edit, Filter } from "@syncfusion/ej2-vue-grids";
 import { Browser } from '@syncfusion/ej2-base';
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { DropDownListComponent, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
@@ -101,6 +101,12 @@ export default {
 	alertHeader: 'Frozen',
 	alertContent: 'Atleast one Column should be in movable',
 	showCloseIcon: false,
+    filterSettings: { type: 'Excel' },
+    editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+    orderidrules: { required: true, number: true },
+    customeridrules: { required: true, minLength: 5 },
+    freightrules:  { required: true, min: 0 },
+    toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
 	target: '.control-section',
 	alertWidth: '300px',
 	animationSettings: { effect: 'None' },
@@ -150,7 +156,7 @@ export default {
     }
   },
   provide: {
-      grid: [Sort, Freeze]
+      grid: [Sort, Freeze, Toolbar, Edit, Filter]
   }
 }
 </script>

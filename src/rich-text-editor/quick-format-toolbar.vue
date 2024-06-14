@@ -51,7 +51,7 @@
                     Solar-Powered Transportation: Solar energy can be used to charge electric vehicles (EVs) and provide energy for
                     electric public transportation.
                 </p>
-                <p><img src="https://media.istockphoto.com/id/494417257/photo/photovoltaic-panels.jpg?s=612x612&w=0&amp;k=20&amp;c=USdqOh0Pjuyv-jOB-ny5JPV6VQ1U5PvPo-xgBuhKPxc="
+                <p><img src="./images/QuickFormatToolbarImage.png"
                         width="300px" class="e-rte-image e-imginline"/>
                 </p>
             </ejs-richtexteditor>

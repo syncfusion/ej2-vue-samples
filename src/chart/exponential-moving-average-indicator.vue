@@ -37,7 +37,7 @@
             <p>
                 More information on the exponential moving average indicator can be found in this
                 <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/chart/technical-indicators/#exponential-moving-average-ema">documentation
+                    href="https://ej2.syncfusion.com/vue/documentation/chart/technical-indicators/#exponential-moving-average-ema" aria-label="Navigate to the documentation for Exponential Moving Average in Vue Chart component">documentation
                     section</a>.
             </p>
         </div>
@@ -54,7 +54,7 @@ import { chartValue } from './financial-data';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
     components: {

@@ -1,7 +1,7 @@
 <template>
-<div id="patternsarcgauge">
+<main><div id="patternsarcgauge">
     <div class="control-section" style="overflow: auto">
-        <table>
+        <table role="none">
             <tr>
                 <td class="gaugeAlign">
                     <ejs-circulargauge width="280px" height="300px" :load='gaugeload1' id='container1'>
@@ -14,7 +14,7 @@
                 <td class="gaugeAlign">
                     <ejs-circulargauge width="280px" height="300px" centerY="60%" :load='gaugeload2' id='container2'>
                         <e-axes>
-                            <e-axis startAngle="270" endAngle="90" radius='80%'  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyle' :lineStyle= 'lineStyleFour' :annotations='annotationsFive' :pointers='pointersFive'>
+                            <e-axis startAngle="270" endAngle="90" radius='80%'  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyleTwo' :lineStyle= 'lineStyleFour' :annotations='annotationsFive' :pointers='pointersFive'>
                             </e-axis>
                         </e-axes>
                     </ejs-circulargauge>
@@ -22,7 +22,7 @@
                 <td class="gaugeAlign">
                       <ejs-circulargauge width="280px" height="300px" ref="circulargauge1" :load='gaugeload3' id='container3'>
                         <e-axes>
-                            <e-axis startAngle="220" endAngle="140" radius='75%' minimum=0 maximum=600  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyle' :lineStyle= 'lineStyle' :annotations='annotationsSix' :ranges='rangesSix' :pointers='pointersSix'>
+                            <e-axis startAngle="220" endAngle="140" radius='75%' minimum=0 maximum=600  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyleThree' :lineStyle= 'lineStyle' :annotations='annotationsSix' :ranges='rangesSix' :pointers='pointersSix'>
                             </e-axis>
                         </e-axes>
                     </ejs-circulargauge>
@@ -40,7 +40,7 @@
                 <td class="gaugeAlign">
                     <ejs-circulargauge width="280px" height="300px" :load='gaugeload5' id='container5'>
                         <e-axes>
-                            <e-axis startAngle="220" endAngle="140" radius='80%' minimum=0 maximum=100  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyle' :lineStyle= 'lineStyle' :annotations='annotationsEight' :ranges='rangesEight' :pointers='pointersEight'>
+                            <e-axis startAngle="220" endAngle="140" radius='80%' minimum=0 maximum=100  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyleFive' :lineStyle= 'lineStyle' :annotations='annotationsEight' :ranges='rangesEight' :pointers='pointersEight'>
                             </e-axis>
                         </e-axes>
                     </ejs-circulargauge>
@@ -48,7 +48,7 @@
                 <td class="gaugeAlign">
                     <ejs-circulargauge width="280px" height="300px" ref="circulargauge2" :load='gaugeload6' id='container6'>
                         <e-axes>
-                            <e-axis startAngle="220" endAngle="140" radius='80%' minimum=0 maximum=100  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyle' :lineStyle= 'lineStyle' :annotations='annotationsNine' :ranges='rangesNine' :pointers='pointersNine'>
+                            <e-axis startAngle="220" endAngle="140" radius='80%' minimum=0 maximum=100  :majorTicks= 'majorTicks' :minorTicks= 'minorTicks' :labelStyle ='labelStyleSix' :lineStyle= 'lineStyle' :annotations='annotationsNine' :ranges='rangesNine' :pointers='pointersNine'>
                             </e-axis>
                         </e-axes>
                     </ejs-circulargauge>
@@ -56,12 +56,13 @@
             </tr>
         </table>
     </div>
-    <div id="action-description">
+</div>
+    <section id="action-description" aria-label="Description of Circular Gauge sample">
         <p>
             This sample includes a wide range of arc gauges with varying appearances based on the built-in features and customization options.
         </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Circular Gauge features demonstrated in this sample">
         <p>
             In this example, you can see how to render an arc gauge in various styles. You can use <a target="_blank"
             href="https://ej2.syncfusion.com/vue/documentation/api/circular-gauge/axisModel">axes</a>, <a
@@ -77,8 +78,8 @@
             More information on the arc gauge can be found in this
             <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/circular-gauge/getting-started/">documentation section</a>.
         </p>
-    </div>
-</div>
+    </section>
+</main>
 </template>
 
 <script>
@@ -101,10 +102,35 @@ export default {
              height: 0,
              width:0
         },
-        labelStyle:{
-        font: {
-            size: '0px'
+        labelStyleFive:{
+		    format:'$ {value}',
+            font: {
+               size: '0px'
+            },
         },
+		labelStyle:{
+		    format:'Pointer {value} %',
+            font: {
+               size: '0px'
+            },
+        },
+		labelStyleThree:{
+		    format:'{value}%',
+            font: {
+               size: '0px'
+            },
+        },
+		labelStyleTwo:{
+		    format:'{value} %',
+            font: {
+               size: '0px'
+            },
+        },
+		labelStyleSix:{
+		    format:'{value} % Completed',
+            font: {
+               size: '0px'
+            },
         },
         lineStyle:{
           width:0
@@ -123,6 +149,7 @@ export default {
             },
             annotationsFour: [
               {
+                description:'38',
                 content: '<div class="gaugeOneText" style="font-size:30px;font-family:inherit;">38</div>',
                 angle: 1,
                 radius: '-20%',
@@ -134,6 +161,7 @@ export default {
                 type: 'RangeBar',
                 color: '#7edfb4',
                 value: 38,
+                description:'RangeBar pointer value : 38',
                 radius: '120%',
                 pointerWidth: 28,
                 animation: {
@@ -142,6 +170,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value: 38',
                 markerShape: 'Rectangle',
                 markerWidth: 28,
                 markerHeight: 3,
@@ -192,6 +221,7 @@ export default {
       pointersFive: [
         {
           type: 'RangeBar',
+		  description: 'RangeBar pointer value: 80',
           pointerWidth: 40,
           color: '#d6f5e8',
           value: 80,
@@ -199,6 +229,7 @@ export default {
         },
         {
           type: 'RangeBar',
+		  description: 'RangeBar pointer value :80',
           pointerWidth: 30,
           color: '#7edfb4',
           value: 80,
@@ -207,18 +238,21 @@ export default {
       ],
       annotationsFive: [
         {
+            description:'75%',
             content: '<div style="font-size:25px;font-family:inherit;">75%</div>',
             angle: 1,
             radius: '0%',
             zIndex: '1',
         },
         {
+          description:'Annotation value : 0 %',
           content: '<div style="font-size:22px;font-family:inherit;">0%</div>',
           angle: 255,
           radius: '102%',
           zIndex: '1',
         },
         {
+          description:'Annotation value :100 %',
           content: '<div style="font-size:22px;font-family:inherit;">100%</div>',
           angle: 105,
           radius: '105%',
@@ -229,25 +263,28 @@ export default {
       // Gauge Three
       annotationsSix: [
         {
-            content:
-              '<div style="font-size:30px;font-family:inherit;"> 450 </div> </div>',
+            description:'450',
+            content: '<div style="font-size:30px;font-family:inherit;"> 450 </div> </div>',
             zIndex: '1',
             angle: 0,
             radius: '-10%',
           },
           {
+            description:'300',
             content: '<div style="font-size:12px;font-family:inherit;"> 300 </div>',
             zIndex: '1',
             angle: 0,
             radius: '112%',
           },
           {
+            description:'400',
             content: '<div style="font-size:12px;font-family:inherit;"> 400 </div>',
             zIndex: '1',
             angle: 48,
             radius: '112%',
           },
           {
+            description:'500',
             content: '<div style="font-size:12px;font-family:inherit;"> 500 </div>',
             zIndex: '1',
             angle: 93,
@@ -310,8 +347,8 @@ export default {
       // Gauge Four
       annotationsSeven: [
             {
-              content:
-                '<div class="gaugeThreeText" style="font-size:30px;font-family:inherit;">21%</div>',
+              description:'21%',
+              content: '<div class="gaugeThreeText" style="font-size:30px;font-family:inherit;">21%</div>',
               angle: 1,
               zIndex: '1',
               radius: '-5%',
@@ -358,6 +395,7 @@ export default {
             {
               type: 'RangeBar',
               radius: '90%',
+              description:'RangeBar pointer value : 21',
               value: 21,
               roundedCornerRadius: 10,
               color: '#a8f789',
@@ -373,6 +411,7 @@ export default {
               markerHeight: 30,
               color: 'white',
               radius: '80%',
+              description:'Marker pointer value :22',
               value: 22,
               animation:{
                 enable:false
@@ -380,6 +419,7 @@ export default {
             },
             {
               type: 'Marker',
+              description:'Marker pointer value: 22',
               markerShape: 'Circle',
               markerWidth: 18,
               markerHeight: 18,
@@ -396,8 +436,8 @@ export default {
 
           annotationsEight: [
             {
-              content:
-                '<div style="font-size:30px;font-family:inherit;">54%</div>',
+              description:'54%',
+              content: '<div style="font-size:30px;font-family:inherit;">54%</div>',
               angle: 170,
               zIndex: '1',
               radius: '12%',
@@ -407,6 +447,7 @@ export default {
           pointersEight: [
             {
               roundedCornerRadius: 20,
+              description:'RangeBar pointer value : 54',
               value: 54,
               type: 'RangeBar',
               radius: '90%',
@@ -464,8 +505,8 @@ export default {
           // Gauge Six
           annotationsNine: [
             {
-                content:
-                  '<div class="annotationText">80% <br/> <div> Completed </div> </div>',
+                description:'80% Completed',
+                content: '<div class="annotationText">80% <br/> <div> Completed </div> </div>',
                 angle: 10,
                 zIndex: '1',
                 radius: '7%',
@@ -475,6 +516,7 @@ export default {
           pointersNine: [
             {
                 type: 'Marker',
+                description:'Marker pointer value : 0',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -487,6 +529,7 @@ export default {
             },
             {
                 type: 'Marker',
+                description:'Marker pointer value : 1',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -499,6 +542,7 @@ export default {
             },
             {
                 type: 'Marker',
+                description:'Marker pointer value : 2',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -511,6 +555,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 3',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -523,6 +568,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 4',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -535,6 +581,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 5',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -547,6 +594,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 6',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -559,6 +607,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 7',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -571,6 +620,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 8',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -583,6 +633,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 9',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -595,6 +646,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 10',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -607,6 +659,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 11',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -619,6 +672,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 12',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -631,6 +685,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 13',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -643,6 +698,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 14',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -655,6 +711,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 15',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -667,6 +724,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 16',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -679,6 +737,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 17',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -691,6 +750,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 18',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -703,6 +763,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 19',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -715,6 +776,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 20',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -727,6 +789,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 21',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -739,6 +802,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 22',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -752,6 +816,7 @@ export default {
               {
                 type: 'Marker',
                 markerShape: 'Rectangle',
+                description:'Marker pointer value : 23',
                 markerWidth: 38,
                 markerHeight: 3,
                 color: '#7edfb4',
@@ -763,6 +828,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 24',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -775,6 +841,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 25',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -787,6 +854,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 26',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -799,6 +867,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 27',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -811,6 +880,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 28',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -823,6 +893,7 @@ export default {
             },
             {
                 type: 'Marker',
+                description:'Marker pointer value : 29',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -834,6 +905,7 @@ export default {
                 }
             },
             {
+                description:'Marker pointer value : 30',
                 type: 'Marker',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
@@ -847,6 +919,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 31',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -859,6 +932,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 32',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -871,6 +945,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 33',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -883,6 +958,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 34',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -895,6 +971,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 35',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -907,6 +984,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 36',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -919,6 +997,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 37',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -931,6 +1010,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 38',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -943,6 +1023,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 39',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -955,6 +1036,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 40',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -967,6 +1049,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 41',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -979,6 +1062,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 42',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -991,6 +1075,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 43',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1003,6 +1088,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 44',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1015,6 +1101,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 45',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1027,6 +1114,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 46',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1039,6 +1127,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 47',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1051,6 +1140,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 48',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1063,6 +1153,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 49',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1075,6 +1166,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 50',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1087,6 +1179,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 51',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1099,6 +1192,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 52',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1111,6 +1205,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 53',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1123,6 +1218,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 54',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1135,6 +1231,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 55',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1147,6 +1244,7 @@ export default {
             },
             {
                 type: 'Marker',
+                description:'Marker pointer value : 56',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1159,6 +1257,7 @@ export default {
             },
             {
                 type: 'Marker',
+                description:'Marker pointer value : 57',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1171,6 +1270,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 58',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1183,6 +1283,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 59',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1195,6 +1296,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 60',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1207,6 +1309,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 61',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1219,6 +1322,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 62',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1231,6 +1335,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 63',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1243,6 +1348,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 64',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1255,6 +1361,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 65',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1267,6 +1374,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 66',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1279,6 +1387,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 67',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1291,6 +1400,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 68',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1303,6 +1413,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 69',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1315,6 +1426,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 70',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1327,6 +1439,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 71',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1339,6 +1452,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 72',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1351,6 +1465,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 73',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1363,6 +1478,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 74',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1375,6 +1491,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 75',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1387,6 +1504,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 76',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1399,6 +1517,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 77',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1411,6 +1530,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 78',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,
@@ -1423,6 +1543,7 @@ export default {
               },
               {
                 type: 'Marker',
+                description:'Marker pointer value : 79',
                 markerShape: 'Rectangle',
                 markerWidth: 38,
                 markerHeight: 3,

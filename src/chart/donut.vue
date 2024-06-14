@@ -25,7 +25,7 @@
           The Charts component’s features are segregated into individual feature modules. To use pie chart, we need to inject <code>PieSeries</code> module using <code>provide: { chart: [PieSeries] }</code> method.
         </p>
     <p>
-      More information about the donut series can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pie-dough-nut/#doughnut-chart">documentation section</a>.
+      More information about the donut series can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pie-dough-nut/#doughnut-chart" aria-label="Navigate to the documentation for Doughnut Chart in Vue Accumulation Chart component">documentation section</a>.
     </p>
 </div>
 </div>
@@ -40,7 +40,7 @@ import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, Accu
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 let seriesColor = ['#FFE066', "#FAB666", "#F68F6A", "#F3646A", "#CC555A", "#9C4649"];
 export default {
   components: {
@@ -145,6 +145,14 @@ export default {
         else if(selectedTheme.indexOf('highcontrast') > -1)
         {
           args.border.color = '#000000' ;
+        }
+        else if (selectedTheme.indexOf('fluent2') > -1) 
+        {
+          args.fill = seriesColor[args.point.index % 10];
+        }
+        else if (selectedTheme.indexOf('fluent2-highcontrast') > -1) 
+        {
+          args.fill = seriesColor[args.point.index % 10];
         }
         else
         {

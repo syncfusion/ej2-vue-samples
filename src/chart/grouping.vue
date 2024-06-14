@@ -25,12 +25,12 @@
 
                     <tr >
                         <td style="width: 30%">
-                            <div>Group To                                
+                            <div id="groupValue">Group To                                
                             </div>
                         </td>
                         <td style="width: 40%;">
                             <div data-role="rangeslider">
-                                <input type="range" name="clubvalue" value="9" min="0" max="27" @touchmove='onClubvalue' @pointermove='onClubvalue' @change='onClubvalue' autocomplete="off" id="clubvalue" style="width:90%">
+                                <input type="range" name="clubvalue" value="9" min="0" max="27" @touchmove='onClubvalue' @pointermove='onClubvalue' @change='onClubvalue' autocomplete="off" id="clubvalue" style="width:90%" aria-labelledby="Slider">
                             </div>
                         </td>
                         <td style="width: 30%">
@@ -57,7 +57,7 @@
         </p>
     <p>
         More information about the grouping in accumulation chart can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/grouping/">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/grouping/" aria-label="Navigate to the documentation for Grouping in Vue Accumulation Chart component">documentation section</a>.
     </p>
 </div>
 
@@ -75,7 +75,7 @@ import { Browser } from '@syncfusion/ej2-base';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i,  'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

@@ -53,7 +53,7 @@
     
     <template v-slot:columnTemplate="{data}">
         <div class="columnTemplate" v-if="data.ganttProperties.resourceNames">
-        <img :src="'src/gantt/images/' + data.ganttProperties.resourceNames + '.png'"  style="height=25px;width:25px" />
+        <img :src="'src/gantt/images/' + data.ganttProperties.resourceNames + '.png'"  style="height:25px;width:25px" :alt="data.ganttProperties.resourceNames"/>
         <div style="display:inline-block;width:100%;position:relative;left:5px">
             {{data.ganttProperties.resourceNames}}</div>
         </div>
@@ -155,30 +155,30 @@ export default {
             },
             eventMarkers: [
                 {
-                    day: '04/04/2022',
+                    day: '04/04/2024',
                     cssClass: 'e-custom-event-marker',
                     label: 'Q-1 Release'
                 },
                 {
-                    day: '06/30/2022',
+                    day: '06/30/2024',
                     cssClass: 'e-custom-event-marker',
                     label: 'Q-2 Release'
                 },
                 {
-                    day: '09/29/2022',
+                    day: '09/29/2024',
                     cssClass: 'e-custom-event-marker',
                     label: 'Q-3 Release'
                 }
             ],
             holidays: [{
-                from: "01/01/2022",
-                to: "01/01/2022",
+                from: "01/01/2024",
+                to: "01/01/2024",
                 label: "New Year holiday",
                 cssClass: "e-custom-holiday"
             },
             {
-                from: "12/25/2021",
-                to: "12/26/2021",
+                from: "12/25/2023",
+                to: "12/26/2023",
                 label: "Christmas holidays",
                 cssClass: "e-custom-holiday"
             }],
@@ -188,8 +188,8 @@ export default {
             },
             taskbarHeight: 24,
             rowHeight: 36,
-            projectStartDate: new Date('12/17/2021'),
-            projectEndDate: new Date('10/26/2022'),
+            projectStartDate: new Date('12/17/2023'),
+            projectEndDate: new Date('10/26/2024'),
            
       };
   },
@@ -240,22 +240,22 @@ export default {
         switch (status) {
         case "In Progress":
             statusStyleColor = (CurrentTheme) ? "#DFECFF" : "#2D3E57";
-            style = "display: flex; padding: 1px 12px; gap: 10px; width: 96px; height: 24px; border-radius: 24px; background:" + statusStyleColor;
+            style = "display: flex; padding: 1.5px 12px; gap: 10px; width: 96px; height: 24px; border-radius: 24px; background:" + statusStyleColor;
             break;
         case "Open":
             style = "background-color: red; color: white; border-radius: 15px; padding:6px";
             break;
         case "On Hold":
             statusStyleColor = (CurrentTheme) ? "#E4E4E7" : "#3C3B43";
-            style = "display: flex; border-radius: 24px; padding: 1px 12px; gap: 10px; width: 78px; height: 24px; background:" + statusStyleColor;
+            style = "display: flex; border-radius: 24px; padding: 1.5px 12px; gap: 10px; width: 78px; height: 24px; background:" + statusStyleColor;
             break;
         case "Completed":
             statusStyleColor = (CurrentTheme) ? "#DFFFE2" : "#16501C";
-            style = "display: flex; padding: 1px 12px; gap: 10px; width: 98px; height: 24px; border-radius: 24px;background:" + statusStyleColor;
+            style = "display: flex; padding: 1.5px 12px; gap: 10px; width: 98px; height: 24px; border-radius: 24px;background:" + statusStyleColor;
             break;
         case "High":
             statusStyleColor = (CurrentTheme) ? "#FFEBE9" : "#48211D";
-            style = "display: flex; padding: 1px 12px; gap: 10px; width: 55px; height: 24px; border-radius: 24px; background:" + statusStyleColor;
+            style = "display: flex; padding: 1.5px 12px; gap: 10px; width: 55px; height: 24px; border-radius: 24px; background:" + statusStyleColor;
             break;
     }
     return style;
@@ -289,19 +289,19 @@ export default {
         switch (priority) {
         case "Low":
             priorityStyle = (CurrentTheme) ? "#FFF6D1" : "#473F1E";
-            style = "display: flex; padding: 1px 12px; gap: 10px; width: 52px; height: 24px; border-radius: 24px; background: " + priorityStyle;
+            style = "display: flex; padding: 1.5px 12px; gap: 10px; width: 52px; height: 24px; border-radius: 24px; background: " + priorityStyle;
             break;
         case "Normal":
             priorityStyle = (CurrentTheme) ? "#F5DFFF" : "#4D2F5A";
-            style = "display: flex; padding: 1px 12px; gap: 10px; width: 73px; height: 24px; border-radius: 24px; background: " + priorityStyle;
+            style = "display: flex; padding: 1.5px 12px; gap: 10px; width: 73px; height: 24px; border-radius: 24px; background: " + priorityStyle;
             break;
         case "Critical":
             priorityStyle = (CurrentTheme) ? "#FFEBE9" : "#48211D";
-            style = "display: flex; padding: 1px 12px; gap: 10px; width: 72px; height: 24px; border-radius: 24px; background: " + priorityStyle;
+            style = "display: flex; padding: 1.5px 12px; gap: 10px; width: 72px; height: 24px; border-radius: 24px; background: " + priorityStyle;
             break;
         case "High":
             priorityStyle = (CurrentTheme) ? "#FFEBE9" : "#48211D";
-            style = "display: flex; padding: 1px 12px; gap: 10px; width: 55px; height: 24px; border-radius: 24px; background: " + priorityStyle;
+            style = "display: flex; padding: 1.5px 12px; gap: 10px; width: 55px; height: 24px; border-radius: 24px; background: " + priorityStyle;
             break;
     }
     return style;
@@ -339,4 +339,9 @@ export default {
     {
         border-radius:10px !important
     }
+    .fluent2 #overviewSample .e-toolbar-items .e-toolbar-right .e-template .e-input-group,
+    .fluent2-dark #overviewSample .e-toolbar-items .e-toolbar-right .e-template .e-input-group,
+    .fluent2-highcontrast #overviewSample .e-toolbar-items .e-toolbar-right .e-template .e-input-group {
+         width: 99px !important;
+}
 </style>

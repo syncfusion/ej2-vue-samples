@@ -30,6 +30,7 @@
                   ref="dateGroup"
                   :dataSource="groupData"
                   mode="CheckBox"
+                  aria-label="multiselect"
                   showDropDownIcon="true"
                   enableSelectionOrder="false"
                   :popupWidth="dGroupWidth"
@@ -124,7 +125,12 @@
           </td>
           <td>Specifies the interval value to group the number field.</td>
         </tr>
-      </table>
+      </table><br />
+      <p>
+          More information on the grouping can be found in this <a target="_blank"
+              href="https://ej2.syncfusion.com/vue/documentation/pivotview/grouping">
+          documentation section</a>.
+      </p>
     </div>
   </div>
 </template>

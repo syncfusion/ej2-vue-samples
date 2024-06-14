@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
 <ejs-maps id='container' :load='load' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :useGroupingSeparator='useGroupingSeparator' format='n'>
     <e-layers>
@@ -29,12 +29,13 @@
                 </div> 
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
         <p>
             This sample illustrates the world's top 50 cities by showing the markers in their locations and clustering the markers to avoid intersecting.
        </p>
-    </div>
-    <div id="description">
+    </section>
+    <section id="description" aria-label="Description of the Maps features demonstrated in this sample">
         <p>
           In this example, you can see how to display multiple markers in the same region without intersecting each other. If a marker intersects, 
           it will be clustered and the total number of markers will be displayed over the cluster. 
@@ -51,9 +52,9 @@
         Maps component features are segregated into individual feature-wise modules. To use a marker and cluster, inject the Marker module using the Maps.Inject(Marker) method.
         </p>
        
-    </div>
+    </section>
 
-</div>
+</main>
 </template>
 <style scoped>
     .toolback {

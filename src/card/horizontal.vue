@@ -47,7 +47,7 @@
                             <img src="./images/Trimmer.png" alt="Trimmer">
                         </div>
                         <!-- Horizontal Card Layout for Canon Product -->
-                        <div tabindex="0" class="e-card e-card-horizontal" id="horizontal_product">
+                        <div tabindex="0" class="e-card e-card-horizontal" id="horizontal_product1">
                             <img src="./images/Camera.png" style="height:214px" alt="Camera">
                             <div class="e-card-stacked">
                                 <div class="e-card-header">

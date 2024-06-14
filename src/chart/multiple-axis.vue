@@ -8,13 +8,13 @@
                     <e-annotation :content="'cloudTemplate'" x='Sun' y=70 coordinateUnits='Point'>
                         <template v-slot:cloudTemplate="{}">
                             <div id="chart_cloud"><img src="./images/cloud.png"
-                                    style="width: 41px; height: 41px" /></div>
+                                    style="width: 41px; height: 41px" alt="Cloud Picture"/></div>
                         </template>
                     </e-annotation>
                     <e-annotation :content="'sunTemplate'" x='Sat' y=35 coordinateUnits='Point' yAxisName='yAxis2'>
                         <template v-slot:sunTemplate="{}">
                             <div id="chart_sun"><img src="./images/sunny.png"
-                                    style="width: 41px; height: 41px" /></div>
+                                    style="width: 41px; height: 41px" alt="Sunny Picture"/></div>
                         </template>
                     </e-annotation>
                 </e-annotations>
@@ -43,7 +43,7 @@
             </p>
             <p>
                 More information on the multiple axis can be found in this
-                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/axis-customization/#multiple-axis">documentation
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/axis-customization/#multiple-axis" aria-label="Navigate to the documentation for Multiple Axis in Vue Chart component">documentation
                     section</a>.
             </p>
         </div>
@@ -59,7 +59,7 @@ import { ChartComponent, SeriesDirective, SeriesCollectionDirective, Annotations
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
     components: {

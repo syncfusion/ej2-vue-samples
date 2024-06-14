@@ -1,6 +1,6 @@
 <template>
 <div>
-<div class="control-section" style="overflow: auto">
+<div class="control-section">
    <div style="margin-bottom: 5px">
         <ejs-button id="load-btn" ref="loadbtn" class="e-info" :isPrimary="true" v-on:click="btnClick">Load 100K Data</ejs-button>
         <span id="popup">
@@ -179,7 +179,7 @@ export default {
           { name: "Sold", caption: "Unit Sold" }
         ]
       },
-      width: Browser.isDevice ? '100%' : 1200,
+      width: '100%',
       height: 300,
       enableVirtualization: true,
       gridSettings: { columnWidth: 140 },

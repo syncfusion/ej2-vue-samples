@@ -19,14 +19,14 @@
       </div>
     </div>
         <div class="col-md-3 property-section">
-        <table id="property" title="Properties" style="width: 100%">
+        <table id="property" title="Properties">
         <tr>
             <td style="width: 100%">
                 <div style="font-size: 15px;">Column</div>
             </td>
         </tr>
         <tr>
-            <td style="width: 100%;padding-right: 10px">
+            <td style="width: 100%">
                 <div>
                      <ejs-dropdownlist ref='columns' id='columns' width='150px' :dataSource='columnsData' value='TaskID' :fields='columnsFields'></ejs-dropdownlist>
                 </div>
@@ -38,7 +38,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 100%;padding-right: 10px">
+            <td style="width: 100%;">
                 <div>
                     <ejs-dropdownlist ref='direction' width='150px' id='direction' :dataSource='directionData' value='Ascending' :fields='directionFields'></ejs-dropdownlist>
                 </div>
@@ -117,8 +117,8 @@ export default {
             splitterSettings: {
                 columnIndex: 2
             },
-            projectStartDate: new Date('03/25/2019'),
-            projectEndDate: new Date('07/28/2019'),
+            projectStartDate: new Date('03/25/2024'),
+            projectEndDate: new Date('07/28/2024'),
             columnsData: [
                 { id: 'TaskID', type: 'TaskID' },
                 { id: 'TaskName', type: 'TaskName' },

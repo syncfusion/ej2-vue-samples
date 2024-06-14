@@ -18,7 +18,13 @@
         <code>Pivot Table</code>,
         <code>Grouping Bar</code> and
         <code>Field List</code> support right-to-left direction. It can be enabled by setting the
-        <code>enbleRtl</code> property to true. To open the field list, click the icon at the top-left corner of the grouping bar.</p>
+        <code>enbleRtl</code> property to true. To open the field list, click the icon at the top-left corner of the grouping bar.
+    </p><br />
+    <p>
+        More information on the right-to-left can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/pivotview/globalization-and-localization#right-to-left-rtl">
+        documentation section</a>.
+    </p>
 </div>
 </div>
 </template>

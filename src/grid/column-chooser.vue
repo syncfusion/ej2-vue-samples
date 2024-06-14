@@ -6,14 +6,14 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :showColumnChooser='true' :allowSorting='true' :toolbar='toolbar' :pageSettings='pageSettings'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :showColumnChooser='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar' :pageSettings='pageSettings'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' ></e-column>
-                <e-column field='CustomerName' headerText='Customer Name' width='150' :showInColumnChooser='false' ></e-column>
-                <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right'></e-column>
-                <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right'></e-column>
-                <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" textAlign='Right'></e-column>
-                <e-column field='ShipCountry' headerText='Ship Country' :visible='false' width='150'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+                <e-column field='CustomerName' headerText='Customer Name' width='150' :showInColumnChooser='false' :validationRules='customeridrules'></e-column>
+                <e-column field='OrderDate' headerText='Order Date' width='130' format="yMd" textAlign='Right' editType='datepickeredit'></e-column>
+                <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right' editType='numericedit' :validationRules='freightrules'></e-column>
+                <e-column field='ShippedDate' headerText='Shipped Date' width='130' format="yMd" textAlign='Right' editType='datepickeredit'></e-column>
+                <e-column field='ShipCountry' headerText='Ship Country' :visible='false' width='150' editType='dropdownedit'></e-column>
                 <e-column field='ShipCity' headerText='Ship City' :visible='false' width='150'></e-column>
             </e-columns>
         </ejs-grid>
@@ -48,7 +48,7 @@
 </div>
 </template>
 <script lang="ts">
-import { GridComponent, ColumnDirective, ColumnsDirective, ColumnChooser, Page, Toolbar, Sort } from "@syncfusion/ej2-vue-grids";
+import { GridComponent, ColumnDirective, ColumnsDirective, ColumnChooser, Page, Toolbar, Edit, Filter, Sort } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
@@ -60,12 +60,17 @@ export default {
   data: () => {
     return {
       data: orderDetails,
-      toolbar: ['ColumnChooser'],
+      filterSettings: { type: 'Excel' },
+      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
+      orderidrules: { required: true, number: true },
+      customeridrules: { required: true, minLength: 5 },
+      freightrules:  { required: true, min: 0 },
+      toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'ColumnChooser'],
       pageSettings: {pageCount: 5},
     };
   },
   provide: {
-      grid: [ColumnChooser, Page, Toolbar, Sort]
+      grid: [ColumnChooser, Page, Toolbar, Edit, Filter, Sort]
   }
 }
 </script>

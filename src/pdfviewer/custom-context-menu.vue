@@ -15,19 +15,17 @@
     </div>
     <div class='col-lg-3 pdfviewer-property-section'>
         <div class="pdfviewer-property-container">
-            <h5><b>Properties</b></h5>
+            <p><b>Properties</b></p>
         </div>
         <table>
             <tr>
-                <td class='pdfviewer-contextmenu-checkbox-label'>Hide Default Context Menu</td>
-                <td>
-                    <ejs-checkbox id="enable" @change="contextmenuHelper" :checked="false"></ejs-checkbox>
+                <td class="pdfviewer-contextmenu-checkbox-data">
+                    <ejs-checkbox cssClass='pdfviewer-contextmenu-checkbox' id="enable" @change="contextmenuHelper" :checked="false" label="Hide Default Context Menu" labelPosition="Before"></ejs-checkbox>
                 </td>
             </tr>
             <tr>
-                <td class='pdfviewer-contextmenu-checkbox-label'>Add Custom option at bottom</td>
-                <td>
-                    <ejs-checkbox id="position" @change="contextmenuHelper" :checked="false"></ejs-checkbox>
+                <td class="pdfviewer-contextmenu-checkbox-data">
+                    <ejs-checkbox cssClass='pdfviewer-contextmenu-checkbox' id="position" @change="contextmenuHelper" :checked="false" label="Add Custom option at bottom" labelPosition="Before"></ejs-checkbox>
                 </td>
             </tr>
         </table>
@@ -43,13 +41,14 @@
         <ul>
             <li>Selecting text on pages reveals a custom context menu, enabling users to search for the selected text on Google.</li>
             <li>Annotations and Form Fields can be locked directly from the context menu.</li>
-            <li>Customization is achieved using the following APIs:</li>
-            <ul>
-                <li>Customize the context menu by selectively displaying custom options, hiding existing menu items, controlled by boolean parameters in the <code>addCustomMenu()</code> method.</li>
-                <li>Position custom menu items either above or below existing ones, adjusting boolean parameters in the <code>addCustomMenu()</code> method.</li>
-                <li>Tailor the visibility of custom menu items using the <code>customContextMenuBeforeOpen</code> event.</li>
-                <li>Implement specific functionalities for custom options through the <code>customContextMenuSelect</code> event.</li>
-            </ul>
+            <li>Customization is achieved using the following APIs:
+                <ul>
+                    <li>Customize the context menu by selectively displaying custom options, hiding existing menu items, controlled by boolean parameters in the <code>addCustomMenu()</code> method.</li>
+                    <li>Position custom menu items either above or below existing ones, adjusting boolean parameters in the <code>addCustomMenu()</code> method.</li>
+                    <li>Tailor the visibility of custom menu items using the <code>customContextMenuBeforeOpen</code> event.</li>
+                    <li>Implement specific functionalities for custom options through the <code>customContextMenuSelect</code> event.</li>
+                </ul>
+            </li>
         </ul>
         <p>
             More information on the PDF Viewer instantiation can be found in this
@@ -103,16 +102,22 @@
     padding: 20px 15px;
 }
 
-.pdfviewer-contextmenu-checkbox-label {
-    padding: 10px;
-}
-
 .pdfviewer-control-section {
     border-right: 1px solid #D7D7D7;
 }
 
 .pdfviewer-property-container {
     padding-bottom: 20px;
+}
+</style>
+<style>
+.pdfviewer-contextmenu-checkbox-data label{
+    padding: 10px;
+    min-width: 240px;
+    display: flex;
+    justify-content: space-between;
+    align-content: stretch;
+    flex-wrap: nowrap;
 }
 </style>
 

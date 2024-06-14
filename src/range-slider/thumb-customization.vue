@@ -1,6 +1,6 @@
 <template>
   <div class="col-lg-12 control-section slider-thumb">
-    <div class="slider-content_wrapper">
+    <div class="slider-content_wrapper custom-thumb">
         <div class="slider_container">
             <div class="labelText slider-userselect">Square</div>
             <!-- Square slider element -->
@@ -83,6 +83,12 @@
         background-color: #f9920b;
         border-radius: 50%;
         border: 0;
+    }
+
+    .fluent2 .custom-thumb .e-control.e-slider .e-handle,
+    .fluent2-dark .custom-thumb .e-control.e-slider .e-handle,
+    .fluent2-highcontrast .custom-thumb .e-control.e-slider .e-handle {
+        box-shadow:none;
     }
 
     .material.e-bigger .slider-thumb .e-slider-container.e-horizontal #image_slider.e-slider .e-handle,

@@ -1,5 +1,5 @@
 <template>
-<div>
+<main><div>
 <div class="control-section">
 <ejs-maps id='container' align="center" :load='load' :tooltipRender='tooltipRender' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
     <e-layers>
@@ -28,12 +28,13 @@
        <a href="https://en.wikipedia.org/wiki/List_of_Cricket_World_Cup_finals" target="_blank">en.wikipedia.org</a>
     </div>
 </div>
-<div id="action-description">
+</div>
+<section id="action-description" aria-label="Description of Maps sample">
     <p>
        This sample depicts the countries that were appeared in the finals of Cricket World Cup and their counts. By hovering the mouse over the shapes, county name, finalist count, and winning count will be displayed in the tooltip template.
    </p>
-</div>
-<div id="description">
+</section>
+<section id="description" aria-label="Description of the Maps features demonstrated in this sample">
     <p>
        In this example, you can see how to render the custom HTML element as tooltip. To see the tooltip in action, hover the mouse over a shape or tap a shape in touch enabled devices. Also, the interactive legend has been placed at the left of the map. 
     </p>
@@ -42,8 +43,8 @@
     <p>
      Maps component features are segregated into individual feature-wise modules. To use a tooltip, inject the <code>MapsTooltip</code> module using the <code>Maps.Inject(MapsTooltip)</code> method.
     </p>
-</div>
-</div>
+</section>
+</main>
 </template>
 <style scoped>
    #control-container {

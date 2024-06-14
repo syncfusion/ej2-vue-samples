@@ -6,12 +6,12 @@
             <e-annotations>
                 <e-annotation :content="'cloudTemplate'" x='Sun' y=2 coordinateUnits='Point' verticalAlignment='Top'>
                     <template v-slot:cloudTemplate="{}">
-                        <div id="chart_cloud"><img src="./images/cloud.png"  style="width: 41px; height: 41px"/></div>
+                        <div id="chart_cloud"><img src="./images/cloud.png" alt="Cloud Picture" style="width: 41px; height: 41px"/></div>
                     </template>
                 </e-annotation>
                 <e-annotation :content="'sunTemplate'" x='Tue' y=33 coordinateUnits='Point' verticalAlignment='Top'>
                     <template v-slot:sunTemplate="{}">
-                        <div id="chart_sun"><img src="./images/sunny.png"  style="width: 41px; height: 41px"/></div>
+                        <div id="chart_sun"><img src="./images/sunny.png" alt="Sunny Picture" style="width: 41px; height: 41px"/></div>
                     </template>
                 </e-annotation>
             </e-annotations>
@@ -23,7 +23,7 @@
         </ejs-chart>
     </div>
      <div style="float: right; margin-right: 10px;">Source:
-       <a href="https://www.worldweatheronline.com/mooresville-weather/north-carolina/us.aspx" target="_blank">www.worldweatheronline.com</a>
+       <a href="https://www.worldweatheronline.com/mooresville-weather/north-carolina/us.aspx" target="_blank" aria-label="Navigate to the documentation for world weather online">www.worldweatheronline.com</a>
     </div>
     <div id="action-description">
     <p>
@@ -46,7 +46,7 @@
         </p>
         <p>
           More information about the spline series can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/spline">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/spline" aria-label="Navigate to the documentation for Spline Chart in Vue Chart component">documentation section</a>.
         </p> 
 </div>
 
@@ -54,7 +54,7 @@
 
 
 </template>
-<style scoped>
+<style>
  #chartSpline_Series_0_Point_2_Symbol {
         -webkit-animation: opac 1s ease-out infinite;
         animation: opac 1s ease-out infinite;
@@ -83,7 +83,7 @@ import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AnnotationD
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

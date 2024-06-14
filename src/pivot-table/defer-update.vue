@@ -39,6 +39,11 @@
       <p>
         In general, this feature can be enabled by setting
         <code>allowDeferLayoutUpdate</code> as true.
+      </p><br />
+      <p>
+          More information on the defer layout update can be found in this <a target="_blank"
+              href="https://ej2.syncfusion.com/vue/documentation/pivotview/defer-update">
+          documentation section</a>.
       </p>
     </div>
   </div>

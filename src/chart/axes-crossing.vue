@@ -34,21 +34,21 @@
                 </tr>
                 <tr style="height: 50px">
                     <td style="width: 50%">
-                        <div style="font-size:14px">Crosses Value:</div>
+                        <div style="font-size:14px" id="crossValue">Crosses Value:</div>
                     </td>
                     <td style="width: 50%;padding-left: 10px; padding-right: 10px">
                         <div style="margin-top: 0px;">
-                            <input type="text" id="crossingValue">
+                            <input type="text" id="crossingValue" aria-labelledby="Text">
                         </div>
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td style="width: 50%">
-                        <div style="font-size:14px">Label Near to Axis Line: </div>
+                        <div style="font-size:14px" id="axis">Label Near to Axis Line: </div>
                     </td>
                     <td style="width: 50%;padding-left: 10px; padding-right: 10px">
                         <div>
-                            <input type="checkbox" @change='check' id="axisElements" checked=true>
+                            <input type="checkbox" @change='check' id="axisElements" checked=true aria-labelledby="Checkbox checked">
                         </div>
                     </td>
                 </tr>
@@ -74,7 +74,7 @@
             </p>
             <p>
                 More information on the axis crossing can be found in this
-                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/axis-customization/#axis-crossing">documentation
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/axis-customization/#axis-crossing" aria-label="Navigate to the documentation for Axis Crossing in Vue Chart component">documentation
                     section</a>.
             </p>
         </div>
@@ -94,7 +94,7 @@ import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries,
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
     components: {

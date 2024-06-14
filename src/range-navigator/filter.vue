@@ -1,7 +1,7 @@
 <template>
 <div>
 <div class="control-section">
-   <h4 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px;">Filter From Hire Date</h4>
+   <h1 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px; margin-top: 10px;">Filter From Hire Date</h1>
     <div align="center">
         <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerFilter' :value='value' height='75'
          labelPosition ='Outside' valueType='DateTime' allowSnapping =true intervalType='Quarter' enableGrouping= true,
@@ -51,7 +51,7 @@ import { employeeData } from "./data-source";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
   components: {

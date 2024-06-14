@@ -234,6 +234,7 @@ export default {
         dlgResetBtnClick: function() {
             let imgEditor = getComponent(document.getElementById('image-editor'), 'image-editor');
             imgEditor.reset();
+            imageEditor.select('circle');
         },
         dlgRotateBtnClick: function() {
             let imgEditor = getComponent(document.getElementById('image-editor'), 'image-editor');

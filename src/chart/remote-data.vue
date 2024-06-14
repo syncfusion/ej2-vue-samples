@@ -66,7 +66,7 @@
             <p>
                 More information on the remote data binding can be found in this
                 <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/chart/working-with-data/#remote-data">documentation
+                    href="https://ej2.syncfusion.com/vue/documentation/chart/working-with-data/#remote-data" aria-label="Navigate to the documentation for Remote Data binding in Vue Chart component">documentation
                     section</a>.
             </p>
         </div>
@@ -78,12 +78,12 @@
 <script>
 import { Browser } from '@syncfusion/ej2-base';
 import { DataManager, Query } from '@syncfusion/ej2-data';
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2DarkColors } from './theme-color';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Legend, Tooltip, DataLabel } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast');
+let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 let dataManager = new DataManager({
     url: 'https://services.syncfusion.com/vue/production/api/orders'
@@ -125,6 +125,12 @@ let pointRender = function (args) {
     }
     else if (selectedTheme === 'highcontrast') {
         args.fill = pointHighContrastColors[args.point.index % 10];
+    }
+    else if (selectedTheme === 'fluent2') {
+        args.fill = pointFluent2Colors[args.point.index % 10];
+    } 
+    else if (selectedTheme === 'fluent2-dark') {
+        args.fill = pointFluent2DarkColors[args.point.index % 10];
     }
     else {
         args.fill = pointBootstrapColors[args.point.index % 10];

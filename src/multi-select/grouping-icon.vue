@@ -3,7 +3,7 @@
     <div class="control-section">
         <div class="content-wrapper">
             <div id='group' class='col-lg-6' style="margin: 0px auto; width:64%; padding-top: 40px;    margin-left: 165px;">
-                    <h3>Grouping</h3>
+                <label class="h4">Grouping</label>
                     <ejs-multiselect id='vegetables' :dataSource='vegetableData' :placeholder='groupWaterMark' :fields='groupFields'></ejs-multiselect>
             </div>
         </div>
@@ -18,10 +18,15 @@
 </div>
 </template>
 <style scoped>
-    #group,
+    #group
    {
         margin: 0 auto;
         padding-top: 15px;
+    }
+    .content-wrapper .h4 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        font-weight: bold;
     }
     
     @font-face {

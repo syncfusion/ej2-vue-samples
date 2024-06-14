@@ -8,13 +8,13 @@
                     <p><b>Get started with Quick Toolbar to click on a video</b></p>
                     <p>Using the quick toolbar, users can replace, align, display, dimension, and delete the selected video.</p>
                     <p><video controls>
-                    <source
-                      src="https://www.w3schools.com/tags/movie.mp4"
+                    <source controls style="width: 30%;"
+                      src="https://cdn.syncfusion.com/ej2/richtexteditor-resources/RTE-Ocean-Waves.mp4"
                           type="video/mp4" />
                       </video></p>  
                     <p><b>Get started with Quick Toolbar to click on an audio</b></p>
                     <p>Using the quick toolbar, users can replace, display, and delete the selected audio.</p>
-                    <p><audio controls><source src="https://assets.mixkit.co/sfx/preview/mixkit-rain-and-thunder-storm-2390.mp3" type="audio/mp3" /></audio></p>
+                    <p><audio controls><source src="https://cdn.syncfusion.com/ej2/richtexteditor-resources/RTE-Audio.wav" type="audio/mp3" /></audio></p>
                 </ejs-richtexteditor>
             </div>
         </div>
@@ -56,7 +56,7 @@ export default {
     data: function() {
         return {
             toolbarSettings: {
-                items:['Bold', 'Italic', 'Underline', '|', 'Formats', 'Alignments', 'OrderedList', 'UnorderedList', '|', 'CreateLink', 'Image', 'Audio', 'Video', '|', 'SourceCode', 'Undo', 'Redo']
+                items:['Bold', 'Italic', 'Underline', '|', 'Formats', 'Alignments', 'Blockquote', 'OrderedList', 'UnorderedList', '|', 'CreateLink', 'Image', 'Audio', 'Video', '|', 'SourceCode', 'Undo', 'Redo']
             }
         };
     },
