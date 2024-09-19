@@ -2,9 +2,9 @@
 <div class="control-section">
   <div id="logicCircuit" style="width: 100%; height: 600px">
     <div class="sb-mobile-palette-bar">
-      <div id="palette-icon" role="button"  class="e-ddb-icons1 e-toggle-palette"></div>
+      <div id="palette-icon" role="button"  class="e-ddb-icons1 e-toggle-palette" ref="paletteiconInsatnce"></div>
     </div>
-    <div id="palette-space" class="sb-mobile-palette">
+    <div id="palette-space" class="sb-mobile-palette" ref="palletteSpaceInstance">
       <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight' :getSymbolInfo='getSymbolInfo' :symbolHeight='symbolHeight'
       :symbolWidth='symbolWidth' :getNodeDefaults='getSymbolDefaults'></ejs-symbolpalette>
     </div>
@@ -44,7 +44,6 @@
 
   .e-ddb-icons {
     font-family: 'e-ddb-icons';
-    speak: none;
     font-size: 16px;
     font-style: normal;
     font-weight: normal;
@@ -57,7 +56,6 @@
   
   .e-ddb-icons1 {
     font-family: 'e-ddb-icons1';
-    speak: none;
     font-size: 16px;
     font-style: normal;
     font-weight: normal;
@@ -149,11 +147,12 @@ import { Browser, isNullOrUndefined } from "@syncfusion/ej2-base";
 import {
     DiagramComponent,
     SymbolPaletteComponent,
-    Diagram,
     SnapConstraints,
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagramInstance;
+let paletteiconInsatnce;
+let palletteSpaceInstance;
 
 
     let isMobile;
@@ -188,7 +187,7 @@ let diagramInstance;
     let decorator = {
         height: 12, width: 12, shape: 'Circle', style: { fill: 'white', strokeColor: '#444', strokeWidth: 1 }
     };
-
+     // Initialize Diagram nodes using the createConnector function
     let nodes = [createNode('OR1', 336, 161.5, 70, 80, orData, orPort),
     createNode('OR2', 336, 329, 70, 104, orData, orPort),
     createNode('OR3', 336, 470, 70, 104, orData, orPort),
@@ -197,23 +196,23 @@ let diagramInstance;
     createNode('Not3', 157, 470, 58, 100, notData, notPort),
     createNode('And', 540, 329, 70, 104, andData, andPort)];
 
-    /* tslint:disable */
+     // Initialize Diagram Connectors using the createConnector function
     let connectors = [
         createConnector('line1', { x: 140, y: 130 }, { x: 0, y: 0 }, null, 'OR1', null, 'Or_port1', decorator, null, { content: 'A', margin: { left: -20 } }, true),
         createConnector('line2', { x: 140, y: 161.5 },{ x: 0, y: 0 }, null, 'OR1', null, 'Or_port2', decorator, null, { content: 'B', margin: { left: -20 } }, true),
         createConnector('line3', { x: 140, y: 195 }, { x: 0, y: 0 }, null, 'OR1', null, 'Or_port3', decorator, null, { content: 'C', margin: { left: -20 } }, true),
         createConnector('line4', { x: 85, y: 267 }, { x: 0, y: 0 }, null, 'Not1', null, 'Not_port1', decorator, null, { content: 'A', margin: { left: -20 } }),
         createConnector('line5', { x: 65, y: 329 }, { x: 0, y: 0 }, null, 'Not2', null, 'Not_port1', decorator, null, { content: 'B', margin: { left: -20 } }),
-        createConnector('line6', { x: 85, y: 470 }, { x: 0, y: 0 }, null, 'Not3', null, 'Not_port1', decorator, null, { content: 'C', margin: { left: -20 } }),
-        createConnector('line7', { x: 0, y: 0 }, { x: 0, y: 0 }, 'Not1', 'OR2', 'Not_port2', 'Or_port1', null, null, { content: 'A\'', margin: { left: 0, top: -20 } }),
-        createConnector('line8', { x: 0, y: 0 }, { x: 0, y: 0 }, 'Not2', 'OR2', 'Not_port2', 'Or_port2', null, null, { content: 'B\'', margin: { left: 0, top: -20 } }),
-        createConnector('line9', { x: 140, y: 380 },{ x: 0, y: 0 }, null, 'OR2', null, 'Or_port3', decorator, null, {}, true),
-        createConnector('line10', { x: 140, y: 420 }, { x: 0, y: 0 }, null, 'OR3', null, 'Or_port1', decorator, null, {}, true),
-        createConnector('line11', { x: 0, y: 0 }, { x: 0, y: 0 }, 'Not3', 'OR3', 'Not_port2', 'Or_port2', null, null, { content: 'B\'', margin: { left: 0, top: -20 } }),
-        createConnector('line12', { x: 140, y: 520 }, { x: 0, y: 0 }, null, 'OR3', null, 'Or_port3', decorator, null, {}, true),
-        createConnector('line13', { x: 0, y: 0 }, { x: 0, y: 0 }, 'OR1', 'And', 'Or_port4', 'And_port1', null, null, { content: '(A + B + C)', margin: { left: 0, top: -20 } }, true),
-        createConnector('line14', { x: 0, y: 0 },{ x: 0, y: 0 }, 'OR2', 'And', 'Or_port4', 'And_port2', null, null, { content: '(A\' + B\' + C)', margin: { left: 0, top: -20 } }, true),
-        createConnector('line15', { x: 0, y: 0 }, { x: 0, y: 0 }, 'OR3', 'And', 'Or_port4', 'And_port3', null, null, { content: '(A + B\' + C)', margin: { left: 0, top: -20 } }, true),
+        createConnector('line6', { x: 85, y: 470 }, { x: 0, y: 0 }, null, 'Not3', null, 'Not_port1', decorator, null, { content: 'B', margin: { left: -20 } }),
+        createConnector('line7', { x: 0, y: 0 }, { x: 0, y: 0 }, 'Not1', 'OR2', 'Not_port2', 'Or_port1', null, null, { content: 'A\'', margin: { left: 0, top: -10 } }),
+        createConnector('line8', { x: 0, y: 0 }, { x: 0, y: 0 }, 'Not2', 'OR2', 'Not_port2', 'Or_port2', null, null, { content: 'B\'', margin: { left: 0, top: -10 } }),
+        createConnector('line9', { x: 140, y: 380 },{ x: 0, y: 0 }, null, 'OR2', null, 'Or_port3', decorator, null, {content: 'C', margin: { left: -20 }}, true),
+        createConnector('line10', { x: 140, y: 420 }, { x: 0, y: 0 }, null, 'OR3', null, 'Or_port1', decorator, null, {content: 'A', margin: { left: -20 }}, true),
+        createConnector('line11', { x: 0, y: 0 }, { x: 0, y: 0 }, 'Not3', 'OR3', 'Not_port2', 'Or_port2', null, null, { content: 'B\'', margin: { left: 0, top: -10 } }),
+        createConnector('line12', { x: 140, y: 520 }, { x: 0, y: 0 }, null, 'OR3', null, 'Or_port3', decorator, null, {content: 'C', margin: { left: -20 }}, true),
+        createConnector('line13', { x: 0, y: 0 }, { x: 0, y: 0 }, 'OR1', 'And', 'Or_port4', 'And_port1', null, null, { content: '(A + B + C)', margin: { left: 0, top: -10 } }, true),
+        createConnector('line14', { x: 0, y: 0 },{ x: 0, y: 0 }, 'OR2', 'And', 'Or_port4', 'And_port2', null, null, { content: '(A\' + B\' + C)', margin: { left: 0, top: -10 } }, true),
+        createConnector('line15', { x: 0, y: 0 }, { x: 0, y: 0 }, 'OR3', 'And', 'Or_port4', 'And_port3', null, null, { content: '(A + B\' + C)', margin: { left: 0, top: -10 } }, true),
         createConnector('line16', { x: 0, y: 0 }, { x: 600, y: 329 }, 'And', null, 'And_port4', null, null, decorator, { content: 'F =(A+B+C)*(A+B\'+C)*(A+B\'+C)', margin: { left: -80, top: 60 } }, true, true)
     ];
     /* tslint:disable */
@@ -294,34 +293,33 @@ let items = [
       }
   }
 ];
-    /* tslint:enable */
+ 
+    // initialize the connenctors on the palette
+    let connections = [
+        createConnections('Link1', 'Orthogonal', false, 0),
+        createConnections('Link2', 'Orthogonal', true, 0),
+        createConnections('Link3', 'Straight', false, 0),
+        createConnections('Link4', 'Straight', true, 0),
+        createConnections('Link5', 'Orthogonal', false, 5),
+        createConnections('Link6', 'Orthogonal', true, 5)
+    ];
 
-let connections = [
-  {
-    id: 'Link1', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-    targetDecorator: { shape: 'None' }, style: { strokeWidth: 1, strokeColor: '#757575' }
-  },
-  {
-    id: 'Link11', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-    targetDecorator: { shape: 'None' }, style: { strokeWidth: 1, strokeDashArray: '5,5', strokeColor: '#757575' }
-  },
-  {
-    id: 'Link21', type: 'Straight', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-    targetDecorator: { shape: 'None' }, style: { strokeWidth: 1, strokeColor: '#757575' }
-  },
-  {
-    id: 'Link22', type: 'Straight', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-    targetDecorator: { shape: 'None' }, style: { strokeWidth: 1, strokeDashArray: '5,5', strokeColor: '#757575' }
-  },
-  {
-    id: 'Link3', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 }, cornerRadius: 5,
-    targetDecorator: { shape: 'None' }, style: { strokeWidth: 1, strokeColor: '#757575' }
-  },
-  {
-    id: 'Link31', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 }, cornerRadius: 5,
-    targetDecorator: { shape: 'None' }, style: { strokeWidth: 1, strokeDashArray: '5,5', strokeColor: '#757575' }
-  }
-];
+    // function to create an connectors on the palette
+    function createConnections(id, type, dashed, cornerRadius) {
+        return {
+            id: id,
+            type: type,
+            sourcePoint: { x: 0, y: 0 },
+            targetPoint: { x: 60, y: 60 },
+            targetDecorator: { shape: 'None' },
+            style: {
+                strokeWidth: 1,
+                strokeColor: '#757575',
+                strokeDashArray: dashed ? '5,5' : ''
+            },
+            cornerRadius: cornerRadius
+        };
+    }
 
     export default {
   components: {
@@ -340,6 +338,8 @@ let connections = [
       created: (args) => {
         //let diagramObj = document.getElementById("diagram");
         diagramInstance = this.$refs.diagramObj.ej2Instances;
+        paletteiconInsatnce=this.$refs.paletteiconInsatnce;
+        palletteSpaceInstance=this.$refs.palletteSpaceInstance;
         diagramInstance.fitToPage();
         addEvents();
       },
@@ -386,7 +386,7 @@ let connections = [
 }
 
 
-    // Create nodes as logic gates
+    //Helper function to create a node with default parameters
     function createNode(
         id, offsetX, offsetY, height,
         width, pathData, ports ) {
@@ -401,7 +401,7 @@ let connections = [
         node.ports = ports;
         return node;
     }
-    // Create Connectors to connect two logic gates
+// Helper function to create a Connector with default parameters
     function createConnector(
         id,
         sourcePoint, targetPoint,
@@ -443,21 +443,19 @@ let connections = [
 function addEvents() {
     isMobile = window.matchMedia('(max-width:550px)').matches;
     if (isMobile) {
-        let paletteIcon = document.getElementById('palette-icon');
-        if (paletteIcon) {
-            paletteIcon.addEventListener('click', openPalette, false);
+        if (paletteiconInsatnce) {
+            paletteiconInsatnce.addEventListener('click', openPalette, false);
         }
     }
 }
 
 function openPalette() {
-    let paletteSpace = document.getElementById('palette-space');
     isMobile = window.matchMedia('(max-width:550px)').matches;
     if (isMobile) {
-        if (!paletteSpace.classList.contains('sb-mobile-palette-open')) {
-            paletteSpace.classList.add('sb-mobile-palette-open');
+        if (!palletteSpaceInstance.classList.contains('sb-mobile-palette-open')) {
+            palletteSpaceInstance.classList.add('sb-mobile-palette-open');
         } else {
-            paletteSpace.classList.remove('sb-mobile-palette-open');
+            palletteSpaceInstance.classList.remove('sb-mobile-palette-open');
         }
     }
 }

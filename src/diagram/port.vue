@@ -7,7 +7,7 @@
     <div class="property-panel-header">
         Properties
     </div>
-    <div id="propertypanel" class="e-remove-selection">
+    <div id="propertypanel" class="e-remove-selection" ref="propertypanelInstance">
       <div class="property-section-content">
         <div class="row sb-child-row">
             <div class="col-xs-6">
@@ -146,21 +146,12 @@ import {
   Node,
 } from "@syncfusion/ej2-vue-diagrams";
 import {
-  DropDownList,
   DropDownListComponent,
-  ChangeEventArgs as DropDownChangeEventArgs,
-  MultiSelect,
   MultiSelectComponent,
-  MultiSelectChangeEventArgs,
-  CheckBoxSelection
 } from "@syncfusion/ej2-vue-dropdowns";
 import {
-  NumericTextBox,
   NumericTextBoxComponent,
-  ChangeEventArgs as NumericChangeEventArgs,
-  ColorPicker,
-  ColorPickerComponent,
-  ColorPickerEventArgs
+  ColorPickerComponent
 } from "@syncfusion/ej2-vue-inputs";
 
 let diagramInstance;
@@ -170,391 +161,113 @@ let portBorderDrop;
 let portShapeDrop;
 let portSizeNum;
 let portWidthNum;
+let appearance;
 
+//Function to Create connector by the parameters
+function createPort(id, shape, offsetX, offsetY, text) {
+    return {
+        id: id,
+        shape: shape,
+        offset: { x: offsetX, y: offsetY },
+        height: 8,
+        width: 8,
+        visibility: PortVisibility.Visible,
+        text: text
+    };
+}
+
+//Function to Create nodes by the parameters
+function createNode(id, offsetX, offsetY, annotationContent, ports) {
+    return {
+        id: id,
+        offsetX: offsetX,
+        offsetY: offsetY,
+        annotations: [{ content: annotationContent }],
+        ports: ports
+    };
+}
+
+//Function to Create connector by the parameters
+function createConnector(id, sourceID, sourcePortID, targetID, targetPortID) {
+    return {
+        id: id,
+        sourceID: sourceID,
+        sourcePortID: sourcePortID,
+        targetID: targetID,
+        targetPortID: targetPortID
+    }
+}
 //Initializes the ports for the diagram
 let node1Port = [
-  {
-    id: "port1",
-    shape: "Circle",
-    offset: { x: 0, y: 0.5 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "In - 1"
-  },
-  {
-    id: "port2",
-    shape: "Circle",
-    offset: { x: 1, y: 0.5 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "OUT - 1"
-  },
-  {
-    id: "port3",
-    shape: "Circle",
-    offset: { x: 0.25, y: 1 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "In - 2"
-  },
-  {
-    id: "port4",
-    shape: "Circle",
-    offset: { x: 0.5, y: 1 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "OUT - 2"
-  },
-  {
-    id: "port5",
-    shape: "Circle",
-    offset: { x: 0.75, y: 1 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "In - 3"
-  }
+  createPort('port1', 'Circle', 0, 0.5, 'In - 1'),
+  createPort('port2', 'Circle', 1, 0.5, 'OUT - 1'),
+  createPort('port3', 'Circle', 0.25, 1, 'In - 2'),
+  createPort('port4', 'Circle', 0.5, 1, 'OUT - 2'),
+  createPort('port5', 'Circle', 0.75, 1, 'In - 3')
 ];
 
 let node2Port = [
-  {
-    id: "port6",
-    shape: "Circle",
-    offset: { x: 0, y: 0.5 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "In - 1"
-  },
-  {
-    id: "port7",
-    shape: "Circle",
-    offset: { x: 1, y: 0.35 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "OUT - 1"
-  },
-  {
-    id: "port8",
-    shape: "Circle",
-    offset: { x: 1, y: 0.7 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "In - 2"
-  },
-  {
-    id: "port9",
-    shape: "Circle",
-    offset: { x: 0.5, y: 1 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "OUT - 2"
-  }
+  createPort('port6', 'Circle', 0, 0.5, 'In - 1'),
+  createPort('port7', 'Circle', 1, 0.35, 'OUT - 1'),
+  createPort('port8', 'Circle', 1, 0.70, 'In - 2'),
+  createPort('port9', 'Circle', 0.5, 1, 'OUT - 2')
 ];
 
 let node3Port = [
-  {
-    id: "port10",
-    shape: "Circle",
-    offset: { x: 0, y: 0.5 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "Out - 1"
-  },
-  {
-    id: "port11",
-    shape: "Circle",
-    offset: { x: 0.5, y: 0 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "In - 1"
-  },
-  {
-    id: "port12",
-    shape: "Circle",
-    offset: { x: 0.5, y: 1 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "OUT - 2"
-  }
+  createPort('port10', 'Circle', 0, 0.5, 'Out - 1'),
+  createPort('port11', 'Circle', 0.5, 0, 'In - 1'),
+  createPort('port12', 'Circle', 0.5, 1, 'OUT - 2')
 ];
 
 let node4Port = [
-  {
-    id: "port13",
-    shape: "Circle",
-    offset: { x: 0, y: 0.5 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "In - 1"
-  },
-  {
-    id: "port14",
-    shape: "Circle",
-    offset: { x: 0.5, y: 0 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "In - 2"
-  },
-  {
-    id: "port15",
-    shape: "Circle",
-    offset: { x: 0.5, y: 1 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "OUT - 1"
-  }
+  createPort('port13', 'Circle', 0, 0.5, 'In - 1'),
+  createPort('port14', 'Circle', 0.5, 0, 'In - 2'),
+  createPort('port15', 'Circle', 0.5, 1, 'OUT - 1')
 ];
 
 let node5Port = [
-  {
-    id: "port16",
-    shape: "Circle",
-    offset: { x: 0, y: 0.5 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "out - 1"
-  },
-  {
-    id: "port17",
-    shape: "Circle",
-    offset: { x: 0.5, y: 0 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "In - 1"
-  },
-  {
-    id: "port18",
-    shape: "Circle",
-    offset: { x: 1, y: 0.5 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "OUT - 2"
-  }
+  createPort('port16', 'Circle', 0, 0.5, 'out - 1'),
+  createPort('port17', 'Circle', 0.5, 0, 'In - 1'),
+  createPort('port18', 'Circle', 1, 0.5, 'OUT - 2')
 ];
 
 let node6Port = [
-  {
-    id: "port19",
-    shape: "Circle",
-    offset: { x: 0, y: 0.35 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "In - 1"
-  },
-  {
-    id: "port20",
-    shape: "Circle",
-    offset: { x: 0.5, y: 1 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "Out - 1"
-  }
+  createPort('port19', 'Circle', 0, 0.35, 'In - 1'),
+  createPort('port20', 'Circle', 0.5, 1, 'Out - 1')
 ];
 
 let node7Port = [
-  {
-    id: "port21",
-    shape: "Circle",
-    offset: { x: 0.5, y: 0 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "In - 1"
-  },
-  {
-    id: "port22",
-    shape: "Circle",
-    offset: { x: 0.5, y: 1 },
-    height: 8,
-    width: 8,
-    visibility: PortVisibility.Visible,
-    text: "Out - 1"
-  }
+  createPort('port21', 'Circle', 0.5, 0, 'In - 1'),
+  createPort('port22', 'Circle', 0.5, 1, 'Out - 1')
 ];
 
 let shape1 = { type: "Basic", shape: "Rectangle" };
 
 let shape2 = { type: "Basic", shape: "Diamond" };
-
+//Initialize Diagram Nodes
 let nodes = [
-  {
-    id: "node1",
-    offsetX: 100,
-    offsetY: 100,
-    style: { fill: "#82E0AA" },
-    annotations: [{ content: "Publisher" }],
-    ports: node1Port
-  },
-  {
-    id: "node2",
-    offsetX: 300,
-    offsetY: 100,
-    style: { fill: "#82E0AA" },
-    annotations: [{ content: "Completed Book", margin: { left: 5, right: 5 } }],
-    ports: node2Port
-  },
-  {
-    id: "node3",
-    offsetX: 300,
-    offsetY: 200,
-    style: { fill: "#82E0AA" },
-    annotations: [{ content: "1st Review" }],
-    ports: node3Port
-  },
-  {
-    id: "node4",
-    offsetX: 300,
-    offsetY: 300,
-    style: { fill: "#82E0AA" },
-    annotations: [{ content: "Legal Terms" }],
-    ports: node4Port
-  },
-  {
-    id: "node5",
-    offsetX: 300,
-    offsetY: 400,
-    style: { fill: "#82E0AA" },
-    annotations: [{ content: "2nd Review" }],
-    ports: node5Port
-  },
-  {
-    id: "node6",
-    offsetX: 500,
-    offsetY: 100,
-    style: { fill: "#82E0AA" },
-    annotations: [{ content: "Board" }],
-    ports: node6Port
-  },
-  {
-    id: "node7",
-    offsetX: 500,
-    offsetY: 200,
-    style: { fill: "#82E0AA" },
-    annotations: [{ content: "Approval" }],
-    ports: node7Port
-  }
+  createNode('node1', 100, 100, 'Publisher', node1Port),
+  createNode('node2', 300, 100, 'Completed Book', node2Port),
+  createNode('node3', 300, 200, '1st Review', node3Port),
+  createNode('node4', 300, 300, 'Legal Terms', node4Port),
+  createNode('node5', 300, 400, '2nd Review', node5Port),
+  createNode('node6', 500, 100, 'Board', node6Port),
+  createNode('node7', 500, 200, 'Approval', node7Port)
 ];
+//Initialize Diagram Connectors
 let connectors = [
-  {
-    id: "connector1",
-    sourceID: "node1",
-    sourcePortID: "port2",
-    targetID: "node2",
-    targetPortID: "port6",
-    style: { strokeColor: "#5D6D7E", strokeWidth: 2 },
-    targetDecorator: { style: { fill: "#5D6D7E" } }
-  },
-  {
-    id: "connector2",
-    sourceID: "node1",
-    sourcePortID: "port4",
-    targetID: "node4",
-    targetPortID: "port13",
-    style: { strokeColor: "#5D6D7E", strokeWidth: 2 },
-    targetDecorator: { style: { fill: "#5D6D7E" } }
-  },
-  {
-    id: "connector3",
-    sourceID: "node2",
-    sourcePortID: "port9",
-    targetID: "node3",
-    targetPortID: "port11",
-    style: { strokeColor: "#5D6D7E", strokeWidth: 2 },
-    targetDecorator: { style: { fill: "#5D6D7E" } }
-  },
-  {
-    id: "connector4",
-    sourceID: "node2",
-    sourcePortID: "port7",
-    targetID: "node6",
-    targetPortID: "port19",
-    style: { strokeColor: "#5D6D7E", strokeWidth: 2 },
-    targetDecorator: { style: { fill: "#5D6D7E" } }
-  },
-  {
-    id: "connector5",
-    sourceID: "node3",
-    sourcePortID: "port10",
-    targetID: "node1",
-    targetPortID: "port5",
-    style: { strokeColor: "#5D6D7E", strokeWidth: 2 },
-    targetDecorator: { style: { fill: "#5D6D7E" } }
-  },
-  {
-    id: "connector6",
-    sourceID: "node3",
-    sourcePortID: "port12",
-    targetID: "node4",
-    targetPortID: "port14",
-    style: { strokeColor: "#5D6D7E", strokeWidth: 2 },
-    targetDecorator: { style: { fill: "#5D6D7E" } }
-  },
-  {
-    id: "connector7",
-    sourceID: "node4",
-    sourcePortID: "port15",
-    targetID: "node5",
-    targetPortID: "port17",
-    style: { strokeColor: "#5D6D7E", strokeWidth: 2 },
-    targetDecorator: { style: { fill: "#5D6D7E" } }
-  },
-  {
-    id: "connector8",
-    sourceID: "node5",
-    sourcePortID: "port18",
-    targetID: "node2",
-    targetPortID: "port8",
-    style: { strokeColor: "#5D6D7E", strokeWidth: 2 },
-    targetDecorator: { style: { fill: "#5D6D7E" } }
-  },
-  {
-    id: "connector9",
-    sourceID: "node5",
-    sourcePortID: "port16",
-    targetID: "node1",
-    targetPortID: "port3",
-    style: { strokeColor: "#5D6D7E", strokeWidth: 2 },
-    targetDecorator: { style: { fill: "#5D6D7E" } }
-  },
-  {
-    id: "connector10",
-    sourceID: "node6",
-    sourcePortID: "port20",
-    targetID: "node7",
-    targetPortID: "port21",
-    style: { strokeColor: "#5D6D7E", strokeWidth: 2 },
-    targetDecorator: { style: { fill: "#5D6D7E" } }
-  },
-  {
-    id: "connector11",
-    sourceID: "node7",
-    sourcePortID: "port22",
-    targetID: "node1",
-    targetPortID: "port1",
-    style: { strokeColor: "#5D6D7E", strokeWidth: 2 },
-    targetDecorator: { style: { fill: "#5D6D7E" } }
-  }
+  createConnector('connector1', 'node1', 'port2', 'node2', 'port6'),
+  createConnector('connector2', 'node1', 'port4', 'node4', 'port13'),
+  createConnector('connector3', 'node2', 'port9', 'node3', 'port11'),
+  createConnector('connector4', 'node2', 'port7', 'node6', 'port19'),
+  createConnector('connector5', 'node3', 'port10', 'node1', 'port5'),
+  createConnector('connector6', 'node3', 'port12', 'node4', 'port14'),
+  createConnector('connector7', 'node4', 'port15', 'node5', 'port17'),
+  createConnector('connector8', 'node5', 'port18', 'node2', 'port8'),
+  createConnector('connector9', 'node5', 'port16', 'node1', 'port3'),
+  createConnector('connector10', 'node6', 'port20', 'node7', 'port21'),
+  createConnector('connector11', 'node7', 'port22', 'node1', 'port1')
 ];
-
 //Visibility collection of the Port.
 let visibility = [
   { PortVisibility: PortVisibility.Visible, text: "Visible" },
@@ -562,24 +275,6 @@ let visibility = [
   { PortVisibility: PortVisibility.Hover, text: "Hover" },
   { PortVisibility: PortVisibility.Connect, text: "Connect" }
 ];
-
-//Color collection of the Port.
-let color = [
-  { text: "White", color: "white" },
-  { text: "#008080", color: "#008080" },
-  { text: "#E4B123", color: "#E4B123" },
-  { text: "#F05023", color: "#F05023" },
-  { text: "#3CB549", color: "#3CB549" },
-  { text: "#D572AD", color: "#D572AD" },
-  { text: "Black", color: "black" },
-  { text: "Goldenrod", color: "goldenrod" },
-  { text: "Indigo", color: "indigo" },
-  { text: "Chocolate", color: "chocolate" },
-  { text: "DarkGoldenRod", color: "darkgoldenrod" },
-  { text: "FireBrick", color: "firebrick" },
-  { text: "DarkRed", color: "darkred" }
-];
-
 //Shape collection of the Port.
 let shape = [
   { shape: "X", text: "X" },
@@ -602,39 +297,39 @@ export default {
       height: 580,
       nodes: nodes,
       connectors: connectors,
-      selectionChange: selectChange,
+      selectionChange: selectionChange,
       snapSettings: { constraints: 0 },
       //Sets the default values of nodes
-      getNodeDefaults: (obj) => {
+      getNodeDefaults: (node) => {
         //Initialize shape
         if (
-          obj.id === "node1" ||
-          obj.id === "node2" ||
-          obj.id === "node4" ||
-          obj.id === "node6"
+          node.id === "node1" ||
+          node.id === "node2" ||
+          node.id === "node4" ||
+          node.id === "node6"
         ) {
-          obj.shape = shape1;
+          node.shape = shape1;
         } else if (
-          obj.id === "node3" ||
-          obj.id === "node5" ||
-          obj.id === "node7"
+          node.id === "node3" ||
+          node.id === "node5" ||
+          node.id === "node7"
         ) {
-          obj.shape = shape2;
+          node.shape = shape2;
         }
         //sets height and width for nodes
-        obj.height = 65;
-        obj.width = 100;
-        obj.style = { fill: "#ebf8fb", strokeColor: "#baeaf5" };
-        for (let i = 0; i < obj.ports.length; i++) {
+        node.height = 65;
+        node.width = 100;
+        node.style = { fill: "#ebf8fb", strokeColor: "#baeaf5" };
+        for (let i = 0; i < node.ports.length; i++) {
           //sets styles for the ports
-          obj.ports[i].style = {
+          node.ports[i].style = {
             fill: "#366f8c",
             strokeColor: "#366f8c"
           };
-          obj.ports[i].width = 6;
-          obj.ports[i].height = 6;
+          node.ports[i].width = 6;
+          node.ports[i].height = 6;
         }
-        obj.annotations[0].style = {
+        node.annotations[0].style = {
           fontSize: 13,
           color: "black"
         };
@@ -656,7 +351,6 @@ export default {
       portsVisiblitymode: "CheckBox",
       portsVisiblitychange: portVisibilityDropOnChange,
       portsVisiblityValue:"Visible",
-
       fillcolorvalue: "#000",
       fillchange: (args) => {
         applyPortStyle("fill", args.currentValue.rgba);
@@ -700,6 +394,7 @@ export default {
     portShapeDrop = this.$refs.shapeObj.ej2Instances;
     portSizeNum = this.$refs.sizeObj.ej2Instances;
     portWidthNum = this.$refs.widthObj.ej2Instances;
+    appearance=this.$refs.propertypanelInstance;
     diagramInstance.select([diagramInstance.nodes[0]]);
   }
 }
@@ -715,11 +410,8 @@ function getPort() {
 }
 
 //enable or disable the property panel based on the Selection.
-function selectChange(args) {
+function selectionChange(args) {
   if (args.state === "Changed") {
-    let appearance = document.getElementById(
-      "propertypanel"
-    );
     let selectedElement = document.getElementsByClassName(
       "e-remove-selection"
     );

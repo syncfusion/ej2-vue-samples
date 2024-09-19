@@ -29,7 +29,7 @@
     </div>
 </template>
 <style>
-    .schedule-vue-sample .custom-field-row {
+    .custom-field-row {
         margin-bottom: 20px;
     }
 </style>

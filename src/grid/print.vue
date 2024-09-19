@@ -15,7 +15,7 @@
             </e-items>
         </ejs-toolbar>
         <br/>
-        <ejs-grid ref='grid' :dataSource="parentData"  :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar' :childGrid="childGrid" hierarchyPrintMode="All" :allowSorting='true'>
+        <ejs-grid ref='grid' :dataSource="parentData"  :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar' :childGrid="childGrid" hierarchyPrintMode="All" :allowSorting='true' :dataBound="gridDataBound">
             <e-columns>
                 <e-column field='EmployeeID' headerText='Employee ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='employeeidrules'></e-column>
                 <e-column field='FirstName' headerText='Name' width='140' :validationRules='firstnamerules'></e-column>
@@ -126,6 +126,11 @@ export default {
     };
   },
   methods: {
+      gridDataBound: function () {
+          ((this as any).$refs.grid).ej2Instances.cssClass = document.querySelector('.fluent2-highcontrast')
+              ? 'e-print-fluent2-highcontrast'
+              : '';
+      },
       onClicked: function(e: ClickEventArgs) {
         let element: HTMLElement = e.originalEvent.target as HTMLElement;
 
@@ -144,3 +149,16 @@ export default {
   }
 }
 </script>
+
+<style>
+    .e-print-fluent2-highcontrast.e-grid.e-print-grid-layout,
+    .e-print-fluent2-highcontrast.e-grid.e-print-grid-layout .e-childgrid,
+    .e-print-fluent2-highcontrast.e-grid.e-print-grid-layout .e-rowcell,
+    .e-print-fluent2-highcontrast.e-grid.e-print-grid-layout .e-gridheader,
+    .e-print-fluent2-highcontrast.e-grid.e-print-grid-layout .e-detailindentcell,
+    .e-print-fluent2-highcontrast.e-grid.e-print-grid-layout .e-detailcell,
+    .e-print-fluent2-highcontrast.e-grid.e-print-grid-layout .e-detailrowcollapse,
+    .e-print-fluent2-highcontrast.e-grid.e-print-grid-layout .e-detailrowexpand {
+        border-color: gray;
+    }
+</style>

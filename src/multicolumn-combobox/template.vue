@@ -4,9 +4,9 @@
             <div style='padding-top:55px;'>
                 <ejs-multicolumncombobox cssClass="multicolumn-customize" type="text" id='template' :dataSource="dataSource" :fields="fields" placeholder="Select an employee" popupHeight="230px" :gridSettings="gridSettings">
                     <e-columns>
-                        <e-column field='Eimg' header='Photos' width="90" headerTemplate='<div class="header"> <span>Photo</span> </div>' template='<div><img class="empImage" src="styles/images/Employees/${Eimg}.png" alt="employee"/> </div>'/>
+                        <e-column field='Eimg' header='Photos' width="90" headerTemplate='<div class="header"> <span>Photo</span> </div>' template='<div><img class="empImage" src="src/images/employees/${Eimg}.png" alt="employee"/> </div>'/>
                         <e-column field='Name' header='Employee Name' width="160" headerTemplate='<div class="header"> <span class="e-icons e-multicolumn-userlogin"></span> <span>Employee info</span> </div>' template='<div class="ename"> ${Name} </div> <div class="job"> ${Designation} </div>'/>
-                        <e-column field='DateofJoining' header='Date of Joining' width="165" headerTemplate='<div class="header"> <span class="e-icons e-multicolumn-calender"></span> <span>Date of joining</span> </div>' template='<div class="dateOfJoining"> ${DateofJoining} </div>'/>
+                        <e-column field='DateofJoining' header='Date of Joining' width="130" headerTemplate='<div class="header"> <span class="e-icons e-multicolumn-calender"></span> <span>Date of joining</span> </div>' template='<div class="dateOfJoining"> ${DateofJoining} </div>'/>
                         <e-column field='Country' header='Country' width="100" headerTemplate='<div class="header"> <span>Country</span> </div>' template='<div class="country"> ${Country} </div>'/>
                     </e-columns>
                 </ejs-multicolumncombobox>
@@ -30,10 +30,11 @@
     </div>
 </template>
 
+<!-- custom code start -->
 <style>
     .control-wrapper.template-multicolumn {
         margin: 0 auto;
-        width: 500px;
+        width: 540px;
     }
 
     @media screen and (max-width: 480px) {
@@ -96,6 +97,7 @@
         margin-right: 5px;
     }
 </style>
+<!-- custom code end -->
 
 <script>
 import { MultiColumnComboBoxComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-multicolumn-combobox";

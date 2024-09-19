@@ -85,6 +85,12 @@
     </div>
 </template>
 
+<style>
+    #textarea-default .e-multi-line-input {
+        max-width: 100%;
+    }
+</style>
+
 <style scoped>
     .content_wrapper {
         width: 90%;
@@ -100,10 +106,6 @@
         padding: 24px 0px 0px 0px;
         font-size: 12px;
         opacity: 0.54;
-    }
-
-    #textarea-default .e-multi-line-input {
-        max-width: 100%;
     }
     
     @media only screen and (max-width: 480px) {
@@ -134,12 +136,15 @@
     .tailwind .row.material,
     .bootstrap5 .row.material,
     .bootstrap5-dark .row.material,
+    .bootstrap5.3 .row.material,
+    .bootstrap5.3-dark .row.material,
     .tailwind-dark .row.material,
     .fabric-dark .row.material,
     .bootstrap-dark .row.material,
     .fluent .row.material,
     .fluent-dark .row.material,
-    .fluent2 .row.material {
+    .fluent2 .row.material,
+    .fluent2-dark .row.material {
         display: none;
     }
 

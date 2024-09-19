@@ -5,7 +5,7 @@
             "Mail ID": "sarah.johnson@example.com",
             "Model": "Taurus",
             "No. of cars": 2,
-            "Delivery Date": "7/11/2020",
+            "Delivery Date": "07-11-2020",
             "Amount": "8529.22"
         },
         {
@@ -13,7 +13,7 @@
             "Mail ID": "michael.smith@example.com",
             "Model": "Sparrow",
             "No. of cars": 1,
-            "Delivery Date": "7/13/2021",
+            "Delivery Date": "07-13-2021",
             "Amount": "17866.19"
         },
         {
@@ -21,7 +21,7 @@
             "Mail ID": "emily.davis@example.com",
             "Model": "Grand Cherokee",
             "No. of cars": 1,
-            "Delivery Date": "9/4/2020",
+            "Delivery Date": "09-04-2020",
             "Amount": "13853.09"
         },
         {
@@ -29,7 +29,7 @@
             "Mail ID": "john.anderson@example.com",
             "Model": "GTO",
             "No. of cars": 3,
-            "Delivery Date": "12/15/2022",
+            "Delivery Date": "12-15-2022",
             "Amount": "2338.74"
         },
         {
@@ -37,7 +37,7 @@
             "Mail ID": "jessica.martinez@example.com",
             "Model": "LX",
             "No. of cars": 2,
-            "Delivery Date": "10/8/2019",
+            "Delivery Date": "10-08-2019",
             "Amount": "9578.45"
         },
         {
@@ -45,7 +45,7 @@
             "Mail ID": "daniel.thompson@example.com",
             "Model": "Catera",
             "No. of cars": 1,
-            "Delivery Date": "7/1/2022",
+            "Delivery Date": "07-01-2022",
             "Amount": "19141.62"
         },
         {
@@ -53,7 +53,7 @@
             "Mail ID": "samantha.harris@example.com",
             "Model": "Series 7",
             "No. of cars": 3,
-            "Delivery Date": "12/20/2020",
+            "Delivery Date": "12-20-2020",
             "Amount": "6543.30"
         },
         {
@@ -61,7 +61,7 @@
             "Mail ID": "christopher.wilson@example.com",
             "Model": "Corvette",
             "No. of cars": 2,
-            "Delivery Date": "11/24/2019",
+            "Delivery Date": "11-24-2019",
             "Amount": "13035.06"
         },
         {
@@ -69,7 +69,7 @@
             "Mail ID": "ashley.brown@example.com",
             "Model": "Regal",
             "No. of cars": 1,
-            "Delivery Date": "5/12/2019",
+            "Delivery Date": "05-12-2019",
             "Amount": "18488.80"
         },
         {
@@ -77,7 +77,7 @@
             "Mail ID": "matthew.taylor@example.com",
             "Model": "S4",
             "No. of cars": 2,
-            "Delivery Date": "12/30/2019",
+            "Delivery Date": "12-30-2019",
             "Amount": "12317.04"
         },
         {
@@ -85,7 +85,7 @@
             "Mail ID": "olivia.garcia@example.com",
             "Model": "TL",
             "No. of cars": 3,
-            "Delivery Date": "12/18/2023",
+            "Delivery Date": "12-18-2023",
             "Amount": "6230.13"
         },
         {
@@ -93,7 +93,7 @@
             "Mail ID": "david.hernandez@example.com",
             "Model": "Club Wagon",
             "No. of cars": 2,
-            "Delivery Date": "2/2/2020",
+            "Delivery Date": "02-02-2020",
             "Amount": "9709.49"
         },
         {
@@ -101,7 +101,7 @@
             "Mail ID": "emma.moore@example.com",
             "Model": "V8 Vantage",
             "No. of cars": 2,
-            "Delivery Date": "11/19/2019",
+            "Delivery Date": "11-19-2019",
             "Amount": "9766.10"
         },
         {
@@ -109,7 +109,7 @@
             "Mail ID": "andrew.lewis@example.com",
             "Model": "Caravan",
             "No. of cars": 3,
-            "Delivery Date": "2/8/2019",
+            "Delivery Date": "02-08-2019",
             "Amount": "7685.49"
         },
         {
@@ -117,7 +117,7 @@
             "Mail ID": "elizabeth.clark@example.com",
             "Model": "Bravada",
             "No. of cars": 1,
-            "Delivery Date": "8/5/2021",
+            "Delivery Date": "08-05-2021",
             "Amount": "18012.45"
         },
         {
@@ -125,7 +125,7 @@
             "Mail ID": "james.walker@example.com",
             "Model": "Colorado",
             "No. of cars": 3,
-            "Delivery Date": "5/30/2021",
+            "Delivery Date": "05-30-2021",
             "Amount": "2785.49"
         },
         {
@@ -133,7 +133,7 @@
             "Mail ID": "ava.rodriguez@example.com",
             "Model": "Runner",
             "No. of cars": 3,
-            "Delivery Date": "12/10/2021",
+            "Delivery Date": "12-10-2021",
             "Amount": "9967.74"
         },
         {
@@ -141,7 +141,7 @@
             "Mail ID": "ryan.white@example.com",
             "Model": "TSX",
             "No. of cars": 3,
-            "Delivery Date": "10/23/2019",
+            "Delivery Date": "10-23-2019",
             "Amount": "5584.33"
         },
         {
@@ -149,7 +149,7 @@
             "Mail ID": "madison.lee@example.com",
             "Model": "Pathfinder",
             "No. of cars": 2,
-            "Delivery Date": "12/24/2020",
+            "Delivery Date": "12-24-2020",
             "Amount": "5286.53"
         },
         {
@@ -157,7 +157,7 @@
             "Mail ID": "nicholas.martin@example.com",
             "Model": "Charger",
             "No. of cars": 2,
-            "Delivery Date": "11/20/2023",
+            "Delivery Date": "11-20-2023",
             "Amount": "13511.91"
         },
         {
@@ -165,7 +165,7 @@
             "Mail ID": "sophia.hall@example.com",
             "Model": "Bonneville",
             "No. of cars": 2,
-            "Delivery Date": "11/19/2023",
+            "Delivery Date": "11-19-2023",
             "Amount": "6498.19"
         },
         {
@@ -173,7 +173,7 @@
             "Mail ID": "joshua.young@example.com",
             "Model": "B-Series",
             "No. of cars": 2,
-            "Delivery Date": "10/30/2019",
+            "Delivery Date": "10-30-2019",
             "Amount": "10359.67"
         },
         {
@@ -181,7 +181,7 @@
             "Mail ID": "isabella.king@example.com",
             "Model": "Voyager",
             "No. of cars": 3,
-            "Delivery Date": "4/6/2023",
+            "Delivery Date": "04-06-2023",
             "Amount": "8118.39"
         },
         {
@@ -189,7 +189,7 @@
             "Mail ID": "joseph.allen@example.com",
             "Model": "Grand Prix",
             "No. of cars": 1,
-            "Delivery Date": "10/13/2021",
+            "Delivery Date": "10-13-2021",
             "Amount": "10204.37"
         },
         {
@@ -197,7 +197,7 @@
             "Mail ID": "charlotte.scott@example.com",
             "Model": "Sunbird",
             "No. of cars": 3,
-            "Delivery Date": "10/22/2023",
+            "Delivery Date": "10-22-2023",
             "Amount": "6528.06"
         },
         {
@@ -205,7 +205,7 @@
             "Mail ID": "william.green@example.com",
             "Model": "Mirage",
             "No. of cars": 2,
-            "Delivery Date": "9/12/2019",
+            "Delivery Date": "09-12-2019",
             "Amount": "5619.25"
         },
         {
@@ -213,7 +213,7 @@
             "Mail ID": "amelia.adams@example.com",
             "Model": "XK",
             "No. of cars": 1,
-            "Delivery Date": "5/12/2021",
+            "Delivery Date": "05-12-2021",
             "Amount": "5091.43"
         },
         {
@@ -221,7 +221,7 @@
             "Mail ID": "ethan.carter@example.com",
             "Model": "Accord",
             "No. of cars": 1,
-            "Delivery Date": "9/3/2023",
+            "Delivery Date": "09-03-2023",
             "Amount": "14566.08"
         },
         {
@@ -229,7 +229,7 @@
             "Mail ID": "mia.turner@example.com",
             "Model": "Range Rover Sport",
             "No. of cars": 2,
-            "Delivery Date": "2/22/2023",
+            "Delivery Date": "02-22-2023",
             "Amount": "5284.87"
         },
         {
@@ -237,7 +237,7 @@
             "Mail ID": "alexander.baker@example.com",
             "Model": "Runner",
             "No. of cars": 3,
-            "Delivery Date": "12/25/2023",
+            "Delivery Date": "12-25-2023",
             "Amount": "5524.25"
         },
         {
@@ -245,7 +245,7 @@
             "Mail ID": "chloe.hill@example.com",
             "Model": "TSX",
             "No. of cars": 3,
-            "Delivery Date": "2/25/2023",
+            "Delivery Date": "02-25-2023",
             "Amount": "2543.25"
         },
         {
@@ -253,7 +253,7 @@
             "Mail ID": "benjamin.nelson@example.com",
             "Model": "Pathfinder",
             "No. of cars": 2,
-            "Delivery Date": "11/19/2023",
+            "Delivery Date": "11-19-2023",
             "Amount": "8524.35"
         },
         {
@@ -261,7 +261,7 @@
             "Mail ID": "grace.mitchell@example.com",
             "Model": "Charger",
             "No. of cars": 2,
-            "Delivery Date": "10/30/2019",
+            "Delivery Date": "10-30-2019",
             "Amount": "9542.35"
         },
         {
@@ -269,7 +269,7 @@
             "Mail ID": "jacob.perez@example.com",
             "Model": "Bonneville",
             "No. of cars": 3,
-            "Delivery Date": "4/6/2023",
+            "Delivery Date": "04-06-2023",
             "Amount": "8872.52"
         },
         {
@@ -277,7 +277,7 @@
             "Mail ID": "avery.roberts@example.com",
             "Model": "B-Series",
             "No. of cars": 1,
-            "Delivery Date": "10/13/2021",
+            "Delivery Date": "10-13-2021",
             "Amount": "12884.52"
         },
         {
@@ -285,7 +285,7 @@
             "Mail ID": "ethan.thomas@example.com",
             "Model": "Voyager",
             "No. of cars": 1,
-            "Delivery Date": "10/22/2023",
+            "Delivery Date": "10-22-2023",
             "Amount": "19352.24"
         },
         {
@@ -293,7 +293,7 @@
             "Mail ID": "lily.phillips@example.com",
             "Model": "Grand Prix",
             "No. of cars": 2,
-            "Delivery Date": "9/12/2019",
+            "Delivery Date": "09-12-2019",
             "Amount": "8546.24"
         },
         {
@@ -301,7 +301,7 @@
             "Mail ID": "samuel.davis@example.com",
             "Model": "Sunbird",
             "No. of cars": 3,
-            "Delivery Date": "2/8/2019",
+            "Delivery Date": "02-08-2019",
             "Amount": "8844.25"
         },
         {
@@ -309,7 +309,7 @@
             "Mail ID": "zoey.campbell@example.com",
             "Model": "Mirage",
             "No. of cars": 2,
-            "Delivery Date": "8/5/2021",
+            "Delivery Date": "08-05-2021",
             "Amount": "9635.25"
         },
         {
@@ -317,7 +317,7 @@
             "Mail ID": "daniel.cooper@example.com",
             "Model": "XK",
             "No. of cars": 3,
-            "Delivery Date": "5/30/2021",
+            "Delivery Date": "05-30-2021",
             "Amount": "7854.24"
         },
         {
@@ -325,7 +325,7 @@
             "Mail ID": "madeline.collins@example.com",
             "Model": "Accord",
             "No. of cars": 1,
-            "Delivery Date": "12/10/2021",
+            "Delivery Date": "12-10-2021",
             "Amount": "14297.36"
         },
         {
@@ -333,7 +333,7 @@
             "Mail ID": "nathan.edwards@example.com",
             "Model": "Range Rover Sport",
             "No. of cars": 2,
-            "Delivery Date": "12/24/2020",
+            "Delivery Date": "12-24-2020",
             "Amount": "8745.35"
         },
         {
@@ -341,7 +341,7 @@
             "Mail ID": "evelyn.stewart@example.com",
             "Model": "Runner",
             "No. of cars": 1,
-            "Delivery Date": "11/20/2023",
+            "Delivery Date": "11-20-2023",
             "Amount": "17825.52"
         },
         {
@@ -349,7 +349,7 @@
             "Mail ID": "alexander.rivera@example.com",
             "Model": "TSX",
             "No. of cars": 1,
-            "Delivery Date": "12/20/2020",
+            "Delivery Date": "12-20-2020",
             "Amount": "15994.34"
         },
         {
@@ -357,7 +357,7 @@
             "Mail ID": "sophia.henderson@example.com",
             "Model": "Pathfinder",
             "No. of cars": 2,
-            "Delivery Date": "8/30/2019",
+            "Delivery Date": "08-30-2019",
             "Amount": "9154.34"
         },
         {
@@ -365,7 +365,7 @@
             "Mail ID": "isaac.morris@example.com",
             "Model": "Charger",
             "No. of cars": 3,
-            "Delivery Date": "12/13/2023",
+            "Delivery Date": "12-13-2023",
             "Amount": "13082.34"
         },
         {
@@ -373,7 +373,7 @@
             "Mail ID": "claire.rogers@example.com",
             "Model": "Bonneville",
             "No. of cars": 3,
-            "Delivery Date": "10/1/2019",
+            "Delivery Date": "10-01-2019",
             "Amount": "7963.35"
         },
         {
@@ -381,7 +381,7 @@
             "Mail ID": "luke.flores@example.com",
             "Model": "B-Series",
             "No. of cars": 3,
-            "Delivery Date": "10/31/2023",
+            "Delivery Date": "10-31-2023",
             "Amount": "6734.35"
         },
         {
@@ -389,7 +389,7 @@
             "Mail ID": "aubrey.long@example.com",
             "Model": "Voyager",
             "No. of cars": 1,
-            "Delivery Date": "8/21/2019",
+            "Delivery Date": "08-21-2019",
             "Amount": "12864.35"
         },
         {
@@ -397,7 +397,7 @@
             "Mail ID": "julian.coleman@example.com",
             "Model": "Grand Prix",
             "No. of cars": 2,
-            "Delivery Date": "7/7/2021",
+            "Delivery Date": "07-07-2021",
             "Amount": "7985.36"
         },
         {
@@ -405,7 +405,7 @@
             "Mail ID": "leah.reed@example.com",
             "Model": "Sunbird",
             "No. of cars": 1,
-            "Delivery Date": "2/3/2022",
+            "Delivery Date": "02-03-2022",
             "Amount": "19245.36"
         },
         {
@@ -413,7 +413,7 @@
             "Mail ID": "gabriel.bell@example.com",
             "Model": "Mirage",
             "No. of cars": 3,
-            "Delivery Date": "1/23/2021",
+            "Delivery Date": "01-23-2021",
             "Amount": "7835.36"
         },
         {
@@ -421,7 +421,7 @@
             "Mail ID": "natalie.ward@example.com",
             "Model": "XK",
             "No. of cars": 1,
-            "Delivery Date": "8/6/2020",
+            "Delivery Date": "08-06-2020",
             "Amount": "16324.35"
         },
         {
@@ -429,7 +429,7 @@
             "Mail ID": "lucas.brooks@example.com",
             "Model": "Accord",
             "No. of cars": 2,
-            "Delivery Date": "11/1/2019",
+            "Delivery Date": "11-01-2019",
             "Amount": "8845.34"
         },
         {
@@ -437,7 +437,7 @@
             "Mail ID": "hailey.mitchell@example.com",
             "Model": "Range Rover Sport",
             "No. of cars": 1,
-            "Delivery Date": "8/17/2023",
+            "Delivery Date": "08-17-2023",
             "Amount": "12684.35"
         },
         {
@@ -445,7 +445,7 @@
             "Mail ID": "jackson.ward@example.com",
             "Model": "Runner",
             "No. of cars": 1,
-            "Delivery Date": "3/3/2019",
+            "Delivery Date": "03-03-2019",
             "Amount": "15093.36"
         }
     ],

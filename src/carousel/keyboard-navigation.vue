@@ -10,30 +10,6 @@
             <e-carousel-item :template="itemTemplate4"></e-carousel-item>
           </e-carousel-items>
         </ejs-carousel>
-        <div id="action-description">
-          <p>
-            This sample demonstrates the keyboard interactions with the <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component.
-          </p>
-        </div>
-        <div id="description">
-          <p>
-            The <code>Vue Carousel</code> component can be interacted with keyboard navigation. Below key combinations
-            can be used in Carousel to initiate various actions.
-          </p>
-          <ul>
-            <li><b>Alt + J</b> keys to focus the carousel component (done at application end).</li>
-            <li><b>Arrows</b> keys to navigate between slides.</li>
-            <li><b>Home</b> to navigate to the first slide.</li>
-            <li><b>End</b> to navigate to the last slide.</li>
-            <li><b>Space</b> to play/pause the slide transitions.</li>
-            <li><b>Enter</b> to perform the respective action on its focus.</li>
-          </ul>
-          <p>
-            More information about accessibility's of Vue Carousel component can be found in this
-            <a aria-label="Carousel getting started" target="_blank" href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started/">
-              documentation</a> section.
-          </p>
-        </div>
       </div>
       <div id='source_link'>Source: &nbsp;
       <table>
@@ -45,6 +21,30 @@
       </table>
     </div>
     </div>
+  </div>
+  <div id="action-description">
+    <p>
+      This sample demonstrates the keyboard interactions with the <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component.
+    </p>
+  </div>
+  <div id="description">
+    <p>
+      The <code>Vue Carousel</code> component can be interacted with keyboard navigation. Below key combinations
+      can be used in Carousel to initiate various actions.
+    </p>
+    <ul>
+      <li><b>Alt + J</b> keys to focus the carousel component (done at application end).</li>
+      <li><b>Arrows</b> keys to navigate between slides.</li>
+      <li><b>Home</b> to navigate to the first slide.</li>
+      <li><b>End</b> to navigate to the last slide.</li>
+      <li><b>Space</b> to play/pause the slide transitions.</li>
+      <li><b>Enter</b> to perform the respective action on its focus.</li>
+    </ul>
+    <p>
+      More information about accessibility's of Vue Carousel component can be found in this
+      <a aria-label="Carousel getting started" target="_blank" href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started/">
+        documentation</a> section.
+    </p>
   </div>
 </template>
 
@@ -145,6 +145,7 @@
   }
 
   .bootstrap5-dark .keyboard-carousel-section .carousel-sample,
+  .bootstrap5\.3-dark .keyboard-carousel-section .carousel-sample,
   .fluent-dark .keyboard-carousel-section .carousel-sample,
   .tailwind-dark .keyboard-carousel-section .carousel-sample,
   .material-dark .keyboard-carousel-section .carousel-sample,
@@ -158,6 +159,7 @@
   }
 
   .bootstrap5-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading,
+  .bootstrap5\.3-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading,
   .fluent-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading,
   .tailwind-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading,
   .material-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .heading,
@@ -171,6 +173,7 @@
   }
 
   .bootstrap5-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .description,
+  .bootstrap5\.3-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .description,
   .fluent-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .description,
   .tailwind-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .description,
   .material-dark .kb-carousel .e-carousel-items .e-carousel-item .product-container .description,
@@ -185,6 +188,8 @@
 
   .bootstrap5-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):hover,
   .bootstrap5-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):focus,
+  .bootstrap5\.3-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):hover,
+  .bootstrap5\.3-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):focus,
   .fluent-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):hover,
   .fluent-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):focus,
   .tailwind-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled):hover,
@@ -207,6 +212,7 @@
   }
 
   .bootstrap5-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon,
+  .bootstrap5\.3-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon,
   .fluent-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon,
   .tailwind-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon,
   .material-dark .kb-carousel .e-carousel-navigators .e-btn:not(:disabled) .e-btn-icon,
@@ -220,6 +226,7 @@
   }
 
   .bootstrap5-dark .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div,
+  .bootstrap5\.3-dark .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div,
   .fluent-dark .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div,
   .tailwind-dark .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div,
   .material-dark .kb-carousel .e-carousel-indicators .e-indicator-bar .e-indicator div,

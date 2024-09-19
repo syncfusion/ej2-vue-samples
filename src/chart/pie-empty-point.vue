@@ -2,7 +2,7 @@
   <div>
     <div class="col-md-8 control-section sb-property-border">
         <ejs-accumulationchart ref="pie" :theme='theme' style='display:block' align='center'  :enableBorderOnMouseMove='false' id='chartcontainer' :title='title'
-             :legendSettings='legendSettings' :tooltip='tooltip'  :textRender="onTextRender">
+             :legendSettings='legendSettings' :tooltip='tooltip'  :textRender="onTextRender" :load="load">
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='seriesData' :mode='emptydata' xName='x' yName='y' :dataLabel='dataLabel' name='Profit' type='Pie' :emptyPointSettings='emptyPointSettings'> </e-accumulation-series>
              
@@ -40,7 +40,6 @@
     <p>
         <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
     </p>
-    <br>
     <p>
         More information about the empty points in accumulation chart can be found in this
         <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/empty-points/" aria-label="Navigate to the documentation for Empty Points in Vue Accumulation Chart component">documentation section</a>.
@@ -59,7 +58,7 @@ import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationTooltip, PieSeries, AccumulationDataLabel } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
@@ -111,6 +110,11 @@ export default {
     });
    },
   methods: {
+    load: function (args) {
+            if (selectedTheme === 'bootstrap5-dark') {
+                args.chart.series[0].emptyPointSettings.fill = '#FF7F7F';
+            }
+    },
      modeChange: function(args) {
       let empty = document.getElementById('emptypointmode').value;
         let emptyPointSettings = extend({}, this.emptyPointSettings);

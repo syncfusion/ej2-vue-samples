@@ -118,7 +118,7 @@
             padding-left: 0px; padding-top: 0px;
         }
 
-        .e-view.fluent2 #tree_colormap .property-panel-table div.property-text, .e-view.fluent2-dark #tree_colormap .property-panel-table div.property-text {
+        .e-view.fluent2 #tree_colormap .property-panel-table div.property-text, .e-view.fluent2-dark #tree_colormap .property-panel-table div.property-text, .e-view.fluent2-highcontrast #tree_colormap .property-panel-table div.property-text {
                 padding-left: 0px;
         }
 </style>
@@ -200,7 +200,7 @@ methods:{
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
         args.treemap.theme = (theme.charAt(0).toUpperCase() +
-            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
         let dropDownElement = document.getElementById('colorMapping');
         let opacityCheck = document.getElementById('opacity');
         if(dropDownElement.value === 'Desaturation'){

@@ -235,10 +235,10 @@ export default {
         load: function(args) {
         /* custom code start */
           let selectedTheme = location.hash.split("/")[1];
-          selectedTheme = selectedTheme ? selectedTheme : "Material";          
+          selectedTheme = selectedTheme ? selectedTheme : "Material";
           args.gauge.theme =
             (selectedTheme.charAt(0).toUpperCase() +
-                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
         if (selectedTheme.indexOf("tailwind") != -1 && args.gauge.axes[0].annotations != null) {
           args.gauge.axes[0].annotations[0].angle = 342;
           args.gauge.axes[0].annotations[0].radius = "92%";
@@ -274,8 +274,8 @@ export default {
     }
 
     .e-view.fluent2 div#dfarcgauge .fbText,
-    .e-view.fluent2-dark div#dfarcgauge .fbText {
-        margin-top: -14px;
+    .e-view.fluent2-dark div#dfarcgauge .fbText,
+    .e-view.fluent2-highcontrast div#dfarcgauge .fbText {
         margin-left: -18px;
     }
 
@@ -289,7 +289,7 @@ export default {
     #dfarcgauge .fbText {
       font-family: inherit;
       font-size: 22px;
-      margin-top: -14px;
+      margin-top: 0px;
       margin-left: -19px;
     }
     
@@ -311,7 +311,7 @@ export default {
     .e-view.tailwind div#dfarcgauge .fbText,
     .e-view.tailwind-dark div#dfarcgauge .fbText {
         font-size: 22px;
-        margin-top: -6px;
+        margin-top: 14px;
     }
     
     #dfarcgauge .tiktokText {

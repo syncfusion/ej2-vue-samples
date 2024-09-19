@@ -20,23 +20,23 @@
     <div
       class="col-lg-4 property-section"
       style="padding-right: 0px;
-padding-left: 18px;"
-    >
+      padding-left: 18px;">
       <div class="property-panel-header">Appearance</div>
       <div id="propertypanel" class="e-remove-selection"></div>
       <div class="property-section-content">
         <div class="row sb-child-row">
-          <div class="col-xs-2 top" style="padding-left: 0px;">Value</div>
-          <div class="col-xs-10" style="padding-left: 0px">
+          <div class="col-xs-2 top barcode-panel-left">Value</div>
+          <div class="col-xs-10 barcode-panel-left">
             <div id="barcodevaluediv">
               <ejs-textbox id="textbox" value="Syncfusion" :change="textboxchange"></ejs-textbox>
             </div>
           </div>
         </div>
+
         <div class="row sb-child-row">
           <div>
-            <div class="col-xs-2 top" style="padding-left: 0px;padding-right: 20px;">Width</div>
-            <div class="col-xs-3" style="width: 33%;padding-left: 0px">
+            <div class="col-xs-2 top barcode-panel-left">Width</div>
+            <div class="col-xs-4 barcode-panel-left">
               <ejs-numerictextbox
                 ref="widthObj"
                 id="width"
@@ -50,8 +50,8 @@ padding-left: 18px;"
             </div>
           </div>
           <div>
-            <div class="rightProperty">Height</div>
-            <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+            <div class="col-xs-2 top barcode-panel-left">Height</div>
+            <div class="col-xs-4 barcode-panel-left">
               <ejs-numerictextbox
                 ref="heightObj"
                 id="height"
@@ -66,38 +66,44 @@ padding-left: 18px;"
           </div>
         </div>
 
-        <div class="row sb-child-row" style="margin-top: 20px;">
-          <div class="col-xs-6" style="padding-left: 0px;">
-            <div class="col-xs-1" style="padding-left: 0px;">
+        <div class="row sb-child-row" style="padding-top: 10px;">
+          <div class="col-xs-6 barcode-panel-left">
+            <div class="col-xs-2 barcode-panel-left">
               <ejs-checkbox id="textVisibility" :checked="true" :change="textVisibilitychange"></ejs-checkbox>
             </div>
-            <div class="col-xs-10">Text Visibility</div>
+            <div class="col-xs-10 barcode-panel-left">Text Visibility</div>
           </div>
-          <div class="col-xs-4" style="padding-left: 0;margin-left: 13px;">
-            <div class="col-xs-1" style="padding-left: 0px;">
-              <ejs-checkbox id="svgMode" :checked="true" :change="svgModechange"></ejs-checkbox>
+          <div class="col-xs-6 barcode-panel-left">
+            <div class="col-xs-2 barcode-panel-left">
+              <ejs-checkbox id="logo" :unchecked="true" :change="showLogo"></ejs-checkbox>
             </div>
-            <div class="svgTextClass">SVG Mode</div>
+            <div class="col-xs-10 barcode-panel-left">Show Logo</div>
           </div>
         </div>
 
+         <div class="row sb-child-row" style="padding-top: 10px;">
+          <div class="col-xs-6 barcode-panel-left">
+            <div class="col-xs-2 barcode-panel-left">
+              <ejs-checkbox id="svgMode" :checked="true" :change="svgModechange"></ejs-checkbox>
+            </div>
+            <div class="col-xs-10 barcode-panel-left">SVG Mode</div>
+          </div>
+        </div>
+
+
         <div class="row sb-child-row">
-          <div style="margin-top: 15px">
-            <div class="col-xs-2" style="margin-top: 5px;padding-left: 0px;">BG Color</div>
-            <div class="col-xs-4" style="padding-left: 0px;">
+          <div style="padding-top: 10px">
+            <div class="col-xs-3 barcode-panel-left" style="padding-top: 5px;">BG Color</div>
+            <div class="col-xs-3 barcode-panel-left">
               <ejs-colorpicker
                 ref="bgColor"
                 id="bgColor"
-                :value="fontcolorvalue"
+                :value="bgcolorvalue"
                 :change="bgColorchange"
               ></ejs-colorpicker>
             </div>
             <div
-              class="col-xs-2"
-              style="width: 18%;
-                    padding-left: 12px;
-                    margin-top: 5px;"
-            >Fore Color</div>
+              class="col-xs-3 barcode-panel-left" style="padding-top: 5px;">Fore Color</div>
             <div class="col-xs-3" style="padding-left: 2px;">
               <ejs-colorpicker
                 ref="foreColor"
@@ -111,8 +117,8 @@ padding-left: 18px;"
 
         <div class="property-panel-header">Margin</div>
         <div class="row sb-child-row">
-          <div class="col-xs-2 top" style="padding-left: 0px;">Left</div>
-          <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+          <div class="col-xs-2 top barcode-panel-left">Left</div>
+          <div class="col-xs-4 barcode-panel-left">
             <ejs-numerictextbox
               id="marginLeft"
               format="###.##"
@@ -123,8 +129,8 @@ padding-left: 18px;"
               :change="MarginLeftchange"
             ></ejs-numerictextbox>
           </div>
-          <div class="Right">Right</div>
-          <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+          <div class="col-xs-2 top barcode-panel-left">Right</div>
+          <div class="col-xs-4 barcode-panel-left">
             <ejs-numerictextbox
               id="MarginRight"
               format="###.##"
@@ -137,8 +143,8 @@ padding-left: 18px;"
           </div>
         </div>
         <div class="row sb-child-row">
-          <div class="col-xs-2 top" style="padding-left: 0px;">Top</div>
-          <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+          <div class="col-xs-2 top barcode-panel-left">Top</div>
+          <div class="col-xs-4 barcode-panel-left">
             <div style="padding-bottom: 8px">
               <ejs-numerictextbox
                 id="marginTop"
@@ -151,8 +157,8 @@ padding-left: 18px;"
               ></ejs-numerictextbox>
             </div>
           </div>
-          <div class="Right">Bottom</div>
-          <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+          <div class="col-xs-2 top barcode-panel-left">Bottom</div>
+          <div class="col-xs-4 barcode-panel-left">
             <ejs-numerictextbox
               id="MarginBottom"
               format="###.##"
@@ -165,8 +171,8 @@ padding-left: 18px;"
           </div>
         </div>
         <div class="row sb-child-row">
-          <div class="col-xs-2 top" style="padding-left: 0px;">Version</div>
-          <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+          <div class="col-xs-2 top barcode-panel-left">Version</div>
+          <div class="col-xs-4 barcode-panel-left">
             <ejs-numerictextbox
               id="MarginBottom"
               format="###.##"
@@ -180,8 +186,8 @@ padding-left: 18px;"
         </div>
       </div>
       <div class="row sb-child-row">
-        <div class="col-xs-2 top" style="padding-left: 0px;">Error Correction Level</div>
-        <div class="col-xs-3" style="width: 33%;padding-left: 0px">
+        <div class="col-xs-6 top barcode-panel-left">Error Correction Level</div>
+        <div class="col-xs-6 barcode-panel-left">
           <ejs-dropdownlist
             ref="errorCorrection"
             id="errorCorrection"
@@ -351,6 +357,10 @@ padding-left: 18px;"
   margin-top: 10px;
 }
 
+.barcode-panel-left {
+  padding-left: 0px;
+}
+
 .centercontrol {
   margin: auto;
   height: 150px;
@@ -361,6 +371,7 @@ padding-left: 18px;"
   position: absolute;
   margin-top: 38px;
 }
+
 </style>
 
 
@@ -401,9 +412,7 @@ let options = {
     }
   },
   focusout(args) {
-    displayText.value = barcode.value = document.getElementById(
-      "barcodeValue"
-    ).value;
+    displayText.value = barcode.value = document.getElementById("barcodeValue").value;
     barcode.dataBind();
   }
 };
@@ -428,9 +437,11 @@ export default {
       width: "200px",
       height: "150px",
       mode: "SVG",
-      displaytext: { visibility: false },
+      displaytext: { visibility: true },
+      logo: { imageSource: "https://www.syncfusion.com/web-stories/wp-content/uploads/sites/2/2022/02/cropped-Syncfusion-logo.png" },
       type: "QRCode",
       value: "Syncfusion",
+      bgcolorvalue: "#fff",
       fontcolorvalue: "#000",
       textPositionwidth: "100%",
       fieldValue: { value: "type", text: "text" },
@@ -447,6 +458,11 @@ export default {
       },
       textVisibilitychange: arg => {
         barCodeInstance.displayText.visibility = arg.checked;
+      },
+      showLogo: arg => {
+        if (barCodeInstance.logo) {
+          barCodeInstance.logo.imageSource = arg.checked ? "https://www.syncfusion.com/web-stories/wp-content/uploads/sites/2/2022/02/cropped-Syncfusion-logo.png" : '';
+        }
       },
       svgModechange: arg => {
         barCodeInstance.mode = arg.checked ? "SVG" : "Canvas";

@@ -107,6 +107,7 @@ export default {
         spreadsheet.cellFormat({ textAlign: 'center', verticalAlign: 'middle'}, 'A3:I13');
         spreadsheet.cellFormat({ backgroundColor: '#B3FFB3', fontWeight : "bold"}, 'A3:I3');
         spreadsheet.numberFormat('$#,##0.00', 'H4:I13');
+        spreadsheet.numberFormat('m/d/yyyy', 'C4:C13');
         spreadsheet.wrap('H3:I3');
         //Add Data validation to range.
         spreadsheet.addDataValidation({ type: 'WholeNumber', operator: 'LessThan', value1: '9', ignoreBlank: false }, 'G4:G13');

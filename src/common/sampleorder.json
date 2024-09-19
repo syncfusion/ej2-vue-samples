@@ -1,10 +1,31 @@
 {
+  "Smart Controls": [
+    "Smart Paste", 
+    "Smart TextArea"
+  ],
+  "Smart AI Solutions": [
+    "Data Grid",
+    "Tree Grid",
+    "Spreadsheet",
+    "Diagram",
+    "Gantt Chart",
+    "Query Builder",
+    "ComboBox",
+    "Image Editor",
+    "Pivot Table",
+    "Rich Text Editor",
+    "Kanban",
+    "Scheduler",
+    "Maps",
+    "Document Editor"
+  ],
   "Grids": [
     "Data Grid",
     "Pivot Table",
     "Tree Grid",
     "Spreadsheet"
   ],
+  "Interactive Chat": [ "AI AssistView" ],
   "Data Visualization": [
     "Chart",
     "Chart 3D",
@@ -30,17 +51,18 @@
   "File Viewers & Editors": [
     "PDF Viewer",
     "Rich Text Editor",
+    "Markdown Editor",
     "DocumentEditor",
     "Image Editor"
   ],
   "Calendars": [
     "Scheduler",
+    "Gantt Chart",
     "Calendar",
     "DatePicker",
     "DateRangePicker",
     "DateTimePicker",
-    "TimePicker",
-    "Gantt"
+    "TimePicker"
   ],
   "Buttons": [
     "Button",

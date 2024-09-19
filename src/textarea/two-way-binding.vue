@@ -3,12 +3,12 @@
     <div class="textarea-label"> Two-way binding</div>
     <div class="col-lg-6">
         <div id="wrapper">
-            <ejs-textarea floatLabelType="Auto" placeholder="Enter your comments" v-model="value"></ejs-textarea>
+            <ejs-textarea floatLabelType="Auto" placeholder="Enter your comments" v-model="value" rows="5" cols="400"></ejs-textarea>
         </div>
     </div> 
     <div class="col-lg-6">
         <div id="wrapper">
-            <ejs-textarea floatLabelType="Auto" placeholder="Enter your comments" v-model="value"></ejs-textarea>
+            <ejs-textarea floatLabelType="Auto" placeholder="Enter your comments" v-model="value" rows="5" cols="400"></ejs-textarea>
         </div>
     </div>
     <div id="action-description">
@@ -23,6 +23,12 @@
     </div>
 </div>
 </template>
+
+<style>
+    #textareaWrapper .e-multi-line-input {
+        max-width: 100%;
+    }
+</style>
 
 <style scoped>
     #wrapper {

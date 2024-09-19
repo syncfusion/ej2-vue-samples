@@ -63,33 +63,33 @@
               </template>
             </e-carousel-items>
         </ejs-carousel>
-        <div id="action-description">
-          <p>
-            This sample demonstrates the customization of the
-            <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component using various templates.
-          </p>
-        </div>
-        <div id="description">
-          <p>
-            In this demo, the <code>Vue Carousel</code> component is customized
-            by using the templates. The navigators are customized using
-            <code>previousButtonTemplate</code> and
-            <code>nextButtonTemplate</code>. The indicators are customized using
-            <code>indicatorsTemplate</code>. The carousel item is customized
-            using <code>template</code> option.
-          </p>
-          <p>
-            More information about customizing Vue Carousel component can be
-            found in this
-            <a aria-label="Carousel getting started"
-              target="_blank"
-              href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started"
-              >documentation section</a
-            >.
-          </p>
-        </div>
       </div>
     </div>
+  </div>
+  <div id="action-description">
+    <p>
+      This sample demonstrates the customization of the
+      <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component using various templates.
+    </p>
+  </div>
+  <div id="description">
+    <p>
+      In this demo, the <code>Vue Carousel</code> component is customized
+      by using the templates. The navigators are customized using
+      <code>previousButtonTemplate</code> and
+      <code>nextButtonTemplate</code>. The indicators are customized using
+      <code>indicatorsTemplate</code>. The carousel item is customized
+      using <code>template</code> option.
+    </p>
+    <p>
+      More information about customizing Vue Carousel component can be
+      found in this
+      <a aria-label="Carousel getting started"
+        target="_blank"
+        href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started"
+        >documentation section</a
+      >.
+    </p>
   </div>
 </template>
 

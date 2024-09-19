@@ -1,3 +1,4 @@
+
 <template>
     <div>
         <div class="control-section">
@@ -6,8 +7,8 @@
                     align='center' id='chart-zooming' :primaryXAxis='primaryXAxis' :legendSettings='legend'
                     :zoomSettings='zoomSettings' :title='title' :primaryYAxis='primaryYAxis'>
                     <e-series-collection>
-                        <e-series :dataSource='series' type='SplineArea' xName='x' yName='y' :animation='animation'
-                            :fill='fill' :border='border' width=2 opacity=1>
+                        <e-series :dataSource='series' type='Line' xName='x' yName='y' :animation='animation'
+                           >
                         </e-series>
                     </e-series-collection>
                 </ejs-chart>
@@ -149,126 +150,94 @@
                 </linearGradient>
             </defs>
         </svg>
-
     </div>
-</template>
-<style scoped>
-#material-gradient-chart stop {
+  </template>
+  <style scoped>
+  #material-gradient-chart stop {
     stop-color: #00bdae;
-}
-
-#fabric-gradient-chart stop {
+  }
+  #fabric-gradient-chart stop {
     stop-color: #4472c4;
-}
-
-#bootstrap-gradient-chart stop {
+  }
+  #bootstrap-gradient-chart stop {
     stop-color: #a16ee5;
-}
-
-#bootstrap4-gradient-chart stop {
+  }
+  #bootstrap4-gradient-chart stop {
     stop-color: #a16ee5;
-}
-
-#highcontrast-gradient-chart stop {
+  }
+  #highcontrast-gradient-chart stop {
     stop-color: #79ECE4;
-}
-
-#tailwind-gradient-chart stop {
+  }
+  #tailwind-gradient-chart stop {
     stop-color: #5A61F6;
-}
-
-#bootstrap5-gradient-chart stop {
-    stop-color: #262E0B;
-}
-
-#material-dark-gradient-chart stop {
+  }
+  #bootstrap5-gradient-chart stop {
+    stop-color: #FD7E14;
+  }
+  #material-dark-gradient-chart stop {
     stop-color: #9ECB08;
-}
-
-#fabric-dark-gradient-chart stop {
+  }
+  #fabric-dark-gradient-chart stop {
     stop-color: #4472c4;
-}
-
-#bootstrap-dark-gradient-chart stop {
+  }
+  #bootstrap-dark-gradient-chart stop {
     stop-color: #a16ee5;
-}
-
-#tailwind-dark-gradient-chart stop {
+  }
+  #tailwind-dark-gradient-chart stop {
     stop-color: #8B5CF6;
-}
-
-#bootstrap5-dark-gradient-chart stop {
-    stop-color: #5ECB9B;
-}
-
-#fluent-gradient-chart stop {
+  }
+  #bootstrap5-dark-gradient-chart stop {
+    stop-color: #FD7E14;
+  }
+  #fluent-gradient-chart stop {
     stop-color: #614570;
-}
-
-#fluent-dark-gradient-chart stop {
+  }
+  #fluent-dark-gradient-chart stop {
     stop-color: #8AB113;
-}
-
-#material3-gradient-chart stop {
+  }
+  #material3-gradient-chart stop {
     stop-color: #6355C7;
-}
-
-#material3-dark-gradient-chart stop {
+  }
+  #material3-dark-gradient-chart stop {
     stop-color: #4EAAFF;
-}
-
-#fluent2-gradient-chart stop {
+  }
+  #fluent2-gradient-chart stop {
     stop-color: #6200EE;
-}
-
-#fluent2-highcontrast-gradient-chart stop {
+  }
+  #fluent2-highcontrast-gradient-chart stop {
     stop-color: #9BB449;
-}
-
-#fluent2-dark-gradient-chart stop {
+  }
+  #fluent2-dark-gradient-chart stop {
         stop-color: #9BB449;
-}
-
-.chart-gradient stop[offset="0"] {
+  }
+  .chart-gradient stop[offset="0"] {
     stop-opacity: 0.9;
-}
-
-.chart-gradient stop[offset="1"] {
+  }
+  .chart-gradient stop[offset="1"] {
     stop-opacity: 0.3;
-}
-
-#control-container {
+  }
+  #control-container {
     padding: 0px !important;
-}
-</style>
-
-<script>
-import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, SplineAreaSeries, Zoom, Legend, DateTime, ScrollBar } from "@syncfusion/ej2-vue-charts";
-
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, "Contrast").replace(/-highContrast/i, "HighContrast");
-let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark', 'fluent2', 'Fluent2Dark'];
-let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6355C7', '#4EAAFF', '#6200EE', '#9BB449'];
-
-function GetZoomingData() {
-    let series = [];
-    let point1;
-    let value = 80;
-    for (let i = 1; i < 500; i++) {
-        if (Math.random() > .5) {
-            value += Math.random();
-        } else {
-            value -= Math.random();
-        }
-        point1 = { x: new Date(1960, i + 2, i), y: Math.round(value) };
-        series.push(point1);
-    }
-    return { 'series': series };
-}
-let seriesData = GetZoomingData().series;
-export default {
+  }
+  </style>
+  <script>
+  import { Browser } from '@syncfusion/ej2-base';
+  import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Zoom, DateTime, ScrollBar } from "@syncfusion/ej2-vue-charts";
+  import { data } from './financial-data';
+  let selectedTheme = location.hash.split("/")[1];
+  selectedTheme = selectedTheme ? selectedTheme : "fluent2";
+  let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, "Contrast").replace(/-highContrast/i, "HighContrast");
+  let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark', 'fluent2', 'fluent2highcontrast', 'fluent2dark'];
+  let borderColor = ['#FD7E14', '#FD7E14', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6355C7', '#4EAAFF', '#6200EE', '#9BB449', '#9BB449'];
+    const seriesData = [];
+      let point;
+      let i;
+      for (i = 0; i < data.length; i++) {
+          point = { x: new Date(1941, i + 2, i), y: data[i] / 1000 - 0.5 };
+          seriesData.push(point);
+      }
+  
+  export default {
     components: {
         'ejs-chart': ChartComponent,
         'e-series-collection': SeriesCollectionDirective,
@@ -278,45 +247,51 @@ export default {
         return {
             theme: theme,
             primaryXAxis: {
-                valueType: 'DateTime',
-                edgeLabelPlacement: 'Shift',
-                majorGridLines: { width: 0 }
+              valueType: 'DateTime',
+              majorGridLines: { width: 0 },
+              majorTickLines: { width: 0 },
+              scrollbarSettings: {
+                  enableZoom: false
+              }
             },
             //Initializing Primary Y Axis
             primaryYAxis: {
-                title: 'Profit ($)',
-                rangePadding: 'None',
-                labelFormat: '${value}k',
-                lineStyle: { width: 0 },
-                majorTickLines: { width: 0 }
+              title: 'Temperature',
+              intervalType: 'Months',
+              labelFormat: '{value}°C',
+              enableScrollbarOnZooming: false,
+              majorTickLines: { width: 0 },
+              lineStyle: { width: 0 },
             },
             legend: {
                 visible: false
             },
-            animation: { enable: false },
+            animation: { enable: true },
             zoomSettings: {
-                enableMouseWheelZooming: true,
-                enablePinchZooming: true,
-                enableSelectionZooming: true,
-                showToolbar: true
+              enableSelectionZooming: true,
+              enableMouseWheelZooming: true,
+              enableDeferredZooming: false,
+              enableScrollbar: true,
+              enablePinchZooming: true,
+              mode: 'X',
+              enableAnimation: true
             },
             chartArea: {
                 border: {
                     width: 0
                 }
             },
-            width: Browser.isDevice ? '100%' : '75%',
+            width: Browser.isDevice ? '100%' : '80%',
             border: { width: 2, color: borderColor[themes.indexOf(theme.toLowerCase())] },
-            title: 'Sales History of Product X',
+            title: 'Global Warming: Monthly Temperature Anomaly',
             series: seriesData,
-            fill: "url(#" + selectedTheme + "-gradient-chart)",
         };
     },
     provide: {
-        chart: [SplineAreaSeries, DateTime, Legend, Zoom, ScrollBar]
+        chart: [LineSeries, DateTime, Zoom, ScrollBar]
     },
     methods: {
-
     }
-};
-</script>
+  };
+  </script>
+  

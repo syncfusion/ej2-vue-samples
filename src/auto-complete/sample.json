@@ -2,7 +2,6 @@
     "name": "AutoComplete",
     "directory": "auto-complete",
     "category": "Dropdowns",
-    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -47,7 +46,6 @@
             "url": "disabled-items",
             "name": "Disabled Items",
             "category": "AutoComplete",
-            "type": "new",
             "description": "This example demonstrates the disabled items of Vue autocomplete component.",
             "sourceFiles":[
                 { "displayName": "disabled-items.vue", "path":"src/auto-complete/disabled-items.vue" },

@@ -7,7 +7,7 @@
         text= "Export" :template='template' ></e-item>
           <e-item type= "Button"
         text= "Print" prefixIcon='e-print e-icons' ></e-item>
-    <e-item type= "Input" ref="checkboxObj" id="checkbox"
+    <e-item type= "Input" ref="checkboxObj" id="checkbox" 
        :template='checkBoxTemplate'></e-item>
     </e-items>
     </ejs-toolbar>
@@ -51,7 +51,6 @@
 
 .e-ddb-icons {
   font-family: "e-ddb-icons";
-  speak: none;
   font-size: 55px;
   font-style: normal;
   font-weight: normal;
@@ -73,35 +72,13 @@
 
 <script>
 import { createApp } from "vue";
-import {
-  PrintAndExport,
-  DiagramComponent,
-  Diagram,
-  SnapConstraints
-} from "@syncfusion/ej2-vue-diagrams";
-import {
-  CheckBox,
-  ButtonComponent,
-  CheckBoxComponent
-} from "@syncfusion/ej2-vue-buttons";
-import {
-  DropDownButton,
-  ItemModel,
-  DropDownButtonComponent
-} from "@syncfusion/ej2-vue-splitbuttons";
-
-import {
-  Toolbar,
-  ToolbarComponent,
-  ItemsDirective,
-  ItemDirective,
-  ClickEventArgs,
-  MenuEventArgs
-} from "@syncfusion/ej2-vue-navigations";
-
+import { PrintAndExport,DiagramComponent,BasicShapes,SnapConstraints} from "@syncfusion/ej2-vue-diagrams";
+import { ButtonComponent,CheckBoxComponent} from "@syncfusion/ej2-vue-buttons";
+import {DropDownButton,DropDownButtonComponent} from "@syncfusion/ej2-vue-splitbuttons";
+import {ToolbarComponent,ItemsDirective, ItemDirective,} from "@syncfusion/ej2-vue-navigations";
+// Global variables to hold instances of Diagram and CheckBox components.
 let diagramInstance;
 let exportOptions = {};
-let toolbarInstance;
 let checkBoxObj;
 
 let shape = {
@@ -110,197 +87,59 @@ let shape = {
   cornerRadius: 10
 };
 
-let nodes = [
-  {
-    id: "sourceNode1",
-    width: 100,
-    height: 50,
-    offsetX: 320,
-    offsetY: 100,
-    style: { strokeColor: "#868686", fill: "#d5f5d5" },
-    annotations: [
-      {
-        content: "Source Document",
-        margin: { left: 15, right: 15, bottom: 15, top: 15 }
-      }
-    ]
-  },
-  {
-    id: "censusNode2",
-    width: 100,
-    height: 75,
-    offsetX: 320,
-    offsetY: 225,
-    shape: { type: "Basic", shape: "Diamond" },
-    style: { strokeColor: "#8f908f", fill: "#e2f3fa" },
-    annotations: [
-      {
-        content: "Census Record",
-        margin: { left: 15, right: 15, bottom: 15, top: 15 }
-      }
-    ]
-  },
-  {
-    id: "booksNode3",
-    width: 100,
-    height: 75,
-    offsetX: 320,
-    offsetY: 350,
-    shape: { type: "Basic", shape: "Diamond" },
-    style: { strokeColor: "#8f908f", fill: "#e2f3fa" },
-    annotations: [{ content: "Books and Magazine" }]
-  },
-  {
-    id: "recordNode4",
-    width: 125,
-    height: 50,
-    offsetX: 520,
-    offsetY: 225,
-    style: { strokeColor: "#868686", fill: "#d5f5d5" },
-    annotations: [{ content: "Record Template" }]
-  },
-  {
-    id: "traditionalNode5",
-    width: 125,
-    height: 50,
-    offsetX: 520,
-    offsetY: 350,
-    style: { strokeColor: "#868686", fill: "#d5f5d5" },
-    annotations: [{ content: "Traditional Template" }]
-  },
-  {
-    id: "nontraditionalNode6",
-    width: 135,
-    height: 50,
-    offsetX: 320,
-    offsetY: 450,
-    style: { strokeColor: "#a8a8a8", fill: "#faebee" },
-    annotations: [{ content: "Nontraditional" }]
-  },
-  {
-    id: "Radial1",
-    width: 125,
-    height: 50,
-    offsetX: 1000,
-    offsetY: 250,
-    shape: { type: "Basic", shape: "Ellipse" },
-    style: { strokeColor: "#a8a8a8", fill: "#fef0db" },
-    annotations: [{ content: "Health Fitness" }]
-  },
-  {
-    id: "Radial2",
-    width: 125,
-    height: 75,
-    offsetX: 1000,
-    offsetY: 125,
-    shape: { type: "Basic", shape: "Ellipse" },
-    style: { strokeColor: "#a8a8a8", fill: "#faebee" },
-    annotations: [{ content: "Diet" }]
-  },
-  {
-    id: "Radial3",
-    width: 125,
-    height: 75,
-    offsetX: 1175,
-    offsetY: 200,
-    shape: { type: "Basic", shape: "Ellipse" },
-    style: { strokeColor: "#a8a8a8", fill: "#faebee" },
-    annotations: [{ content: "Flexibility" }]
-  },
-  {
-    id: "Radial4",
-    width: 125,
-    height: 75,
-    offsetX: 1150,
-    offsetY: 375,
-    shape: { type: "Basic", shape: "Ellipse" },
-    style: { strokeColor: "#a8a8a8", fill: "#faebee" },
-    annotations: [{ content: "Muscular Endurance" }]
-  },
-  {
-    id: "Radial5",
-    width: 125,
-    height: 75,
-    offsetX: 825,
-    offsetY: 200,
-    shape: { type: "Basic", shape: "Ellipse" },
-    style: { strokeColor: "#a8a8a8", fill: "#faebee" },
-    annotations: [{ content: "Cardiovascular Strength" }]
-  },
-  {
-    id: "Radial6",
-    width: 125,
-    height: 75,
-    offsetX: 920,
-    offsetY: 375,
-    shape: { type: "Basic", shape: "Ellipse" },
-    style: { strokeColor: "#a8a8a8", fill: "#faebee" },
-    annotations: [{ content: "Muscular Strength" }]
-  }
+// Helper function to create a node with common properties
+function createNode(id,width, height,offsetX, offsetY,strokeColor, fillColor,content, shape = 'Rectangle'){
+    return {
+        id,
+        width,
+        height,
+        offsetX,
+        offsetY,
+        shape: { type: 'Basic', shape: shape },
+        style: { strokeColor: strokeColor, fill: fillColor },
+        annotations: [{ content }]
+    };
+}
+
+// Initialize Diagram Nodes with helper function
+let nodes= [
+    createNode('sourceNode1', 100, 50, 120, 100, '#868686', '#d5f5d5', 'Source Document'),
+    createNode('censusNode2', 100, 75, 120, 200, '#8f908f', '#e2f3fa', 'Census Record', 'Diamond'),
+    createNode('booksNode3', 100, 75, 120, 325, '#8f908f', '#e2f3fa', 'Books and Magazine', 'Diamond'),
+    createNode('recordNode4', 125, 50, 320, 200, '#868686', '#d5f5d5', 'Record Template'),
+    createNode('traditionalNode5', 125, 50, 320, 325, '#868686', '#d5f5d5', 'Traditional Template'),
+    createNode('nontraditionalNode6', 135, 50, 120, 425, '#a8a8a8', '#faebee', 'Nontraditional'),
+    createNode('Radial1', 125, 50, 850, 225, '#a8a8a8', '#fef0db', 'Health Fitness', 'Ellipse'),
+    createNode('Radial2', 125, 75, 850, 100, '#a8a8a8', '#faebee', 'Diet', 'Ellipse'),
+    createNode('Radial3', 125, 75, 1025, 175, '#a8a8a8', '#faebee', 'Flexibility', 'Ellipse'),
+    createNode('Radial4', 125, 75, 1000, 350, '#a8a8a8', '#faebee', 'Muscular Endurance', 'Ellipse'),
+    createNode('Radial5', 125, 75, 675, 175, '#a8a8a8', '#faebee', 'Cardiovascular Strength', 'Ellipse'),
+    createNode('Radial6', 125, 75, 770, 350, '#a8a8a8', '#faebee', 'Muscular Strength', 'Ellipse')
 ];
 
+// Helper function to create a connector with common properties
+function createConnector(id, sourceID, targetID, content = 'Yes') {
+    return {
+        id,
+        sourceID,
+        targetID,
+        annotations: content ? [{ content, style: { fill: 'White' } }] : []
+    };
+}
+
+// Initialize Diagram Connectors with helper function
 let connectors = [
-  {
-    id: "flowChartConnector1",
-    sourceID: "sourceNode1",
-    targetID: "censusNode2"
-  },
-  {
-    id: "flowChartConnector2",
-    sourceID: "censusNode2",
-    targetID: "booksNode3",
-    annotations: [{ content: "No", style: { fill: "White" } }]
-  },
-  {
-    id: "flowChartConnector3",
-    sourceID: "booksNode3",
-    targetID: "nontraditionalNode6",
-    annotations: [{ content: "No", style: { fill: "White" } }]
-  },
-  {
-    id: "flowChartConnector4",
-    sourceID: "censusNode2",
-    targetID: "recordNode4",
-    annotations: [{ content: "Yes", style: { fill: "White" } }]
-  },
-  {
-    id: "flowChartConnector5",
-    sourceID: "booksNode3",
-    targetID: "traditionalNode5",
-    annotations: [{ content: "Yes", style: { fill: "White" } }]
-  },
-  {
-    id: "RadialConnector1",
-    sourceID: "Radial1",
-    targetID: "Radial2",
-    annotations: [{ content: "Yes", style: { fill: "White" } }]
-  },
-  {
-    id: "RadialConnector2",
-    sourceID: "Radial1",
-    targetID: "Radial3",
-    annotations: [{ content: "Yes", style: { fill: "White" } }]
-  },
-  {
-    id: "RadialConnector3",
-    sourceID: "Radial1",
-    targetID: "Radial4",
-    annotations: [{ content: "Yes", style: { fill: "White" } }]
-  },
-  {
-    id: "RadialConnector4",
-    sourceID: "Radial1",
-    targetID: "Radial5",
-    annotations: [{ content: "Yes", style: { fill: "White" } }]
-  },
-  {
-    id: "RadialConnector5",
-    sourceID: "Radial1",
-    targetID: "Radial6",
-    annotations: [{ content: "Yes", style: { fill: "White" } }]
-  }
+    createConnector('flowChartConnector1', 'sourceNode1', 'censusNode2', ''),
+    createConnector('flowChartConnector2', 'censusNode2', 'booksNode3', 'No'),
+    createConnector('flowChartConnector3', 'booksNode3', 'nontraditionalNode6', 'No'),
+    createConnector('flowChartConnector4', 'censusNode2', 'recordNode4'),
+    createConnector('flowChartConnector5', 'booksNode3', 'traditionalNode5'),
+    createConnector('RadialConnector1', 'Radial1', 'Radial2'),
+    createConnector('RadialConnector2', 'Radial1', 'Radial3'),
+    createConnector('RadialConnector3', 'Radial1', 'Radial4'),
+    createConnector('RadialConnector4', 'Radial1', 'Radial5'),
+    createConnector('RadialConnector5', 'Radial1', 'Radial6')
 ];
-
 export default {
   components: {
     'ejs-diagram': DiagramComponent,
@@ -321,47 +160,38 @@ export default {
       template: function() {
         return {
           template: createApp({}).component("DropDownButton", {
-            template:
-              '<ejs-dropdownbutton :items=items iconCss="e-export e-icons" content= "Export"  :select= onselect></ejs-dropdownbutton>',
+            template: `
+              <ejs-dropdownbutton 
+                :items="exportItems" 
+                iconCss="e-export e-icons" 
+                content="Export"  
+                :select="handleSelect"
+              ></ejs-dropdownbutton>
+            `,
             components: {
               'ejs-dropdownbutton': DropDownButtonComponent
             },
+            // Export the diagram object based on the format.
             data() {
               return {
-                items: [
-                  {
-                    text: "JPG"
-                  },
-                  {
-                    text: "PNG"
-                  },
-                  {
-                    text: "SVG"
-                  }
+                exportItems: [
+                  { text: "JPG" },
+                  { text: "PNG" },
+                  { text: "SVG" }
                 ],
-                //Export the diagraming object based on the format.
-                onselect: function(args) {
-                  debugger;
-                  let exportOptions = {};
-                  if (args) {
-                    switch (args.item.text) {
-                      case "JPG":
-                        exportOptions.format = args.item.text;
-                        break;
-                      case "PNG":
-                        exportOptions.format = args.item.text;
-                        break;
-                      case "SVG":
-                        exportOptions.format = args.item.text;
-                        break;
-                    }
-                  }
-                  exportOptions.mode = "Download";
-                  exportOptions.region = "PageSettings";
-                  exportOptions.multiplePage = checkBoxObj.checked;
-                  exportOptions.fileName = "Export";
-                  exportOptions.pageHeight = 400;
-                  exportOptions.pageWidth = 400;
+                handleSelect(eventArgs) {
+                  if (!eventArgs) return;
+      
+                  const exportOptions = {
+                    mode: "Download",
+                    region: "PageSettings",
+                    multiplePage: checkBoxObj.checked,
+                    fileName: "Export",
+                    pageHeight: 500,
+                    pageWidth: 500,
+                    format: eventArgs.item.text
+                  };
+      
                   diagramInstance.exportDiagram(exportOptions);
                 }
               };
@@ -369,11 +199,12 @@ export default {
           })
         };
       },
+      
       checkBoxTemplate: function() {
         return {
           template: createApp({}).component("CheckBox", {
             template:
-              '<ejs-checkbox ref="checkBoxObj" id="checkbox" checked=false label="Multiple Page"></ejs-checkbox>',
+              '<ejs-checkbox ref="checkBoxObj" id="checkbox" label="Multiple Page"></ejs-checkbox>',
             components: {
               'ejs-checkbox': CheckBoxComponent
             },
@@ -383,8 +214,7 @@ export default {
               }
             },
             mounted () {
-              let checkbox = document.getElementById("checkbox");
-              checkBoxObj = checkbox.ej2_instances[0];
+                checkBoxObj=this.$refs.checkBoxObj.ej2Instances;
             }
           })
         };
@@ -395,26 +225,22 @@ export default {
     diagram: [PrintAndExport]
   },
   methods: {
-    //click event to perform printing the diagraming objects.
-    onItemClick: function(args) {
-      debugger;
-      let printOptions = {};
-      if (args) {
-        switch (args.item.text) {
-          case "Print":
-            {
-              printOptions.mode = "Data";
-              printOptions.region = "PageSettings";
-              printOptions.multiplePage = checkBoxObj.checked;
-              printOptions.pageHeight = 400;
-              printOptions.pageWidth = 400;
-              diagramInstance.print(printOptions);
-            }
-            break;
-        }
-      }
+    // Click event to perform printing the diagram objects.
+    onItemClick(eventArgs) {
+      if (!eventArgs || eventArgs.item.text !== "Print") return;
+  
+      const printOptions = {
+        mode: "Data",
+        region: "PageSettings",
+        multiplePage: checkBoxObj.checked,
+        pageHeight: 550,
+        pageWidth: 550
+      };
+  
+      diagramInstance.print(printOptions);
     }
   },
+
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
     diagramInstance.fitToPage();

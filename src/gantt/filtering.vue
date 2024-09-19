@@ -85,7 +85,7 @@
       <p>
         The filtering feature enables the user to view reduced amount of records
         based on filter criteria. The column menu filtering can be enabled by
-        setting <code>allowFiltering</code> property as <code>true</code> and
+        setting <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowfiltering">allowFiltering</a> property as <code>true</code> and
         toolbar search box can be enabled by including the search item in the
         <code>toolbar</code> property.
         <p>Gantt supports the following filter types. They are </p>
@@ -196,8 +196,8 @@ export default {
       labelSettings: {
         rightLabel: "TaskName",
       },
-      projectStartDate: new Date("07/16/1969 01:00:00 AM"),
-      projectEndDate: new Date("07/25/1969"),
+      projectStartDate: new Date("07/16/2024 01:00:00 AM"),
+      projectEndDate: new Date("07/25/2024"),
     };
   },
   methods: {
@@ -208,10 +208,10 @@ export default {
       && this.$refs.gantt.ej2Instances.filterSettings.type === "Menu") {
         args.filterModel.dlgDiv.querySelector(
           ".e-datetimepicker"
-        ).ej2_instances[0].min = new Date(1969, 5, 1);
+        ).ej2_instances[0].min = new Date(2024, 5, 1);
         args.filterModel.dlgDiv.querySelector(
           ".e-datetimepicker"
-        ).ej2_instances[0].max = new Date(1969, 8, 30);
+        ).ej2_instances[0].max = new Date(2024, 8, 30);
         args.filterModel.dlgDiv.querySelector(
           ".e-datetimepicker"
         ).ej2_instances[0].showTodayButton = false;

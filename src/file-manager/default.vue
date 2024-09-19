@@ -5,7 +5,8 @@
 			   <ejs-filemanager id="file" ref="fileObject" :ajaxSettings='ajaxSettings' :view='view'
 					 :navigationPaneSettings='navigationPaneSettings'
 					 :toolbarSettings='toolbarSettings'
-					 :contextMenuSettings="contextMenuSettings">
+					 :contextMenuSettings="contextMenuSettings"
+					 :enableRangeSelection='enableRangeSelection'>
 				</ejs-filemanager>
 			</div>
 		</div>
@@ -13,52 +14,52 @@
 			<div id="property" title="Properties">
 				<table id="property" title="Properties">
 					<tbody>
-				    	<tr>
-						   <td style="width: 50%;">
-						   		<div id="checkboxElement">Toolbar</div>
+						<tr>
+						   <td style="width: 55%;">
+							<div class="checkboxElement">Enable Range Selection</div>
 						   </td>
-						   <td style="width: 50%; padding-right: 10px;">
-						   		<ejs-checkbox id="toolbar" :checked="true" :change="toolbarChange"></ejs-checkbox> 
+						   <td style="width: 45%; padding-right: 10px;">
+							<ejs-checkbox id="rangeSelection" :checked="true" :change="selectionChange"></ejs-checkbox> 
+						   </td>
+						</tr>
+					    	<tr>
+						   <td style="width: 55%;">
+							<div class="checkboxElement">Toolbar</div>
+						   </td>
+						   <td style="width: 45%; padding-right: 10px;">
+							<ejs-checkbox id="toolbar" :checked="true" :change="toolbarChange"></ejs-checkbox> 
 						   </td>
 						</tr>
 						<tr>
-						   <td style="width: 50%;">
-						   		<div id="checkboxElement">allowMultiSelection</div>
+						   <td style="width: 55%;">
+							<div class="checkboxElement">Show File Extension</div>
 						   </td>
-						   <td style="width: 50%; padding-right: 10px;">
-						   		<ejs-checkbox id="multiSelect" :checked="true" :change="multiSelectChange"></ejs-checkbox> 
-						   </td>
-						</tr>
-						<tr>
-						   <td style="width: 50%;">
-						   		<div id="checkboxElement">showFileExtension</div>
-						   </td>
-						   <td style="width: 50%; padding-right: 10px;">
-						   		<ejs-checkbox id="fileExtension" :checked="true" :change="fileExtensionChange"></ejs-checkbox> 
+						   <td style="width: 45%; padding-right: 10px;">
+							<ejs-checkbox id="fileExtension" :checked="true" :change="fileExtensionChange"></ejs-checkbox> 
 						   </td>
 						</tr>
 						<tr>
-						   <td style="width: 50%;">
-						   		<div id="checkboxElement">showThumbnail</div>
+						   <td style="width: 55%;">
+							<div class="checkboxElement">Show Thumbnail</div>
 						   </td>
-						   <td style="width: 50%; padding-right: 10px;">
-						   		<ejs-checkbox id="thumbnail" :checked="true" :change="thumbnailChange"></ejs-checkbox> 
-						   </td>
-						</tr>
-						<tr>
-						   <td style="width: 50%;">
-						   		<div id="checkboxElement">Disable</div>
-						   </td>
-						   <td style="width: 50%; padding-right: 10px;">
-						   		<ejs-dropdownlist id='disable' :dataSource='items' placeholder='Select item' :change="itemChange"></ejs-dropdownlist> 
+						   <td style="width: 45%; padding-right: 10px;">
+							<ejs-checkbox id="thumbnail" :checked="true" :change="thumbnailChange"></ejs-checkbox> 
 						   </td>
 						</tr>
 						<tr>
-						   <td style="width: 50%;">
-						   		<div id="checkboxElement">Enable</div>
+						   <td style="width: 55%;">
+							<div class="checkboxElement">Disable Toolbar Item</div>
 						   </td>
-						   <td style="width: 50%; padding-right: 10px;">
-						   		<ejs-dropdownlist id='enable' :dataSource='items' placeholder='Select item' :change="itemChange"></ejs-dropdownlist> 
+						   <td style="width: 45%; padding-left: 10px;">
+							<ejs-dropdownlist ref='disableDropDownList' id='disable' :dataSource='items' placeholder='Select item' :change="onDisableItemChange"></ejs-dropdownlist> 
+						   </td>
+						</tr>
+						<tr>
+						   <td style="width: 55%;">
+							<div class="checkboxElement">Enable Toolbar Item</div>
+						   </td>
+						   <td style="width: 45%; padding-left: 10px;">
+							<ejs-dropdownlist ref='enableDropDownList' id='enable' :dataSource='items' placeholder='Select item' :change="onEnableItemChange"></ejs-dropdownlist> 
 						   </td>
 						</tr>
 					</tbody>
@@ -66,22 +67,19 @@
 			</div>
 		</div>
 		<div id="action-description">
-                    <p>The File Manager component in the property pane displays its features in this sample. The visibility of the toolbar, multi-selection, file extensions,
-                        and image thumbnails can all be easily controlled by checking or unchecking the respective checkboxes. Additionally, specific toolbar items can be
-                        enabled or disabled by selecting values in the Dropdown List.
-                    </p>                
+			<p>The property pane in this sample displays the features available in the File Manager component. The visibility of the toolbar, file extensions, range selection, and image thumbnails can be easily controlled by checking or unchecking the respective checkboxes. Additionally, specific toolbar items can be enabled or disabled by selecting values in the Dropdown List.</p>                
         </div>
 
 		<div id="description">
                 <p>In this demo, the above mentioned requirements are achieved by using the following API properties and method of the File Manager component. </p>
-                <p><code>toolbarSettings</code> defines the group of items in the toolbar that are aligned horizontally.</p>
-                <p><a target='_blank' href='https://ej2.syncfusion.com/react/documentation/api/file-manager/#allowmultiselection'>allowMultiSelection</a> property enables or disables the File Manager's multiple folder or file selection.  </p>
-                <p><a target='_blank' href='https://ej2.syncfusion.com/react/documentation/api/file-manager/#showfileextension'>showFileExtension</a> property shows or hides the file extension in the File Manager.</p>
-                <p><a target='_blank' href='https://ej2.syncfusion.com/react/documentation/api/file-manager/#showthumbnail'>showThumbnail</a> property shows or hides thumbnail images in the large icons view. . </p>
-                <p><code>enableToolbarItems</code> specifies which items should be enabled in the toolbar.</p>
+                <p><a target='_blank' href='https://ej2.syncfusion.com/vue/documentation/api/file-manager/#toolbarsettings'>toolbarSettings</a> defines the group of items in the toolbar that are aligned horizontally.</p>
+                <p><a target='_blank' href='https://ej2.syncfusion.com/vue/documentation/api/file-manager/#showfileextension'>showFileExtension</a> property shows or hides the file extension in the File Manager.</p>
+                <p><a target='_blank' href='https://ej2.syncfusion.com/vue/documentation/api/file-manager/#showthumbnail'>showThumbnail</a> property shows or hides thumbnail images in the large icons view. . </p>
+                <p><a target='_blank' href='https://ej2.syncfusion.com/vue/documentation/api/file-manager/#enableRangeSelection'>enableRangeSelection</a> property allows multiple items selection with mouse dragging. </p>
+				<p><code>enableToolbarItems</code> specifies which items should be enabled in the toolbar.</p>
                 <p><code>disableToolbarItems</code> specifies which items should be disabled in the toolbar.</p>
                 <p>
-                    <b>Note: </b>File Manager's upload functionality is restricted in the online demo. If you need to test upload functionality, please install 
+                    <b>Note: </b>File Manager's upload functionality is restricted in the online demos for security reasons. If you need to test upload functionality, please install 
                     <a target="_blank" href="https://www.syncfusion.com/downloads"> Syncfusion Essential Studio </a>on your machine and run the demo.
                     </p>
         </div>
@@ -101,9 +99,9 @@
     .file-api #tool_toggle {
         width: 100px;
     }
-	#checkboxElement{
-		font-size:14px;
-	}
+   .checkboxElement {
+	font-size:14px;
+   }
 
 
 </style>
@@ -144,7 +142,8 @@ export default {
             {
                 visible: false
             }, 
-			items:  ['NewFolder', 'Cut', 'Copy', 'Paste', 'Download', 'Delete', 'Refresh', 'Selection', 'View', 'Details']
+			items:  ['NewFolder', 'Cut', 'Copy', 'Paste', 'Download', 'Delete', 'Refresh', 'Selection', 'View', 'Details'],
+			enableRangeSelection: true
         };
     },   
     provide: {
@@ -155,10 +154,6 @@ export default {
 			var fileObj = this.$refs.fileObject;
 			fileObj.ej2Instances.toolbarSettings.visible = args.checked ? true : false
 		},
-		multiSelectChange: function(args) {
-			var fileObj = this.$refs.fileObject;
-			fileObj.ej2Instances.allowMultiSelection = args.checked ? true : false
-		},
 		fileExtensionChange: function(args) {
 			var fileObj = this.$refs.fileObject;
 			fileObj.ej2Instances.showFileExtension = args.checked ? true : false
@@ -167,15 +162,28 @@ export default {
 			var fileObj = this.$refs.fileObject;
 			fileObj.ej2Instances.showThumbnail = args.checked ? true : false
 		},
-		itemChange: function(args) {
+		selectionChange: function(args){
 			var fileObj = this.$refs.fileObject;
-        	var changedItem = args.itemData.value;
-        	if (args.element.id == 'enable') {
-            	fileObj.ej2Instances.enableToolbarItems([changedItem]);
-        	} else {
-            	fileObj.ej2Instances.disableToolbarItems([changedItem]);
-        	}
-    	}
+			fileObj.ej2Instances.enableRangeSelection = args.checked ? true : false
+		},
+	    	onDisableItemChange: function(args) {
+			var fileObj = this.$refs.fileObject;
+			if(args.itemData != null) {
+				fileObj.ej2Instances.disableToolbarItems([args.itemData.value]);
+				if(args.value === this.$refs.enableDropDownList.ej2Instances.value) {
+					this.$refs.enableDropDownList.ej2Instances.value = null;
+				}
+			}
+		},
+		onEnableItemChange: function(args) {
+			var fileObj = this.$refs.fileObject;
+			if(args.itemData != null) {
+				fileObj.ej2Instances.enableToolbarItems([args.itemData.value]);
+				if(args.value === this.$refs.disableDropDownList.ej2Instances.value) {
+					this.$refs.disableDropDownList.ej2Instances.value = null;
+				}
+			}
+		}
 	}
 };
 </script>

@@ -2,16 +2,18 @@
 
 <div class="control-section">
   <link href="https://ej2.syncfusion.com/javascript/demos/src/diagram/styles/diagram-common.css" rel="stylesheet">
-  <div id="swimlaneDiagram" style="width: 100%;">
+  <div id="umlclass-Diagram" style="width: 100%;">
     <div class="sb-mobile-palette-bar">
         <div id="palette-icon" style="float: right;" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
     </div>
     <div id="palette-space" class="sb-mobile-palette">
+       <!-- Configures the symbolpalette with dynamic properties and settings -->
         <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight' :symbolMargin='symbolMargin' :getNodeDefaults='palettegetNodeDefaults' :symbolHeight='symbolHeight' :getSymbolInfo='getSymbolInfo' :symbolWidth='symbolWidth'></ejs-symbolpalette>
     </div>
     <div id="diagram-space" class="sb-mobile-diagram">
+       <!-- Configures the diagram with dynamic properties and settings -->
         <ejs-diagram id="diagram" ref="diagramObj" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :dragEnter="dragEnter" :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
-        :setNodeTemplate='setNodeTemplate'></ejs-diagram>
+        ></ejs-diagram>
     </div>
   </div>
   <div id="action-description">
@@ -36,20 +38,6 @@
      font-weight: normal;
      font-style: normal;
  }
-
- .e-ddb-icons1 {
-     font-family: 'e-ddb-icons1';
-     speak: none;
-     font-size: 16px;
-     font-style: normal;
-     font-weight: normal;
-     font-variant: normal;
-     text-transform: none;
-     line-height: 1;
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
- }
-
  .e-toggle-palette::before {
      content: "\e700"
  }
@@ -65,7 +53,7 @@
  }
 /*To align diagram */
  .sb-mobile-diagram {
-     width:74%;
+    width: 74%;
      height: 559px;
      float: left;
      border: 1px solid rgba(0, 0, 0, 0.12);
@@ -111,7 +99,7 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagramInstance;
-
+//Initialize nodes for the diagram.
 let nodes = [
     {
       id: 'Patient',
@@ -228,7 +216,7 @@ let nodes = [
     createNode('Technologist', 1015, 535, 'Technologist'),
     createNode('SurgicalTechnologist', 1015, 630, 'SurgicalTechnologist')
   ];
-
+  //Initialize connector for the diagram.
 let connectors = [
     createConnector('connect1', 'Patient', 'Person'),
     createConnector('connect2', 'Person', 'Hospital'),
@@ -247,6 +235,7 @@ let connectors = [
     createConnector('connect15', 'AdministrativeStaff', 'Staff'),
     createConnector('connect16', 'TechnicalStaff', 'Staff')
   ];
+  // Initialize the palettes displayed in the symbol palette
   let palettes = [
   {
             id: 'UmlActivity', expanded: true, title: 'UML Classifier Nodes', symbols: [
@@ -260,7 +249,7 @@ let connectors = [
                     type: 'UmlClassifier',
                     classShape: {
                         attributes: [
-                            { name: 'accepted', type: 'Date', style: { color: "red", fontFamily: "Arial", textDecoration: 'Underline',  italic: true },isSeparator: true },
+                            { name: 'accepted', type: 'Date',isSeparator: true },
                             { name: 'sickness', type: 'History' },
                             { name: 'prescription', type: 'String[*]' },
                             { name: 'allergies', type: 'String[*]' }
@@ -531,33 +520,21 @@ let connectors = [
 ];
 export default {
   components: {
+    // Defines components for the diagram and symbol palette
     'ejs-diagram': DiagramComponent,
     'ejs-symbolpalette': SymbolPaletteComponent
   },
   data: function() {
     return {
+      // Initialize component data
       width: "100%",
       height: "100%",
       nodes: nodes,
       connectors: connectors,
-       //Sets the default values of a node
-      getNodeDefaults: (obj) => {
-        obj.style = { fill: '#26A0DA', strokeColor: 'white' };
-        return obj;
-      },
-      dragEnter: (args) => {
-        if(args.element instanceof Connector){
-              args.element.targetPoint.x += 100;
-              args.element.targetPoint.y += 20
-        }
-      },
-
-      //Sets the default values of a connector
-      getConnectorDefaults: (connector) => {
-        return connector;
-      },
-      //set an label style for nodes
-       setNodeTemplate: (node) => {
+       //Sets the default values for a node
+      getNodeDefaults: (node) => {
+        node.style = { fill: '#26A0DA', strokeColor: 'white' };
+        //set an label style for nodes
         if (node.annotations && node.annotations.length > 0) {
         for (let i = 0; i < node.annotations.length; i++) {
            let annotation = node.annotations[i];
@@ -566,6 +543,17 @@ export default {
            }
          }
         }
+        return node;
+      },
+       dragEnter: (args) => {
+        if(args.element instanceof Connector){
+              args.element.targetPoint.x += 100;
+              args.element.targetPoint.y += 20
+        }
+      },
+      //Sets the default values of a connector
+      getConnectorDefaults: (connector) => {
+        return connector;
       },
       expandMode: "Multiple",
       palettes: palettes,

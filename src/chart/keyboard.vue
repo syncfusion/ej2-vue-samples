@@ -158,13 +158,11 @@ else if(theme === 'FluentDark'){
     TextColor = '#FFFFFF';
 }
 else if(theme === 'Bootstrap5'){
-    FillColors =  ["#6355C7", "#FFB400", "#2196F5", "#F7523F", "#963C70", "#4BE0BC", "#FD7400", "#C9E422", "#0C7DA0",
-    "#162F88"];
+    FillColors =  ['#FD7E14', '#6610F2', '#6F42C1', '#D63384', '#DC3545', '#FFC107', '#198754', '#0DCAF0'];
     TextColor = '#000000';
 }
 else if(theme === 'Bootstrap5Dark'){
-    FillColors =  ["#8F80F4", "#FFD46D", "#6CBDFF", "#FF7F71", "#FF6DB3", "#63F5D2", "#FCAA65", "#ECFF77", "#EF8EFF",
-    "#5F82FD"];
+    FillColors =  ['#FD7E14', '#6610F2', '#6F42C1', '#D63384', '#DC3545', '#FFC107', '#198754', '#0DCAF0'];
     TextColor = '#FFFFFF';
 }
 else if(theme === 'Tailwind'){
@@ -217,7 +215,7 @@ else if (theme === 'Fluent2') {
     FillColors = ["#6200EE", "#09AF74", "#0076E5", "#CB3587", "#E7910F", "#0364DE", "#66CD15", "#F3A93C", "#107C10", "#C19C00"];
     TextColor = "#000000";
 }
-else if (theme === 'Fluent2Dark') {
+else if (theme === 'Fluent2HighContrast' || theme === 'Fluent2Dark') {
     FillColors = ["#9BB449", "#2A72D5", "#43B786", "#3F579A", "#584EC6", "#E85F9C", "#6E7A89", "#EA6266", "#0B6A0B", "#C19C00"];
     TextColor = "#FFFFFF";
 }
@@ -351,7 +349,7 @@ export default {
   methods: {
     load: function(args =ILoadedEventArgs) {
         let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Material';
+        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
         this.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
         },
         legendClick : function(ILegendClickEventArgs) {

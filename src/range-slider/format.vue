@@ -116,6 +116,12 @@
   user-select: none;
   /* Standard syntax */
 }
+
+body.fluent2-highcontrast .sliderwrap .e-scale,
+body.fluent2 .sliderwrap .e-scale,
+body.fluent2-dark .sliderwrap .e-scale {
+    top: 2px;
+}
 </style>
 <script>
 import { SliderComponent } from "@syncfusion/ej2-vue-inputs";

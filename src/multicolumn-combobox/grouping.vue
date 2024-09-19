@@ -2,13 +2,13 @@
     <div class="control-section">
         <div class='control-wrapper grouping-multicolumn'>
             <div style='padding-top:60px;'>
-                <ejs-multicolumncombobox type="text" id='grouping' :dataSource="dataSource" :fields="fields" placeholder="Select a customer name" popupHeight="230px" :allowSorting="allowSorting">
+                <ejs-multicolumncombobox type="text" id='grouping' :dataSource="dataSource" :fields="fields" placeholder="Select a name" popupHeight="230px" :allowSorting="allowSorting">
                     <e-columns>
-                        <e-column field='OrderID' header='Order ID' width="80"/>
-                        <e-column field='CustomerName' header='Customer Name' width="80"/>
-                        <e-column field='Freight' header='Freight' width="80"/>
-                        <e-column field='ShipPostalCode' header='Ship PostalCode' width="100"/>
-                        <e-column field='ShipCountry' header='ShipCountry' width="120"/>
+                        <e-column field='Name' header='Name' width="90"/>
+                        <e-column field='Position' header='Position' width="85"/>
+                        <e-column field='Department' header='Department' width="98"/>
+                        <e-column field='PhoneNo' header='Phone No' width="105"/>
+                        <e-column field='Location' header='Location' width="98"/>
                     </e-columns>
                 </ejs-multicolumncombobox>
             </div>
@@ -20,10 +20,11 @@
     </div>
 
     <div id="description">
-        <p>The MultiColumn ComboBox allows to group the relevant items under a corresponding category by mapping the <code>groupBy</code> property in the <code>fieldSettings</code> which allows to load the list items. In this sample, the order data is grouped against <code>ShipCountry</code> column, which illustrates how the orders details are grouped based on its category.</p>
+        <p>The MultiColumn ComboBox allows to group the relevant items under a corresponding category by mapping the <code>groupBy</code> property in the <code>fieldSettings</code> which allows to load the list of employees. In this sample, the employee data is grouped against <code>Position</code> column, which illustrates how the orders details are grouped based on its category.</p>
     </div>
 </template>
 
+<!-- custom code start -->
 <style scoped>
     .control-wrapper.grouping-multicolumn {
         margin: 0 auto;
@@ -35,6 +36,7 @@
         }
     }
 </style>
+<!-- custom code end -->
 
 <script>
 import { MultiColumnComboBoxComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-multicolumn-combobox";
@@ -48,8 +50,8 @@ export default {
     data: function() {
         return {
             allowSorting: false,
-            dataSource: data['orderDetails'],
-            fields: { text: 'CustomerName', value: 'OrderID', groupBy: 'ShipCountry' },
+            dataSource: data['employeeData'],
+            fields: { text: 'Name', value: 'Department', groupBy: 'Position' },
         }
     }
 }

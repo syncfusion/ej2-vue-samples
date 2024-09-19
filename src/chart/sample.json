@@ -56,6 +56,16 @@
         ]
     },
     {
+        "url": "custom-animation",
+        "name": "Custom Animation",
+        "type": "new",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the spline series with delay animation.",
+        "category": "Line Charts",
+        "sourceFiles": [
+            {"displayName": "custom-animation.vue", "path": "./src/chart/custom-animation.vue"}
+        ]
+    },
+    {
         "url": "spline-inversed",
         "name": "Inversed Spline",
         "description": "This demo for Essential JS2 Chart control shows how to render the inversed spline series.",
@@ -132,6 +142,16 @@
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "step-area.vue", "path": "./src/chart/step-area.vue"}
+        ]
+    },
+    {
+        "url": "step-without-riser",
+        "name": "Step Without Riser",
+        "type": "new",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the step area without vertical risers.",
+        "category": "Area Charts",
+        "sourceFiles": [
+            {"displayName": "step-without-riser.vue", "path": "./src/chart/step-without-riser.vue"}
         ]
     },
     {
@@ -455,12 +475,52 @@
         ]
     },
     {
+        "url": "rounded-corner",
+        "name": "Rounded Corner",
+        "type": "new",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the empty points.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "rounded-corner.vue", "path": "./src/chart/rounded-corner.vue"}
+        ]
+    },
+    {
+        "url": "pie-with-patterns",
+        "name": "Pie with Patterns",
+        "type": "new",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the pie chart with patterns.",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "pie-with-patterns.vue", "path": "./src/chart/pie-with-patterns.vue"}
+        ]
+    },
+    {
+        "url": "live-update",
+        "name": "Live Update",
+        "type": "new",
+        "description": "This demo for Essential JavaScript2 Chart control shows the real time charts",
+        "category": "Accumulation Charts",
+        "sourceFiles": [
+            {"displayName": "live-update.vue", "path": "./src/chart/live-update.vue"}
+        ]
+    },
+    {
         "url": "waterfall",
         "name": "Waterfall",
         "description": "This demo for Essential JS2 Chart control shows how to render the waterfall series.",
         "category": "Other Types",
         "sourceFiles": [
             {"displayName": "waterfall.vue", "path": "./src/chart/waterfall.vue"}
+        ]
+    },
+    {
+        "url": "horizontal-waterfall",
+        "name": "Horizontal Waterfall",
+        "type": "new",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the horizontal waterfall series.",
+        "category": "Other Types",
+        "sourceFiles": [
+            {"displayName": "horizontal-waterfall.vue", "path": "./src/chart/horizontal-waterfall.vue"}
         ]
     },
     {
@@ -659,7 +719,6 @@
     {
         "url": "update-spline",
         "name": "Spline updating each second",
-        "type": "new",
         "description": "This demo for Essential JS2 Chart control shows the spline updating each second in real time charts.",
         "category": "Real-time Charts",
         "sourceFiles": [
@@ -669,7 +728,6 @@
     {
         "url": "live-stock-data",
         "name": "Live stock data",
-        "type": "new",
         "description": "This demo for Essential JS2 Chart control shows the live stock data in real time charts.",
         "category": "Real-time Charts",
         "sourceFiles": [
@@ -679,7 +737,6 @@
     {
         "url": "update-data-source",
         "name": "Update data source",
-        "type": "new",
         "description": "This demo for Essential JS2 Chart control shows the update data source in real time charts.",
         "category": "Real-time Charts",
         "sourceFiles": [
@@ -689,11 +746,20 @@
     {
         "url": "click-add-point",
         "name": "Click to add a point",
-        "type": "new",
         "description": "This demo for Essential JS2 Chart control shows the click to add a point in real time charts.",
         "category": "Real-time Charts",
         "sourceFiles": [
             {"displayName": "click-add-point.vue", "path": "./src/chart/click-add-point.vue"}
+        ]
+    },
+    {
+        "url": "live-data-sorting",
+        "name": "Live Data Sorting",
+        "type": "new",
+        "description": "This demo for Essential JavaScript2 Chart control shows the real time charts",
+        "category": "Real-time Charts",
+        "sourceFiles": [
+            {"displayName": "live-data-sorting.vue", "path": "./src/chart/live-data-sorting.vue"}
         ]
     },
     {
@@ -1071,6 +1137,7 @@
     {
         "url": "zooming",
         "name": "Zooming and Panning",
+        "type": "update",
         "description": "This demo for Essential JS2 Chart control demonstrates the zooming and panning behavior in chart.",
         "category": "User Interaction",
         "sourceFiles": [

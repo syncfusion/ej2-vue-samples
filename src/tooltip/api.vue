@@ -15,7 +15,7 @@
                     </td>
                     <td style="width: 50%;padding-right: 10px">
                         <div>
-                            <input v-on:keyup="keymonitor" id="value" ref="textbox" class="e-input"  type="text" placeholder="Tooltip content">
+                            <input v-on:keyup="keymonitor" id="tooltipContentValue" ref="textbox" class="e-input"  type="text" placeholder="Tooltip content">
                         </div>
                     </td>
                 </tr>
@@ -179,13 +179,13 @@ export default {
   top: 35%;
 }
 
-.tooltip-api #value {
+.tooltip-api #tooltipContentValue {
   height: 34px;
   width: 136px;
   padding-left: 10px;
 }
 
-.highcontrast .tooltip-api #value {
+.highcontrast .tooltip-api #tooltipContentValue {
   border: 1px solid;
   border-width: 1px;
   color: #fff;

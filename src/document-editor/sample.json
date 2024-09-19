@@ -16,8 +16,7 @@
             "url": "bindui-to-document",
             "name": "Bind UI To Document",
             "category": "DocumentEditor",
-            "description": "The Document Editor component in Vue platform is used to create, edit, view, and print Word documents in web applications.",
-            "type": "new"
+            "description": "The Document Editor component in Vue platform is used to create, edit, view, and print Word documents in web applications."
         },
         {
             "url": "mail-merge",
@@ -96,6 +95,18 @@
             "name": "Footnotes and Endnotes",
             "category": "References",
             "description": "The DocumentEditor provides support to insert footnotes and endnotes to provide more information about something in the document."
+        },
+        {
+            "url": "autoshapes",
+            "name": "Auto Shapes",
+            "type": "new",
+            "category": "Shapes",
+            "description": "The Document Editor component supports Auto shapes preservation",
+            "api": {
+                "Editor": [
+                    "insertShape"
+                ]
+            }
         },
         {
             "url": "web-layout",

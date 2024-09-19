@@ -10,7 +10,7 @@
                 <label style="display: inline-block; font-size: 14px">Feed Delay(ms):</label>
                 <ejs-numerictextbox ref="feeddelay" :value="value" format="N0" :min="min" :max="max" :step="step"
                     :width="width" style="margin-left: 7px;" aria-label="Feed delay"></ejs-numerictextbox>
-                <ejs-button ref="updatebtn" id="update" v-on:click="updateClick" style="margin-left: 10px;">Start Data Update</ejs-button>
+                <ejs-button ref="updatebtn" id="grid-btn-update" v-on:click="updateClick" style="margin-left: 10px;">Start Data Update</ejs-button>
                  <ejs-button ref="clearbtn" id="clear" v-on:click="clearClick" style="margin-left: 10px;">Stop Data Update</ejs-button>
             </div>
             <ejs-grid ref='livestreamgrid' id='livestreamgrid' :dataSource="getTradeData" :allowSelection='false'
@@ -231,7 +231,7 @@ function updateCellDetails(cell, className) {
     cell.appendChild(div);
 }
 function customizeRatingCell(span1, span2, span1_class, span2_class, span2_text) {
-    span1_class.forEach((item) => span1.classList.add(item));        
+    span1_class.forEach((item) => span1.classList.add(item));
     span2.classList.add(span2_class);
     span2.innerText = span2_text;
 }

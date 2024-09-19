@@ -11,27 +11,27 @@
             </e-columns>
             <template v-slot:nametemplate="{data}">
                 <div class="image">
-                    <img :src="image1()" width=20 height=20 style="padding-bottom: 4px" class="taskname" alt="Task Name"/> Task Name
+                    <img :src="image1()" class="taskname" alt="Task Name"/> Task Name
                 </div>
             </template>
             <template v-slot:datetemplate="{data}">
                 <div class="image">
-                    <img :src="image2()" width=20 height=20 style="padding-bottom: 4px" class="startdate" alt="Start Date"/> Start Date
+                    <img :src="image2()" class="startdate" alt="Start Date"/> Start Date
                 </div>
             </template>
             <template v-slot:resourcetemplate="{data}">
                 <div class="image">
-                    <img :src="image3()" width=20 height=20 style="padding-bottom: 4px" class="resources" alt="Resources"/> Resources
+                    <img :src="image3()" class="resources" alt="Resources"/> Resources
                 </div>
             </template>
             <template v-slot:durationtemplate="{data}">
                 <div class="image">
-                    <img :src="image4()" width=20 height=20 style="padding-bottom: 4px" class="duration" alt="Duration"/> Duration
+                    <img :src="image4()" class="duration" alt="Duration"/> Duration
                 </div>
             </template>
             <template v-slot:progresstemplate="{data}">
                 <div class="image">
-                    <img :src="image5()" width=20 height=20 style="padding-bottom: 4px" class="Progress" alt="Progress"/> Progress
+                    <img :src="image5()" class="Progress" alt="Progress"/> Progress
                 </div>
             </template>
         </ejs-treegrid>
@@ -57,10 +57,17 @@
 </div>
 </template>
 <!-- custom code start -->
-<style scoped>
-    /deep/ .e-image {
+<style>
+   .e-image {
         margin-right: 8px;
     }
+    .taskname, .startdate, .resources, .duration, .Progress{
+      width: 20px !important;
+      height: 20px !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding-bottom: 4px;
+    };
 </style>
 <!-- custom code end -->
 <script lang="ts">
@@ -85,7 +92,7 @@ export default {
     methods : {
         getTheme() {
               let themeName: string = location.hash.split('/')[1];
-              return ["material","material3","fabric","bootstrap","bootstrap4","bootstrap5","tailwind","fluent","fluent2" ].includes(themeName);
+              return ["material","material3","fabric","bootstrap","bootstrap4","bootstrap5","bootstrap5.3","tailwind","fluent","fluent2" ].includes(themeName);
         },
         image1() {
             return (this.getTheme() ? "source/tree-grid/images/taskname.png": "source/tree-grid/images/darkTaskname.png");

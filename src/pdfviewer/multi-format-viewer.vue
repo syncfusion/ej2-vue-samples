@@ -181,7 +181,7 @@ export default {
             max: 100,
             height: '60',
             width: '250',
-            extensions: '.doc, .docx, .rtf, .docm, .dotm, .dotx, .dot, .xls, .xlsx, .pptx, .pptm, .potx, .potm .jpeg, .png, .bmp, .pdf',
+            extensions: '.doc, .docx, .rtf, .docm, .dotm, .dotx, .dot, .xls, .xlsx, .pptx, .pptm, .potx, .potm .jpeg, .png, .bmp, .pdf, .jpg',
             zoomMode: 'FitToPage',
             animation: {
                 enable: false,
@@ -202,7 +202,7 @@ export default {
     },
     methods: {
         onSelect: function (args) {
-            var extensions = ['doc', 'docx', 'rtf', 'docm', 'dotm', 'dotx', 'dot', 'xls', 'xlsx', 'pptx', 'pptm', 'potx', 'potm', 'jpeg', 'png', 'bmp', 'pdf']
+            var extensions = ['doc', 'docx', 'rtf', 'docm', 'dotm', 'dotx', 'dot', 'xls', 'xlsx', 'pptx', 'pptm', 'potx', 'potm', 'jpeg', 'png', 'bmp', 'pdf','jpg']
             let progress = this.$refs.progressLinear.ej2Instances;
             progress.value = 0;
             progress.refresh();

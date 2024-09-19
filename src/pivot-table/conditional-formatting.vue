@@ -68,6 +68,12 @@
                   </td>
                   <td>Specifies the style for the cell.</td>
               </tr>
+              <tr>
+                  <td style="vertical-align: top;padding: 4px 0;">
+                      <code>applyGrandTotals :</code>
+                  </td>
+                  <td>Enabled by default. Allows conditional formatting to be applied to row and column grand totals.</td>
+              </tr>
           </table>
           <br />
           <p>Also, user can clear the entire style applied for the value cell using reset all option.</p>

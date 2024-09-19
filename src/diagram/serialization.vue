@@ -8,7 +8,7 @@
 </div>
 <div class="control-section">
     <div style="width:100%;height: 80%">
-        <div id="palette-space" class="sb-mobile-palette">
+        <div id="palette-space" ref="paletteSpaceInstance" class="sb-mobile-palette">
             <ejs-symbolpalette id="symbolpalette" :expandMode='paletteexpandMode'
                               :palettes='palettes'
                               :getNodeDefaults='palettegetNodeDefaults'
@@ -26,6 +26,7 @@
             :height='height'
             :nodes='nodes'
             :connectors='connectors'
+            :loaded="loaded"
             :snapSettings='snapSettings'
             :getConnectorDefaults='getConnectorDefaults'/>
         </div>
@@ -45,7 +46,7 @@
 </div>
 <div id="description">
     <p>
-        This example shows how to drag-and-drop shapes and connectors from symbol palette to build diagrams. You can save the diagram as text files and edit the pre-saved diagrams. The <code>saveDiagram</code> method can be used to save the diagram as string. The <code>loadDiagram</code> method can be used to load the diagram from a string. In this example, context menu and undo/redo features are enabled.
+        This example shows how to drag-and-drop shapes and connectors from symbol palette to build diagrams. You can save the diagram as text files and edit the pre-saved diagrams. The <code>saveDiagram</code> method can be used to save the diagram as string. The<code>loadDiagram</code> method can be used to load the diagram from a string.The <code>loaded</code> event is triggered once the diagram has completely loaded, and the first node in the diagram has been selected during the event call. In this example, context menu and undo/redo features are enabled.
     </p>
 
     <p style="font-weight: 500">Injecting Module</p>
@@ -145,7 +146,6 @@
 }
 .e-diagram-icons {
   font-family: "e-diagram-icons";
-  speak: none;
   font-size: 54px;
   font-style: normal;
   font-weight: normal;
@@ -164,6 +164,7 @@ import {
   UndoRedo,
   SymbolPaletteComponent,
   DiagramContextMenu,
+  
 } from "@syncfusion/ej2-vue-diagrams";
 import { Uploader, UploaderComponent } from "@syncfusion/ej2-vue-inputs";
 Diagram.Inject(UndoRedo, DiagramContextMenu);
@@ -174,158 +175,65 @@ import {
 } from "@syncfusion/ej2-vue-navigations";
 
 import { isNullOrUndefined } from "@syncfusion/ej2-base";
-
+// Global variables to hold instances of Diagram and Palette components.
 let diagramInstance;
+let paletteSpaceInstance;
 
-//Initializes the nodes for the diagram
-let nodes = [
-  {
-    id: "Start",
-    height: 50,
-    width: 100,
-    offsetX: 50,
-    offsetY: 60,
-    shape: { type: "Flow", shape: "Terminator" },
-    annotations: [
-      {
-        content: "Start"
-      }
-    ],
-    style: { fill: "#d0f0f1", strokeColor: "#797979" }
-  },
-  {
-    id: "Alarm",
-    height: 50,
-    width: 100,
-    offsetX: 50,
-    offsetY: 160,
-    shape: { type: "Flow", shape: "Process" },
-    annotations: [
-      {
-        content: "Alarm Rings"
-      }
-    ],
-    style: { fill: "#fbfdc5", strokeColor: "#797979" }
-  },
-  {
-    id: "Ready",
-    height: 80,
-    width: 100,
-    offsetX: 50,
-    offsetY: 260,
-    shape: { type: "Flow", shape: "Decision" },
-    annotations: [
-      {
-        content: "Ready to Get Up?",
-      }
-    ],
-    style: { fill: "#c5efaf", strokeColor: "#797979" }
-  },
-  {
-    id: "Climb",
-    height: 50,
-    width: 100,
-    offsetX: 50,
-    offsetY: 370,
-    shape: { type: "Flow", shape: "Process" },
-    annotations: [
-      {
-        content: "Climb Out of Bed"
-      }
-    ],
-    style: { fill: "#fbfdc5", strokeColor: "#797979" }
-  },
-  {
-    id: "End",
-    height: 50,
-    width: 100,
-    offsetX: 50,
-    offsetY: 460,
-    shape: { type: "Flow", shape: "Terminator" },
-    annotations: [
-      {
-        content: "End"
-      }
-    ],
-    style: { fill: "#d0f0f1", strokeColor: "#797979" }
-  },
-  {
-    id: "Relay",
-    height: 50,
-    width: 100,
-    offsetX: 250,
-    offsetY: 160,
-    shape: { type: "Flow", shape: "Delay" },
-    annotations: [
-      {
-        content: "Relay"
-      }
-    ],
-    style: { fill: "#f8eee5", strokeColor: "#797979" }
-  },
-  {
-    id: "Hit",
-    height: 50,
-    width: 100,
-    offsetX: 250,
-    offsetY: 260,
-    shape: { type: "Flow", shape: "Process" },
-    annotations: [
-      {
-        content: "Hit Snooze Button",
-        margin: { top: 10, left: 10, right: 10, bottom: 10 }
-      }
-    ],
-    style: { fill: "#fbfdc5", strokeColor: "#797979" }
-  }
+// Predefined styles for different types of nodes in the diagram.
+const nodeStyles = {
+  terminator: { fill: "#d0f0f1", strokeColor: "#797979", height: 50, width: 100 },
+  process: { fill: "#fbfdc5", strokeColor: "#797979", height: 50, width: 120 },
+  decision: { fill: "#c5efaf", strokeColor: "#797979", height: 90, width: 120 },
+  delay: { fill: "#f8eee5", strokeColor: "#797979", height: 50, width: 100 }
+};
+
+// Function to create a node with given parameters.
+function createNode(id, offsetX, offsetY, shapeType, content, style) {
+  return {
+      id: id,
+      height: style.height,
+      width: style.width,
+      offsetX: offsetX,
+      offsetY: offsetY,
+      shape: { type: "Flow", shape: shapeType },
+      annotations: [{ content: content }],
+      style: { fill: style.fill, strokeColor: style.strokeColor }
+  };
+};
+
+// Initializing nodes for the diagram.
+let nodes= [
+  createNode("Start", 250, 60, "Terminator", "Start", nodeStyles.terminator),
+  createNode("Alarm", 250, 160, "Process", "Alarm Rings", nodeStyles.process),
+  createNode("Ready", 250, 260, "Decision", "Ready to Get Up?", nodeStyles.decision),
+  createNode("Climb", 250, 370, "Process", "Climb Out of Bed", nodeStyles.process),
+  createNode("End", 250, 460, "Terminator", "End", nodeStyles.terminator),
+  createNode("Relay", 450, 160, "Delay", "Relay", nodeStyles.delay),
+  createNode("Hit", 450, 260, "Process", "Hit Snooze Button", nodeStyles.process)
 ];
-//Initializes the connector for the diagram
+
+// Function to create a connector with given parameters.
+function createConnector(id, sourceID, targetID, annotations){
+  return {
+      id: id,
+      sourceID: sourceID,
+      targetID: targetID,
+      annotations: annotations
+  };
+};
+
+// Initializing connectors for the diagram.
 let connectors = [
-  {
-    id: "connector1",
-    sourceID: "Start",
-    targetID: "Alarm"
-  },
-  { id: "connector2", sourceID: "Alarm", targetID: "Ready" },
-  {
-    id: "connector3",
-    sourceID: "Ready",
-    targetID: "Climb",
-    annotations: [{ content: "Yes", style: { fill: "white" } }]
-  },
-  { id: "connector4", sourceID: "Climb", targetID: "End" },
-  {
-    id: "connector5",
-    sourceID: "Ready",
-    targetID: "Hit",
-    annotations: [{ content: "No", style: { fill: "white" } }]
-  },
-  { id: "connector6", sourceID: "Hit", targetID: "Relay" },
-  { id: "connector7", sourceID: "Relay", targetID: "Alarm" }
+  createConnector("connector1", "Start", "Alarm"),
+  createConnector("connector2", "Alarm", "Ready"),
+  createConnector("connector3", "Ready", "Climb", [{ content: "Yes", style: { fill: "white" } }]),
+  createConnector("connector4", "Climb", "End"),
+  createConnector("connector5", "Ready", "Hit", [{ content: "No", style: { fill: "white" } }]),
+  createConnector("connector6", "Hit", "Relay"),
+  createConnector("connector7", "Relay", "Alarm")
 ];
-let interval;
-interval = [
-  1,
-  9,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75
-];
+// Gridline configuration for the diagram.
+let interval = [1,9,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75];
 let gridlines = {
   lineColor: "#e0e0e0",
   lineIntervals: interval
@@ -344,6 +252,9 @@ export default {
       height: "700px",
       nodes: nodes,
       connectors: connectors,
+      loaded: () => {
+        diagramInstance.select([diagramInstance.nodes[0]]);
+      },
       snapSettings: {
         horizontalGridlines: gridlines,
         verticalGridlines: gridlines
@@ -455,122 +366,93 @@ export default {
   },
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
+    paletteSpaceInstance=this.$refs.paletteSpaceInstance;
     diagramInstance.fitToPage();
   }
 }
 
 //save the diagram object in json data.
 function download(data) {
-  let dataStr =
+  // MIME type for JSON data.
+  let mimeType =
     "data:text/json;charset=utf-8," + encodeURIComponent(data);
-  let a = document.createElement("a");
-  a.href = dataStr;
-  a.download = "Diagram.json";
-  document.body.appendChild(a);
-  a.click();
+  // Creates an anchor element to facilitate downloading.
+  let downloadAnchor = document.createElement("a");
+  downloadAnchor.href = mimeType;
+  downloadAnchor.download = "Diagram.json";
+  document.body.appendChild(downloadAnchor);
+  // Triggers the download process.
+  downloadAnchor.click();
+  downloadAnchor.remove();
+  
 }
 
 function onUploadSuccess(args) {
-  let file1  = args.file;
-  let file= file1.rawFile;
+  // Extracts the file from the upload success event arguments.
+  let files  = args.file;
+  let file= files.rawFile;
+  // Creates a FileReader to read the content of the file.
   let reader = new FileReader();
   reader.readAsText(file);
+  // Assigns the loadDiagram function to execute when the file read operation completes.
   reader.onloadend = loadDiagram;
 }
 
-//Load the diagraming object.
+// Load the diagram object from a JSON string.
 function loadDiagram(event) {
-  diagramInstance.loadDiagram((event.target).result);
+  // Extracts the text content from the FileReader event.
+  let results=(event.target).result;
+  // Loads the diagram from the JSON string.
+  diagramInstance.loadDiagram(results);
 }
 
-//Initialize the flowshapes for the symbol palatte
-let flowshapes= [
-  { id: "Terminator", shape: { type: "Flow", shape: "Terminator" } },
-  { id: "Process", shape: { type: "Flow", shape: "Process" } },
-  { id: "Decision", shape: { type: "Flow", shape: "Decision" } },
-  { id: "Document", shape: { type: "Flow", shape: "Document" } },
-  {
-    id: "PreDefinedProcess",
-    shape: { type: "Flow", shape: "PreDefinedProcess" }
-  },
-  { id: "PaperTap", shape: { type: "Flow", shape: "PaperTap" } },
-  { id: "DirectData", shape: { type: "Flow", shape: "DirectData" } },
-  { id: "SequentialData", shape: { type: "Flow", shape: "SequentialData" } },
-  { id: "Sort", shape: { type: "Flow", shape: "Sort" } },
-  { id: "MultiDocument", shape: { type: "Flow", shape: "MultiDocument" } },
-  { id: "Collate", shape: { type: "Flow", shape: "Collate" } },
-  { id: "SummingJunction", shape: { type: "Flow", shape: "SummingJunction" } },
-  { id: "Or", shape: { type: "Flow", shape: "Or" } },
-  { id: "InternalStorage", shape: { type: "Flow", shape: "InternalStorage" } },
-  { id: "Extract", shape: { type: "Flow", shape: "Extract" } },
-  { id: "ManualOperation", shape: { type: "Flow", shape: "ManualOperation" } },
-  { id: "Merge", shape: { type: "Flow", shape: "Merge" } },
-  {
-    id: "OffPageReference",
-    shape: { type: "Flow", shape: "OffPageReference" }
-  },
-  {
-    id: "SequentialAccessStorage",
-    shape: { type: "Flow", shape: "SequentialAccessStorage" }
-  },
-  { id: "Annotation", shape: { type: "Flow", shape: "Annotation" } },
-  { id: "Annotation2", shape: { type: "Flow", shape: "Annotation2" } },
-  { id: "data", shape: { type: "Flow", shape: "Data" } },
-  { id: "Card", shape: { type: "Flow", shape: "Card" } },
-  { id: "Delay", shape: { type: "Flow", shape: "Delay" } }
-];
-//Initializes connector symbols for the symbol palette
-let connectorSymbols = [
-  {
-    id: "Link1",
-    type: "Orthogonal",
-    sourcePoint: { x: 0, y: 0 },
-    targetPoint: { x: 40, y: 40 },
-    targetDecorator: { shape: "Arrow", style: { fill: "#757575", strokeColor: "#757575" } },
-    style: { strokeWidth: 2, strokeColor: "#757575" }
-  },
-  {
-    id: "link2",
-    type: "Orthogonal",
-    sourcePoint: { x: 0, y: 0 },
-    targetPoint: { x: 40, y: 40 },
-    style: { strokeWidth: 2, strokeColor: "#757575" },
-    targetDecorator: { shape: "None" }
-  },
-  {
-    id: "Link3",
-    type: "Straight",
-    sourcePoint: { x: 0, y: 0 },
-    targetPoint: { x: 40, y: 40 },
-    targetDecorator: { shape: "Arrow", style: { fill: "#757575", strokeColor: "#757575" } },
-    style: { strokeWidth: 2, strokeColor: "#757575" }
-  },
-  {
-    id: "link4",
-    type: "Straight",
-    sourcePoint: { x: 0, y: 0 },
-    targetPoint: { x: 40, y: 40 },
-    style: { strokeWidth: 2, strokeColor: "#757575" },
-    targetDecorator: { shape: "None" }
-  },
-  {
-    id: "link5",
-    type: "Bezier",
-    sourcePoint: { x: 0, y: 0 },
-    targetPoint: { x: 40, y: 40 },
-    style: { strokeWidth: 2, strokeColor: "#757575" },
-    targetDecorator: { shape: "None" }
+// Preparing flow shapes for the symbol palette.
+const flowShapeTypes = ["Terminator", "Process", "Decision", "Document","PreDefinedProcess", "PaperTap", "DirectData",
+    "SequentialData", "Sort", "MultiDocument","Collate", "SummingJunction", "Or", "InternalStorage",
+    "Extract", "ManualOperation", "Merge", "OffPageReference",
+    "SequentialAccessStorage", "Annotation", "Annotation2","Data", "Card", "Delay"];
+
+let flowshapes = flowShapeTypes.map(type => ({ id: type, shape: { type: "Flow", shape: type } }));
+
+// Function to create a connector symbol for the symbol palette.
+function createConnectorSymbol(id, type, targetDecoratorShape = "None") {
+  let connector = {
+      id,
+      type,
+      sourcePoint: { x: 0, y: 0 },
+      targetPoint: { x: 40, y: 40 },
+      style: { strokeWidth: 2, strokeColor: '#757575' }
+  };
+
+  if (targetDecoratorShape !== "None") {
+      connector.targetDecorator = { shape: targetDecoratorShape, style: { strokeColor: '#757575', fill: '#757575' } };
   }
+  else {
+      connector.targetDecorator = { shape: "None" };
+  }
+
+  return connector;
+}
+
+// Initializing connector symbols for the symbol palette.
+let connectorSymbols = [
+  createConnectorSymbol("Link1", "Orthogonal", "Arrow"),
+  createConnectorSymbol("link2", "Orthogonal"),
+  createConnectorSymbol("Link3", "Straight", "Arrow"),
+  createConnectorSymbol("link4", "Straight"),
+  createConnectorSymbol("link5", "Bezier")
 ];
 
+// Toggle the visibility of the palette on mobile devices.
 function openPalette() {
-  let paletteSpace = document.getElementById('palette-space') ;
+  // Checks if the current viewport width is less than or equal to 550 pixels.
   let isMobile = window.matchMedia('(max-width:550px)').matches;
   if (isMobile) {
-    if (!paletteSpace.classList.contains('sb-mobile-palette-open')) {
-      paletteSpace.classList.add('sb-mobile-palette-open');
+    // Toggles the class to show or hide the palette.
+    if (!paletteSpaceInstance.classList.contains('sb-mobile-palette-open')) {
+      paletteSpaceInstance.classList.add('sb-mobile-palette-open');
     } else {
-      paletteSpace.classList.remove('sb-mobile-palette-open');
+      paletteSpaceInstance.classList.remove('sb-mobile-palette-open');
     }
   }
 }

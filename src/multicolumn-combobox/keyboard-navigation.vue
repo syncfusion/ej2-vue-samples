@@ -2,12 +2,13 @@
     <div class="control-section">
         <div class='control-wrapper keyboard-multicolumn'>
             <div style='padding-top:60px;'>
-                <ejs-multicolumncombobox type="text" id='keyboard' :dataSource="dataSource" :fields="fields" placeholder="Select an order ID" popupHeight="230px">
-                    <e-columns>
-                        <e-column field='OrderID' header='Order ID' width="110"/>
-                        <e-column field='CustomerID' header='Customer ID' width="130"/>
-                        <e-column field='Freight' header='Freight' width="90"/>
-                        <e-column field='ShipCountry' header='ShipCountry' width="140"/>
+                <ejs-multicolumncombobox type="text" id='keyboard' :dataSource="dataSource" :fields="fields" placeholder="Select an author" popupHeight="230px">
+                    <e-columns>   
+                        <e-column field='Title' header='Title' width="180"/>
+                        <e-column field='Author' header='Author' width="150"/>
+                        <e-column field='Genre' header='Genre' width="100"/>
+                        <e-column field='PublishedYear' header='Published Year' width="120"/>
+                        <e-column field='Price' header='Price' width="80"/>
                     </e-columns>
                 </ejs-multicolumncombobox>
             </div>
@@ -36,10 +37,11 @@
     </div>
 </template>
 
+<!-- custom code start -->
 <style>
     .control-wrapper.keyboard-multicolumn {
         margin: 0 auto;
-        width: 500px;
+        width: 650px;
     }
 
     @media screen and (max-width: 480px) {
@@ -48,6 +50,7 @@
         }
     }
 </style>
+<!-- custom code end -->
 
 <script>
 import { MultiColumnComboBoxComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-multicolumn-combobox";
@@ -61,8 +64,8 @@ export default {
     },
     data: function() {
         return {
-            dataSource: data['orderDetails'],
-            fields: { text: 'OrderID', value: 'CustomerID' },
+            dataSource: data['bookDetails'],
+            fields: { text: 'Author', value: 'Title' },
         }
     }
 }

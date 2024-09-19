@@ -54,20 +54,20 @@ import { pertChartData } from "./diagram-data";
 import { DataManager } from "@syncfusion/ej2-data";
 
 let diagramInstance;
-
+// Function to create and style text elements for node template
 function getTextElement(
   text,
-  alignment,
+  horizontalAlignment,
   width,
-  valignment
+  verticalAlignment
 ) {
   let textElement = new TextElement();
   textElement.content = text;
   textElement.id = randomId();
   textElement.width = width;
   textElement.height = 25;
-  textElement.horizontalAlignment = alignment;
-  textElement.verticalAlignment = valignment;
+  textElement.horizontalAlignment = horizontalAlignment;
+  textElement.verticalAlignment = verticalAlignment;
   textElement.style.strokeWidth = 1;
   textElement.style.strokeColor = "#b5b5b5";
   textElement.style.fill = "transparent";
@@ -75,6 +75,8 @@ function getTextElement(
   textElement.relativeMode = "Object";
   return textElement;
 }
+
+// Function to add rows for node template
 let sDate = "startDate";
 let eDate = "endDate";
 let duration = "duration";
@@ -119,7 +121,6 @@ export default {
       },
       //Sets the default values of connector
       getConnectorDefaults: (connector, diagram) => {
-        connector.type = "Straight";
         if (connector.style) connector.style.strokeColor = "#979797";
         if (connector.targetDecorator) {
           connector.targetDecorator.width = 10;
@@ -135,6 +136,7 @@ export default {
       setNodeTemplate: (node) => {
         return getNodeTemplate(node);
       },
+      // Tool settings
       tool: DiagramTools.ZoomPan
     };
   },
@@ -159,7 +161,6 @@ function getNodeTemplate(node) {
   stack.id = randomId();
   stack.height = 25;
   stack.orientation = "Horizontal";
-  stack.style.fill = "white";
   stack.horizontalAlignment = "Stretch";
   addRows(stack, node);
   table.children = [

@@ -1,33 +1,32 @@
 <template>
   <div class="control-section">
-    <div style="width:100%">
+    <div style="width:100%" class="diagram-scroll">
         <div class="sb-mobile-palette-bar">
-          <div id="palette-icon" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
+          <div id="palette-icon" ref="paletteIcon" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
         </div>
-        <div id="palette-space" class="sb-mobile-palette" style="width:20%;float:left">
-          <ejs-symbolpalette id="symbolpalette" :palettes='palettes' :expandMode='expandMode' :width='palettewidth' :height='paletteheight' :getNodeDefaults='palettegetNodeDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight'
+        <div id="palette-space" ref="paletteSpace" class="sb-mobile-palette" style="width:20%;float:left">
+          <ejs-symbolpalette id="symbolpalette" :palettes='palettes' :expandMode='expandMode' :width='palettewidth' :height='paletteheight' :getNodeDefaults='palettegetNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight'
           :symbolWidth='symbolWidth'></ejs-symbolpalette>
         </div>
   
         <div class="sb-mobile-diagram" style="width:59%;float:left">
-            <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :rulerSettings='rulerSettings' :scrollSettings='scrollSettings' :created='created'></ejs-diagram>
+            <ejs-diagram style='display:block' id="diagram" ref="diagramObject" :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :rulerSettings='rulerSettings' :scrollSettings='scrollSettings' :created='created' :dragEnter='dragEnter'></ejs-diagram>
         </div>
         <div id="properties" style="width:20%;float:right">
               <div class="property-panel-header">
                   Properties
               </div>
               <div class="row db-prop-row">        
-                  
                   <div class="col-xs-5 db-col-right db-prop-text-style" style="padding-top: 14px">
                       <span class="db-prop-text-style db-spacing-text">Scroll Limit</span>
                   </div>
                   <div class="col-xs-7 db-col-left" style="padding-top: 10px;padding-right: 0px;">
                       <div class="db-text-input">
-                          <ejs-dropdownlist id='scrollableDiv' #scrollableDiv :dataSource='scrollLimitDatasource' :change='scrollLimitChange' :placeholder='waterMark' ></ejs-dropdownlist>
+                          <ejs-dropdownlist id='scrollableDiv' ref="scrollableDiv" :dataSource='scrollLimitDatasource' :change='scrollLimitChange' :placeholder='waterMark' ></ejs-dropdownlist>
                       </div>
                   </div>
               </div>
-              <div id="scrollableArea">
+              <div id="scrollableArea" ref="scrollableArea">
                   <div class="property-panel-header">
                       Scrollable Area
                   </div>
@@ -80,7 +79,7 @@
                       <ejs-checkbox :checked="true" :change="enableAutoSroll"></ejs-checkbox>
                   </div>
               </div>
-              <div id="autoScrollDiv" style="margin-top: 30px">
+              <div id="autoScrollDiv" ref="autoScrollDiv" style="margin-top: 30px">
                   <div class="property-panel-header">
                       AutoScroll border
                   </div>
@@ -143,17 +142,17 @@
 </template>
 <style scoped>
 /*To align palette */
-.sb-mobile-palette {
+ .diagram-scroll .sb-mobile-palette {
         width:240px;
         height:100%;
         float:left;
     }
     
-    .sb-mobile-palette-bar {
+    .diagram-scroll .sb-mobile-palette-bar {
         display: none;
     }
     /*To align diagram */
-    .sb-mobile-diagram {
+    .diagram-scroll .sb-mobile-diagram {
         width:calc(100% - 242px);
         height: 100%;
         float: left;
@@ -161,7 +160,7 @@
     
     @media (max-width: 550px) {
     
-        .sb-mobile-palette {
+        .diagram-scroll .sb-mobile-palette {
             z-index: 19;
             position: absolute;
             display: none;
@@ -170,7 +169,7 @@
             height:100%;
         }
         
-        .sb-mobile-palette-bar {
+        .diagram-scroll .sb-mobile-palette-bar {
             display: block;
             width: 100%;
             background:#fafafa;
@@ -179,7 +178,7 @@
             min-height: 40px;
         }
         
-        .sb-mobile-diagram {
+        .diagram-scroll .sb-mobile-diagram {
             width: 100%;
             height: 100%;
             float: left;
@@ -207,7 +206,7 @@
                 border-color: transparent ;
                 }
                 
-        .texstyle {	
+        .diagram-scroll .texstyle {	
             display: table;	
             /* height: 35px; */	
             padding-right: 10px;	
@@ -218,10 +217,10 @@
             position: relative;	
             min-height: 1px;	
         }	
-        .text{	
+        .diagram-scroll .text{	
             text-align: center;	
         }
-        .db-text {
+        .diagram-scroll .db-text {
             float: left;
             width: 20px;
             text-align: center;
@@ -230,18 +229,18 @@
             color: #8C8C8C;
         }
 
-        .db-text-input {
+        .diagram-scroll .db-text-input {
             width: calc(100% - 25px);
             padding: 2px 2px 0px 0px;
         }
 
-        .db-text-input input {
+        .diagram-scroll .db-text-input input {
             width: 100%;
             height: 100%;
             border: none;
         }
 
-        .disabledbutton {
+        .diagram-scroll .disabledbutton {
             pointer-events: none;
             opacity: 0.4;
         }
@@ -259,7 +258,10 @@ import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
 
 let isMobile;
 let interval;
-
+let diagramInstance;
+let autoScrollDivInstance;
+let paletteIconInstance;
+let paletteSpaceInstance;
 interval = [
   1,
   9,
@@ -324,7 +326,7 @@ let flowshapes = [
   { id: "Delay", shape: { type: "Flow", shape: "Delay" } }
 ];
 
-//Initializes connector symbols for the symbol palette
+//Initializes basicShapes symbols for the symbol palette
 let basicShapes = [
    {
       id: 'rectangle', shape: { type: 'Basic', shape: 'Rectangle' }
@@ -363,29 +365,25 @@ let basicShapes = [
       id: 'parallelogram', shape: { type: 'Basic', shape: 'Parallelogram' }
   },
 ];
-
+//Initialize the connector for the symbol palatte
 let connectorSymbols = [
     {
-        id: 'Link1', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-        targetDecorator: { shape: 'Arrow', style: { strokeColor: '#757575', fill: '#757575' } },
-        style: { strokeWidth: 1, strokeColor: '#757575' }
+        id: 'orthogonal', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 }
     },
     {
-        id: 'link3', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-        style: { strokeWidth: 1, strokeColor: '#757575' }, targetDecorator: { shape: 'None' }
+        id: 'orthogonalConnector', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
+         targetDecorator: { shape: 'None' }
     },
     {
-        id: 'Link21', type: 'Straight', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-        targetDecorator: { shape: 'Arrow', style: { strokeColor: '#757575', fill: '#757575' } },
-        style: { strokeWidth: 1, strokeColor: '#757575' }
+        id: 'straight', type: 'Straight', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 }
     },
     {
-        id: 'link23', type: 'Straight', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-        style: { strokeWidth: 1, strokeColor: '#757575' }, targetDecorator: { shape: 'None' }
+        id: 'straightConnector', type: 'Straight', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
+        targetDecorator: { shape: 'None' }
     },
     {
-        id: 'link33', type: 'Bezier', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-        style: { strokeWidth: 1, strokeColor: '#757575' }, targetDecorator: { shape: 'None' }
+        id: 'bezier', type: 'Bezier', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
+        targetDecorator: { shape: 'None' }
     },
 ];
 
@@ -397,6 +395,12 @@ export default {
    'ejs-dropdownlist': DropDownListComponent,
    'ejs-checkbox': CheckBoxComponent
   },
+   mounted: function() {
+    diagramInstance = this.$refs.diagramObject.ej2Instances;
+    autoScrollDivInstance = this.$refs.autoScrollDiv;
+    paletteIconInstance = this.$refs.paletteIcon;
+    paletteSpaceInstance = this.$refs.paletteSpace;
+  },
   data: function() {
     return {
       width: "100%",
@@ -404,10 +408,13 @@ export default {
       snapSettings: {
         horizontalGridlines: gridlines,
         verticalGridlines: gridlines
-      },      
+      },  
       created: (args) => {
-        var element2 = document.getElementById('scrollableArea');
-        element2.className = "disabledbutton";
+        addEvents();
+      },    
+      created: (args) => {
+        var scrollElement = this.$refs.scrollableArea;
+        scrollElement.className = "disabledbutton";
       },
       //Sets the default values of a node
       getNodeDefaults: (node) => {
@@ -429,12 +436,7 @@ export default {
         return obj;
       },
       //Sets the default values of a connector
-      getConnectorDefaults: (obj) => {
-        if (obj.id.indexOf("connector") !== -1) {
-          obj.type = "Orthogonal";
-          obj.targetDecorator = { shape: "Arrow", width: 10, height: 10 };
-        }
-      },
+      getConnectorDefaults:getConnectorDefaults,
     rulerSettings : {
         showRulers : true
       },
@@ -448,66 +450,66 @@ export default {
       scrollLimitDatasource : [{ text: 'Infinity', value: 'Infinity' }, { text: 'Diagram', value: 'Diagram' },
        { text: 'Limited', value: 'Limited' }
       ],
+      //Initializes a dropdown for scrollLimit
       scrollLimitChange :(args)=>{
-        var diagram = document.getElementById("diagram").ej2_instances[0];
-        var element = document.getElementById('scrollableArea');
+        var element = this.$refs.scrollableArea;
         element.className = args.value === "Limited" ? "" : "disabledbutton";
-        diagram.scrollSettings.scrollLimit = args.value;
+        diagramInstance.scrollSettings.scrollLimit = args.value;
       },
+      // Sets the horizontal scroll position of the diagram's scrollable area.
       scrollableX: (args)=>{
-        var diagram = document.getElementById("diagram").ej2_instances[0];
-        diagram.scrollSettings.scrollableArea.x = Number(args.value);
+        diagramInstance.scrollSettings.scrollableArea.x = Number(args.value);
       },
+      // Sets the vertical scroll position of the diagram's scrollable area.
       scrollableY: (args)=>{
-        var diagram = document.getElementById("diagram").ej2_instances[0];
-        diagram.scrollSettings.scrollableArea.y = Number(args.value);
+        diagramInstance.scrollSettings.scrollableArea.y = Number(args.value);
       },
+      // Sets the width of the diagram's scrollable area.
       scrollableWidth: (args)=>{
-          var diagram = document.getElementById("diagram").ej2_instances[0];
-        diagram.scrollSettings.scrollableArea.width = Number(args.value);
+        diagramInstance.scrollSettings.scrollableArea.width = Number(args.value);
       },
+      // Sets the height of the diagram's scrollable area.
       scrollableHeight: (args)=>{
-          var diagram = document.getElementById("diagram").ej2_instances[0];
-       diagram.scrollSettings.scrollableArea.height = Number(args.value);
+       diagramInstance.scrollSettings.scrollableArea.height = Number(args.value);
       },
+      // Sets the left auto-scroll border based on the provided value.
       autoScrollLeft: (args)=>{
-          var diagram = document.getElementById("diagram").ej2_instances[0];
-       diagram.scrollSettings.autoScrollBorder.left = Number(args.value);
+       diagramInstance.scrollSettings.autoScrollBorder.left = Number(args.value);
       },
+      // Sets the right auto-scroll border based on the provided value.
       autoScrollRight: (args)=>{
-          var diagram = document.getElementById("diagram").ej2_instances[0];
-       diagram.scrollSettings.autoScrollBorder.right = Number(args.value);
+       diagramInstance.scrollSettings.autoScrollBorder.right = Number(args.value);
       },
+      // Sets the top auto-scroll border based on the provided value.
       autoScrollTop: (args)=>{
-          var diagram = document.getElementById("diagram").ej2_instances[0];
-      diagram.scrollSettings.autoScrollBorder.top = Number(args.value);
+      diagramInstance.scrollSettings.autoScrollBorder.top = Number(args.value);
       },
+      // Sets the bottom auto-scroll border based on the provided value.
       autoScrollBottom: (args)=>{
-          var diagram = document.getElementById("diagram").ej2_instances[0];
-      diagram.scrollSettings.autoScrollBorder.bottom = Number(args.value);
+      diagramInstance.scrollSettings.autoScrollBorder.bottom = Number(args.value);
       },
+       //Initializes a checkbox to enable or disable autoscroll
       enableAutoSroll : (args)=>{
-      let diagram = document.getElementById("diagram").ej2_instances[0];
-       let element4 = document.getElementById('autoScrollDiv');
+       let autoScrollElement = autoScrollDivInstance;
         if (args.checked) {
-            element4.className = '';
-            diagram.scrollSettings.canAutoScroll = true;
+            autoScrollElement.className = '';
+            diagramInstance.scrollSettings.canAutoScroll = true;
         } else {
-            element4.className = 'disabledbutton';
-            diagram.scrollSettings.canAutoScroll = false;
+            autoScrollElement.className = 'disabledbutton';
+            diagramInstance.scrollSettings.canAutoScroll = false;
         }
       },
-      //Sets the Node style for DragEnter element.
+      //Sets the node style for DragEnter element.
       dragEnter: (args) => {
         let obj = args.element;
         if (obj && obj.width && obj.height) {
-          let oWidth = obj.width;
-          let oHeight = obj.height;
+          let nodeWidth = obj.width;
+          let nodeHeight = obj.height;
           let ratio = 100 / obj.width;
           obj.width = 100;
           obj.height *= ratio;
-          if (obj.offsetX) obj.offsetX += (obj.width - oWidth) / 2;
-          if (obj.offsetY) obj.offsetY += (obj.height - oHeight) / 2;
+          if (obj.offsetX) obj.offsetX += (obj.width - nodeWidth) / 2;
+          if (obj.offsetY) obj.offsetY += (obj.height - nodeHeight) / 2;
           obj.style = { fill: "#357BD2", strokeColor: "white" };
         }
       },
@@ -540,12 +542,12 @@ export default {
       symbolWidth: 60,
       palettegetNodeDefaults: (symbol) => {
      var obj = symbol;
-    if (obj.id === 'terminator' || obj.id === 'process') {
+       if (obj.id === 'Terminator' || obj.id === 'Process') {
         obj.width = 80;
         obj.height = 40;
     }
-    else if (obj.id === 'decision' || obj.id === 'document' || obj.id === 'preDefinedProcess' ||
-        obj.id === 'paperTap' || obj.id === 'directData' || obj.id === 'multiDocument' || obj.id === 'data') {
+    else if (obj.id === 'Decision' || obj.id === 'Document' || obj.id === 'PreDefinedProcess' ||
+        obj.id === 'PaperTap' || obj.id === 'DirectData' || obj.id === 'MultiDocument' || obj.id === 'data') {
         obj.width = 50;
         obj.height = 40;
     }
@@ -561,11 +563,9 @@ export default {
       },
       }
       },
-  mounted: function() {
-    let diagram = this.$refs.diagramObject.ej2Instances;
-  }
+ 
 }
-
+// Creates and initializes ports for nodes.
 function getPorts() {
   let ports = [
     { id: "port1", shape: "Circle", offset: { x: 0, y: 0.5 } },
@@ -575,19 +575,31 @@ function getPorts() {
   ];
   return ports;
 }
-
+//set default values for the connectors
+function getConnectorDefaults(connector){
+    setConnectorStyles(connector, '#757575');
+    return connector;
+}
+    //set styles for connector
+    function setConnectorStyles(connector, color) {
+    connector.style.strokeWidth = 1;
+    connector.style.strokeColor = color;
+    connector.targetDecorator.style.fill = color;
+    connector.targetDecorator.style.strokeColor = color;
+    }
+//To enhance the functionality of a webpage for mobile devices by adding a click event listener 
 function addEvents() {
     isMobile = window.matchMedia('(max-width:550px)').matches;
     if (isMobile) {
-        let paletteIcon = document.getElementById('palette-icon');
+        let paletteIcon = paletteIconInstance;
         if (paletteIcon){
             paletteIcon.addEventListener('click', openPalette, false);
         }
     }
 }
-
+//To manage the visibility state of the palette space on a webpage for mobile devices
 function openPalette() {
-  let paletteSpace = document.getElementById('palette-space');
+  let paletteSpace = paletteSpaceInstance;
   isMobile = window.matchMedia('(max-width:550px)').matches;
   if (isMobile) {
     if (!paletteSpace.classList.contains('sb-mobile-palette-open')) {

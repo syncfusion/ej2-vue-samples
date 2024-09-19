@@ -3,7 +3,7 @@
         {
             "EMPLOYEE ID": "1001",
             "EMPLOYEE NAME": "Vin Disel",
-            "DATE": "4/5/2021",
+            "DATE": "04-05-2021",
             "WEEKDAY": "Mon",
             "TIME IN": "8:00 AM",
             "TIME OUT": "10:00 PM",
@@ -13,7 +13,7 @@
         },{
             "EMPLOYEE ID": "1002",
             "EMPLOYEE NAME": "Steve",
-            "DATE": "4/6/2021",
+            "DATE": "04-06-2021",
             "WEEKDAY": "Tue",
             "TIME IN": "8:00 AM",
             "TIME OUT": "6:00 PM",
@@ -24,7 +24,7 @@
         {
             "EMPLOYEE ID": "1003",
             "EMPLOYEE NAME": "Paul Waulker",
-            "DATE": "4/6/2021",
+            "DATE": "04-06-2021",
             "WEEKDAY": "Tue",
             "TIME IN": "11:00 AM",
             "TIME OUT": "4:00 PM",
@@ -35,7 +35,7 @@
         {
             "EMPLOYEE ID": "1004",
             "EMPLOYEE NAME": "John",
-            "DATE": "4/8/2021",
+            "DATE": "04-08-2021",
             "WEEKDAY": "Thu",
             "TIME IN": "8:00 AM",
             "TIME OUT": "4:00 PM",
@@ -46,7 +46,7 @@
         {
             "EMPLOYEE ID": "1005",
             "EMPLOYEE NAME": "Sam",
-            "DATE": "4/9/2021",
+            "DATE": "04-09-2021",
             "WEEKDAY": "Fri",
             "TIME IN": "7:00 AM",
             "TIME OUT": "6:00 PM",
@@ -57,7 +57,7 @@
         {
             "EMPLOYEE ID": "1006",
             "EMPLOYEE NAME": "Chistoper",
-            "DATE": "4/12/2021",
+            "DATE": "04-12-2021",
             "WEEKDAY": "Mon",
             "TIME IN": "10:00 AM",
             "TIME OUT": "6:00 PM",
@@ -68,7 +68,7 @@
         {
             "EMPLOYEE ID": "1007",
             "EMPLOYEE NAME": "Adrew",
-            "DATE": "4/13/2021",
+            "DATE": "04-13-2021",
             "WEEKDAY": "Tue",
             "TIME IN": "10:00 AM",
             "TIME OUT": "7:00 PM",
@@ -79,7 +79,7 @@
         {
             "EMPLOYEE ID": "1004",
             "EMPLOYEE NAME": "John",
-            "DATE": "4/14/2021",
+            "DATE": "04-14-2021",
             "WEEKDAY": "Wed",
             "TIME IN": "8:00 AM",
             "TIME OUT": "4:00 PM",
@@ -90,7 +90,7 @@
         {
             "EMPLOYEE ID": "1009",
             "EMPLOYEE NAME": "Bravo",
-            "DATE": "4/14/2021",
+            "DATE": "04-14-2021",
             "WEEKDAY": "Wed",
             "TIME IN": "11:00 AM",
             "TIME OUT": "8:00 PM",
@@ -101,7 +101,7 @@
         {
             "EMPLOYEE ID": "1002",
             "EMPLOYEE NAME": "Steve",
-            "DATE": "4/15/2021",
+            "DATE": "04-15-2021",
             "WEEKDAY": "Thu",
             "TIME IN": "9:00 AM",
             "TIME OUT": "8:00 PM",

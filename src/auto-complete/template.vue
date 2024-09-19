@@ -170,7 +170,9 @@
     .bootstrap4 .autocomplete-template .header {
         color: #6c757d;
     }
-     .fluent-dark .header {
+     .fluent-dark .header,
+     .fluent2-dark .header,
+     .fluent2-highcontrast .header {
         background: #252423;
         color: #2899F5;
     }

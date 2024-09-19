@@ -65,6 +65,7 @@
         display: flex;
         justify-content: center;
     }
+    
 </style>
 <script>
     import { extend } from '@syncfusion/ej2-base';

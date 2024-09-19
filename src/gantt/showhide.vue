@@ -64,11 +64,11 @@
      <p>The Gantt column can be shown or hidden dynamically using the <code>showColumn</code> and <code>hideColumn</code> methods of the Gantt.</p>
     <p>In this demo, the columns can be shown and hidden by selecting the column name in dropdown. Click the Show or Hide button to toggle the visibility. 
        The visibility of column is toggled based on the 
-       <code>columns -> headerText</code> value.
+       <a target="_blank" href="hhttps://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#headertext">columns -> headerText</a> value.
     </p>
 <br/>
-<p>The <code>columns -> visible</code> property specifies the visibility of a column. 
-    To hide a column at the initial rendering, set the <code>columns -> visible</code> property to false.
+<p>The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#visible">columns -> visible</a> property specifies the visibility of a column. 
+    To hide a column at the initial rendering, set the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#visible">columns -> visible</a> property to false.
 </p>
 </div>
 

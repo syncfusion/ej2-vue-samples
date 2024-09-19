@@ -149,6 +149,8 @@ export default {
         spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'EMI Schedule!A1:F1');
         spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'EMI Calculator!B1');
         spreadsheet.numberFormat('$#,##0.00', 'EMI Schedule!C2:F13');
+        spreadsheet.numberFormat('m/d/yyyy', 'EMI Calculator!C5:C5');
+        spreadsheet.numberFormat('m/d/yyyy', 'EMI Schedule!B2:B13');
     },
     beforeCellRender: function(args) {
         var spreadsheet = this.$refs.spreadsheet;

@@ -82,7 +82,7 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
@@ -120,7 +120,7 @@ export default {
         enable: true,
         lineType: 'Both' 
       },
-      border: { width: 0}
+      border: { width: 1}
     };
   },
   provide: {

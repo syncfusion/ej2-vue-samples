@@ -11,7 +11,7 @@
             filtered list items based on the typed characters.</p>
     </div>
     <div id="description">
-        <p>The Dropdown Tree has the built-in support to filter the data source when the <code>allowFiltering</code> is enabled. It performs
+        <p>The Dropdown Tree has the built-in support to filter the data source when the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/drop-down-tree/#allowfiltering">allowFiltering</a> is enabled. It performs
             when the characters are typed in the search box.</p>
     </div>
 </div>

@@ -128,6 +128,7 @@ export default {
       var spreadsheet = this.$refs.spreadsheet;
       spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center', verticalAlign: 'middle' }, 'A1:F1');
       spreadsheet.numberFormat('$#,##0.00', 'F2:F31');
+      spreadsheet.numberFormat('m/d/yyyy', 'E2:E30');
     }
   }
 }

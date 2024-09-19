@@ -377,7 +377,7 @@ methods: {
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
       /*custom code end */
     },
     load1: function(args) {
@@ -386,8 +386,8 @@ methods: {
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
        (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-         if (selectedTheme === 'highcontrast' || selectedTheme.indexOf('dark') > -1) {
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
+         if (selectedTheme.indexOf('highcontrast') > -1 || selectedTheme.indexOf('dark') > -1) {
             args.gauge.axes[0].annotations[0].content = annotationTemplate_7;
         }
       /*custom code end */
@@ -398,8 +398,8 @@ methods: {
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-        if (selectedTheme === 'highcontrast' || selectedTheme.indexOf('dark') > -1) {
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
+        if (selectedTheme.indexOf('highcontrast') > -1 || selectedTheme.indexOf('dark') > -1) {
             args.gauge.axes[0].annotations[0].content = annotationTemplate_8;
         }
       /*custom code end */
@@ -410,8 +410,8 @@ methods: {
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-        if (selectedTheme === 'highcontrast' || selectedTheme.indexOf('dark') > -1) {
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
+        if (selectedTheme.indexOf('highcontrast') > -1 || selectedTheme.indexOf('dark') > -1) {
             args.gauge.axes[0].annotations[0].content = annotationTemplate_9;
         }
       /*custom code end */

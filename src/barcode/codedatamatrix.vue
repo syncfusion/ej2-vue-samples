@@ -81,7 +81,7 @@ padding-left: 18px;"
               <ejs-colorpicker
                 ref="bgColor"
                 id="bgColor"
-                :value="fontcolorvalue"
+                :value="bgcolorvalue"
                 :change="bgColorchange"
               ></ejs-colorpicker>
             </div>
@@ -203,9 +203,8 @@ padding-left: 18px;"
           </div>
 
           <div class="row sb-child-row">
-            <div class="col-xs-2 top" style="padding-left: 0px;">Alignment</div>
-            <div class="col-xs-10" style="padding-left:0px">
-              <div class="col-xs-10" style="padding-left:0px">
+            <div class="col-xs-3top barcode-panel-left">Alignment</div>
+            <div class="col-xs-9 ">
                 <ejs-dropdownlist
                   ref="textAlignment"
                   id="textAlignment"
@@ -217,15 +216,14 @@ padding-left: 18px;"
                   :index="0"
                   :change="textAlignmentchange"
                 />
-              </div>
             </div>
+          </div>
             <div class="row sb-child-row">
               <div class="col-xs-3 top" style="width: 17%;padding-left: 0px;">Display Text</div>
               <div class="col-xs-10" style="width: 81%;padding-left:0px;padding-right: 0;">
                 <ejs-textbox id="displayText" value="WWW.Syncfusion.com" :change="displayTextchange"></ejs-textbox>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -451,6 +449,7 @@ export default {
       mode: "SVG",
       type: "DataMatrix",
       value: "WWW.Syncfusion.com",
+      bgcolorvalue: "#fff",
       fontcolorvalue: "#000",
       textPositionwidth: "100%",
       ftextPositionfields: { value: "type", text: "text" },

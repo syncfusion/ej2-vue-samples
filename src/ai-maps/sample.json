@@ -1,0 +1,16 @@
+{
+    "name": "Maps",
+    "directory": "ai-maps",
+    "category": "Smart AI Solutions",
+    "samples": [
+        {
+            "url": "weather-prediction",
+            "name": "Weather Prediction",
+            "category": "Maps",
+            "sourceFiles": [
+                { "displayName": "weather-prediction.vue", "path": "src/ai-maps/ai-weather-prediction.vue" }
+            ],
+            "description": "This demo showcases the Maps AI feature."
+        }
+    ]
+}

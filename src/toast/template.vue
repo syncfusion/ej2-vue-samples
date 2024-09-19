@@ -124,6 +124,7 @@
     }
     #toast_custom .e-toast-template {
         display: inline-flex;
+	flex: 1;
     }
     #toast_custom .e-toast-icon.e-toast-image {
         border-radius: 50%;
@@ -222,11 +223,15 @@
         color: white !important;
     }
     .bootstrap5 #toast_custom.e-toast-container .e-toast .e-toast-message,
-    .bootstrap5-dark #toast_custom.e-toast-container .e-toast .e-toast-message {
+    .bootstrap5-dark #toast_custom.e-toast-container .e-toast .e-toast-message,
+    .bootstrap5.3 #toast_custom.e-toast-container .e-toast .e-toast-message,
+    .bootstrap5.3-dark #toast_custom.e-toast-container .e-toast .e-toast-message {
         margin-left: 95px;
     }
     .bootstrap5 #template_toast,
-    .bootstrap5-dark #template_toast {
+    .bootstrap5-dark #template_toast,
+    .bootstrap5.3 #template_toast,
+    .bootstrap5.3-dark #template_toast {
         padding: 10px;
     }
     
@@ -234,9 +239,12 @@
     .material3-dark #snoozedropDown .e-input-group.e-control-wrapper,
     .bootstrap-dark #snoozedropDown .e-input-group.e-control-wrapper,
     .bootstrap5-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .bootstrap5.3-dark #snoozedropDown .e-input-group.e-control-wrapper,
     .fabric-dark #snoozedropDown .e-input-group.e-control-wrapper,
     .tailwind-dark #snoozedropDown .e-input-group.e-control-wrapper,
-    .fluent-dark #snoozedropDown .e-input-group.e-control-wrapper {
+    .fluent-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .fluent2-dark #snoozedropDown .e-input-group.e-control-wrapper,
+    .fluent2-highcontrast #snoozedropDown .e-input-group.e-control-wrapper {
         background: transparent;
     }
 </style>

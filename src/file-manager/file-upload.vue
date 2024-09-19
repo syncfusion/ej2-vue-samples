@@ -17,14 +17,14 @@
         </div>
     </div>
     <div id="action-description">
-        <p>This sample demonstrates the real-time use case of File Manager in a web application. Dialog and Uploader components are integrated with the File Manager. Click the browse button in the Uploader element to open the File Manager inside the Dialog control. </p>
+        <p>This sample demonstrates the real-time use case of File Manager in a web application. <a href="https://ej2.syncfusion.com/vue/documentation/dialog/getting-started" target="_blank"> Dialog </a> and <a href="https://ej2.syncfusion.com/vue/documentation/uploader/getting-started" target="_blank"> Uploader </a> components are integrated with the File Manager. Click the browse button in the uploader element to open the File Manager inside the <code>Dialog</code> component. </p>
     </div>
     <div id="description">
         <p>
-            The <b>File Manager</b> component is used to explore a file system through a web application, similar to the windows explorer for windows. It supports all the basic file operations such as create, rename, delete, refresh and so on.
+            The <b>File Manager</b> component is used to explore a file system through a web application, similar to the Windows Explorer for Windows. It supports all the basic file operations such as create, rename, delete, cut, copy, paste, upload, download, and more.
         </p>
          <p>
-            <b>Note: </b>File Manager's upload functionality is restricted in the online demo. If you need to test upload functionality, please install 
+            <b>Note: </b>File Manager's upload functionality is restricted in the online demos for security reasons. If you need to test upload functionality, please install 
             <a target="_blank" href="https://www.syncfusion.com/downloads"> Syncfusion Essential Studio </a>on your machine and run the demo.
         </p>
     </div>

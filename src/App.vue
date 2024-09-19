@@ -169,6 +169,10 @@
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Tailwind CSS</span>
                         </li>
+                        <li class="e-list" id="fluent2-highcontrast" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Fluent 2 High Contrast</span>
+                        </li>
                         <li class="e-list" id="highcontrast" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">High Contrast</span>
@@ -179,7 +183,7 @@
                         </li>
                     </ul>
                     <div class="sb-theme-studio"><a target="_blank"
-                            href="https://ej2.syncfusion.com/themestudio/?theme=material" aria-label="Go to Theme Studio">Go
+                            href="https://ej2.syncfusion.com/themestudio/?theme=fluent2" aria-label="Go to Theme Studio">Go
                             to Theme Studio</a></div>
                 </div>
                 <div id='settings-popup' class='sb-setting-popup'>
@@ -199,6 +203,7 @@
                                     <option value="bootstrap5">Bootstrap v5</option>
                                     <option value="fluent2">Fluent 2</option>
                                     <option value="tailwind">Tailwind CSS</option>
+                                    <option value="fluent2-highcontrast">Fluent 2 High Contrast</option>
                                     <option value="highcontrast">High Contrast</option>
                                     <option value="fluent">Fluent</option>
                                 </select>
@@ -480,7 +485,8 @@ const sbArray: string[] = ['angular', 'react', 'nextjs', 'javascript', 'aspnetco
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
 let selectedTheme: string = location.hash.split('/')[1] || 'fluent2';
-const themeCollection: string[] = ['material3', 'bootstrap5', 'fluent2', 'tailwind', 'highcontrast', 'fluent'];
+const themeCollection: string[] = ['material3', 'bootstrap5', 'fluent2', 'tailwind', 'fluent2-highcontrast', 'highcontrast', 'fluent'];
+const themesToRedirect: string[] = ['material', 'material-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'fabric', 'fabric-dark'];
 let resizeManualTrigger: boolean = false;
 const matchedCurrency: { [key: string]: string } = {
     'en': 'USD',
@@ -536,6 +542,7 @@ let sbRightPane: HTMLElement;
 let headerSetting: HTMLElement;
 let mobileSetting: HTMLElement;
 let copyRight: HTMLElement;
+let aiControlRegex: RegExp = /ai-(?!assistview\b)[a-z-]+/;
 let hsplitter: string = '<div class="sb-toolbar-splitter sb-custom-item"></div>';
 // tslint:disable-next-line:no-multiline-string
 let openNewTemplate: string = `<div class="sb-custom-item sb-open-new-wrapper"><a id="openNew" role='tab' target="_blank" aria-label="Open new sample">
@@ -692,6 +699,15 @@ const updateBreadCrumb = () => {
     (rootEle!.querySelector('#component-name .sb-sample-text') as HTMLElement).innerHTML = route!.meta!.eCompName! as string;
     (rootEle!.querySelector('#component-name .sb-sample-text') as HTMLElement).setAttribute('title', route!.meta!.eCompName! as string);
     breadCrumbUpdate(route!.meta!.eCompName! as string, route!.meta!.eCategoryName! as string, route!.meta!.eSampleName! as string);
+    const plnkr = select('.sb-plnr-section') as HTMLElement;
+    const toolbarSplitter = select('.sb-toolbar-splitter') as HTMLElement;
+    const openNew = select('.sb-open-new-wrapper') as HTMLElement;
+    const elements = [plnkr, toolbarSplitter, openNew];
+    elements.forEach((element) => {
+        if (element) {
+            element.style.display = aiControlRegex.test(location.hash) ? 'none' : '';
+        }
+    });
 };
 
 const renderLeftPaneComponents = () => {
@@ -970,8 +986,6 @@ const rendersbPopup = (): void => {
             placeholder: 'Search here...',
             noRecordsTemplate: '<div class="search-no-record">We’re sorry. We cannot find any matches for your search term.</div>',
             fields: { groupBy: 'doc.component', value: 'doc.uid', text: 'doc.name' },
-            popupHeight: 'auto',
-            suggestionCount: 10,
             highlight: true,
             select: (e: any) => {
                 let data: any = e.itemData.doc;
@@ -1335,9 +1349,13 @@ const SbLink = (): void => {
         } 
         else if (sb === 'blazor') {
             ele.href = 'https://blazor.syncfusion.com/demos/';
-        } else {
+        }
+        else if (sb === 'react' && location.href.includes('grid/grid-overview.html')) {
+             ele.href = ((link) ? ('http://' + link[1] + '/' + (link[3] ? (link[3] + '/') : '')) : ('https://ej2.syncfusion.com/')) + 'react/demos/#/' + selectedTheme + '/grid/overview';
+        } 
+        else {
             ele.href = ((link) ? ('http://' + link[1] + '/' + (link[3] ? (link[3] + '/') : '')) : ('https://ej2.syncfusion.com/')) +
-                (sb === 'typescript' ? '' : (sb + '/')) + 'demos/#/' + sample + (sb === ('javascript' || 'typescript') ? '.html' : '');
+                (sb === 'typescript' ? '' : (sb + '/')) + 'demos/#/' + sample + (sb === ('javascript' || 'typescript') ? '.html' : ''); 
         }
     }
 };
@@ -1358,6 +1376,7 @@ const changeTheme = (e: MouseEvent): void => {
 };
 
 const switchTheme = (str: string): void => {
+    str = str.includes('_') ? str.replace('_', '.') : str;
     let hash: string[] = location.hash.split('/');
     if (hash[1] !== str) {
         hash[1] = str;
@@ -1386,15 +1405,16 @@ const setThemeModesButton = (): void => {
     }
 };
 const loadTheme = (theme: string): void => {
+    theme = themesToRedirect.indexOf(theme) !== -1 ? 'fluent2': theme;
     let body: HTMLElement = document.body;
     if (body.classList.length > 0) {
         for (let themeItem of themeCollection) {
             body.classList.remove(themeItem);
         }
     }
-    body.classList.add(theme);
+    body.classList.add(theme.includes('bootstrap5') ? theme.replace('bootstrap5', 'bootstrap5_3') : theme);
     themeList.querySelector(".active").classList.remove("active");
-    if (selectedTheme.endsWith("-dark")) {
+    if (theme.endsWith("-dark")) {
         theme = theme.replace("-dark", "");
     }
     else if (["highcontrast", "fluent2-highcontrast"].includes(selectedTheme)) {
@@ -1402,7 +1422,6 @@ const loadTheme = (theme: string): void => {
         (select(".sb-setting-themeModes-section") as HTMLElement).classList.add("hide");
     }
     themeList.querySelector("#" + theme)?.classList.add("active");
-    selectedTheme = selectedTheme.endsWith("-dark") ? theme + "-dark" : theme;
     setThemeModesButton();
     renderLeftPaneComponents();
     rendersbPopup();
@@ -1501,14 +1520,16 @@ const createStackInput = (name: string, value: string, form: HTMLFormElement) =>
 const updateStackBlitz = () => {
     let hash: string[] = location.hash.split('/').slice(1);
     let path: string = hash.slice(1).join('/').replace('.html', '');
-    let fileName: string = 'src/' + path + '-stack.json';
-    let stack: Fetch = new Fetch(fileName, 'GET');
-    stack.send().then((result: Object) => {
-        if (select('#open-plnkr') as any) {
-            (select('#open-plnkr') as any).disabled = false;
-        }
-        stackEditor(result as any);
-    });
+    if (!(aiControlRegex).test(path)) {
+        let fileName: string = 'src/' + path + '-stack.json';
+        let stack: Fetch = new Fetch(fileName, 'GET');
+        stack.send().then((result: Object) => {
+            if (select('#open-plnkr') as any) {
+                (select('#open-plnkr') as any).disabled = false;
+            }
+            stackEditor(result as any);
+        });
+    }
 }
 
 const onNextButtonClick = (arg: any): void => {
@@ -1693,8 +1714,9 @@ const toggleButtonState = (id: string, state: boolean): void => {
 
 const copyCode = (): void => {
     let copyElem: HTMLElement = select('#sb-source-tab .e-item.e-active') as HTMLElement;
+    let copiedTextArea: HTMLTextAreaElement = copyElem.querySelector('textarea') as HTMLTextAreaElement;
     let textArea: HTMLTextAreaElement = createElement('textArea') as HTMLTextAreaElement;
-    textArea.textContent = copyElem.textContent;
+    textArea.textContent = copiedTextArea.textContent;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand('copy');
@@ -1871,6 +1893,9 @@ const removeOverlay = (): void => {
         sbRightPane.scrollTop = 0;
     } else {
         sbRightPane.scrollTop = 74;
+    }
+    if (cultureDropDown.value === 'ar') {
+        changeRtl(true);
     }
 };
 

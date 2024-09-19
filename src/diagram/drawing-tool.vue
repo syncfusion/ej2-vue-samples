@@ -3,11 +3,12 @@
   <div class="col-lg-9 control-section">
     <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :rulerSettings='rulerSettings' :tool='tool'></ejs-diagram>
   </div>
+  <div class="diagram-drawingTool">
   <div class="col-lg-3 property-section">
     <div class="property-panel-header">
       Properties
     </div>
-    <div class="row  property-panel-content" id="appearance">
+    <div class="row  property-panel-content" id="appearance" ref="appearanceInstance" >
       <div class="row row-header" style="padding-top: 10px">
         Shapes
       </div>
@@ -52,9 +53,10 @@
         <ejs-checkbox id="checked"       
                       :label='checkedlabel'
                       :checked='checkedchecked'
-                      :change='checkedchange'></ejs-checkbox>
+                      :change='checkedchange' ref="checkedInstance"></ejs-checkbox>
       </div>
     </div>
+</div>
 </div>
 <div id="action-description">
     <p>
@@ -86,9 +88,9 @@
 
 <style scoped>
 /* Css for images in property panel  */
-.image-pattern-style {
+.diagram-drawingTool .image-pattern-style {
   background-color: white;
-  background-size: 70%;
+  background-size: contain;
   background-repeat: no-repeat;
   height: 45px;
   width: calc((100% - 12px) / 3);
@@ -98,39 +100,35 @@
   float: left;
 }
 
-.image-pattern-style:hover {
+.diagram-drawingTool .image-pattern-style:hover {
   border-color: gray;
   border-width: 2px;
 }
 /* Property panel CSS */
-.row {
+.diagram-drawingTool .row {
   margin-left: 0px;
   margin-right: 0px;
 }
 
-.row-header {
+.diagram-drawingTool .row-header {
   font-size: 12px;
   font-weight: 500;
 }
 
-.property-panel-header {
+.diagram-drawingTool .property-panel-header {
   padding-top: 15px;
   padding-bottom: 5px;
 }
  /* Selection indicator */
-.e-selected-style {
+.diagram-drawingTool .e-selected-style {
   border-color: #006ce6;
   border-width: 2px;
 }
 /* Diagram Div CSS */
-.control-section {
+.diagram-drawingTool .control-section {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-right: 0px;
-}
- /* Overall div */
-.container-fluid {
-  padding-left: 0px;
 }
 
 </style>
@@ -146,36 +144,19 @@ import {
   PortVisibility,
 } from "@syncfusion/ej2-vue-diagrams";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
-
+// Global variables for diagram, appearance, and checkbox instances
 let node;
 let diagramInstance;
-let interval;
-interval = [
-  1,
-  9,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75
-];
+let appearanceInstance;
+let checkedInstance;
+// Define the grid intervals
+let interval= [1,9,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75,0.25,9.75];
+// Gridlines settings
 let gridlines = {
   lineColor: "#e0e0e0",
   lineIntervals: interval
 };
+// Snap settings
 let snapSettings = {
   snapObjectDistance: 5,
   constraints:
@@ -226,12 +207,14 @@ export default {
   provide: {
     diagram: [UndoRedo, Snapping]
   },
+   // Method to handle mounted event
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
-    SetShape("Rectangle");
-    let appearanceObj = document.getElementById("appearance");
+    appearanceInstance=this.$refs.appearanceInstance;
+    checkedInstance=this.$refs.checkedInstance.ej2Instances;
+    setShape("Rectangle");
     //Click Event used to decide the drawing object.
-    appearanceObj.onclick = (args) => {
+    appearanceInstance.onclick = (args) => {
       let target = args.target;
       let selectedElement = document.getElementsByClassName(
         "e-selected-style"
@@ -248,52 +231,21 @@ export default {
       }
       if (target.className === "image-pattern-style e-selected-style") {
         switch (target.id) {
-          case "shape1":
-            SetShape("Rectangle");
-            break;
-          case "shape2":
-            SetShape("Ellipse");
-            break;
-          case "shape3":
-            SetShape("Hexagon");
-            break;
-          case "shape4":
-            SetShape("Pentagon");
-            break;
-          case "shape5":
-            SetShape("Triangle");
-            break;
-          case "straight":
-            setdrawobject(null, { type: "Straight" });
-            break;
-          case "ortho":
-            setdrawobject(null, { type: "Orthogonal" });
-            break;
-          case "cubic":
-            setdrawobject(null, { type: "Bezier" });
-            break;
-          case "path":
-            getPathShape();
-            target.classList.add("e-selected-style");
-            break;
-          case "image":
-            getImageNode();
-            break;
-          case "svg":
-            getSVGNode();
-            break;
-          case "text":
-            getTextNode();
-            break;
-          case "freehand":
-             setdrawobject(null, { type: "Freehand" });
-            break;
+          case "shape1": setShape("Rectangle"); break;
+          case "shape2": setShape("Ellipse"); break;
+          case "shape3": setShape("Hexagon");  break;
+          case "shape4": setShape("Pentagon"); break;
+          case "shape5": setShape("Triangle"); break;
+          case "straight": setDrawObject(null, { type: "Straight" }); break;
+          case "ortho": setDrawObject(null, { type: "Orthogonal" }); break;
+          case "cubic": setDrawObject(null, { type: "Bezier" }); break;
+          case "path": getPathShape();target.classList.add("e-selected-style"); break;
+          case "image": getImageNode();  break;
+          case "svg": getSVGNode(); break;
+          case "text":  getTextNode(); break;
+          case "freehand": setDrawObject(null, { type: "Freehand" }); break;
           default:
-            if (
-              selectedElement.length &&
-              target.id !== "" &&
-              target.id !== "checked"
-            ) {
+            if (selectedElement.length && target.id !== "" && target.id !== "checked" ) {
               selectedElement[0].classList.remove("e-selected-style");
             }
         }
@@ -302,67 +254,42 @@ export default {
   }
 }
 
+// Handle checkbox change event
 function onChange(args) {
-  diagramInstance.tool = args.checked
-    ? DiagramTools.ContinuousDraw
-    : DiagramTools.DrawOnce;
+  diagramInstance.tool = args.checked ? DiagramTools.ContinuousDraw : DiagramTools.DrawOnce
 }
 
 //Enable drawing object.
-function setdrawobject(node, connector) {
-  let continuousDraw = document.getElementById("checked");
-  if (!continuousDraw.checked) {
-    diagramInstance.tool = DiagramTools.DrawOnce;
-  }
-  if (connector == null) {
-    diagramInstance.drawingObject = node;
-  } else {
-    diagramInstance.drawingObject = connector;
-  }
+function setDrawObject(node, connector) {
+  diagramInstance.tool = checkedInstance.checked ? DiagramTools.ContinuousDraw : DiagramTools.DrawOnce;
+  diagramInstance.drawingObject = connector ? connector : node;
   diagramInstance.dataBind();
 }
 //Enable drawing Tool.
 function enableTool() {
-  let continuousDraw = document.getElementById("checked");
-  if (!continuousDraw.checked) {
+  if (!checkedInstance.checked) {
     diagramInstance.tool = DiagramTools.DrawOnce;
   }
   diagramInstance.dataBind();
 }
 
 //Set the Shape of the drawing Object.
-function SetShape(obj) {
-  let drawingshape;
-  drawingshape = { type: "Basic", shape: obj} ;
-  node = {
-    shape: drawingshape
-  };
+function setShape(shapeType) {
+  node = { shape: { type: "Basic", shape: shapeType } };
   diagramInstance.drawingObject = node;
   enableTool();
 }
 //Set TextNode Shape.
 function getTextNode() {
-  let drawingshape;
-  drawingshape = { type: "Text" };
-  node = {
-    shape: drawingshape
-  };
-  setdrawobject(node, null);
+  node = { shape: { type: "Text" } };
+  setDrawObject(node, null);
 }
 //Set SVG Node
 function getSVGNode() {
-  // tslint:disable-next-line:max-line-length
-  let drawingshape;
-  drawingshape = {
-    type: "Native",
-    content: getPath()
-  };
-  node = {
-    shape: drawingshape
-  };
-  setdrawobject(node, null);
+  node = { shape: { type: "Native", content: getPath() } };
+  setDrawObject(node, null);
 }
-
+// Get SVG path content
 function getPath() {
   let str =
     '<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="350.000000pt" ' +
@@ -388,25 +315,12 @@ function getPath() {
   return str;
 }
 function getImageNode() {
-  let drawingshape;
-  drawingshape = { type: "Image", source: "./src/diagram/employee.png" };
-  node = {
-    shape: drawingshape
-  };
-  setdrawobject(node, null);
+  node = { shape: { type: "Image", source: "./src/diagram/employee.png" } };
+  setDrawObject(node, null);
 }
 function getPathShape() {
-  // tslint:disable-next-line:max-line-length
-  let drawingshape;
-  drawingshape = {
-    type: "Path",
-    data:
-      "M540.3643,137.9336L546.7973,159.7016L570.3633,159.7296L550.7723,171.9366L558.9053,194.9966L540.3643,179.4996L521.8223,194.9966L529.9553,171.9366L510.3633,159.7296L533.9313,159.7016L540.3643,137.9336z"
-  };
-  node = {
-    shape: drawingshape
-  };
-  setdrawobject(node, null);
+  node = { shape: { type: "Path", data: "M540.3643,137.9336L546.7973,159.7016L570.3633,159.7296L550.7723,171.9366L558.9053,194.9966L540.3643,179.4996L521.8223,194.9966L529.9553,171.9366L510.3633,159.7296L533.9313,159.7016L540.3643,137.9336z" } };
+  setDrawObject(node, null);
 }
 function getPorts(obj) {
   let ports = [

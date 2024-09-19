@@ -1,0 +1,16 @@
+{
+    "name": "Kanban",
+    "directory": "ai-kanban",
+    "category": "Smart AI Solutions",
+    "samples": [
+        {
+            "url": "sentiment-analysis",
+            "name": "Sentiment Analysis",
+            "category": "Kanban",
+            "sourceFiles":[
+                { "displayName": "sentiment-analysis.vue", "path":"src/ai-kanban/ai-sentiment-analysis.vue" }
+            ],
+            "description": "This demo shows the anomaly detection AI feature in kanban"
+        }
+    ]
+}

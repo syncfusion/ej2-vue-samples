@@ -17,14 +17,14 @@
           ref="updatebtn"
           id="update1"
           v-on:click="updateClick"
-          style="margin-left: 10px"
+          class="update-btn"
           >Start Data Update...</ejs-button
         >
         <ejs-button
           ref="clearbtn"
           id="clear"
           v-on:click="clearClick"
-          style="margin-left: 10px"
+          class="update-btn"
           >Stop Data Update...</ejs-button
         >
       </div>
@@ -438,5 +438,16 @@ export default {
 
 /deep/ .bg-fade2 {
   color: rgba(0, 0, 0, 0.87);
+}
+
+/deep/ .update-btn {
+    margin-left: 10px;
+}
+
+/* Mobile mode */
+@media only screen and (max-width: 688px) {
+    .update-btn {
+        margin: 10px 10px 0 0;
+    }
 }
 </style>

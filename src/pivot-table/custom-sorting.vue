@@ -148,7 +148,7 @@ export default {
       },
       gridSettings: { columnWidth: 140 },
       width: "100%",
-      height: 300,
+      height: 450,
       groupingBarSettings: { showRemoveIcon: false, showFilterIcon: false, showSortIcon: true, showValueTypeIcon: false, allowDragAndDrop: false },
       showGroupingBar: true,
       fields: { text: "caption", value: "Order" },

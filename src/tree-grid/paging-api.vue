@@ -32,7 +32,7 @@
             </td>
             <td style="width: 30%;  padding:10px 10px 10px 0px">
                 <div id='dropdown' aria-label="Page Size Mode Dropdown">
-                    <ejs-dropdownlist ref='ddl' width='102px' id='ddl' :dataSource='ddldata' value='All' :fields='ddlfields' :change="onChange" aria-label="Page Size Mode"></ejs-dropdownlist>
+                    <ejs-dropdownlist ref='ddl' width='110px' id='ddl' :dataSource='ddldata' value='All' :fields='ddlfields' :change="onChange" aria-label="Page Size Mode"></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
@@ -44,7 +44,7 @@
             </td>
             <td style="width: 30%;  padding:10px 10px 10px 0px">
                 <div id='numericbox' role="spinbutton" aria-label="Page Size Numeric Textbox">
-                    <ejs-numerictextbox ref='pagesize' :min=1 :max=200 :value=10 format='##' :change='sizechange' aria-label="Page Size Numeric Textbox"></ejs-numerictextbox>
+                    <ejs-numerictextbox ref='pagesize' :min=1 :max=200 :value=10 format='##' :change='sizechange' width='110px' aria-label="Page Size Numeric Textbox"></ejs-numerictextbox>
                 </div>
             </td>
         </tr>
@@ -56,7 +56,7 @@
             </td>
             <td style="width: 30%; padding:10px 10px 10px 0px">
                 <div role="spinbutton" aria-label="Page Size Numeric Textbox">
-                    <ejs-numerictextbox ref='pagecount' :min=1 :max=4 :value=4 format='##' :change='countchange' aria-label="Page Size Numeric Textbox"></ejs-numerictextbox>
+                    <ejs-numerictextbox ref='pagecount' :min=1 :max=4 :value=4 format='##' :change='countchange' width='110px' aria-label="Page Size Numeric Textbox"></ejs-numerictextbox>
                 </div>
             </td>
         </tr>
@@ -68,7 +68,7 @@
             </td>
             <td style="width: 30%; padding:10px 10px 10px 0px">
                 <div role="spinbutton" aria-label="Current Page Numeric Textbox">
-                    <ejs-numerictextbox ref='currentpage' :min=1 :max=17 :value=1 format='##' :change='pagechange' aria-label="Current Page Numeric Textbox"></ejs-numerictextbox>
+                    <ejs-numerictextbox ref='currentpage' :min=1 :max=17 :value=1 format='##' :change='pagechange' width='110px' aria-label="Current Page Numeric Textbox"></ejs-numerictextbox>
                 </div>
             </td>
         </tr>

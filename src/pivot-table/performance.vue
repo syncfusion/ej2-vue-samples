@@ -208,7 +208,7 @@ export default {
   margin-top: 8px;
 }
 
-/deep/ @media(max-width: 440px) {
+@media only screen and (max-width: 440px) {
   .control-section .performance-time-container {
     margin-bottom: 30px !important;
 

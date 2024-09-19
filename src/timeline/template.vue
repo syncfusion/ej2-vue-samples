@@ -58,7 +58,7 @@
   </div>
   <div id="description">
     <p>
-      In this example, we showcase repository activities by customizing each item using the <code>template</code> property. It allows to create unique appearances for items, including the connector, dot container, and contents.
+      In this example, we showcase repository activities by customizing each item using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/timeline/timelineModel/#template">template</a> property. It allows to create unique appearances for items, including the connector, dot container, and contents.
     </p>
   </div>
 </template>
@@ -210,6 +210,10 @@
   cursor: default;
 }
 
+body.fluent2-highcontrast .custom-timeline .template-container .indicator {
+    color: #424242;
+}
+
 .custom-timeline .progress-line::after {
   content: '';
   position: absolute;
@@ -238,12 +242,12 @@
 }
 
 /* Generic dark theme modifications */
-body[class$="-dark"] .custom-timeline .template-container .indicator,
+body[class*="-dark"] .custom-timeline .template-container .indicator,
 .highcontrast .custom-timeline .template-container .indicator {
   color: #000;
 }
 
-body[class$="-dark"] .custom-timeline .template-container .mention-group:hover,
+body[class*="-dark"] .custom-timeline .template-container .mention-group:hover,
 .highcontrast .custom-timeline .template-container .mention-group:hover {
   background-color: #545353;
 }

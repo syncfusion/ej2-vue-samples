@@ -84,7 +84,10 @@ export default {
 }
 
 body.fluent-dark #date_label,
+body.fluent2-dark #date_label,
+body.fluent2-highcontrast #date_label,
 body.bootstrap5-dark #date_label,
+body.bootstrap5.3-dark #date_label,
 body.tailwind-dark #date_label,
 body.material-dark #date_label,
 body.material3-dark #date_label,
@@ -120,10 +123,16 @@ body.highcontrast #date_label {
 .bootstrap-dark .calendar-special-dates td.e-special-icons.highlight:before,
 .bootstrap5-dark .calendar-special-dates td.e-special-icons.highlight,
 .bootstrap5-dark .calendar-special-dates td.e-special-icons.highlight:before,
+.bootstrap5.3-dark .calendar-special-dates td.e-special-icons.highlight,
+.bootstrap5.3-dark .calendar-special-dates td.e-special-icons.highlight:before,
 .tailwind-dark .calendar-special-dates td.e-special-icons.highlight,
 .tailwind-dark .calendar-special-dates td.e-special-icons.highlight:before,
 .fluent-dark .calendar-special-dates td.e-special-icons.highlight,
-.fluent-dark .calendar-special-dates td.e-special-icons.highlight:before {
+.fluent-dark .calendar-special-dates td.e-special-icons.highlight:before,
+.fluent2-dark .calendar-special-dates td.e-special-icons.highlight,
+.fluent2-dark .calendar-special-dates td.e-special-icons.highlight:before,
+.fluent2-highcontrast .calendar-special-dates td.e-special-icons.highlight,
+.fluent2-highcontrast .calendar-special-dates td.e-special-icons.highlight:before {
     color: #ff7500;
 }
 

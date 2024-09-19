@@ -242,4 +242,3 @@ gulp.task('serve', gulp.series('build', function(done) {
     shelljs.exec('node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve', done);
 }));
 
-

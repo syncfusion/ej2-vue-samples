@@ -1,131 +1,130 @@
 <template>
-<div class="control-section indicator-type-section">
-    <div class="col-lg-12">
-        <div class="row">
-            <div class="col-lg-6 carousel-sample">
-            <h1>Default Indicator</h1>
-            <ejs-carousel cssClass="indicator-type" indicatorsType="Default" :autoPlay="false">
-                <e-carousel-items>
-                    <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
-                    <template v-slot:itemTemplate1>
-                        <div class="e-slide">Slide 1</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
-                    <template v-slot:itemTemplate2>
-                        <div class="e-slide">Slide 2</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
-                    <template v-slot:itemTemplate3>
-                        <div class="e-slide">Slide 3</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
-                    <template v-slot:itemTemplate4>
-                        <div class="e-slide">Slide 4</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
-                    <template v-slot:itemTemplate5>
-                        <div class="e-slide">Slide 5</div>
-                    </template>
-                </e-carousel-items>
-            </ejs-carousel>
-        </div>
-        <div class="col-lg-6 carousel-sample">
-            <h1>Dynamic Indicator</h1>
-            <ejs-carousel cssClass="indicator-type" indicatorsType="Dynamic" :autoPlay="false">
-                <e-carousel-items>
-                    <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
-                    <template v-slot:itemTemplate1>
-                        <div class="e-slide">Slide 1</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
-                    <template v-slot:itemTemplate2>
-                        <div class="e-slide">Slide 2</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
-                    <template v-slot:itemTemplate3>
-                        <div class="e-slide">Slide 3</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
-                    <template v-slot:itemTemplate4>
-                        <div class="e-slide">Slide 4</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
-                    <template v-slot:itemTemplate5>
-                        <div class="e-slide">Slide 5</div>
-                    </template>
-                </e-carousel-items>
-            </ejs-carousel>
-        </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 carousel-sample">
-            <h1>Fraction Indicator</h1>
-            <ejs-carousel cssClass="indicator-type" indicatorsType="Fraction" :autoPlay="false">
-                <e-carousel-items>
-                    <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
-                    <template v-slot:itemTemplate1>
-                        <div class="e-slide">Slide 1</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
-                    <template v-slot:itemTemplate2>
-                        <div class="e-slide">Slide 2</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
-                    <template v-slot:itemTemplate3>
-                        <div class="e-slide">Slide 3</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
-                    <template v-slot:itemTemplate4>
-                        <div class="e-slide">Slide 4</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
-                    <template v-slot:itemTemplate5>
-                        <div class="e-slide">Slide 5</div>
-                    </template>
-                </e-carousel-items>
-            </ejs-carousel>
-        </div> 
-
-        <div class="col-lg-6 carousel-sample">
-            <h1>Progress Indicator</h1>
-            <ejs-carousel cssClass="indicator-type" indicatorsType="Progress" :autoPlay="false">
-                <e-carousel-items>
-                    <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
-                    <template v-slot:itemTemplate1>
-                        <div class="e-slide">Slide 1</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
-                    <template v-slot:itemTemplate2>
-                        <div class="e-slide">Slide 2</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
-                    <template v-slot:itemTemplate3>
-                        <div class="e-slide">Slide 3</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
-                    <template v-slot:itemTemplate4>
-                        <div class="e-slide">Slide 4</div>
-                    </template>
-                    <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
-                    <template v-slot:itemTemplate5>
-                        <div class="e-slide">Slide 5</div>
-                    </template>
-                </e-carousel-items>
-            </ejs-carousel>
-        </div> 
-        </div>
-        <div id="action-description">
-            <p>This sample demonstrates the types of indicators in the <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-components/vue-carousel" target="_blank">Vue Carousel</a> component.</p>
-        </div>
-        <div id="description">
-            <p>In this demo, the available types of indicators of Vue Carousel are showcased. They are <code>default</code>, <code>dynamic</code>, <code>progress</code> and <code>fraction</code>, and can be set using the <strong>indicatorsType</strong> property. </p>
-            <p><code>Default</code> - The Carousel displays indicators with a bullet design.</p>
-            <p><code>Dynamic</code> - The Carousel applies dynamic animation to the indicators.</p>
-            <p><code>Fraction</code> - The Carousel displays slides numerically as indicators.</p>
-            <p><code>Progress</code> - The Carousel displays indicators like a progress bar.</p>
+    <div class="control-section indicator-type-section">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-6 carousel-sample">
+                    <h1>Default Indicator</h1>
+                    <ejs-carousel cssClass="indicator-type" indicatorsType="Default" :autoPlay="false">
+                        <e-carousel-items>
+                            <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
+                            <template v-slot:itemTemplate1>
+                                <div class="e-slide">Slide 1</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
+                            <template v-slot:itemTemplate2>
+                                <div class="e-slide">Slide 2</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
+                            <template v-slot:itemTemplate3>
+                                <div class="e-slide">Slide 3</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
+                            <template v-slot:itemTemplate4>
+                                <div class="e-slide">Slide 4</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
+                            <template v-slot:itemTemplate5>
+                                <div class="e-slide">Slide 5</div>
+                            </template>
+                        </e-carousel-items>
+                    </ejs-carousel>
+                </div>
+                <div class="col-lg-6 carousel-sample">
+                    <h1>Dynamic Indicator</h1>
+                    <ejs-carousel cssClass="indicator-type" indicatorsType="Dynamic" :autoPlay="false">
+                        <e-carousel-items>
+                            <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
+                            <template v-slot:itemTemplate1>
+                                <div class="e-slide">Slide 1</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
+                            <template v-slot:itemTemplate2>
+                                <div class="e-slide">Slide 2</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
+                            <template v-slot:itemTemplate3>
+                                <div class="e-slide">Slide 3</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
+                            <template v-slot:itemTemplate4>
+                                <div class="e-slide">Slide 4</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
+                            <template v-slot:itemTemplate5>
+                                <div class="e-slide">Slide 5</div>
+                            </template>
+                        </e-carousel-items>
+                    </ejs-carousel>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 carousel-sample">
+                    <h1>Fraction Indicator</h1>
+                    <ejs-carousel cssClass="indicator-type" indicatorsType="Fraction" :autoPlay="false">
+                        <e-carousel-items>
+                            <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
+                            <template v-slot:itemTemplate1>
+                                <div class="e-slide">Slide 1</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
+                            <template v-slot:itemTemplate2>
+                                <div class="e-slide">Slide 2</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
+                            <template v-slot:itemTemplate3>
+                                <div class="e-slide">Slide 3</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
+                            <template v-slot:itemTemplate4>
+                                <div class="e-slide">Slide 4</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
+                            <template v-slot:itemTemplate5>
+                                <div class="e-slide">Slide 5</div>
+                            </template>
+                        </e-carousel-items>
+                    </ejs-carousel>
+                </div> 
+                <div class="col-lg-6 carousel-sample">
+                    <h1>Progress Indicator</h1>
+                    <ejs-carousel cssClass="indicator-type" indicatorsType="Progress" :autoPlay="false">
+                        <e-carousel-items>
+                            <e-carousel-item :template="'itemTemplate1'"></e-carousel-item>
+                            <template v-slot:itemTemplate1>
+                                <div class="e-slide">Slide 1</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate2'"></e-carousel-item>
+                            <template v-slot:itemTemplate2>
+                                <div class="e-slide">Slide 2</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate3'"></e-carousel-item>
+                            <template v-slot:itemTemplate3>
+                                <div class="e-slide">Slide 3</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate4'"></e-carousel-item>
+                            <template v-slot:itemTemplate4>
+                                <div class="e-slide">Slide 4</div>
+                            </template>
+                            <e-carousel-item :template="'itemTemplate5'"></e-carousel-item>
+                            <template v-slot:itemTemplate5>
+                                <div class="e-slide">Slide 5</div>
+                            </template>
+                        </e-carousel-items>
+                    </ejs-carousel>
+                </div> 
+            </div>
         </div>
     </div>
-</div>
+    <div id="action-description">
+        <p>This sample demonstrates the types of indicators in the <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-components/vue-carousel" target="_blank">Vue Carousel</a> component.</p>
+    </div>
+    <div id="description">
+        <p>In this demo, the available types of indicators of Vue Carousel are showcased. They are <code>default</code>, <code>dynamic</code>, <code>progress</code> and <code>fraction</code>, and can be set using the <strong>indicatorsType</strong> property. </p>
+        <p><code>Default</code> - The Carousel displays indicators with a bullet design.</p>
+        <p><code>Dynamic</code> - The Carousel applies dynamic animation to the indicators.</p>
+        <p><code>Fraction</code> - The Carousel displays slides numerically as indicators.</p>
+        <p><code>Progress</code> - The Carousel displays indicators like a progress bar.</p>
+    </div>
 </template>
 
 <style>

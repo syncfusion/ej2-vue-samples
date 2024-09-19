@@ -1,21 +1,23 @@
 <template>
-<div class="control-section">
 <div class="col-lg-8 control-section">
     <div class="content-wrapper">
+        <!-- Configures the diagram with dynamic properties and settings -->
         <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :selectedItems='selectedItems' :getCustomTool='getCustomTool'
-                     :snapSettings='snapSettings'></ejs-diagram>
+         :selectionChange='selectionChange' :fixedUserHandleClick='fixedUserHandleClick' :fixedUserHandleTemplate="fixedUserHandleTemplate" :snapSettings='snapSettings'></ejs-diagram>
     </div>
 </div>
-<div class="col-lg-4 property-section">
+<div class="col-lg-4 property-section diagram-property">
     <div class="property-panel-header">
       Properties
     </div>
-    <div class="row property-panel-content" id="appearance">
+    <div id="propertypanel" class="e-remove-selection">
+    <div class="property-section-content">
+    <div class="row property-panel-content" id="appearance" ref="appearance">
         <div class="row row-header">
             Appearance
         </div>
         <div class="row">
-            <div class="row row-header1">
+            <div class="row row-header">
                 Alignment
             </div>
             <div class="row" style="padding-top: 8px">
@@ -28,9 +30,9 @@
             </div>
         </div>
     </div>
-    <div class="row property-panel-content" id="pattern">
+    <div class="row property-panel-content" id="pattern" ref="pattern">
             <div class="row">
-                <div class="row row-header1">
+                <div class="row row-header">
                     pattern
                 </div>
                 <div class="row" style="padding-top: 8px">
@@ -42,7 +44,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+      </div>
+     </div>
+     </div>
 </div>
 <div id="action-description">
     <p>
@@ -52,16 +56,15 @@
 <div id="description">
     <p>
         User handles are icons that are placed around the node to run the frequently used commands. This example shows how to render
-        and configure user handles and how to interact with the diagram using user handles. The <code>userHandles</code> property of the <code>selectedItems</code> can be used to add user handles to the diagram. Click the templates in the property
+        and configure user handles and how to interact with the diagram using user handles. The <code>userHandles</code> property of the <code>selectedItems</code> can be used to add user handles to the diagram.<code> fixedUserHandleTemplate</code> property of the diagram provides template support for customizing fixed user handles and we provide the HTML  button to delete the node.Click the templates in the property
         panel, to customize the size, position, and appearance of the user handles.
     </p>
     <br>
 </div>
-</div>
 </template>
 
 <style scoped>
-.image-pattern-style {
+.diagram-property .image-pattern-style {
   background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
@@ -73,32 +76,27 @@
   float: left;
 }
 
-.image-pattern-style:hover {
+.diagram-property .image-pattern-style:hover {
   border-color: gray;
   border-width: 2px;
 }
 
-.row {
+.diagram-property .row {
   margin: 10px 0px 0px 0px;
 }
 
-.e-selected-style {
+.diagram-property .e-selected-style {
   border-color: #006ce6;
   border-width: 2px;
 }
 
-.row-header {
+.diagram-property .row-header {
   font-size: 15px;
   font-weight: 500;
   margin-top: 10px;
 }
 
-.property-panel-header {
-  padding-top: 2px;
-  padding-bottom: 5px;
-}
-
-.e-checkbox-wrapper .e-label {
+.diagram-property .e-checkbox-wrapper .e-label {
   font-size: 12px;
 }
 
@@ -118,33 +116,36 @@
   padding-right: 0px;
   padding-top: 5px;
 }
+ .property-section .e-remove-selection {
+  cursor: not-allowed;
+}
+.e-remove-selection .property-section-content {
+  pointer-events: none;
+}
 </style>
 
 <script>
+import { createApp } from "vue";
 import {
   DiagramComponent,
   Diagram,
   ConnectorModel,
-  DataBinding,
   UserHandleModel,
   SelectorConstraints,
-  ToolBase,
-  MouseEventArgs,
   NodeModel,
-  MindMap,
-  HierarchicalTree,
-  MoveTool,
   Node,
-  IElement,
+  Connector,
+  MoveTool,
   cloneObject,
   randomId,
-  SnapConstraints,
-  Side
+  SnapConstraints
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagramInstance;
+let appearanceInstance;
+let patternInstance;
 
-//Defines the nodes collection in diagram
+// Defines the collection of nodes in the diagram.
 let nodes = [
   {
     id: "NewIdea",
@@ -198,7 +199,8 @@ let nodes = [
     offsetX: 550,
     offsetY: 60,
     shape: { type: "Flow", shape: "Card" },
-    annotations: [{ content: "Decision process for new software ideas" }]
+    annotations: [{ content: "Decision process for new software ideas" }],
+    fixedUserHandles: [{ padding: { left: 2, right: 2, top: 2, bottom: 2 }, offset:{x:1.1,y:0.5}, width: 20, height: 20,}],
   },
   {
     id: "Reject",
@@ -220,7 +222,7 @@ let nodes = [
   }
 ];
 
-//Defines the connectors collection in diagram
+// Defines the collection of connectors in the diagram.
 let connectors = [
   {
     id: "connector1",
@@ -255,7 +257,7 @@ let connectors = [
   }
 ];
 
-//Defines the user handle collection for nodes in diagram
+// Defines the collection of user handles for nodes in the diagram.
 let handles= [
   {
     name: "clone",
@@ -270,12 +272,24 @@ let handles= [
   }
 ];
 
+let itemVue = createApp({}).component("fixedUserHandleTemplate", {
+  template: `<div style="width:100%;height:100%">
+        <button style="background-color:black; border-radius:50%; width:25px; height:25px; border:none; cursor:context-menu; padding:0; display:flex; align-items:center; justify-content:center; background-image:url(./src/diagram/Images/user-handle/delete.png); background-size:cover; background-position:center;">
+        </button>
+    </div> `,
+  data() {
+    return {};
+  }
+});
+
 export default {
   components: {
+    // Defines components for the diagram
     'ejs-diagram': DiagramComponent
   },
   data: function() {
     return {
+      // Initialize component data
       width: "100%",
       height: "600px",
       nodes: nodes,
@@ -285,30 +299,52 @@ export default {
         userHandles: handles
       },
       snapSettings: { constraints: SnapConstraints.None },
-      //set Node default value
+      fixedUserHandleTemplate: function () {
+      return { template: itemVue };
+      },
+     // Set the default value for Node.
       getNodeDefaults: (node) => {
         return {
           style: { fill: "#578CA9", strokeColor: "none" },
           annotations: [{ style: { color: "white" } }]
         };
       },
-      //set CustomTool
-      getCustomTool: getTool
+      // Set up the CustomTool.
+      getCustomTool: getTool,
+      // Enable or disable the property panel based on the selection.
+      selectionChange:function (arg) {
+            var propertyAppearance = document.getElementById('propertypanel');
+            var getSelectedElement = document.getElementsByClassName('e-remove-selection');
+            if (arg.newValue) {
+              // Check if the item in newValue is either a Node or Connector
+                if ((arg.newValue[0] instanceof Node) || (arg.newValue[0] instanceof Connector)) {
+                    if (getSelectedElement.length) {
+                        getSelectedElement[0].classList.remove('e-remove-selection');
+                    }
+                } else {
+                    if (!propertyAppearance.classList.contains('e-remove-selection')) {
+                        propertyAppearance.classList.add('e-remove-selection');
+                    }
+        
+                }
+            }
+        },
+      fixedUserHandleClick:function(){
+        diagramInstance.select([diagramInstance.nameTable['Decision']]);
+        diagramInstance.remove();
+      }
     };
-  },
-  provide: {
-    diagram: [DataBinding, MindMap, HierarchicalTree]
   },
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
+    appearanceInstance = this.$refs.appearance;
+    patternInstance=this.$refs.pattern;
     diagramInstance.fitToPage();
     diagramInstance.select([diagramInstance.nodes[0]]);
-    let appearanceObj = document.getElementById("appearance");
-    let patternObj= document.getElementById("pattern");
     //Change the postion of the UserHandle
-    appearanceObj.onclick = (args) => {
+    appearanceInstance.onclick = (args) => {
     let target = args.target ;
-    let appearanceBlock = document.getElementById('appearance');
+    let appearanceBlock = appearanceInstance;
     let selectedElement = appearanceBlock.getElementsByClassName('e-selected-style');
     if (selectedElement.length) {
       selectedElement[0].classList.remove('e-selected-style');
@@ -326,12 +362,11 @@ export default {
           break;
       }
     }
-    diagramInstance.dataBind();
     };
-    //Change the Appearence of the UserHandle
-    patternObj.onclick = (args) => {
+    //Change the appearence of the UserHandle
+    patternInstance.onclick = (args) => {
     let target = args.target;
-    let patternBlock = document.getElementById('pattern');
+    let patternBlock = patternInstance;
     let selectedElement = patternBlock.getElementsByClassName('e-selected-style');
     if (selectedElement.length) {
       selectedElement[0].classList.remove('e-selected-style');
@@ -349,11 +384,9 @@ export default {
           break;
       }
     }
-      diagramInstance.dataBind();
     };
   }
 }
-
 //Enable the clone Tool for UserHandle.
 function getTool(action) {
   let tool;
@@ -384,7 +417,7 @@ function applyuserhandlestyle(bgcolor, target) {
   target.classList.add("e-selected-style");
 }
 
-//Defines the clone tool used to copy Node/Connector
+//Defines the clone tool used to copy Node and Connector
 class CloneTool extends MoveTool {
    mouseDown(args) {
     let newObject;
@@ -404,9 +437,18 @@ class CloneTool extends MoveTool {
     }
     newObject.id += randomId();
     diagramInstance.paste([newObject]);
-    args.source = diagramInstance.nodes[
+     if (diagramInstance.selectedItems.connectors.length > 0)
+     {
+      args.source = diagramInstance.connectors[
+      diagramInstance.connectors.length - 1
+    ];
+     }
+     else
+     {
+       args.source = diagramInstance.nodes[
       diagramInstance.nodes.length - 1
     ];
+     }
     args.sourceWrapper = args.source.wrapper;
     super.mouseDown(args);
     this.inAction = true;

@@ -226,7 +226,7 @@
         </div>
         <div id="ribbonPlaceHolder-resize">
           <div style="width:100%; height:40px">
-            <p class="displayText"> Resize Ribbon</p>
+            <p class="ribbonResizeDisplayText"> Resize Ribbon</p>
             <div id ='ribbonSlider' style="width:200px; margin:0 15px">
               <ejs-slider id="slider"  v-on:created="onCreated" v-on:change="onChange"></ejs-slider>
             </div>
@@ -514,7 +514,7 @@ export default {
       box-shadow: 0 0 2px;
   }
 
-  p.displayText {
+  p.ribbonResizeDisplayText {
     margin: 0 0 0 15px;
     font-size: 18px;
     font-weight: 500;

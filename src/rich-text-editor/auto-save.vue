@@ -118,6 +118,8 @@
 
     .bootstrap5 .e-icons.e-icon-refresh::before,
     .bootstrap5-dark .e-icons.e-icon-refresh::before,
+    .bootstrap5\.3 .e-icons.e-icon-refresh::before,
+    .bootstrap5\.3-dark .e-icons.e-icon-refresh::before,
     .fluent .e-icons.e-icon-refresh::before,
     .fluent-dark .e-icons.e-icon-refresh::before,
     .fluent2 .e-icons.e-icon-refresh::before,
@@ -129,6 +131,8 @@
 
     .bootstrap5 .e-icons.e-icon-tick::before,
     .bootstrap5-dark .e-icons.e-icon-tick::before,
+    .bootstrap5\.3 .e-icons.e-icon-tick::before,
+    .bootstrap5\.3-dark .e-icons.e-icon-tick::before,
     .fluent .e-icons.e-icon-tick::before,
     .fluent-dark .e-icons.e-icon-tick::before,
     .fluent2 .e-icons.e-icon-tick::before,

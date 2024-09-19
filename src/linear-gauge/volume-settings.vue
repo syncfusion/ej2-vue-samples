@@ -185,7 +185,7 @@ export default {
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 (selectedTheme.charAt(0).toUpperCase() +
-                    selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+                    selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
             /* custom code end */
             if(args.gauge.theme.indexOf('Dark') > -1 || args.gauge.theme.indexOf('HighContrast') > -1 ) {
                 args.gauge.annotations[0].content ='<div style="width: 70px;font-size: 16px;margin-left:35px;margin-top: -31px;color:#FFFFFF;font-family:inherit"> 100%</div>';
@@ -200,7 +200,7 @@ export default {
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 (selectedTheme.charAt(0).toUpperCase() +
-                    selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+                    selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
             /* custom code end */
             if(args.gauge.theme.indexOf('Dark') > -1 || args.gauge.theme.indexOf('HighContrast') > -1 ) {
                 args.gauge.annotations[0].content = '<div style="width: 70px;font-size: 16px;margin-left:38px;margin-top: -31px;color:#FFFFFF;font-family:inherit"> 85%</div>';
@@ -215,7 +215,7 @@ export default {
         selectedTheme = selectedTheme ? selectedTheme : "Material";
         args.gauge.theme =
             (selectedTheme.charAt(0).toUpperCase() +
-                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
         /* custom code end */
         if(args.gauge.theme.indexOf('Dark') > -1 || args.gauge.theme.indexOf('HighContrast') > -1 ) {
             args.gauge.annotations[0].content = '<div style="width: 70px;font-size: 16px;margin-left: 37px;margin-top: -31px;color:#FFFFFF;font-family:inherit">65%</div>';   

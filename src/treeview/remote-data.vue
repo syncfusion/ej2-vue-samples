@@ -12,7 +12,7 @@
 </div>
 
 <div id="description">
-    <p>The <code>TreeView</code> component loads the data through the <code>dataSource</code> property, where the data can be either local data or remote data. In case of remote data, the data can be loaded from any remote services though the <code>DataManager</code>.</p>
+    <p>The <code>TreeView</code> component loads the data through the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/treeview/fieldsSettingsModel/#datasource">dataSource</a> property, where the data can be either local data or remote data. In case of remote data, the data can be loaded from any remote services though the <code>DataManager</code>.</p>
     <p>The DataManager will act as an interface between the service endpoint and the TreeView, that requires the below minimal information to interact with the service endpoint.</p>
     <ul>
         <li><code>DataManager->url</code> - Defines the service endpoint to fetch data.</li>

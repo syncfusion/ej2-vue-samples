@@ -154,39 +154,44 @@ export default {
     'ejs-dropdownlist': DropDownListComponent
   },
   data: function() {
-    return {
-      width: "100%",
-      height: "499px",
-      snapSettings: { constraints: SnapConstraints.None },
-      nodes: nodes,
-      connectors: connectors,
-      constraints: DiagramConstraints.Default | (DiagramConstraints.Bridging | DiagramConstraints.LineRouting),
-      //Defines the default node and connector properties
-      getNodeDefaults: (obj, diagram) => {
-        obj.height = 50;
-        if(obj.id === 'decision') {
-          obj.height = 70;
-        }
-        obj.width = 120;
-        obj.style = { strokeColor: 'transparent' };
-        return obj;
-      },
-      getConnectorDefaults: (connector) => {
-        connector.type = 'Orthogonal';
-        connector.style = { strokeColor: '#707070 ', strokeWidth: 1.25 };
-        connector.targetDecorator = { style: { fill: '#707070 ', strokeColor: '#707070 ' } };
-        return connector;
-      },
-
-    };
-  },
-  provide: {
-    diagram: [LineRouting, ConnectorBridging]
-  },
-   mounted: function() {
-    diagramInstance = this.$refs.diagramObj.ej2Instances;
-    diagramInstance.fitToPage();
-  }
+  return {
+    // Define the width and height of the diagram
+    width: "100%",
+    height: "499px",
+    // Snap settings to disable snapping
+    snapSettings: { constraints: SnapConstraints.None },
+    // Initial nodes and connectors data
+    nodes: nodes,
+    connectors: connectors,
+    // Diagram constraints including bridging and line routing
+    constraints: DiagramConstraints.Default | (DiagramConstraints.Bridging | DiagramConstraints.LineRouting),
+    // Defines default properties for nodes
+    getNodeDefaults: (obj, diagram) => {
+      obj.height = 50;
+      if (obj.id === 'decision') {
+        obj.height = 70; // Adjust height for specific node types
+      }
+      obj.width = 120;
+      obj.style = { strokeColor: 'transparent' }; // Node style with transparent stroke
+      return obj;
+    },
+    // Defines default properties for connectors
+    getConnectorDefaults: (connector) => {
+      connector.type = 'Orthogonal'; // Connector type as Orthogonal
+      connector.style = { strokeColor: '#707070 ', strokeWidth: 1.25 }; // Connector style with specific stroke
+      connector.targetDecorator = { style: { fill: '#707070 ', strokeColor: '#707070 ' } }; // Connector target decorator style
+      return connector;
+    },
+  };
+},
+provide: {
+  diagram: [LineRouting, ConnectorBridging]
+},
+mounted: function() {
+  // Initialize diagram instance and related components
+  diagramInstance = this.$refs.diagramObj.ej2Instances;
+  diagramInstance.fitToPage();
+}
 }
 
 </script>

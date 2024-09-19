@@ -20,7 +20,7 @@
                     </td>
                     <td style="width: 70%;padding-left: 10px">
                     <div id='columnddl'>
-                        <ejs-dropdownlist ref='ddl' width='105px' id='ddlelement' :dataSource='ddldata' value='Cell' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
+                        <ejs-dropdownlist ref='ddl' width='140px' id='ddlelement' :dataSource='ddldata' value='Cell' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
                     </div>
                     </td>
                 </tr>
@@ -126,14 +126,3 @@ export default {
     }
 }
 </script>
-<!-- custom code start -->
-<style>
-    .fluent2,
-    .fluent2-dark,
-    .fluent2-highcontrast {
-        #columnddl .e-input-group {
-            width: 130px !important;
-        }
-    }
-</style>
-<!-- custom code end -->

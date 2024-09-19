@@ -4,7 +4,7 @@
     <div class="sb-mobile-palette-bar">
       <div id="palette-icon" role="button"  class="e-ddb-icons1 e-toggle-palette"></div>
     </div>
-    <div id="palette-space" class="sb-mobile-palette">
+    <div id="palette-space" ref="paletteSpace" class="sb-mobile-palette">
         <ejs-symbolpalette ref="paletteObj" id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'
             :getNodeDefaults='palettegetNodeDefaults' :getSymbolInfo='getSymbolInfo' 
             :symbolWidth='symbolWidth' :symbolHeight='symbolHeight'>
@@ -12,7 +12,7 @@
        <div id="dropArea">
             <ejs-button id="browse" class="e-outline" :isPrimary="true" v-on:click="btnClick">IMPORT SVG FILES</ejs-button>
             <div class="uploadclass">
-            <ejs-uploader ref='uploadObj' id='uploadFiles' name="UploadFiles" :asyncSettings='path'
+            <ejs-uploader ref='uploadObj' allowedExtensions='.svg' id='uploadFiles' name="UploadFiles" :asyncSettings='path'
                 :dropArea='dropElement' :success='onUploadSuccess' :removing='onFileRemove'>
             </ejs-uploader>
             </div>
@@ -135,6 +135,8 @@ let isMobile;
 let diagramInstance;
 let uploadObjInstance;
 let paletteInstance;
+let paletteIcon;
+let paletteSpace;
 let id = 0;
 //Initializes the ports for the nodes.
 let port = [
@@ -143,24 +145,24 @@ let port = [
   { id: "port3", offset: { x: 0.5, y: 0.1 } },
   { id: "port4", offset: { x: 0.5, y: 0.92 } }
 ];
-let portrc = [
-  { id: "port1", offset: { x: 0.05, y: 0.5 } },
-  { id: "port2", offset: { x: 1, y: 0.5 } },
-  { id: "port3", offset: { x: 0.85, y: 0.1 } },
-  { id: "port4", offset: { x: 0.6, y: 0.97 } }
-];
-let porthmi = [
-  { id: "port1", offset: { x: 0.34, y: 0.5 } },
-  { id: "port2", offset: { x: 0.75, y: 0.5 } },
-  { id: "port3", offset: { x: 0.5, y: 0.05 } },
-  { id: "port4", offset: { x: 0.6, y: 0.9 } }
-];
 let port2 = [
   { id: "port1", offset: { x: 0.45, y: 0.5 } },
   { id: "port2", offset: { x: 0.97, y: 0.5 } },
   { id: "port3", offset: { x: 0.5, y: 0.97 } }
 ];
-let portmo = [
+let port3 = [
+  { id: "port1", offset: { x: 0.05, y: 0.5 } },
+  { id: "port2", offset: { x: 1, y: 0.5 } },
+  { id: "port3", offset: { x: 0.85, y: 0.1 } },
+  { id: "port4", offset: { x: 0.6, y: 0.97 } }
+];
+let port4 = [
+  { id: "port1", offset: { x: 0.34, y: 0.5 } },
+  { id: "port2", offset: { x: 0.75, y: 0.5 } },
+  { id: "port3", offset: { x: 0.5, y: 0.05 } },
+  { id: "port4", offset: { x: 0.6, y: 0.9 } }
+];
+let port5 = [
   { id: "port1", offset: { x: 0.02, y: 0.6 } },
   { id: "port2", offset: { x: 0.98, y: 0.625 } },
   { id: "port3", offset: { x: 0.5, y: 0.3 } },
@@ -208,7 +210,7 @@ let nodes = [
     annotations: [
       { content: "Modem", margin: { right: 25 }, offset: { x: 0, y: 0.5 } }
     ],
-    ports: portmo
+    ports: port5
   },
   {
     id: "modem2",
@@ -218,7 +220,7 @@ let nodes = [
     annotations: [
       { content: "Modem1", margin: { bottom: 10 }, offset: { x: 0.5, y: 0 } }
     ],
-    ports: portmo
+    ports: port5
   },
   {
     id: "RemoteController1",
@@ -232,7 +234,7 @@ let nodes = [
         offset: { x: 0.5, y: 0 }
       }
     ],
-    ports: portrc
+    ports: port3
   },
   {
     id: "modem3",
@@ -242,7 +244,7 @@ let nodes = [
     annotations: [
       { content: "Modem4", margin: { left: 35 }, offset: { x: 1, y: 0.5 } }
     ],
-    ports: portmo
+    ports: port5
   },
   {
     id: "modem4",
@@ -250,7 +252,7 @@ let nodes = [
     offsetY: 245,
     shape: { type: "Native", content: template3 },
     annotations: [{ content: "Modem2", offset: { x: 0.5, y: 1.3 } }],
-    ports: portmo
+    ports: port5
   },
   {
     id: "modem5",
@@ -260,7 +262,7 @@ let nodes = [
     annotations: [
       { content: "Modem3", margin: { right: 25 }, offset: { x: 0, y: 0.5 } }
     ],
-    ports: portmo
+    ports: port5
   },
   {
     id: "WorkStation3",
@@ -298,7 +300,7 @@ let nodes = [
     annotations: [
       { content: "Control Logic", margin: { top: 8 }, offset: { x: 0.5, y: 1 } }
     ],
-    ports: portrc
+    ports: port3
   },
   {
     id: "RemoteController3",
@@ -308,7 +310,7 @@ let nodes = [
     annotations: [
       { content: "Control Logic", margin: { top: 8 }, offset: { x: 0.5, y: 1 } }
     ],
-    ports: portrc
+    ports: port3
   },
   {
     id: "AnalogIO",
@@ -318,7 +320,7 @@ let nodes = [
     annotations: [
       { content: "Analog IO", margin: { top: 13 }, offset: { x: 0.5, y: 1 } }
     ],
-    ports: porthmi
+    ports: port4
   },
   {
     id: "sensor",
@@ -336,7 +338,7 @@ let nodes = [
     offsetY: 500,
     shape: { type: "Native", content: template7 },
     annotations: [{ content: "DriverA", offset: { x: 0.5, y: 1.3 } }],
-    ports: porthmi
+    ports: port4
   },
   {
     id: "DeviceDriver2",
@@ -344,7 +346,7 @@ let nodes = [
     offsetY: 500,
     shape: { type: "Native", content: template7 },
     annotations: [{ content: "DriverB", offset: { x: 0.5, y: 1.3 } }],
-    ports: porthmi
+    ports: port4
   },
   {
     id: "DeviceDriver3",
@@ -352,7 +354,7 @@ let nodes = [
     offsetY: 500,
     shape: { type: "Native", content: template7 },
     annotations: [{ content: "DriverC", offset: { x: 0.5, y: 1.3 } }],
-    ports: porthmi
+    ports: port4
   },
   {
     id: "HMI",
@@ -415,20 +417,20 @@ let nodes = [
 //Initializes the connectors for the diagram.
 let connectors = [
   {
-    id: "connectora",
+    id: "connector11",
     sourceID: "Server1",
     targetID: "WorkStation1",
     targetPortID: "port1"
   },
   {
-    id: "connectorawork",
+    id: "connector12",
     sourceID: "WorkStation1",
     targetID: "WorkStation2",
     sourcePortID: "port2",
     targetPortID: "port1"
   },
   {
-    id: "connectoraworkm",
+    id: "connector13",
     sourceID: "WorkStation2",
     targetID: "modem1",
     type: "Orthogonal",
@@ -437,7 +439,7 @@ let connectors = [
     sourcePortID: "port2"
   },
   {
-    id: "connectorm1m2",
+    id: "connector14",
     sourceID: "modem2",
     targetID: "modem1",
     type: "Orthogonal",
@@ -446,7 +448,7 @@ let connectors = [
     targetPortID: "port4"
   },
   {
-    id: "connectorm2m3",
+    id: "connector15",
     sourceID: "modem2",
     targetID: "RemoteController1",
     type: "Orthogonal",
@@ -455,14 +457,14 @@ let connectors = [
     targetPortID: "port4"
   },
   {
-    id: "connectorws2m3",
+    id: "connector16",
     sourceID: "WorkStation2",
     targetID: "modem3",
     sourcePortID: "port3",
     targetPortID: "port3"
   },
   {
-    id: "connectorws2m4",
+    id: "connector17",
     sourceID: "modem4",
     targetID: "modem3",
     type: "Orthogonal",
@@ -471,40 +473,40 @@ let connectors = [
     targetPortID: "port4"
   },
   {
-    id: "connectorm3m4",
+    id: "connector18",
     sourceID: "modem5",
     targetID: "modem3",
     sourcePortID: "port3",
     targetPortID: "port4"
   },
   {
-    id: "connectorm4ws3",
+    id: "connector19",
     sourceID: "modem5",
     targetID: "WorkStation4",
     sourcePortID: "port2",
     targetPortID: "port1"
   },
   {
-    id: "connectorm4m5",
+    id: "connector20",
     sourceID: "modem4",
     targetID: "WorkStation3",
     sourcePortID: "port2",
     targetPortID: "port1"
   },
   {
-    id: "connectorr2r3",
+    id: "connector21",
     sourceID: "RemoteController2",
     targetID: "RemoteController3",
     targetPortID: "port1"
   },
   {
-    id: "connectorr2r3qq",
+    id: "connector22",
     sourceID: "Server1",
     targetID: "RemoteController2",
     sourcePortID: "port4"
   },
   {
-    id: "connectorm3se1",
+    id: "connector23",
     sourceID: "modem3",
     targetID: "Server1",
     type: "Orthogonal",
@@ -513,7 +515,7 @@ let connectors = [
     targetPortID: "port4"
   },
   {
-    id: "connectorws2aio1",
+    id: "connector24",
     sourceID: "RemoteController2",
     targetID: "AnalogIO",
     type: "Orthogonal",
@@ -521,7 +523,7 @@ let connectors = [
     targetPortID: "port3"
   },
   {
-    id: "connectorb",
+    id: "connector25",
     sourceID: "RemoteController2",
     targetID: "sensor",
     type: "Orthogonal",
@@ -530,7 +532,7 @@ let connectors = [
     targetPortID: "port3"
   },
   {
-    id: "connectord1",
+    id: "connector26",
     sourceID: "RemoteController2",
     targetID: "DeviceDriver1",
     type: "Orthogonal",
@@ -539,7 +541,7 @@ let connectors = [
     targetPortID: "port3"
   },
   {
-    id: "connectord2",
+    id: "connector27",
     sourceID: "RemoteController2",
     targetID: "DeviceDriver2",
     type: "Orthogonal",
@@ -548,7 +550,7 @@ let connectors = [
     targetPortID: "port3"
   },
   {
-    id: "connectordh1d3",
+    id: "connector28",
     sourceID: "HMI",
     targetID: "DeviceDriver3",
     type: "Orthogonal",
@@ -556,7 +558,7 @@ let connectors = [
     targetPortID: "port3"
   },
   {
-    id: "connectordh1d2",
+    id: "connector29",
     sourceID: "HMI",
     type: "Orthogonal",
     targetID: "DeviceDriver2",
@@ -629,25 +631,27 @@ export default {
     'ejs-button': ButtonComponent
   },
   data: function() {
-    return {
-      width: "100%",
-      height: "100%",
-      nodes: nodes,
-      connectors: connectors,
-      snapSettings: {
-        constraints: SnapConstraints.None
-      },
-      expandMode: "Multiple",
-      palettes: palettes,
-      palettewidth: "100%",
-      paletteheight: "calc(100% - 50px)",
-      symbolHeight: 48,
-      symbolWidth: 48,
-      path: {
-        saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
-        removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
-      },
-       //Sets the default values of a node
+  return {
+    // General properties
+    width: "100%",
+    height: "100%",
+    nodes: nodes,
+    connectors: connectors,
+    snapSettings: {
+      constraints: SnapConstraints.None
+    },
+    expandMode: "Multiple",
+    palettes: palettes,
+    palettewidth: "100%",
+    paletteheight: "calc(100% - 50px)",
+    symbolHeight: 48,
+    symbolWidth: 48,
+    path: {
+      saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+      removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
+    },
+
+    // Sets the default values of a node
     getNodeDefaults: (node) => {
       if (node.style) {
         node.style.strokeColor = "#5C90DF";
@@ -672,6 +676,7 @@ export default {
       }
       if (node.shape) {
         if (node.shape.type === "Native") {
+          // Adjust dimensions based on node type
           if (node.id === "Server1") {
             node.width = 50;
             node.height = 65;
@@ -719,6 +724,7 @@ export default {
           node.style = { bold: true, fontSize: 16 };
         }
       }
+      // Customize connectors
       if (
         node.id === "connector1" ||
         node.id === "connector2" ||
@@ -737,7 +743,8 @@ export default {
       }
       return node;
     },
-    //Sets the default values of a connector
+
+    // Sets the default values of a connector
     getConnectorDefaults: (connector) => {
       connector.targetDecorator = {
         shape: "Arrow",
@@ -754,6 +761,8 @@ export default {
       }
       return connector;
     },
+
+    // Sets the default values of symbols in the palette
     palettegetNodeDefaults: (symbol) => {
       if (symbol.id === "arrow1") {
         symbol.width = 75;
@@ -779,73 +788,80 @@ export default {
         (symbol.shape).scale = "Stretch";
       }
     },
+
+    // Returns fit true for symbol info
     getSymbolInfo: (symbol) => {
       return { fit: true };
     },
-      dropElement: ".control-fluid"
-    };
-  },
-  mounted: function() {
-    diagramInstance = this.$refs.diagramObj.ej2Instances;
-      addEvents();
-      diagramInstance.fitToPage();
-    paletteInstance = this.$refs.paletteObj.ej2Instances;
-    uploadObjInstance = this.$refs.uploadObj.ej2Instances;
-  },
-  methods: {
-    btnClick: () => {
-      if (
-        !isNullOrUndefined(
-          document.getElementsByClassName("e-file-select-wrap")
-        )
-      ) {
-        let obj = document.getElementsByClassName("e-file-select-wrap")[0];
-        obj.querySelector("button").click();
-      }
-      return false;
-    },
-    onUploadSuccess: (arg) => {
-      let file1 = arg.file;
-      let file = file1.rawFile;
-      let reader = new FileReader();
-      reader.addEventListener(
-        "load",
-        (event) => {
-          let shape;
-          let shapeContent = event.target.result;
-          shape = {
-            id: "newshape" + id.toString(),
-            shape: { type: "Native", content: shapeContent }
-          };
-          paletteInstance.addPaletteItem("network", shape);
-        }
-      );
-      id++;
-      reader.readAsText(file);
-      uploadObjInstance.clearAll();
-    },
-    onFileRemove: (args) => {
-      args.postRawFile = false;
-    }
-  }
-};
 
+    // Allows dropping elements into specific area
+    dropElement: ".control-fluid"
+  };
+},
+
+mounted: function() {
+  // Initialize diagram and related components
+  diagramInstance = this.$refs.diagramObj.ej2Instances;
+  diagramInstance.fitToPage();
+  paletteIcon = this.$refs.paletteIcon;
+  paletteSpace = this.$refs.paletteSpace;
+  addEvents();
+  paletteInstance = this.$refs.paletteObj.ej2Instances;
+  uploadObjInstance = this.$refs.uploadObj.ej2Instances;
+},
+
+methods: {
+  // Handles button click event
+  btnClick: () => {
+    if (
+      !isNullOrUndefined(
+        document.getElementsByClassName("e-file-select-wrap")
+      )
+    ) {
+      let obj = document.getElementsByClassName("e-file-select-wrap")[0];
+      obj.querySelector("button").click();
+    }
+    return false;
+  },
+
+  // Handles upload success event
+  onUploadSuccess: (arg) => {
+    let file1 = arg.file;
+    let file = file1.rawFile;
+    let reader = new FileReader();
+    reader.addEventListener(
+      "load",
+      (event) => {
+        let shape;
+        let shapeContent = event.target.result;
+        shape = {
+          id: "newshape" + id.toString(),
+          shape: { type: "Native", content: shapeContent }
+        };
+        paletteInstance.addPaletteItem("network", shape);
+      }
+    );
+    id++;
+    reader.readAsText(file);
+    uploadObjInstance.clearAll();
+  },
+
+  // Disables posting raw files
+  onFileRemove: (args) => {
+    args.postRawFile = false;
+  }
+}
+};
+//Check the device is mobile or not
 function addEvents() {
   isMobile = window.matchMedia("(max-width:550px)").matches;
   if (isMobile) {
-    let paletteIcon = document.getElementById(
-      "palette-icon"
-    );
     if (paletteIcon) {
       paletteIcon.addEventListener("click", openPalette, false);
     }
   }
 }
-
 function openPalette() {
-  let paletteSpace = document.getElementById(
-    "palette-space"
-  );
   isMobile = window.matchMedia("(max-width:550px)").matches;
   if (isMobile) {
     if (!paletteSpace.classList.contains("sb-mobile-palette-open")) {

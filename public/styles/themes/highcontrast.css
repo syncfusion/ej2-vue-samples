@@ -141,6 +141,10 @@ body.highcontrast,
     line-height: 36px;
 }
 
+.highcontrast.e-bigger #controlList li.e-list-item {
+    line-height: 38px;
+}
+
 .highcontrast .sb-content-section,
 .highcontrast .sb-switch-popup .highcontrast .sb-content-tab-header,
 .highcontrast .sb-content-section .sb-content-tab-header {
@@ -249,4 +253,18 @@ body.highcontrast,
 
 .highcontrast .sb-theme-popup li:hover.active .sb-theme-select {
     color: white;
+}
+
+.highcontrast.e-bigger .e-samplestatus.new,
+.highcontrast.e-bigger .e-samplestatus.update,
+.highcontrast.e-bigger .e-samplestatus.preview {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.highcontrast.e-bigger .e-samplestatus.new.tree,
+.highcontrast.e-bigger .e-samplestatus.update.tree,
+.highcontrast.e-bigger .e-samplestatus.preview.tree {
+    margin-top: 8px;
+    margin-bottom: 0px;
 }

@@ -7,7 +7,7 @@
             "Purchase Price": "169.50",
             "Selling Price": "172.00",
             "Profit": "=E3-D3",
-            "Last Updated": "5/25/2019",
+            "Last Updated": "05-25-2019",
             "Rating": "4.5"
         },
         {
@@ -17,7 +17,7 @@
             "Purchase Price": "21.80",
             "Selling Price": "23.00",
             "Profit": "=E4-D4",
-            "Last Updated": "7/28/2019",
+            "Last Updated": "07-28-2019",
             "Rating": "4.0"
         },
         {
@@ -27,7 +27,7 @@
             "Purchase Price": "26.80",
             "Selling Price": "29.00",
             "Profit": "=E5-D5",
-            "Last Updated": "3/30/2020",
+            "Last Updated": "03-30-2020",
             "Rating": "4.25"
         },
         {
@@ -37,7 +37,7 @@
             "Purchase Price": "23.50",
             "Selling Price": "25.00",
             "Profit": "=E6-D6",
-            "Last Updated": "8/20/2019",
+            "Last Updated": "08-20-2019",
             "Rating": "3.5"
         },
         {
@@ -47,7 +47,7 @@
             "Purchase Price": "56.50",
             "Selling Price": "59.00",
             "Profit": "=E7-D7",
-            "Last Updated": "2/2/2020",
+            "Last Updated": "02-02-2020",
             "Rating": "4.5"
         },
         {
@@ -57,7 +57,7 @@
             "Purchase Price": "22.50",
             "Selling Price": "25.00",
             "Profit": "=E8-D8",
-            "Last Updated": "11/11/2019",
+            "Last Updated": "11-11-2019",
             "Rating": "5.0"
         },
         {
@@ -67,7 +67,7 @@
             "Purchase Price": "175.00",
             "Selling Price": "177.00",
             "Profit": "=E9-D9",
-            "Last Updated": "4/13/2019",
+            "Last Updated": "04-13-2019",
             "Rating": "4.75"
         },
         {
@@ -77,7 +77,7 @@
             "Purchase Price": "32.00",
             "Selling Price": "35.00",
             "Profit": "=E10-D10",
-            "Last Updated": "2/14/2020",
+            "Last Updated": "02-14-2020",
             "Rating": "4.4"
         },
         {
@@ -87,7 +87,7 @@
             "Purchase Price": "18.90",
             "Selling Price": "19.00",
             "Profit": "=E11-D11",
-            "Last Updated": "6/10/2019",
+            "Last Updated": "06-10-2019",
             "Rating": "3.9"
         },
         {
@@ -97,7 +97,7 @@
             "Purchase Price": "33.90",
             "Selling Price": "35.00",
             "Profit": "=E12-D12",
-            "Last Updated": "5/28/2019",
+            "Last Updated": "05-28-2019",
             "Rating": "3.75"
         },
         {
@@ -107,7 +107,7 @@
             "Purchase Price": "153.50",
             "Selling Price": "155.00",
             "Profit": "=E13-D13",
-            "Last Updated": "12/18/2019",
+            "Last Updated": "12-18-2019",
             "Rating": "3.9"
         },
         {
@@ -117,7 +117,7 @@
             "Purchase Price": "201.25",
             "Selling Price": "204.00",
             "Profit": "=E14-D14",
-            "Last Updated": "3/13/2020",
+            "Last Updated": "03-13-2020",
             "Rating": "4.35"
         },
         {
@@ -127,7 +127,7 @@
             "Purchase Price": "182.25",
             "Selling Price": "185.00",
             "Profit": "=E15-D15",
-            "Last Updated": "8/26/2019",
+            "Last Updated": "08-26-2019",
             "Rating": "4.0"
         },
         {
@@ -137,7 +137,7 @@
             "Purchase Price": "34.80",
             "Selling Price": "38.00",
             "Profit": "=E16-D16",
-            "Last Updated": "1/12/2020",
+            "Last Updated": "01-12-2020",
             "Rating": "4.2"
         },
         {
@@ -147,7 +147,7 @@
             "Purchase Price": "104.800",
             "Selling Price": "108.00",
             "Profit": "=E17-D17",
-            "Last Updated": "4/12/2019",
+            "Last Updated": "04-12-2019",
             "Rating": "3.25"
         },
         {
@@ -157,7 +157,7 @@
             "Purchase Price": "19.00",
             "Selling Price": "21.00",
             "Profit": "=E18-D18",
-            "Last Updated": "11/22/2019",
+            "Last Updated": "11-22-2019",
             "Rating": "3.85"
         }
     ]

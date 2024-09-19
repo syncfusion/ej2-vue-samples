@@ -6,14 +6,14 @@
         :selectionChange='selectionChange' :snapSettings='snapSettings'></ejs-diagram>
     </div>
 </div>
-<div class="col-lg-4 property-section">
+<div class="col-lg-4 property-section diagram-property-tab">
     <div class="property-panel-header">
         Properties
     </div>
-    <div id="propertypanel" class="e-remove-selection">
+    <div id="propertypanel" ref="propertyPanel" class="e-remove-selection">
         <div class="property-section-content">
 
-            <div class="row" id="appearance">
+            <div class="row" id="appearance" ref="appearance">
             <div class="row row-header">
                 Alignment
             </div>
@@ -23,15 +23,15 @@
                     </div>
                     <div class="image-pattern-style" id="right" style="background-image: url(./src/diagram/Images/annotation/Annotation_2.png); margin: 0px 4px">
                     </div>
-                    <div class="image-pattern-style" id="bottoml" style="background-image: url(./src/diagram/Images/annotation/Annotation_3.png);margin-left: 4px">
+                    <div class="image-pattern-style" id="bottomLeft" style="background-image: url(./src/diagram/Images/annotation/Annotation_3.png);margin-left: 4px">
                     </div>
                 </div>
                 <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style" id="bottomr" style="background-image: url(./src/diagram/Images/annotation/Annotation_4.png); margin-right: 4px">
+                    <div class="image-pattern-style" id="bottomRight" style="background-image: url(./src/diagram/Images/annotation/Annotation_4.png); margin-right: 4px">
                     </div>
                     <div class="image-pattern-style" id="center" style="background-image: url(./src/diagram/Images/annotation/Annotation_5.png); margin: 0px 4px">
                     </div>
-                    <div class="image-pattern-style" id="bottomcenter_top" style="background-image: url(./src/diagram/Images/annotation/Annotation_6.png);margin-left: 4px">
+                    <div class="image-pattern-style" id="bottomCenter" style="background-image: url(./src/diagram/Images/annotation/Annotation_6.png);margin-left: 4px">
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                                  :change='fontcolorchange'></ejs-colorpicker>
             </div>
             <div class="col-xs-4 column-style">
-                <ejs-numerictextbox ref="fontSizeObj"  id="fontSize" :min="0" :max="50" :step="1" :value="12"
+                <ejs-numerictextbox ref="fontSizeObj"  id="fontSize" :min="1" :max="50" :format="0o0" :step="2" :value="12"
                 :change='fontSizechange'/>
             </div>
             <div class="col-xs-4 column-style">
@@ -147,7 +147,7 @@
   pointer-events: none;
 }
 
-.column-style {
+.diagram-property-tab .column-style {
   display: table;
   height: 35px;
   padding-right: 4px;
@@ -155,12 +155,12 @@
   width: calc((100% - 12px) / 3);
 }
 
-.row {
+.diagram-property-tab .row {
   margin-left: 0px;
   margin-right: 0px;
 }
 
-.row-header {
+.diagram-property-tab .row-header {
   font-size: 15px;
   font-weight: 500;
 }
@@ -189,7 +189,6 @@
 
 .e-ddb-icons {
   font-family: "e-ddb-icons";
-  speak: none;
   font-size: 55px;
   font-style: normal;
   font-weight: normal;
@@ -243,6 +242,7 @@ let bold;
 let italic;
 let underLine;
 let templateData;
+let appearance;
 
 //Initializes the nodes for the diagram
 let nodes = [
@@ -359,248 +359,218 @@ export default {
     'ejs-button': ButtonComponent,
     'ejs-checkbox': CheckBoxComponent
   },
-  data: function() {
-    return {
-      width: "100%",
-      height: "645px",
-      nodes: nodes,
-      connectors: connectors,
-      selectionChange: (arg) => {
-        if (arg.state === "Changed") {
-          let selectedElement = document.getElementsByClassName(
-            "e-selected-style"
-          );
-          if (selectedElement.length) {
-            selectedElement[0].classList.remove("e-selected-style");
-          }
-          if (arg.newValue[0]) {
-            let node = arg.newValue[0];
-            let annotations = node.annotations;
-            let offset = annotations[0].offset;
-            if (
-              offset.x === 0 &&
-              offset.y === 0 &&
-              annotations[0].verticalAlignment === "Top" &&
-              annotations[0].horizontalAlignment === "Left"
-            ) {
-              updatePosition("left");
-            } else if (
-              offset.x === 1 &&
-              offset.y === 0 &&
-              annotations[0].verticalAlignment === "Top" &&
-              annotations[0].horizontalAlignment === "Right"
-            ) {
-              updatePosition("right");
-            } else if (
-              offset.x === 1 &&
-              offset.y === 0 &&
-              annotations[0].verticalAlignment === "Top" &&
-              annotations[0].horizontalAlignment === "Right"
-            ) {
-              updatePosition("right");
-            } else if (
-              offset.x === 0 &&
-              offset.y === 1 &&
-              annotations[0].verticalAlignment === "Bottom" &&
-              annotations[0].horizontalAlignment === "Left"
-            ) {
-              updatePosition("bottoml");
-            } else if (
-              offset.x === 1 &&
-              offset.y === 1 &&
-              annotations[0].verticalAlignment === "Bottom" &&
-              annotations[0].horizontalAlignment === "Right"
-            ) {
-              updatePosition("bottomr");
-            } else if (
-              offset.x === 0.5 &&
-              offset.y === 0.5 &&
-              annotations[0].verticalAlignment === "Center" &&
-              annotations[0].horizontalAlignment === "Center"
-            ) {
-              updatePosition("center");
-            } else if (
-              offset.x === 0.5 &&
-              offset.y === 1 &&
-              annotations[0].verticalAlignment === "Top" &&
-              annotations[0].horizontalAlignment === "Center"
-            ) {
-              updatePosition("bottomcenter_top");
-            }
-          }
-          enableOptions(arg);
+data: function() {
+  return {
+    // Diagram properties
+    width: "100%",
+    height: "550px",
+    nodes: nodes,
+    connectors: connectors,
+
+    // Event handler for selection change
+    selectionChange: (arg) => {
+      if (arg.state === "Changed") {
+        // Remove previously selected style
+        let selectedElement = document.getElementsByClassName("e-selected-style");
+        if (selectedElement.length) {
+          selectedElement[0].classList.remove("e-selected-style");
         }
-      },
-      //Sets the default values of a node
-      getNodeDefaults: (node) => {
-        let obj = {
-          width: 150,
-          height: 50,
-          style: { fill: "#D5EDED", strokeColor: "#7DCFC9", strokeWidth: 1 },
-          shape: { cornerRadius: 5 }
-        };
-        return obj;
-      },
-      //Sets the default values of a connector
-      getConnectorDefaults: (obj) => {
-        obj.type = "Orthogonal";
-        obj.constraints = ConnectorConstraints.None;
-      },
-      snapSettings: { constraints: SnapConstraints.None },
-      fontcolorvalue: "#000",
-      fontcolorchange: (arg) => {
-        if (diagramInstance.selectedItems.nodes) {
-          for (
-            let i = 0;
-            i < diagramInstance.selectedItems.nodes.length;
-            i++
-          ) {
-            let node = diagramInstance.selectedItems.nodes[i];
-            if (node.annotations) {
-              for (let j = 0; j < node.annotations.length; j++) {
-                (node.annotations[j].style).color =
-                  arg.currentValue.rgba;
-              }
+        // Apply styles based on annotation position
+        if (arg.newValue[0]) {
+          let node = arg.newValue[0];
+          let annotations = node.annotations;
+          let offset = annotations[0].offset;
+          if (offset.x === 0 && offset.y === 0 && annotations[0].verticalAlignment === "Top" && annotations[0].horizontalAlignment === "Left") {
+            updateAnnotationPosition("left");
+          } else if (offset.x === 1 && offset.y === 0 && annotations[0].verticalAlignment === "Top" && annotations[0].horizontalAlignment === "Right") {
+            updateAnnotationPosition("right");
+          } else if (offset.x === 0 && offset.y === 1 && annotations[0].verticalAlignment === "Bottom" && annotations[0].horizontalAlignment === "Left") {
+            updateAnnotationPosition("bottomLeft");
+          } else if (offset.x === 1 && offset.y === 1 && annotations[0].verticalAlignment === "Bottom" && annotations[0].horizontalAlignment === "Right") {
+            updateAnnotationPosition("bottomRight");
+          } else if (offset.x === 0.5 && offset.y === 0.5 && annotations[0].verticalAlignment === "Center" && annotations[0].horizontalAlignment === "Center") {
+            updateAnnotationPosition("center");
+          } else if (offset.x === 0.5 && offset.y === 1 && annotations[0].verticalAlignment === "Top" && annotations[0].horizontalAlignment === "Center") {
+            updateAnnotationPosition("bottomCenter");
+          }
+        }
+        // Enable property panel for the selected node
+        enablePropertyPanel(arg);
+      }
+    },
+
+    // Default node settings
+    getNodeDefaults: (node) => {
+      let obj = {
+        width: 150,
+        height: 50,
+        style: { fill: "#D5EDED", strokeColor: "#7DCFC9", strokeWidth: 1 },
+        shape: { cornerRadius: 5 }
+      };
+      return obj;
+    },
+
+    // Default connector settings
+    getConnectorDefaults: (obj) => {
+      obj.type = "Orthogonal";
+      obj.constraints = ConnectorConstraints.None;
+    },
+
+    // Snap settings
+    snapSettings: { constraints: SnapConstraints.None },
+
+    // Font color change handler
+    fontcolorvalue: "#000",
+    fontcolorchange: (arg) => {
+      if (diagramInstance.selectedItems.nodes) {
+        for (let i = 0; i < diagramInstance.selectedItems.nodes.length; i++) {
+          let node = diagramInstance.selectedItems.nodes[i];
+          if (node.annotations) {
+            for (let j = 0; j < node.annotations.length; j++) {
+              (node.annotations[j].style).color = arg.currentValue.rgba;
             }
           }
         }
-      },
-
-      fontSizechange: () => {
-        changed("fontsize");
-      },
-
-      fontfamilydataSource: fontType,
-      fontfamilyfields: { value: "type", text: "text" },
-      fontfamilypopupWidth: 150,
-      fontfamilywidth: "100%",
-      fontfamilyplaceholder: "select a font type",
-      fontfamilyindex: 0,
-      fontfamilychange: () => {
-        changed("fontfamily");
-      },
-
-      templatelistdataSource: templateList,
-      templatefields: { value: "value", text: "text" },
-      templatepopupwidth:200,
-      templatewidth: "100%",
-      templateplaceholder: 'select a template',
-      templatechange: () => {
-        changed("template");
-      },
-
-      checkboxchange: () => {
-         changed("interaction");
       }
-    };
-  },
-  mounted: function() {
-    diagramInstance = this.$refs.diagramControl.ej2Instances;
-    diagramInstance.fitToPage();
-    diagramInstance.select([diagramInstance.nodes[0]]);
-    bold = this.$refs.boldObj.ej2Instances;
-    italic = this.$refs.italicObj.ej2Instances;
-    underLine = this.$refs.underlineObj.ej2Instances;
-    fontFamily = this.$refs.fontfamilyObj.ej2Instances;
-    fontSize = this.$refs.fontSizeObj.ej2Instances;
-    fontColor = this.$refs.fontcolorObj.ej2Instances;
-    templateData = this.$refs.templatelistObj.ej2Instances;
+    },
 
-    let appearance = document.getElementById(
-      "propertypanel"
-    ) ;
-    let selectedElement = document.getElementsByClassName(
-      "e-remove-selection"
-    );
+    // Font size change handler
+    fontSizechange: () => {
+      changed("fontsize");
+    },
 
-    bold.element.onclick = () => {
-      changed("bold");
-    };
-    italic.element.onclick = () => {
-      changed("italic");
-    };
-    underLine.element.onclick = () => {
-      changed("underline");
-    };
-    let obj = document.getElementById("appearance") ;
-    //Click event for Appearance of the Property Panel
-    obj.onclick = (args) => {
-      let target = args.target;
-      let selectedElement = document.getElementsByClassName(
-        "e-selected-style"
-      );
-      if (selectedElement.length) {
-        selectedElement[0].classList.remove("e-selected-style");
-      }
-      if (target.className === "image-pattern-style") {
-        updatePosition(target.id);
-      }
-    };
-  }
+    // Font family settings
+    fontfamilydataSource: fontType,
+    fontfamilyfields: { value: "type", text: "text" },
+    fontfamilypopupWidth: 150,
+    fontfamilywidth: "100%",
+    fontfamilyplaceholder: "Select a font type",
+    fontfamilyindex: 0,
+    fontfamilychange: () => {
+      changed("fontfamily");
+    },
+
+    // Template list settings
+    templatelistdataSource: templateList,
+    templatefields: { value: "value", text: "text" },
+    templatepopupwidth: 200,
+    templatewidth: "100%",
+    templateplaceholder: 'Select a template',
+    templatechange: () => {
+      changed("template");
+    },
+
+    // Checkbox change handler
+    checkboxchange: () => {
+      changed("interaction");
+    }
+  };
+},
+
+mounted: function() {
+  // Initialize diagram instance and related components
+  diagramInstance = this.$refs.diagramControl.ej2Instances;
+  diagramInstance.fitToPage();
+  diagramInstance.select([diagramInstance.nodes[0]]);
+
+  // References to UI components
+  bold = this.$refs.boldObj.ej2Instances;
+  italic = this.$refs.italicObj.ej2Instances;
+  underLine = this.$refs.underlineObj.ej2Instances;
+  fontFamily = this.$refs.fontfamilyObj.ej2Instances;
+  fontSize = this.$refs.fontSizeObj.ej2Instances;
+  fontColor = this.$refs.fontcolorObj.ej2Instances;
+  templateData = this.$refs.templatelistObj.ej2Instances;
+  appearance = this.$refs.propertyPanel;
+
+  // Click events for formatting controls
+  bold.element.onclick = () => {
+    changed("bold");
+  };
+  italic.element.onclick = () => {
+    changed("italic");
+  };
+  underLine.element.onclick = () => {
+    changed("underline");
+  };
+
+  // Click event for appearance of the property panel
+  let obj = this.$refs.appearance;
+  obj.onclick = (args) => {
+    let target = args.target;
+    let selectedElement = document.getElementsByClassName("e-selected-style");
+    if (selectedElement.length) {
+      selectedElement[0].classList.remove("e-selected-style");
+    }
+    if (target.className === "image-pattern-style") {
+      updateAnnotationPosition(target.id);
+    }
+  };
+}
 }
 
-//Apply the appearence of the Annotation
+// Apply the appearance changes to the annotation based on the value passed
 function changed(value) {
   if (diagramInstance.selectedItems.nodes) {
     for (let i = 0; i < diagramInstance.selectedItems.nodes.length; i++) {
       let node = diagramInstance.selectedItems.nodes[i];
-      if (node.annotations) {
-        for (let j = 0; j < node.annotations.length; j++) {
-          let annotationStyle = node.annotations[j].style;
-          if (value === "fontsize") {
-            (node.annotations[j].style).fontSize =
-              fontSize.value;
-          } else if (value === "underline") {
-            if((node.annotations[j].style).textDecoration ==="None"){
-              (node.annotations[j].style).textDecoration = 'Underline';
-            }
-            else{
-              (node.annotations[j].style).textDecoration = 'None';
-              }
-          } else if (value === "fontfamily") {
-            (node.annotations[j]
-              .style).fontFamily = fontFamily.value.toString();
-          } else if (value === "bold") {
-            (node.annotations[j].style).bold = !annotationStyle.bold;
-          } else if (value === "italic") {
-            (node.annotations[j].style).italic = !annotationStyle.italic;
-          } else if (value === 'template') {
-              if (templateData.value.toString() === 'none') {
-                  node.annotations[j].template = '';
-                  node.annotations[j].width = undefined;
-                  node.annotations[j].height = undefined;
-              } else {
-                   node.annotations[j].width = 25;
-                   node.annotations[j].height = 25;
-                   node.annotations[j].template =
-                       '<img src="src/diagram/Images/annotation/' + templateData.value.toString() + '.svg" style="width:100%;height:100%" />';
-                }
-            } else if (value === 'interaction') {
-              let annot = node.annotations[j];
-              if (annot && annot.constraints) {
-                annot.constraints = annot.constraints ^ AnnotationConstraints.Interaction;
-              }
-            }
+      if (node.annotations.length > 0) {
+        let annotationStyle = node.annotations[0].style;
+        if (value === "fontsize") {
+          // Change font size of the annotation
+          (node.annotations[0].style).fontSize = fontSize.value;
+        } else if (value === "underline") {
+          // Toggle underline style of the annotation
+          if ((node.annotations[0].style).textDecoration === "None") {
+            (node.annotations[0].style).textDecoration = 'Underline';
+          } else {
+            (node.annotations[0].style).textDecoration = 'None';
+          }
+        } else if (value === "fontfamily") {
+          // Change font family of the annotation
+          (node.annotations[0].style).fontFamily = fontFamily.value.toString();
+        } else if (value === "bold") {
+          // Toggle bold style of the annotation
+          (node.annotations[0].style).bold = !annotationStyle.bold;
+        } else if (value === "italic") {
+          // Toggle italic style of the annotation
+          (node.annotations[0].style).italic = !annotationStyle.italic;
+        } else if (value === 'template') {
+          // Set or clear template for the annotation
+          if (templateData.value.toString() === 'none') {
+            node.annotations[0].template = '';
+            node.annotations[0].width = undefined;
+            node.annotations[0].height = undefined;
+          } else {
+            node.annotations[0].width = 25;
+            node.annotations[0].height = 25;
+            node.annotations[0].template =
+              '<img src="src/diagram/Images/annotation/' + templateData.value.toString() + '.svg" style="width:100%;height:100%" />';
+          }
+        } else if (value === 'interaction') {
+          // Toggle interaction constraints of the annotation
+          let annotation = node.annotations[0];
+          if (annotation && annotation.constraints) {
+            annotation.constraints = annotation.constraints ^ AnnotationConstraints.Interaction;
+          }
+        }
+        diagramInstance.dataBind(); // Update diagram
       }
-      diagramInstance.dataBind();
     }
   }
 }
-}
-//Update the Annotation Position based on the selection
-function updatePosition(id) {
+
+// Update the position and alignment of annotations based on the target ID
+function updateAnnotationPosition(id) {
   let target = document.getElementById(id);
   if (diagramInstance.selectedItems.nodes) {
-    for (
-      let i= 0;
-      i < diagramInstance.selectedItems.nodes.length;
-      i++
-    ) {
+    for (let i = 0; i < diagramInstance.selectedItems.nodes.length; i++) {
       let node = diagramInstance.selectedItems.nodes[i];
       if (node.annotations) {
-        //we can refactor this code using a method
+        // Iterate through annotations of the node
         for (let j = 0; j < node.annotations.length; j++) {
           let annotation = node.annotations[j];
+          // Set position and alignment based on target ID
           switch (target.id) {
             case "left":
               setAnnotationPosition(annotation, 0, 0, "Top", "Left", target);
@@ -608,16 +578,16 @@ function updatePosition(id) {
             case "right":
               setAnnotationPosition(annotation, 1, 0, "Top", "Right", target);
               break;
-            case "bottoml":
+            case "bottomLeft":
               setAnnotationPosition(annotation, 0, 1, "Bottom", "Left", target);
               break;
-            case "bottomr":
+            case "bottomRight":
               setAnnotationPosition(annotation, 1, 1, "Bottom", "Right", target);
               break;
             case "center":
               setAnnotationPosition(annotation, 0.5, 0.5, "Center", "Center", target);
               break;
-            case "bottomcenter_top":
+            case "bottomCenter":
               setAnnotationPosition(annotation, 0.5, 1, "Top", "Center", target);
               break;
           }
@@ -626,43 +596,41 @@ function updatePosition(id) {
     }
   }
 }
-//set the Annotation Position
-function setAnnotationPosition( //it is in dedicated line here.
+
+// Set the position and alignment of the annotation
+function setAnnotationPosition(
   annotation,
   offsetX,
   offsetY,
-  vAlignment,
-  hAlignment,
+  verticalAlignment,
+  horizontalAlignment,
   target
 ) {
   let offset = annotation.offset;
   offset.x = offsetX;
   offset.y = offsetY;
-  annotation.verticalAlignment = vAlignment;
-  annotation.horizontalAlignment = hAlignment;
-  if (vAlignment === "Top" && hAlignment === "Left") {
+  annotation.verticalAlignment = verticalAlignment;
+  annotation.horizontalAlignment = horizontalAlignment;
+  // Apply margin based on alignment for visual distinction
+  if (verticalAlignment === "Top" && horizontalAlignment === "Left") {
     annotation.margin = { left: 3, top: 3 };
-  } else if (vAlignment === "Top" && hAlignment === "Right") {
+  } else if (verticalAlignment === "Top" && horizontalAlignment === "Right") {
     annotation.margin = { right: 3, top: 3 };
-  } else if (vAlignment === "Bottom" && hAlignment === "Left") {
+  } else if (verticalAlignment === "Bottom" && horizontalAlignment === "Left") {
     annotation.margin = { left: 3, bottom: 3 };
-  } else if (vAlignment === "Bottom" && hAlignment === "Right") {
+  } else if (verticalAlignment === "Bottom" && horizontalAlignment === "Right") {
     annotation.margin = { right: 3, bottom: 3 };
   }
-  target.classList.add("e-selected-style");
+  target.classList.add("e-selected-style"); // Apply selected style to the target
 }
-//Enable or disable the property panel
-function enableOptions(arg) {
-  let appearance = document.getElementById(
-    "propertypanel"
-  ) ;
-  let selectedElement = document.getElementsByClassName(
-    "e-remove-selection"
-  );
+
+// Enable or disable the property panel based on the argument
+function enablePropertyPanel(arg) {
+  let selectedElement = document.getElementsByClassName("e-remove-selection");
   if (arg.newValue) {
     if (arg.newValue[0] instanceof Node) {
-      if(selectedElement.length > 0) {
-         selectedElement[0].classList.remove("e-remove-selection");
+      if (selectedElement.length > 0) {
+        selectedElement[0].classList.remove("e-remove-selection");
       }
     } else {
       if (!appearance.classList.contains("e-remove-selection")) {

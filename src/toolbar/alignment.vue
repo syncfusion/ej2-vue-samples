@@ -38,35 +38,33 @@
                     </div>
                 </div>
             </div>
-                <div id="action-description">
-    <p>This sample demonstrates the aligning the <code>Toolbar</code> commands in left, right and center position.</p>
-</div>
-
-
-<div id="description">
-    <p><strong>Toolbar</strong> commands can be aligned in left, right and center positions. By default, all the commands are left aligned. User can customize the alignment of each toolbar item using
-    <code> <a aria-label="Align" target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#align">align</a> </code> property. Possible values are as follows.</p>
-    <br>
-    <table style="width:100%">
-        <tr>
-            <th><strong>Alignment Option</strong></th>
-            <th><strong>Description</strong></th>
-        </tr>
-        <tr>
-            <td><code>Left (default)</code></td>
-            <td>To align commands to the left side of the toolbar.</td>
-        </tr>
-        <tr>
-            <td><code>Center</code></td>
-            <td>To align commands to the center of the toolbar.</td>
-        </tr>
-        <tr>
-            <td><code>Right</code></td>
-            <td>To align commands to the right side of the toolbar.</td>
-        </tr>
-    </table>
-</div>
         </div>
+    </div>
+    <div id="action-description">
+        <p>This sample demonstrates the aligning the <code>Toolbar</code> commands in left, right and center position.</p>
+    </div>
+    <div id="description">
+        <p><strong>Toolbar</strong> commands can be aligned in left, right and center positions. By default, all the commands are left aligned. User can customize the alignment of each toolbar item using
+        <code> <a aria-label="Align" target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#align">align</a> </code> property. Possible values are as follows.</p>
+        <br>
+        <table style="width:100%">
+            <tr>
+                <th><strong>Alignment Option</strong></th>
+                <th><strong>Description</strong></th>
+            </tr>
+            <tr>
+                <td><code>Left (default)</code></td>
+                <td>To align commands to the left side of the toolbar.</td>
+            </tr>
+            <tr>
+                <td><code>Center</code></td>
+                <td>To align commands to the center of the toolbar.</td>
+            </tr>
+            <tr>
+                <td><code>Right</code></td>
+                <td>To align commands to the right side of the toolbar.</td>
+            </tr>
+        </table>
     </div>
 </template>
 <style>
@@ -110,10 +108,6 @@
 
     .e-tbar-section-alignment .control-wrapper {
         flex-direction: inherit
-    }
-
-    .e-tbar-section-alignment .e-sample-resize-container {
-        height: 42px;
     }
 
     .e-tbar-section-alignment .e-def-avator {

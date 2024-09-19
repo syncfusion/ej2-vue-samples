@@ -1,29 +1,29 @@
 <template>
 <div>
 <div class="control-section">
-   <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :rulerSettings='rulerSettings' :selectionChange='selectionChange' :selectedItems='selectedItems' :nodes='nodes' :connectors='connectors' :contextMenuSettings="contextMenuSettings" :onUserHandleMouseDown="onUserHandleMouseDown"></ejs-diagram>
+   <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :rulerSettings='rulerSettings' :selectionChange='selectionChange' :selectedItems='selectedItems' :nodes='nodes' :connectors='connectors'  :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :contextMenuSettings="contextMenuSettings" :onUserHandleMouseDown="onUserHandleMouseDown"></ejs-diagram>
 </div>
-  <div class="col-lg-2 property-section" style="float:right;margin-top:-720px; margin-right:-10px">
+  <div class="col-lg-2 property-section diagram-property-tab" style="float:right;margin-top:-720px; margin-right:-10px">
             <div class="property-panel-header">
                <p>Diagram Constraints</p>
             </div>
             <div class="row property-panel-content" style="padding-top: 5px;margin-left:-40px">
-                <div class="row" style="padding-top: 8px">
+                <div class="row">
                    <ejs-checkbox label="Zooming" :checked="true" :change="zoomingChange"></ejs-checkbox>
                 </div>
-                <div class="row" style="padding-top: 8px">
+                <div class="row check-box">
                    <ejs-checkbox label="Undo/Redo" :checked="true" :change="undoRedoChange"></ejs-checkbox>
                 </div>
-                <div class="row" style="padding-top: 8px">
+                <div class="row check-box">
                     <ejs-checkbox label="Editing" :checked="true" :change="editingChange"></ejs-checkbox>
                 </div>
-                <div class="row" style="padding-top: 8px">
+                <div class="row check-box">
                    <ejs-checkbox label="Context Menu" :checked="true" :change="contextChange"></ejs-checkbox>
                 </div>
-                <div class="row" style="padding-top: 8px">
+                <div class="row check-box">
                    <ejs-checkbox label="Selectable" :checked="true" :change="selectableChange"></ejs-checkbox>
                 </div>
-                <div class="row" style="padding-top: 8px">
+                <div class="row check-box">
                    <ejs-checkbox label="Draggable" :checked="true" :change="draggableChange"></ejs-checkbox>
                 </div>
             </div>
@@ -46,6 +46,14 @@
 .property-panel-header{
     margin-left : -40px
 }
+.diagram-property-tab .row{
+    margin-left: 2px;
+    margin-right: 0px;
+    padding-top: 8px;
+}
+.diagram-property-tab .check-box{
+    margin-top: 10px;
+}
 </style>
 <script>
 import {
@@ -67,7 +75,6 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 
-let diagramInstance;
 
 var nodes = [
     {
@@ -89,9 +96,7 @@ var nodes = [
         id:"rectangle",
         offsetX:80,
         offsetY:160,
-        width: 80,
         height: 65,
-        // style: { fill: '#6BA5D7', strokeColor: 'white' },
         shape: { type: 'Basic', shape: 'Rectangle' },
         annotations: [{ content: 'Selection = False', }],
         constraints: NodeConstraints.Default & ~ NodeConstraints.Select
@@ -100,9 +105,7 @@ var nodes = [
         id:"ellipse",
         offsetX:190,
         offsetY:160,
-        width: 80,
         height: 80,
-        // style: { fill: '#6BA5D7', strokeColor: 'white' },
         shape: { type: 'Basic', shape: 'Ellipse',cornerRadius: 10 },
         annotations: [{ content: 'Dragging = False' }],
         constraints:  NodeConstraints.Default & ~ NodeConstraints.Drag
@@ -112,9 +115,7 @@ var nodes = [
         id:"heptagon",
         offsetX:295,
         offsetY:160,
-        width: 80,
         height: 80,
-        // style: { fill: '#6BA5D7', strokeColor: 'white' },
         shape: { type: 'Basic', shape: 'Heptagon' },
         annotations: [{ content: 'Delete = False' }],
         constraints: NodeConstraints.Default & ~ NodeConstraints.Delete
@@ -123,10 +124,8 @@ var nodes = [
         id:"directData",
         offsetX:410,
         offsetY:160,
-        width: 80,
         height: 80,
         rotateAngle:-45,
-        // style: { fill: '#6BA5D7', strokeColor: 'white' },
         shape: { type: 'Flow', shape: 'DirectData' },
         annotations: [{ content: 'Rotate = False' }],
         constraints: NodeConstraints.Default &~ NodeConstraints.Rotate
@@ -135,9 +134,7 @@ var nodes = [
         id:"Plus",
         offsetX:530,
         offsetY:160,
-        width: 80,
         height: 80,
-        // style: { fill: '#6BA5D7', strokeColor: 'white' },
         shape: { type: 'Basic', shape: 'Plus' },
         annotations: [{ content: 'TextEdit = False',constraints: AnnotationConstraints.ReadOnly }],
     },
@@ -145,9 +142,7 @@ var nodes = [
         id:"decision",
         offsetX:630,
         offsetY:160,
-        width: 80,
         height: 80,
-        // style: { fill: '#6BA5D7', strokeColor: 'white' },
         shape: { type: 'Flow', shape: 'Decision' },
         annotations: [{ content: 'Resizing = False' }],
        constraints:NodeConstraints.Default & ~ NodeConstraints.Resize
@@ -339,6 +334,24 @@ export default {
       height: "700px",
       nodes : nodes,
       connectors : connectors,
+     //Setting default nodes values
+      getNodeDefaults : (nodes) => {
+        if(nodes.id !== "textNode1" && nodes.id !== "textNode2") {
+        nodes.width = 80;
+        nodes.style.fill = '#C7E6FF';
+        nodes.style.strokeColor = '#1587FF';
+        return nodes;
+        }
+      },
+       //Setting default connector values
+      getConnectorDefaults : (connectors) => {
+        connectors.style.strokeColor = '#6BA5D7';
+        connectors.style.fill = '#6BA5D7';
+        connectors.style.strokeWidth = 2;
+        connectors.targetDecorator.style.strokeColor = '#6BA5D7';
+        connectors.targetDecorator.style.fill = '#6BA5D7';
+        return connectors;
+      },
       rulerSettings : {
         showRulers : true
       },
@@ -347,118 +360,128 @@ export default {
         constraints: SelectorConstraints.UserHandle,
         userHandles : handles
       },
-       selectionChange :(args)=>{
-         var diagram = document.getElementById("diagram").ej2_instances[0];
-            if (args.state === 'Changing') {
-                if (args.type === 'Addition') {
-                    if (args.newValue.length > 0 && args.newValue[0].id === 'endThumb') {
-                        diagram.selectedItems.constraints =
-                            SelectorConstraints.All &
-                                ~(SelectorConstraints.ConnectorSourceThumb |
-                                    SelectorConstraints.ConnectorTargetThumb);
-                    }
-                    else {
-                        diagram.selectedItems.constraints = SelectorConstraints.All;
-                    }
-                }
-                else {
-                    diagram.selectedItems.constraints = SelectorConstraints.All;
-                }
+       selectionChange: (args) => {
+    var diagram = this.$refs.diagramObj.ej2Instances;
+
+    // When the selection state is 'Changing'
+    if (args.state === 'Changing') {
+        // Handle selection constraints based on the type of change
+        if (args.type === 'Addition') {
+            // If the newly selected item is 'endThumb', adjust constraints
+            if (args.newValue.length > 0 && args.newValue[0].id === 'endThumb') {
+                diagram.selectedItems.constraints =
+                    SelectorConstraints.All &
+                    ~(SelectorConstraints.ConnectorSourceThumb |
+                        SelectorConstraints.ConnectorTargetThumb);
+            } else {
+                // Otherwise, set constraints to allow all actions
+                diagram.selectedItems.constraints = SelectorConstraints.All;
             }
-            if (args.state === 'Changed') {
-                if (args.newValue.length > 0 && args.newValue[0] instanceof Node) {
-                    diagram.selectedItems = {
-                        constraints: SelectorConstraints.All | SelectorConstraints.UserHandle,
-                        userHandles: handles,
-                    };
-                }
-                else {
-                    if (args.newValue && args.newValue.length > 0 && args.newValue[0].id !== 'endThumb') {
-                        diagram.selectedItems = {
-                            constraints: SelectorConstraints.All & ~SelectorConstraints.UserHandle,
-                        };
-                    }
-                    else {
-                        diagram.selectedItems = {
-                            constraints: SelectorConstraints.All &
-                                ~(SelectorConstraints.UserHandle |
-                                    SelectorConstraints.ConnectorSourceThumb |
-                                    SelectorConstraints.ConnectorTargetThumb),
-                        };
-                    }
-                }
+        } else {
+            // For other types of changes, set constraints to allow all actions
+            diagram.selectedItems.constraints = SelectorConstraints.All;
+        }
+    }
+
+    // When the selection state is 'Changed'
+    if (args.state === 'Changed') {
+        // Adjust constraints based on the type of selected item
+        if (args.newValue.length > 0 && args.newValue[0] instanceof Node) {
+            // If a node is selected, apply constraints with user handles
+            diagram.selectedItems = {
+                constraints: SelectorConstraints.All | SelectorConstraints.UserHandle,
+                userHandles: handles, // Assuming handles is defined elsewhere
+            };
+        } else {
+            // If not a node, adjust constraints accordingly
+            if (args.newValue && args.newValue.length > 0 && args.newValue[0].id !== 'endThumb') {
+                // If not 'endThumb', set constraints without user handles
+                diagram.selectedItems = {
+                    constraints: SelectorConstraints.All & ~SelectorConstraints.UserHandle,
+                };
+            } else {
+                // If 'endThumb' or no selection, set constraints appropriately
+                diagram.selectedItems = {
+                    constraints: SelectorConstraints.All &
+                        ~(SelectorConstraints.UserHandle |
+                            SelectorConstraints.ConnectorSourceThumb |
+                            SelectorConstraints.ConnectorTargetThumb),
+                };
             }
-    },
+        }
+    }
+},
+     //Function used to enable/disable zooming of diagram
       zoomingChange :(args)=>{
-        let diagram = document.getElementById("diagram").ej2_instances[0];
+        let diagram = this.$refs.diagramObj.ej2Instances;
          diagram.constraints = diagram.constraints ^ DiagramConstraints.Zoom;
       },
+      //Function used to enable/disable undoRedo of diagram
       undoRedoChange :(args)=>{
-        let diagram = document.getElementById("diagram").ej2_instances[0];
+        let diagram = this.$refs.diagramObj.ej2Instances;
         diagram.constraints = diagram.constraints ^ DiagramConstraints.UndoRedo ;
         diagram.dataBind();
       },
+      //Function used to enable/disable editing of diagram
       editingChange : (args)=>{
-        let diagram = document.getElementById("diagram").ej2_instances[0];
+        let diagram = this.$refs.diagramObj.ej2Instances;
         for (var i= 0; i < diagram.nodes.length; i++) {
             var node = diagram.nodes[i];
-            for (var j= 0; j < node.annotations.length; j++) {
-            if (node.annotations[j].content) {
+            if (node.annotations.length > 0 && node.annotations[0].content) {
                 if (args.checked) {
                 if (node.id !== 'Plus') {
-                    node.annotations[j].constraints =
-                    node.annotations[j].constraints ^
+                    node.annotations[0].constraints =
+                    node.annotations[0].constraints ^
                     AnnotationConstraints.ReadOnly;
                 }
                 } else {
-                node.annotations[j].constraints =
-                    node.annotations[j].constraints | AnnotationConstraints.ReadOnly;
+                node.annotations[0].constraints =
+                    node.annotations[0].constraints | AnnotationConstraints.ReadOnly;
                 }
-            }
             }
         }
         for (var x = 0; x < diagram.connectors.length; x++) {
             var connector = diagram.connectors[x];
-            for (var y= 0; y < connector.annotations.length; y++) {
-            if (connector.annotations[y].content) {
+            if (connector.annotations.length > 0 && connector.annotations[0].content) {
                 if (args.checked) {
                 if (connector.id === 'select') {
                     connector.constraints =
                     connector.constraints & ~(ConnectorConstraints.Select);
                 } else {
-                    connector.annotations[y].constraints =
-                    connector.annotations[y].constraints ^
+                    connector.annotations[0].constraints =
+                    connector.annotations[0].constraints ^
                     AnnotationConstraints.ReadOnly;
                 }
                 } else {
-                connector.annotations[y].constraints =
-                    connector.annotations[y].constraints ^
+                connector.annotations[0].constraints =
+                    connector.annotations[0].constraints ^
                     AnnotationConstraints.ReadOnly;
                 }
-            }
             }
         }
         diagram.dataBind();
       },
+      //Function used to enable/disable context menu of diagram
       contextChange : (args)=>{
-        let diagram = document.getElementById("diagram").ej2_instances[0];
+        let diagram = this.$refs.diagramObj.ej2Instances;
           if (args.checked) {
             diagram.contextMenuSettings.show = true;
-            diagram.refresh();
             } 
         else {
             diagram.contextMenuSettings.show = false;
         }
             diagram.dataBind();
       },
+      //Function used to delete object using user handle
       onUserHandleMouseDown : (args)=>{
-        let diagram = document.getElementById("diagram").ej2_instances[0];
+        let diagram = this.$refs.diagramObj.ej2Instances;
         if (args.element.name === 'delete') {
             diagram.remove();
         }
      },
+     //Function used to enable/disable selection of diagram
       selectableChange :(args)=>{
-      let diagram = document.getElementById("diagram").ej2_instances[0];
+      let diagram = this.$refs.diagramObj.ej2Instances;
         for (let i = 0; i < diagram.nodes.length; i++) {
             let node = diagram.nodes[i];
                 if (args.checked) {
@@ -493,8 +516,9 @@ export default {
                }
         }
     },
+    //Function used to enable/disable draggable of diagram
     draggableChange : (args)=>{
-    let diagram = document.getElementById("diagram").ej2_instances[0];
+    let diagram = this.$refs.diagramObj.ej2Instances;
         for (let i = 0; i < diagram.nodes.length; i++) {
     let nodes = diagram.nodes[i];
     if (args.checked) {

@@ -217,6 +217,12 @@
     .fluent2-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-btn.e-flat {
       background-color: #292929;
     }
+
+    .bootstrap5\.3-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-btn.e-flat {
+        background-color: #212529;
+        color: #dee2e6;
+    }
+    
 </style>
 <!-- custom code end -->
 <script>

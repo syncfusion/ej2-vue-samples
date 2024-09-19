@@ -1,18 +1,22 @@
 <template>
-<div class="control-section">
+
 <div class="col-lg-9 control-section">
+  <!-- Diagram component section -->
     <div class="content-wrapper">
-        <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings'></ejs-diagram>
+        <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings' :selectionChange='selectionChange'></ejs-diagram>
     </div>
 </div>
-<div class="col-lg-3 property-section">
+<!-- Property panel section -->
+<div class="col-lg-3 property-section diagramNodes-property">
     <div class="property-panel-header">
         Properties
     </div>
-    <div class="row" id="appearance">
+     <!-- Appearance section -->
+    <div class="row" id="appearance" ref="appearance">
         <div class="row row-header">
             Appearance
         </div>
+         <!-- Image previews for node styles -->
         <div class="row" style="padding-top: 8px">
             <div class="image-pattern-style" id="preview0" style="background-image: url(./src/diagram/Images/node/Nodes_1.png); margin-right: 3px">
             </div>
@@ -28,6 +32,7 @@
             </div>
         </div>
     </div>
+     <!-- Behavior section -->
     <div class="row" style="padding-top: 10px">
         <div class="row row-header">
             Behavior
@@ -69,12 +74,11 @@
     </p>
     <br>
 </div>
-</div>
 </template>
 
 <style scoped>
 /* Css for images in property panel  */
-.image-pattern-style {
+.diagramNodes-property .image-pattern-style {
   background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
@@ -91,12 +95,12 @@
   border-width: 2px;
 }
 
-.row {
+.diagramNodes-property .row {
   margin-left: 0px;
   margin-right: 0px;
 }
 
-.row-header {
+.diagramNodes-property .row-header {
   font-size: 13px;
   font-weight: 500;
 }
@@ -110,18 +114,20 @@
 
 
 <script>
+// Import necessary Vue components and Syncfusion libraries
 import {
   DiagramComponent,
   Diagram,
   NodeConstraints,
   SnapConstraints,
+  ConnectorConstraints
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   CheckBox,
   CheckBoxComponent,
   ChangeEventArgs as CheckBoxChangeEventArgs
 } from "@syncfusion/ej2-vue-buttons";
-
+// Initial data for nodes and connectors
 let nodes =  [
   {id: 'sdlc', offsetX: 300, offsetY: 288, annotations: [{content: 'SDLC'}]},
   {id: 'support', offsetX: 150, offsetY: 250, annotations: [{content: 'Support'}]},
@@ -143,7 +149,7 @@ let node;
 let diagramInstance;
 let element;
 let lockElement;
-
+// Export Vue component
 export default {
   components: {
     'ejs-diagram': DiagramComponent,
@@ -151,6 +157,7 @@ export default {
   },
   data: function() {
     return {
+     // Diagram properties
       width: "100%",
       height: "645px",
       nodes: nodes,
@@ -177,22 +184,36 @@ export default {
       },
       snapSettings: { constraints: SnapConstraints.None },
 
+       //Disable the AspectRatio if multiple nodes or connectors is selected .
+         selectionChange: (args) =>
+         {
+           if (args.state === 'Changed')
+           {
+            if (diagramInstance.selectedItems.nodes.length > 1 || diagramInstance.selectedItems.connectors.length > 0) {
+                element.disabled = true;
+            }
+            else {
+                element.disabled = false;
+            }
+           }
+         },
+      // Aspect ratio checkbox data
       aspectRatiochecked: false,
       aspectRatiolabel: "Aspect ratio",
       aspectRatiochange: setNodeAspectConstraints,
-
+      // Lock checkbox data
       lockchecked: false,
       label: "Lock",
-      lockchange: setNodeLockConstraints
+      lockchange: setLockConstraints
     };
   },
   mounted: function() {
+     // Initialize diagram instance and checkbox instances
     diagramInstance = this.$refs.diagramObject.ej2Instances;
-    diagramInstance.fitToPage();
     element = this.$refs.aspectRatioobj.ej2Instances;
     lockElement = this.$refs.lockoobj.ej2Instances;
     //Click event for Appearance of the Property Panel
-    let appearanceObj = document.getElementById("appearance");
+    let appearanceObj = this.$refs.appearance;
     //Click event for Appearance of the Property Panel
     appearanceObj.onclick = (args) => {
       let target = args.target;
@@ -288,15 +309,24 @@ function setNodeAspectConstraints(args) {
         diagramInstance.dataBind();
     }
 }
-//Enable or disable the Lock Constraints for Node.
-function setNodeLockConstraints(args) {
+//Enable or disable the lock Constraints for Nodes and Connectors
+function setLockConstraints(args) {
     for (let i = 0; i < diagramInstance.nodes.length; i++) {
         let node= diagramInstance.nodes[i];
         if (lockElement.checked) {
-            node.constraints &= ~(NodeConstraints.Resize | NodeConstraints.Rotate | NodeConstraints.Drag);
+            node.constraints &= ~(NodeConstraints.Resize | NodeConstraints.Rotate | NodeConstraints.Drag | NodeConstraints.Delete);
             node.constraints |= NodeConstraints.ReadOnly;
         } else {
             node.constraints |= NodeConstraints.Default & ~(NodeConstraints.ReadOnly);
+        }
+    }
+     for (let j = 0; j < diagramInstance.connectors.length; j++) {
+        let connector = diagramInstance.connectors[j];
+        if (lockElement.checked) {
+            connector.constraints &= ~(ConnectorConstraints.DragSourceEnd | ConnectorConstraints.DragTargetEnd | ConnectorConstraints.Drag | ConnectorConstraints.Delete);
+            connector.constraints |= ConnectorConstraints.ReadOnly;
+        } else {
+            connector.constraints |= ConnectorConstraints.Default & ~ConnectorConstraints.ReadOnly;
         }
     }
     diagramInstance.dataBind();

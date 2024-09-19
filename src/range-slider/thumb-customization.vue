@@ -1,6 +1,6 @@
 <template>
   <div class="col-lg-12 control-section slider-thumb">
-    <div class="slider-content_wrapper custom-thumb">
+    <div class="slider-content_wrapper">
         <div class="slider_container">
             <div class="labelText slider-userselect">Square</div>
             <!-- Square slider element -->
@@ -30,7 +30,7 @@
 </div>
 
 <div id="description">
-    <p>In this demo, customization of thumb by changing CSS is demonstrated.</p>
+    <p>In this demo, customization of thumb by changing <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider#cssclass">CSS</a> is demonstrated.</p>
     <ul>
         <li>Square - In this sample, thumb has been customized to square shape.</li>
         <li>Circle - In this sample, thumb has been customized to circle shape. </li>
@@ -83,12 +83,6 @@
         background-color: #f9920b;
         border-radius: 50%;
         border: 0;
-    }
-
-    .fluent2 .custom-thumb .e-control.e-slider .e-handle,
-    .fluent2-dark .custom-thumb .e-control.e-slider .e-handle,
-    .fluent2-highcontrast .custom-thumb .e-control.e-slider .e-handle {
-        box-shadow:none;
     }
 
     .material.e-bigger .slider-thumb .e-slider-container.e-horizontal #image_slider.e-slider .e-handle,

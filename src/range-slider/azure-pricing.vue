@@ -588,7 +588,11 @@ body {
 .tailwind-dark .slider-azure #dialog-header,
 .tailwind-dark .slider-azure #StorageDialog,
 .tailwind-dark .slider-azure #CloudDialog,
-.tailwind-dark .slider-azure #processorDialog {
+.tailwind-dark .slider-azure #processorDialog,
+.bootstrap5\.3-dark .slider-azure #dialog-header,
+.bootstrap5\.3-dark .slider-azure #StorgeDialog,
+.bootstrap5\.3-dark .slider-azure #CloudDialog,
+.bootstrap5\.3-dark .slider-azure #processorDialog {
   color: white;
 }
 
@@ -745,9 +749,17 @@ body {
 .material3-dark .slider-azure #processorPriceName,
 .material3-dark .slider-azure #memoryPriceName,
 .material3-dark .slider-azure #storagePriceName,
-.material3-dark .slider-azure #cloudPriceName {
+.material3-dark .slider-azure #cloudPriceName,
+.bootstrap5\.3-dark .slider-azure #processorPriceName,
+.bootstrap5\.3-dark .slider-azure #memoryPriceName,
+.bootstrap5\.3-dark .slider-azure #storgePriceName,
+.bootstrap5\.3-dark .slider-azure #cloudPriceName {
   color: white;
   opacity: 1;
+}
+	
+.bootstrap5\.3-dark .slider-azure .discount .e-label, .bootstrap5\.3-dark .slider-azure #cloud-slider-text .suffix {
+	color: black;
 }
 
 .slider-azure #dialog-header {

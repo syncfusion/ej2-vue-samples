@@ -4,24 +4,24 @@
       <div class="carousel-sample">
         <ejs-carousel cssClass="db-carousel" :dataSource="productDetails" buttonsVisibility="Hidden" 
           :itemTemplate="productTemplate" :animationEffect="animation"></ejs-carousel>
-        <div id="action-description">
-          <p>
-            This sample demonstrates the basic rendering of the
-            <a aria-label="Carousel geeting started" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component by binding
-            <code>dataSource</code> property.
-          </p>
-        </div>
-        <div id="description">
-          <p>
-            In this demo, products and its details available in our Syncfusion
-            has been shown as slide show. The data to the Vue Carousel component
-            is bound using <code>dataSource</code> property. Also,
-            <code>itemTemplate</code> is used to customize the slides of the
-            carousel.
-          </p>
-        </div>
       </div>
     </div>
+  </div>
+  <div id="action-description">
+    <p>
+      This sample demonstrates the basic rendering of the
+      <a aria-label="Carousel geeting started" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component by binding
+      <code>dataSource</code> property.
+    </p>
+  </div>
+  <div id="description">
+    <p>
+      In this demo, products and its details available in our Syncfusion
+      has been shown as slide show. The data to the Vue Carousel component
+      is bound using <code>dataSource</code> property. Also,
+      <code>itemTemplate</code> is used to customize the slides of the
+      carousel.
+    </p>
   </div>
 </template>
 

@@ -1,0 +1,16 @@
+{
+    "name": "Spreadsheet",
+    "directory": "ai-spreadsheet",
+    "category": "Smart AI Solutions",
+    "samples": [
+        {
+            "url": "smart-spreadsheet",
+            "name": "Smart Spreadsheet",
+            "category": "Spreadsheet",
+            "sourceFiles":[
+                { "displayName": "smart-spreadsheet.vue", "path":"src/ai-spreadsheet/ai-smart-spreadsheet.vue" }
+            ],
+            "description": "This demo showcases the Spreadsheet AI feature."
+        }
+    ]
+}

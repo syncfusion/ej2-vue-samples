@@ -224,7 +224,8 @@
     .bootstrap-dark .file-preview .uploader-preview div.file-name,
     .bootstrap5-dark .file-preview .uploader-preview div.file-name,
     .tailwind-dark .file-preview .uploader-preview div.file-name ,
-    .fluent-dark .file-preview .uploader-preview div.file-name {
+    .fluent-dark .file-preview .uploader-preview div.file-name,
+    .fluent2-dark .file-preview .uploader-preview div.file-name {
         color: white;
     }
     .file-preview .uploader-preview  div.file-name {

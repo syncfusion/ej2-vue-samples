@@ -31,19 +31,13 @@
 <script>
 import {
   Diagram,
-  NodeModel,
-  ConnectorModel,
-  PointPortModel,
-  PointPort,
-  Node,
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
 import {
   DiagramComponent,
   DataBinding,
   HierarchicalTree,
-  SnapConstraints,
-  ShapeAnnotationModel
+  SnapConstraints
 } from "@syncfusion/ej2-vue-diagrams";
 
 import { DataManager } from "@syncfusion/ej2-data";
@@ -63,7 +57,7 @@ export default {
         id: "Name",
         parentId: "Category",
         dataSource: new DataManager(artificialIntelligence),
-        doBinding: (nodeModel, data, diagram) => {
+        doBinding: (nodeModel, data) => {
           let nameKey = "Name";
           nodeModel.annotations = [{ content: data[nameKey] }];
         }
@@ -80,7 +74,7 @@ export default {
       //Enables zoom pan tool
       tool: DiagramTools.ZoomPan,
       //Sets the default values of a node
-      getNodeDefaults: (obj, diagram) => {
+      getNodeDefaults: (obj) => {
         obj.width = 120;
         obj.style = { fill: "#034d6d", strokeWidth: 1 };
         let key = "branch";

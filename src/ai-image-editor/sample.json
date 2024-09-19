@@ -1,0 +1,16 @@
+{
+    "name": "Image Editor",
+    "directory": "ai-image-editor",
+    "category": "Smart AI Solutions",
+    "samples": [
+        {
+            "url": "smart-image-editor",
+            "name": "Smart Image Editor",
+            "category": "Image Editor",
+            "sourceFiles":[
+                { "displayName": "smart-image-editor.vue", "path":"src/ai-image-editor/ai-smart-image-editor.vue" }
+            ],
+            "description": "This demo highlights the advanced features of the Syncfusion EJ2 Image Editor."
+        }
+    ]
+}

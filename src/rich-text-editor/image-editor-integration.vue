@@ -217,6 +217,8 @@ export default {
 .fluent2 .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
 .fluent2-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
 .bootstrap5 .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
+.bootstrap5\.3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
+.bootstrap5\.3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
 .bootstrap5-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
 .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,
 .tailwind-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,

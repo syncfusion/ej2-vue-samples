@@ -3,7 +3,7 @@
         <div class="col-lg-12 control-section default">
             <div class="sample_container">
                 <div class="e-btn-group e-custom-button">
-                    <button id="update" class="e-btn">Updates
+                    <button id="badge-update" class="e-btn">Updates
                         <!-- Notification Badge -->
                         <span class="e-badge e-badge-info e-badge-notification e-badge-overlap">14</span>
                     </button>
@@ -118,7 +118,7 @@
         text-transform: initial;
     }
 
-    .badge-default #update.e-btn {
+    .badge-default #badge-update.e-btn {
         border-bottom-left-radius: 8px;
         border-top-left-radius: 8px;
         border-right: 1px dotted #aaa;
@@ -137,7 +137,7 @@
         border-top-right-radius: 8px;
     }
 
-    .material3 #update.e-btn {
+    .material3 #badge-update.e-btn {
         border-bottom-right-radius: 0px;
         border-top-right-radius: 0px;
     }
@@ -159,6 +159,7 @@
         transform: translateX(-110%);
         z-index: 100;
     }
+    
 </style>
 
 <script>

@@ -95,7 +95,7 @@
     <div id="description">
       <p>
         The Slider component allows to select a value or range of values in-between a min and max range, by dragging the thumb
-        over the slider bar in vertical orientation. Three types of sliders in vertical orientation are:
+        over the slider bar in vertical <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider#orientation">orientation</a>. Three types of sliders in vertical orientation are:
       </p>
       <ul>
         <li>Default - allows to select a single value in vertical orientation</li>
@@ -114,10 +114,7 @@
       <p>The dragInterval is used to drag both handles using the range bar which is also applicable only to the range slider.</p>
       <p>
         For more information, refer to the
-        <a
-          target="_blank"
-          href="http://ej2.syncfusion.com/vue/documentation/slider/getting-started.html#orientation"
-        >orientation</a> section from the documentation.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider#orientation">orientation</a> section from the documentation.
       </p>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="control-section nestedlist">
     <!-- ListView element -->
-    <ejs-listview id='listview' :dataSource='data' :fields='fields' :headerTitle='headerTitle' showIcon='true' showHeader='true'></ejs-listview>
+    <ejs-listview id='listview' :dataSource='data' :fields='fields' :headerTitle='headerTitle' showIcon='true' showHeader='true' :animation='animation'></ejs-listview>
     <div id="action-description">
         <p>This sample demonstrates the nested list functionalities, which allows you to navigate to the sub list items by clicking any item and navigating back to the list item using the back icon at the top left.
         </p>
@@ -54,8 +54,9 @@ export default {
   data: function() {
     return {
       data:nestedListData,
-    fields: { iconCss: 'icon', tooltip: 'text'},
-    headerTitle: 'Folders',
+      fields: { iconCss: 'icon', tooltip: 'text'},
+      headerTitle: 'Folders',
+      animation: { duration:0 }
     };
   }
 }

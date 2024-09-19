@@ -38,20 +38,20 @@
                 </div>
                 <ejs-treeview id='Tree' cssClass="treeview-external-drag" dragArea=".drag-sample-wrapper" :nodeTemplate="treeTemplate" :fields='treeViewFields' :nodeDragging="onTreeDrag" :nodeDragStart="onTreeDragStart" :allowDragAndDrop=true :nodeDragStop="onTreeDragStop" :nodeSelecting="onItemSelecting" ></ejs-treeview>
             </div>
-            <div id="action-description">
-                <p>
-                    This example illustrates how to drag and drop the events from an external source into scheduler. Here, you can drag and drop the items from TreeView control into scheduler.
-                </p>
             </div>
-            <div id="description">
-                <p>
-                    In this example, <code>resourceHeaderTemplate</code> is used to change the default appearance of the resource header
-                    column. Within the <code>actionBegin</code> event of scheduler, the dragged item from the TreeView control is removed,
-                    when it is being dragged and dropped onto the scheduler. When the item is being dropped onto the scheduler, the event editor is
-                    explicitly made to open with the target details by invoking the <code>openEditor</code> method of scheduler within the <code>nodeDragStop</code> event of TreeView.
-                </p>
-            </div>
-            </div>
+        </div>
+        <div id="action-description">
+            <p>
+                This example illustrates how to drag and drop the events from an external source into scheduler. Here, you can drag and drop the items from TreeView control into scheduler.
+            </p>
+        </div>
+        <div id="description">
+            <p>
+                In this example, <code>resourceHeaderTemplate</code> is used to change the default appearance of the resource header
+                column. Within the <code>actionBegin</code> event of scheduler, the dragged item from the TreeView control is removed,
+                when it is being dragged and dropped onto the scheduler. When the item is being dropped onto the scheduler, the event editor is
+                explicitly made to open with the target details by invoking the <code>openEditor</code> method of scheduler within the <code>nodeDragStop</code> event of TreeView.
+            </p>
         </div>
     </div>
 </template>
@@ -126,7 +126,7 @@
 .e-bigger .schedule-vue-sample .treeview-external-drag.e-rtl .e-list-text {
     border: 0.5px solid #E1E7EC;
     height: 50px;
-    line-height: 15px;
+    line-height: 15px !important;
     padding: 0 5px;
     width: 200px;
 }

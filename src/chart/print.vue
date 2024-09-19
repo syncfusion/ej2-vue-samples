@@ -91,12 +91,12 @@
 <script>
 import { Browser } from "@syncfusion/ej2-base";
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2DarkColors } from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2HighContrastColors } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Legend, DataLabel } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
@@ -167,7 +167,7 @@ export default {
     },
     pointRender: function (args) {
       let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Material';
+      selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
       if (selectedTheme === 'material-dark') {
         args.fill = pointMaterialDarkColors[args.point.index % 10];
       }
@@ -177,10 +177,7 @@ export default {
       else if (selectedTheme === 'fabric-dark' || selectedTheme === 'fabric') {
         args.fill = pointFabricColors[args.point.index % 10];
       }
-      else if (selectedTheme === 'bootstrap5-dark') {
-        args.fill = pointBootstrap5DarkColors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'bootstrap5') {
+      else if (selectedTheme === 'bootstrap5' || selectedTheme === 'bootstrap5-dark') {
         args.fill = pointBootstrap5Colors[args.point.index % 10];
       }
       else if (selectedTheme === 'fluent-dark') {
@@ -204,8 +201,8 @@ export default {
       else if (selectedTheme === 'fluent2') {
         args.fill = pointFluent2Colors[args.point.index % 10];
       } 
-      else if (selectedTheme === 'fluent2-dark') {
-        args.fill = pointFluent2DarkColors[args.point.index % 10];
+      else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
+        args.fill = pointFluent2HighContrastColors[args.point.index % 10];
       }
       else {
         args.fill = pointBootstrapColors[args.point.index % 10];

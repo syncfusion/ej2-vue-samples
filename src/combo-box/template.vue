@@ -167,7 +167,9 @@
     .bootstrap4 .combobox-template .header {
         color: #6c757d;
     }
-    .fluent-dark .combobox-template .header {
+    .fluent-dark .combobox-template .header,
+    .fluent2-dark .combobox-template .header,
+    .fluent2-highcontrast .combobox-template .header {
         background: #252423;
         color: #2899F5;
     }

@@ -2,7 +2,7 @@
 <div>
 <div class="control-section">
     <div class="db-diagram-container">
-    <ejs-diagram id="diagram" ref="diagramObj" :width='width' :height='height' :nodes='nodes' :getNodeDefaults='getNodeDefaults' :selectionChange="selectionChange" :snapSettings='snapSettings' :connectors='connectors' :getConnectorDefaults='getConnectorDefaults' :rulerSettings='rulerSettings' :getCustomTool='getCustomTool' :selectedItems='selectedItems' :drawingObject = 'drawingObject'
+    <ejs-diagram id="diagram" ref="diagramObj" :width='width' :height='height' :nodes='nodes' :getNodeDefaults='getNodeDefaults' :selectionChange="selectionChange" :snapSettings='snapSettings' :connectors='connectors' :getConnectorDefaults='getConnectorDefaults' :getCustomTool='getCustomTool' :selectedItems='selectedItems' :drawingObject = 'drawingObject'
         ></ejs-diagram>
     </div>
     <div id="properties_Container">
@@ -111,17 +111,14 @@
 </style>
 <script>
 import {
-  Diagram,
-  DiagramComponent,
-  PortVisibility,
-  ConnectorConstraints,
-  SnapConstraints,
-  UserHandleModel,
-  PortConstraints,
+    DiagramComponent,
+    PortVisibility,
+    ConnectorConstraints,
+    SnapConstraints,
+    PortConstraints,
     SelectorConstraints,
     ConnectorEditing,
     DiagramContextMenu,
-    Inject,
     Snapping,
     UndoRedo,
     
@@ -130,8 +127,8 @@ import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { ColorPickerComponent, NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { RadioButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
-let diagramInstance;
 let drawingNode;
+//Initializes the nodes for the diagram
 let nodes = [
      {
             id:'node_1',width:100,height:100,offsetX:350,offsetY:250,
@@ -162,26 +159,27 @@ let nodes = [
     
         },
   ];
-
+//Initializes the connector for the diagram
 let connectors = [
     {
         id:'connector_1',sourceID:'node_1',targetID:'node_3',type:'Orthogonal',
     }
   ];
-   let handles = [
-       {
-           name: 'Clone', pathData: 'M0,2.4879999 L0.986,2.4879999 0.986,9.0139999 6.9950027,9.0139999 6.9950027,10 0.986,10 C0.70400238,10 0.47000122,9.9060001 0.28100207,9.7180004 0.09400177,9.5300007 0,9.2959995 0,9.0139999 z M3.0050011,0 L9.0140038,0 C9.2960014,0 9.5300026,0.093999863 9.7190018,0.28199956 9.906002,0.47000027 10,0.70399952 10,0.986 L10,6.9949989 C10,7.2770004 9.906002,7.5160007 9.7190018,7.7110004 9.5300026,7.9069996 9.2960014,8.0049992 9.0140038,8.0049992 L3.0050011,8.0049992 C2.7070007,8.0049992 2.4650002,7.9069996 2.2770004,7.7110004 2.0890007,7.5160007 1.9950027,7.2770004 1.9950027,6.9949989 L1.9950027,0.986 C1.9950027,0.70399952 2.0890007,0.47000027 2.2770004,0.28199956 2.4650002,0.093999863 2.7070007,0 3.0050011,0 z',tooltip:{content:'Clone'},
-           visible: true, offset: 1, side: 'Bottom', margin: { top: 0, bottom: 0, left: 0, right: 0 }
-       },
-       {
-           name: 'Delete', pathData: 'M0.54700077,2.2130003 L7.2129992,2.2130003 7.2129992,8.8800011 C7.2129992,9.1920013 7.1049975,9.4570007 6.8879985,9.6739998 6.6709994,9.8910007 6.406,10 6.0939997,10 L1.6659999,10 C1.3539997,10 1.0890004,9.8910007 0.87200136,9.6739998 0.65500242,9.4570007 0.54700071,9.1920013 0.54700077,8.8800011 z M2.4999992,0 L5.2600006,0 5.8329986,0.54600048 7.7599996,0.54600048 7.7599996,1.6660004 0,1.6660004 0,0.54600048 1.9270014,0.54600048 z',tooltip:{content:'Delete'},
-           visible: true, offset: 0, side: 'Bottom', margin: { top: 0, bottom: 0, left: 0, right: 0 }
-       },
-       {
-           name: 'Draw', pathData: 'M3.9730001,0 L8.9730001,5.0000007 3.9730001,10.000001 3.9730001,7.0090005 0,7.0090005 0,2.9910006 3.9730001,2.9910006 z',tooltip:{content:'Draw'},
-           visible: true, offset: 0.5, side: 'Right', margin: { top: 0, bottom: 0, left: 0, right: 0 }
-       },
-    ];
+//Initializes the User handles
+let handles = [
+    {
+        name: 'Clone', pathData: 'M0,2.4879999 L0.986,2.4879999 0.986,9.0139999 6.9950027,9.0139999 6.9950027,10 0.986,10 C0.70400238,10 0.47000122,9.9060001 0.28100207,9.7180004 0.09400177,9.5300007 0,9.2959995 0,9.0139999 z M3.0050011,0 L9.0140038,0 C9.2960014,0 9.5300026,0.093999863 9.7190018,0.28199956 9.906002,0.47000027 10,0.70399952 10,0.986 L10,6.9949989 C10,7.2770004 9.906002,7.5160007 9.7190018,7.7110004 9.5300026,7.9069996 9.2960014,8.0049992 9.0140038,8.0049992 L3.0050011,8.0049992 C2.7070007,8.0049992 2.4650002,7.9069996 2.2770004,7.7110004 2.0890007,7.5160007 1.9950027,7.2770004 1.9950027,6.9949989 L1.9950027,0.986 C1.9950027,0.70399952 2.0890007,0.47000027 2.2770004,0.28199956 2.4650002,0.093999863 2.7070007,0 3.0050011,0 z',tooltip:{content:'Clone'},
+        visible: true, offset: 1, side: 'Bottom', margin: { top: 0, bottom: 0, left: 0, right: 0 }
+    },
+    {
+        name: 'Delete', pathData: 'M0.54700077,2.2130003 L7.2129992,2.2130003 7.2129992,8.8800011 C7.2129992,9.1920013 7.1049975,9.4570007 6.8879985,9.6739998 6.6709994,9.8910007 6.406,10 6.0939997,10 L1.6659999,10 C1.3539997,10 1.0890004,9.8910007 0.87200136,9.6739998 0.65500242,9.4570007 0.54700071,9.1920013 0.54700077,8.8800011 z M2.4999992,0 L5.2600006,0 5.8329986,0.54600048 7.7599996,0.54600048 7.7599996,1.6660004 0,1.6660004 0,0.54600048 1.9270014,0.54600048 z',tooltip:{content:'Delete'},
+        visible: true, offset: 0, side: 'Bottom', margin: { top: 0, bottom: 0, left: 0, right: 0 }
+    },
+    {
+        name: 'Draw', pathData: 'M3.9730001,0 L8.9730001,5.0000007 3.9730001,10.000001 3.9730001,7.0090005 0,7.0090005 0,2.9910006 3.9730001,2.9910006 z',tooltip:{content:'Draw'},
+        visible: true, offset: 0.5, side: 'Right', margin: { top: 0, bottom: 0, left: 0, right: 0 }
+    },
+];
 
 export default {
   components: {
@@ -205,14 +203,15 @@ export default {
       snapSettings: {
                snapAngle : 5
             },
-      getNodeDefaults: (obj) => {
-        obj.style = {fill: "orange", strokeColor:'orange'};
-        return obj;
+      getNodeDefaults: (node) => {
+        node.style = {fill: "orange", strokeColor:'orange'};
+        return node;
       },
-      getConnectorDefaults: (obj) => {
-        obj.constraints = ConnectorConstraints.Default| ConnectorConstraints.DragSegmentThumb;
-        return obj;
+      getConnectorDefaults: (connector) => {
+        connector.constraints = ConnectorConstraints.Default| ConnectorConstraints.DragSegmentThumb;
+        return connector;
       },
+      // Event handler for selection changes
       selectionChange :(args)=>{
          var diagram = document.getElementById("diagram").ej2_instances[0];
            if(args.state === 'Changed'){
@@ -232,37 +231,44 @@ export default {
             }
         }
     },
+    // Sets the snapping interval
       snappingInterval : (args) =>{
         var diagram = document.getElementById("diagram").ej2_instances[0];
         diagram.snapSettings.horizontalGridlines.snapIntervals[0] = args.value;
         diagram.snapSettings.verticalGridlines.snapIntervals[0] = args.value;
         diagram.dataBind();
       },
+      // Sets the snapping angle
       snappingAngle : (args) =>{
         var diagram = document.getElementById("diagram").ej2_instances[0];
         diagram.snapSettings.snapAngle = args.value;
         diagram.dataBind();
       },
+      // Change the color of the snap lines
       colorChange : (args)=>{
         var diagram = document.getElementById("diagram").ej2_instances[0];
         diagram.snapSettings.snapLineColor = args.value;
         diagram.dataBind();
       },
+      // Toggle the visibility of grid lines
       showGridline : (args)=>{
         var diagram = document.getElementById("diagram").ej2_instances[0];
         diagram.snapSettings.constraints = diagram.snapSettings.constraints ^ SnapConstraints.ShowLines;
         diagram.dataBind();
         scale();
       },
+      // Toggle the snapping to objects
       snappingToobjects : (args)=>{
         var diagram = document.getElementById("diagram").ej2_instances[0];
        diagram.snapSettings.constraints = diagram.snapSettings.constraints ^ SnapConstraints.SnapToObject;
        diagram.dataBind();
-      },
+      }, 
+     // Adjusts the snapping constraints of the diagram instance based on the state
      snapToLines : (args) =>{
          var diagram = document.getElementById("diagram").ej2_instances[0];
          var showGridlines = document.getElementById("showgridline").ej2_instances[0];
          var snapToObject = document.getElementById("snaptoobject").ej2_instances[0];
+         // Determine the current state of showGridLines and snappToObject checkboxes
         if(showGridlines.checked && snapToObject.checked){
             diagram.snapSettings.constraints = SnapConstraints.All;
         }
@@ -275,8 +281,10 @@ export default {
        else if(!showGridlines.checked && !snapToObject.checked){
         diagram.snapSettings.constraints = SnapConstraints.All &~(SnapConstraints.ShowLines|SnapConstraints.SnapToObject);
        }
+       // Handle specific snap to line options based on user selection
         switch(args.value){
             case 'Snap To Gridlines':
+                // Enable SnapToLines constraint and adjust based on checkbox states
                 diagram.snapSettings.constraints =  SnapConstraints.All| SnapConstraints.SnapToLines;
                 if( !showGridlines.checked && !snapToObject.checked ) {
                    diagram.snapSettings.constraints = SnapConstraints.All &~ (SnapConstraints.ShowLines|SnapConstraints.SnapToObject);
@@ -289,12 +297,15 @@ export default {
                 }
             break;
             case 'Snap To Horizontal Gridlines':
+                 // Toggle SnapToHorizontalLines constraint
                 diagram.snapSettings.constraints =  diagram.snapSettings.constraints ^ SnapConstraints.SnapToVerticalLines;
             break;
             case 'Snap To Vertical Gridlines':
+                 // Toggle SnapToVerticalLines constraint
                 diagram.snapSettings.constraints =  diagram.snapSettings.constraints ^ SnapConstraints.SnapToHorizontalLines;
             break;
             case 'None':
+                // Disable all snap to line constraints
                 diagram.snapSettings.constraints = SnapConstraints.All &~ (SnapConstraints.SnapToHorizontalLines|SnapConstraints.SnapToVerticalLines|SnapConstraints.SnapToLines);
                 if(!showGridlines.checked && !snapToObject.checked){
                     diagram.snapSettings.constraints = SnapConstraints.All &~ (SnapConstraints.ShowLines|SnapConstraints.SnapToObject|SnapConstraints.SnapToHorizontalLines|SnapConstraints.SnapToVerticalLines|SnapConstraints.SnapToLines);
@@ -310,9 +321,6 @@ export default {
         diagram.dataBind();
         scale();
     },
-      rulerSettings : {
-        showRulers : true
-      }
     }
   },
   provide:{
@@ -323,7 +331,7 @@ export default {
        diagram.fitToPage();
     },
 }
-
+// Updates the scaled intervals for horizontal and vertical gridlines 
 function scale(){
     var diagram = document.getElementById("diagram").ej2_instances[0];
      var getsnap = document.getElementById('snappingInterval');
@@ -332,6 +340,7 @@ function scale(){
      diagram.snapSettings.verticalGridlines.snapIntervals[0] = (getsnap).value;
      diagram.dataBind();
 }
+// Custom actions for user handles
 function getTool(action){
      var diagram = document.getElementById("diagram").ej2_instances[0];
     if (action == "Delete") {

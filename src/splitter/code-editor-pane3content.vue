@@ -1,6 +1,6 @@
 <template>
   <div>
-     <div class="content">
+     <div class="panecontent">
         <label class="h4">JavaScript</label>
         <div class="code-preview">
             <span>var</span> image = document.getElementById("custom-image");
@@ -12,7 +12,7 @@
 </div>
 </template>
 <style>
-.content .h4 {
+.panecontent .h4 {
         font-size: 16px;
         margin: 0 0 10px;
         font-weight: bold;

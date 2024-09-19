@@ -2,7 +2,7 @@
     <div id="textarea-api"  class="col-lg-8 control-section api-textarea">
     <div class="content_wrapper">
         <div class="api-row">
-            <ejs-textarea id="api" placeholder='Enter your comments' floatLabelType='Auto' :enabled='enabled' :readonly='readOnly' :showClearButton='showClearButton' :maxLength='maxLength' :value='value' :rowsCount='rowsCount' :columnsCount='columnsCount'></ejs-textarea>
+            <ejs-textarea id="api" placeholder='Enter your comments' floatLabelType='Auto' :enabled='enabled' :readonly='readOnly' :showClearButton='showClearButton' :maxLength='maxLength' :value='value' :rows='rows' :cols='cols'></ejs-textarea>
         </div>
     </div>
     </div>
@@ -63,6 +63,12 @@
     </div>
 </template>
 
+<style>
+    #textarea-api .e-multi-line-input {
+        max-width: 100%;
+    }
+</style>
+
 <style scoped>
     .content_wrapper div.api-row {
         margin: 30px 150px;
@@ -75,10 +81,6 @@
 
     .api-property.property-panel-table div.api {
         padding-left: 0px;
-    }
-
-    #textarea-api .e-multi-line-input {
-        max-width: 100%;
     }
 </style>
 

@@ -1,8 +1,7 @@
 <template>
 <div class="control-section">
 <div class="col-lg-8 control-section" id="palette-space">
-    <ejs-symbolpalette ref="paletteObj" id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :enableAnimation='enableAnimation' :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight'
-                       :symbolWidth='symbolWidth'></ejs-symbolpalette>
+    <ejs-symbolpalette ref="paletteObj" id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :enableAnimation='enableAnimation' :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight' :symbolWidth='symbolWidth'></ejs-symbolpalette>
 </div>
 <div class="col-lg-4 property-section">
     <table id="property" title="Properties">
@@ -12,9 +11,7 @@
             </td>
             <td>
                 <!-- DropDownList is used to change the expandMode of the Symbolpallete. -->
-                <ejs-dropdownlist ref="expandObj" id="expand" :index='expandindex'
-                                  :dataSource='expanddataSource'
-                                  :change='expandchange'/>
+                <ejs-dropdownlist ref="expandObj" id="expand" :index='expandIndex' :dataSource='expandDataSource' :change='expandChange'/>
             </td>
         </tr>
         <tr>
@@ -23,14 +20,7 @@
             </td>
             <td>
                 <!-- NumericTextBox is used to apply the size of the Symbol. -->
-                <ejs-numerictextbox ref='sizeObj' id='size' 
-                                    :value='sizevalue'
-                                    :min='sizemin'
-                                    :max='sizemax'
-                                    :width='sizewidth'
-                                    :step='sizestep'
-                                    :format='sizeformat'
-                                    :change='sizechange'></ejs-numerictextbox>
+                <ejs-numerictextbox ref='sizeObj' id='size' :value='sizeValue' :min='sizeMinimum' :max='sizeMaximum' :width='sizeWidth' :step='sizeStep' :format='sizeFormat' :change='sizeChange'></ejs-numerictextbox>
             </td>
         </tr>
         <tr>
@@ -39,9 +29,7 @@
             </td>
             <td>
                 <!-- enable or disable the animation of the symbol palette. -->
-                <ejs-checkbox id="animation" 
-                              :checked='animationchecked'
-                              :change='animationchange'></ejs-checkbox>
+                <ejs-checkbox id="animation" :checked='animationChecked' :change='animationChange'></ejs-checkbox>
             </td>
         </tr>
         <tr>
@@ -49,7 +37,7 @@
                 <div>Item Text: </div>
             </td>
             <td>
-                <ejs-checkbox id="itemtext" :change='itemtextchange'></ejs-checkbox>
+                <ejs-checkbox id="itemtext" :change='itemTextChange'></ejs-checkbox>
             </td>
         </tr>
     </table>
@@ -94,8 +82,8 @@ import {
   NumericTextBoxComponent
 } from "@syncfusion/ej2-vue-inputs";
 
-//Initialize the flowshapes for the symbol palatte
-let flowshapes = [
+//Initialize the flowShapes for the symbol palatte
+let flowShapes = [
   { id: "Terminator", shape: { type: "Flow", shape: "Terminator" } },
   { id: "Process", shape: { type: "Flow", shape: "Process" } },
   { id: "Sort", shape: { type: "Flow", shape: "Sort" } },
@@ -108,6 +96,7 @@ let flowshapes = [
   { id: "DirectData", shape: { type: "Flow", shape: "DirectData" } },
   { id: "SequentialData", shape: { type: "Flow", shape: "SequentialData" } }
 ];
+//Initialize the basichapes for the symbol palatte
 let basicShapes = [
   { id: "Rectangle", shape: { type: "Basic", shape: "Rectangle" } },
   { id: "Ellipse", shape: { type: "Basic", shape: "Ellipse" } },
@@ -162,6 +151,7 @@ let connectorSymbols = [
   }
 ];
 
+//Collection of expandMode
 let expandMode = [
   { type: "Single", text: "Single" },
   { type: "Multiple", text: "Multiple" }
@@ -183,12 +173,13 @@ export default {
     return {
       expandMode: "Multiple",
       allowDrag: true,
+      //Initialize palette
       palettes: [
         {
           id: "flow",
           iconCss: 'e-ddb-icons e-flow', 
           expanded: true,
-          symbols: flowshapes,
+          symbols: flowShapes,
           title: "Flow Shapes"
         },
         {
@@ -201,7 +192,7 @@ export default {
         {
           id: "connectors",
           expanded: true,
-          iconCss: 'e-ddb-icons e-diagram-connector',
+          iconCss: 'e-ddb-icons e-connector',
           symbols: connectorSymbols,
           title: "Connectors"
         }
@@ -231,31 +222,31 @@ export default {
         return { fit: true };
       },
       symbolMargin: { left: 15, right: 15, top: 15, bottom: 15 },
-
-      expanddataSource: expandMode,
-      expandindex: 1,
-      expandchange: () => {
+      //Change the expandMode of the Symbolpallete.
+      expandDataSource: expandMode,
+      expandIndex: 1,
+      expandChange: () => {
         palette.expandMode = expand.value;
         palette.dataBind();
       },
-
-      sizevalue: 80,
-      sizemin: 40,
-      sizemax: 100,
-      sizewidth: 120,
-      sizestep: 5,
-      sizeformat: "##.##",
-      sizechange: () => {
+      //Apply the size of the Symbol.
+      sizeValue: 80,
+      sizeMinimum: 60,
+      sizeMaximum: 100,
+      sizeWidth: 120,
+      sizeStep: 5,
+      sizeFormat: "##.##",
+      sizeChange: () => {
         palette.symbolHeight = size.value;
         palette.symbolWidth = size.value;
       },
 
-      animationchecked: true,
-      animationchange: onAnimationChange,
+      animationChecked: true,
+      animationChange: onAnimationChange,
 
-      itemtextchange: onItemTextChange,
+      itemTextChange: onItemTextChange,
 
-      headericonchange: onHeaderIconChange
+      headerIconchange: onHeaderIconChange
     };
   },
   provide: {
@@ -269,7 +260,7 @@ export default {
   }
 }
 
-//Add or Remove the Text for Symbol palette item.
+//Add the header icon for palette.
 function onHeaderIconChange(args) {
   for (let i= 0; i < palette.palettes.length; i++) {
     if (args.checked) {
@@ -280,6 +271,7 @@ function onHeaderIconChange(args) {
   }
 }
 
+//Enable or disable the animation for symbol palette
 function onAnimationChange(args) {
   palette.enableAnimation = args.checked;
 }

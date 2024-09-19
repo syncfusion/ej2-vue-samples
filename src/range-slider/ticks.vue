@@ -67,12 +67,27 @@
       </table>
     </div>
     <div id="action-description">
-      <p>This sample demonstrates the default functionalities of the ListView. Click any list item to select and highlight an item.</p>
+      <p>This sample demonstrates the rendering of Slider component with Ticks placement. Drag the thumb over the bar for selecting the values between min and max.</p>
     </div>
     <div id="description">
-      <p>ListView component represent data in interactive hierarchical structure interface across different layouts or views, that also has the features of data-binding, template rendering, and grouping.</p>
-      <p>The group list allows to group the relevant items under a logical category by mapping the groupBy field.</p>
-      <p>In this sample, Cars are grouped based on their category.</p>
+      <p>The Ticks are the visual representation of the Slider values. The ticks are differentiated as small ticks and large ticks based on its size. The ticks position can be defined by the<a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/ticksData/#smallstep"> smallStep</a> and<a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/ticksData/#largestep">largeStep</a> properties.</p>
+      <p> In this demo, we have demonstrated Ticks position with Default and Range Slider.</p>
+      <ul>
+        <li>Default Slider – In this sample, the small ticks and large ticks are rendered with the frequency of 0.05 and 0.20.</li>
+        <li>Range Slider – In this sample, the small ticks and large ticks are rendered with the frequency of 5 and 20.</li>
+      </ul>
+      <p> We can also change the Ticks placement of  Slider and Disable Slider component from the property pane.</p>
+      <p>We can use the below property to restrict the value range for the slider:</p>
+      <ul>
+        <li>
+          <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#step">step </a> - to define incremental/decremental step value for slider</li>
+        <li>
+          <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#min">min </a> – to specify minimum value of the slider</li>
+        <li>
+          <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#max">max </a> – to specify maximum value of the slider</li>
+      </ul>
+      <p>For more information, we can refer the
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/range-slider/ticks">ticks</a> section from the documentation.</p>
     </div>
   </div>
 </template>
@@ -107,6 +122,12 @@
   /* IE 10+ */
   user-select: none;
   /* Standard syntax */
+}
+
+body.fluent2-highcontrast .sliderwrap .e-tick-before.e-scale.e-h-scale .e-tick,
+body.fluent2 .sliderwrap .e-tick-before.e-scale.e-h-scale .e-tick,
+body.fluent2-dark .sliderwrap .e-tick-before.e-scale.e-h-scale .e-tick {
+    top: -5px;
 }
 </style>
 <script>

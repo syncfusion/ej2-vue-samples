@@ -78,11 +78,11 @@
 <script>
 import { Browser } from '@syncfusion/ej2-base';
 import { DataManager, Query } from '@syncfusion/ej2-data';
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2DarkColors } from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2HighContrastColors } from './theme-color';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Legend, Tooltip, DataLabel } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 let dataManager = new DataManager({
@@ -92,7 +92,7 @@ let query = new Query().take(5);
 
 let pointRender = function (args) {
     let selectedTheme = location.hash.split('/')[1];
-    selectedTheme = selectedTheme ? selectedTheme : 'Material';
+    selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
     if (selectedTheme === 'material-dark') {
         args.fill = pointMaterialDarkColors[args.point.index % 10];
     }
@@ -129,8 +129,8 @@ let pointRender = function (args) {
     else if (selectedTheme === 'fluent2') {
         args.fill = pointFluent2Colors[args.point.index % 10];
     } 
-    else if (selectedTheme === 'fluent2-dark') {
-        args.fill = pointFluent2DarkColors[args.point.index % 10];
+    else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
+        args.fill = pointFluent2HighContrastColors[args.point.index % 10];
     }
     else {
         args.fill = pointBootstrapColors[args.point.index % 10];

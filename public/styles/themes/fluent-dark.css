@@ -356,3 +356,10 @@ body.fluent-dark,
 .fluent-dark.e-bigger .sb-content-tab>.e-tab>.e-tab-header>.e-items.e-toolbar-items>.e-indicator {
     display: none !important;
 }
+
+.fluent-dark.e-bigger .e-samplestatus.new,
+.fluent-dark.e-bigger .e-samplestatus.update,
+.fluent-dark.e-bigger .e-samplestatus.preview {
+    margin-top: 4px;
+    margin-bottom: 0px;
+}

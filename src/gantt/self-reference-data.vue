@@ -21,7 +21,7 @@
 <div id="description">
     <p>Gantt can be bound either to local or remote data services.
         The <code>dataSource</code> property can be assigned either with the array of JavaScript objects or an instance of <code>DataManager</code>.</p>
-    <p>In this demo, the array of self-referential flat data with <code>parentID</code> is assigned as data source to the Gantt.</p>
+    <p>In this demo, the array of self-referential flat data with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/taskFieldsModel/#parentid">parentID</a> is assigned as data source to the Gantt.</p>
     
     <p>
         Gantt control features are segregated into individual feature-wise modules. To use a selection, inject the

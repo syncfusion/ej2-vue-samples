@@ -40,6 +40,7 @@
     </div>
 </template>
 
+<!-- custom code start -->
 <style>
     .control-wrapper.remote-multicolumn {
         margin: 0 auto;
@@ -52,6 +53,7 @@
         }
     }
 </style>
+<!-- custom code end -->
 
 <script>
 import { MultiColumnComboBoxComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-multicolumn-combobox";

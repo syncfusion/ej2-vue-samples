@@ -1,0 +1,34 @@
+{
+    "name": "Gantt Chart",
+    "directory": "ai-gantt",
+    "category": "Smart AI Solutions",
+    "samples": [
+        {
+            "url": "task-prioritizer",
+            "name": "Smart Task Prioritizer",
+            "category": "Gantt Chart",
+            "sourceFiles": [
+                { "displayName": "task-prioritizer.vue", "path": "src/ai-gantt/ai-task-prioritizer.vue" }
+            ],
+            "description": "This demo showcases the Pivot Table AI feature."
+        },
+        {
+            "url": "progress-predictor",
+            "name": "Smart Progress Predictor",
+            "category": "Gantt Chart",
+            "sourceFiles": [
+                { "displayName": "progress-predictor.vue", "path": "src/ai-gantt/ai-progress-predictor.vue" }
+            ],
+            "description": "This demo showcases the Pivot Table AI feature."
+        },
+        {
+            "url": "resource-manager",
+            "name": "Smart Resource Allocation",
+            "category": "Gantt Chart",
+            "sourceFiles": [
+                { "displayName": "resource-manager.vue", "path": "src/ai-gantt/ai-resource-manager.vue" }
+            ],
+            "description": "This demo showcases the Pivot Table AI feature."
+        }
+    ]
+}

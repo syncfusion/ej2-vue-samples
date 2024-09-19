@@ -1,20 +1,25 @@
 <template>
-<div class="col-lg-12 control-section">
+<div class="control-section row">
+<div class="col-lg-6">
     <div id="wrapper">
-         <ejs-datetimepicker id="datetimepicker" :placeholder="waterMarkText" :min="minDate" :max="maxDate" :value="date"></ejs-datetimepicker>
+        <label class="example-label">DateTime Restriction</label>
+        <ejs-datetimepicker id="datetimepicker1" :placeholder="waterMarkText" :min="minDate" :max="maxDate" :value="date"></ejs-datetimepicker>
     </div>
-    <div id="action-description">
-    <p>
-        In the following sample, a specific datetime ranges from 7th 10:00 AM to 27th 10:30 PM of the current month has been set to select from the Calendar. All the other dates are out of range and <code>restricted</code> to set or select.
-    </p>
+</div>
+<div class="col-lg-6">
+    <div id="wrapper">
+        <label class="example-label">Time Restriction</label>
+        <ejs-datetimepicker id="datetimepicker2" :placeholder="waterMarkText" :minTime="minTime" :maxTime="maxTime" :value="date"></ejs-datetimepicker>
+    </div>
+</div>
+</div>
+<div id="action-description">
+  <p>This example demonstrates date and time selection within specific ranges defined by the <code>Min</code>, <code>Max</code>, <code>MinTime</code>, and <code>MaxTime</code> properties. Dates and times outside these ranges are <code>restricted</code> and cannot be set or selected.</p>
 </div>
 <div id="description">
-    <p>
-        DateTime Range sample illustrates the datetime selection within the specific range in a calendar and time popup list by using min and max properties. Here, the datetime selection range was restricted within a range from 7th 10:00 AM to 27th 10:30 PM in
-        a month.
-    </p>
-   <p>More information on the date range configuration can be found in the <a href="https://ej2.syncfusion.com/vue/documentation/datetimepicker/date-time-range.html" target="_blank"> documentation section</a>.</p>
-</div>
+  <p>Date Range example explains the date and time selection within the specific range in a calendar and time popup list by using <code>Min</code>, <code>Max</code>, <code>MinTime</code> and <code>MaxTime</code> properties. Here, the 1st datetimepicker date selection range was restricted within a range from 7th 10:00 AM to 27th 10:30 PM days in a month.</p>
+  <p>The 2nd datetimepicker time selection range is restricted from 10:00 AM to 8:30 PM of each day.</p>
+  <p>More information on the date range configuration can be found in the <a href="https://ej2.syncfusion.com/vue/documentation/datetimepicker/date-time-range.html" target="_blank"> documentation section</a>.</p>
 </div>
 </template>
 
@@ -29,7 +34,9 @@ export default {
       waterMarkText: "Select a date and time",
       date: new Date(year, month, 14, 10, 30),
       minDate: new Date(year, month, 7, 10),
-      maxDate: new Date(year, month, 27, 22, 30)
+      maxDate: new Date(year, month, 27, 22, 30),
+      minTime: new Date(year, month, 7, 10),
+      maxTime: new Date(year, month, 27, 20, 30)
     };
   },
   components: { 'ejs-datetimepicker': DateTimePickerComponent },

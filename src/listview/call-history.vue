@@ -176,7 +176,16 @@
 .bootstrap5 .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .bootstrap5-dark .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .bootstrap5-dark .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
-.bootstrap5-dark .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
+.bootstrap5-dark .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5\.3 .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5\.3 .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5\.3 .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5\.3-dark .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5\.3-dark .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.bootstrap5\.3-dark .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.fluent2-highcontrast .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.fluent2-highcontrast .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.fluent2-highcontrast .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
   margin: 0;
   top: 10px;
 }
@@ -259,6 +268,9 @@
 .bootstrap5-dark .call-history .layoutWrapper .layout, .bootstrap5-dark .call-history .layoutWrapper .camera, .bootstrap5-dark .call-history .layoutWrapper .outerButton,
 .bootstrap5-dark .call-history .layoutWrapper .speaker,
 .bootstrap5-dark .call-history .layoutWrapper,
+.bootstrap5_3-dark .call-history .layoutWrapper .layout, .bootstrap5_3-dark .call-history .layoutWrapper .camera, .bootstrap5_3-dark .call-history .layoutWrapper .outerButton,
+.bootstrap5_3-dark .call-history .layoutWrapper .speaker,
+.bootstrap5_3-dark .call-history .layoutWrapper,
 .material-dark .call-history .layoutWrapper .layout, .material-dark .call-history .layoutWrapper .camera, .material-dark .call-history .layoutWrapper .outerButton, .material-dark .call-history .layoutWrapper .speaker,
 .material-dark .call-history .layoutWrapper,
 .material3-dark .call-history .layoutWrapper .layout, .material3-dark .call-history .layoutWrapper .camera, .material3-dark .call-history .layoutWrapper .outerButton, .material3-dark .call-history .layoutWrapper .speaker,
@@ -268,6 +280,12 @@
 .fabric-dark .call-history .layoutWrapper,
 .tailwind-dark .call-history .layoutWrapper .layout, .tailwind-dark .call-history .layoutWrapper .camera, .tailwind-dark .call-history .layoutWrapper .outerButton, .tailwind-dark .call-history .layoutWrapper .speaker,
 .tailwind-dark .call-history .layoutWrapper,
+.fluent2-dark .call-history .layoutWrapper .layout, .fluent2-dark .call-history .layoutWrapper .camera, .fluent2-dark .call-history .layoutWrapper .outerButton, .fluent2-dark .call-history .layoutWrapper .speaker, 
+.fluent2-dark .call-history .layoutWrapper,
+.fluent-dark .call-history .layoutWrapper .layout, .fluent-dark .call-history .layoutWrapper .camera, .fluent-dark .call-history .layoutWrapper .outerButton, .fluent-dark .call-history .layoutWrapper .speaker,
+.fluent-dark .call-history .layoutWrapper,
+.fluent2-highcontrast .call-history .layoutWrapper .layout, .fluent2-highcontrast .call-history .layoutWrapper .camera, .fluent2-highcontrast .call-history .layoutWrapper .outerButton, .fluent2-highcontrast .call-history .layoutWrapper .speaker,
+.fluent2-highcontrast .call-history .layoutWrapper,
 .bootstrap-dark .call-history .layoutWrapper .layout, .bootstrap-dark .call-history .layoutWrapper .camera, .bootstrap-dark .call-history .layoutWrapper .outerButton, .bootstrap-dark .call-history .layoutWrapper .speaker,
 .bootstrap-dark .call-history .layoutWrapper
 {
@@ -285,7 +303,10 @@ body.highcontrast .layout #list-container .e-icon,
 body.tailwind-dark .layout #list-container .e-icon,
 body.bootstrap-dark .layout #list-container .e-icon,
 body.fabric-dark .layout #list-container .e-icon,
-body.bootstrap5-dark .layout #list-container .e-icon {
+body.bootstrap5-dark .layout #list-container .e-icon,
+body.fluent2-dark .layout #list-container .e-icon,
+body.fluent2-highcontrast .layout #list-container .e-icon,
+body.bootstrap5\.3-dark .layout #list-container .e-icon {
     color: #ffffff;
 }
 
@@ -298,7 +319,6 @@ body.tailwind-dark .e-tab .e-tab-header .e-toolbar-item .e-tab-wrap,
 body.tailwind .e-tab .e-tab-header .e-toolbar-item .e-tab-wrap {
     padding: 0px 5px;
 }
-
 </style>
 <script>
 import { createApp } from "vue";

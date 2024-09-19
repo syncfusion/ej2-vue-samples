@@ -32,87 +32,46 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagramInstance;
-//Initialize shape
-let shape = { type: "Basic", shape: "Ellipse" };
-//Initialize Diagram Nodes
-let nodes = [
-  {
-    id: "datascience",
-    offsetX: 450,
-    offsetY: 232,
-    width: 400,
-    height: 400,
-    annotations: [
-      {
-        content: "Data Science",
-        offset: { x: 0.5, y: 0.1 }
-      }
-    ],
-    shape: shape,
-    style: { fill: "#f2f2f2", strokeColor: "#acacac", strokeWidth: 1 }
-  },
-  {
-    id: "trignometry",
-    offsetX: 515,
-    offsetY: 205,
-    width: 200,
-    height: 200,
-    shape: shape,
-    annotations: [
-      {
-        content: "Trignometry",
-        offset: { x: 0.5, y: 0.4 },
-        horizontalAlignment: "Left"
-      },
-      { content: "Thesis", offset: { x: 0.45, y: 0.8 } }
-    ],
-    style: { fill: "#feb42f", opacity: 0.2, strokeColor: "#feb42f" }
-  },
-  {
-    id: "expertise",
-    offsetX: 445,
-    offsetY: 290,
-    width: 200,
-    height: 200,
-    shape: shape,
-    annotations: [
-      {
-        content: "Expertise",
-        offset: { x: 0.5, y: 0.7 },
-        verticalAlignment: "Top"
-      }
-    ],
-    style: { fill: "#6acbd4", opacity: 0.2, strokeColor: "#6acbd4" }
-  },
-  {
-    id: "programming",
-    offsetX: 388,
-    offsetY: 205,
-    width: 200,
-    height: 200,
-    annotations: [
-      {
-        content: "Programming ",
-        offset: { x: 0.5, y: 0.4 },
-        horizontalAlignment: "Right"
-      },
-      {
-        content: "Assembly",
-        offset: { x: 0.7, y: 0.35 },
-        horizontalAlignment: "Left"
-      },
-      {
-        content: "Horizon",
-        offset: { x: 0.7, y: 0.6 },
-        horizontalAlignment: "Left"
-      },
-      { content: "Middleware", offset: { x: 0.5, y: 0.8 } }
-    ],
-    shape: shape,
-    style: { fill: "#ed1d79", opacity: 0.2, strokeColor: "#ed1d79" }
-  }
-];
+// Basic shape configuration for nodes
+let basicShape = { type: "Basic", shape: "Ellipse" };
 
+// Creates a node with specified properties.
+function createNode(id, offsetX, offsetY, width, height, annotations, style) {
+  return {
+      id,
+      offsetX,
+      offsetY,
+      width,
+      height,
+      shape: basicShape,
+      annotations,
+      style
+  };
+}
+
+// Styles for different node categories
+const styles = {
+  dataScience: { fill: "#f2f2f2", strokeColor: "#acacac", strokeWidth: 1 },
+  trignometry: { fill: "#feb42f", opacity: 0.2, strokeColor: "#feb42f" },
+  expertise: { fill: "#6acbd4", opacity: 0.2, strokeColor: "#6acbd4" },
+  programming: { fill: "#ed1d79", opacity: 0.2, strokeColor: "#ed1d79" }
+};
+
+// Nodes initialization with specific properties
+let nodes= [
+  createNode("datascience", 450, 232, 400, 400, [{ content: "Data Science", offset: { x: 0.5, y: 0.1 } }], styles.dataScience),
+  createNode("trignometry", 515, 205, 200, 200, [
+      { content: "Trignometry", offset: { x: 0.5, y: 0.4 }, horizontalAlignment: "Left" },
+      { content: "Thesis", offset: { x: 0.45, y: 0.8 } }
+  ], styles.trignometry),
+  createNode("expertise", 445, 290, 200, 200, [{ content: "Expertise", offset: { x: 0.5, y: 0.7 }, verticalAlignment: "Top" }], styles.expertise),
+  createNode("programming", 388, 205, 200, 200, [
+      { content: "Programming", offset: { x: 0.5, y: 0.4 }, horizontalAlignment: "Right" },
+      { content: "Assembly", offset: { x: 0.7, y: 0.35 }, horizontalAlignment: "Left" },
+      { content: "Horizon", offset: { x: 0.7, y: 0.6 }, horizontalAlignment: "Left" },
+      { content: "Middleware", offset: { x: 0.5, y: 0.8 } }
+  ], styles.programming)
+];
 export default {
   components: {
     'ejs-diagram': DiagramComponent
@@ -129,6 +88,9 @@ export default {
   },
   mounted: function() {
     diagramInstance = this.$refs.diagramObject.ej2Instances;
+     /**
+     * Adjusts the diagram view to fit the page .
+     */
     diagramInstance.fitToPage();
   }
 }

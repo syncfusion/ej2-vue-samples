@@ -1,36 +1,42 @@
 <template>
   <div>
+     <!-- Left section: Symbol Palette -->
     <div class="col-lg-8 control-section">
-      <div id="diagramEventsControlSection" class="content-wrapper" style="width:100%;background: white">
+      <div id="diagramEventsControlSection" class="content-wrapper diagramEvents-ControlSection" style="width:100%;background: white">
         <div id="palette-space" class="sb-mobile-palette">
-          <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'  :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight' :symbolWidth='symbolWidth' :getNodeDefaults='palettegetNodeDefaults'></ejs-symbolpalette>
+          <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'  :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight' :symbolWidth='symbolWidth' :getNodeDefaults='palettegetNodeDefaults' :getConnectorDefaults='getConnectorDefaults'></ejs-symbolpalette>
         </div>
+         <!-- Diagram Component -->
         <div id="diagram-space" class="sb-mobile-diagram">
           <ejs-diagram ref="diagramControl" id="diagram" width="100%" height="700px" :contextMenuSettings="contextMenu" :snapSettings='snapSettings' :dragEnter="dragEnter" :dragLeave="dragLeave" :dragOver="dragOver" :click="click" :historyChange="historyChange" :doubleClick="doubleClick" :textEdit="textEdit" :scrollChange="scrollChange" :selectionChange="selectionChange" :sizeChange="sizeChange" :connectionChange="connectionChange" :sourcePointChange="sourcePointChange" :targetPointChange="targetPointChange" :propertyChange="propertyChange" :positionChange="positionChange" :rotateChange="rotateChange" :collectionChange="collectionChange" :mouseEnter="mouseEnter" :mouseLeave="mouseLeave" :mouseOver="mouseOver" :contextMenuOpen="contextMenuOpen" :contextMenuBeforeItemRender="contextMenuBeforeItemRender" :contextMenuClick="contextMenuClick">
           </ejs-diagram>
         </div>
       </div>
     </div>
+     <!-- Right section: Property Panel -->
     <div class="col-lg-4 property-section">
       <div id="diagramEventsPropertySection" style="height:100%;border: 1px solid #e0e0e0">
+         <!-- Listview for event selection -->
         <div class="listbox">
           <div class="heading" style="height:40px">
             <span>Client-side events</span>
           </div>
-          <ejs-listview id='listview-def' :dataSource='data' showCheckBox='true' height="calc(100% - 40px)"></ejs-listview>
+          <ejs-listview id='listview-def' ref="listView" :dataSource='data' showCheckBox='true' height="calc(100% - 40px)"></ejs-listview>
         </div>
+        <!-- Event Log panel -->
         <div class="prop-grid content" style="height:50%; border-top: 1px solid #e0e0e0">
           <div class="heading">
             <span style="display: inline-block;margin-top: 5px;">Event Trace</span>
             <div class="evtbtn">
-              <ejs-button id="clearbtn">Clear</ejs-button>
+              <ejs-button id="clearButton" ref="clearButton">Clear</ejs-button>
             </div>
           </div>
-          <div id="EventLog">
+          <div id="EventLog" ref="EventLog">
           </div>
         </div>
       </div>
     </div>
+     <!-- Description sections -->
     <div id="action-description">
       <p>
         This sample visualize what are the client side events are available in the diagram.
@@ -105,6 +111,7 @@
 }
 
  /* Event property panel CSS */
+ /* Styles for Event Property Panel */
 #diagramEventsPropertySection .event-tracer {
   width: 240px;
   height: 700px;
@@ -120,7 +127,7 @@
   border-bottom: 1px solid #d9dedd;
   padding: 10px;
 }
- /* These color is to indicate the event name in specific color */
+ /* This color is to indicate the event name in specific color */
  #EventLog b {
       color: #388e3c;
     }
@@ -151,6 +158,10 @@
   height: 50%;
 }
 
+.diagramEvents-ControlSection{
+  display: flex;
+}
+
 #diagramEventsPropertySection #EventLog {
   height: calc(100% - 50px);
   padding: 15px;
@@ -160,6 +171,7 @@
 </style>
 
 <script>
+// Import necessary Vue components and Syncfusion libraries
 import {
   DiagramComponent,
   SymbolPaletteComponent,
@@ -169,7 +181,10 @@ import { ListViewComponent, ListView } from "@syncfusion/ej2-vue-lists";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 let diagramInstance;
-
+let  listviewInstance;
+let eventlogInstance;
+let clearButtonInstance;
+// Symbol palette items: Basic shapes and connectors
 let basicShapes = [
   { id: 'Rectangle', shape: { type: 'Basic', shape: 'Rectangle' } },
   { id: 'Ellipse', shape: { type: 'Basic', shape: 'Ellipse' } },
@@ -191,23 +206,23 @@ let basicShapes = [
 let connectorSymbols = [
   {
     id: 'Link1', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-    targetDecorator: { shape: 'Arrow', style: {strokeColor: "#757575", fill: "#757575"} }, style: { strokeWidth: 1, strokeColor: "#757575" }
+    targetDecorator: { shape: 'Arrow', style: {strokeColor: "#757575", fill: "#757575"} }
   },
   {
     id: 'link3', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-    style: { strokeWidth: 1, strokeColor: "#757575" }, targetDecorator: { shape: 'None' }
+     targetDecorator: { shape: 'None' }
   },
   {
     id: 'Link21', type: 'Straight', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-    targetDecorator: { shape: 'Arrow', style: {strokeColor: "#757575", fill: "#757575"} }, style: { strokeWidth: 1, strokeColor: "#757575" }
+    targetDecorator: { shape: 'Arrow', style: {strokeColor: "#757575", fill: "#757575"} }
   },
   {
     id: 'link23', type: 'Straight', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-    style: { strokeWidth: 1, strokeColor: "#757575" }, targetDecorator: { shape: 'None' }
+    targetDecorator: { shape: 'None' }
   },
   {
     id: 'link33', type: 'Bezier', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-    style: { strokeWidth: 1, strokeColor: "#757575" }, targetDecorator: { shape: 'None' }
+    targetDecorator: { shape: 'None' }
   },
 ];
 
@@ -319,8 +334,7 @@ export default {
         getEventDetails(args);
       },
       contextMenuBeforeItemRender: (args) => {
-        let listView = document.getElementById('listview-def');  
-        let listViewComponent = listView.ej2_instances ? listView.ej2_instances[0]: null;
+        let listViewComponent = listviewInstance ? listviewInstance: null;
         if(listViewComponent) {          
          getEventDetails(args);
         }
@@ -356,32 +370,35 @@ export default {
       symbolMargin: { left: 15, right: 15, top: 15, bottom: 15 },
       getSymbolInfo: (symbol) => {
         return { fit: true };
-      }
-    };
+      },
+      getConnectorDefaults: function (connector) {
+            connector.style = { strokeWidth: 1 , strokeColor: '#757575' };
+        },
+      };
   },
   provide: {
     diagram: [DiagramContextMenu]
   },
   mounted: function() {
     diagramInstance = this.$refs.diagramControl.ej2Instances;
-    let obj = document.getElementById("clearbtn");
+    listviewInstance = this.$refs.listView.ej2Instances;
+    eventlogInstance = this.$refs.EventLog;
+    clearButtonInstance = this.$refs.clearButton.ej2Instances.element;
     //Click Event for Appearance of the layout.
     clearEventLog();
-    obj.onclick = (args) => {
+    clearButtonInstance.onclick = (args) => {
       clearEventLog();
     }
   }
 }
-
+// Function to clear the event log
 function clearEventLog() {
-  let data = document.getElementById('EventLog');
+  let data = eventlogInstance;
   data.innerHTML = '';
 }
-
+// Function to get event details based on selected items
 function getEventDetails(args) {
-  if (document.getElementById('listview-def') && (document.getElementById('listview-def')).ej2_instances !== null) {
-    let listView = document.getElementById('listview-def');  
-    let listViewComponent = listView.ej2_instances[0];
+    let listViewComponent = listviewInstance;
     let selectedItems = listViewComponent.getSelectedItems();
     if (selectedItems.data.length > 0) {
       let elementName = getName(selectedItems, args);
@@ -389,9 +406,9 @@ function getEventDetails(args) {
         eventInformation(args);
       }
     }
-   }
+   
 }
-
+// Function to check if the event name matches any selected item
 function getName(selectedItems, args) {
   for (let i = 0; i < selectedItems.data.length; i++) {
     let eventName = selectedItems.data[i].id;
@@ -401,12 +418,12 @@ function getName(selectedItems, args) {
   }
   return false;
 }
-
 // tslint:disable-next-line:max-func-body-length
+// Function to display event information in the event log
 function eventInformation(args) {
   let span = document.createElement('span');
   span.innerHTML = 'Diagram ' + args.name.bold() + ' event called' + '<hr>';
-  let log = document.getElementById('EventLog');
+  let log = eventlogInstance;
   log.insertBefore(span, log.firstChild);
 }
 

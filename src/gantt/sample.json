@@ -1,5 +1,5 @@
 {
-   "name": "Gantt",
+   "name": "Gantt Chart",
    "directory": "gantt",
    "category": "Calendars",
    "type": "update",
@@ -8,7 +8,8 @@
       {
          "url": "overview",
          "name": "Overview",
-         "category": "Gantt",
+         "category": "Gantt Chart",
+         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -27,7 +28,7 @@
       {
          "url": "default",
          "name": "Default Functionalities",
-         "category": "Gantt",
+         "category": "Gantt Chart",
          "api": {
             "Gantt": [
                "dataSource",
@@ -43,7 +44,8 @@
       {
          "url": "editing",
          "name": "Editing",
-         "category": "Gantt",
+         "type": "update",
+         "category": "Gantt Chart",
          "api": {
             "Gantt": [
                "dataSource",
@@ -71,7 +73,7 @@
       {
          "url": "virtual-scroll",
          "name": "Virtual Scrolling",
-         "category": "Gantt",
+         "category": "Gantt Chart",
          "api": {
             "Gantt": [
                "dataSource",
@@ -91,7 +93,7 @@
       {
          "url": "undo-redo",
          "name": "Undo Redo",
-         "category": "Gantt",
+         "category": "Gantt Chart",
          "api": {
             "Gantt": [
                "dataSource",
@@ -124,7 +126,7 @@
       {
          "url": "loading-animation",
          "name": "Loading Animation",
-         "category": "Gantt",
+         "category": "Gantt Chart",
          "api": {
             "Gantt": [
                "dataSource",
@@ -268,7 +270,6 @@
       {
          "url": "working-time-range",
          "name": "Working Time Range",
-         "type": "update",
          "category": "Scheduling Concepts",
          "api": {
             "Gantt": [
@@ -451,6 +452,7 @@
          "url": "zooming",
          "name": "Zooming",
          "category": "Timeline",
+         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -737,7 +739,6 @@
          "url": "timeline-template",
          "name": "Timeline Template",
          "category": "Templates",
-         "type": "new",
          "api": {
             "Gantt": [
                "dataSource",
@@ -824,6 +825,57 @@
          "description": "This demo explains how to render custom toolbar elements in a toolbar, by which any custom operation can be performed in Syncfusion Essential JS2 Gantt."
       },
       {
+         "url": "filtering",
+         "name": "Default Filtering",
+         "category": "Filtering",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "dateFormat",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "height",
+               "timelineSettings",
+               "labelSettings",
+               "toolbar",
+               "allowFiltering",
+               "includeWeekend",
+               "timelineSettings",
+               "splitterSettings",
+               "durationUnit",
+               "dayWorkingTime",
+               "projectStartDate",
+               "projectEndDate"
+             ]
+         },
+         "description": "This example demonstrates the filtering support with filter menu option for various types of columns in Gantt"
+      },
+      {
+         "url": "advanced-filtering",
+         "name": "Advanced Filtering",
+         "category": "Filtering",
+         "type": "new",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "taskFields",
+               "columns",
+               "treeColumnIndex",
+               "height",
+               "labelSettings",
+               "toolbar",
+               "allowFiltering",
+               "includeWeekend",
+               "timelineSettings",
+               "splitterSettings",
+               "projectStartDate",
+               "projectEndDate"
+             ]
+         },
+         "description": "This sample demonstrates the integration of the QueryBuilder component for complex filtering in the Gantt"
+      },
+      {
          "url": "selection",
          "name": "Selection",
          "category": "Miscellaneous",
@@ -899,33 +951,6 @@
             ]
          },
          "description": "This demo explains how to export Gantt content to Excel and CSV documents using the Syncfusion TypeScript Gantt control."
-      },
-      {
-         "url": "filtering",
-         "name": "Filtering",
-         "category": "Miscellaneous",
-         "api": {
-            "Gantt": [
-               "dataSource",
-               "dateFormat",
-               "taskFields",
-               "columns",
-               "treeColumnIndex",
-               "height",
-               "timelineSettings",
-               "labelSettings",
-               "toolbar",
-               "allowFiltering",
-               "includeWeekend",
-               "timelineSettings",
-               "splitterSettings",
-               "durationUnit",
-               "dayWorkingTime",
-               "projectStartDate",
-               "projectEndDate"
-             ]
-         },
-         "description": "This example demonstrates the filtering support with filter menu option for various types of columns in Gantt"
       },
       {
          "url": "drag-and-drop",

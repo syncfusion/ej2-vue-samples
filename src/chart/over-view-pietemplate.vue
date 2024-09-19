@@ -10,7 +10,7 @@
 <script>
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, PieSeries, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
@@ -51,7 +51,7 @@ export default {
   methods: {
     onPointRender: function (args) {
       let selectedTheme= location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Material';
+        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
         if (selectedTheme.indexOf('dark') > -1 )
         {
           if(selectedTheme.indexOf('material') > -1 )

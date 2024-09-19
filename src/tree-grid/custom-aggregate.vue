@@ -53,24 +53,21 @@
 </div>
 </template>
 <!-- custom code start -->
-<style scoped>
-
-  /deep/ .e-input {
+<style>T
+  .e-input {
        padding-bottom: 1px !important;
    }
-   
-  /deep/ .e-treegrid .e-summarycell.e-templatecell {
+
+   .e-treegrid .e-summarycell.e-templatecell {
     pointer-events:visible !important;
-  };
-
-    .fluent2,
-    .fluent2-dark,
-    .fluent2-highcontrast {
-        /deep/ .e-treegrid .e-summarycell.e-templatecell .e-input-group {
-            width: 150px !important;
-        }
+  }
+  
+   .e-treegrid .e-summarycell.e-templatecell .e-input-group {
+    width: 160px !important;
+   input.e-control.e-dropdownlist.e-lib.e-input {
+        padding-left: 6px !important;
     }
-
+  };
 </style>
 <!-- custom code end -->
 <script lang="ts">

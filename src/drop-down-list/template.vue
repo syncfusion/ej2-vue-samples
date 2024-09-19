@@ -198,7 +198,9 @@
       padding-top : 11px;
     }
     
-    .fluent-dark .ddl-template .header {
+    .fluent-dark .ddl-template .header,
+    .fluent2-dark .ddl-template .header,
+    .fluent2-highcontrast .ddl-template .header {
         background: #252423;
         color: #2899F5;
     }

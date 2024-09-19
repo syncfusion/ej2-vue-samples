@@ -1,0 +1,16 @@
+{
+    "name": "ComboBox",
+    "directory": "ai-combo-box",
+    "category": "Smart AI Solutions",
+    "samples": [
+        {
+            "url": "semantic-searching",
+            "name": "Semantic Searching (Embedding)",
+            "category": "Combo Box",
+            "sourceFiles":[
+                { "displayName": "semantic-searching.vue", "path":"src/ai-combo-box/ai-semantic-searching.vue" }
+            ],
+            "description": "This demo shows the semantic search AI feature in Combo Box."
+        }
+    ]
+}

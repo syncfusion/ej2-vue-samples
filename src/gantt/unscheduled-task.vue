@@ -27,7 +27,7 @@
     <div id="description">
      <p>
         Unscheduled tasks are tasks in a project that are not scheduled with proper dates or duration at the commencement of the project. These tasks can be scheduled properly at any time during project implementation based on factors such as resource availability, dependent tasks, and more.
-        This example shows how to display the unscheduled tasks in Gantt by enabling the <code>allowUnscheuldedTask</code> property. This also shows how to add an empty row in Gantt by using a custom toolbar button click action. By using the <code>toolbarClick</code> event and <code>addRecord</code> method, an empty row can be added at the top of the rows with undefined task details.
+        This example shows how to display the unscheduled tasks in Gantt by enabling the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowunscheduledtasks">allowUnscheuldedTasks</a> property. This also shows how to add an empty row in Gantt by using a custom toolbar button click action. By using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#toolbarclick">toolbarClick</a> event and <code>addRecord</code> method, an empty row can be added at the top of the rows with undefined task details.
     </p>
     <p>
         Gantt component features are segregated into individual feature-wise modules. To use a toolbar and add support, inject the <code>Toolbar</code> and <code>Edit</code> modules.
@@ -97,25 +97,36 @@ export default {
 
 <style scoped>
    #unscheduledGantt /deep/  .e-add-icon:before {
-        content: "\e506"
+        content: "\e506";
+        font-size : 16px;
+        font-family : "e-icons"
     }
     .bootstrap4 #unscheduledGantt /deep/  .e-add-icon:before {
-        content: "\e783"
+        content: "\e783";
+        font-size : 16px;
+        font-family : "e-icons"
     }
     .bootstrap5 #unscheduledGantt /deep/  .e-add-icon:before,
 	  .bootstrap5-dark #unscheduledGantt /deep/  .e-add-icon:before,
     .tailwind #unscheduledGantt /deep/ .e-add-icon:before,.tailwind-dark #unscheduledGantt /deep/ .e-add-icon:before,
     .material3-dark #unscheduledGantt /deep/ .e-add-icon:before ,.material3 #unscheduledGantt /deep/ .e-add-icon:before 
     {
-        content: "\e836"
+        content: "\e836";
+        font-size : 16px;
+        font-family : "e-icons"
     }
     .fluent #unscheduledGantt /deep/ .e-add-icon:before,
     .fluent-dark #unscheduledGantt /deep/ .e-add-icon:before,
     .fluent2 #unscheduledGantt /deep/ .e-add-icon:before,
     .fluent2-highcontrast #unscheduledGantt /deep/ .e-add-icon:before,
-    .fluent2-dark #unscheduledGantt /deep/ .e-add-icon:before 
-    {
-      content: "\e836" !important
+    .fluent2-dark #unscheduledGantt /deep/ .e-add-icon:before,
+    .bootstrap5_3 #Unscheduled /deep/ .e-add-icon:before,
+    .bootstrap5_3-dark-lite #Unscheduled /deep/ .e-add-icon:before,
+    .bootstrap5_3-dark #Unscheduled /deep/ .e-add-icon:before, 
+    .bootstrap5_3-lite #Unscheduled /deep/ .e-add-icon:before{
+      content: "\e836" !important;
+      font-size : 16px;
+      font-family : "e-icons"
     }
 
 </style>

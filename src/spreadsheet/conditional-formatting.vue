@@ -119,6 +119,7 @@ export default {
             spreadsheet.numberFormat(currencyFormat, 'D3:D18');
             spreadsheet.numberFormat(currencyFormat, 'E3:E18');
             spreadsheet.numberFormat(currencyFormat, 'F3:F18');
+            spreadsheet.numberFormat('m/d/yyyy', 'G3:G18');
             spreadsheet.conditionalFormat({ type: 'BlueDataBar', range: 'D3:D18' });
             spreadsheet.conditionalFormat({ type: 'GreenDataBar', range: 'E3:E18' });
             spreadsheet.conditionalFormat({ type: 'ThreeStars', range: 'H3:H18' });

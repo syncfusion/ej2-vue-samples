@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="col-lg-4 property-section">
-        <textarea id="value" title="Properties" style="width: 100%; margin-top:90px; height: 60px;" readonly>Selected value : {{value}}</textarea>
+        <textarea id="value" class="auto-dropdowns" title="Properties" style="width: 100%; margin-top:90px; height: 60px; background-color: inherit;" readonly>Selected value : {{value}}</textarea>
     </div>
     <div id="action-description">
     <p>The sample showcases the functionality of object value binding in the AutoComplete component. Users can type
@@ -30,6 +30,19 @@
         margin: 0 auto;
         width: 250px;
     }
+
+    .fluent-dark .auto-dropdowns,
+    .fluent2-dark .auto-dropdowns,
+    .material-dark .auto-dropdowns,
+    .material3-dark .auto-dropdowns,
+    .bootstrap-dark .auto-dropdowns,
+    .bootstrap5-dark .auto-dropdowns,
+    .bootstrap5.3-dark .auto-dropdowns,
+    .highcontrast .auto-dropdowns,
+    .fluent2-highcontrast .auto-dropdowns {
+        background: #1f1f1f;
+    }
+
 
     .property-section .right-side {
         padding-left: 10px;

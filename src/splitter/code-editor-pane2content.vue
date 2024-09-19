@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="content">
+    <div class="panecontent">
         <label class="h4">CSS</label>
         <div class="code-preview">
             <span>img {</span>
@@ -13,10 +13,14 @@
 </div>
 </template>
 <style>
-.content .h4 {
+.panecontent .h4 {
         font-size: 16px;
         margin: 0 0 10px;
         font-weight: bold;
+    }
+  
+    .panecontent {
+        widht: auto;
     }
 </style>
 <script>

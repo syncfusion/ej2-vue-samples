@@ -133,7 +133,7 @@ import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1))
   .replace(/-dark/i, "Dark")
   .replace(/light/i, "Light")

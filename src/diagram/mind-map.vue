@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
     <div class="diagram-control">
-        <ejs-diagram style='display:block' ref='diagramObj' id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :selectionChange='selectionChange' :getNodeDefaults='getNodeDefaults' :selectedItems='selectedItems' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'
+        <ejs-diagram style='display:block' ref='diagramObj' id="diagram" :width='width' :height='height' :constraints= 'constraints' :snapSettings='snapSettings' :tool='tool' :layout='layout' :selectionChange='selectionChange' :getNodeDefaults='getNodeDefaults' :selectedItems='selectedItems' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'
         :getCustomTool='getCustomTool'></ejs-diagram>
         <input id="palette" style="visibility: hidden;position: absolute" type="color" name="favcolor" value="#000000">
     </div>
@@ -37,6 +37,7 @@ import {
   Diagram,
   Node,
   ConnectorConstraints,
+  DiagramConstraints,
   DataBinding,
   PointPort,
   randomId,
@@ -52,7 +53,7 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 import { DataManager, Query } from "@syncfusion/ej2-data";
 import { mindMap } from "./diagram-data";
-
+// Variables for diagram instance and data manager
 let diagramInstance;
 let items = new DataManager(
   mindMap,
@@ -66,6 +67,7 @@ export default {
     return {
       width: "100%",
       height: "550px",
+      constraints: DiagramConstraints.Default & ~DiagramConstraints.UndoRedo,
       snapSettings: { constraints: SnapConstraints.None },
       tool: DiagramTools.SingleSelect,
       layout: {
@@ -225,7 +227,7 @@ export default {
   }
 }
 
-//creation of the Ports
+//Function to create ports for nodes
 function getPort() {
   let port = [
     {
@@ -243,6 +245,7 @@ function getPort() {
   ];
   return port;
 }
+// Function to add a new node
 function addNode() {
   let obj = {};
   obj.id = randomId();
@@ -250,7 +253,7 @@ function addNode() {
   (obj.data).Label = "Node";
   return obj;
 }
-
+// Function to add a new connector
 function addConnector(source, target) {
   let connector = {};
   connector.id = randomId();
@@ -258,7 +261,7 @@ function addConnector(source, target) {
   connector.targetID = target.id;
   return connector;
 }
-//Tool for Userhandles.
+// Function to get the tool for user handles
 function getTool(action) {
   let tool;
   if (action === "leftHandle") {
@@ -271,6 +274,7 @@ function getTool(action) {
   return tool;
 }
 
+// Class definition for handling left extension tool
 class LeftExtendTool extends ToolBase {
    mouseDown(args) {
     super.mouseDown(args);
@@ -296,7 +300,7 @@ class LeftExtendTool extends ToolBase {
     }
   }
 }
-
+// Class definition for handling right extension tool
 class RightExtendTool extends ToolBase {
   //mouseDown event
    mouseDown(args) {
@@ -324,6 +328,7 @@ class RightExtendTool extends ToolBase {
     }
   }
 }
+// Class definition for handling delete tool
 class DeleteClick extends ToolBase {
   //mouseDown event
    mouseDown(args) {
@@ -361,7 +366,7 @@ class DeleteClick extends ToolBase {
     diagramInstance.remove(node);
   }
 }
-//hide the require userhandle.
+//Function to hide the require userhandle.
 function hideUserHandle(name) {
   if (diagramInstance.selectedItems.userHandles) {
     for (let handle of diagramInstance.selectedItems.userHandles) {
@@ -371,6 +376,7 @@ function hideUserHandle(name) {
     }
   }
 }
+// Definitions for user handle icons
 let leftarrow =
   "M11.924,6.202 L4.633,6.202 L4.633,9.266 L0,4.633 L4.632,0 L4.632,3.551 L11.923,3.551 L11.923,6.202Z";
 let rightarrow =
@@ -415,15 +421,15 @@ let handle = [
   rightuserhandle,
   deleteuserhandle
 ];
-//set and creation of the Userhandle.
+///Function to set and creation of the Userhandle.
 function setUserHandle( //it is in dedicated line here.
   name,
   pathData,
   side,
   offset,
   margin,
-  halignment,
-  valignment
+  horizontalAlignment,
+  verticalAlignment
 ) {
   let userhandle = {
     name: name,
@@ -433,12 +439,12 @@ function setUserHandle( //it is in dedicated line here.
     side: side,
     offset: offset,
     margin: margin,
-    horizontalAlignment: halignment,
-    verticalAlignment: valignment
+    horizontalAlignment: horizontalAlignment,
+    verticalAlignment: verticalAlignment
   };
   return userhandle;
 }
-//Change the Position of the UserHandle.
+//Function to Change the Position of the UserHandle.
 function changeUserHandlePosition(change) {
   if (diagramInstance.selectedItems.userHandles) {
     for (let handle of diagramInstance.selectedItems.userHandles) {
@@ -470,23 +476,24 @@ function applyHandle( //it is in dedicated line here.
   side,
   offset,
   margin,
-  halignment,
-  valignment
+  horizontalAlignment,
+  verticalAlignment
 ) {
   handle.side = side;
   handle.offset = offset;
   handle.margin = margin;
-  handle.horizontalAlignment = halignment;
-  handle.verticalAlignment = valignment;
+  handle.horizontalAlignment = horizontalAlignment;
+  handle.verticalAlignment = verticalAlignment;
 }
+// Handles node creation, connector addition, selection, layout, view, and text editing in the diagram.
 function getTextEditValue(selectObject, node){
     var connector = addConnector(selectObject, node);
    diagramInstance.clearSelection();
-   var nd = diagramInstance.add(node);
+   var newNode  = diagramInstance.add(node);
    diagramInstance.add(connector);
    diagramInstance.doLayout();
-   diagramInstance.bringIntoView(nd.wrapper.bounds);
-   diagramInstance.select([diagramInstance.nameTable[nd.id]]);
+   diagramInstance.bringIntoView(newNode.wrapper.bounds);
+   diagramInstance.select([diagramInstance.nameTable[newNode.id]]);
    diagramInstance.startTextEdit(diagramInstance.selectedItems.nodes[0]);
 }
 </script>

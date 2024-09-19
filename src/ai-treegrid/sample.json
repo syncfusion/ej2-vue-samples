@@ -1,0 +1,18 @@
+{
+    "name": "Tree Grid",
+    "directory": "ai-treegrid",
+    "category": "Smart AI Solutions",
+    "samples": [
+        {
+            "url": "adaptive-datastructuring",
+            "name": "Adaptive Data Structuring",
+            "category": "Tree Grid",
+            "sourceFiles":[
+                { "displayName": "adaptive-datastructuring.vue", "path":"src/ai-treegrid/ai-adaptive-datastructuring.vue" }
+            ],
+            "description": "This demo shows the adaptive data structuring AI feature in Tree Grid."
+        }
+    ]
+}
+
+

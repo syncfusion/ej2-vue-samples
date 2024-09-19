@@ -51,7 +51,7 @@
             margin: 4px;
         }
 
-        .code-editor .content {
+        .code-editor .panecontent {
             padding: 12px;
         }
         .code-editor .splitter-image {

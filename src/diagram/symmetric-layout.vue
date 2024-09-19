@@ -1,70 +1,82 @@
+<!-- Sample for Symmetrical Layout -->
+
+<!-- Template for Symmetrical Layout -->
 <template>
-<div class="control-section">
-  <div class="col-lg-8 control-section">
-    <div class="content-wrapper">
-        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings' :setNodeTemplate='setNodeTemplate'></ejs-diagram>
+  <div class="control-section">
+    <div class="col-lg-8 control-section">
+      <div class="content-wrapper">
+        <!-- Diagram component with properties -->
+        <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height'
+          :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults'
+          :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'
+          :setNodeTemplate='setNodeTemplate'></ejs-diagram>
+      </div>
     </div>
-</div>
-<div class="col-lg-4 property-section">
-  
-    <table id="property" title="Properties">
+    <div class="col-lg-4 property-section">
+      <!-- Table for property settings -->
+      <table id="property" title="Properties">
         <tr>
-            <td style="width:30%;"> Spring Length </td>
-            <td style="width: 60%">
-                <ejs-numerictextbox ref="springlengthObj" id="springlength"      
-                                    :format='springlengthformat'
-                                    :value='springlengthvalue'
-                                    :step='springlengthstep'/>
-            </td>
+          <td style="width:30%;"> Spring Length </td>
+          <td style="width: 60%">
+            <!-- Numeric text box for spring length -->
+            <ejs-numerictextbox ref="springlengthObj" id="springlength" :format='springlengthformat'
+              :value='springlengthvalue' :step='springlengthstep' />
+          </td>
         </tr>
         <tr>
-            <td style="width:30%;">Spring Factor</td>
-            <td style="width: 60%">
-                <ejs-numerictextbox ref="springfactorbj" id="springfactor" 
-                                    :format='springfactorformat'
-                                    :value='springfactorvalue'
-                                    :step='springfactorstep'/>
-            </td>
+          <td style="width:30%;">Spring Factor</td>
+          <td style="width: 60%">
+            <!-- Numeric text box for spring factor -->
+            <ejs-numerictextbox ref="springfactorbj" id="springfactor" :format='springfactorformat'
+              :value='springfactorvalue' :step='springfactorstep' />
+          </td>
         </tr>
         <tr>
-            <td style="width:30%;">Maximum Iteration</td>
-            <td style="width: 60%">
-                <ejs-numerictextbox ref="maxiterationObj" id="maxiteration"       
-                                    :format='maxiterationformat'
-                                    :value='maxiterationvalue'
-                                    :step='maxiterationstep'/>
-            </td>
+          <td style="width:30%;">Maximum Iteration</td>
+          <td style="width: 60%">
+            <!-- Numeric text box for maximum iteration -->
+            <ejs-numerictextbox ref="maxiterationObj" id="maxiteration" :format='maxiterationformat'
+              :value='maxiterationvalue' :step='maxiterationstep' />
+          </td>
         </tr>
         <tr>
-            <td style="width: 50%"></td>
-            <td style="width: 50%; padding-top:10px">
-                <ejs-button id="refresh">Refresh</ejs-button>
-            </td>
+          <td style="width: 50%"></td>
+          <td style="width: 50%; padding-top:10px">
+            <!-- Button for refreshing the diagram layout -->
+            <ejs-button id="refresh" ref="refresh">Refresh</ejs-button>
+          </td>
         </tr>
-    </table>
-</div>
-<div id="action-description">
-    <p>This sample visualizes a simple network template using symmetrical layout algorithm.</p>
-</div>
-<div id="description">
-    <p>
-        This view is well suited for large networks and is commonly used in network component diagrams. It is typically used with
+      </table>
+    </div>
+
+    <!-- Descriptions for the Action and the Diagram -->
+    <div id="action-description">
+      <p>This sample visualizes a simple network template using symmetrical layout algorithm.</p>
+    </div>
+    <div id="description">
+      <p>
+        This view is well suited for large networks and is commonly used in network component diagrams. It is typically
+        used with
         simple straight line links. This example shows how to arrange nodes in a symmetrical structure. The
         <code>layout</code> property of the diagram can be used to enable it.
-    </p>
-
-    <p style="font-weight: 500">Injecting Module</p>
-    <p>
-        The diagram component’s features are segregated into individual feature-wise modules. To generate diagrams from an external
-        data source, inject <code>DataBinding</code> module using <code>provide: { diagram: [DataBinding] }</code> method. To automatically arrange the objects in a symmetrical structure, inject <code>SymmetricalLayout</code> module using <code>provide: { diagram: [SymmetricalLayout] }</code> method.
-    </p>
-    <br>
-</div>
-</div>
+      </p>
+      <p style="font-weight: 500">Injecting Module</p>
+      <p>
+        The diagram component’s features are segregated into individual feature-wise modules. To generate diagrams from
+        an external
+        data source, inject <code>DataBinding</code> module using <code>provide: { diagram: [DataBinding] }</code>
+        method. To automatically arrange the objects in a symmetrical structure, inject <code>SymmetricalLayout</code>
+        module using <code>provide: { diagram: [SymmetricalLayout] }</code> method.
+      </p>
+      <br>
+    </div>
+  </div>
 </template>
-<style scoped>
-</style>
+<style scoped></style>
+
 <script>
+
+// Import necessary components and modules
 import {
   DiagramComponent,
   SnapConstraints,
@@ -77,21 +89,27 @@ import { DataManager } from "@syncfusion/ej2-data";
 import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { symmetricData } from "./diagram-data";
+
+// Inject required modules into Diagram
 Diagram.Inject(DataBinding, SymmetricLayout);
 
+// Declare variables for components and settings
 let diagramInstance;
 let springLength;
 let springfactor;
 let maxiteration;
+let refreshInstance;
 
+// Export the default object for Vue component
 export default {
   components: {
     'ejs-diagram': DiagramComponent,
     'ejs-numerictextbox': NumericTextBoxComponent,
     'ejs-button': ButtonComponent
   },
-  data: function() {
+  data: function () {
     return {
+      // Diagram properties and settings
       width: "100%",
       height: "550px",
       layout: {
@@ -101,60 +119,65 @@ export default {
         maxIteration: 500,
         margin: { left: 20, top: 20 }
       },
+
       //Sets the parent and child relationship of DataSource.
       dataSourceSettings: {
         id: "Id",
         parentId: "Source",
         dataSource: new DataManager(symmetricData)
       },
+
       //Sets the constraints of the SnapSettings
       snapSettings: { constraints: SnapConstraints.None },
+
       //Sets the default values of Node
-      getNodeDefaults: (obj,diagram) => {
-        obj.height = 20;
-        obj.width = 20;
-        obj.style = { fill: "transparent", strokeWidth: 2 };
-        return obj;
+      getNodeDefaults: (node) => {
+        node.height = 20;
+        node.width = 20;
+        node.style = { fill: "transparent", strokeWidth: 2 };
+        return node;
       },
+
       //Sets the default values of connector
-      getConnectorDefaults: (connector, diagram) => {
+      getConnectorDefaults: (connector) => {
         if (connector.targetDecorator) connector.targetDecorator.shape = "None";
         connector.type = "Straight";
         return connector;
       },
-      setNodeTemplate: (obj, diagram) => {
-        setNodeTemplate(obj, diagram);
+      setNodeTemplate: (node) => {
+        setNodeTemplate(node);
       },
       tool: DiagramTools.ZoomPan,
 
+      // Numeric text box settings
       springlengthformat: "###.##",
       springlengthvalue: 80,
-      springlengthstep: 1,
-
+      springlengthstep: 1, 
       springfactorformat: "###.##",
       springfactorvalue: 0.8,
       springfactorstep: 0.1,
-
       maxiterationformat: "###.##",
       maxiterationvalue: 500,
       maxiterationstep: 1
     };
   },
+
   provide: {
     diagram: [DataBinding, SymmetricLayout]
   },
-  mounted: function() {
-    //let diagramObj: any = document.getElementById("diagram");
+
+  mounted: function () {
+    // Initialize diagram and numeric text box instances
     diagramInstance = this.$refs.diagramObj.ej2Instances;
-    //let springlengthObj: any = document.getElementById("springlength");
     springLength = this.$refs.springlengthObj.ej2Instances;
-    //let springfactorbj: any = document.getElementById("springfactor");
     springfactor = this.$refs.springfactorbj.ej2Instances;
-    //let maxiterationObj: any = document.getElementById("maxiteration");
     maxiteration = this.$refs.maxiterationObj.ej2Instances;
-    //used to apply the alignment of the layout.
-    let refreshObj = document.getElementById("refresh");
-    refreshObj.onclick = () => {
+    refreshInstance =this.$refs.refresh.ej2Instances.element;
+
+
+    // Event handler for Refresh button click
+    
+    refreshInstance.onclick = () => {
       diagramInstance.layout.springLength = springLength.value;
       diagramInstance.layout.springFactor = springfactor.value;
       diagramInstance.layout.maxIteration = maxiteration.value;
@@ -163,13 +186,13 @@ export default {
   }
 }
 
-//Funtion to add the Template of the Node.
-function setNodeTemplate(obj, diagram) {
+// Function to define node template
+function setNodeTemplate(node) {
   let shape = { type: "Basic", shape: "Ellipse" };
-  if (!(obj.data).Type ||(obj.data).Type === "Server") {
-    obj.width = 30;
-    obj.height = 30;
-    obj.shape = {
+  if (!(node.data).Type || (node.data).Type === "Server") {
+    node.width = 30;
+    node.height = 30;
+    node.shape = {
       type: "Native",
       content:
         '<svg width="50" height="65"><g id="Server2_shape" fill="transparent" stroke="transparent" stroke-width="1"' +
@@ -189,9 +212,8 @@ function setNodeTemplate(obj, diagram) {
         '<polygon fill="#656666" points="11.9,18.4 11.9,19.5 16.7,22.4 16.7,21.2  "></polygon></g></g></g></svg>'
     };
   } else {
-    obj.shape = shape;
-    obj.style = { fill: "orange" };
+    node.shape = shape;
+    node.style = { fill: "orange" };
   }
 }
-
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="content">
+    <div class="panecontent">
         <h3 class="h3">HTML</h3>
         <div class="code-preview">                        
             &lt;<span>!DOCTYPE html></span>

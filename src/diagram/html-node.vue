@@ -1,13 +1,16 @@
 <template>
 <div class="control-section">
+   <!-- Diagram component section -->
   <div id="custom-diagram" class="control-section">
     <ejs-diagram style='display:block' ref='diagramObj' id="diagram" :width='width' :backgroundColor='backgroundColor' :nodeTemplate='nodeTemplate' :height='height' :nodes='nodes'></ejs-diagram>
   </div>
+  <!-- Action description -->
   <div id="action-description">
     <p>
        This sample shows how to host an element of HTML within a node. The expense tracker application can be created using chart and grid components.
     </p>
   </div>
+   <!-- Description -->
   <div id="description">
     <p>
      This example illustrates how an HTML control is hosted inside a node. By setting <code>HTML</code> to the type property of the shape, the template node can be enabled. You can define the content to be hosted by using <code>NodeTemplate</code>.
@@ -18,18 +21,21 @@
 </template>
 <style scoped>
 /* custom code start*/
+/* Custom styles for the diagram */
 #custom-diagram .e-diagram-resize-handle.e-disabled {
   fill: #ced4da;
   opacity: 1;
   stroke: #fff;
   visibility: hidden;
 }
+/* Styles to customize the grid header */
 #custom-diagram .e-grid .e-gridheader {
 border: none;
 }
 /* custom code end*/
 </style>
 <script>
+// Import necessary Vue components and Syncfusion libraries
 import { createApp } from "vue";
 import {
   Diagram,
@@ -37,7 +43,7 @@ import {
   NodeConstraints,
   HtmlModel
 } from "@syncfusion/ej2-vue-diagrams";
-import NodeTemplate from "./complex-template.vue";
+import NodeTemplate from "./complex-template.vue"; // Importing external node template
 
 let diagramInstance;
 let shape = { type: 'HTML' };
@@ -64,13 +70,14 @@ let nodes = [
     }]
   }
 ]
-
+// Export Vue component
 export default {
   components: {
     'ejs-diagram': DiagramComponent
   },
   data: function() {
     return {
+      // Function to define the node template
       nodeTemplate: function () {
         return { template: createApp({}).component('nodeTemplate', NodeTemplate) };
       },

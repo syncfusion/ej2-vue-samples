@@ -2,24 +2,48 @@
     <div class="badge-accordion">
         <div class="col-lg-12 control-section">
             <div class="sample_container">
-                <ejs-accordion id="accordion" :created="onCreated">
+                <ejs-accordion id="accordion">
                     <e-accordionitems>
-                        <e-accordionitem expanded='true' header='Robert' :content="'accordionTemplate'" iconCss='iconCss'>
+                        <e-accordionitem expanded='true' :header="'accordionHeader1'" :content="'accordionTemplate'" :iconCss="iconCss">
+                            <template v-slot:accordionHeader1>
+                                <div>
+                                    <span>Robert</span>
+                                    <span class="e-badge e-badge-success">7 new</span>
+                                </div>
+                            </template>
                             <template v-slot:accordionTemplate>
                                 <accordiontemplateVue />
                             </template>
                         </e-accordionitem>
-                        <e-accordionitem header='Kevin' :content="'accordionTemplate'" iconCss='iconCss'>
+                        <e-accordionitem :header="'accordionHeader2'" :content="'accordionTemplate'" :iconCss="iconCss">
+                            <template v-slot:accordionHeader2>
+                                <div>
+                                    <span>Kevin</span>
+                                    <span class="e-badge e-badge-success">27 new</span>
+                                </div>
+                            </template>
                             <template v-slot:accordionTemplate>
                                 <accordiontemplateVue />
                             </template>
                         </e-accordionitem>
-                        <e-accordionitem header='Eric' :content="'accordionTemplate'" iconCss='iconCss'>
+                        <e-accordionitem :header="'accordionHeader3'" :content="'accordionTemplate'" :iconCss="iconCss">
+                            <template v-slot:accordionHeader3>
+                                <div>
+                                    <span>Eric</span>
+                                    <span class="e-badge e-badge-success">2 new</span>
+                                </div>
+                            </template>
                             <template v-slot:accordionTemplate>
                                 <accordiontemplateVue />
                             </template>
                         </e-accordionitem>
-                        <e-accordionitem header='Peter' :content="'accordionTemplate'" iconCss='iconCss'>
+                        <e-accordionitem :header="'accordionHeader4'" :content="'accordionTemplate'" :iconCss="iconCss">
+                            <template v-slot:accordionHeader4>
+                                <div>
+                                    <span>Peter</span>
+                                    <span class="e-badge e-badge-success">14 new</span>
+                                </div>
+                            </template>
                             <template v-slot:accordionTemplate>
                                 <accordiontemplateVue />
                             </template>
@@ -51,6 +75,44 @@
         max-width: 350px;
         margin: auto;
         margin-top: 20px;
+    }
+
+    .e-bigger .badge-accordion  #accordion .e-acrdn-header-content .e-badge.e-badge-success {
+        float: right;
+        margin-top: -2px;
+    }
+    
+    .badge-accordion  #accordion .e-acrdn-header-content .e-badge.e-badge-success {
+        float: right;
+        margin-top: 2px;
+    }
+
+    .highcontrast .badge-accordion  #accordion .e-acrdn-header-content .e-badge.e-badge-success {
+        margin-top: 11px;
+    }
+
+    .material .badge-accordion  #accordion .e-acrdn-header-content .e-badge.e-badge-success,
+    .material-dark .badge-accordion  #accordion .e-acrdn-header-content .e-badge.e-badge-success {
+        margin-top: 8px;
+    }
+
+    .fabric .badge-accordion  #accordion .e-acrdn-header-content .e-badge.e-badge-success,
+    .fabric-dark .badge-accordion  #accordion .e-acrdn-header-content .e-badge.e-badge-success,
+    .bootstrap .badge-accordion  #accordion .e-acrdn-header-content .e-badge.e-badge-success,
+    .bootstrap-dark .badge-accordion  #accordion .e-acrdn-header-content .e-badge.e-badge-success {
+        margin-top: 10px;
+    }
+
+    .e-bigger.bootstrap4 .badge-accordion  #accordion .e-acrdn-header-content .e-badge.e-badge-success {
+        margin-top: 2px;
+    }
+
+    .badge-accordion  #accordion .e-acrdn-header-content {
+        width: 270px;
+    }
+
+    .e-bigger .badge-accordion  #accordion .e-acrdn-header-content {
+        width: 260px;
     }
 
     /* Font Icons */
@@ -169,19 +231,6 @@ export default {
             iconCss: 'e-people e-acrdn-icons',
         };
     },
-    methods: {
-        onCreated: function(args) {
-            let badgeContent = ['7 New', '27 New', '2 New', '14 New'];
-            // Appending Badge component after the accordion rendered in created event
-            let element = document.getElementById('accordion');
-            let iconElement = Array.prototype.slice.call((element).querySelectorAll('.e-toggle-icon'));
-            for (let i = 0; i < iconElement.length; i++) {
-                // Success Badge Element
-                let badge = createElement('span', { className: 'e-badge e-badge-success' });
-                badge.textContent = badgeContent[i];
-                iconElement[i].appendChild(badge);
-            }
-        }
-    }
+    methods: { }
 };
 </script>

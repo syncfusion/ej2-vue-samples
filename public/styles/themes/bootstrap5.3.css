@@ -1,0 +1,23 @@
+.bootstrap5_3 .e-samplestatus.new.tree,
+.bootstrap5_3 .e-samplestatus.update.tree,
+.bootstrap5_3 .e-samplestatus.preview.tree {
+    margin-top: 6px !important
+}
+
+.bootstrap5_3 .copycode::before {
+    content: '\e77c';
+    font-size: 25px;
+}
+
+.bootstrap5_3 .e-samplestatus.new,
+.bootstrap5_3 .e-samplestatus.update,
+.bootstrap5_3 .e-samplestatus.preview {
+    margin: 4px 0;
+    height: 22px;
+    margin-top: 0.5px;
+    padding: 1px 4px;
+}
+
+.bootstrap5_3 .e-tab .e-tab-header:not(.e-vertical)::before {
+    border-width: 0;
+}

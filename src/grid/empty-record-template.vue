@@ -60,9 +60,9 @@ export default {
     methods: {
         imageSrc: function() {
             if (document.body.classList.value.indexOf('dark') > -1 || document.body.classList.value.indexOf('highcontrast') > -1) {
-                return 'source/grid/images/emptyRecordTemplate_dark.svg';
+                return 'src/grid/images/emptyRecordTemplate_dark.svg';
             } else {
-                return 'source/grid/images/emptyRecordTemplate_light.svg';
+                return 'src/grid/images/emptyRecordTemplate_light.svg';
             }
         }
     },

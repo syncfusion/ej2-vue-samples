@@ -97,7 +97,7 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
@@ -130,7 +130,7 @@ export default {
         }
       },
       title: 'AAPL Historical',
-      border: {width: 0},
+      border: {width: 1},
       tooltip: { enable: true, format:'High : <b>${point.high}</b><br/>Low : <b>${point.low}</b><br/>Open : <b>${point.open}</b><br/>Close : <b>${point.close}</b><br/>Volume : <b>${point.volume}</b>' },
       crosshair: {
         enable: true 

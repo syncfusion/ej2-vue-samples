@@ -43,37 +43,45 @@
                             <e-item tooltipText="Timeline Views" :template="'timelineTemplate'"></e-item>
                             <template v-slot:timelineTemplate>
                                 <div class="template">
-                                    <div class="icon-child">
-                                        <ejs-checkbox id="timeline_views" :checked="false" :created="onTimelineCreated" :change="onTimelineViewChange"></ejs-checkbox>
-                                    </div>
-                                    <div class="text-child">Timeline Views</div>
+                                    <label>
+                                        <div class="icon-child">
+                                            <ejs-checkbox id="timeline_views" :checked="false" :created="onTimelineCreated" :change="onTimelineViewChange"></ejs-checkbox>
+                                        </div>
+                                        <div class="text-child">Timeline Views</div>
+                                    </label>
                                 </div>                                             
                             </template>
                             <e-item type='Separator'></e-item>
                             <e-item tooltipText="Resource Grouping" :template="'groupTemplate'"></e-item>
                             <template v-slot:groupTemplate>
                                 <div class="template">
-                                    <div class="icon-child">
-                                        <ejs-checkbox id="grouping" :checked="true" :created="onCreated" :change="onGroupingChange"></ejs-checkbox>
-                                    </div><div class="text-child">Grouping</div>
+                                    <label>
+                                        <div class="icon-child">
+                                            <ejs-checkbox id="grouping" :checked="true" :created="onCreated" :change="onGroupingChange"></ejs-checkbox>
+                                        </div><div class="text-child">Grouping</div>
+                                    </label>
                                 </div>                            
                             </template>
                             <e-item tooltipText="Time Slots" :template="'gridlineTemplate'"></e-item>
                             <template v-slot:gridlineTemplate>
                                 <div class="template">
-                                    <div class="icon-child">
-                                        <ejs-checkbox id="timeSlot" :checked="true" :created="onTimeSlotCreated" :change="onTimeSlotChange"></ejs-checkbox>
-                                    </div>
-                                    <div class="text-child">Time Slots</div>
+                                    <label>
+                                        <div class="icon-child">
+                                            <ejs-checkbox id="timeSlot" :checked="true" :created="onTimeSlotCreated" :change="onTimeSlotChange"></ejs-checkbox>
+                                        </div>
+                                        <div class="text-child">Time Slots</div>
+                                    </label>
                                 </div>                        
                             </template>
                             <e-item tooltipText="Auto Fit Rows" :template="'autoHeightTemplate'"></e-item>
                             <template v-slot:autoHeightTemplate>
                                 <div class="template">
-                                    <div class="icon-child">
-                                        <ejs-checkbox id="row_auto_height" :checked="false" :created="onRowAutoHeightCreated" :change="onRowAutoHeightChange"></ejs-checkbox>
-                                    </div>
-                                    <div class="text-child">Auto Fit Rows</div>
+                                    <label>
+                                        <div class="icon-child">
+                                            <ejs-checkbox id="row_auto_height" :checked="false" :created="onRowAutoHeightCreated" :change="onRowAutoHeightChange"></ejs-checkbox>
+                                        </div>
+                                        <div class="text-child">Auto Fit Rows</div>
+                                    </label>
                                 </div>                        
                             </template>
                         </e-items>
@@ -303,12 +311,14 @@
         color: #fff;
     }
 
-    .bootstrap5 .schedule-overview .overview-content .right-panel .control-panel {
+    .bootstrap5 .schedule-overview .overview-content .right-panel .control-panel,
+    .bootstrap5\.3 .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #f8f9fa;
         color: #212529;
     }
 
-    .bootstrap5-dark .schedule-overview .overview-content .right-panel .control-panel {
+    .bootstrap5-dark .schedule-overview .overview-content .right-panel .control-panel,
+    .bootstrap5\.3-dark .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #343a40;
         color: #fff;
     }
@@ -555,6 +565,7 @@
     .template .text-child {
         font-size: 14px;
         line-height: 23px !important;
+        font-weight: normal;
     }
 
     @media (max-width: 481px) {

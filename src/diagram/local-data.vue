@@ -46,14 +46,14 @@ export default {
   data: function() {
     return {
       width: "100%",
-      height: 490,
+      height: "350px",
       //Configures data source
       dataSourceSettings: {
         id: "Name",
         parentId: "Category",
         dataSource: new DataManager(species),
         //binds the external data with node
-        doBinding: (nodeModel, data, diagram) => {
+        doBinding: (nodeModel, data) => {
           nodeModel.annotations = [
             {
               /* tslint:disable:no-string-literal */

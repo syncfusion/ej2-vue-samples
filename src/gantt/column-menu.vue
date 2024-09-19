@@ -26,7 +26,7 @@
 <div id="description">
     <p>
         Gantt has an option to show column menu while clicking multiple icon of each column. The column menu has an integrated option to interact with the features such as sorting, filtering, column chooser, and autoFit.  
-        This feature can be enabled by setting <code>showColumnMenu</code> to true.
+        This feature can be enabled by setting <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#showcolumnmenu">showColumnMenu</a> to true.
         The default items are,
         <br>
     </p>
@@ -41,7 +41,7 @@
     <br/>
 
     <p>
-        In this demo, the column menu feature is enabled by setting <code>showColumnMenu</code> to true with sorting, filtering, column chooser, and autoFit options.
+        In this demo, the column menu feature is enabled by setting <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#showcolumnmenu">showColumnMenu</a> to true with sorting, filtering, column chooser, and autoFit options.
     </p>
     <p>
         More information about column menu can be found in this documentation section.

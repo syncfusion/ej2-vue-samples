@@ -24,8 +24,7 @@
           <ejs-grid
             :dataSource="data"
             v-if="showGrid"
-            :commandClick="openViewer"
-          >
+            :commandClick="openViewer">
             <e-columns>
               <e-column
                 headerText="File Name"

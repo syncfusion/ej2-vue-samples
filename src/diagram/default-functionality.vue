@@ -1,275 +1,318 @@
 <template>
-<div class="control-section">
-<div>
-    <ejs-toolbar id='toolbar' ref="toolbar_diagram" overflowMode='Scrollable' style="width:100%;height: 10%;margin-top: 10px;" :clicked='toolbarclicked'>
-      <e-items>
-                <e-item prefixIcon='e-icons e-circle-add' tooltipText='New Diagram'></e-item>
-                <e-item prefixIcon='e-icons e-folder-open' tooltipText='Open Diagram'>
-                </e-item>
-                <e-item prefixIcon='e-icons e-save' tooltipText='Save Diagram'></e-item>
-                <e-item prefixIcon='e-print e-icons' tooltipText='Print Diagram'></e-item>
-                <e-item type="Input" tooltipText="Export Diagram" :template="exportImage">
-                </e-item>
-                <e-item type='Separator'></e-item>
-                <e-item prefixIcon='e-cut e-icons' tooltipText='Cut' cssClass="tb-item-middle tb-item-lock-category" disabled=true></e-item>
-                <e-item prefixIcon='e-copy e-icons' tooltipText='Copy' cssClass="tb-item-middle tb-item-lock-category" disabled=true></e-item>
-                <e-item prefixIcon='e-icons e-paste' tooltipText='Paste' disabled=true></e-item>
-                <e-item type='Separator'></e-item>
-                <e-item prefixIcon='e-icons e-undo' tooltipText='Undo' disabled=true></e-item>
-                <e-item prefixIcon='e-icons e-redo' tooltipText='Redo' disabled=true></e-item>
-                <e-item type='Separator'></e-item>
-                <e-item prefixIcon='e-pan e-icons' tooltipText='Pan Tool' cssClass ='tb-item-start pan-item'></e-item>
-                <e-item prefixIcon='e-mouse-pointer e-icons' tooltipText='Select Tool' cssClass ='tb-item-middle tb-item-selected'></e-item>
-                <e-item  tooltipText='Draw Connectors' :template="drawConnector" id="drawConnector">
-                </e-item>
-                <e-item  tooltipText='Draw Shapes' :template="drawShapes" id="drawShapes">
-                </e-item>
-                <e-item prefixIcon='e-caption e-icons' tooltipText='Text Tool' cssClass='tb-item-end'></e-item>
-                <e-item type='Separator'></e-item>
-                <e-item disabled=true  prefixIcon= 'e-icons e-lock' tooltipText= 'Lock' cssClass='tb-item-middle tb-item-lock-category'></e-item>
-                <e-item disabled=true  prefixIcon= 'e-trash e-icons' tooltipText= 'Delete' cssClass='tb-item-middle tb-item-lock-category'></e-item>
-                <e-item type='Separator'></e-item>
-                   <e-item disabled=true  type= 'Input'  tooltipText='Align Objects' :template="alignObjects" id="alignObjects">
-                </e-item>
-                   <e-item  disabled=true  type= 'Input' tooltipText='Distribute Objects' :template="distributeObjects" id="distributeObjects">
-                </e-item>
-
-                <e-item type='Separator'></e-item>
-                     <e-item  disabled=true  type= 'Input' tooltipText='Order Commands' :template="orderCommands" id="orderCommands">
-                </e-item>
-                <e-item type='Separator'></e-item>
-                   <e-item  disabled=true  type= 'Input' tooltipText='Group/Ungroup' :template="groupUngroup" id="groupUngroup">
-                </e-item>
-                <e-item type='Separator'></e-item>
-                    <e-item  disabled=true  type= 'Input' tooltipText='Rotate' :template="rotateObjects" id="rotateObjects">
-                </e-item>
-                <e-item type='Separator'></e-item>
-             <e-item  disabled=true  type= 'Input' tooltipText='Flip' :template="flipObjects" id="flipObjects">
-                </e-item>
-                <e-item type='Separator'></e-item>
-                  <e-item :template="zoomDiagram" id="zoomDiagram">
-                </e-item>
-              
-            </e-items>
-    </ejs-toolbar>
-</div>
-  <div style="width:100%">
-    <div class="sb-mobile-palette-bar">
-      <div id="palette-icon" role="button"  class="e-ddb-icons1 e-toggle-palette"></div>
+  <div class="control-section">
+    <div>
+      <ejs-toolbar
+        id="toolbar"
+        ref="toolbar_diagram"
+        overflowMode="Scrollable"
+        style="width: 100%; height: 10%; margin-top: 10px"
+        :clicked="toolbarclicked"
+      >
+        <e-items>
+          <e-item prefixIcon="e-icons e-circle-add" tooltipText="New Diagram" id="New_Diagram"></e-item>
+          <e-item  prefixIcon="e-icons e-folder-open" tooltipText="Open Diagram" id="Open_diagram"></e-item>
+          <e-item prefixIcon="e-icons e-save" tooltipText="Save Diagram" id="Save" ></e-item>
+          <e-item prefixIcon="e-print e-icons" tooltipText="Print Diagram" id="Print"></e-item>
+          <e-item type="Input" tooltipText="Export Diagram" id="Export" :template="exportImage"></e-item>
+          <e-item type="Separator"></e-item>
+          <e-item prefixIcon="e-cut e-icons" tooltipText="Cut"  id="Cut"
+            cssClass="tb-item-middle tb-item-lock-category" disabled="true"></e-item>
+          <e-item prefixIcon="e-copy e-icons" tooltipText="Copy" id="Copy"
+            cssClass="tb-item-middle tb-item-lock-category" disabled="true"></e-item>
+          <e-item prefixIcon="e-icons e-paste" tooltipText="Paste" id="Paste" disabled="true"></e-item>
+          <e-item type="Separator"></e-item>
+          <e-item prefixIcon="e-icons e-undo"  tooltipText="Undo" id="Undo" disabled="true"></e-item>
+          <e-item prefixIcon="e-icons e-redo" tooltipText="Redo" id="Redo" disabled="true"></e-item>
+          <e-item type="Separator"></e-item>
+          <e-item prefixIcon="e-pan e-icons" tooltipText="Pan Tool" id="Pan_tool" cssClass="tb-item-start pan-item"></e-item>
+          <e-item prefixIcon="e-mouse-pointer e-icons" tooltipText="Select Tool" id="Select_tool" cssClass="tb-item-middle tb-item-selected"></e-item>
+          <e-item tooltipText="Draw Connectors" :template="drawConnector" id="drawConnector"></e-item>
+          <e-item tooltipText="Draw Shapes" :template="drawShapes" id="drawShapes"></e-item>
+          <e-item prefixIcon="e-caption e-icons" tooltipText="Text Tool" id="Text_tool" cssClass="tb-item-end"></e-item>
+          <e-item type="Separator"></e-item>
+          <e-item disabled="true" prefixIcon="e-icons e-lock" tooltipText="Lock" id="Lock" cssClass="tb-item-middle tb-item-lock-category"></e-item>
+          <e-item disabled="true"  prefixIcon="e-trash e-icons" tooltipText="Delete" id="Delete"
+            cssClass="tb-item-middle tb-item-lock-category"></e-item>
+          <e-item type="Separator"></e-item>
+          <e-item disabled="true" type="Input" tooltipText="Align Objects" :template="alignObjects" id="alignObjects"></e-item>
+          <e-item disabled="true" type="Input" tooltipText="Distribute Objects" :template="distributeObjects" id="distributeObjects"></e-item>
+          <e-item type="Separator"></e-item>
+          <e-item disabled="true" type="Input" tooltipText="Order Commands" :template="orderCommands" id="orderCommands"></e-item>
+          <e-item type="Separator"></e-item>
+          <e-item disabled="true" type="Input" tooltipText="Group/Ungroup" :template="groupUngroup" id="groupUngroup"></e-item>
+          <e-item type="Separator"></e-item>
+          <e-item disabled="true" type="Input" tooltipText="Rotate" :template="rotateObjects" id="rotateObjects"></e-item>
+          <e-item type="Separator"></e-item>
+          <e-item  disabled="true" type="Input" tooltipText="Flip" :template="flipObjects" id="flipObjects"
+          ></e-item>
+          <e-item type="Separator"></e-item>
+          <e-item :template="zoomDiagram" id="zoomDiagram"> </e-item>
+        </e-items>
+      </ejs-toolbar>
     </div>
-    <div id="palette-space" class="sb-mobile-palette">
-      <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight' :getNodeDefaults='palettegetNodeDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight'
-      :symbolWidth='symbolWidth'></ejs-symbolpalette>
+    <div style="width: 100%">
+      <div class="sb-mobile-palette-bar">
+        <div
+          id="palette-icon"
+          ref="paletteIcon"
+          role="button"
+          class="e-ddb-icons1 e-toggle-palette"
+        ></div>
+      </div>
+      <div id="palette-space" class="sb-mobile-palette">
+        <ejs-symbolpalette
+          id="symbolpalette"
+          ref="paletteSpace"
+          :expandMode="expandMode"
+          :palettes="palettes"
+          :width="palettewidth"
+          :height="paletteheight"
+          :getNodeDefaults="palettegetNodeDefaults"
+          :getSymbolInfo="getSymbolInfo"
+          :symbolMargin="symbolMargin"
+          :symbolHeight="symbolHeight"
+          :symbolWidth="symbolWidth"
+          :enableSearch="true"
+        ></ejs-symbolpalette>
+      </div>
+
+      <div id="diagram-space" class="sb-mobile-diagram">
+        <ejs-diagram
+          style="display: block"
+          ref="diagramObject"
+          id="diagram"
+          :width="width"
+          :height="height"
+          :nodes="nodes"
+          :connectors="connectors"
+          :getNodeDefaults="getNodeDefaults"
+          :getConnectorDefaults="getConnectorDefaults"
+          :dragEnter="dragEnter"
+          :selectionChange="selectionChange"
+          :historyChange="historyChange"
+          :snapSettings="snapSettings"
+          :created="created"
+          :drawingObject="drawingObject"
+        ></ejs-diagram>
+      </div>
+      <div style="display: none">
+        <ejs-uploader
+          id="fileupload"
+          name="UploadFiles"
+          :asyncSettings="fileuploadasyncSettings"
+          :success="fileuploadsuccess"
+          :showFileList="showFile"
+        />
+      </div>
     </div>
-
-    <div id="diagram-space" class="sb-mobile-diagram">
-      <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dragEnter='dragEnter'
-       :selectionChange="selectionChange" :historyChange='historyChange' :snapSettings='snapSettings' :created='created' :drawingObject='drawingObject'></ejs-diagram>
+    <div id="action-description">
+      <p>
+        This sample visualizes the processing of an order placed using credit
+        card with built-in flow shapes.
+      </p>
     </div>
-          <div style="display:none;">
-          <ejs-uploader id="fileupload" name="UploadFiles"       
-                      :asyncSettings='fileuploadasyncSettings'
-                      :success='fileuploadsuccess'
-                      :showFileList ='showFile'/>
-           </div>
-  </div>
-  <div id="action-description">
+    <div id="description">
       <p>
-          This sample visualizes the processing of an order placed using credit card with built-in flow shapes.
-      </p>
-  </div>
-  <div id="description">
-      <p>
-          This example shows how to create a simple flow chart using the diagram control. The <code>nodes</code> property can be used to define different stages of a process. To define the flow between different stages, the <code>connectors</code> property can be used. The <code>getNodeDefaults</code> and <code>getConnectorDefaults</code> properties define the default behavior of shapes and connectors.
+        This example shows how to create a simple flow chart using the diagram
+        control. The <code>nodes</code> property can be used to define different
+        stages of a process. To define the flow between different stages, the
+        <code>connectors</code> property can be used. The
+        <code>getNodeDefaults</code> and
+        <code>getConnectorDefaults</code> properties define the default behavior
+        of shapes and connectors.
       </p>
 
       <p>
-          To easily build flow diagrams, few shapes are predefined and added to symbol palette. You can drag-and-drop predefined shapes into the drawing area. The <code>symbols</code> property allows you to add predefined  symbols to the palette.
+        To easily build flow diagrams, few shapes are predefined and added to
+        symbol palette. You can drag-and-drop predefined shapes into the drawing
+        area. The <code>symbols</code> property allows you to add predefined
+        symbols to the palette.
       </p>
 
-      <p>
-          In this example, undo and redo support is enabled.
-      </p>
+      <p>In this example, undo and redo support is enabled.</p>
       <p style="font-weight: 500">Injecting Module</p>
       <p>
-          The diagram component’s features are segregated into individual feature-wise modules. To enable undo and  redo support, inject <code>UndoRedo</code> module using <code>provide: { diagram: [UndoRedo] }</code> method.
+        The diagram component’s features are segregated into individual
+        feature-wise modules. To enable undo and redo support, inject
+        <code>UndoRedo</code> module using
+        <code>provide: { diagram: [UndoRedo] }</code> method.
       </p>
-      <br>
+      <br />
+    </div>
   </div>
-</div>
 </template>
 <style scoped>
 /*To align palette */
 .sb-mobile-palette {
-        width:240px;
-        height:100%;
-        float:left;
-    }
-    
-    .sb-mobile-palette-bar {
-        display: none;
-    }
-    /*To align diagram */
-    .sb-mobile-diagram {
-        width:calc(100% - 242px);
-        height: 100%;
-        float: left;
-    }
-    
-    @media (max-width: 550px) {
-    
-        .sb-mobile-palette {
-            z-index: 19;
-            position: absolute;
-            display: none;
-            transition: transform 300ms linear, visibility 0s linear 300ms;
-            width:39%;
-            height:100%;
-        }
-        
-        .sb-mobile-palette-bar {
-            display: block;
-            width: 100%;
-            background:#fafafa;
-            padding: 10px 10px;
-            border:0.5px solid #e0e0e0;
-            min-height: 40px;
-        }
-        
-        .sb-mobile-diagram {
-            width: 100%;
-            height: 100%;
-            float: left;
-            left: 0px;
-        }
-    
-        #palette-icon {
-            font-size: 20px; 
-        }
-    }
-        
-    .sb-mobile-palette-open {
-        position: absolute;
-        display: block;
-        right: 15px;
-    }
-            .e-export::before {
-                    content: "\e711";
-            }
-           
-  /* These styles are used for toolbar icons*/
-                @font-face {
-    font-family: 'Bootstrap5 Diagram Builder';
-    src:
-    url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    }
-            [class^="sf-diagram-icon-"],[class*=" sf-diagram-icon-"] {
-                font-family: 'Bootstrap5 Diagram Builder' !important;
-                speak: none;
-                font-size: 55px;
-                font-style: normal;
-                font-weight: normal;
-                font-variant: normal;
-                text-transform: none;
-                line-height: 1;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
-    
-            .sf-diagram-icon-align-left-1:before {
-                content: "\e8bc";
-            }
-    
-            .sf-diagram-icon-align-middle-1:before {
-                content: "\e8bd";
-            }
-    
-            .sf-diagram-icon-align-right-1:before {
-                content: "\e8be";
-            }
-    
-            .sf-diagram-icon-align-top-1:before {
-                content: "\e8bf";
-            }
-    
-            .sf-diagram-icon-align-center-1:before {
-                content: "\e8c0";
-            }
-    
-            .sf-diagram-icon-align-bottom-1:before {
-                content: "\e8c1";
-            }
-    
-            .sf-diagram-icon-distribute-vertical:before {
-                content: "\e8c2";
-            }
-    
-            .sf-diagram-icon-distribute-horizontal:before {
-                content: "\e8c3";
-            }
-    
-            .sf-diagram-icon-elipse:before {
-                content: "\e8c4";
-            }
-    
-            .sf-diagram-icon-line-1:before {
-                content: "\e8c5";
-            }
-    
-            .sf-diagram-icon-orthogonal:before {
-                content: "\e8c6";
-            }
-    
-            .sf-diagram-icon-bezier:before {
-                content: "\e8c7";
-            }
-    
-            .sf-diagram-icon-same-width:before {
-                content: "\e8c8";
-            }
-    
-            .sf-diagram-icon-same-height:before {
-                content: "\e8c9";
-            }
-    
-            .sf-diagram-icon-same-size:before {
-                content: "\e8ca";
-            }
+  width: 240px;
+  height: 100%;
+  float: left;
+}
 
-            @font-face {
-                font-family: 'e-ddb-icons';
-                src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
-                font-weight: normal;
-                font-style: normal;
-            }
-        
-            .e-ddb-icons {
-                font-family: 'e-ddb-icons';
-                speak: none;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: normal;
-                font-variant: normal;
-                text-transform: none;
-                line-height: 1;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
+.sb-mobile-palette-bar {
+  display: none;
+}
+/*To align diagram */
+.sb-mobile-diagram {
+  width: calc(100% - 242px);
+  height: 100%;
+  float: left;
+}
 
-            .e-basic::before {
-                content: "\e726";
-            }
-        
-            .e-flow::before {
-                content: "\e724";
-            }
-        
-            .e-diagram-connector::before {
-                content: "\e725";
-            }
-              
+@media (max-width: 550px) {
+  .sb-mobile-palette {
+    z-index: 19;
+    position: absolute;
+    display: none;
+    transition: transform 300ms linear, visibility 0s linear 300ms;
+    width: 39%;
+    height: 100%;
+  }
+
+  .sb-mobile-palette-bar {
+    display: block;
+    width: 100%;
+    background: #fafafa;
+    padding: 10px 10px;
+    border: 0.5px solid #e0e0e0;
+    min-height: 40px;
+  }
+
+  .sb-mobile-diagram {
+    width: 100%;
+    height: 100%;
+    float: left;
+    left: 0px;
+  }
+
+  #palette-icon {
+    font-size: 20px;
+  }
+}
+
+.sb-mobile-palette-open {
+  position: absolute;
+  display: block;
+  right: 15px;
+}
+.e-export::before {
+  content: "\e711";
+}
+
+/* These styles are used for toolbar icons*/
+@font-face {
+  font-family: "Bootstrap5 Diagram Builder";
+  src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMj8pS7wAAAEoAAAAVmNtYXDpC+lzAAABwAAAAFJnbHlmFl1gjgAAAjgAABJkaGVhZCLFoZwAAADQAAAANmhoZWEIFgQRAAAArAAAACRobXR4QAAAAAAAAYAAAABAbG9jYR/YGjgAAAIUAAAAIm1heHABHgE8AAABCAAAACBuYW1lrHD/dgAAFJwAAAMJcG9zdK9WHTkAABeoAAABBAABAAAEAAAAAFwEAAAAAAADuQABAAAAAAAAAAAAAAAAAAAAEAABAAAAAQAAWUF2oF8PPPUACwQAAAAAAN/3LnMAAAAA3/cucwAAAAADuQO5AAAACAACAAAAAAAAAAEAAAAQATAABAAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQQAAZAABQAAAokCzAAAAI8CiQLMAAAB6wAyAQgAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA6LzoygQAAAAAXAQAAAAAAAABAAAAAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAAAAAIAAAADAAAAFAADAAEAAAAUAAQAPgAAAAQABAABAADoyv//AADovP//AAAAAQAEAAAAAQACAAMABAAFAAYABwAIAAkACgALAAwADQAOAA8AAAAAAAAAYgDEASYBiAHqAkwC1gNiBFYEigUuBeIG2gfSCTIAAAADAAAAAANAA0AAAwAnAEkAAAEVITUlIR8IDwcFLwc1PwYnHwYVERUPBi8HET8GAUkByv42AcoJCQgGBgIEAQEBAwQGBgQICf4xCggIBwUDAwIBAgUFBwgIaQUEBAMDAgICAgMDBAQFBAUEAwMCAQEBAQIDAwQFAi5cXC4BAwQGBwMJCWAJCQcHBgIEAQEBAwQGBwMJCWAJCQcHBgQD5gEBAgMDBAUE/awEBQQDAwIBAQEBAgMDBAUEAlQEBQQDAwIBAAAAAgAAAAADQAMpAAQATgAAAR0BMxEnMx8IMx8HDwcjFQ8HIy8IIy8HPwczNT8GAdJcXFwJCQcHBgIEAQHOBAUEAwMCAQEBAQIDAwQFBM4BAwQGBwMJCWAJCQcHBgIEAQHOBAUEAwMCAQEBAQIDAwQFBM4BAwQGBwcJAvz8/AH4LgEDBAYGBAgJ6gEBAgMDBAQFBQQEAwMCAQHlCQkIBgYCBAIBAwQGBgQICeoBAQIDAwQEBQUEBAMDAgEB5QkJCAYGBAMAAAMAAAAAA0ADQAADACcASQAAExUhNSUhHwcVDwcFLwg/BiUfBxEPBy8GNRE1PwXtAcr+NgHKCggIBwUDAwIBAgUFBwQICf4xCQkIBgYCBAEBAQMEBgYICQJGBAUEAwMCAQEBAQIDAwQFBAUEBAMDAgICAgMDBAQCLlxcLgEDBAYHAwkJYAkJBwcGAgQBAQEDBAYHAwkJYAkJBwcGBAPmAQECAwMEBQT9rAQFBAMDAgEBAQECAwMEBQQCVAQFBAMDAgEAAAADAAAAAANAA0AAAwAnAEkAAAERMxEnMx8HEw8ILwcDPwYnIR8HDwYjISMvBj8GAdJcXFwJCQcHBgIEAQEBAwQGBwMJCWAJCQcHBgIEAQEBAwQGBwcJ8wJUBAUEAwMCAQEBAQIDAwQFBP2sBAUEAwMCAQEBAQIDAwQFArf+NgHKLgECBQUHBAgJ/jEJCQgGBgIEAQEBAwQGBgQICQHPCggIBwUFAl0BAQIDAwQFBAUEBAMDAgICAgMDBAQFBAUEAwMCAQAAAgAAAAADKQNAAAMATQAAARUhNQMfBxUzHwcVDwgVDwcvBzUjLwc1Pwg1PwYBBAH4/AUEBAMDAgEB5QkJCAYGAgQCAQMEBgYECAnqAQECAwMEBAUFBAQDAwIBAeUJCQgGBgIEAgEDBAYGBAgJ6gEBAgMDBAQCLlxcARMBAQIDAwQFBM4BAwQGBwMJCWAJCQcHBgIEAQHOBAUEAwMCAQEBAQIDAwQFBM4BAwQGBwMJCWAJCQcHBgIEAQHOBAUEAwMCAQAAAAMAAAAAA0ADQAAhACUASQAANyEzHwYPByEvBz8GAREzESczHwcTDwcjLwcDPwbWAlQEBQQDAwIBAQEBAgMDBAUE/awEBQQDAwIBAQEBAgMDBAUBAFxcXAkJBwcGAgQBAQEDBAYHAwkJYAkJBwcGAgQBAQEDBAYHBwntAgIDAwQEBQQFBAMDAgEBAQECAwMEBQQFBAQDAwICAib+NgHKLgEDBAYGBAgJ/jEKCAgHBQMDAgECBQUHBAgJAc8JCQgGBgQDAAAEAAAAAANAA0AAIQAlAEkAawAANyEzHwYPByEvBz8GExUhNSUhHwcVDwcFLwc1PwYnIR8HDwYjISMvBj8G1gJUBAUEAwMCAQEBAQIDAwQFBP2sBAUEAwMCAQEBAQIDAwQFSQHK/jYBygkJCAYGAgQCAQMEBgYECAn+MQkJCAYGAgQCAQMEBgYICTwCVAQFBAMDAgEBAQECAwMEBQT9rAQFBAMDAgEBAQECAwMEBe0CAgMDBAQFBAUEAwMCAQEBAQIDAwQFBAUEBAMDAgIBQVxcLgEDBAYHAwkJYAkJBwcGAgQBAQEDBAYHAwkJYAkJBwcGBAPmAQECAwMEBQQFBAQDAwICAgIDAwQEBQQFBAMDAgEAAAAEAAAAAANAA0AAAwAnAEkAawAAAREzESczHwcTDwcjLwcDPwYlHwcRDwcvBjURNT8FJR8GFREVDwYvBxE/BgHSXFxcCQkHBwYCBAEBAQMEBgcDCQlgCQkHBwYCBAEBAQMEBgcHCQFhBAUEAwMCAQEBAQIDAwQFBAUEBAMDAgICAgMDBAT9sQUEBAMDAgICAgMDBAQFBAUEAwMCAQEBAQIDAwQFAuX+NgHKLgEDBAYGBAgJ/jEJCQgGBgIEAgEDBAYGBAgJAc8JCQgGBgQDLwEBAgMDBAUE/awEBQQDAwIBAQEBAgMDBAUEAlQEBQQDAwIBAQEBAgMDBAUE/awEBQQDAwIBAQEBAgMDBAUEAlQEBQQDAwIBAAAAAgAAAAADbgMSAGAA4AAAASMPFx8XPxcvFzMfHR0BDx0rAS8dPQE/HQIAEBEgHh4cGhkXCgoKCQgIBwYGBQUDAwIBAQEBAgMDBQUGBgcICAkKCgoXGRocHh4gISEgHh4cGhkXCgoKCQgIBwYGBQUDAwIBAQEBAgMDBQUGBgcICAkKCgoXGRocHh4gIRMSExIREhEREBAPDw4ODQ0MDAsKCQkICAYGBQQDAwEBAwMEBQYGCAgJCQoLDAwNDQ4ODw8QEBEREhESExITExITEhESEREQEA8PDg4NDQwMCwoJCQgIBgYFBAMDAQEDAwQFBgYICAkJCgsMDA0NDg4PDxAQERESERITEgLlAQQFCAoLDQ8ICAkJCQoKCgoLCwsLDAsMDAsMCwsLCwoKCgoJCQkICA8NCwoIBQQBAQQFCAoLDQ8ICAkJCQoKCgoLCwsLDAsMDAsMCwsLCwoKCgoJCQkICA8NCwoIBQQvAgEDAwMFBQUGBwcICAkJCQoLCgwLDAwNDA0ODQ4ODg4ODg0ODQwNDAwLDAoLCgkJCQgIBwcGBQUFAwMDAQICAQMDAwUFBQYHBwgICQkJCgsKDAsMDA0MDQ4NDg4ODg4ODQ4NDA0MDAsMCgsKCQkJCAgHBwYFBQUDAwMBAgAAAAABAAAAAAOZA5kAIQAAEx8DAR8DDwcvAwEvAz8GhgYGBQUC9AQDAgEBAgMEBQUGBgYGBQX9DAQDAgEBAgMEBQUGA5oBAgME/QwFBQYGBgYFBQQDAgEBAgMEAvQFBQYGBgYFBQQDAgAAAAEAAAAAA7kDmQCNAAATHwczHw8RFR8JMyE/BjsBHwkdAQ8KLwchLw8RNS8JKwEPBisBLwk9AT8JhggJBwcHBgUGxQ0MDAwLCgoJCAgGBQQDAgEBAgIGBwoLBQYHBgEFBgYGBgcHCAgGBwYGCgoHBgICAQECAgYHCgoGBgcGCAgHBwYGBgb++w0MDAwLCgoJCAcHBQQDAgEBAgIGBwoKBgYHBsUGBQYHBwgICAYHBgYKCgcGAgIBAQICBgcKCwUGBwOaAQICBAQFBggBAgMEBQcHCAkKCgsMDAwN/ggGBwYGCgoHBgICAQoFBQQDAwEBAQIGCAkLBgYGBgcGBgYLCQgGAgEBAQEBAwMEBQUKAQIDBAUHBwgJCgoLDAwMDQH4BgcGBgoKBwYCAgEIBgUEBAICAQECBggJCwYGBgYHBgYGCwkIBgIBAQABAAAAAAN5A7gAogAAEzMfFRUPER0BHxwVDwcvFTU/ET0BLxw1PwamA7gTEhIRERAQDg8NDAwLCQkIBwUEAwIBAgMEBgcICQoUCAcHBQQEAgIBAwMEBQYHBwkJCQoLDAsNDQ0ODg65BgYFBAMDAQECBAMFBQYFvBMSEhEREBAODg4MDAsJCQgHBQQDAgECAwQGBwgJChQIBwcFBAQCAgEDAwQFBgcHCQkJCgsMCw0NDQ4ODrkGBgUEAwMBAQMDBAQFBgO5EwIEBQYHCAkKDAwNDg8PERESEhISEhISEhESEREQEBAbDAwMDQ4NDg0ODg4ODg0ODQ0MCwsKCQkIBwYGBAQDAhICAgMFBQUGBwYFBQQDAwEBEwIEBQYHCAkKCw0NDg8PERESEhISEhISEhESEREQEBAaDA0MDQ0ODQ4ODg4ODg0ODQ0MCwsKCQkIBwYGBAQDAhIBAwMFBQUGBwYFBQQDAwIAAAADAAAAAAO5A7kAWQCNANEAAAEfBw8EIS8DPQE/Bh8HHQEPBy8GPQE/AyEfBA8HLwg/BycjDwkVERUfCTMhMz8JNRE1LwkjJSEfDxEPDyEvDxE/DgFDBgYFBQQDAgEBAgMEKAGPKQQDAgIDBAUFBgYGBgYFXgQDAgIDBF4FBgYGBgYFBQQDAgIDBCn+cSgEAwIBAQIDBAUFBgYGBgUFXwQDAQEBAQMEXwUFBngGBwYGCgoHBgICAQECAgYHCgoGBgcGAnYGBwYGCgoHBgICAQECAgYHCgoGBgcG/YoCdg0MDAwLCgoJCAcHBQQDAgEBAgMEBQcHCAkKCgsMDAwN/YoNDAwMCwoKCQgHBwUEAwIBAQIDBAUHBwgJCgoLDAwMAn4BAQMEBQYFBwYFBgUoKAUGBQYHBQYFBAMBAQEBAwRfBQUGBgYGBQVfBAMBAQEBAwQFBgUHBgUGBSgoBQYFBgcFBgUEAwEBAQEDBF8FBQYGBgYFBV8EAwH9AQICBgcKCgYGBwb9igYHBgYKCgcGAgIBAQICBgcKCgYGBwYCdgYHBgYKCgcGAgIBPwECAwQFBwcICQoKCwwMDA39ig0MDAwLCgoJCAcHBQQDAgEBAgMEBQcHCAkKCgsMDAwNAnYNDAwMCwoKCQgHBwUEAwIAAAAAAwAAAAADuQO5AFkAjQDRAAABMx8HDwYrAS8DET8EHwcPCC8IPwY7AR8DEQ8DKwEvBj8HJSMPCRURFR8JMyEzPwk1ETUvCSMlIR8PEQ8PIS8PET8OAgAGBgUFXwQDAQEBAQMEBQYFBwYFBgUoKAUGBQYHBQYFBAMBAQEBAwRfBQUGBgYGBQVfBAMBAQEBAwQFBgUHBgUGBSgoBQYFBgcFBgUEAwEBAQEDBF8FBQb+ywYHBgYKCgcGAgIBAQICBgcKCgYGBwYCdgYHBgYKCgcGAgIBAQICBgcKCgYGBwb9igJ2DQwMDAsKCgkIBwcFBAMCAQECAwQFBwcICQoKCwwMDA39ig0MDAwLCgoJCAcHBQQDAgEBAgMEBQcHCAkKCgsMDAwDKwIDBF4FBgYGBgYFBQQDAgIDBCn+cSgEAwIBAQIDBAUFBgYGBgUFXwQDAQEBAQMEXwUFBgYGBgUFBAMCAgMEKAGPKQQDAgIDBAUFBgYGBgYFXgQDAk8BAgIGBwoKBgYHBv2KBgcGBgoKBwYCAgEBAgIGBwoKBgYHBgJ2BgcGBgoKBwYCAgE/AQIDBAUHBwgJCgoLDAwMDf2KDQwMDAsKCgkIBwcFBAMCAQECAwQFBwcICQoKCwwMDA0Cdg0MDAwLCgoJCAcHBQQDAgAAAAMAAAAAA7kDuQC3AOsBLwAAATMfBw8GKwEvAxUzLwM9AT8FOwEfBh0BDwcvBj0BPwMjFT8DOwEfBg8ILwg/BjsBHwM1Ix8DHQEPBi8HPQE/BjsBHwUdAQ8DMzUPAysBLwY/ByUjDwkVERUfCTMhMz8JNRE1LwkjJSEfDxEPDyEvDxE/DgIABgYFBV8EAwEBAQEDBAUGBQcGBQYFKKgpBAMCAgMEBQUGBgYGBgVeBAMCAgMEXgUGBgYGBgUFBAMCAgMEKagoBQYFBgcFBgUEAwEBAQEDBF8FBQYGBgYFBV8EAwEBAQEDBAUGBQcGBQYFKKgpBAMCAgMEBQUGBgYGBgVeBAMCAgMEXgUGBgYGBgUFBAMCAgMEKagoBQYFBgcFBgUEAwEBAQEDBF8FBQb+ywYHBgYKCgcGAgIBAQICBgcKCgYGBwYCdgYHBgYKCgcGAgIBAQICBgcKCgYGBwb9igJ2DQwMDAsKCgkIBwcFBAMCAQECAwQFBwcICQoKCwwMDA39ig0MDAwLCgoJCAcHBQQDAgEBAgMEBQcHCAkKCgsMDAwDKwIDBF4FBgYGBgYFBQQDAgIDBCmoKAUGBgYGBQYFBAMCAgMEXwUFBgYGBgUFXwQDAQEBAQMEBQYGBgYFBgUpqCgEAwICAwQFBQYGBgYFBV8EAwEBAQEDBF8FBQYGBgYFBQQDAgIDBCioKQUFBgYGBgYFBAICAQECAgRfBQUGBgYGBgRfBAMCAgMEBQUGBgYGBgUoqCkEAwICAwQFBQYGBgYGBV4EAwJPAQICBgcKCgYGBwb9igYHBgYKCgcGAgIBAQICBgcKCgYGBwYCdgYHBgYKCgcGAgIBPwECAwQFBwcICQoKCwwMDA39ig0MDAwLCgoJCAcHBQQDAgEBAgMEBQcHCAkKCgsMDAwNAnYNDAwMCwoKCQgHBwUEAwIAAAASAN4AAQAAAAAAAAABAAAAAQAAAAAAAQAaAAEAAQAAAAAAAgAHABsAAQAAAAAAAwAaACIAAQAAAAAABAAaADwAAQAAAAAABQALAFYAAQAAAAAABgAaAGEAAQAAAAAACgAsAHsAAQAAAAAACwASAKcAAwABBAkAAAACALkAAwABBAkAAQA0ALsAAwABBAkAAgAOAO8AAwABBAkAAwA0AP0AAwABBAkABAA0ATEAAwABBAkABQAWAWUAAwABBAkABgA0AXsAAwABBAkACgBYAa8AAwABBAkACwAkAgcgQm9vdHN0cmFwNSBEaWFncmFtIEJ1aWxkZXJSZWd1bGFyQm9vdHN0cmFwNSBEaWFncmFtIEJ1aWxkZXJCb290c3RyYXA1IERpYWdyYW0gQnVpbGRlclZlcnNpb24gMS4wQm9vdHN0cmFwNSBEaWFncmFtIEJ1aWxkZXJGb250IGdlbmVyYXRlZCB1c2luZyBTeW5jZnVzaW9uIE1ldHJvIFN0dWRpb3d3dy5zeW5jZnVzaW9uLmNvbQAgAEIAbwBvAHQAcwB0AHIAYQBwADUAIABEAGkAYQBnAHIAYQBtACAAQgB1AGkAbABkAGUAcgBSAGUAZwB1AGwAYQByAEIAbwBvAHQAcwB0AHIAYQBwADUAIABEAGkAYQBnAHIAYQBtACAAQgB1AGkAbABkAGUAcgBCAG8AbwB0AHMAdAByAGEAcAA1ACAARABpAGEAZwByAGEAbQAgAEIAdQBpAGwAZABlAHIAVgBlAHIAcwBpAG8AbgAgADEALgAwAEIAbwBvAHQAcwB0AHIAYQBwADUAIABEAGkAYQBnAHIAYQBtACAAQgB1AGkAbABkAGUAcgBGAG8AbgB0ACAAZwBlAG4AZQByAGEAdABlAGQAIAB1AHMAaQBuAGcAIABTAHkAbgBjAGYAdQBzAGkAbwBuACAATQBlAHQAcgBvACAAUwB0AHUAZABpAG8AdwB3AHcALgBzAHkAbgBjAGYAdQBzAGkAbwBuAC4AYwBvAG0AAAAAAgAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQIBAwEEAQUBBgEHAQgBCQEKAQsBDAENAQ4BDwEQAREADGFsaWduLWxlZnQtMQ5hbGlnbi1taWRkbGUtMQ1hbGlnbi1yaWdodC0xC2FsaWduLXRvcC0xDmFsaWduLWNlbnRlci0xDmFsaWduLWJvdHRvbS0xE2Rpc3RyaWJ1dGUtdmVydGljYWwVZGlzdHJpYnV0ZS1ob3Jpem9udGFsBmVsaXBzZQZsaW5lLTEKb3J0aG9nb25hbAZiZXppZXIKc2FtZS13aWR0aAtzYW1lLWhlaWdodAlzYW1lLXNpemUAAA==)
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="sf-diagram-icon-"],
+[class*=" sf-diagram-icon-"] {
+  font-family: "Bootstrap5 Diagram Builder" !important;
+  speak: none;
+  font-size: 55px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sf-diagram-icon-align-left-1:before {
+  content: "\e8bc";
+}
+
+.sf-diagram-icon-align-middle-1:before {
+  content: "\e8bd";
+}
+
+.sf-diagram-icon-align-right-1:before {
+  content: "\e8be";
+}
+
+.sf-diagram-icon-align-top-1:before {
+  content: "\e8bf";
+}
+
+.sf-diagram-icon-align-center-1:before {
+  content: "\e8c0";
+}
+
+.sf-diagram-icon-align-bottom-1:before {
+  content: "\e8c1";
+}
+
+.sf-diagram-icon-distribute-vertical:before {
+  content: "\e8c2";
+}
+
+.sf-diagram-icon-distribute-horizontal:before {
+  content: "\e8c3";
+}
+
+.sf-diagram-icon-elipse:before {
+  content: "\e8c4";
+}
+
+.sf-diagram-icon-line-1:before {
+  content: "\e8c5";
+}
+
+.sf-diagram-icon-orthogonal:before {
+  content: "\e8c6";
+}
+
+.sf-diagram-icon-bezier:before {
+  content: "\e8c7";
+}
+
+.sf-diagram-icon-same-width:before {
+  content: "\e8c8";
+}
+
+.sf-diagram-icon-same-height:before {
+  content: "\e8c9";
+}
+
+.sf-diagram-icon-same-size:before {
+  content: "\e8ca";
+}
+
+@font-face {
+  font-family: "e-ddb-icons";
+  src: url(data:application/x-font-ttf;charset=utf-8;base64,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)
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.e-ddb-icons {
+  font-family: "e-ddb-icons";
+  speak: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.e-basic::before {
+  content: "\e726";
+}
+
+.e-flow::before {
+  content: "\e724";
+}
+
+.e-diagram-connector::before {
+  content: "\e725";
+}
 </style>
 
 <script>
@@ -281,10 +324,11 @@ import {
   PrintAndExport,
   IExportOptions,
   NodeConstraints,
+  ConnectorConstraints,
   SymbolInfo,
   IDragEnterEventArgs,
   DiagramTools,
-  GridlinesModel
+  GridlinesModel,
 } from "@syncfusion/ej2-vue-diagrams";
 import { Uploader, UploaderComponent } from "@syncfusion/ej2-vue-inputs";
 import {
@@ -292,230 +336,82 @@ import {
   ItemsDirective,
   ItemDirective,
   Toolbar,
-  ClickEventArgs
 } from "@syncfusion/ej2-vue-navigations";
 import { SplitButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 
 let isMobile;
 let interval;
-
+let diagram;
+let toolbarEditor;
+let paletteSpace;
+let paletteIcon;
+//intervals for grid lines
 interval = [
-  1,
-  9,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75,
-  0.25,
-  9.75
+  1, 9, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75,
+  0.25, 9.75, 0.25, 9.75, 0.25, 9.75,
 ];
 
 let gridlines = {
   lineColor: "#e0e0e0",
-  lineIntervals: interval
+  lineIntervals: interval,
 };
 
-//Initializes the nodes for the diagram
+// Function to create a node with given properties
+function createNode(id, height, offsetX, offsetY, shape, content, margin = {}) {
+  return {
+    id: id,
+    height: height,
+    offsetX: offsetX,
+    offsetY: offsetY,
+    shape: { type: "Flow", shape: shape },
+    annotations: [{ content: content, margin: margin }],
+  };
+}
+
+// Initializing the nodes for the diagram
 let nodes = [
-  {
-    id: "NewIdea",
-    height: 60,
-    offsetX: 300,
-    offsetY: 80,
-    shape: { type: "Flow", shape: "Terminator" },
-    annotations: [
-      {
-        content: "Place Order"
-      }
-    ]
-  },
-  {
-    id: "Meeting",
-    height: 60,
-    offsetX: 300,
-    offsetY: 160,
-    shape: { type: "Flow", shape: "Process" },
-    annotations: [
-      {
-        content: "Start Transaction"
-      }
-    ]
-  },
-  {
-    id: "BoardDecision",
-    height: 60,
-    offsetX: 300,
-    offsetY: 240,
-    shape: { type: "Flow", shape: "Process" },
-    annotations: [
-      {
-        content: "Verification"
-      }
-    ]
-  },
-  {
-    id: "Project",
-    height: 60,
-    offsetX: 300,
-    offsetY: 330,
-    shape: { type: "Flow", shape: "Decision" },
-    annotations: [
-      {
-        content: "Credit card valid?"
-      }
-    ]
-  },
-  {
-    id: "End",
-    height: 60,
-    offsetX: 300,
-    offsetY: 430,
-    shape: { type: "Flow", shape: "Decision" },
-    annotations: [
-      {
-        content: "Funds available?"
-      }
-    ]
-  },
-  {
-    id: "node11",
-    height: 60,
-    offsetX: 545,
-    offsetY: 330,
-    shape: { type: "Flow", shape: "Process" },
-    annotations: [
-      {
-        content: "Enter payment method"
-      }
-    ]
-  },
-  {
-    id: "transaction_entered",
-    height: 60,
-    offsetX: 300,
-    offsetY: 630,
-    shape: { type: "Flow", shape: "Terminator" },
-    annotations: [
-      {
-        content: "Log transaction"
-      }
-    ]
-  },
-  {
-    id: "node12",
-    height: 60,
-    offsetX: 480,
-    offsetY: 630,
-    shape: { type: "Flow", shape: "Process" },
-    annotations: [
-      {
-        content: "Reconcile the entries"
-      }
-    ]
-  },
-  {
-    id: "transaction_completed",
-    height: 60,
-    offsetX: 300,
-    offsetY: 530,
-    shape: { type: "Flow", shape: "Process" },
-    annotations: [
-      {
-        content: "Complete Transaction"
-      }
-    ]
-  },
-  {
-    id: "Data",
-    height: 45,
-    offsetX: 110,
-    offsetY: 530,
-    shape: { type: "Flow", shape: "Data" },
-    annotations: [
-      {
-        content: "Send e-mail",
-        margin: { left: 25, right: 25 }
-      }
-    ]
-  },
-  {
-    id: "node10",
-    height: 70,
-    offsetX: 475,
-    offsetY: 530,
-    shape: { type: "Flow", shape: "DirectData" },
-    annotations: [
-      { content: "Customer Database", margin: { left: 25, right: 25 } }
-    ]
-  }
+  createNode("NewIdea", 60, 300, 80, "Terminator", "Place Order"),
+  createNode("Meeting", 60, 300, 160, "Process", "Start Transaction"),
+  createNode("BoardDecision", 60, 300, 240, "Process", "Verification"),
+  createNode("Project", 60, 300, 330, "Decision", "Credit card valid?"),
+  createNode("End", 60, 300, 430, "Decision", "Funds available?"),
+  createNode("node11", 60, 545, 330, "Process", "Enter payment method"),
+  createNode( "transaction_entered", 60, 300,630,"Terminator","Log transaction"),
+  createNode("node12", 60, 480, 630, "Process", "Reconcile the entries"),
+  createNode("transaction_completed",60,300,530,"Process","Complete Transaction"),
+  createNode("Data", 45, 110, 530, "Data", "Send e-mail", {left: 25,right: 25,}),
+  createNode("node10", 70, 475, 530, "DirectData", "Customer Database", {left: 25,right: 25,}),
 ];
-//Initializes the connector for the diagram
+
+// Function to create a connector with given properties
+function createConnector(id,sourceID,targetID,type = "Straight",annotations = [],segments = [],style = {}) {
+  return {
+    id: id,
+    sourceID: sourceID,
+    targetID: targetID,
+    type: type,
+    annotations: annotations,
+    segments: segments,
+    style: style,
+  };
+}
+
+// Initializing the connectors for the diagram
 let connectors = [
-  {
-    id: "connector1",
-    sourceID: "NewIdea",
-    targetID: "Meeting"
-  },
-  { id: "connector2", sourceID: "Meeting", targetID: "BoardDecision" },
-  { id: "connector3", sourceID: "BoardDecision", targetID: "Project" },
-  {
-    id: "connector4",
-    sourceID: "Project",
-    annotations: [{ content: "Yes", style: { fill: "white" } }],
-    targetID: "End"
-  },
-  {
-    id: "connector5",
-    sourceID: "End",
-    annotations: [{ content: "Yes", style: { fill: "white" } }],
-    targetID: "transaction_completed"
-  },
-  {
-    id: "connector6",
-    sourceID: "transaction_completed",
-    targetID: "transaction_entered"
-  },
-  { id: "connector7", sourceID: "transaction_completed", targetID: "Data" },
-  { id: "connector8", sourceID: "transaction_completed", targetID: "node10" },
-  {
-    id: "connector9",
-    type : "Orthogonal",
-    sourceID: "node11",
-    targetID: "Meeting",
-    segments: [{type: "Orthogonal", direction: "Top", length: 120 }]
-  },
-  {
-    id: "connector10",
-    sourceID: "End",
-    type : 'Orthogonal',
-    annotations: [{ content: "No", style: { fill: "white" } }],
-    targetID: "node11",
-    segments: [{type: "Orthogonal", direction: "Right", length: 100 }]
-  },
-  {
-    id: "connector11",
-    sourceID: "Project",
-    annotations: [{ content: "No", style: { fill: "white" } }],
-    targetID: "node11"
-  },
-  {
-    id: "connector12",
-    style: { strokeDashArray: "2,2" },
-    sourceID: "transaction_entered",
-    targetID: "node12"
-  }
+  createConnector("connector1", "NewIdea", "Meeting"),
+  createConnector("connector2", "Meeting", "BoardDecision"),
+  createConnector("connector3", "BoardDecision", "Project"),
+  createConnector("connector4", "Project", "End", "Straight", [{ content: "Yes", style: { fill: "white" } }]),
+  createConnector("connector5", "End", "transaction_completed", "Straight", [{ content: "Yes", style: { fill: "white" } }]),
+  createConnector("connector6", "transaction_completed", "transaction_entered"),
+  createConnector("connector7", "transaction_completed", "Data"),
+  createConnector("connector8", "transaction_completed", "node10"),
+  createConnector("connector9","node11","Meeting","Orthogonal",[],[{ type: "Orthogonal", direction: "Top", length: 120 }]),
+  createConnector("connector10","End","node11","Orthogonal",
+    [{ content: "No", style: { fill: "white" } }],
+    [{ type: "Orthogonal", direction: "Right", length: 100 }]),
+  createConnector("connector11", "Project", "node11", "Straight", [{ content: "No", style: { fill: "white" } },]),
+  createConnector("connector12","transaction_entered","node12","Straight",[],[],{ strokeDashArray: "2,2" }),
 ];
 
 //Initialize the flowshapes for the symbol palatte
@@ -526,7 +422,7 @@ let flowshapes = [
   { id: "Document", shape: { type: "Flow", shape: "Document" } },
   {
     id: "PreDefinedProcess",
-    shape: { type: "Flow", shape: "PreDefinedProcess" }
+    shape: { type: "Flow", shape: "PreDefinedProcess" },
   },
   { id: "PaperTap", shape: { type: "Flow", shape: "PaperTap" } },
   { id: "DirectData", shape: { type: "Flow", shape: "DirectData" } },
@@ -542,74 +438,121 @@ let flowshapes = [
   { id: "Merge", shape: { type: "Flow", shape: "Merge" } },
   {
     id: "OffPageReference",
-    shape: { type: "Flow", shape: "OffPageReference" }
+    shape: { type: "Flow", shape: "OffPageReference" },
   },
   {
     id: "SequentialAccessStorage",
-    shape: { type: "Flow", shape: "SequentialAccessStorage" }
+    shape: { type: "Flow", shape: "SequentialAccessStorage" },
   },
   { id: "Annotation", shape: { type: "Flow", shape: "Annotation" } },
   { id: "Annotation2", shape: { type: "Flow", shape: "Annotation2" } },
   { id: "Data", shape: { type: "Flow", shape: "Data" } },
   { id: "Card", shape: { type: "Flow", shape: "Card" } },
-  { id: "Delay", shape: { type: "Flow", shape: "Delay" } }
+  { id: "Delay", shape: { type: "Flow", shape: "Delay" } },
 ];
 
-//Initializes connector symbols for the symbol palette
-let connectorSymbols = [
-  {
-    id: "Link1",
-    type: "Orthogonal",
-    sourcePoint: { x: 0, y: 0 },
-    targetPoint: { x: 60, y: 60 },
-    targetDecorator: { shape: "Arrow", style: {strokeColor: "#757575", fill: "#757575"} },
-    style: { strokeWidth: 2, strokeColor: "#757575" }
-  },
-  {
-    id: "link3",
-    type: "Orthogonal",
-    sourcePoint: { x: 0, y: 0 },
-    targetPoint: { x: 60, y: 60 },
-    style: { strokeWidth: 2, strokeColor: "#757575" },
-    targetDecorator: { shape: "None" }
-  },
-  {
-    id: "Link21",
-    type: "Straight",
-    sourcePoint: { x: 0, y: 0 },
-    targetPoint: { x: 60, y: 60 },
-    targetDecorator: { shape: "Arrow", style: {strokeColor: "#757575", fill: "#757575"} },
-    style: { strokeWidth: 2, strokeColor: "#757575" }
-  },
-  {
-    id: "link23",
-    type: "Straight",
-    sourcePoint: { x: 0, y: 0 },
-    targetPoint: { x: 60, y: 60 },
-    style: { strokeWidth: 2, strokeColor: "#757575" },
-    targetDecorator: { shape: "None" }
-  },
-  {
-    id: "link33",
-    type: "Bezier",
-    sourcePoint: { x: 0, y: 0 },
-    targetPoint: { x: 60, y: 60 },
-    style: { strokeWidth: 2, strokeColor: "#757575" },
-    targetDecorator: { shape: "None" }
-  }
+// Function to create a connector symbol with given properties
+function createConnectorSymbol(
+  id,
+  type,
+  targetDecorator = { shape: "None" },
+  style = { strokeWidth: 2, strokeColor: "#757575" }
+) {
+  const defaultSourcePoint = { x: 0, y: 0 };
+  const defaultTargetPoint = { x: 60, y: 60 };
+  return {
+    id: id,
+    type: type,
+    sourcePoint: defaultSourcePoint,
+    targetPoint: defaultTargetPoint,
+    targetDecorator: targetDecorator,
+    style: style,
+  };
+}
+
+// Initializing the connector symbols for the symbol palette
+const connectorSymbols = [
+  createConnectorSymbol("Orthogonal1", "Orthogonal", {shape: "Arrow",
+    style: { strokeColor: "#757575", fill: "#757575" },}),
+  createConnectorSymbol("Orthogonal2", "Orthogonal"),
+  createConnectorSymbol("Straight1", "Straight", {shape: "Arrow",
+    style: { strokeColor: "#757575", fill: "#757575" },}),
+  createConnectorSymbol("Straight2", "Straight"),
+  createConnectorSymbol("Bezier", "Bezier"),
 ];
+
+//To get default nodes values for diagram
+function getNodeDefaults(node) {
+  if (node.width === undefined) {
+    node.width = 145;
+  }
+  node.style = { fill: "#357BD2", strokeColor: "white" };
+  for (let i = 0; i < node.annotations.length; i++) {
+    node.annotations[i].style = {
+      color: "white",
+      fill: "transparent",
+    };
+  }
+  node.ports = getPorts();
+  return node;
+}
+
+//To get default connectors values for diagram
+function getConnectorDefaults(connector) {
+  if (connector.id.indexOf("connector") !== -1) {
+    connector.targetDecorator = { shape: "Arrow", width: 10, height: 10 };
+  }
+}
+
+//To handle drag events
+function dragEnter(args) {
+  let obj = args.element;
+  if (obj && obj.width && obj.height) {
+    let objWidth = obj.width;
+    let objHeight = obj.height;
+    let ratio = 100 / obj.width;
+    obj.width = 100;
+    obj.height *= ratio;
+    if (obj.offsetX) obj.offsetX += (obj.width - objWidth) / 2;
+    if (obj.offsetY) obj.offsetY += (obj.height - objHeight) / 2;
+    obj.style = { fill: "#357BD2", strokeColor: "white" };
+  }
+}
+
+//To get default values for nodes in symbol palette
+function palettegetNodeDefaults(symbol) {
+  symbol.style = { strokeColor: "#757575" };
+  if (symbol.id === "Terminator" || symbol.id === "Process") {
+    symbol.width = 80;
+    symbol.height = 40;
+  } else if (
+    symbol.id === "Decision" ||
+    symbol.id === "Document" ||
+    symbol.id === "PreDefinedProcess" ||
+    symbol.id === "PaperTap" ||
+    symbol.id === "DirectData" ||
+    symbol.id === "MultiDocument" ||
+    symbol.id === "Data"
+  ) {
+    symbol.width = 50;
+    symbol.height = 40;
+  } else {
+    symbol.width = 50;
+    symbol.height = 50;
+  }
+}
 
 export default {
   components: {
-    'ejs-diagram': DiagramComponent,
-    'ejs-symbolpalette': SymbolPaletteComponent,
-    'ejs-uploader': UploaderComponent,
-    'ejs-toolbar': ToolbarComponent,
-    'e-items': ItemsDirective,
-    'e-item': ItemDirective,
-    'ejs-splitbutton': SplitButtonComponent
+    "ejs-diagram": DiagramComponent,
+    "ejs-symbolpalette": SymbolPaletteComponent,
+    "ejs-uploader": UploaderComponent,
+    "ejs-toolbar": ToolbarComponent,
+    "e-items": ItemsDirective,
+    "e-item": ItemDirective,
+    "ejs-splitbutton": SplitButtonComponent,
   },
-  data: function() {
+  data: function () {
     return {
       width: "100%",
       height: "700px",
@@ -617,46 +560,19 @@ export default {
       connectors: connectors,
       snapSettings: {
         horizontalGridlines: gridlines,
-        verticalGridlines: gridlines
-      },      
+        verticalGridlines: gridlines,
+      },
       created: (args) => {
         addEvents();
       },
-      //Sets the default values of a node
       getNodeDefaults: (node) => {
-        if (node.width === undefined) {
-          node.width = 145;
-        }
-        node.style = { fill: '#357BD2', strokeColor: 'white' };
-        for (let i = 0; i < node.annotations.length; i++) {
-          node.annotations[i].style = {
-            color: 'white',
-            fill: 'transparent',
-          };
-        }
-        //Set ports
-        node.ports = getPorts();
-        return node;
+        return getNodeDefaults(node);
       },
-      //Sets the default values of a connector
-      getConnectorDefaults: (obj) => {
-        if (obj.id.indexOf("connector") !== -1) {
-          obj.targetDecorator = { shape: "Arrow", width: 10, height: 10 };
-        }
+      getConnectorDefaults: (connector) => {
+        return getConnectorDefaults(connector);
       },
-      //Sets the Node style for DragEnter element.
       dragEnter: (args) => {
-        let obj = args.element;
-        if (obj && obj.width && obj.height) {
-          let oWidth = obj.width;
-          let oHeight = obj.height;
-          let ratio = 100 / obj.width;
-          obj.width = 100;
-          obj.height *= ratio;
-          if (obj.offsetX) obj.offsetX += (obj.width - oWidth) / 2;
-          if (obj.offsetY) obj.offsetY += (obj.height - oHeight) / 2;
-          obj.style = { fill: "#357BD2", strokeColor: "white" };
-        }
+        return dragEnter(args);
       },
       expandMode: "Multiple",
       palettes: [
@@ -665,604 +581,542 @@ export default {
           expanded: true,
           symbols: flowshapes,
           iconCss: "shapes",
-          title: "Flow Shapes"
+          title: "Flow Shapes",
         },
         {
           id: "connectors",
           expanded: true,
           symbols: connectorSymbols,
           iconCss: "shapes",
-          title: "Connectors"
-        }
+          title: "Connectors",
+        },
       ],
       palettewidth: "100%",
       paletteheight: "700px",
       symbolHeight: 60,
       symbolWidth: 60,
       palettegetNodeDefaults: (symbol) => {
-        symbol.style = {strokeColor: "#757575"}
-        if (symbol.id === "Terminator" || symbol.id === "Process") {
-          symbol.width = 80;
-          symbol.height = 40;
-        } else if (
-          symbol.id === "Decision" ||
-          symbol.id === "Document" ||
-          symbol.id === "PreDefinedProcess" ||
-          symbol.id === "PaperTap" ||
-          symbol.id === "DirectData" ||
-          symbol.id === "MultiDocument" ||
-          symbol.id === "Data"
-        ) {
-          symbol.width = 50;
-          symbol.height = 40;
-        } else {
-          symbol.width = 50;
-          symbol.height = 50;
-        }
+        return palettegetNodeDefaults(symbol);
       },
       symbolMargin: { left: 15, right: 15, top: 15, bottom: 15 },
       getSymbolInfo: (symbol) => {
         return { fit: true };
       },
-        toolbarclicked: (args) => {
-        let diagram = this.$refs.diagramObject.ej2Instances;
-         let toolbarEditor = this.$refs.toolbar_diagram.ej2Instances;
-          let item = args.item.tooltipText;
-    switch (item) {
-      case 'Undo':
-        diagram.undo();
-        break;
-      case 'Redo':
-        diagram.redo();
-        break;
-      case 'Lock':
-        lockObject(args);
-        break;
-      case 'Cut':
-        diagram.cut();
-        toolbarEditor.items[8].disabled = false;
-        break;
-      case 'Copy':
-        diagram.copy();
-        toolbarEditor.items[8].disabled = false;
-        break;
-      case 'Paste':
-        diagram.paste();
-        break;
-      case 'Delete':
-        diagram.remove();
-        break;
-      case 'Select Tool':
-        diagram.clearSelection();
-        diagram.tool = DiagramTools.Default;
-        break;
-      case 'Text Tool':
-        diagram.clearSelection();
-        diagram.selectedItems.userHandles = [];
-        diagram.drawingObject = { shape: { type: 'Text' } };
-        diagram.tool = DiagramTools.ContinuousDraw;
-        break;
-      case 'Pan Tool':
-        diagram.clearSelection();
-        diagram.tool = DiagramTools.ZoomPan;
-        break;
-      case 'New Diagram':
-        diagram.clear();
-        historyChange(args);
-        break;
-      case 'Print Diagram':
-        printDiagram(args);
-        break;
-      case 'Save Diagram':
-        download(diagram.saveDiagram());
-        break;
-      case 'Open Diagram':
-        document
-          .getElementsByClassName('e-file-select-wrap')[0]
-          .querySelector('button')
-          .click();
-        break;
-    }
-    diagram.dataBind();
-    },
-       selectionChange: (args) => {
-         let diagram = this.$refs.diagramObject.ej2Instances;
-          let toolbarEditor = this.$refs.toolbar_diagram.ej2Instances;
-        if (args.state === 'Changed') {
-            var selectedItems = diagram.selectedItems.nodes;
-            selectedItems = selectedItems.concat(
-              diagram.selectedItems.connectors
-            );
-            if (selectedItems.length === 0) {
-              toolbarEditor.items[6].disabled = true;
-              toolbarEditor.items[7].disabled = true;
-              toolbarEditor.items[19].disabled = true;
-              toolbarEditor.items[20].disabled = true;
-              toolbarEditor.items[25].disabled = true;
-              toolbarEditor.items[29].disabled = true;
-              toolbarEditor.items[31].disabled = true;
-              disableMultiselectedItems();
-            }
-            if (selectedItems.length === 1) {
-              enableItems();
-              disableMultiselectedItems();
 
-              if (
-                selectedItems[0].children !== undefined &&
-                selectedItems[0].children.length > 0
-              ) {
-                toolbarEditor.items[27].disabled = false;
-              } else {
-                toolbarEditor.items[27].disabled = true;
-              }
-            }
+      //To handle tool bar clicks
+      toolbarclicked: (args) => {
+        let item = args.item.tooltipText;
+        switch (item) {
+          case "Undo":
+            diagram.undo();
+            break;
+          case "Redo":
+            diagram.redo();
+            break;
+          case "Lock":
+            lockObject(args);
+            break;
+          case "Cut":
+            diagram.cut();
+            updateToolbarItems(["Paste"], false);
+            break;
+          case "Copy":
+            diagram.copy();
+            updateToolbarItems(["Paste"], false);
+          case "Paste":
+            diagram.paste();
+            break;
+          case "Delete":
+            diagram.remove();
+            break;
+          case "Select Tool":
+            diagram.clearSelection();
+            diagram.tool = DiagramTools.Default;
+            break;
+          case "Text Tool":
+            diagram.clearSelection();
+            diagram.selectedItems.userHandles = [];
+            diagram.drawingObject = { shape: { type: "Text" } };
+            diagram.tool = DiagramTools.ContinuousDraw;
+            break;
+          case "Pan Tool":
+            diagram.clearSelection();
+            diagram.tool = DiagramTools.ZoomPan;
+            break;
+          case "New Diagram":
+            diagram.clear();
+            historyChange(args);
+            break;
+          case "Print Diagram":
+            printDiagram(args);
+            break;
+          case "Save Diagram":
+            download(diagram.saveDiagram());
+            break;
+          case "Open Diagram":
+            document
+              .getElementsByClassName("e-file-select-wrap")[0]
+              .querySelector("button")
+              .click();
+            break;
+        }
+        diagram.dataBind();
+      },
+      //To enable and disable toolbar items based on selection changes
+      selectionChange: (args) => {
+        if (args.state === "Changed") {
+          var selectedItems = diagram.selectedItems.nodes;
+          selectedItems = selectedItems.concat(
+            diagram.selectedItems.connectors
+          );
+          if (selectedItems.length === 0) {
+            updateToolbarItems(["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects",], true);
+            disableMultiselectedItems();
+          }
+          if (selectedItems.length === 1) {
+            enableItems();
+            disableMultiselectedItems();
 
-            if (selectedItems.length > 1) {
-              enableItems();
-              toolbarEditor.items[22].disabled = false;
-              toolbarEditor.items[23].disabled = false;
-              toolbarEditor.items[27].disabled = false;
-              if (selectedItems.length > 2) {
-                toolbarEditor.items[23].disabled = false;
-              } else {
-                toolbarEditor.items[23].disabled = true;
-              }
+            if (
+              selectedItems[0].children !== undefined &&
+              selectedItems[0].children.length > 0
+            ) {
+              updateToolbarItems(["groupUngroup"], false);
+            } else {
+              updateToolbarItems(["groupUngroup"], true);
             }
           }
+
+          if (selectedItems.length > 1) {
+            enableItems();
+            updateToolbarItems(["alignObjects", "distributeObjects", "groupUngroup"],false );
+            if (selectedItems.length > 2) {
+              updateToolbarItems(["distributeObjects"], false);
+            } else {
+              updateToolbarItems(["distributeObjects"], true);
+            }
+          }
+        }
       },
-      drawingObject : { type : 'Orthogonal'},
-      exportImage: function() {
+      drawingObject: { type: "Orthogonal" },
+      //To export diagram
+      exportImage: function () {
         return {
           template: createApp({}).component("export", {
             template:
               ' <ejs-splitbutton :items="items" iconCss="e-export e-icons" :select="exportOptions"></ejs-splitbutton>',
-              components: {
-                'ejs-splitbutton': SplitButtonComponent
-              },
-              data() {
-                return{
-                items : [
-                {text:'JPG'},{text:'PNG'},{text:'SVG'}
-                ],
-                 exportOptions: function(args) {
-                  var diagram = document.getElementById("diagram").ej2_instances[0];
+            components: {
+              "ejs-splitbutton": SplitButtonComponent,
+            },
+            data() {
+              return {
+                items: [{ text: "JPG" }, { text: "PNG" }, { text: "SVG" }],
+                exportOptions: function (args) {
                   var exportOptions = {};
                   exportOptions.format = args.item.text;
-                  exportOptions.mode = 'Download';
-                  exportOptions.region = 'PageSettings';
-                  exportOptions.fileName = 'Export';
+                  exportOptions.mode = "Download";
+                  exportOptions.region = "PageSettings";
+                  exportOptions.fileName = "Export";
                   exportOptions.pageHeight = 400;
                   exportOptions.pageWidth = 400;
-                  exportOptions.margin = { left: 0, top: 0, bottom: 0, right: 0 };
+                  exportOptions.margin = {left: 0,top: 0, bottom: 0,right: 0};
                   diagram.exportDiagram(exportOptions);
                 },
-              }
-            }
-          })
+              };
+            },
+          }),
         };
       },
-      drawConnector: function() {
+      //To draw given connectors
+      drawConnector: function () {
         return {
           template: createApp({}).component("drawConnector", {
             template:
-              '<ejs-splitbutton :items ="conTypeItems" iconCss="e-ddb-icons e-diagram-connector e-icons" :select="onConnectorSelect"></ejs-splitbutton>',
-              components: {
-                'ejs-splitbutton': SplitButtonComponent
-              },
-              data() {
-                return{
-                conTypeItems : [
-                  {text: 'Straight',iconCss: 'e-icons e-line'},
-                  {text: 'Orthogonal',iconCss: 'sf-diagram-icon-orthogonal'},
-                  {text: 'Bezier',iconCss: 'sf-diagram-icon-bezier'}
+              '<ejs-splitbutton :items ="conTypeItems" iconCss="sf-diagram-icon-orthogonal" :select="onConnectorSelect"></ejs-splitbutton>',
+            components: {
+              "ejs-splitbutton": SplitButtonComponent,
+            },
+            data() {
+              return {
+                conTypeItems: [
+                  { text: "Straight", iconCss: "e-icons e-line" },
+                  { text: "Orthogonal", iconCss: "sf-diagram-icon-orthogonal" },
+                  { text: "Bezier", iconCss: "sf-diagram-icon-bezier" },
                 ],
-                 onConnectorSelect: function(args) {
-                  var diagram = document.getElementById("diagram").ej2_instances[0];
-                   diagram.clearSelection();
-                   diagram.drawingObject = {type:args.item.text};
-                   diagram.tool = DiagramTools.ContinuousDraw;
-                   diagram.selectedItems.userHandles = [];
-                   diagram.dataBind();
+                onConnectorSelect: function (args) {
+                  diagram.clearSelection();
+                  diagram.drawingObject = { type: args.item.text };
+                  diagram.tool = DiagramTools.ContinuousDraw;
+                  diagram.selectedItems.userHandles = [];
+                  diagram.dataBind();
                 },
-              }
-            }
-          })
+              };
+            },
+          }),
         };
       },
-      drawShapes: function() {
+      //To draw given shapes
+      drawShapes: function () {
         return {
           template: createApp({}).component("drawShapes", {
             template:
               '<ejs-splitbutton :items="shapesItems" iconCss="e-shapes e-icons" :select="onShapesSelect"></ejs-splitbutton>',
-              components: {
-                'ejs-splitbutton': SplitButtonComponent
-              },
-              data() {
-                return{
-                shapesItems : [
-                    {text: 'Rectangle',iconCss: 'e-rectangle e-icons'},
-                    {text: 'Ellipse',iconCss: ' e-circle e-icons'},
-                    {text: 'Polygon',iconCss: 'e-line e-icons'}
+            components: {
+              "ejs-splitbutton": SplitButtonComponent,
+            },
+            data() {
+              return {
+                shapesItems: [
+                  { text: "Rectangle", iconCss: "e-rectangle e-icons" },
+                  { text: "Ellipse", iconCss: " e-circle e-icons" },
+                  { text: "Polygon", iconCss: "e-line e-icons" },
                 ],
-                 onShapesSelect: function(args) {
-                  var diagram = document.getElementById("diagram").ej2_instances[0];
-                      diagram.clearSelection();
-                      diagram.drawingObject = {shape:{shape:args.item.text}};
-                      diagram.tool = DiagramTools.ContinuousDraw;
-                      diagram.selectedItems.userHandles = [];
-                      diagram.dataBind();
+                onShapesSelect: function (args) {
+                  diagram.clearSelection();
+                  diagram.drawingObject = { shape: { shape: args.item.text } };
+                  diagram.tool = DiagramTools.ContinuousDraw;
+                  diagram.selectedItems.userHandles = [];
+                  diagram.dataBind();
                 },
-              }
-            }
-          })
+              };
+            },
+          }),
         };
       },
-      alignObjects: function() {
+      //To align selected diagram objects
+      alignObjects: function () {
         return {
           template: createApp({}).component("alignObjects", {
             template:
               '<ejs-splitbutton :items="alignItems" iconCss="sf-diagram-icon-align-center-1" :select="onSelectAlignObjects"></ejs-splitbutton>',
-              components: {
-                'ejs-splitbutton': SplitButtonComponent
-              },
-              data() {
-                return{
-                alignItems : [
-                  {
-                      iconCss: 'sf-diagram-icon-align-left-1', text: 'Align Left', 
-                  },
-                  {
-                      iconCss: 'sf-diagram-icon-align-center-1', text: 'Align Center',
-                  },
-                  {
-                      iconCss: 'sf-diagram-icon-align-right-1', text: 'Align Right',
-                  },
-                  {
-                      iconCss: 'sf-diagram-icon-align-top-1', text: 'Align Top',
-                  },
-                  {
-                      iconCss: 'sf-diagram-icon-align-middle-1', text: 'Align Middle',
-                  },
-                  {
-                      iconCss: 'sf-diagram-icon-align-bottom-1', text: 'Align Bottom',
-                  },
+            components: {
+              "ejs-splitbutton": SplitButtonComponent,
+            },
+            data() {
+              return {
+                alignItems: [
+                  {iconCss: "sf-diagram-icon-align-left-1", text: "Align Left",},
+                  {iconCss: "sf-diagram-icon-align-center-1", text: "Align Center",},
+                  { iconCss: "sf-diagram-icon-align-right-1",text: "Align Right",},
+                  { iconCss: "sf-diagram-icon-align-top-1", text: "Align Top" },
+                  { iconCss: "sf-diagram-icon-align-middle-1",text: "Align Middle"},
+                  {iconCss: "sf-diagram-icon-align-bottom-1",text: "Align Bottom",},
                 ],
-                 onSelectAlignObjects: function(args) {
-                  var diagram = document.getElementById("diagram").ej2_instances[0];
-                      var item = args.item.text;
-                      var alignType = item.replace('Align', '');
-                      var alignType1 = alignType.charAt(0).toUpperCase() + alignType.slice(1);
-                      diagram.align(alignType1.trim());
+                onSelectAlignObjects: function (args) {
+                  var item = args.item.text;
+                  var alignType = item.replace("Align", "");
+                  var alignType1 = alignType.charAt(0).toUpperCase() + alignType.slice(1);
+                  diagram.align(alignType1.trim());
                 },
-              }
-            }
-          })
+              };
+            },
+          }),
         };
       },
-       distributeObjects: function() {
+      //To distribute selected diagram objects
+      distributeObjects: function () {
         return {
           template: createApp({}).component("distributeObjects", {
             template:
               '<ejs-splitbutton :items="distributeItems" iconCss="sf-diagram-icon-distribute-vertical" :select="onSelectDistributeObjects"></ejs-splitbutton>',
-              components: {
-                'ejs-splitbutton': SplitButtonComponent
-              },
-              data() {
-                return{
-                distributeItems : [
-                      { iconCss: 'sf-diagram-icon-distribute-vertical', text: 'Distribute Objects Vertically',},
-                      { iconCss: 'sf-diagram-icon-distribute-horizontal', text: 'Distribute Objects Horizontally',},
+            components: {
+              "ejs-splitbutton": SplitButtonComponent,
+            },
+            data() {
+              return {
+                distributeItems: [
+                  {iconCss: "sf-diagram-icon-distribute-vertical",text: "Distribute Objects Vertically"},
+                  {iconCss: "sf-diagram-icon-distribute-horizontal",text: "Distribute Objects Horizontally" },
                 ],
-                 onSelectDistributeObjects: function(args) {
-                  var diagram = document.getElementById("diagram").ej2_instances[0];
-                  if(args.item.text === 'Distribute Objects Vertically'){
-                      diagram.distribute('BottomToTop');
-                    }
-                    else{
-                      diagram.distribute('RightToLeft');
-                    }
+                onSelectDistributeObjects: function (args) {
+                  diagram.distribute(args.item.text === "Distribute Objects Vertically"? "BottomToTop": "RightToLeft");
                 },
-              }
-            }
-          })
+              };
+            },
+          }),
         };
       },
-      orderCommands: function() {
+      //To order diagram objects.
+      orderCommands: function () {
         return {
           template: createApp({}).component("orderCommands", {
             template:
               '<ejs-splitbutton :items="orderItems" iconCss="e-icons e-order" :select="onSelectOrder"></ejs-splitbutton>',
-              components: {
-                'ejs-splitbutton': SplitButtonComponent
-              },
-              data() {
-                return{
-                orderItems : [
-                      { iconCss: 'e-icons e-bring-forward', text: 'Bring Forward'},
-                      { iconCss: 'e-icons e-bring-to-front', text: 'Bring To Front'},
-                      { iconCss: 'e-icons e-send-backward', text: 'Send Backward'},
-                      { iconCss: 'e-icons e-send-to-back', text: 'Send To Back'}
+            components: {
+              "ejs-splitbutton": SplitButtonComponent,
+            },
+            data() {
+              return {
+                orderItems: [
+                  { iconCss: "e-icons e-bring-forward", text: "Bring Forward" },
+                  {iconCss: "e-icons e-bring-to-front",text: "Bring To Front"},
+                  { iconCss: "e-icons e-send-backward", text: "Send Backward" },
+                  { iconCss: "e-icons e-send-to-back", text: "Send To Back" },
                 ],
-                 onSelectOrder: function(args) {
-                  var diagram = document.getElementById("diagram").ej2_instances[0];
-                      switch(args.item.text){
-                      case 'Bring Forward':
-                        diagram.moveForward();
+                onSelectOrder: function (args) {
+                  switch (args.item.text) {
+                    case "Bring Forward":
+                      diagram.moveForward();
                       break;
-                      case 'Bring To Front':
-                        diagram.bringToFront();
+                    case "Bring To Front":
+                      diagram.bringToFront();
                       break;
-                      case 'Send Backward':
-                        diagram.sendBackward();
+                    case "Send Backward":
+                      diagram.sendBackward();
                       break;
-                      case 'Send To Back':
-                        diagram.sendToBack();
+                    case "Send To Back":
+                      diagram.sendToBack();
                       break;
                   }
                 },
-              }
-            }
-          })
+              };
+            },
+          }),
         };
       },
-      groupUngroup: function() {
+      //To group and ungroup selected diagram objects.
+      groupUngroup: function () {
         return {
           template: createApp({}).component("groupUngroup", {
             template:
               '<ejs-splitbutton :items="groupItems" iconCss="e-icons e-group-1" :select="onSelectGroup"></ejs-splitbutton>',
-              components: {
-                'ejs-splitbutton': SplitButtonComponent
-              },
-              data() {
-                return{
-                groupItems : [
-                  {text:'Group',iconCss:'e-icons e-group-1'},
-                  {text:'Ungroup',iconCss:'e-icons e-ungroup-1'}
+            components: {
+              "ejs-splitbutton": SplitButtonComponent,
+            },
+            data() {
+              return {
+                groupItems: [
+                  { text: "Group", iconCss: "e-icons e-group-1" },
+                  { text: "Ungroup", iconCss: "e-icons e-ungroup-1" },
                 ],
-                 onSelectGroup: function(args) {
-                  var diagram = document.getElementById("diagram").ej2_instances[0];
-                     if(args.item.text === 'Group'){
-                      diagram.group();
-                    }
-                    else if(args.item.text === 'Ungroup'){
-                      diagram.unGroup();
-                    }
+                onSelectGroup: function (args) {
+                  if (args.item.text === "Group") {
+                    diagram.group();
+                  } else if (args.item.text === "Ungroup") {
+                    diagram.unGroup();
+                  }
                 },
-              }
-            }
-          })
+              };
+            },
+          }),
         };
       },
-      rotateObjects: function() {
+      //To rotate selected diagram objects
+      rotateObjects: function () {
         return {
           template: createApp({}).component("rotateObjects", {
             template:
               '<ejs-splitbutton :items="rotateItems" iconCss="e-icons e-repeat" :select="onSelectRotate"></ejs-splitbutton>',
-              components: {
-                'ejs-splitbutton': SplitButtonComponent
-              },
-              data() {
-                return{
-                rotateItems : [
-                        {iconCss:'e-icons e-transform-right',text: 'Rotate Clockwise'},
-                        {iconCss:'e-icons e-transform-left',text: 'Rotate Counter-Clockwise'}
+            components: {
+              "ejs-splitbutton": SplitButtonComponent,
+            },
+            data() {
+              return {
+                rotateItems: [
+                  {iconCss: "e-icons e-transform-right", text: "Rotate Clockwise"},
+                  {iconCss: "e-icons e-transform-left",text: "Rotate Counter-Clockwise"},
                 ],
-                 onSelectRotate: function(args) {
-                  var diagram = document.getElementById("diagram").ej2_instances[0];
-                  if(args.item.text === 'Rotate Clockwise'){
-                    diagram.rotate(diagram.selectedItems,90);
-                  }
-                  else{
-                    diagram.rotate(diagram.selectedItems,-90);
-                  }
+                onSelectRotate: function (args) {
+                diagram.rotate(diagram.selectedItems,args.item.text === "Rotate Clockwise" ? 90 : -90 );
                 },
-              }
-            }
-          })
+              };
+            },
+          }),
         };
       },
-      flipObjects: function() {
+      //To flip selected diagram objects
+      flipObjects: function () {
         return {
           template: createApp({}).component("flipObjects", {
             template:
               '<ejs-splitbutton :items="flipItems" iconCss="e-icons e-flip-horizontal" :select="onSelectFlip"></ejs-splitbutton>',
-              components: {
-                'ejs-splitbutton': SplitButtonComponent
-              },
-              data() {
-                return{
-                flipItems : [
-                     {iconCss:'e-icons e-flip-horizontal',text: 'Flip Horizontal'},
-                     {iconCss:'e-icons e-flip-vertical',text: 'Flip Vertical'}
+            components: {
+              "ejs-splitbutton": SplitButtonComponent,
+            },
+            data() {
+              return {
+                flipItems: [
+                  {iconCss: "e-icons e-flip-horizontal",text: "Flip Horizontal"},
+                  { iconCss: "e-icons e-flip-vertical", text: "Flip Vertical" },
                 ],
-                 onSelectFlip: function(args) {
-                  flipObjects(args.item.text);
+                onSelectFlip: function (args) {
+                flipObjects(args.item.text);
                 },
-              }
-            }
-          })
+              };
+            },
+          }),
         };
       },
-      zoomDiagram: function() {
+      //To provide zoom options
+      zoomDiagram: function () {
         return {
           template: createApp({}).component("zoomDiagram", {
             template:
               '<ejs-splitbutton id="btnZoom" :items="zoomMenuItems" content="100%" :select="zoomChange"></ejs-splitbutton>',
-              components: {
-                'ejs-splitbutton': SplitButtonComponent
-              },
-              data() {
-                return{
-                zoomMenuItems : [
-                     { text: 'Zoom In' },
-                      { text: 'Zoom Out' },
-                      { text: 'Zoom to Fit' },
-                      { text: 'Zoom to 50%' },
-                      { text: 'Zoom to 100%' },
-                      { text: 'Zoom to 200%' },
-                ],            
-                 zoomChange: function(args) {
-                  var diagram = document.getElementById("diagram").ej2_instances[0];
+            components: {
+              "ejs-splitbutton": SplitButtonComponent,
+            },
+            data() {
+              return {
+                zoomMenuItems: [
+                  { text: "Zoom In" },
+                  { text: "Zoom Out" },
+                  { text: "Zoom to Fit" },
+                  { text: "Zoom to 50%" },
+                  { text: "Zoom to 100%" },
+                  { text: "Zoom to 200%" },
+                ],
+                zoomChange: function (args) {
                   var zoomCurrentValue = document.getElementById("btnZoom").ej2_instances[0];
-                    var currentZoom = diagram.scrollSettings.currentZoom;
-                    var zoom = {};
-                    switch (args.item.text) {
-                      case 'Zoom In':
-                          diagram.zoomTo({ type: 'ZoomIn', zoomFactor: 0.2 });
-                          zoomCurrentValue.content = (diagram.scrollSettings.currentZoom * 100).toFixed() + '%';
-                          break;
-                      case 'Zoom Out':
-                          diagram.zoomTo({ type: 'ZoomOut', zoomFactor: 0.2 });
-                          zoomCurrentValue.content = (diagram.scrollSettings.currentZoom * 100).toFixed() + '%';
-                          break;
-                      case 'Zoom to Fit':
-                          zoom.zoomFactor = 1 / currentZoom - 1;
-                          diagram.zoomTo(zoom);
-                          zoomCurrentValue.content = diagram.scrollSettings.currentZoom;
-                          break;
-                      case 'Zoom to 50%':
-                          if(currentZoom === 0.5){
-                              currentZoom = 0;
-                              zoom.zoomFactor = (0.5 / currentZoom) - 1;
-                              diagram.zoomTo(zoom);
-                            }
-                            else{
-                              zoom.zoomFactor = (0.5 / currentZoom) - 1;
-                              diagram.zoomTo(zoom);
-                            }
-                          break;
-                      case 'Zoom to 100%':
-                          if(currentZoom === 1){
-                            currentZoom = 0;
-                            zoom.zoomFactor = (1 / currentZoom) - 1;
-                            diagram.zoomTo(zoom);
-                          }
-                          else{
-                            zoom.zoomFactor = (1 / currentZoom) - 1;
-                            diagram.zoomTo(zoom);
-                          }
-                          break;
-                      case 'Zoom to 200%':
-                          if(currentZoom === 2){
-                            currentZoom = 0;
-                            zoom.zoomFactor = (2 / currentZoom) - 1;
-                            diagram.zoomTo(zoom);
-                          }
-                          else{
-                            zoom.zoomFactor = (2 / currentZoom) - 1;
-                            diagram.zoomTo(zoom);
-                          }
-                          break;
-                    } 
-                    zoomCurrentValue.content = Math.round(diagram.scrollSettings.currentZoom * 100) + ' %';
+                  var currentZoom = diagram.scrollSettings.currentZoom;
+                  var zoom = {};
+                  switch (args.item.text) {
+                    case "Zoom In":
+                      diagram.zoomTo({ type: "ZoomIn", zoomFactor: 0.2 });
+                      zoomCurrentValue.content =(diagram.scrollSettings.currentZoom * 100).toFixed() +"%";
+                      break;
+                    case "Zoom Out":
+                      diagram.zoomTo({ type: "ZoomOut", zoomFactor: 0.2 });
+                      zoomCurrentValue.content =(diagram.scrollSettings.currentZoom * 100).toFixed() +"%";
+                      break;
+                    case "Zoom to Fit":
+                      zoom.zoomFactor = 1 / currentZoom - 1;
+                      diagram.zoomTo(zoom);
+                      zoomCurrentValue.content = diagram.scrollSettings.currentZoom;
+                      break;
+                    case "Zoom to 50%":
+                      if (currentZoom === 0.5) {
+                        currentZoom = 0;
+                        zoom.zoomFactor = 0.5 / currentZoom - 1;
+                        diagram.zoomTo(zoom);
+                      } else {
+                        zoom.zoomFactor = 0.5 / currentZoom - 1;
+                        diagram.zoomTo(zoom);
+                      }
+                      break;
+                    case "Zoom to 100%":
+                      if (currentZoom === 1) {
+                        currentZoom = 0;
+                        zoom.zoomFactor = 1 / currentZoom - 1;
+                        diagram.zoomTo(zoom);
+                      } else {
+                        zoom.zoomFactor = 1 / currentZoom - 1;
+                        diagram.zoomTo(zoom);
+                      }
+                      break;
+                    case "Zoom to 200%":
+                      if (currentZoom === 2) {
+                        currentZoom = 0;
+                        zoom.zoomFactor = 2 / currentZoom - 1;
+                        diagram.zoomTo(zoom);
+                      } else {
+                        zoom.zoomFactor = 2 / currentZoom - 1;
+                        diagram.zoomTo(zoom);
+                      }
+                      break;
+                  }
+                  zoomCurrentValue.content = Math.round(diagram.scrollSettings.currentZoom * 100) + " %";
                 },
-              }
-            }
-          })
+              };
+            },
+          }),
         };
       },
       fileuploadasyncSettings: {
-        saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
-        removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
+        saveUrl:
+          "https://services.syncfusion.com/vue/production/api/FileUploader/Save",
+        removeUrl:
+          "https://services.syncfusion.com/vue/production/api/FileUploader/Remove",
       },
       fileuploadsuccess: onUploadSuccess,
       showFile: true,
-      historyChange : (args) =>{
-          let diagram = this.$refs.diagramObject.ej2Instances;
-          let toolbarEditor = this.$refs.toolbar_diagram.ej2Instances;
-      if (diagram.historyManager.undoStack.length > 0) {
-        toolbarEditor.items[10].disabled = false;
-      } else {
-        toolbarEditor.items[10].disabled = true;
-      }
-      if (diagram.historyManager.redoStack.length > 0) {
-        toolbarEditor.items[11].disabled = false;
-      } else {
-        toolbarEditor.items[11].disabled = true;
-      }
+
+      // To enable and disable undo/redo button
+      historyChange: (args) => {
+        updateToolbarItems(["Undo"],diagram.historyManager.undoStack.length === 0);
+        updateToolbarItems(["Redo"],diagram.historyManager.redoStack.length === 0);
       },
-    }
+    };
   },
-    provide: {
-    diagram: [PrintAndExport]
+  provide: {
+    diagram: [PrintAndExport],
   },
-  mounted: function() {
-    let diagram = this.$refs.diagramObject.ej2Instances;
+  mounted: function () {
+    diagram = this.$refs.diagramObject.ej2Instances;
+    toolbarEditor = this.$refs.toolbar_diagram.ej2Instances;
+    paletteIcon = this.$refs.paletteIcon.ej2Instances;
+    paletteSpace = this.$refs.paletteSpace.ej2Instances;
     diagram.fitToPage();
-  }
+  },
 };
 
+//Create and add ports for node.
 function getPorts() {
   let ports = [
     { id: "port1", shape: "Circle", offset: { x: 0, y: 0.5 } },
     { id: "port2", shape: "Circle", offset: { x: 0.5, y: 1 } },
     { id: "port3", shape: "Circle", offset: { x: 1, y: 0.5 } },
-    { id: "port4", shape: "Circle", offset: { x: 0.5, y: 0 } }
+    { id: "port4", shape: "Circle", offset: { x: 0.5, y: 0 } },
   ];
   return ports;
 }
 
+//Adds EventListener based on device's viewport width.
 function addEvents() {
-    isMobile = window.matchMedia('(max-width:550px)').matches;
-    if (isMobile) {
-        let paletteIcon = document.getElementById('palette-icon');
-        if (paletteIcon){
-            paletteIcon.addEventListener('click', openPalette, false);
-        }
+  isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    if (paletteIcon) {
+      paletteIcon.addEventListener("click", openPalette, false);
     }
+  }
 }
 
+//Toggles the visibility of the palette space on mobile devices when the palette icon is clicked.
 function openPalette() {
-  let paletteSpace = document.getElementById('palette-space');
-  isMobile = window.matchMedia('(max-width:550px)').matches;
+  isMobile = window.matchMedia("(max-width:550px)").matches;
   if (isMobile) {
-    if (!paletteSpace.classList.contains('sb-mobile-palette-open')) {
-      paletteSpace.classList.add('sb-mobile-palette-open');
+    if (!paletteSpace.classList.contains("sb-mobile-palette-open")) {
+      paletteSpace.classList.add("sb-mobile-palette-open");
     } else {
-      paletteSpace.classList.remove('sb-mobile-palette-open');
+      paletteSpace.classList.remove("sb-mobile-palette-open");
     }
   }
-} 
-  function disableMultiselectedItems()
-  {
-     let toolbarEditor = document.getElementById("toolbar").ej2_instances[0];
-    toolbarEditor.items[22].disabled = true;
-    toolbarEditor.items[23].disabled = true;
-    toolbarEditor.items[27].disabled = true;
+}
+
+//To disable toolbar items while multiselection.
+function disableMultiselectedItems() {
+  updateToolbarItems(["alignObjects", "distributeObjects", "groupUngroup"],true );
+}
+
+//To enable toolbar Items
+function enableItems(){
+  updateToolbarItems( ["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects",],false);
+}
+
+//To Print diagram
+function printDiagram(args) {
+  var options = {};
+  options.mode = "Download";
+  options.region = "Content";
+  options.multiplePage = diagram.pageSettings.multiplePage;
+  options.pageHeight = 400;
+  options.pageWidth = 400;
+  diagram.print(options);
+}
+
+//To Flip diagram objects
+function flipObjects(flipType) {
+  var selectedObjects = diagram.selectedItems.nodes.concat(diagram.selectedItems.connectors);
+  for (let i = 0; i < selectedObjects.length; i++) {
+    selectedObjects[i].flip =
+      flipType === "Flip Horizontal" ? "Horizontal" : "Vertical";
   }
-    function enableItems()
-  {
-     let toolbarEditor = document.getElementById("toolbar").ej2_instances[0];
-    toolbarEditor.items[6].disabled = false;
-    toolbarEditor.items[7].disabled = false;
-    toolbarEditor.items[19].disabled = false;
-    toolbarEditor.items[20].disabled = false;
-    toolbarEditor.items[25].disabled = false;
-    toolbarEditor.items[29].disabled = false;
-    toolbarEditor.items[31].disabled = false;
-  }
-    function printDiagram(args) {
-     let diagram = document.getElementById("diagram").ej2_instances[0];
-    var options = {};
-    options.mode = 'Download';
-    options.region = 'Content';
-    options.multiplePage = diagram.pageSettings.multiplePage;
-    options.pageHeight = 400;
-    options.pageWidth = 400;
-    diagram.print(options);
-  }
-  function flipObjects(flipType){
-     let diagram = document.getElementById("diagram").ej2_instances[0];
-      var selectedObjects = diagram.selectedItems.nodes.concat(diagram.selectedItems.connectors);
-      for( let i=0; i< selectedObjects.length;i++)
-      {
-        selectedObjects[i].flip = flipType === 'Flip Horizontal'? 'Horizontal':'Vertical';
-      }
-      diagram.dataBind();
-  }
-  function onUploadSuccess(args) {
-  let file1  = args.file;
-  let file= file1.rawFile;
+  diagram.dataBind();
+}
+
+function onUploadSuccess(args) {
+  let file1 = args.file;
+  let file = file1.rawFile;
   let reader = new FileReader();
   reader.readAsText(file);
   reader.onloadend = loadDiagram;
@@ -1270,44 +1124,59 @@ function openPalette() {
 
 //Load the diagraming object.
 function loadDiagram(event) {
-   let diagram = document.getElementById("diagram").ej2_instances[0];
-   diagram.loadDiagram((event.target).result);
+  diagram.loadDiagram(event.target.result);
 }
 
-  function download(data){
-    if(window.navigator.msSaveBlob){
-        var blob = new Blob([data], { type: 'data:text/json;charset=utf-8,' });
-        window.navigator.msSaveOrOpenBlob(blob, 'Diagram.json');
-    }
-    else {
-        var dataString = 'data:text/json;charset=utf-8,' + encodeURIComponent(data);
-        var ele = document.createElement('a'); 
-        ele.href = dataString; 
-        ele.download = 'Diagram.json';
-        document.body.appendChild(ele);
-        ele.click();
-        ele.remove();
-    }
-}
-function lockObject (args) {
-   let diagram = document.getElementById("diagram").ej2_instances[0];
-    for (var i = 0; i < diagram.selectedItems.nodes.length; i++) {
-        var node = diagram.selectedItems.nodes[i];
-        if (node.constraints & NodeConstraints.Drag) {
-            node.constraints = NodeConstraints.PointerEvents | NodeConstraints.Select;
-        } else {
-            node.constraints = NodeConstraints.Default;
-        }
-    }
-    for (var j = 0; j < diagram.selectedItems.connectors.length; j++) {
-        var connector = diagram.selectedItems.connectors[j];
-        if (connector.constraints & ConnectorConstraints.Drag) {
-            connector.constraints = ConnectorConstraints.PointerEvents | ConnectorConstraints.Select;
-        } else {
-            connector.constraints = ConnectorConstraints.Default;
-        }
-    }
-    diagram.dataBind();
+//To save diagram objects
+function download(data) {
+  if (window.navigator.msSaveBlob) {
+    var blob = new Blob([data], { type: "data:text/json;charset=utf-8," });
+    window.navigator.msSaveOrOpenBlob(blob, "Diagram.json");
+  } else {
+    var dataString = "data:text/json;charset=utf-8," + encodeURIComponent(data);
+    var element = document.createElement("a");
+    element.href = dataString;
+    element.download = "Diagram.json";
+    document.body.appendChild(element);
+    element.click();
+    element.remove();
+  }
 }
 
+//To lock and unlock selected diagram objects
+function lockObject(args) {
+  let isChecked;
+  for (var i = 0; i < diagram.selectedItems.nodes.length; i++) {
+    var node = diagram.selectedItems.nodes[i];
+    if (node.constraints & NodeConstraints.Drag) {
+      node.constraints = NodeConstraints.PointerEvents | NodeConstraints.Select;
+      isChecked = true;
+    } else {
+      node.constraints = NodeConstraints.Default;
+      isChecked = false;
+    }
+  }
+  for (var j = 0; j < diagram.selectedItems.connectors.length; j++) {
+    var connector = diagram.selectedItems.connectors[j];
+    if (connector.constraints & ConnectorConstraints.Drag) {
+        connector.constraints = ConnectorConstraints.PointerEvents | ConnectorConstraints.Select;
+         isChecked = true;
+    } else {
+      connector.constraints = ConnectorConstraints.Default;
+      isChecked = false;
+    }
+  }
+  updateToolbarItems(["Cut", "Copy", "Delete", "orderCommands", "rotateObjects", "flipObjects"],isChecked);
+  diagram.dataBind();
+}
+
+// Enable or disable specific toolbar items
+function updateToolbarItems(itemIds, disabled) {
+  itemIds.forEach((itemId) => {
+    const item = toolbarEditor.items.find((item) => item.id === itemId);
+    if (item) {
+      item.disabled = disabled;
+    }
+  });
+}
 </script>

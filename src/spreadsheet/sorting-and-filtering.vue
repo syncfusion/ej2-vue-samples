@@ -67,7 +67,7 @@
 </style>
 <!-- custom code end -->
 <script>
-import { SpreadsheetComponent, SheetDirective, SheetsDirective, RangeDirective, RangesDirective, ColumnDirective, ColumnsDirective  } from "@syncfusion/ej2-vue-spreadsheet";
+import { SpreadsheetComponent, SheetDirective, SheetsDirective, RangeDirective, RangesDirective, ColumnDirective, ColumnsDirective, getFormatFromType  } from "@syncfusion/ej2-vue-spreadsheet";
 import dataSource from "./sorting-and-filtering-data.json";
 
 export default {
@@ -96,6 +96,8 @@ export default {
                 // Filtered D(Department  field) column with value 'Services'
                 spreadsheet.applyFilter([{ field: 'D', operator: 'equal', value: 'Services' }], 'A1:G51');
             });
+        spreadsheet.numberFormat('m/d/yyyy', 'E2:E51');
+        spreadsheet.numberFormat(getFormatFromType('Currency'), 'F2:F51');
             }
         }
 }

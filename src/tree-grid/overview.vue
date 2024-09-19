@@ -38,7 +38,7 @@
 </div>
 </template>
 <style scoped>
- /deep/ .e-image {
+ /deep/ .e-treeoverview {
         height: 13px;
         width: 14px;
         vertical-align: middle;
@@ -135,7 +135,7 @@
     .tailwind-dark .e-grid #coordinates.e-checkbox-wrapper .e-label, .e-css.e-checkbox-wrapper .e-label {
         display: inline;
     }
-    /deep/ #coordinates .e-image {
+    /deep/ #coordinates .e-treeoverview {
         filter: brightness(180%);
     }
     .e-bigger .e-grid .e-rowcell {
@@ -178,7 +178,7 @@ export default {
     flagtemplate: function () {
         return {
             template: createApp({}).component('flagtemplate', {
-                template: `<div class="image" style="display: inline"><img class="e-image" :alt="data.name" aria-label="Flag template"> &nbsp {{data.name }}</div>`,
+                template: `<div class="flagimage" style="display: inline"><img class="e-treeoverview" :alt="data.name" aria-label="Flag template"> &nbsp {{data.name }}</div>`,
             data: function () { return { data: { } }; },
             })
         }
@@ -196,7 +196,7 @@ export default {
     locationTemplate: function () {
         return {
             template: createApp({}).component('locationTemplate', {
-                template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-image" :alt="data.coordinates" aria-label="Location template"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/${data.coordinates}">{{data.coordinates}}</a></div>',
+                template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-treeoverview" :alt="data.coordinates" aria-label="Location template"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/${data.coordinates}">{{data.coordinates}}</a></div>',
             data: function() { return { data: {} }; },
             })
         }
@@ -272,7 +272,7 @@ export default {
 
         if ((args.column as Column).field === 'name') {
            let parentItem: ITreeData = getObject('parentItem', args.data);
-           let imageElement = (args.cell as Element).querySelector('.e-image') as HTMLImageElement;
+           let imageElement = (args.cell as Element).querySelector('.e-treeoverview') as HTMLImageElement;
            if (isNullOrUndefined(parentItem)) {
                let name: string = getObject('name', args.data);
                imageElement.src = "source/tree-grid/images/" + name + ".png";

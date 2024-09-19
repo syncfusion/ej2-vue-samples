@@ -87,7 +87,12 @@
         .fabric #slider.e-control.e-slider .e-handle {
             margin-top: 2px;
         }
-
+        .bootstrap5-dark #slider.e-control.e-slider .e-handle, .bootstrap5 #slider.e-control.e-slider .e-handle {
+            margin-top: 0px;
+        }
+        .fluent2-highcontrast #slider.e-control.e-slider .e-handle {
+            margin-top: 4px;
+        }
         .e-view.fluent2 #slider.e-control.e-slider .e-handle,
         .e-view.fluent2-dark #slider.e-control.e-slider .e-handle
         {
@@ -214,7 +219,7 @@ methods: {
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
       /* custom code end */
     }
 }

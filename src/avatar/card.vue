@@ -86,6 +86,8 @@
     .tailwind-dark .e-custom-card .e-avatar,
     .bootstrap5 .e-custom-card .e-avatar,
     .bootstrap5-dark .e-custom-card .e-avatar ,
+    .bootstrap5_3 .e-custom-card .e-avatar,
+    .bootstrap5_3-dark .e-custom-card .e-avatar,
     .fluent .e-custom-card .e-avatar,
     .fluent-dark .e-custom-card .e-avatar,
     .fluent2 .e-custom-card .e-avatar,
@@ -151,7 +153,8 @@
     .fluent2-dark .e-custom-card.e-card .avatar-content,
     .fluent2-highcontrast .e-custom-card.e-card .avatar-content,
     .fabric-dark .avatar-card .e-custom-card.e-card .avatar-content,
-    .bootstrap5-dark .avatar-card .e-custom-card.e-card .avatar-content {
+    .bootstrap5-dark .avatar-card .e-custom-card.e-card .avatar-content,
+    .bootstrap5\.3-dark .e-custom-card.e-card .avatar-content {
         color: rgba(255, 255, 255, 0.84);
     }
 
@@ -164,7 +167,8 @@
     .fluent2-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title,
     .fluent2-highcontrast .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title,
     .fabric-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title,
-    .bootstrap5-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title {
+    .bootstrap5-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title,
+    .bootstrap5\.3-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-sub-title {
         color: rgba(255, 255, 255, 0.45);
     }
 
@@ -177,7 +181,8 @@
     .fluent2-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title,
     .fluent2-highcontrast .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title,
     .fabric-dark .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title,
-    .bootstrap5-dark .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title  {
+    .bootstrap5-dark .avatar-card .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title,
+    .bootstrap5\.3-dark .e-custom-card.e-card .e-card-header .e-card-header-caption .e-card-header-title  {
         color: rgba(255, 255, 255, 0.84);
     }
 
@@ -185,3 +190,4 @@
 <script>
 export default {};
 </script>
+

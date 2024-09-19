@@ -2,7 +2,7 @@
     <div id="textarea-float" class="col-lg-8 control-section floatinglabel">
         <div class="content_wrapper">
             <div class="floatinglabel-row">
-                <ejs-textarea id="floatlabel" placeholder="Enter your comments" :floatLabelType='floatLabelType' rows="5" cols="300" ></ejs-textarea>
+                <ejs-textarea id="floatlabel" placeholder="Enter your comments" :floatLabelType='floatLabelType'  rows="5" cols="300"></ejs-textarea>
             </div>
         </div>
     </div>  
@@ -32,6 +32,12 @@
     </div>
 </template>
 
+<style>
+    #textarea-float .e-multi-line-input {
+        max-width: 100%;
+    }
+</style>
+
 <style scoped>
     .content_wrapper div.floatinglabel-row {
         margin: 30px 150px;
@@ -40,10 +46,6 @@
     .floatinglabel-property .left-side {
         font-size: 14px;
         padding: 8px;
-    }
-
-    #textarea-float .e-multi-line-input {
-        max-width: 100%;
     }
 </style>
 

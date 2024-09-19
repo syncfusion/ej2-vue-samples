@@ -230,12 +230,13 @@ return{
 },
 mounted(){
     this.start();    
+    this.changeSpark();
 },
 methods:{
     /* custom code start */
     load:function(args){
         let theme = location.hash.split('/')[1];
-        theme = theme ? theme : 'Material';
+        theme = theme ? theme : 'Fluent2';
         args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast') ;
     },
     /* custom code end */
@@ -250,7 +251,7 @@ methods:{
         }
     },
     changeSpark:function(args){
-         let element1 = (document.getElementById('spark'));
+        let element1 = (document.getElementById('spark'));
         if (this.$refs.spark.ej2Instances.value === 'salespercentage') {
             this.$refs.axisval.ej2Instances.min = 0;
             this.$refs.axisval.ej2Instances.max = 10;

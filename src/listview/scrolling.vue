@@ -68,6 +68,14 @@
         margin-top: 10px;
         margin-bottom: 10px;
     }
+
+    .bootstrap5 #list_scrolling .rating-content .e-rating-container .e-rating-item-container.e-rating-selected .e-rating-icon,
+    .bootstrap5-dark #list_scrolling .rating-content .e-rating-container .e-rating-item-container.e-rating-selected .e-rating-icon,
+    .bootstrap5\.3  #list_scrolling .rating-content .e-rating-container .e-rating-item-container.e-rating-selected .e-rating-icon,
+    .bootstrap5\.3-dark #list_scrolling .rating-content .e-rating-container .e-rating-item-container.e-rating-selected .e-rating-icon {
+        background: darkblue;
+        background-clip: text;
+    }
 </style>
 
 <script>

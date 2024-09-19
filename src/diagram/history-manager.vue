@@ -46,7 +46,7 @@
                             <div style="display: table-cell; vertical-align: middle">Stack Limit</div>
                         </div>
                         <div class="col-xs-6" style="padding-left: 0px; padding-right: 0px">
-                            <ejs-numerictextbox id="StackLimit" value="0" step="1" format='###.##' :change='setStackLimit'></ejs-numerictextbox>
+                            <ejs-numerictextbox id="StackLimit" :value=0 :step=1 format='###.##' :change='setStackLimit'></ejs-numerictextbox>
                         </div>
                     </div>
                     <div class="row" style="padding-top: 10px">
@@ -124,43 +124,43 @@ import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { ListViewComponent, ListView } from "@syncfusion/ej2-vue-lists";
 
+// Helper function to create a NodeModel with default parameters
+function createNode(
+    id,
+    offsetX,
+    offsetY,
+    fill,
+    strokeColor,
+    shape,
+    content,
+    width = 70,
+    height = 40,
+    ports = []) {
+    return {
+        id,
+        offsetX,
+        offsetY,
+        style: { fill, strokeColor },
+        width,
+        height,
+        shape: { type: 'Flow', shape: shape },
+        annotations: [{ content: content }],
+        ports
+    };
+}
+// Initialize Diagram Nodes using the createNode function
 let nodes = [
-    {
-        id: 'node1', offsetX: 400, offsetY: 30, style: { fill: '#FFB2B2', strokeColor: '#FFB2B2' }, width: 70, height: 40,
-        shape: { type: 'Flow', shape: 'Terminator' },
-        annotations: [{ id: 'label1', content: 'Start' }],
-    },
-    {
-        id: 'node2', offsetX: 400, offsetY: 100, style: { fill: '#DCDCDC', strokeColor: '#DCDCDC' },
-        shape: { type: 'Flow', shape: 'Process' }, annotations: [{ id: 'label1', content: 'Design' }],
-        ports: [{ id: 'designPort', offset: { x: 0, y: 0.5 } }]
-    },
-    {
-        id: 'node3', offsetX: 400, offsetY: 180, style: { fill: '#DCDCDC', strokeColor: '#DCDCDC' },
-        annotations: [{ id: 'label1', content: 'Coding' }],
-        shape: { type: 'Flow', shape: 'Process' }, ports: [{ id: 'codingPort', offset: { x: 0, y: 0.5 } }]
-    },
-    {
-        id: 'node4', offsetX: 400, offsetY: 260, style: { fill: '#DCDCDC', strokeColor: '#DCDCDC' },
-        annotations: [{ id: 'label1', content: 'Testing' }], shape: { type: 'Flow', shape: 'Process' }
-    },
-    {
-        id: 'node5', offsetX: 400, offsetY: 340, style: { fill: '#A2D8B0', strokeColor: '#A2D8B0' }, width: 80, height: 60,
-        annotations: [{ id: 'label1', content: 'Errors?' }], shape: { type: 'Flow', shape: 'Decision' }
-    },
-    {
-        id: 'node6', offsetX: 400, offsetY: 430, style: { fill: '#FFB2B2', strokeColor: '#FFB2B2' }, width: 70, height: 40,
-        annotations: [{ id: 'label1', content: 'End' }], shape: { type: 'Flow', shape: 'Terminator' }
-    },
-    {
-        id: 'node7', width: 100, offsetX: 220, offsetY: 180, style: { fill: '#A2D8B0', strokeColor: '#A2D8B0' }, height: 60,
-        annotations: [{ id: 'label1', content: 'Design Error?' }], shape: { type: 'Flow', shape: 'Decision' },
-        ports: [
-            { id: 'porterror', offset: { x: 0.5, y: 0 } },
-            { id: 'portcoding', offset: { x: 1, y: 0.5 } },
-            { id: 'portdesign', offset: { x: 0.5, y: 1 } }
-        ]
-    }
+    createNode('node1', 400, 30, '#FFB2B2', '#FFB2B2', 'Terminator', 'Start'),
+    createNode('node2', 400, 100, '#DCDCDC', '#DCDCDC', 'Process', 'Design', undefined, undefined, [{ id: 'designPort', offset: { x: 0, y: 0.5 } }]),
+    createNode('node3', 400, 180, '#DCDCDC', '#DCDCDC', 'Process', 'Coding', undefined, undefined, [{ id: 'codingPort', offset: { x: 0, y: 0.5 } }]),
+    createNode('node4', 400, 260, '#DCDCDC', '#DCDCDC', 'Process', 'Testing'),
+    createNode('node5', 400, 340, '#A2D8B0', '#A2D8B0', 'Decision', 'Errors?', 80, 60),
+    createNode('node6', 400, 430, '#FFB2B2', '#FFB2B2', 'Terminator', 'End'),
+    createNode('node7', 220, 180, '#A2D8B0', '#A2D8B0', 'Decision', 'Design Error?', 100, 60, [
+        { id: 'porterror', offset: { x: 0.5, y: 0 } },
+        { id: 'portcoding', offset: { x: 1, y: 0.5 } },
+        { id: 'portdesign', offset: { x: 0.5, y: 1 } }
+    ])
 ];
 
 let connectors = [
@@ -254,42 +254,46 @@ export default {
         };
         clear.element.onclick = () => {
             diagram.clearHistory();
-            getValue();
+            updateHistoryLists();
         }
     }
 }
+// Function to handle stack limit setting
 function setStackLimit(args) {
     diagram.setStackLimit(args.value);
 }
+// Function called on history change
 function historyChange(arg) {
-    getValue();
+    updateHistoryLists();
 };
 function getNodeDefaults(obj) {
     obj.annotations[0].style.color = '#111111';
     return obj;
 }
-function getValue() {
-    let undoStack = diagram.historyManager.undoStack;
-    let redoStack = diagram.historyManager.redoStack;
-    let undo = [];
-    for (let i = 0; i < undoStack.length; i++) {
-        undo.push({ 'text': undoStack[i].type, 'value': undoStack[i].type });
-    }
+function updateHistoryLists() {
+    const { undoStack, redoStack, stackLimit } = diagram.historyManager;
 
-    let redo = [];
-    for (let i = 0; i < redoStack.length; i++) {
-        redo.push({ 'text': redoStack[i].type, 'value': redoStack[i].type });
-    }
-    undoButton.disabled = undo.length ? false : true;
-    redoButton.disabled = redo.length ? false : true;
-    let itemsCount = diagram.historyManager.stackLimit ? diagram.historyManager.stackLimit : 0;
-    undoList.dataSource = undo;
-    undoList.fields = { text: 'text', value: 'text' };
-    undoList.index = 0;
-    undoList.dataBind();
-    redoList.dataSource = redo;
-    redoList.fields = { text: 'text', value: 'text' };
-    redoList.index = 0;
-    redoList.dataBind();
+    // Utility function to transform stack data
+    const transformStack = (stack) => stack.map(item => ({ text: item.type, value: item.type }));
+
+    // Transform undo and redo stacks
+    const undo = transformStack(undoStack);
+    const redo = transformStack(redoStack);
+
+    // Update button states
+    undoButton.disabled = !undo.length;
+    redoButton.disabled = !redo.length;
+
+    // Update lists
+    const updateList = (list, data) => {
+        list.dataSource = data;
+        list.fields = { text: 'text', value: 'text' };
+        list.index = 0;
+        list.dataBind();
+    };
+
+    updateList(undoList, undo);
+    updateList(redoList, redo);
 }
+
 </script>

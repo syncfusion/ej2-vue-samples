@@ -84,6 +84,8 @@
     }
 
     .bootstrap5 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .bootstrap5\.3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .bootstrap5\.3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .bootstrap5-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .fluent .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .fluent-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
@@ -94,7 +96,8 @@
     .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .tailwind-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .material3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
-    .material3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before {
+    .material3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .fluent2-highcontrast .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before {
         content: "\e713";
     }
     
@@ -107,7 +110,8 @@
     .tailwind .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .tailwind-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .material3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
-    .material3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before {
+    .material3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
+    .fluent2-highcontrast .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before {
         content: "\e755";
     }
 

@@ -182,7 +182,9 @@
   color: #fff;
 }
 .bootstrap5-dark .CodeMirror-gutters,
-.bootstrap5-dark .CodeMirror {
+.bootstrap5\.3-dark .CodeMirror-gutters,
+.bootstrap5-dark .CodeMirror,
+.bootstrap5\.3-dark .CodeMirror {
   background-color: #212529;
   color: #fff;
 }
@@ -203,6 +205,7 @@
 }
 .fabric-dark .title,
 .bootstrap5-dark .title,
+.bootstrap5\.3-dark .title,
 .bootstrap-dark .title,
 .fluent-dark .title,
 .fluent2-dark .title,

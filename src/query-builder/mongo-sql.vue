@@ -185,6 +185,24 @@
     }
 }
 
+.material-dark .mongo-text-area,
+.material-dark .e-query-preview .e-sql-content,
+.material-dark .e-query-preview .e-mongo-content,
+.material3-dark .mongo-text-area,
+.material3-dark .e-query-preview .e-sql-content,
+.material3-dark .e-query-preview .e-mongo-content,
+.bootstrap5\.3-dark .mongo-text-area,
+.bootstrap5\.3-dark .e-query-preview .e-sql-content,
+.bootstrap5\.3-dark .e-query-preview .e-mongo-content,
+.fabric-dark .mongo-text-area,
+.fabric-dark .e-query-preview .e-sql-content,
+.fabric-dark .e-query-preview .e-mongo-content,
+.tailwind-dark .mongo-text-area,
+.tailwind-dark .e-query-preview .e-sql-content,
+.tailwind-dark .e-query-preview .e-mongo-content,
+.bootstrap-dark .mongo-text-area,
+.bootstrap-dark .e-query-preview .e-sql-content,
+.bootstrap-dark .e-query-preview .e-mongo-content,
 .highcontrast .mongo-text-area,
 .highcontrast .e-query-preview .e-sql-content,
 .highcontrast .e-query-preview .e-mongo-content,
@@ -197,6 +215,13 @@
     background-color: #1f1f1f;
 }
 
+.bootstrap5\.3-dark .e-query-preview .e-icons.copycode,
+.material3-dark .e-query-preview .e-icons.copycode,
+.material-dark .e-query-preview .e-icons.copycode,
+.fabric-dark .e-query-preview .e-icons.copycode,
+.tailwind-dark .e-query-preview .e-icons.copycode,
+.bootstrap-dark .e-query-preview .e-icons.copycode,
+.highcontrast .e-query-preview .e-icons.copycode,
 .fluent2-dark .e-query-preview .e-icons.copycode,
 .fluent2-highcontrast .e-query-preview .e-icons.copycode {
     padding-bottom: 3px;

@@ -2,7 +2,7 @@
   <div>
     <div class="control-section">
       <div id="dropdown-control" style="margin-bottom:5px;">
-        <table style="width: 350px;">
+        <table style="max-width: 330px;">
           <tbody>
             <tr style="height: 50px">
               <td>
@@ -11,7 +11,7 @@
                 </div>
               </td>
               <td>
-                <div>
+                <div style="padding-left: 5px;">
                   <ejs-dropdownlist
                     id="contenttype"
                     :change="ddlOnChange"

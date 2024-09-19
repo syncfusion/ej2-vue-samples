@@ -112,7 +112,9 @@
         font-weight: 400;
     }
 
-    .fluent-dark .header {
+    .fluent-dark .header,
+    .fluent2-dark .header,
+    .fluent2-highcontrast .header {
         background: #252423;
         color: #2899F5;
     }
@@ -175,7 +177,7 @@
 <script>
 import { DropDownListComponent, VirtualScroll, MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
-import { Query, DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
+import { Query, DataManager, UrlAdaptor } from '@syncfusion/ej2-data';
 let records = [];
 function dataSource() {
     for (var i = 1; i <= 150; i++) {
@@ -204,8 +206,8 @@ function dataSource() {
 }
 dataSource();
 var remoteData = new DataManager({
-    url: 'https://services.syncfusion.com/vue/production/api/orders',
-    adaptor: new WebApiAdaptor,
+    url: 'https://services.syncfusion.com/vue/production/api/VirtualDropdownData',
+    adaptor: new UrlAdaptor,
     crossDomain: true
 });
 

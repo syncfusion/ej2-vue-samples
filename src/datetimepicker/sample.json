@@ -3,6 +3,7 @@
     "directory": "datetimepicker",
     "category": "Calendars",
     "hideOnDevice": true,
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -21,8 +22,9 @@
             "url": "date-time-range",
             "name": "DateTime Range",
             "category": "DateTimePicker",
-            "api":{"DatePicker": [ "min", "max", "value" ]},
-            "description": "This example demonstrates how to disables the specific range of dates and times (min and max) in a Vue DateTimePicker" 
+            "type": "update",
+            "api":{"DatePicker": [ "min", "max", "minTime", "maxTime", "value" ]},
+            "description": "This example demonstrates how to disables the specific range of dates and times (min, max, minTime and maxTime) in a Vue DateTimePicker" 
         },
         {
             "url": "date-time-format",

@@ -4,7 +4,7 @@
         <ejs-chart ref="chart" style='display:block' :theme='theme' :load='load' :axisRangeCalculated='axisRangeCalculated' :pointRender='pointRender' align='center' id='UpdateData' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width'>
             <e-series-collection>
-                <e-series :dataSource='data3' type='Column' xName='x' yName='y' :cornerRadius='cornerRadius' columnWidth=0.5> </e-series>
+                <e-series :dataSource='data3' type='Column' xName='x' yName='y' :cornerRadius='cornerRadius' columnWidth=0.5 :marker='marker'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
@@ -32,10 +32,10 @@
 <script>
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, DataLabel } from "@syncfusion/ej2-vue-charts";
-import { fabricColors, materialColors, bootstrapColors, highContrastColors, fluent2Colors, fluent2DarkColors } from './theme-color';
+import { fabricColors, materialColors, bootstrapColors, highContrastColors, fluent2Colors, fluent2HighContrastColors } from './theme-color';
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 function getRandomInt(min, max) {
@@ -81,6 +81,7 @@ export default {
                 width: 0
             }
         },
+        marker: {visible: false, dataLabel: {visible: true, format: '{value}%', position: 'Top', font: { color: '#ffffff' } }},
         width : Browser.isDevice ? '100%' : '75%',
         title: "Sales by product",
         cornerRadius: { topLeft: Browser.isDevice ? 10 : 15, topRight: Browser.isDevice ? 10 : 15 }
@@ -126,7 +127,7 @@ export default {
     },
     pointRender: function(args) {
         let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Material';
+        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
         if (selectedTheme && selectedTheme.indexOf('fabric') > -1) {
             args.fill = fabricColors[args.point.index % 10];
         } else if (selectedTheme === 'material') {
@@ -135,8 +136,8 @@ export default {
             args.fill = highContrastColors[args.point.index % 10];
         } else if (selectedTheme === 'fluent2') {
             args.fill = fluent2Colors[args.point.index % 10];
-        } else if (selectedTheme === 'fluent2-dark') {
-            args.fill = fluent2DarkColors[args.point.index % 10];
+        } else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
+            args.fill = fluent2HighContrastColors[args.point.index % 10];
         } else {
             args.fill = bootstrapColors[args.point.index % 10];
         }

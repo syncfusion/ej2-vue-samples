@@ -55,16 +55,16 @@
       </p>
       <p>
         In this demo, we have defined actions in the
-        <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#toolbarclick">toolbarClick</a></code>
+        <a target="_blank"  href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#toolbarclick">toolbarClick</a>
         event to export the Gantt data using the
-        <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#excelexport">excelExport</a></code>,
-        <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#pdfexport">pdfExport</a></code>
+        <a target="_blank"  href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#excelexport">excelExport</a>,
+        <a target="_blank"  href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#pdfexport">pdfExport</a>
         and
-        <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#csvexport">csvExport</a></code> methods.
+        <a target="_blank"  href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#csvexport">csvExport</a>methods.
       </p>
       <p>In addition we have provided support to export the Gantt component where each rows are auto-fit to the PDF document page width using 
-        <code><a target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/gantt/pdf-export/pdf-export">fitToWidthSettings</a></code>
-         in <code>PdfExportProperties</code> and also it includes the functionality allowing the PDF export of <code>holidays</code> and <code>eventMarkers</code>.</p>
+        <a target="_blank" href="hhttps://ej2.syncfusion.com/vue/documentation/api/gantt/pdfExportProperties/#fittowidthsettings">fitToWidthSettings</a>
+         in <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/pdfExportProperties">PdfExportProperties</a> and also it includes the functionality allowing the PDF export of <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#holidays">holidays</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#eventmarkers">eventMarkers</a>.</p>
       <p style="font-weight: 500">Injecting Module:</p>
       <p>
         To use Excel and CSV export features, we need to inject

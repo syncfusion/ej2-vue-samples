@@ -111,17 +111,23 @@
     }
 
     .bootstrap5 #toast_pos.e-toast-container .e-toast .e-toast-icon,
-    .bootstrap5-dark #toast_pos.e-toast-container .e-toast .e-toast-icon {
+    .bootstrap5-dark #toast_pos.e-toast-container .e-toast .e-toast-icon,
+    .bootstrap5.3 #toast_pos.e-toast-container .e-toast .e-toast-icon,
+    .bootstrap5.3-dark #toast_pos.e-toast-container .e-toast .e-toast-icon {
         position: relative;
     }
 
     .bootstrap5 #toast_pos.e-toast-container .e-toast .e-toast-message,
-    .bootstrap5-dark #toast_pos.e-toast-container .e-toast .e-toast-message {
+    .bootstrap5-dark #toast_pos.e-toast-container .e-toast .e-toast-message,
+    .bootstrap5.3 #toast_pos.e-toast-container .e-toast .e-toast-message,
+    .bootstrap5.3-dark #toast_pos.e-toast-container .e-toast .e-toast-message {
         padding-left: 10px;
     }
 
     .bootstrap5 #toast_pos.e-toast-container .e-toast.e-toast-header-icon .e-toast-message .e-toast-title:first-child,
-    .bootstrap5-dark #toast_pos.e-toast-container .e-toast.e-toast-header-icon .e-toast-message .e-toast-title:first-child {
+    .bootstrap5-dark #toast_pos.e-toast-container .e-toast.e-toast-header-icon .e-toast-message .e-toast-title:first-child,
+    .bootstrap5.3 #toast_pos.e-toast-container .e-toast.e-toast-header-icon .e-toast-message .e-toast-title:first-child,
+    .bootstrap5.3-dark #toast_pos.e-toast-container .e-toast.e-toast-header-icon .e-toast-message .e-toast-title:first-child {
         padding-left: 12px;
     }
 </style>

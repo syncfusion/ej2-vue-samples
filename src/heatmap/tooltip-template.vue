@@ -3,7 +3,7 @@
     <div class="control-section">
         <div>
         <div class="content-wrapper">
-        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :tooltipSettings='tooltipSettings' :load='load'></ejs-heatmap>
+        <ejs-heatmap id='container' :titleSettings='titleSettings' :xAxis='xAxis' :yAxis='yAxis' :dataSource='dataSource' :cellSettings='cellSettings' :paletteSettings='paletteSettings' :legendSettings='legendSettings' :tooltipSettings='tooltipSettings' :load='load' :tooltipRender='tooltipRender'></ejs-heatmap>
         </div>
         </div>
     </div>
@@ -129,8 +129,18 @@ methods: {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.heatmap.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
+        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark").replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
      /* custom code end */
+    },
+    tooltipRender:function(args)
+    {
+        if (args.heatmap.theme.indexOf('Dark') > -1 || args.heatmap.theme.indexOf('HighContrast') > -1) {
+            args.heatmap.tooltipSettings.template = '<div style=" border-radius: 5px;fontFamily: inherit; padding-left: 10px;padding-right: 10px;padding-bottom: 6px;padding-top: 6px;background:white; border: 1px #919191;" ><span style="color:black;font-size: 12px">In ${yLabel}, the ${xLabel} produced ${value} million barrels per day.<span></div>';
+
+        }
+        else {
+            args.heatmap.tooltipSettings.template = '<div style=" border-radius: 5px;fontFamily: inherit; padding-left: 10px;padding-right: 10px;padding-bottom: 6px;padding-top: 6px;background:#000000; border: 1px #919191;" ><span style="color:white;font-size: 12px">In ${yLabel}, the ${xLabel} produced ${value} million barrels per day.<span></div>';
+        }
     }
   }
 }

@@ -93,7 +93,7 @@ import { NumericTextBox } from '@syncfusion/ej2-vue-inputs';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, ScatterSeries, SplineSeries, Tooltip, Legend, Highlight } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {

@@ -15,7 +15,8 @@
         :tooltip="tooltip"
         :legendSettings="legendSettings"
         :pointRender="pointRender"
-        :enableSideBySidePlacement="false"       
+        :enableSideBySidePlacement="false" 
+        :highlightColor="highlightColor"      
       >
         <e-series-collection>
           <e-series
@@ -71,7 +72,7 @@ import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSerie
 import { fabricColors, materialColors, bootstrapColors, highContrastColors } from "./theme-color";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
 ).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
@@ -142,7 +143,7 @@ export default {
     
     pointRender: function(args) {
       let selectedTheme = location.hash.split("/")[1];
-      selectedTheme = selectedTheme ? selectedTheme : "Material";
+      selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
       if (location.hash.indexOf("material") > -1)
         {
             if (location.hash.indexOf("dark") > -1)

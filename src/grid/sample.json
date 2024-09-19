@@ -92,6 +92,7 @@
             "url": "column-template",
             "name": "Column Template",
             "category": "Columns",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows the usage of template columns in grid.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
@@ -100,6 +101,7 @@
             "url": "header-template",
             "name": "Header Template",
             "category": "Columns",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows the usage of the header template feature.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] },
@@ -112,6 +114,7 @@
             "url": "stacked-header",
             "name": "Stacked Header",
             "category": "Columns",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows the usage of the stacked header feature.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
@@ -144,6 +147,7 @@
             "url": "column-menu",
             "name": "Column Menu",
             "category": "Columns",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows the usage of the various column functionalities of the column menu feature.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowResizing"] }
@@ -184,6 +188,7 @@
             "url": "row-template",
             "name": "Row Template",
             "category": "Rows",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows the usage of the row template feature.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "rowTemplate"] },
@@ -196,6 +201,7 @@
             "url": "detail-template",
             "name": "Detail Template",
             "category": "Rows",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows the usage of the detail template feature.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "rowTemplate"] },
@@ -300,6 +306,15 @@
             ]
         },
         {
+            "url": "filter-template",
+            "name": "Filter Template",
+            "category": "Filtering",
+            "type": "new",
+            "description": "This demo for Essential JS 2 grid control shows how to filter a data using custom component in filter bar.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["allowFiltering","dataSource","allowPaging","pageSettings","columns", "filterTemplate"] }
+        },
+        {
             "url": "filter-menu",
             "name": "Filter Menu",
             "category": "Filtering",
@@ -339,6 +354,7 @@
             "url": "aggregate",
             "name": "Default Aggregate",
             "category": "Aggregate",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows how the row values can be aggregated and shown in a column footer.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
@@ -347,6 +363,7 @@
             "url": "group-caption-aggregate",
             "name": "Group and Caption Aggregate",
             "category": "Aggregate",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows how the row values can be aggregated for each group of items and shown in a group caption and footer.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
@@ -457,7 +474,6 @@
         {
             "url": "lazy-load-grouping-with-paging",
             "name": "Grouping with Paging",
-            "type": "update",
             "category": "Lazy Load Grouping",
             "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature.",
             "hideOnDevice": false,
@@ -466,7 +482,6 @@
         {
             "url": "lazy-load-grouping-with-infinite-scrolling",
             "name": "Grouping with Infinite Scrolling",
-            "type": "update",
             "category": "Lazy Load Grouping",
             "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature with infinite scrolling.",
             "hideOnDevice": false,
@@ -475,7 +490,6 @@
         {
             "url": "lazy-load-grouping-with-virtual-scrolling",
             "name": "Grouping with Virtual Scrolling",
-            "type": "update",
             "category": "Lazy Load Grouping",
             "description": "This demo for Essential JS 2 grid control demonstrates the usage of the lazy load grouping feature with virtual scrolling.",
             "hideOnDevice": false,

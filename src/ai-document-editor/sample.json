@@ -1,0 +1,26 @@
+{
+    "name":  "Document Editor",
+    "directory": "ai-document-editor",
+    "category": "Smart AI Solutions",
+    "samples": [
+        {
+            "url": "writing-assist",
+            "name": "Writing Assist",
+            "category": "Document Editor",
+            "sourceFiles":[
+                { "displayName": "writing-assist.vue", "path":"src/ai-document-editor/ai-writing-assist.vue" }
+            ],
+            "description": "This demo shows the smart AI feature in document editor component."
+        },
+        {
+            "url": "smart-editor",
+            "name": "Smart Editor",
+            "category": "Document Editor",
+            "sourceFiles":[
+                { "displayName": "smart-editor.vue", "path":"src/ai-document-editor/ai-smart-editor.vue" }
+            ],
+            "description": "This demo shows the smart AI feature in document editor component."
+        }
+    ]
+}
+

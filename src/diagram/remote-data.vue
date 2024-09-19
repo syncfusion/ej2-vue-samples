@@ -37,12 +37,11 @@
 <script>
 import {
   DiagramComponent,
-  Diagram,
   DataBinding,
   HierarchicalTree,
   DiagramTools
 } from "@syncfusion/ej2-vue-diagrams";
-import { DataManager, Query } from "@syncfusion/ej2-data";
+import { DataManager } from "@syncfusion/ej2-data";
 
 export default {
   components: {
@@ -57,27 +56,14 @@ export default {
         type: "HierarchicalTree",
         margin: { left: 0, right: 0, top: 100, bottom: 0 },
         verticalSpacing: 40,
-        getLayoutInfo: (node, options) => {
-          if (options.level === 3) {
-            node.style.fill = "#3c418d";
-          }
-          if (options.level === 2) {
-            node.style.fill = "#108d8d";
-            options.type = "Center";
-            options.orientation = "Horizontal";
-          }
-          if (options.level === 1) {
-            node.style.fill = "#822b86";
-          }
-        }
       },
       //Sets the default values of nodes
-      getNodeDefaults: (obj) => {
-        obj.width = 80;
-        obj.height = 40;
+      getNodeDefaults: (node) => {
+        node.width = 80;
+        node.height = 40;
         //Initialize shape
-        obj.shape = { type: "Basic", shape: "Rectangle" };
-        obj.style = { fill: "#048785", strokeColor: "Transparent" };
+        node.shape = { type: "Basic", shape: "Rectangle" };
+        node.style = { fill: "#048785", strokeColor: "Transparent" };
       },
       //Sets the default values of connector
       getConnectorDefaults: (connector) => {

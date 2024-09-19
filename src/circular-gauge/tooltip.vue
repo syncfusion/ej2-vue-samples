@@ -1,7 +1,7 @@
 <template>
  <main><div>
     <div class="control-section">
-        <ejs-circulargauge ref="circulargauge" :animationDuration=2000 :background='background' style='display:block' :load='load' align='center' id='tooltip-container' :title='title' :titleStyle='titleStyle' :enablePointerDrag='enablePointerDrag' :tooltipRender='tooltipRender' :dragEnd='dragEnd' :tooltip='tooltip'>
+        <ejs-circulargauge ref="circulargauge" :animationDuration=2000 :background='background' style='display:block' :load='load' align='center' id='tooltip-container' :enablePointerDrag='enablePointerDrag' :dragEnd='dragEnd' :tooltip='tooltip'>
             <e-axes>
                 <e-axis :radius='gaugeradius' :startAngle='startAngle' minimum=0 maximum=120 :endAngle='endAngle' :majorTicks='majorTicks' :lineStyle='lineStyle' :minorTicks='minorTicks' :labelStyle='labelStyle' :ranges='ranges'>
                     <e-pointers>
@@ -118,16 +118,6 @@ export default {
         circulargauge: [GaugeTooltip]
     },
     methods: {
-        load: function (args) {
-            /* custom code start */
-            let selectedTheme = location.hash.split("/")[1];
-            selectedTheme = selectedTheme ? selectedTheme : "Material";
-            args.gauge.theme =
-                (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-            }, 
-            /* custom code end */                
-        },
         dragEnd: function (args) {
         if (args.currentValue >= 0 && args.currentValue <= 50) {
             args.pointer.color = '#3A5DC8';
@@ -140,6 +130,16 @@ export default {
 		args.pointer.value = args.currentValue;
         args.pointer.animation.enable = false;
         this.$refs.circulargauge.ej2Instances.refresh();
-    }    
+        },
+        load: function (args) {
+            /* custom code start */
+            let selectedTheme = location.hash.split("/")[1];
+            selectedTheme = selectedTheme ? selectedTheme : "Material";
+            args.gauge.theme =
+                (selectedTheme.charAt(0).toUpperCase() +
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
+            }, 
+            /* custom code end */                
+        }
 }
 </script>

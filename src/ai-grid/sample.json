@@ -1,0 +1,36 @@
+{
+    "name": "Data Grid",
+    "directory": "ai-grid",
+    "category": "Smart AI Solutions",
+    "samples": [
+        {
+            "url": "predictive-entry",
+            "name": "Predictive Data Entry",
+            "category": "Data Grid",
+            "sourceFiles":[
+                { "displayName": "predictive-entry.vue", "path":"src/ai-grid/ai-predictive-entry.vue" }
+            ],
+            "description": "This demo shows the predictive data entry AI feature in Data Grid."
+        },
+        {
+            "url": "anomaly-detection",
+            "name": "Anomaly Detection",
+            "category": "Data Grid",
+            "sourceFiles":[
+                { "displayName": "anomaly-detection.vue", "path":"src/ai-grid/ai-anomaly-detection.vue" }
+            ],
+            "description": "This demo shows the anomaly detection AI feature in Data Grid."
+        },
+        {
+            "url": "semantic-filtering",
+            "name": "Semantic Filtering (Embedding)",
+            "category": "Data Grid",
+            "sourceFiles":[
+                { "displayName": "semantic-filtering.vue", "path":"src/ai-grid/ai-semantic-filtering.vue" }
+            ],
+            "description": "This demo shows the semantic filtering AI feature in Data Grid."
+        }
+    ]
+}
+
+

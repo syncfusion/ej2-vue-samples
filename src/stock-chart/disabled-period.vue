@@ -163,10 +163,10 @@
         stop-color: #4f46e5;
     }
     #bootstrap5-gradient-chart stop {
-        stop-color: #262E0B;
+        stop-color: #FD7E14;
     }
     #bootstrap5-dark-gradient-chart stop {
-        stop-color: #5ECB9B;
+        stop-color: #FD7E14;
     }
     #fluent-gradient-chart stop {
         stop-color: #614570;
@@ -220,7 +220,7 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
@@ -276,9 +276,9 @@ export default {
   methods: {
     load: function(args) {
         var selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Material';
+        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
         args.stockChart.theme = (selectedTheme.charAt(0).toUpperCase() +
-                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i,  'Contrast');
+                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i,  'Contrast').replace(/-highContrast/i, 'HighContrast');
         args.stockChart.series[0].fill = 'url(#' + selectedTheme.toLowerCase() + '-gradient-chart)';
     },
   }

@@ -121,14 +121,38 @@
         }
     }
 
+    .bootstrap5\.3-dark .e-query-json-preview .e-json-content,
+    .bootstrap5\.3-dark .json-content-area,
+    .fabric-dark .e-query-json-preview .e-json-content,
+    .fabric-dark .json-content-area,
+    .tailwind-dark .e-query-json-preview .e-json-content,
+    .tailwind-dark .json-content-area,
+    .fluent-dark .e-query-json-preview .e-json-content,
+    .fluent-dark .json-content-area,
+    .material3-dark .e-query-json-preview .e-json-content,
+    .material3-dark .json-content-area,
+    .material-dark .e-query-json-preview .e-json-content,
+    .material-dark .json-content-area,
+    .bootstrap-dark .e-query-json-preview .e-json-content,
+    .bootstrap-dark .json-content-area,
     .highcontrast .e-query-json-preview .e-json-content,
     .highcontrast .json-content-area,
     .fluent2-dark .e-query-json-preview .e-json-content,
     .fluent2-dark .json-content-area,
-    .fluent2-highcontrast .e-query-json-preview .e-json-content 
+    .fluent2-highcontrast .e-query-json-preview .e-json-content,
     .fluent2-highcontrast .json-content-area {
         background-color: #1f1f1f;
     }
+
+    .bootstrap5-dark .e-query-json-preview .e-icons.copycode,
+    .bootstrap5\.3-dark .e-query-json-preview .e-icons.copycode,
+    .material3-dark .e-query-json-preview .e-icons.copycode,
+    .fabric-dark .e-query-json-preview .e-icons.copycode,
+    .tailwind-dark .e-query-json-preview .e-icons.copycode,
+    .fluent-dark .e-query-json-preview .e-icons.copycode,
+    .material-dark .e-query-json-preview .e-icons.copycode,
+    .bootstrap-dark .e-query-json-preview .e-icons.copycode,
+    .highcontrast .e-query-json-preview .e-icons.copycode,
     .fluent2-dark .e-query-json-preview .e-icons.copycode,
     .fluent2-highcontrast .e-query-json-preview .e-icons.copycode {
         padding-bottom: 3px;

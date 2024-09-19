@@ -30,7 +30,7 @@
     </div>
 
     <div id="description">
-        <p>The <code>TreeView</code> component allows users to drag any node and drop it on any other node in the same or different tree using <code>allowDragAndDrop</code> property. Additionally, it supports dropping a tree node to an external container using <code>nodeDragStop</code> event of the TreeView</p>
+        <p>The <code>TreeView</code> component allows users to drag any node and drop it on any other node in the same or different tree using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/treeview/#allowdraganddrop">allowDragAndDrop</a> property. Additionally, it supports dropping a tree node to an external container using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/treeview/#nodedragstop">nodeDragStop</a> event of the TreeView</p>
         <p>For more information, you can refer to the <a href="https://ej2.syncfusion.com/vue/documentation/treeview/drag-and-drop/" target="_blank">Drag and Drop</a> section from the documentation.</p>
     </div>
 </div>
@@ -63,8 +63,8 @@
         width: 40%;
         float: left;
     }
-    .bootstrap5 .custom-delete,
-    .bootstrap5-dark .custom-delete {
+    .bootstrap5 .custom-delete, .bootstrap5-dark .custom-delete,
+    .bootstrap5\.3 .custom-delete, .bootstrap5\.3-dark .custom-delete {
         margin-top: 3px;
     }
     .custom-tree #list {
@@ -98,11 +98,6 @@
 			height: 300px;
 			overflow: auto;
 	}
-    .fluent2 #list.e-listview .e-list-item,
-    .fluent2-dark #list.e-listview .e-list-item,
-    .fluent2-high-contrast #list.e-listview .e-list-item {
-        padding: 7px 12px;
-    }
 	.fabric.e-bigger .custom-tree #list.e-listview .e-list-item,
     .highcontrast.e-bigger .custom-tree #list.e-listview .e-list-item {
         line-height: 43px;
@@ -141,7 +136,8 @@
     .fabric-dark .custom-tree .custom-delete::before,
     .bootstrap-dark .custom-tree .custom-delete::before, 
     .tailwind-dark .custom-tree .custom-delete::before,
-    .bootstrap5-dark .custom-tree .custom-delete::before {
+    .bootstrap5-dark .custom-delete::before, .material3-dark .custom-delete::before, .fluent2-highcontrast .custom-delete::before, .fluent2-dark .custom-delete::before,
+    .fluent-dark .custom-delete::before, .bootstrap5\.3-dark .custom-delete::before {
         color: rgba(255, 255, 255, 0.54);
     }
     .custom-tree .custom-delete {
@@ -152,7 +148,9 @@
     .custom-tree .e-rtl .custom-delete {
         float: left;
     }
-    .highcontrast .e-active .custom-tree .e-list-item .custom-delete::before {
+    .highcontrast .e-active.e-list-item .custom-delete::before,
+    .fluent2-highcontrast .e-active.e-list-item .custom-delete::before,
+    .fluent2-highcontrast .e-hover.e-list-item .custom-delete::before {
 	    color: #000;
 	}
 	.highcontrast .custom-tree .custom-delete::before {
@@ -171,6 +169,17 @@
         margin-top: 10px;
         margin-bottom: 10px;
     }	
+
+  .fluent2 #list .dropped-list-view-item,
+  .fluent2-dark #list .dropped-list-view-item,
+  .fluent2-highcontrast #list .dropped-list-view-item {
+      padding: 6px;
+  }
+
+  .fluent2 .custom-delete, .fluent2-dark .custom-delete,
+  .fluent2-highcontrast .custom-delete {
+      margin-top: 1px;
+  }
 </style>
 /* custom code end */
 <script>
@@ -182,7 +191,7 @@ import * as dataSource from './drag-data.json';
 
 var app = createApp();
 var lTemplate = app.component("demo", {
-  template: '<div><span>{{data.text}}</span><span :id="data.iconId" :class="data.class"></span></div>',
+  template: '<div class="dropped-list-view-item"><span>{{data.text}}</span><span :id="data.iconId" :class="data.class"></span></div>',
   data() {
     return {
       data: {}

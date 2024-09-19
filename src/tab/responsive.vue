@@ -14,16 +14,6 @@
                     <e-tabitem :header='headerText7' :content="content7"></e-tabitem>
                 </e-tabitems>
             </ejs-tab>
-            <div id="action-description">
-                <p>This sample demonstrates both <code>scrollable</code> and <code>popup</code> modes of the <code>Tab</code>. Select option from down-down to change the responsive option in property panel.</p>
-            </div>
-
-            <div id="description">
-                 <p>The <code>Tab</code> is adaptable to the available space when the tab items exceed the view space.</p>
-                 <p>The <code>Tab</code> allows to place the header section inside the Tab component either at <code>top/bottom/left/right</code> position by using <code>headerPlacement</code> property.</p>
-                 <p>You can assign overflowMode property value as <code>Scrollable/Popup</code>. By default scrollable mode of tab is enabled when tab item exceeds the view range. In this sample, users can change the <code>overflowMode</code> by selecting the dropdown options.</p>
-                 <p>More information about Tab can be found in this <a aria-label="Tab getting started" href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
-            </div>
         </div>
     </div>
     <div class="col-lg-4 property-section">
@@ -46,9 +36,24 @@
                     </tr>
                 </table>
     </div>
+    <div id="action-description">
+        <p>This sample demonstrates both <code>scrollable</code> and <code>popup</code> modes of the <code>Tab</code>. Select option from down-down to change the responsive option in property panel.</p>
+    </div>
+    <div id="description">
+            <p>The <code>Tab</code> is adaptable to the available space when the tab items exceed the view space.</p>
+            <p>The <code>Tab</code> allows to place the header section inside the Tab component either at <code>top/bottom/left/right</code> position by using <code>headerPlacement</code> property.</p>
+            <p>You can assign overflowMode property value as <code>Scrollable/Popup</code>. By default scrollable mode of tab is enabled when tab item exceeds the view range. In this sample, users can change the <code>overflowMode</code> by selecting the dropdown options.</p>
+            <p>More information about Tab can be found in this <a aria-label="Tab getting started" href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
+    </div>
 </div>
 </template>
 <style>
+
+    #tab_adaptive .e-content .e-item {
+        font-size: 12px;
+        padding: 10px !important;
+        text-align: justify;
+    }
 
 	#tab_adaptive .e-tab-text {
         display: inherit;
@@ -71,12 +76,6 @@
     @media screen and (max-width: 425px) {
         #tab_adaptive {
             overflow: hidden;
-        }
-
-/* custom code end */
-
-        #tab_adaptive .e-content {
-            height: inherit !important;
         }
 
         #tab_adaptive .e-item.e-active {

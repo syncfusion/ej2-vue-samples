@@ -151,7 +151,10 @@
 
     .fluent-dark #min,
     .fluent-dark #max,
-    .fluent-dark #step {
+    .fluent-dark #step,
+    .fluent2-dark #min,
+    .fluent2-dark #max,
+    .fluent2-dark #step {
         background-color: rgb(27, 26, 25);
         color: rgb(255, 255, 255);
     }

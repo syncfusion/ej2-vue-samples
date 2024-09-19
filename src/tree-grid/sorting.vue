@@ -102,12 +102,12 @@
   
   </template>
 <!-- custom code start -->
-  <style scoped>
+  <style>
     @media screen and (max-width: 590px) {
         .sortingenabled {
             margin-top: 30px;
         }
-    }
+    };
 </style>
 <!-- custom code end -->
   <script lang="ts">

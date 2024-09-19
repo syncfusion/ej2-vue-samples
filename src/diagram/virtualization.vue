@@ -59,8 +59,6 @@ import {
   LayoutAnimation,
   DiagramConstraints
 } from "@syncfusion/ej2-vue-diagrams";
-import { CheckBox } from "@syncfusion/ej2-vue-buttons";
-import { NumericTextBox } from "@syncfusion/ej2-vue-inputs";
 import { DiagramTools } from "@syncfusion/ej2-vue-diagrams";
 import { ToolbarComponent } from "@syncfusion/ej2-vue-navigations";
 import {
@@ -76,6 +74,7 @@ import { virtualizationData } from "./diagram-data";
 let diagramInstance;
 var bound = new Rect(100, 100, 500, 100);
 var virtualData = new DataManager(dataVirtualization());
+// Method to generate and return virtualized hierarchical data
 function dataVirtualization() {
     var i = 0, j, k, name, parentName;
     var data = [];
@@ -122,7 +121,7 @@ data: function() {
       tool: DiagramTools.ZoomPan,
       //Enables the virtualization constraint
       constraints: DiagramConstraints.Default | DiagramConstraints.Virtualization,
-      //Configures automatic layout
+      // Layout settings for the hierarchical tree diagram
       layout: {
         type: "HierarchicalTree",
         margin: { left: 10, top: 10 },
@@ -131,8 +130,8 @@ data: function() {
         orientation: 'TopToBottom',
       },
       //Defines the default node and connector properties
-      getNodeDefaults: (obj, diagram) => {
-        return nodeDefaults(obj, diagram);
+      getNodeDefaults: (node, diagram) => {
+        return nodeDefaults(node, diagram);
       },
       getConnectorDefaults: (connector, diagram) => {
         return connectorDefaults(connector, diagram);
@@ -178,15 +177,15 @@ data: function() {
   }
   }  
 //sets node default value
-function nodeDefaults(obj, diagram) {
-  obj.shape = { type: 'Text', content: obj.data.Name, shape: 'Rectangle', cornerRadius: 5 };
-  obj.style = { fill: "#659be5", strokeColor: "none", color: "white", strokeWidth: 2 };
-  obj.borderColor = "#3a6eb5";
-  obj.backgroundColor = "#659be5";
-  (obj.shape).margin = { left: 5, right: 5, bottom: 5, top: 5 };
-  obj.width = 80;
-  obj.height = 30;
-  return obj;
+function nodeDefaults(node, diagram) {
+  node.shape = { type: 'Text', content: node.data.Name, shape: 'Rectangle', cornerRadius: 5 };
+  node.style = { fill: "#659be5", strokeColor: "none", color: "white", strokeWidth: 2 };
+  node.borderColor = "#3a6eb5";
+  node.backgroundColor = "#659be5";
+  (node.shape).margin = { left: 5, right: 5, bottom: 5, top: 5 };
+  node.width = 80;
+  node.height = 30;
+  return node;
 }
 //sets connector default value
 function connectorDefaults(connector,diagram) {

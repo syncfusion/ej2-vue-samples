@@ -2,6 +2,7 @@
   "name": "Pivot Table",
   "directory": "pivot-table",
   "category": "Grids",
+  "type": "update",
   "ftName": "pivot-table",
   "samples": [{
       "url": "overview",
@@ -112,6 +113,7 @@
       "name": "Conditional Formatting",
       "category": "User Interaction",
       "hideOnDevice": false,
+      "type": "update",
       "description": "This demo for Essential JS2 Pivot Table control demonstrate formatting the appearance of the pivot table cells with values based on the applied conditions",
       "api": {}
     },

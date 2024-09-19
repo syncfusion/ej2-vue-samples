@@ -53,7 +53,7 @@
 </div>
 <div id="description">
    <p>
-        The Gantt provides a way to define a custom element in header element. The <code>Columns > headerTemplate</code> property accepts accepts a vue component,
+        The Gantt provides a way to define a custom element in header element. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#headertemplate">columns -> headerTemplate</a> property accepts accepts a vue component,
         which will be used as the template for the header cell.
     </p>
     <p>In this demo, we have rendered the customized template for all column headers.</p> 

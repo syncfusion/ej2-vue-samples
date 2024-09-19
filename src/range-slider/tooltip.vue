@@ -80,33 +80,18 @@
       <p>In this demo, we have demonstrated Tooltip with Default and Range Slider.</p>
       <p>
         Buttons can be used to increment or decrement the slider value. Buttons can be enabled in Slider using
-        <a
-          target="_blank"
-          href="http://ej2.syncfusion.com/vue/documentation/slider/api-slider.html#showbuttons-boolean"
-        >showButtons</a> property
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider#showbuttons">showButtons</a> property
       </p>
       <p>
         Tooltip position and opening behavior can be customized through the
-        <a
-          target="_blank"
-          href="http://ej2.syncfusion.com/vue/documentation/slider/api-tooltipData.html#placement-string"
-        >placement</a> and
-        <a
-          target="_blank"
-          href="http://ej2.syncfusion.com/vue/documentation/slider/api-tooltipData.html#showon-string"
-        >showOn</a> properties from property pane.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/tooltipPlacement/">placement</a> and
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/tooltipShowOn/">showOn</a> properties from property pane.
       </p>
       <p>The dragInterval is used to drag both handles using the range bar which is also applicable only to the range slider.</p>
       <p>
         For more information, refer to the
-        <a
-          target="_blank"
-          href="http://ej2.syncfusion.com/vue/documentation/slider/api-tooltipData.html#placement-string"
-        >placement</a> and
-        <a
-          target="_blank"
-          href="http://ej2.syncfusion.com/vue/documentation/slider/tooltip.html"
-        >tooltip</a> section from the documentation.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/tooltipPlacement/">placement</a> and
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/tooltipData/">tooltip</a> section from the documentation.
       </p>
     </div>
   </div>

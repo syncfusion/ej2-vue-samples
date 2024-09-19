@@ -5,8 +5,8 @@
           "Employee Name":"Liuka Tewkesberry",
           "Gender":"Female",
           "Department":"Human Resources",
-          "Date of Joining":"08/22/2018",
-          "Salary":"$32940.53",
+          "Date of Joining":"08-22-2018",
+          "Salary":"32940.53",
           "City":"Valencia"
        },
        {
@@ -14,8 +14,8 @@
           "Employee Name":"Maurine McGreal",
           "Gender":"Female",
           "Department":"Accounting",
-          "Date of Joining":"02/19/2016",
-          "Salary":"$12769.67",
+          "Date of Joining":"02-19-2016",
+          "Salary":"12769.67",
           "City":"Thị Xã Lai Châu"
        },
        {
@@ -23,8 +23,8 @@
           "Employee Name":"Abby Marcum",
           "Gender":"Male",
           "Department":"Legal",
-          "Date of Joining":"03/12/2019",
-          "Salary":"$18565.98",
+          "Date of Joining":"03-12-2019",
+          "Salary":"18565.98",
           "City":"Lachute"
        },
        {
@@ -32,8 +32,8 @@
           "Employee Name":"Colet Dreghorn",
           "Gender":"Male",
           "Department":"Marketing",
-          "Date of Joining":"11/02/2018",
-          "Salary":"$36075.62",
+          "Date of Joining":"11-02-2018",
+          "Salary":"36075.62",
           "City":"Cincinnati"
        },
        {
@@ -41,8 +41,8 @@
           "Employee Name":"Morey Ilyin",
           "Gender":"Male",
           "Department":"Sales",
-          "Date of Joining":"07/13/2018",
-          "Salary":"$19845.66",
+          "Date of Joining":"07-13-2018",
+          "Salary":"19845.66",
           "City":"Liudu"
        },
        {
@@ -50,8 +50,8 @@
           "Employee Name":"Justus Eilert",
           "Gender":"Male",
           "Department":"Services",
-          "Date of Joining":"08/30/2016",
-          "Salary":"$25054.73",
+          "Date of Joining":"08-30-2016",
+          "Salary":"25054.73",
           "City":"Kitamilo"
        },
        {
@@ -59,8 +59,8 @@
           "Employee Name":"Lorelle Whyberd",
           "Gender":"Female",
           "Department":"Marketing",
-          "Date of Joining":"09/16/2010",
-          "Salary":"$21552.49",
+          "Date of Joining":"09-16-2010",
+          "Salary":"21552.49",
           "City":"Qandala"
        },
        {
@@ -68,8 +68,8 @@
           "Employee Name":"Hans Sponer",
           "Gender":"Male",
           "Department":"Legal",
-          "Date of Joining":"11/25/2019",
-          "Salary":"$12751.78",
+          "Date of Joining":"11-25-2019",
+          "Salary":"12751.78",
           "City":"Parakou"
        },
        {
@@ -77,8 +77,8 @@
           "Employee Name":"Esme Beaglehole",
           "Gender":"Female",
           "Department":"Engineering",
-          "Date of Joining":"11/24/2017",
-          "Salary":"$34244.64",
+          "Date of Joining":"11-24-2017",
+          "Salary":"34244.64",
           "City":"Saint-Ambroise"
        },
        {
@@ -86,8 +86,8 @@
           "Employee Name":"Fernandina Grindrod",
           "Gender":"Female",
           "Department":"Marketing",
-          "Date of Joining":"01/21/2019",
-          "Salary":"$25722.37",
+          "Date of Joining":"01-21-2019",
+          "Salary":"25722.37",
           "City":"Huashi"
        },
        {
@@ -95,8 +95,8 @@
           "Employee Name":"Glen Lambrechts",
           "Gender":"Male",
           "Department":"Human Resources",
-          "Date of Joining":"09/25/2019",
-          "Salary":"$47190.81",
+          "Date of Joining":"09-25-2019",
+          "Salary":"47190.81",
           "City":"Krajan Nglinggis"
        },
        {
@@ -104,8 +104,8 @@
           "Employee Name":"Judy Crick",
           "Gender":"Female",
           "Department":"Human Resources",
-          "Date of Joining":"10/22/2013",
-          "Salary":"$14168.85",
+          "Date of Joining":"10-22-2013",
+          "Salary":"14168.85",
           "City":"Jianchang"
        },
        {
@@ -113,8 +113,8 @@
           "Employee Name":"Megen McSherry",
           "Gender":"Female",
           "Department":"Engineering",
-          "Date of Joining":"10/19/2016",
-          "Salary":"$49673.94",
+          "Date of Joining":"10-19-2016",
+          "Salary":"49673.94",
           "City":"Talisayan"
        },
        {
@@ -122,8 +122,8 @@
           "Employee Name":"Aloysius Blunden",
           "Gender":"Male",
           "Department":"Services",
-          "Date of Joining":"06/16/2010",
-          "Salary":"$23992.84",
+          "Date of Joining":"06-16-2010",
+          "Salary":"23992.84",
           "City":"Italó"
        },
        {
@@ -131,8 +131,8 @@
           "Employee Name":"Colene Game",
           "Gender":"Female",
           "Department":"Training",
-          "Date of Joining":"10/18/2015",
-          "Salary":"$21768.47",
+          "Date of Joining":"10-18-2015",
+          "Salary":"21768.47",
           "City":"Podbrdo"
        },
        {
@@ -140,8 +140,8 @@
           "Employee Name":"Bruce Pook",
           "Gender":"Male",
           "Department":"Services",
-          "Date of Joining":"08/15/2019",
-          "Salary":"$46169.78",
+          "Date of Joining":"08-15-2019",
+          "Salary":"46169.78",
           "City":"Drawsko"
        },
        {
@@ -149,8 +149,8 @@
           "Employee Name":"Reggie Gethins",
           "Gender":"Female",
           "Department":"Training",
-          "Date of Joining":"05/03/2014",
-          "Salary":"$48793.33",
+          "Date of Joining":"05-03-2014",
+          "Salary":"48793.33",
           "City":"Baiqiao"
        },
        {
@@ -158,8 +158,8 @@
           "Employee Name":"Happy Terrell",
           "Gender":"Female",
           "Department":"Product Management",
-          "Date of Joining":"01/07/2010",
-          "Salary":"$11971.89",
+          "Date of Joining":"01-07-2010",
+          "Salary":"11971.89",
           "City":"Bandar-e Lengeh"
        },
        {
@@ -167,8 +167,8 @@
           "Employee Name":"Dermot Swithenby",
           "Gender":"Male",
           "Department":"Business Development",
-          "Date of Joining":"05/31/2017",
-          "Salary":"$14627.52",
+          "Date of Joining":"05-31-2017",
+          "Salary":"14627.52",
           "City":"Da’an"
        },
        {
@@ -176,8 +176,8 @@
           "Employee Name":"Dusty Naulls",
           "Gender":"Female",
           "Department":"Engineering",
-          "Date of Joining":"05/17/2012",
-          "Salary":"$49569.60",
+          "Date of Joining":"05-17-2012",
+          "Salary":"49569.60",
           "City":"Kelowna"
        },
        {
@@ -185,8 +185,8 @@
           "Employee Name":"Boycey Gemlbett",
           "Gender":"Male",
           "Department":"Accounting",
-          "Date of Joining":"08/19/2014",
-          "Salary":"$11400.60",
+          "Date of Joining":"08-19-2014",
+          "Salary":"11400.60",
           "City":"Quezon"
        },
        {
@@ -194,8 +194,8 @@
           "Employee Name":"Gregoire Craik",
           "Gender":"Male",
           "Department":"Support",
-          "Date of Joining":"01/07/2015",
-          "Salary":"$28536.96",
+          "Date of Joining":"01-07-2015",
+          "Salary":"28536.96",
           "City":"Sacramento"
        },
        {
@@ -203,8 +203,8 @@
           "Employee Name":"Paquito Keetch",
           "Gender":"Male",
           "Department":"Legal",
-          "Date of Joining":"07/20/2017",
-          "Salary":"$10948.94",
+          "Date of Joining":"07-20-2017",
+          "Salary":"10948.94",
           "City":"Xieshui"
        },
        {
@@ -212,8 +212,8 @@
           "Employee Name":"Siouxie Lippini",
           "Gender":"Female",
           "Department":"Engineering",
-          "Date of Joining":"02/08/2012",
-          "Salary":"$42688.51",
+          "Date of Joining":"02-08-2012",
+          "Salary":"42688.51",
           "City":"Bigoudine"
        },
        {
@@ -221,8 +221,8 @@
           "Employee Name":"Valerye Russell",
           "Gender":"Female",
           "Department":"Services",
-          "Date of Joining":"07/17/2012",
-          "Salary":"$32651.96",
+          "Date of Joining":"07-17-2012",
+          "Salary":"32651.96",
           "City":"Pichilemu"
        },
        {
@@ -230,8 +230,8 @@
           "Employee Name":"Patience Ludman",
           "Gender":"Female",
           "Department":"Training",
-          "Date of Joining":"09/25/2018",
-          "Salary":"$17589.61",
+          "Date of Joining":"09-25-2018",
+          "Salary":"17589.61",
           "City":"Binjiang"
        },
        {
@@ -239,8 +239,8 @@
           "Employee Name":"Helene Borsay",
           "Gender":"Female",
           "Department":"Services",
-          "Date of Joining":"01/19/2018",
-          "Salary":"$34017.42",
+          "Date of Joining":"01-19-2018",
+          "Salary":"34017.42",
           "City":"Chengkan"
        },
        {
@@ -248,8 +248,8 @@
           "Employee Name":"Garrek Fatharly",
           "Gender":"Male",
           "Department":"Business Development",
-          "Date of Joining":"08/22/2018",
-          "Salary":"$49775.81",
+          "Date of Joining":"08-22-2018",
+          "Salary":"49775.81",
           "City":"San Antonio Oeste"
        },
        {
@@ -257,8 +257,8 @@
           "Employee Name":"Fulton Culverhouse",
           "Gender":"Male",
           "Department":"Product Management",
-          "Date of Joining":"01/11/2014",
-          "Salary":"$36633.61",
+          "Date of Joining":"01-11-2014",
+          "Salary":"36633.61",
           "City":"Borlänge"
        },
        {
@@ -266,8 +266,8 @@
           "Employee Name":"Lavena Yandle",
           "Gender":"Female",
           "Department":"Accounting",
-          "Date of Joining":"08/31/2016",
-          "Salary":"$25835.58",
+          "Date of Joining":"08-31-2016",
+          "Salary":"25835.58",
           "City":"Borino"
        },
        {
@@ -275,8 +275,8 @@
           "Employee Name":"Sophia Cowwell",
           "Gender":"Female",
           "Department":"Product Management",
-          "Date of Joining":"08/06/2011",
-          "Salary":"$46836.53",
+          "Date of Joining":"08-06-2011",
+          "Salary":"46836.53",
           "City":"Fécamp"
        },
        {
@@ -284,8 +284,8 @@
           "Employee Name":"Dode Bowmen",
           "Gender":"Female",
           "Department":"Sales",
-          "Date of Joining":"02/21/2010",
-          "Salary":"$27575.10",
+          "Date of Joining":"02-21-2010",
+          "Salary":"27575.10",
           "City":"Karangwaru"
        },
        {
@@ -293,8 +293,8 @@
           "Employee Name":"Peggi Grishelyov",
           "Gender":"Female",
           "Department":"Accounting",
-          "Date of Joining":"12/08/2012",
-          "Salary":"$41712.59",
+          "Date of Joining":"12-08-2012",
+          "Salary":"41712.59",
           "City":"San Antonio"
        },
        {
@@ -302,8 +302,8 @@
           "Employee Name":"Ailsun Porker",
           "Gender":"Female",
           "Department":"Services",
-          "Date of Joining":"11/23/2016",
-          "Salary":"$46533.06",
+          "Date of Joining":"11-23-2016",
+          "Salary":"46533.06",
           "City":"Mayisyan"
        },
        {
@@ -311,8 +311,8 @@
           "Employee Name":"Licha McKee",
           "Gender":"Female",
           "Department":"Research and Development",
-          "Date of Joining":"08/29/2018",
-          "Salary":"$31008.69",
+          "Date of Joining":"08-29-2018",
+          "Salary":"31008.69",
           "City":"Wenqiao"
        },
        {
@@ -320,8 +320,8 @@
           "Employee Name":"Ives Tunn",
           "Gender":"Male",
           "Department":"Product Management",
-          "Date of Joining":"08/31/2018",
-          "Salary":"$27791.30",
+          "Date of Joining":"08-31-2018",
+          "Salary":"27791.30",
           "City":"Tabia"
        },
        {
@@ -329,8 +329,8 @@
           "Employee Name":"Cathy Bugdale",
           "Gender":"Female",
           "Department":"Training",
-          "Date of Joining":"04/23/2016",
-          "Salary":"$31759.16",
+          "Date of Joining":"04-23-2016",
+          "Salary":"31759.16",
           "City":"Azul"
        },
        {
@@ -338,8 +338,8 @@
           "Employee Name":"Waverley Gingedale",
           "Gender":"Male",
           "Department":"Accounting",
-          "Date of Joining":"09/04/2011",
-          "Salary":"$27893.84",
+          "Date of Joining":"09-04-2011",
+          "Salary":"27893.84",
           "City":"Frýdek-Místek"
        },
        {
@@ -347,8 +347,8 @@
           "Employee Name":"Cooper Capes",
           "Gender":"Male",
           "Department":"Sales",
-          "Date of Joining":"01/02/2016",
-          "Salary":"$26407.41",
+          "Date of Joining":"01-02-2016",
+          "Salary":"26407.41",
           "City":"Ash Sharyah"
        },
        {
@@ -356,8 +356,8 @@
           "Employee Name":"Shayna Potebury",
           "Gender":"Female",
           "Department":"Human Resources",
-          "Date of Joining":"10/23/2012",
-          "Salary":"$35332.31",
+          "Date of Joining":"10-23-2012",
+          "Salary":"35332.31",
           "City":"Baluk"
        },
        {
@@ -365,8 +365,8 @@
           "Employee Name":"Doro Gaitone",
           "Gender":"Female",
           "Department":"Sales",
-          "Date of Joining":"02/04/2012",
-          "Salary":"$22904.55",
+          "Date of Joining":"02-04-2012",
+          "Salary":"22904.55",
           "City":"Wulingyuan"
        },
        {
@@ -374,8 +374,8 @@
           "Employee Name":"Chantal Ventam",
           "Gender":"Female",
           "Department":"Training",
-          "Date of Joining":"07/02/2014",
-          "Salary":"$25515.12",
+          "Date of Joining":"07-02-2014",
+          "Salary":"25515.12",
           "City":"Xinshui"
        },
        {
@@ -383,8 +383,8 @@
           "Employee Name":"Tobie Brodeur",
           "Gender":"Male",
           "Department":"Training",
-          "Date of Joining":"08/11/2015",
-          "Salary":"$24508.84",
+          "Date of Joining":"08-11-2015",
+          "Salary":"24508.84",
           "City":"Xin’an"
        },
        {
@@ -392,8 +392,8 @@
           "Employee Name":"Feodor MacDermid",
           "Gender":"Male",
           "Department":"Human Resources",
-          "Date of Joining":"06/02/2019",
-          "Salary":"$14844.80",
+          "Date of Joining":"06-02-2019",
+          "Salary":"14844.80",
           "City":"Rantauambacang"
        },
        {
@@ -401,8 +401,8 @@
           "Employee Name":"Allyce Decker",
           "Gender":"Female",
           "Department":"Support",
-          "Date of Joining":"04/14/2017",
-          "Salary":"$39356.65",
+          "Date of Joining":"04-14-2017",
+          "Salary":"39356.65",
           "City":"Saint Paul"
        },
        {
@@ -410,8 +410,8 @@
           "Employee Name":"Ricard Connock",
           "Gender":"Male",
           "Department":"Product Management",
-          "Date of Joining":"11/25/2010",
-          "Salary":"$27421.61",
+          "Date of Joining":"11-25-2010",
+          "Salary":"27421.61",
           "City":"Lokorae"
        },
        {
@@ -419,8 +419,8 @@
           "Employee Name":"Minerva Greenham",
           "Gender":"Female",
           "Department":"Support",
-          "Date of Joining":"05/23/2014",
-          "Salary":"$48300.27",
+          "Date of Joining":"05-23-2014",
+          "Salary":"48300.27",
           "City":"Pakemitan"
        },
        {
@@ -428,8 +428,8 @@
           "Employee Name":"Cyb Gallant",
           "Gender":"Female",
           "Department":"Accounting",
-          "Date of Joining":"11/25/2010",
-          "Salary":"$36518.72",
+          "Date of Joining":"11-25-2010",
+          "Salary":"36518.72",
           "City":"Berëzovyy"
        },
        {
@@ -437,8 +437,8 @@
           "Employee Name":"Harman Free",
           "Gender":"Male",
           "Department":"Human Resources",
-          "Date of Joining":"07/15/2012",
-          "Salary":"$35939.87",
+          "Date of Joining":"07-15-2012",
+          "Salary":"35939.87",
           "City":"Watodei"
        },
        {
@@ -446,8 +446,8 @@
           "Employee Name":"Kylie Phettis",
           "Gender":"Female",
           "Department":"Marketing",
-          "Date of Joining":"03/18/2011",
-          "Salary":"$26038.56",
+          "Date of Joining":"03-18-2011",
+          "Salary":"26038.56",
           "City":"Huangzhai"
        }
     ]

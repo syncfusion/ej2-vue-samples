@@ -69,13 +69,13 @@
         </ejs-gantt>
     </div>
 <div id="description">
-    <p>Tooltip can be enabled or disabled using <code>tooltipSettings.showTooltip</code> property.In this demo, the
+    <p>Tooltip can be enabled or disabled using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#showtooltip">tooltipSettings.showTooltip</a> property.In this demo, the
         tooltip template is rendered for <code>taskbar</code> and <code>baseline</code> using the
-        <code>tooltipSettings.taskbar</code> and <code>tooltipSettings.baseline</code> properties.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#taskbar">tooltipSettings.taskbar</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#baseline">tooltipSettings.baseline</a> properties.
     </p>
     <p>
         The baseline feature enables the user to view the deviation between the planned dates and the actual dates of
-        the tasks in a project. Baselines can be enabled in Gantt chart by enabling the <code>renderBaseline</code>
+        the tasks in a project. Baselines can be enabled in Gantt chart by enabling the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#renderbaseline">renderBaseline</a>
         property along with mapping the data source values for <code>baselineStartDate</code> and <code>baselineEndDate</code> properties.
     </p>
     

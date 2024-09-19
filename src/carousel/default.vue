@@ -1,39 +1,39 @@
 <template>
-<div class="control-section default-carousel-section">
-    <div class="col-lg-12">
-        <div class="carousel-sample">
-            <ejs-carousel cssClass="default-carousel">
-                <e-carousel-items>
-                    <e-carousel-item :template="itemTemplate1"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate2"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate3"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate4"></e-carousel-item>
-                    <e-carousel-item :template="itemTemplate5"></e-carousel-item>
-                </e-carousel-items>
-            </ejs-carousel>
-            <div id="action-description">
-                <p>
-                    This sample demonstrates the basic rendering of the <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component with
-                    <code>items</code>.
-                </p>
-            </div>
-            <div id="description">
-                <p>
-                    The <code>Vue Carousel</code> component is commonly used as a slideshow of images and contents. In this
-                    demo, simple slideshow of natural images has been showcased with the help of <code>items</code> property.
-                </p>
-                <p>
-                    By default, the slide will be changed automatically with the interval of <b>5 seconds.</b> You can also manually
-                    change the slide items using previous and next icons.
-                </p>
-                <p>
-                    More information about Carousel component can be found in this <a target='_blank'
-                    href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started/">documentation section</a>.
-                </p>
+    <div class="control-section default-carousel-section">
+        <div class="col-lg-12">
+            <div class="carousel-sample">
+                <ejs-carousel cssClass="default-carousel">
+                    <e-carousel-items>
+                        <e-carousel-item :template="itemTemplate1"></e-carousel-item>
+                        <e-carousel-item :template="itemTemplate2"></e-carousel-item>
+                        <e-carousel-item :template="itemTemplate3"></e-carousel-item>
+                        <e-carousel-item :template="itemTemplate4"></e-carousel-item>
+                        <e-carousel-item :template="itemTemplate5"></e-carousel-item>
+                    </e-carousel-items>
+                </ejs-carousel>
             </div>
         </div>
     </div>
-</div>
+    <div id="action-description">
+        <p>
+            This sample demonstrates the basic rendering of the <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component with
+            <code>items</code>.
+        </p>
+    </div>
+    <div id="description">
+        <p>
+            The <code>Vue Carousel</code> component is commonly used as a slideshow of images and contents. In this
+            demo, simple slideshow of natural images has been showcased with the help of <code>items</code> property.
+        </p>
+        <p>
+            By default, the slide will be changed automatically with the interval of <b>5 seconds.</b> You can also manually
+            change the slide items using previous and next icons.
+        </p>
+        <p>
+            More information about Carousel component can be found in this <a target='_blank'
+            href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started/">documentation section</a>.
+        </p>
+    </div>
 </template>
 
 <style>

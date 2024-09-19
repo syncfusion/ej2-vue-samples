@@ -15,8 +15,7 @@
         "url": "flat-data",
         "name": "Flat Data",
         "category": "File Manager",
-        "description":"This example demonstrates how to render the File Manager with flat data in a Vue File Manager.",
-        "type": "new"
+        "description":"This example demonstrates how to render the File Manager with flat data in a Vue File Manager."
     },
     {
         "url": "custom-thumbnail",
@@ -30,7 +29,8 @@
         "name": "API",
         "category": "File Manager",
         "api": { "FileManager": ["ajaxSettings", "view"] },
-        "description": "This example demonstrates how to render the File Manager without the navigation pane in a Vue File Manager."
+        "description": "This example demonstrates how to render the File Manager without the navigation pane in a Vue File Manager.",
+        "type": "update"
     },
     {
         "url": "drag-drop",

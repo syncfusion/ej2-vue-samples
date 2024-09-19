@@ -1,0 +1,16 @@
+{
+    "name": "Query Builder",
+    "directory": "ai-querybuilder",
+    "category": "Smart AI Solutions",
+    "samples": [
+        {
+            "url": "natural-language-query",
+            "name": "Natural Language Query",
+            "category": "Query Builder",
+            "sourceFiles": [
+                { "displayName": "natural-language-query.vue", "path": "src/ai-querybuilder/ai-natural-language-query.vue" }
+            ],
+            "description": "This demo shows the natural language query AI feature in query builder."
+        }
+    ]
+}

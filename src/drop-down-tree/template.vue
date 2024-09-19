@@ -3,7 +3,7 @@
     <div class="control-section">
         <div id='content' style="margin: 0px auto; max-width:350px; padding-top: 5px;">
             <ejs-dropdowntree id='multi-template' :fields='fields' cssClass='ddt-template' :placeholder='watermark'
-             :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :footerTemplate="'fTemplate'" popupHeight="210px" width="100%">
+             :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :footerTemplate="'fTemplate'" :valueTemplate="'vTemplate'" popupHeight="210px" width="100%">
                 <template v-slot:hTemplate="{}">
                     <div class="head"> Employee List </div>
                 </template>
@@ -39,6 +39,11 @@
                         </div>
                     </div>
                 </template>
+                <template v-slot:vTemplate="{ data }">
+                    <div>
+                        <div> {{ data.name }} - {{ data.job }} </div>
+                    </div>
+                </template>
              </ejs-dropdowntree>
         </div>
     </div>
@@ -52,9 +57,10 @@
         </p>
         <p>This sample uses the following list of templates in the Dropdown Tree</p>
         <ul>
-            <li><code>ItemTemplate</code> - To customize the list item's content.</li>
-            <li><code>HeaderTemplate</code> - To customize the header element.</li>
-            <li><code>FooterTemplate</code> - To customize the footer element.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/drop-down-tree/#itemtemplate">ItemTemplate</a> - To customize the list item's content.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/drop-down-tree/#headertemplate">HeaderTemplate</a> - To customize the header element.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/drop-down-tree/#footertemplate">FooterTemplate</a> - To customize the footer element.</li>
+            <li><code>valueTemplate</code> - To customize the selected item's element.</li>
         </ul>
     </div>
 </div>
@@ -171,7 +177,7 @@
 
     .ddt-template .e-badge.icons {
         padding: 0;
-        right: 10px;
+        right: 0;
         position: absolute;
         top: 25px;
         background: transparent;

@@ -3,6 +3,7 @@
     "directory": "drop-down-tree",
     "category": "Dropdowns",
     "ftname": "drop-down-tree",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -73,6 +74,7 @@
             "name": "Template",
             "category": "Dropdown Tree",
             "description": "This example demonstrates how to customize the appearance of each item in the Vue drop-down tree component pop-up list using the template.",
+            "type": "update",
             "sourceFiles": [
                 {
                     "displayName": "template.vue",

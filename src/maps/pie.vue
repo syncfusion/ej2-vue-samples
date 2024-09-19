@@ -67,7 +67,7 @@ import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, Marke
 import { PieSeries, AccumulationDataLabel, AccumulationTooltip,AccumulationChart } from '@syncfusion/ej2-vue-charts';
 import { worldMap } from '../maps/map-data/world-map';
 
-AccumulationChart.Inject(AccumulationTooltip);
+AccumulationChart.Inject(AccumulationTooltip, PieSeries);
 let chartCollection = [];
 let count = 0;
 export default {
@@ -144,7 +144,7 @@ export default {
             let selectedTheme = location.hash.split("/")[1];
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.maps.theme = (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
         },
         /* custom code end */
     loaded:function(args){

@@ -5,9 +5,9 @@
         </p>
     </div>
     <div>
-        <ejs-grid :dataSource="data" :allowPaging='true' :allowResizing='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar'>
+        <ejs-grid :dataSource="data" :allowPaging='true' :allowResizing='true' :allowSorting='true' :allowMultiSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign="Center" minWidth='10' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+                <e-column field='OrderID' headerText='Order ID' width='130' textAlign="Center" minWidth='10' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                 <e-column headerText='Order Details' :columns='orderColumns'></e-column>
                 <e-column headerText='Ship Details' :columns='shipColumns'></e-column>
             </e-columns>
@@ -27,10 +27,10 @@
             <code><a target="_blank" class="code"
             href="http://ej2.syncfusion.com/vue/documentation/api/grid/column#allowresizing">columns->allowResizing
             </a></code> as false in columns definition.
-        </p> 
+        </p>
         <p>
-            In this demo, the columns <strong>OrderDate, Freight</strong> are grouped under <strong>Order Details</strong>,
-            the columns <strong>ShippedDate, ShipCountry</strong> are grouped under <strong>Ship Details</strong>. 
+            In this demo, the columns <strong>CustomerName, OrderDate</strong> are grouped under <strong>Order Details</strong>,
+            the columns <strong>ShippedDate, ShipCountry, Freight</strong> are grouped under <strong>Ship Details</strong>. 
         </p>
         <p>
             More information on the stacked header configuration can be found in this 
@@ -58,42 +58,48 @@ export default {
         orderidrules: { required: true, number: true },
         toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
         orderColumns: [
+            { 
+                field: 'CustomerID',
+                headerText: 'Customer Name',
+                width: 160,
+                minWidth:30,
+            },
             {
                 field: 'OrderDate',
                 headerText: 'Order Date',
+                textAlign: 'Right',
+                width: 140,
                 format: 'yMd',
-                width: 130,
-                textAlign: 'Right',
-                minWidth: 10,
-                editType: 'datepickeredit'
+                minWidth: 50,
+                editType: 'datepickeredit',
             },
-            {
-                field: 'Freight',
-                headerText: 'Freight ($)',
-                width: 120,
-                format: 'C1',
-                textAlign: 'Right',
-                minWidth: 10,
-                editType: 'numericedit', 
-                validationRules: { required: true, min: 0 }
-            }
         ],
         shipColumns: [
             {
                 field: 'ShippedDate',
                 headerText: 'Shipped Date',
-                format: 'yMd',
                 textAlign: 'Right',
-                width: 150,
-                minWidth: 10,
-                editType: 'datepickeredit'
+                format: 'yMd',
+                width: 160,
+                minWidth: 40,
+                editType: 'datepickeredit',
             },
             {
                 field: 'ShipCountry',
                 headerText: 'Ship Country',
-                width: 150,
-                minWidth: 10,
-                editType: 'dropdownedit'
+                width: 140,
+                minWidth: 60,
+                editType: 'dropdownedit',
+            },
+            {
+                field: 'Freight',
+                headerText: 'Freight Charges($)',
+                textAlign: 'Right',
+                width: 200,
+                format: 'C2',
+                minWidth: 40,
+                editType: 'numericedit',
+                validationRules: { required: true, min: 0 },
             }
         ]
         }

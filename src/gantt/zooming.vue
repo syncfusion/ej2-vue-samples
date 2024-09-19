@@ -13,8 +13,6 @@
         :toolbar="toolbar"
         :taskFields="taskFields"
         :treeColumnIndex= "1"
-        :projectStartDate="projectStartDate"
-        :projectEndDate="projectEndDate"
         :columns= "columns"
         :splitterSettings="splitterSettings">
        </ejs-gantt>
@@ -69,8 +67,6 @@ export default {
         child: "subtasks"
       },
       toolbar: ["ZoomIn", "ZoomOut", "ZoomToFit"],
-      projectStartDate: new Date("03/24/2024"),
-      projectEndDate: new Date("04/28/2024"),
       columns: [
                 { field: 'TaskID'},
                 { field: 'TaskName', width: '250' },

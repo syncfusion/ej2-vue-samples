@@ -7,7 +7,7 @@
   </template>
   <script>
     import { onMounted } from 'vue';
-    import { PdfViewerComponent, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner } from "@syncfusion/ej2-vue-pdfviewer";
+    import { PdfViewerComponent, Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner,PageOrganizer } from "@syncfusion/ej2-vue-pdfviewer";
   
     export default {
       mounted: function () {
@@ -25,7 +25,7 @@
       },
   
       provide: {
-        PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner]
+        PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner, PageOrganizer]
       },
   
       methods: {
@@ -73,9 +73,9 @@
   
             viewer.contextMenuOption="None";
   
-            viewer.annotationSettings = { isLock: true };
-            viewer.enableStickyNotesAnnotation = false;
-  
+            viewer.annotationSettings = { isLock: true , author: 'Guest' };
+            viewer.enableStickyNotesAnnotation = false;         
+            viewer.enablePageOrganizer = false;
             viewer.toolbarSettings = {
               showTooltip: true,
               toolbarItems: ['OpenOption','PageNavigationTool', 'MagnificationTool', 'PanTool', 'PrintOption']
@@ -111,9 +111,8 @@
             }; 
             viewer.contextMenuOption="RightClick";
   
-            viewer.annotationSettings = { isLock: false };
+            viewer.annotationSettings = { isLock: false , author: 'Guest' };
             viewer.enableStickyNotesAnnotation = true;
-  
             viewer.toolbarSettings = {
               showTooltip: true, toolbarItems: ['OpenOption', 'UndoRedoTool', 'PageNavigationTool',
                 'MagnificationTool',

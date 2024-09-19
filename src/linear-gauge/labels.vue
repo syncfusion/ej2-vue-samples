@@ -270,9 +270,11 @@ methods: {
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
-        if (args.gauge.theme === "Fluent2Dark") {
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
+        if (args.gauge.theme === "Fluent2Dark" || args.gauge.theme === "Fluent2HighContrast") {
             this.$refs.lineargauge2.ej2Instances.axes[0].pointers[3].color = "#292827"; 
+        } else if (args.gauge.theme === 'Bootstrap5Dark'){
+            args.gauge.axes[0].pointers[3].color = '#343A40'
         }
     /* custom code end */
     }

@@ -69,10 +69,10 @@
             In this demo, the default Sidebar is rendered with minimal configuration. This sample can be customized further with the combination of Sidebar properties. For example,
             <ul>
                 <li>The Sidebar can be opened or closed by clicking on the toggle button.</li>
-                <li>The Sidebar position can be changed by clicking on the position button.</li>
-                <li>The Sidebar types can be changed from the Dropdown List.</li>
-                <li>The Sidebar can be collapsed or closed on document click from the provided options.</li>
-                <li>The Sidebar overlay can be enabled or disabled by clicking on the Backdrop button.</li>
+                <li>The Sidebar position can be changed by clicking on the position button. This can be achieved by the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/sidebar/#position">position</a> property.</li>
+                <li>The Sidebar types can be changed from the Dropdown List. This can be achieved by the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/sidebar/#type">type</a> property.</li>
+                <li>The Sidebar can be collapsed or closed <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/sidebar/#closeondocumentclick"> on document click</a> from the provided options.</li>
+                <li>The Sidebar overlay can be enabled or disabled by clicking on the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/sidebar/#showbackdrop">Backdrop</a> button.</li>
             </ul>
         </p>
     </div>

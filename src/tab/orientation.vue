@@ -1,94 +1,93 @@
 <template>
-  <div class="orientation-tab-section">
-    <div class="col-lg-8 control-section">
-        <div class="e-sample-resize-container">
-        <ejs-tab ref="tabObj" id="tab_orientation" height='320px' :showCloseButton=true heightAdjustMode='Auto'>
-            <e-tabitems>
-                <e-tabitem :header='headerText0' :content="'RomeTemplate'"></e-tabitem>
-                <template v-slot:RomeTemplate>
-                    <div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">
-                        <div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/1.png" alt="Anne Dodsworth" /></div>
-                        <div class="left info"><div class="empname">Anne Dodsworth</div> 
-                        <div class="role">Product Manager</div></div></div><div class="template-container"><div class="left">
-                            <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/2.png" alt="Laura Callahan" /></div>
-                            <div class="left info">
-                                <div class="empname">Laura Callahan</div> <div class="role">Team Lead</div></div></div>
-                                <div class="template-container"><div class="left">
-                                    <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/3.png" alt="Andrew Fuller" /></div>
-                                    <div class="left info"><div class="empname">Andrew Fuller</div> <div class="role">Developer</div>
+    <div class="orientation-tab-section">
+        <div class="col-lg-8 control-section">
+            <div class="e-sample-resize-container">
+            <ejs-tab ref="tabObj" id="tab_orientation" height='320px' :showCloseButton=true heightAdjustMode='Auto'>
+                <e-tabitems>
+                    <e-tabitem :header='headerText0' :content="'RomeTemplate'"></e-tabitem>
+                    <template v-slot:RomeTemplate>
+                        <div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">
+                            <div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/1.png" alt="Anne Dodsworth" /></div>
+                            <div class="left info"><div class="empname">Anne Dodsworth</div> 
+                            <div class="role">Product Manager</div></div></div><div class="template-container"><div class="left">
+                                <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/2.png" alt="Laura Callahan" /></div>
+                                <div class="left info">
+                                    <div class="empname">Laura Callahan</div> <div class="role">Team Lead</div></div></div>
+                                    <div class="template-container"><div class="left">
+                                        <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/3.png" alt="Andrew Fuller" /></div>
+                                        <div class="left info"><div class="empname">Andrew Fuller</div> <div class="role">Developer</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </template>
-                <e-tabitem :header='headerText1' :content="'ParisTemplate'"></e-tabitem>
-                <template v-slot:ParisTemplate>
-                    <div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">
-                        <div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/4.png" alt="Robert King" /></div>
-                            <div class="left info"><div class="empname">Robert King</div> 
-                            <div class="role">Team Lead</div></div></div><div class="template-container"><div class="left">
-                                <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/5.png" alt="Michael Suyama" /></div>
-                                <div class="left info"><div class="empname">Michael Suyama</div> <div class="role">Developer</div></div></div>
-                                    <div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/6.png" alt="Margaret Peacock" /></div>
-                                    <div class="left info"><div class="empname">Margaret Peacock</div> <div class="role">Developer</div>
+                    </template>
+                    <e-tabitem :header='headerText1' :content="'ParisTemplate'"></e-tabitem>
+                    <template v-slot:ParisTemplate>
+                        <div><div class="content-title"><div class="cnt-text">Employee Info</div></div><div id="rome">
+                            <div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/4.png" alt="Robert King" /></div>
+                                <div class="left info"><div class="empname">Robert King</div> 
+                                <div class="role">Team Lead</div></div></div><div class="template-container"><div class="left">
+                                    <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/5.png" alt="Michael Suyama" /></div>
+                                    <div class="left info"><div class="empname">Michael Suyama</div> <div class="role">Developer</div></div></div>
+                                        <div class="template-container"><div class="left"><img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/6.png" alt="Margaret Peacock" /></div>
+                                        <div class="left info"><div class="empname">Margaret Peacock</div> <div class="role">Developer</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </template>
-                <e-tabitem :header='headerText2' :content="'LondonTemplate'"></e-tabitem>
-                <template v-slot:LondonTemplate>
-                    <div><div class="content-title"><div class="cnt-text">Employee Info</div></div>
-                    <div id="rome"><div id="ripple" class="template-container"><div class="left">
-                        <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/7.png" alt="Janet Leverling" /></div>
-                    <div class="left info"><div class="empname">Janet Leverling</div> 
-                    <div class="role"> CEO</div></div></div><div class="template-container"><div class="left">
-                        <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/8.png" alt="Steven Buchanan" /></div>
-                    <div class="left info"><div class="empname">Steven Buchanan</div> <div class="role">HR</div></div></div>
-                    <div class="template-container"><div class="left">
-                        <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/9.png" alt="Nancy Davolio" /></div>
-                    <div class="left info"><div class="empname">Nancy Davolio</div> 
-                    <div class="role">Product Manager</div></div></div></div></div>
-                </template>
-            </e-tabitems>
-        </ejs-tab>
+                    </template>
+                    <e-tabitem :header='headerText2' :content="'LondonTemplate'"></e-tabitem>
+                    <template v-slot:LondonTemplate>
+                        <div><div class="content-title"><div class="cnt-text">Employee Info</div></div>
+                        <div id="rome"><div id="ripple" class="template-container"><div class="left">
+                            <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/7.png" alt="Janet Leverling" /></div>
+                        <div class="left info"><div class="empname">Janet Leverling</div> 
+                        <div class="role"> CEO</div></div></div><div class="template-container"><div class="left">
+                            <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/8.png" alt="Steven Buchanan" /></div>
+                        <div class="left info"><div class="empname">Steven Buchanan</div> <div class="role">HR</div></div></div>
+                        <div class="template-container"><div class="left">
+                            <img class="empImg" src="https://ej2.syncfusion.com/demos/src/images/employees/9.png" alt="Nancy Davolio" /></div>
+                        <div class="left info"><div class="empname">Nancy Davolio</div> 
+                        <div class="role">Product Manager</div></div></div></div></div>
+                    </template>
+                </e-tabitems>
+            </ejs-tab>
+            </div>
+        </div>
+        <div class="col-lg-4 property-section">
+            <table id="property" title="Properties">
+                <tr>
+                    <td style="width:50%; padding-bottom: 10px;">Header Placement:</td>
+                    <td style="width:50%; padding-bottom: 10px;">
+                        <ejs-dropdownlist ref="dropObj1" id='header-place' width='90%' :dataSource='dataPlace' :change='placeChange' :value='placeValue' :fields='placeFields'>
+                        </ejs-dropdownlist>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50%; padding-bottom: 10px;">Header Styles:</td>
+                    <td style="width:50%; padding-bottom: 10px;">
+                        <ejs-dropdownlist ref="dropObj2" id='header-styles' width='90%' :dataSource='dataStyles' :change='styleChange' :value='styleValue' :fields='styleFields'>
+                        </ejs-dropdownlist>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div id="action-description">
-        <p>This sample demonstrates the <code>header</code> orientation of the <code>Tab</code>. Select option from drop-downs to switch header placement and changing the header style in properties panel.</p>
+            <p>This sample demonstrates the <code>header</code> orientation of the <code>Tab</code>. Select option from drop-downs to switch header placement and changing the header style in properties panel.</p>
+        </div>
+        <div id="description">
+            <p>The <code>Tab</code> allows to place the header section inside the Tab component either at <code>top/bottom/left/right</code> position by using <code>headerPlacement</code> property.</p>
+            <p>This sample illustrates the use of header placement and <code>showCloseButton</code> property. Users can change the header position by changing the drop-down value options and can close the Tab item by clicking close icon in header.</p>
+            <br>
+            <p>The User can also view different header styles of Tab component by selecting options from `Header Styles` drop-down. Header styles changed by adding predefined classes in Tab root element and it class names listed below</p>
+            <ul>
+            <li>Material and Fabric theme differentiates all the available tab header styles such as <code>e-fill, e-background e-accent.</code></li>
+            <li>In bootstrap theme, all the styles such as <code>e-fill</code> & <code>e-background e-accent</code> will have the same look with no difference.</li>
+            </ul>
+            <p>If above classes not included in root element default style will applied in Tab component.</p>
+            <p>More information about Tab can be found in this <a aria-label="Tab getting started" href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
+        </div>
     </div>
-
-    <div id="description">
-        <p>The <code>Tab</code> allows to place the header section inside the Tab component either at <code>top/bottom/left/right</code> position by using <code>headerPlacement</code> property.</p>
-        <p>This sample illustrates the use of header placement and <code>showCloseButton</code> property. Users can change the header position by changing the drop-down value options and can close the Tab item by clicking close icon in header.</p>
-        <br>
-        <p>The User can also view different header styles of Tab component by selecting options from `Header Styles` drop-down. Header styles changed by adding predefined classes in Tab root element and it class names listed below</p>
-        <ul>
-           <li>Material and Fabric theme differentiates all the available tab header styles such as <code>e-fill, e-background e-accent.</code></li>
-           <li>In bootstrap theme, all the styles such as <code>e-fill</code> & <code>e-background e-accent</code> will have the same look with no difference.</li>
-        </ul>
-        <p>If above classes not included in root element default style will applied in Tab component.</p>
-        <p>More information about Tab can be found in this <a aria-label="Tab getting started" href="https://ej2.syncfusion.com/vue/documentation/tab/getting-started/" target="_blank">documentation</a> section.</p>
-    </div>
-    </div>
-    <div class="col-lg-4 property-section">
-                <table id="property" title="Properties">
-                    <tr>
-                        <td style="width:50%; padding-bottom: 10px;">Header Placement:</td>
-                        <td style="width:50%; padding-bottom: 10px;">
-                              <ejs-dropdownlist ref="dropObj1" id='header-place' width='90%' :dataSource='dataPlace' :change='placeChange' :value='placeValue' :fields='placeFields'>
-                            </ejs-dropdownlist>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width:50%; padding-bottom: 10px;">Header Styles:</td>
-                        <td style="width:50%; padding-bottom: 10px;">
-                            <ejs-dropdownlist ref="dropObj2" id='header-styles' width='90%' :dataSource='dataStyles' :change='styleChange' :value='styleValue' :fields='styleFields'>
-                            </ejs-dropdownlist>
-                        </td>
-                    </tr>
-                </table>
-    </div>
-</div>
 </template>
 <style>
 #tab_orientation .e-content .e-item {

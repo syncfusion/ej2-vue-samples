@@ -3,11 +3,12 @@
         <div class="control-wrapper multicolumn">
             <div style='padding-top:50px;'>
                 <ejs-multicolumncombobox type="text" id="default" :dataSource="dataSource" :fields="fields" :value="value" :text="text" :placeholder="placeholder" popupHeight="230px" :change="valueChange" :showClearButton="showClearButton">
-                    <e-columns>
-                        <e-column field='OrderID' header='Order ID' width="110"/>
-                        <e-column field='CustomerID' header='Customer ID' width="130"/>
-                        <e-column field='Freight' header='Freight' width="90"/>
-                        <e-column field='ShipCountry' header='ShipCountry' width="140"/>
+                    <e-columns>                        
+                        <e-column field='Name' header='Name' width="90"/>
+                        <e-column field='Position' header='Position' width="85"/>
+                        <e-column field='Department' header='Department' width="98"/>
+                        <e-column field='PhoneNo' header='Phone No' width="105"/>
+                        <e-column field='Location' header='Location' width="98"/>
                     </e-columns>
                 </ejs-multicolumncombobox>
             </div>
@@ -31,14 +32,15 @@
     </div>
 
     <div id="description">
-        <p>The <code>MultiColumn ComboBox</code> allows the user to display detailed information about items in multiple columns. In the above sample, type any character in the MultiColumn ComboBox or click the dropdown icon to choose an item from the options available in the list. The selected item's <code>value</code> and <code>text</code> property values will be shown in the property panel.</p>
+        <p>The <code>MultiColumn ComboBox</code> allows the user to display detailed information about items in multiple columns. In the above sample, type any character in the MultiColumn ComboBox or click the dropdown icon to choose an employee from the options available in the list. The selected item's <code>value</code> and <code>text</code> property values will be shown in the property panel.</p>
     </div>
 </template>
 
+<!-- custom code start -->
 <style>
     .control-wrapper.multicolumn {
         margin: 0 auto;
-        width: 500px;
+        width: 520px;
     }
 
     @media screen and (max-width: 480px) {
@@ -56,6 +58,7 @@
         width: 25%
     }
 </style>
+<!-- custom code end -->
 
 <script>
 import { MultiColumnComboBoxComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-multicolumn-combobox";
@@ -69,12 +72,12 @@ export default {
     },
     data:function () {
         return {
-            value: '1001',
-            text: 'France',
-            dataSource: data['orderDetails'],
+            value: 'HR',
+            text: 'John Smith',
+            dataSource: data['employeeData'],
             showClearButton: true,
-            fields: { text: 'ShipCountry', value: 'OrderID' },
-            placeholder: 'Select the country'
+            fields: { text: 'Name', value: 'Department' },
+            placeholder: 'Select a name'
         }
     },
     methods: {

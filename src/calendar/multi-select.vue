@@ -88,7 +88,10 @@ export default {
 }
 
 body.fluent-dark #date_label,
+body.fluent2-dark #date_label,
+body.fluent2-highcontrast #date_label,
 body.bootstrap5-dark #date_label,
+body.bootstrap5.3-dark #date_label,
 body.tailwind-dark #date_label,
 body.material-dark #date_label,
 body.material3-dark #date_label,
@@ -108,8 +111,11 @@ body.highcontrast #date_label {
 .fabric-dark .content-value,
 .bootstrap-dark .content-value,
 .bootstrap5-dark .content-value,
+.bootstrap5.3-dark .content-value,
 .tailwind-dark .content-value,
-.fluent-dark .content-value {
+.fluent-dark .content-value,
+.fluent2-dark .content-value,
+.fluent2-highcontrast .content-value {
   border: 1px solid rgb(150, 150, 150);
 }
 </style>

@@ -8,108 +8,24 @@
      :snapSettings='snapSettings'></ejs-diagram>
   </div>
   <div class="col-lg-3 property-section">
-    <div>
-        <h4 class="property-panel-header">Built-In Commands</h4>
-        <div class="property-panel-content">
-            <table id="property1" style="font-size: 12px;">
-                <tbody>
-                    <tr>
-                        <td style="width:60%;">
-                            <h5>Command</h5>
-                        </td>
-                        <td style="width:40%;">
-                            <h5>Gesture</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width:61%;">Select All </td>
-                        <td style="width:39%;">Ctrl + A</td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Cut</td>
-                        <td style="width:40%;">Ctrl + X</td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Copy</td>
-                        <td style="width:40%;">Ctrl + C</td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Paste</td>
-                        <td style="width:40%;">Ctrl + V</td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Undo</td>
-                        <td style="width:40%;">Ctrl + Z</td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Redo</td>
-                        <td style="width:40%;">Ctrl + Y</td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Delete</td>
-                        <td style="width:40%;">Delete</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div>
-        <h4 class="property-panel-header">Custom Commands</h4>
-        <div class="property-panel-content">
-            <table id="property2" style="font-size: 12px;">
-                <tbody>
-                    <tr>
-                        <td style="width:60%;">
-                            <h5>Command</h5>
-                        </td>
-                        <td style="width:40%;">
-                            <h5>Gesture</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Group</td>
-                        <td style="width:40%;">Ctrl + G</td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Ungroup</td>
-                        <td style="width:40%;">Ctrl + U</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div>
-        <h4 class="property-panel-header">Modified Commands</h4>
-        <div class="property-panel-content">
-            <table id="property3" style="font-size: 12px;">
-                <tbody>
-                    <tr>
-                        <td style="width:70%;">
-                            <h5>Command</h5>
-                        </td>
-                        <td style="width:30%;">
-                            <h5>Gesture</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Navigate to Parent Node </td>
-                        <td style="width:40%;">Up Arrow</td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Navigate to Child Node </td>
-                        <td style="width:40%;">Down Arrow</td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Navigate to Previous Child </td>
-                        <td style="width:40%;">Left Arrow</td>
-                    </tr>
-                    <tr>
-                        <td style="width:60%;">Navigate to Next Child </td>
-                        <td style="width:40%;">Right Arrow</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div v-for="(table, index) in commandTables" :key="index">
+      <h4 class="property-panel-header">{{ table.title }}</h4>
+      <div class="property-panel-content">
+        <table style="font-size: 12px;">
+          <thead>
+            <tr>
+              <td style="width: 70%;"><h5>Command</h5></td>
+              <td style="width: 30%;"><h5>Gesture</h5></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(cmd, cmdIndex) in table.commands" :key="cmdIndex">
+              <td style="width: 70%;">{{ cmd.command }}</td>
+              <td style="width: 30%;">{{ cmd.gesture }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
   <div id="action-description">
@@ -187,13 +103,13 @@ export default {
       snapSettings: { constraints: SnapConstraints.None },
       contextMenuSettings: { show: true },
       //Sets the default values of nodes
-      getNodeDefaults: (obj) => {
-        if (!obj.children) {
-          obj.shape = shape;
-          obj.width = 70;
-          obj.height = 70;
+      getNodeDefaults: (node) => {
+        if (!node.children) {
+          node.shape = shape;
+          node.width = 70;
+          node.height = 70;
         }
-        return obj;
+        return node;
       },
       //Configrues hierarchical tree layout
       layout: {
@@ -220,7 +136,37 @@ export default {
           };
         }
       },
-      commandManager: getCommandManagerSettings()
+        commandManager: getCommandManagerSettings(),
+        commandTables: [
+            {
+            title: "Built-In Commands",
+            commands: [
+                { command: "Select All", gesture: "Ctrl + A" },
+                { command: "Cut", gesture: "Ctrl + X" },
+                { command: "Copy", gesture: "Ctrl + C" },
+                { command: "Paste", gesture: "Ctrl + V" },
+                { command: "Undo", gesture: "Ctrl + Z" },
+                { command: "Redo", gesture: "Ctrl + Y" },
+                { command: "Delete", gesture: "Delete" },
+            ],
+            },
+            {
+            title: "Custom Commands",
+            commands: [
+                { command: "Group", gesture: "Ctrl + G" },
+                { command: "Ungroup", gesture: "Ctrl + U" },
+            ],
+            },
+            {
+            title: "Modified Commands",
+            commands: [
+                { command: "Navigate to Parent Node", gesture: "Up Arrow" },
+                { command: "Navigate to Child Node", gesture: "Down Arrow" },
+                { command: "Navigate to Previous Child", gesture: "Left Arrow" },
+                { command: "Navigate to Next Child", gesture: "Right Arrow" },
+            ],
+            },
+        ],
     };
   },
   provide: {
@@ -233,103 +179,67 @@ export default {
 
 //Custom command for Diagraming elements.
 function getCommandManagerSettings() {   
-    let commandManager = {
-        commands: [{
-            name: 'customGroup',
-            canExecute: () => {
-                if (diagramInstance.selectedItems.nodes.length > 0 || diagramInstance.selectedItems.connectors.length > 0) {
-                    return true;
-                }
-                return false;
-            },
-            execute: () => {
-                diagramInstance.group();
-            },
-            gesture: {
-                key: Keys.G,
-                keyModifiers: KeyModifiers.Control
-            }
-        },
-        {
-            name: 'customUnGroup',
-            canExecute: () => {
-                if (diagramInstance.selectedItems.nodes[0].children) {
-                    return true;
-                }
-                return false;
-            },
-            execute: () => {
-                diagramInstance.unGroup();
-            },
-            gesture: {
-                key: Keys.U,
-                keyModifiers: KeyModifiers.Control
-            }
-        },
-        {
-            name: 'navigationDown',
-            canExecute: () => {
-                return true;
-            },
-            execute: () => {
-                navigateLevels(true);
-            },
-            gesture: { key: Keys.Down },
-        },
-        {
-            name: 'navigationUp',
-            canExecute: () => {
-                return true;
-            },
-            execute: () => {
-                navigateLevels(false);
-            },
-            gesture: { key: Keys.Up },
-        },
-        {
-            name: 'navigationLeft',
-            canExecute: () => {
-                return true;
-            },
-            execute: () => {
-                navigateToSiblings(true);
-            },
-            gesture: { key: Keys.Right },
-        },
-        {
-            name: 'navigationRight',
-            canExecute: () => {
-                return true;
-            },
-            execute: () => {
-                navigateToSiblings(false);
-            },
-            gesture: { key: Keys.Left },
-        }]
+    return {
+        commands: [
+          createCommand("customGroup", Keys.G, KeyModifiers.Control, () => groupItems(), canGroupItems),
+          createCommand("customUnGroup", Keys.U, KeyModifiers.Control, () => unGroupItems(), canUnGroupItems),
+          createCommand("navigationDown", Keys.Down, undefined, () => navigateLevels(true), alwaysTrue),
+          createCommand("navigationUp", Keys.Up, undefined, () => navigateLevels(false), alwaysTrue),
+          createCommand("navigationLeft", Keys.Left, undefined, () => navigateToSiblings(false), alwaysTrue),
+          createCommand("navigationRight", Keys.Right, undefined, () => navigateToSiblings(true), alwaysTrue)
+        ]
     };
-    return commandManager;
+}
+// Create a command with common properties
+function createCommand(name, key, keyModifiers, execute, canExecute){
+    return { name, gesture: { key, keyModifiers }, canExecute, execute };
+}
+
+// Check if grouping items is possible
+function canGroupItems() {
+    return diagramInstance.selectedItems.nodes.length > 0 || diagramInstance.selectedItems.connectors.length > 0;
+}
+
+// Group selected items
+function groupItems() {
+    diagramInstance.group();
+}
+
+// Check if ungrouping items is possible
+function canUnGroupItems() {
+    return diagramInstance.selectedItems.nodes[0]?.children !== undefined;
+}
+
+// Ungroup selected items
+function unGroupItems() {
+    diagramInstance.unGroup();
+}
+
+// Always return true for command execution
+function alwaysTrue() {
+    return true;
 }
 
 //Navigation for Child Node or parent Node
 function navigateLevels(isParent) {
-    let node = diagramInstance.selectedItems.nodes[0];
-    if (node) {
-        let connectorId = isParent ? node.outEdges[0] : node.inEdges[0];
+    let selectedNode = diagramInstance.selectedItems.nodes[0];
+    if (selectedNode) {
+        let connectorId = isParent ? selectedNode.outEdges[0] : selectedNode.inEdges[0];
         let altNode = isParent ? getNode(connectorId, false) : getNode(connectorId, true);
         selectNode(altNode);
     }
 }
 //Navigate to left or right Sibling Node 
 function navigateToSiblings(isRightSibling) {
-    let child = diagramInstance.selectedItems.nodes[0];
-    if (child) {
-        let connectorId = child.inEdges[0];
+    let selectedNode = diagramInstance.selectedItems.nodes[0];
+    if (selectedNode) {
+        let connectorId = selectedNode.inEdges[0];
         let altConnectorId = '';
-        let parent = getNode(connectorId, true);
-        if (parent && parent.length > 0) {
-            for (let i = 0; i < (parent[0]).outEdges.length; i++) {
-                if ((parent[0]).outEdges[i] === connectorId) {
-                    altConnectorId = isRightSibling ? (parent[0]).outEdges[i + 1] : (parent[0]).outEdges[i - 1];
+        let parentNode = getNode(connectorId, true)[0];
+        if (parentNode) {
+            for (let i = 0; i < (parentNode).outEdges.length; i++) {
+                if ((parentNode).outEdges[i] === connectorId) {
+                    altConnectorId = isRightSibling ? (parentNode).outEdges[i + 1] : (parentNode).outEdges[i - 1];
                 }
             }
             let sibling = getNode(altConnectorId, false);
@@ -337,7 +247,7 @@ function navigateToSiblings(isRightSibling) {
         }
     }
 }
-//Get node elements
+// Get node elements by connector ID
 function getNode(name, isParent) {
     let node = [];
     let connector= diagramInstance.getObject(name);
@@ -346,13 +256,11 @@ function getNode(name, isParent) {
     }
     return node;
 }
-//draw selector.
+// Select and highlight the specified node
 function selectNode(node) {
     if (node && node.length > 0) {
         diagramInstance.clearSelection();
         diagramInstance.select(node);
     }
 }
-
-
 </script>

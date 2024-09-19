@@ -20,7 +20,7 @@
 </div>
 
 <div id="description">
-    <p>In this demo, customization of ticks using CSS is demonstrated.</p>
+    <p>In this demo, customization of ticks using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider#cssclass">CSS</a> is demonstrated.</p>
     <ul>
         <li>Dynamic ticks color - In this sample, ticks has been customized to different colors by adding icon at each ticks.</li>
         <li>Ticks with legends - In this sample, track has been formatted to display custom text using renderingTicks and renderedTicks
@@ -234,6 +234,38 @@
     .fluent2-highcontrast.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before {
         top: 8px;
     }
+
+    .bootstrap5\.3 #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5\.3-dark #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom::before {
+        line-height: 2.3;
+        left: calc(50% - 6px);
+    }
+    .bootstrap5\.3 #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom.e-first-tick::before, .bootstrap5\.3-dark #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom.e-first-tick::before {
+        left: calc(0% - 6px);
+    }
+    .bootstrap5\.3 #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom.e-last-tick::before, .bootstrap5\.3-dark #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom.e-last-tick::before {
+        left: calc(100% - 6px);
+    }
+    .bootstrap5\.3.e-bigger #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5\.3-dark.e-bigger #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom::before {
+        line-height: 3;
+    }
+
+  .material3 .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before,
+  .material3 .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
+      line-height: 2.3;
+      left: calc(50% - 5px);
+  } 
+  
+  .e-bigger.material3 .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before,
+  .e-bigger.material3-dark .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
+      line-height: 3;
+      left: calc(50% - 5px);
+  } 
+  
+  
+  .material3 .slider_container .e-slider-container.e-control-wrapper.e-horizontal.e-scale-both #slider .e-range,
+  .material3-dark .slider_container .e-slider-container.e-control-wrapper.e-horizontal.e-scale-both #slider .e-range {
+      top: calc(50% - 2px);
+  }
 
     @media (max-width:550px){
         .e-bigger .e-control-wrapper.e-slider-container .e-scale .e-tick .e-tick-value{

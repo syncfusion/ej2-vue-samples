@@ -19,9 +19,7 @@
                         <div>Hierarchy Mode</div>
                     </td>
                     <td style="width: 50%; padding-left: 10px">
-                        <div id='treehierrchymode'>
-                        <ejs-dropdownlist id='ddlelement' width='90px' :dataSource='ddldata' value='Parent' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
-                        </div>
+                        <ejs-dropdownlist id='ddlelement' width='110px' :dataSource='ddldata' value='Parent' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>
@@ -138,15 +136,3 @@ export default {
 
 }
 </script>
-<!-- custom code start -->
-<style>
-    .fluent2,
-    .fluent2-dark,
-    .fluent2-highcontrast {
-        #treehierrchymode .e-input-group {
-            width: 95px !important;
-        }
-    }
-
-</style>
-<!-- custom code end -->

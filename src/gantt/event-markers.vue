@@ -21,7 +21,7 @@
 
 <div id="description">
     <p>
-        In this example, the <code>eventMarkers</code> are used like a bookmark to show the different stages of the project life cycle. You can show the desired text on the date. The Event Markers model has the below properties to customize the marker:
+        In this example, the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#eventmarkers">eventMarkers</a> are used like a bookmark to show the different stages of the project life cycle. You can show the desired text on the date. The Event Markers model has the below properties to customize the marker:
        <ul>
        <li><code>cssClass</code>: Used to assign external CSS styles to that particular marker.</li>
        <li><code>day</code>: Used to set date of the event marker.</li>

@@ -102,7 +102,7 @@ import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AreaSeries,
 import { synchronizedData } from './financial-data'
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 let zoomFactor = 0;
@@ -353,7 +353,7 @@ export default {
         },
         load: function (args) {
             let selectedTheme = location.hash.split('/')[1];
-            selectedTheme = selectedTheme ? selectedTheme : 'Material';
+            selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
             args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
                 selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
             let themeColor = [];
@@ -363,8 +363,8 @@ export default {
             let bootstrapColors = ['#a16ee5', '#f7ce69', '#55a5c2', '#7ddf1e'];
             let highContrastColors = ['#79ECE4', '#E98272', '#DFE6B6', '#C6E773'];
             let bootstrap4Colors = ['#a16ee5', '#f7ce69', '#55a5c2', '#7ddf1e'];
-            let bootstrap5Colors = ['#6355C7', '#FFB400', '#2196F5', '#F7523F'];
-            let bootstrap5DarkColors = ['#8F80F4', '#FFD46D', '#6CBDFF', '#FF7F71'];
+            let bootstrap5Colors = ['#FD7E14', '#6610F2', '#6F42C1', '#D63384'];
+            let bootstrap5DarkColors = ['#FD7E14', '#6610F2', '#6F42C1', '#D63384'];
             let fluentColors = ['#1AC9E6', '#DA4CB2', '#EDBB40', '#AF4BCF'];
             let tailwindColors = ['#5A61F6', '#65A30D', '#334155', '#14B8A6'];
             let tailwindDarkColors = ['#8B5CF6', '#22D3EE', '#F87171', '#4ADE80'];
@@ -372,7 +372,7 @@ export default {
             let material3Colors = ['#6355C7', '#00AEE0', '#FFB400', '#F7523F'];
             let material3DarkColors = ['#4EAAFF', '#FA4EAB', '#FFF500', '#17EA58'];
             let fluent2Colors = ['#6200EE', '#09AF74', '#0076E5', '#CB3587'];
-            let fluent2DarkColors = ['#9BB449', '#2A72D5', '#43B786', '#3F579A'];
+            let fluent2HighContrastColors = ['#9BB449', '#2A72D5', '#43B786', '#3F579A'];
             // check the theme
             if (args.chart.theme === 'MaterialDark') {
                 themeColor = materialDarkColors;
@@ -422,8 +422,8 @@ export default {
             else if (args.chart.theme === 'Fluent2') {
                 themeColor = fluent2Colors;
             }
-            else if (args.chart.theme === 'Fluent2Dark') {
-                themeColor = fluent2DarkColors;
+            else if (args.chart.theme === 'Fluent2HighContrast' || args.chart.theme === 'Fluent2Dark') {
+                themeColor = fluent2HighContrastColors;
             }
             else {
                 themeColor = fluentColors;

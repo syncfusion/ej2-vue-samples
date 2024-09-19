@@ -19,7 +19,7 @@
                         <div>Column</div>
                     </td>
                     <td style="width: 70%; padding-left: 10px; padding-right:10px;">
-                        <ejs-dropdownlist width='110px' ref='columns' id='columns' :dataSource='columnNames' value='price' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
+                        <ejs-dropdownlist width='140px' ref='columns' id='columns' :dataSource='columnNames' value='price' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
                     </td>
                 </tr>
                 <tr style="height: 50px">
@@ -27,7 +27,7 @@
                         <div> Format</div>
                     </td>
                     <td style="width: 70%; padding-left: 10px; padding-right:10px;">
-                        <ejs-dropdownlist ref='format' width='110px' id='format' :dataSource='priceFormat' value='c2' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
+                        <ejs-dropdownlist ref='format' width='140px' id='format' :dataSource='priceFormat' value='c2' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>

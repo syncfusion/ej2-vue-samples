@@ -225,7 +225,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 }
 
 .e-listview .e-icon-wrapper .e-list-text {
-    width: calc(100% - 65px)
+    width: calc(100% - 67px)
 }
 
 /**sb-switcher*/
@@ -553,10 +553,12 @@ span.e-input-group.e-control-wrapper.e-ddl {
 
 #search-input-wrapper {
     width: 75%;
-    height: 38px;
+    height: auto;
     margin-top: 50px;
     margin-left: 13.5%;
     position: relative;
+    background: #fff;
+    border-radius: 4px;
 }
 
 #search-input-wrapper input {
@@ -629,7 +631,6 @@ span.e-input-group.e-control-wrapper.e-ddl {
 }
 
 .sb-search-input .e-ddl .e-clear-icon {
-    background: #fff;
     margin-left: -5px;
     border-radius: 4px;
     border: none;
@@ -1886,7 +1887,7 @@ propertye pane
 .path {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
-    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    animation: dash-spinner 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
     stroke-linecap: round;
     stroke: #ff4081;
 }
@@ -1897,7 +1898,7 @@ propertye pane
     }
 }
 
-@keyframes dash {
+@keyframes dash-spinner {
     0% {
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0;
@@ -1948,7 +1949,7 @@ aside#left-sidebar {
 }
 
 .sb-control-navigation .e-treeview .tree-text {
-    width: calc(100% - 65px);
+    width: calc(100% - 67px);
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -2121,7 +2122,7 @@ aside#left-sidebar {
         margin: 17px auto 0px;
         float: none;
         width: 242px;
-        padding: 11px 61px;
+        padding: 11px 57px;
     }
 
     .content-area {
@@ -2470,7 +2471,7 @@ aside#left-sidebar {
         margin: 17px auto 0px;
         float: none;
         width: 242px;
-        padding: 11px 61px;
+        padding: 11px 51px;
     }
 
     .content-area {
@@ -2654,11 +2655,15 @@ aside#left-sidebar {
 }
 
 #search-input_popup {
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 75vh;
 }
 
 .sb-source-code-section .CodeMirror {
     height: fit-content;
     font-size: 14px;
+}
+
+.fluent2-dark .e-tab .e-tab-header .e-toolbar-items .e-toolbar-item.e-active::before {
+    background: #479EF5;
 }

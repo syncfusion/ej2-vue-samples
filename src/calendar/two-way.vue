@@ -67,7 +67,10 @@ body.highcontrast #date_label {
   font-weight: 500;
 }
 body.fluent-dark #date_label,
+body.fluent2-dark #date_label,
+body.fluent2-highcontrast #date_label,
 body.bootstrap5-dark #date_label,
+body.bootstrap5.3-dark #date_label,
 body.tailwind-dark #date_label,
 body.material-dark #date_label,
 body.material3-dark #date_label,

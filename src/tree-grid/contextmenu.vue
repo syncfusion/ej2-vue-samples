@@ -5,11 +5,11 @@
         :contextMenuItems="contextMenuItems" :editSettings='editing'>
             <e-columns>
                <e-column field='taskID' headerText='Task ID' width='80' textAlign='Right' isPrimaryKey='true' :edit='editparams' :validationRules='taskidrules'></e-column>
-               <e-column field='taskName' headerText='Task Name' width='190'  editType= 'stringedit' :validationRules='tasknamerules'></e-column>
-               <e-column field='startDate' headerText='Start Date' width='105' format="yMd"  editType='datepickeredit' textAlign='Right' :validationRules='startdaterules'></e-column>
-               <e-column field='endDate' headerText='End Date' width='105' format="yMd" editType='datepickeredit' textAlign='Right' :validationRules='enddaterules'></e-column>
-               <e-column field='duration' headerText='Duration' width='85' textAlign='Right' :edit='editparams' editType='numericedit' :validationRules='durationrules'></e-column>
-               <e-column field='progress' headerText='Progress' width='85' textAlign='Right' :edit='editparams'  editType= 'numericedit' :validationRules='progressrules'></e-column>
+               <e-column field='taskName' headerText='Task Name' width='200'  editType= 'stringedit' :validationRules='tasknamerules'></e-column>
+               <e-column field='startDate' headerText='Start Date' width='120' format="yMd"  editType='datepickeredit' textAlign='Right' :validationRules='startdaterules'></e-column>
+               <e-column field='endDate' headerText='End Date' width='110' format="yMd" editType='datepickeredit' textAlign='Right' :validationRules='enddaterules'></e-column>
+               <e-column field='duration' headerText='Duration' width='100' textAlign='Right' :edit='editparams' editType='numericedit' :validationRules='durationrules'></e-column>
+               <e-column field='progress' headerText='Progress' width='120' textAlign='Right' :edit='editparams'  editType= 'numericedit' :validationRules='progressrules'></e-column>
             </e-columns>
         </ejs-treegrid>
     </div>

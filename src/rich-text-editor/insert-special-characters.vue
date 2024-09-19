@@ -143,6 +143,8 @@
     }
 
     .bootstrap5 #rteSpecial_char .char_block.e-active,
+    .bootstrap5\.3 #rteSpecial_char .char_block.e-active,
+    .bootstrap5\.3-dark #rteSpecial_char .char_block.e-active,
     .bootstrap5-dark #rteSpecial_char .char_block.e-active {
         outline: 1px solid #0D6EFD;
         border-color: #0D6EFD;

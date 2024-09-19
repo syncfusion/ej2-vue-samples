@@ -177,6 +177,12 @@ For Spring Expression Language (SpEL) output, use the "spel" format. The Spring 
         }
     }
 
+    .fabric-dark .e-query-preview .e-cel-content,
+    .fabric-dark .e-query-preview .e-spel-content,
+    .tailwind-dark .e-query-preview .e-cel-content,
+    .tailwind-dark .e-query-preview .e-spel-content,
+    .bootstrap-dark .e-query-preview .e-cel-content,
+    .bootstrap-dark .e-query-preview .e-spel-content,
     .highcontrast .e-query-preview .e-cel-content,
     .highcontrast .e-query-preview .e-spel-content,
     .fluent2-dark .e-query-preview .e-cel-content,
@@ -185,6 +191,11 @@ For Spring Expression Language (SpEL) output, use the "spel" format. The Spring 
     .fluent2-highcontrast .e-query-preview .e-spel-content {
         background-color: #1f1f1f;
     }
+
+    .fabric-dark .e-query-preview .e-icons.copycode,
+    .tailwind-dark .e-query-preview .e-icons.copycode,
+    .bootstrap-dark .e-query-preview .e-icons.copycode,
+    .highcontrast .e-query-preview .e-icons.copycode,
     .fluent2-dark .e-query-preview .e-icons.copycode,
     .fluent2-highcontrast .e-query-preview .e-icons.copycode {
         padding-bottom: 3px;

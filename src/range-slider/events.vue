@@ -62,15 +62,15 @@
       </p>
       <p>In this demo, Slider performs following actions which can be traced by event trace panel:</p>
       <ul>
-        <li>Created - Triggers when Slider is created.</li>
-        <li>Change - Triggers when the Slider value is changed.</li>
-        <li>Changed - Triggers when the Slider action is completed with change in Slider value.</li>
+        <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#change">created</a> - Triggers when Slider is created.</li>
+        <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#change">change</a> - Triggers when the Slider value is changed.</li>
+        <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#changed">changed</a> - Triggers when the Slider action is completed with change in Slider value.</li>
       </ul>
       <p>
         For more information, refer to the
         <a
           target="_blank"
-          href="http://ej2.syncfusion.com/vue/documentation/slider/api-slider.html#events"
+          href="https://ej2.syncfusion.com/vue/documentation/api/slider/#events"
         >events</a> API from the documentation.
       </p>
     </div>

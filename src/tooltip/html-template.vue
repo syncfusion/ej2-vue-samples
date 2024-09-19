@@ -13,7 +13,7 @@
         <p>This sample demonstrates customizing tooltip content to display a HTML page.</p>
     </div>
     <div id="description">
-        <p> Tooltip content has been customized using HTML tags and CSS, i.e. the content can be loaded with
+        <p> Tooltip <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/tooltip/#content">content</a> has been customized using HTML tags and CSS, i.e. the content can be loaded with
             HTML tags such as &lt;img&gt;, &lt;a&gt;,&lt;b&gt;, etc. Title can also be added to the content.
             Overall, the tooltip content can be customized to appear like a web page.</p>
     </div>
@@ -41,7 +41,7 @@ export default {
             is easily found in open fields and sparse woodland areas, including along woodland edges.</p>
         </div>
       `,
-      toolTipHeight: Browser.isDevice ? "60%" : "auto",
+      toolTipHeight:"auto",
     };
   },
   methods: {
@@ -56,17 +56,16 @@ export default {
       }
     },
     onClick: function(args) {
-      if (
-        args &&
-        !args.target.parentNode.parentNode.classList.contains("e-tooltip")
-      ) {
-        if (
-          this.$refs.tooltip &&
-          document.getElementsByClassName("e-tooltip-wrap").length > 0
-        ) {
-          this.$refs.tooltip.ej2Instances.close();
+        if (args) {
+            const parentNode = args.target.parentNode;
+            const grandParentNode = parentNode?.parentNode;
+    
+            if (grandParentNode && !grandParentNode.classList.contains("e-tooltip")) {
+                if (this.$refs.tooltip && document.getElementsByClassName("e-tooltip-wrap").length > 0) {
+                    this.$refs.tooltip.ej2Instances.close();
+                }
+            }
         }
-      }
     },
     onScroll: function() {
       if (

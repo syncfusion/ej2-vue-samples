@@ -12,30 +12,6 @@
           </e-carousel-items>
         </ejs-carousel>
       </div>
-      <div id="action-description">
-        <p>
-          This sample demonstrates the properties available in the
-          <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component.
-        </p>
-      </div>
-      <div id="description">
-        <p>
-          In this demo, you can manually change the properties of the
-          <code>Vue Carousel</code> component like <code>autoPlay</code>,
-          <code>buttonsVisibility</code>, <code>showIndicators</code>,
-          <code>interval</code>, <code>showPlayButton</code>,
-          <code>loop</code> using the property panel.
-        </p>
-        <p>
-          More information about the properties available in the Carousel
-          component can be found in this
-          <a aria-label="Vue carousel"
-            target="_blank"
-            href="https://ej2.syncfusion.com/vue/documentation/api/carousel/"
-            >documentation section</a
-          >.
-        </p>
-      </div>
     </div>
     <div class="col-lg-3 property-section">
       <div id="property" class="property-panel-table" title="Properties">
@@ -123,7 +99,32 @@
         </table>
       </div>
     </div>
+    <div id="action-description">
+    <p>
+      This sample demonstrates the properties available in the
+      <a aria-label="Vue carousel" href="https://www.syncfusion.com/vue-ui-components/vue-carousel" target="_blank">Vue Carousel</a> component.
+    </p>
+    </div>
+    <div id="description">
+      <p>
+        In this demo, you can manually change the properties of the
+        <code>Vue Carousel</code> component like <code>autoPlay</code>,
+        <code>buttonsVisibility</code>, <code>showIndicators</code>,
+        <code>interval</code>, <code>showPlayButton</code>,
+        <code>loop</code> using the property panel.
+      </p>
+      <p>
+        More information about the properties available in the Carousel
+        component can be found in this
+        <a aria-label="Vue carousel"
+          target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/api/carousel/"
+          >documentation section</a
+        >.
+      </p>
+    </div>
   </div>
+  
 </template>
 
 <style>

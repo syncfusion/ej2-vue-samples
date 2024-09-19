@@ -1,5 +1,5 @@
 <template>
-<div class="control-section">
+<div class="control-section diagram-organization">
  <div class="col-lg-8 control-section" style="width: 70%; float:left;">
     <div class="content-wrapper">
         <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'></ejs-diagram>
@@ -14,7 +14,7 @@
             <div class="row row-header">
                 Orientation
             </div>
-            <div id="orientation">
+            <div id="orientation" ref="orientation">
                 <div class="row" style="padding-top: 8px">
                     <div class="image-pattern-style e-selected-orientation-style" id="topToBottom" style="background-image: url(./src/diagram/Images/common-orientation/toptobottom.png); margin-right: 3px">
                     </div>
@@ -31,7 +31,7 @@
             <div class="row row-header" style="padding-top: 10px">
                 Subtree Alignment
             </div>
-            <div id="pattern">
+            <div id="pattern" ref="pattern">
                 <div class="row" style="padding-top: 8px">
                     <div class="image-pattern-style" id="pattern1" style="background-image: url(./src/diagram/patternimages/Pattern_1.png); margin-right: 3px">
                     </div>
@@ -68,12 +68,12 @@
                 <div style="display: table-cell; vertical-align: middle">Horizontal Spacing</div>
             </div>
             <div class="col-xs-6">
-                <ejs-numerictextbox ref="hSpacingObj" id="hSpacing" 
-                      :min='hSpacingmin'
-                      :max='hSpacingmax'
-                      :step='hSpacingstep'
-                      :value='hSpacingvalue'
-                      :change='hSpacingchange'/>
+                <ejs-numerictextbox ref="horizontalSpacingObj" id="horizontalSpacing" 
+                      :min='horizontalSpacingMinimum'
+                      :max='horizontalSpacingMaximum'
+                      :step='horizontalSpacingStep'
+                      :value='horizontalSpacingValue'
+                      :change='horizontalSpacingChange'/>
 
             </div>
         </div>
@@ -82,12 +82,12 @@
                 <div style="display: table-cell; vertical-align: middle">Vertical Spacing</div>
             </div>
             <div class="col-xs-6">
-                <ejs-numerictextbox ref="vSpacingObj" id="vSpacing" 
-                      :min='vSpacingmin'
-                      :max='vSpacingmax'
-                      :step='vSpacingstep'
-                      :value='vSpacingvalue'
-                      :change='vSpacingchange' />
+                <ejs-numerictextbox ref="verticalSpacingObj" id="verticalSpacing" 
+                      :min='verticalSpacingMinimum'
+                      :max='verticalSpacingMaximum'
+                      :step='verticalSpacingStep'
+                      :value='verticalSpacingValue'
+                      :change='verticalSpacingChange' />
             </div>
         </div>
     </div>
@@ -125,7 +125,7 @@
 </template>
 <style scoped>
 /* Css for images in property panel  */
-.image-pattern-style {
+.diagram-organization .image-pattern-style {
   background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
@@ -137,38 +137,32 @@
   float: left;
 }
 
-.image-pattern-style:hover {
+.diagram-organization .image-pattern-style:hover {
   border-color: gray;
   border-width: 2px;
 }
 
-.row {
+.diagram-organization .row {
   margin-left: 0px;
   margin-right: 0px;
 }
 
-.row-header {
+.diagram-organization .row-header {
   font-size: 15px;
   font-weight: 500;
 }
 
-.row-header1 {
-  font-size: 12px;
-  padding-left: 2px;
-  font-weight: 400;
-}
-
-.e-selected-orientation-style {
+.diagram-organization .e-selected-orientation-style {
   border-color: #006ce6;
   border-width: 2px;
 }
 
-.e-selected-pattern-style {
+.diagram-organization .e-selected-pattern-style {
   border-color: #006ce6;
   border-width: 2px;
 }
 
-.col-xs-6 {
+.diagram-organization .col-xs-6 {
   padding-left: 0px;
   padding-right: 0px;
 }
@@ -193,12 +187,12 @@ import { DataManager } from "@syncfusion/ej2-data";
 import { localBindData } from "./diagram-data";
 
 let diagramInstance;
-let orien;
-let typ;
-let hSpacing;
-let vSpacing;
-
-
+let orientation;
+let type;
+let horizontalSpacing;
+let verticalSpacing;
+let orientationObj;
+let patternObj;
 
 export default {
   components: {
@@ -252,21 +246,23 @@ export default {
         return connectorDefaults(connector, diagram);
       },
 
-      hSpacingmin: 20,
-      hSpacingmax: 60,
-      hSpacingstep: 2,
-      hSpacingvalue: 30,
-      hSpacingchange: () => {
-        diagramInstance.layout.horizontalSpacing = Number(hSpacing.value);
+      horizontalSpacingMinimum: 20,
+      horizontalSpacingMaximum: 60,
+      horizontalSpacingStep: 2,
+      horizontalSpacingValue: 30,
+      //Increase or decrease horizontalSpacing of the layout
+      horizontalSpacingChange: () => {
+        diagramInstance.layout.horizontalSpacing = Number(horizontalSpacing.value);
         diagramInstance.dataBind();
       },
 
-      vSpacingmin: 20,
-      vSpacingmax: 60,
-      vSpacingstep: 2,
-      vSpacingvalue: 30,
-      vSpacingchange: () => {
-        diagramInstance.layout.verticalSpacing = Number(vSpacing.value);
+      verticalSpacingMinimum: 20,
+      verticalSpacingMaximum: 60,
+      verticalSpacingStep: 2,
+      verticalSpacingValue: 30,
+      //Increase or decrease verticalSpacing of the layout
+      verticalSpacingChange: () => {
+        diagramInstance.layout.verticalSpacing = Number(verticalSpacing.value);
         diagramInstance.dataBind();
       }
     };
@@ -277,12 +273,14 @@ export default {
   mounted: function() {
     //let diagramObj: any = document.getElementById("diagram");
     diagramInstance = this.$refs.diagramObj.ej2Instances;
-    //let hSpacingObj: any = document.getElementById("hSpacing");
-    hSpacing = this.$refs.hSpacingObj.ej2Instances;
-    //let vSpacingObj: any = document.getElementById("vSpacing");
-    vSpacing = this.$refs.vSpacingObj.ej2Instances;
-    let orientationObj = document.getElementById("orientation");
-    let patternObj = document.getElementById("pattern");
+    //let horizontalSpacingObj: any = document.getElementById("horizontalSpacing");
+    horizontalSpacing = this.$refs.horizontalSpacingObj.ej2Instances;
+    //let verticalSpacingObj: any = document.getElementById("verticalSpacing");
+    verticalSpacing = this.$refs.verticalSpacingObj.ej2Instances;
+    //let orientationObj = document.getElementById("orientation");
+    orientationObj = this.$refs.orientation;
+    //let patternObj = document.getElementById("pattern");
+    patternObj = this.$refs.pattern;
     //Click Event for orientation of the PropertyPanel.
     orientationObj.onclick = (args) => {
       let target = args.target;
@@ -303,7 +301,6 @@ export default {
           diagramInstance.layout.orientation = orientation1;
           diagramInstance.dataBind();
           diagramInstance.doLayout();
-          target.classList.add('e-selected-style');
       }
     };
     //Click Event for pattern of the PropertyPanel.
@@ -321,40 +318,40 @@ export default {
       if (target.className === "image-pattern-style e-selected-pattern-style") {
         switch (target.id) {
           case "pattern1":
-            orien = "Vertical".toString();
-            typ = "Alternate";
+            orientation = "Vertical".toString();
+            type = "Alternate";
             break;
           case "pattern2":
-            orien = "Vertical".toString();
-            typ = "Left";
+            orientation = "Vertical".toString();
+            type = "Left";
             break;
           case "pattern3":
-            orien = "Vertical".toString();
-            typ = "Left";
+            orientation = "Vertical".toString();
+            type = "Left";
             break;
           case "pattern4":
-            orien = "Vertical".toString();
-            typ = "Right";
+            orientation = "Vertical".toString();
+            type = "Right";
             break;
           case "pattern5":
-            orien = "Vertical".toString();
-            typ = "Right";
+            orientation = "Vertical".toString();
+            type = "Right";
             break;
           case "pattern6":
-            orien = "Horizontal".toString();
-            typ = "Balanced";
+            orientation = "Horizontal".toString();
+            type = "Balanced";
             break;
           case "pattern7":
-            orien = "Horizontal".toString();
-            typ = "Center";
+            orientation = "Horizontal".toString();
+            type = "Center";
             break;
           case "pattern8":
-            orien = "Horizontal".toString();
-            typ = "Left";
+            orientation = "Horizontal".toString();
+            type = "Left";
             break;
           case "pattern9":
-            orien = "Horizontal".toString();
-            typ = "Right";
+            orientation = "Horizontal".toString();
+            type = "Right";
             break;
           default:
             if (selectedpatternElement.length) {
@@ -370,8 +367,8 @@ export default {
           if (target.id === "pattern4" || target.id === "pattern3") {
             options.offset = -50;
           }
-          if (orien) {
-            getLayoutInfo(node, options, orien, typ);
+          if (orientation) {
+            getLayoutInfo(node, options, orientation, type);
           }
         };
 
@@ -417,13 +414,9 @@ function nodeDefaults(obj, diagram) {
   };
   obj.expandIcon.verticalAlignment = "Center";
   obj.expandIcon.margin = { left: 0, right: 0, top: 0, bottom: 0 };
-  obj.collapseIcon.offset = { x: 0.5, y: 1 };
+  obj.collapseIcon = { height: 10, width: 10, shape: "None", fill: "lightgray", offset: { x: 0.5, y: 1 }}
   obj.collapseIcon.verticalAlignment = "Center";
   obj.collapseIcon.margin = { left: 0, right: 0, top: 0, bottom: 0 };
-  obj.collapseIcon.height = 10;
-  obj.collapseIcon.width = 10;
-  obj.collapseIcon.shape = "None";
-  obj.collapseIcon.fill = "lightgray";
   obj.width = 120;
   obj.height = 30;
   return obj;

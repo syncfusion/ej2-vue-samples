@@ -329,7 +329,7 @@
           </div>
         </template>
         <template v-slot:bootstrap5Man="{ data }">
-          <div style="background-color: #6355C7; border-radius: 3px">
+          <div style="background-color: #FD7E14; border-radius: 3px">
             <img src="./images/male.png" style="width: 24px; height: 24px; padding: 2px" alt="Male Icon"/>
             <div style="
                 color: white;
@@ -347,7 +347,7 @@
           </div>
         </template>
         <template v-slot:bootstrap5Women="{ data }">
-          <div style="background-color: #FFB400; border-radius: 3px">
+          <div style="background-color: #6610F2; border-radius: 3px">
             <img src="./images/female.png" style="width: 24px; height: 24px; padding: 2px" alt="Female Icon"/>
             <div style="
                 color: white;
@@ -365,7 +365,7 @@
           </div>
         </template>
         <template v-slot:bootstrap5darkMan="{ data }">
-          <div style="background-color: #8F80F4; border-radius: 3px">
+          <div style="background-color: #FD7E14; border-radius: 3px">
             <img src="./images/male.png" style="width: 24px; height: 24px; padding: 2px" alt="Male Icon"/>
             <div style="
                 color: white;
@@ -383,7 +383,7 @@
           </div>
         </template>
         <template v-slot:bootstrap5darkWomen="{ data }">
-          <div style="background-color: #FFD46D; border-radius: 3px">
+          <div style="background-color: #6610F2; border-radius: 3px">
             <img src="./images/female.png" style="width: 24px; height: 24px; padding: 2px" alt="Female Icon"/>'
             <div style="
                 color: white;
@@ -616,6 +616,42 @@
             </div>
           </div>
         </template>
+        <template v-slot:fluent2highcontrastMan="{ data }">
+          <div style="background-color: #9BB449; border-radius: 3px">
+            <img src="./images/male.png" style="width: 24px; height: 24px; padding: 2px" alt="Male Icon"/>
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:fluent2highcontrastWomen="{ data }">
+          <div style="background-color: #2A72D5; border-radius: 3px">
+            <img src="./images/female.png" style="width: 24px; height: 24px; padding: 2px" alt="Female Icon"/>
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
         <e-series-collection>
           <e-series :dataSource="seriesData" xName="sports" yName="boys" name="Boys" width="2" type="Column"
             columnSpacing=0.5 columnWidth=0.75 :marker="marker"></e-series>
@@ -664,7 +700,7 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (
   selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
 ).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
@@ -743,12 +779,10 @@ export default {
   methods: {
     load: function (args) {
       var selectedTheme = location.hash.split("/")[1];
-      selectedTheme = selectedTheme ? selectedTheme : "Material";
+      selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
       theme = args.chart.theme = (
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-      )
-        .replace(/-dark/i, "Dark")
-        .replace(/contrast/i, "Contrast");
+      ).replace(/-dark/i, "Dark").replace(/contrast/i, "Contrast").replace(/-highContrast/i, 'HighContrast');
       args.chart.theme = theme;
     },
     textRender: function (args) {
@@ -799,8 +833,10 @@ export default {
       } else if (theme === "Fluent2Dark") {
         args.template =
           args.series.name === "Boys" ? "fluent2darkMan" : "fluent2darkWomen";
-      }
-       else {
+      } else if (theme === "Fluent2HighContrast") {
+        args.template =
+          args.series.name === "Boys" ? "fluent2highcontrastMan" : "fluent2highcontrastWomen";
+      } else {
         args.template =
           args.series.name === "Boys" ? "bootstrapdarkMan" : "bootstrapdarkWomen";
       }

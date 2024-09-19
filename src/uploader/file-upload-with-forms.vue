@@ -100,7 +100,8 @@
             background: #393939;
         }
 
-        .fluent-dark #control_wrapper { 
+        .fluent-dark #control_wrapper,
+        .fluent2-dark #control_wrapper { 
             background: #212529;
         }
 

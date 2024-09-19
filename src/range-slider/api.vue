@@ -128,12 +128,12 @@
 <div id="description">
     <p>In this demo, default slider is rendered with minimal configuration.</p>
     <p>This sample can be customized further with the combination of Slider properties from the property pane. For example,</p>
-    <ul>
-        <li>Min, max, value and Steps can be changed from the property pane.</li>
-        <li>Ticks can be enabled by selecting the ticks placement from the property pane.</li>
-        <li>Tooltip can be enabled by checking Show tooltip checkbox from property pane.</li>
-        <li>Vertical orientation can be enabled by checking vertical orientation from property pane and so on.</li>
-    </ul>
+  <ul>
+    <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#min">Min</a>, <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#max">Max</a>, <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#value">Value</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#step">Steps</a> can be changed from the property pane.</li>
+    <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#ticks">Ticks</a> can be enabled by selecting the Ticks placement from the property pane.</li>
+    <li>Tooltip can be enabled by checking Show Tooltip checkbox from property pane.</li>
+    <li>Vertical <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider/#orientation">orientation</a> can be enabled by checking Vertical orientation from property pane and so on.</li>
+  </ul>
 </div>
     </div>
 
@@ -265,7 +265,7 @@ export default {
       this.shwbuttons = args.checked;
     },
     sliderDisabled: function(args) {
-      this.isenable = !args.checked ;
+      this.isenable = !args.checked;
     },
     orientationChange: function(args) {
       args.checked ? this.orientation = 'Vertical' : this.orientation = 'Horizontal';

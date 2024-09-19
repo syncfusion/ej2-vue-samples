@@ -45,13 +45,13 @@
                 <e-item prefixIcon='e-reccurence-icon e-icons' tooltipText='Sync' text='Sync' overflow='Hide' align='Right' showAlwaysInPopup=true></e-item>
            </e-items>
         </ejs-toolbar>
-          <div id="action-description">
+    </div>
+    </div>
+    <div id="action-description">
         <p>This sample demonstrates the Popup mode in the <code>Toolbar</code>. Click the drop-down icon to open the <code>popup</code> and see the hidden commands of the Toolbar.</p>
     </div>
-
     <div id="description">
         <p>Popup mode display can be enabled to view primary priority items in toolbar and secondary priority items in the popup.</p>
-        
         <ul>
           <li>In first Toolbar, the popup will be shown when the content exceeds the available viewing area.</li>
           <li>The second Toolbar is set with priority for specific toolbar items using <strong><code><a aria-label="Show always in Popup" target="_blank" class="code" href="https://ej2.syncfusion.com/vue/documentation/api/toolbar/item/#showalwaysinpopup">showAlwaysInPopup</a></code></strong>, which is always displayed in the popup.</li>
@@ -78,10 +78,6 @@
           </tr>
         </table>
     </div>
-    </div>
-   
-  </div>
-  
 </template>
 <style>
 @font-face {
@@ -348,7 +344,6 @@
 
 .e-tbar-section-popup .e-sample-resize-container {
     margin: auto;
-    height: 40px;
     max-width: 700px;
 }
 

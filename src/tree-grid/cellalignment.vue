@@ -20,7 +20,7 @@
                         <div>Column</div>
                     </td>
                     <td style="width: 70%;padding-top:5px;padding-left: 10px;">
-                        <ejs-dropdownlist ref='columns' width='100px' id='columns' :dataSource='columnsdata' value='taskID' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
+                        <ejs-dropdownlist ref='columns' width='130px' id='columns' :dataSource='columnsdata' value='taskID' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
                     </td>
                 </tr>
                 <tr id='' style="height: 50px">
@@ -28,7 +28,7 @@
                         <div> Alignment</div>
                     </td>
                     <td style="width: 80%; padding-left: 10px; padding-right:10px;padding-top:5px">
-                        <ejs-dropdownlist ref='alignment' width='100px' id='alignment' :dataSource='alignmentdata' value='Right' :fields='alignmentfields' :change="onChange"></ejs-dropdownlist>
+                        <ejs-dropdownlist ref='alignment' width='130px' id='alignment' :dataSource='alignmentdata' value='Right' :fields='alignmentfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>
@@ -118,14 +118,3 @@ export default {
 
 }
 </script>
-<!-- custom code start -->
-<style>
-    .fluent2,
-    .fluent2-dark,
-    .fluent2-highcontrast {
-        .property-section #columns {
-            width: 75px;
-        }
-    }
-</style>
-<!-- custom code end -->

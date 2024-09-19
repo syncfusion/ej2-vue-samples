@@ -3,6 +3,7 @@
   "directory": "diagram",
   "category": "Data Visualization",
   "ftName": "diagram",
+  "type": "update",
   "samples": [
     {
       "url": "default-functionality",
@@ -47,7 +48,8 @@
       "name": "Connectors",
       "order": 0,
       "description": "This demo for Essential JS2 Diagram component visualizes the data flow in a marketing process using predefined shapes and connectors. Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
-      "category": "Getting Started"
+      "category": "Getting Started",
+      "type": "update"
     },
     {
       "url": "line-routing",
@@ -166,7 +168,8 @@
       "name": "User Handles",
       "order": 1,
       "description": "This demo for Essential JS2 Diagram component visualizes a simple flow diagram along with options to execute the frequently used commands using user handles.",
-      "category": "User Interaction"
+      "category": "User Interaction",
+      "type": "update"
     },
     {
       "url": "overview",
@@ -181,6 +184,14 @@
       "order": 2,
       "description": "This demo for Essential JS2 Diagram component illustrates a simple business management structure that is built from an external data source. Hierarchical tree layout algorithm is used to build organizational charts. Customizing the orientation and structure of the organizational chart is illustrated in this example.",
       "category": "Automatic Layouts"
+    },
+    {
+      "url": "flowchart-layout",
+      "name": "Flowchart Layout",
+      "order": 2,
+      "description": "This sample illustrates the flowchart layout algorithm that is used to automatically arrange the flow shapes.",
+      "category": "Automatic Layouts",
+      "type":"new"
     },
     {
       "url": "mind-map",
@@ -265,7 +276,8 @@
       "name": "Save and Load",
       "order": 5,
       "description": "This demo for Essential JS2 Diagram component visualizes building diagrams interactively and editing the saved diagrams. Symbol Palette is used to easily build diagrams.",
-      "category": "Save and Restore"
+      "category": "Save and Restore",
+      "type": "update"
     },
     {
       "url": "print-export",

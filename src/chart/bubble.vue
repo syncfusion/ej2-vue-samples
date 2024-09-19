@@ -44,10 +44,10 @@
 import { EmitType } from '@syncfusion/ej2-base';
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, BubbleSeries, Tooltip, Legend, DataLabel} from "@syncfusion/ej2-vue-charts";
-import {bubblePointMaterialColors, bubblePointMaterialDarkColors, bubblePointFabricColors, bubblePointBootstrapColors, bubblePointHighContrastColors, bubblePointBootstrap5Colors, bubblePointBootstrap5DarkColors, bubblePointFluentColors, bubblePointFluentDarkColors, bubblePointTailwindColors, bubblePointTailwindDarkColors, pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, bubbleMaterial3Colors, pointMaterial3Colors, bubbleMaterial3DarkColors, pointMaterial3DarkColors, pointFluent2Colors, bubbleFluent2Colors, pointFluent2DarkColors, bubbleFluent2DarkColors } from './theme-color';
+import {bubblePointMaterialColors, bubblePointMaterialDarkColors, bubblePointFabricColors, bubblePointBootstrapColors, bubblePointHighContrastColors, bubblePointBootstrap5Colors, bubblePointBootstrap5DarkColors, bubblePointFluentColors, bubblePointFluentDarkColors, bubblePointTailwindColors, bubblePointTailwindDarkColors, pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, bubbleMaterial3Colors, pointMaterial3Colors, bubbleMaterial3DarkColors, pointMaterial3DarkColors, pointFluent2Colors, bubbleFluent2Colors, pointFluent2DarkColors, bubbleFluent2DarkColors, pointFluent2HighContrastColors, bubbleFluent2HighContrastColors } from './theme-color';
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 
 export default {
@@ -111,7 +111,7 @@ export default {
 
        pointRender: function(args) {
        let selectedTheme = location.hash.split('/')[1];
-       selectedTheme = selectedTheme ? selectedTheme : 'Material';
+       selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
 
         if (selectedTheme==='material-dark')
         {
@@ -180,6 +180,10 @@ export default {
         else if (selectedTheme === 'fluent2') {
             args.fill = bubbleFluent2Colors[args.point.index % 10];
             args.border.color = pointFluent2Colors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'fluent2-highcontrast') {
+            args.fill = bubbleFluent2HighContrastColors[args.point.index % 10];
+            args.border.color = pointFluent2HighContrastColors[args.point.index % 10];
         }
         else if (selectedTheme === 'fluent2-dark') {
             args.fill = bubbleFluent2DarkColors[args.point.index % 10];

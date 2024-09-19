@@ -556,6 +556,7 @@ export default {
         created: function () {
             var spreadsheet = this.$refs.spreadsheet;
             spreadsheet.numberFormat('$#,##0.00', 'Car Sales!F3:F59');
+            spreadsheet.numberFormat('m/d/yyyy', 'Car Sales!E3:E58');
         },
         changePrintType: function (args) {
             this.printType = args.value === 'Active Sheet' ? 'ActiveSheet': 'Workbook' ;

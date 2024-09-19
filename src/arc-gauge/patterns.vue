@@ -1575,7 +1575,7 @@ export default {
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
             if (selectedTheme.indexOf("tailwind") != -1 && args.gauge.axes[0].annotations != null) {
                 args.gauge.axes[0].annotations[0].angle = 188;
                 args.gauge.axes[0].annotations[0].radius = "15%";
@@ -1588,7 +1588,7 @@ export default {
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
             if (selectedTheme.indexOf("tailwind") != -1 && args.gauge.axes[0].annotations != null) {
                 args.gauge.axes[0].annotations[0].angle = 12;
                 args.gauge.axes[0].annotations[0].radius = "18%";
@@ -1605,7 +1605,7 @@ export default {
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
             if (selectedTheme.indexOf("tailwind") != -1 && args.gauge.axes[0].annotations != null) {
                 args.gauge.axes[0].annotations[0].angle = 194;
                 args.gauge.axes[0].annotations[0].radius = "8%";
@@ -1618,7 +1618,7 @@ export default {
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
             if (selectedTheme.indexOf("tailwind") != -1 && args.gauge.axes[0].annotations != null) {
                 args.gauge.axes[0].annotations[0].angle = 174;
                 args.gauge.axes[0].annotations[0].radius = "5%";
@@ -1631,7 +1631,7 @@ export default {
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
             if (selectedTheme.indexOf("tailwind") != -1 && args.gauge.axes[0].annotations!= null) {
                 args.gauge.axes[0].annotations[0].angle = 174;
                 args.gauge.axes[0].annotations[0].radius = "12%";
@@ -1644,7 +1644,7 @@ export default {
             selectedTheme = selectedTheme ? selectedTheme : "Material";
             args.gauge.theme =
                 (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
             if (selectedTheme.indexOf("tailwind") != -1 && args.gauge.axes[0].annotations != null) {
                 args.gauge.axes[0].annotations[0].angle = 180;
                 args.gauge.axes[0].annotations[0].radius = "6%";

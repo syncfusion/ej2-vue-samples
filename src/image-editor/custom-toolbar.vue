@@ -396,10 +396,11 @@
     content: "\e7db";
 }
 
-.fluent .customToolbar .e-dropdown-btn, .customToolbar .e-dropdown-btn.e-btn,
+.fluent .customToolbar .e-dropdown-btn,
 .fluent .customToolbar .e-toolbar .e-toolbar-item .e-tbar-btn:hover,
 .fluent .customToolbar .e-toolbar .e-toolbar-item .e-tbar-btn:focus,
-.fluent-dark .customToolbar .e-dropdown-btn, .customToolbar .e-dropdown-btn.e-btn,
+.fluent-dark .customToolbar .e-dropdown-btn,
+.customToolbar .e-dropdown-btn.e-btn,
 .fluent-dark .customToolbar .e-toolbar .e-toolbar-item .e-tbar-btn:hover,
 .fluent-dark .customToolbar .e-toolbar .e-toolbar-item .e-tbar-btn:focus {
     border: none !important;
@@ -436,7 +437,21 @@
 .bootstrap4 .customToolbar .e-toolbar-item.e-template .e-dropdown-btn {
     color: rgb(73, 80, 87) !important;
 }
- 
+
+.fabric-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:hover,
+.fabric-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:focus,
+.fluent-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:hover,
+.fluent-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:focus,
+.bootstrap5\.3-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:hover,
+.bootstrap5\.3-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:focus,
+.fluent2-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:hover,
+.fluent2-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:focus,
+.material-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:hover,
+.material-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:focus,
+.fluent2-highcontrast .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:focus,
+.fluent2-highcontrast .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:hover,
+.bootstrap-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:hover,
+.bootstrap-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:focus,
 .bootstrap5-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:hover,
 .bootstrap5-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:focus,
 .material3-dark .customToolbar .e-toolbar-item.e-template .e-dropdown-btn:hover,
@@ -526,24 +541,31 @@
     border: none !important;
 }
 
-.fluent2-dark .customToolbar .e-toolbar .e-toolbar-items.e-tbar-pos .e-toolbar-center,
+.fluent2-dark .customToolbar .e-toolbar .e-toolbar-items .e-tbar-pos .e-toolbar-center,
 .fluent2 .customToolbar .e-toolbar .e-toolbar-items.e-tbar-pos .e-toolbar-center {
     margin: 0 auto !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .fluent2 .customToolbar .e-toolbar {
-    border: 1px solid #80808054 !important; /* stylelint-disable-line declaration-no-important */
+    border: 1px solid #80808054 !important;
 }
 
 .fluent2-dark .customToolbar .e-toolbar {
-	border: 1px solid #ffffff30 !important;
+    border: 1px solid #ffffff30 !important;
 }
 
 .fluent2 .customToolbar #top-toolbar .e-toolbar-center,
 .fluent2 .customToolbar #bottom-toolbar .e-toolbar-center,
 .fluent2-dark .customToolbar #top-toolbar .e-toolbar-center,
-.fluent2-dark .customToolbar #bottom-toolbar .e-toolbar-center {
-    margin: 0 4px !important;
+.fluent2-dark .customToolbar #bottom-toolbar .e-toolbar-center{
+    margin: 0 auto !important;
+}
+
+.fluent2-dark .customToolbar #bottom-toolbar {
+	border: none !important;
+}
+.fluent2 .customToolbar #bottom-toolbar {
+	border: none !important;
 }
 </style>
 <!-- custom code end -->
@@ -727,7 +749,7 @@ export default {
                 canvas.width = imageData.width; canvas.height = imageData.height;
                 canvas.getContext('2d').putImageData(imageData, 0, 0);
                 (document.getElementById('previewImgContainer')).src = canvas.toDataURL();
-                this.$refs.imageEditorObj.open(imageData);
+                this.$refs.imageEditorObj.reset();
                 document.getElementById('image-editor-container').style.display = 'none';
                 (document.getElementById('imagePreviewContainer')).style.display = 'block';
             } else {

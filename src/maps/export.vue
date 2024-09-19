@@ -140,7 +140,7 @@ export default {
     'e-layer': LayerDirective,
     'ejs-button': ButtonComponent,
     'ejs-dropdownlist': DropDownListComponent,
-    'ejs-textbox': TextBoxComponent 
+    'ejs-textbox': TextBoxComponent
   },
   data:function(){
       return{
@@ -197,7 +197,7 @@ methods:{
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
     },
     changeLayerType: function(args){
             // let cotainerObj=document.getElementById('labels-container');

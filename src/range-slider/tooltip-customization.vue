@@ -47,7 +47,7 @@
     </div>
 
     <div id="description">
-      <p>In this demo, customization of tooltip using CSS is demonstrated.</p>
+      <p>In this demo, customization of tooltip using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/slider#cssclass">CSS</a> is demonstrated.</p>
       <ul>
         <li>Background color - In this sample, tooltip has been customized to custom color.</li>
         <li>Color and text - In this sample, tooltip and its content has been customized to custom color.</li>
@@ -142,6 +142,12 @@
 
     .bootstrap .e-tooltip-cutomization.e-slider-tooltip.e-tooltip-wrap.e-popup .e-arrow-tip-inner {
         color: #ffd939;
+    }
+
+    body.fluent2-highcontrast .sliderwrap .e-scale,
+    body.fluent2 .sliderwrap .e-scale,
+    body.fluent2-dark .sliderwrap .e-scale {
+        top: 2px;
     }
 </style>
 <script>

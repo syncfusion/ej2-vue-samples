@@ -6,7 +6,7 @@
                 <e-axes>
                     <e-axis :startAngle='startAngle' :endAngle='endAngle' :lineStyle='lineStyle' :labelStyle='labelStyle' :majorTicks='majorTicks' :minorTicks='minorTicks' :radius='radius1' :hideIntersectingLabel='true' minimum=0 maximum=100 >
                         <e-pointers>
-                           <e-pointer :value='value' :radius='pointerRadius' :color='color' :pointerWidth='pointerWidth' :animation='animation' :cap='cap' :needleTail="needleTail"></e-pointer>
+                           <e-pointer :value='value' :radius='pointerRadius' :pointerWidth='pointerWidth' :animation='animation' :cap='cap' :needleTail="needleTail"></e-pointer>
                         </e-pointers>
                     </e-axis>
                 </e-axes>
@@ -251,7 +251,7 @@ methods: {
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.gauge.theme =
         (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
       /* custom code end */
     }
 }

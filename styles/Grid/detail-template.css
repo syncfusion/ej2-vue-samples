@@ -21,3 +21,12 @@
             height: 70px;
         }       
     }
+    .report {
+        text-align: center;
+        font-size: 17px;
+        padding-top: -2px;
+    }
+
+    .e-grid .e-detailrow .e-detailcell .e-tab .e-content {
+        overflow-y: auto;
+    }

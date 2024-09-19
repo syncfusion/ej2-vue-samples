@@ -133,7 +133,7 @@ export default {
   methods: {
     progressLoad: function(args) {
       let selectedTheme = location.hash.split("/")[1];
-      selectedTheme = selectedTheme ? selectedTheme : "Material";
+      selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
       args.progressBar.theme = (
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
       )

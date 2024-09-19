@@ -17,6 +17,8 @@ export let fluent2Colors: string[] = ["#6200EE", "#09AF74", "#0076E5", "#CB3587"
     "#C19C00"];
 export let fluent2DarkColors: string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F579A", "#584EC6", "#E85F9C", "#6E7A89", "#EA6266",
     "#0B6A0B", "#C19C00"];
+export let fluent2HighContrastColors: string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F579A", "#584EC6", "#E85F9C", "#6E7A89", "#EA6266",
+    "#0B6A0B", "#C19C00"];
     
  export let bubblePointMaterialColors: string[] = ['rgba(0, 189, 174, 0.5)', "rgba(64, 64, 65, 0.5)", "rgba(53, 124, 210, 0.5)", "rgba(229, 101, 144, 0.5)", "rgba(248, 184, 131, 0.5)", "rgba(112, 173, 71, 0.5)", "rgba(221, 138, 189, 0.5)",
         "rgba(127, 132, 232, 0.5)", "rgba(123, 180, 235, 0.5)", "rgba(234, 122, 87, 0.5)", "rgba(64, 64, 65, 0.5)", "rgba(0, 189, 174, 0.5)"];
@@ -28,10 +30,8 @@ export let fluent2DarkColors: string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F5
         "rgba(185, 155, 79, 0.5)", "rgba(64, 124, 146, 0.5)", "rgba(94, 167, 22, 0.5)", "rgba(185, 28, 82, 0.5)"];
  export let bubblePointHighContrastColors: string[] = ["rgba(121, 236, 228, 0.5)", "rgba(233, 130, 114, 0.5)", "rgba(223, 230, 182, 0.5)", "rgba(198, 231, 115, 0.5)", "rgba(186, 152, 255, 0.5)", "rgba(250, 131, 195, 0.5)", "rgba(0, 194, 122, 0.5)",
         "rgba(67, 172, 239, 0.5)", "rgba(214, 129, 239, 0.5)", "rgba(216, 188, 110, 0.5)"];
- export let bubblePointBootstrap5Colors: string[] = ["rgba(38, 46, 11, 0.5)", "rgba(102, 142, 31, 0.5)", "rgba(175, 110, 16, 0.5)", "rgba(134, 44, 11, 0.5)", "rgba(31, 45, 80, 0.5)", "rgba(100, 104, 11, 0.5)", "rgba(49, 21, 8, 0.5)",
-        "rgba(76, 76, 129, 0.5)", "rgba(12, 125, 160, 0.5)", "rgba(134, 44, 11, 0.5)"];
- export let bubblePointBootstrap5DarkColors: string[] = ["rgba(94, 203, 155, 0.5)", "rgba(168, 96, 241, 0.5)", "rgba(235, 168, 68, 0.5)", "rgba(85, 126, 247, 0.5)", "rgba(233, 89, 155, 0.5)", "rgba(191, 197, 41, 0.5)", "rgba(59, 198, 207, 0.5)",
-        "rgba(122, 104, 236, 0.5)", "rgba(116, 183, 6, 0.5)", "rgba(234, 98, 102, 0.5)"];
+export let bubblePointBootstrap5Colors: string[] = ['rgba(253, 126, 20, 0.5)', 'rgba(102, 16, 242, 0.5)', 'rgba(111, 66, 193, 0.5)', 'rgba(214, 51, 132, 0.5)', 'rgba(220, 53, 69, 0.5)', 'rgba(255, 193, 7, 0.5)', 'rgba(25, 135, 84, 0.5)', 'rgba(13, 202, 240, 0.5)','rgba(253, 126, 20, 0.5)', 'rgba(102, 16, 242, 0.5)', 'rgba(111, 66, 193, 0.5)', 'rgba(214, 51, 132, 0.5)', 'rgba(220, 53, 69, 0.5)'];
+export let bubblePointBootstrap5DarkColors: string[] = ['rgba(253, 126, 20, 0.5)', 'rgba(102, 16, 242, 0.5)', 'rgba(111, 66, 193, 0.5)', 'rgba(214, 51, 132, 0.5)', 'rgba(220, 53, 69, 0.5)', 'rgba(255, 193, 7, 0.5)', 'rgba(25, 135, 84, 0.5)', 'rgba(13, 202, 240, 0.5)','rgba(253, 126, 20, 0.5)', 'rgba(102, 16, 242, 0.5)', 'rgba(111, 66, 193, 0.5)', 'rgba(214, 51, 132, 0.5)', 'rgba(220, 53, 69, 0.5)'];
  export let bubblePointFluentColors: string[] = ["rgba(97, 69, 112, 0.5)", "rgba(76, 111, 177, 0.5)", "rgba(204, 105, 82, 0.5)", "rgba(63, 87, 154, 0.5)", "rgba(78, 160, 155, 0.5)", "rgba(110, 122, 137, 0.5)", "rgba(212, 81, 92, 0.5)",
 		"rgba(230, 175, 93, 0.5)", "rgba(99, 151, 81, 0.5)", "rgba(157, 77, 105, 0.5)"];
  export let bubblePointFluentDarkColors: string[] = ["rgba(138, 177, 19, 0.5)", "rgba(42, 114, 213, 0.5)", "rgba(67, 183, 134, 0.5)", "rgba(88, 78, 198, 0.5)", "rgba(232, 95, 156, 0.5)", "rgba(110, 122, 137, 0.5)", "rgba(234, 98, 102, 0.5)",
@@ -44,6 +44,8 @@ export let fluent2DarkColors: string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F5
  export let bubbleMaterial3DarkColors: string[] = ["rgba(78, 170, 255, 0.5)", "rgba(250, 78, 171, 0.5)", "rgba(255, 245, 0, 0.5)", "rgba(23, 234, 88, 0.5)", "rgba(56, 255, 231, 0.5)", "rgba(255, 158, 69, 0.5)", "rgba(179, 243, 47, 0.5)", "rgba(185, 60, 228, 0.5)", "rgba(252, 86, 100, 0.5)", "rgba(155, 85, 255, 0.5)"];
  export let bubbleFluent2Colors: string[] = ["rgba(98, 0, 238, 0.5)", "rgba(9, 175, 116, 0.5)", "rgba(0, 118, 229, 0.5)", "rgba(203, 53, 135, 0.5)", "rgba(231, 145, 15, 0.5)", "rgba(3, 100, 222, 0.5)", "rgba(102, 205, 21, 0.5)", "rgba(243, 169, 60, 0.5)",
        "rgba(16, 124, 16, 0.5)", "rgba(193, 156, 0, 0.5)"];
+ export let bubbleFluent2HighContrastColors: string[] = ["rgba(155, 180, 73, 0.5)", "rgba(42, 114, 213, 0.5)", "rgba(67, 183, 134, 0.5)", "rgba(63, 87, 154, 0.5)", "rgba(88, 78, 198, 0.5)", "rgba(232, 95, 156, 0.5)", "rgba(110, 122, 137, 0.5)", "rgba(234, 98, 102, 0.5)",
+       "rgba(11, 106, 11, 0.5)", "rgba(193, 156, 0, 0.5)"];
  export let bubbleFluent2DarkColors: string[] = ["rgba(155, 180, 73, 0.5)", "rgba(42, 114, 213, 0.5)", "rgba(67, 183, 134, 0.5)", "rgba(63, 87, 154, 0.5)", "rgba(88, 78, 198, 0.5)", "rgba(232, 95, 156, 0.5)", "rgba(110, 122, 137, 0.5)", "rgba(234, 98, 102, 0.5)",
        "rgba(11, 106, 11, 0.5)", "rgba(193, 156, 0, 0.5)"];
 
@@ -57,10 +59,10 @@ export let fluent2DarkColors: string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F5
         "#b91c52"];
  export let pointHighContrastColors: string[] = ["#79ECE4", "#E98272", "#DFE6B6", "#C6E773", "#BA98FF", "#FA83C3", "#00C27A", "#43ACEF", "#D681EF",
         "#D8BC6E"];
- export let pointBootstrap5Colors: string[] = ["#262E0B", "#668E1F", "#AF6E10", "#862C0B", "#1F2D50", "#64680B", "#311508", "#4C4C81", "#0C7DA0", 
-        "#862C0B"];
- export let pointBootstrap5DarkColors: string[] = ["#5ECB9B", "#A860F1", "#EBA844", "#557EF7", "#E9599B", "#BFC529", "#3BC6CF", "#7A68EC", "#74B706",
-        "#EA6266"];
+ export let pointBootstrap5Colors: string[] = ['#FD7E14', '#6610F2', '#6F42C1', '#D63384', '#DC3545',
+        '#FFC107', '#198754', '#0DCAF0','#FD7E14', '#6610F2'];
+ export let pointBootstrap5DarkColors: string[] = ['#FD7E14', '#6610F2', '#6F42C1', '#D63384', '#DC3545',
+ '#FFC107', '#198754', '#0DCAF0','#FD7E14', '#6610F2'];
  export let pointFluentColors: string[] = ["#614570", "#4C6FB1", "#CC6952", "#3F579A", "#4EA09B", "#6E7A89", "#D4515C", "#E6AF5D", "#639751",
         "#9D4D69"];
  export let pointFluentDarkColors: string[] = ["#8AB113", "#2A72D5", "#43B786", "#584EC6", "#E85F9C", "#6E7A89", "#EA6266", "#EBA844", "#26BC7A", 
@@ -73,3 +75,4 @@ export let fluent2DarkColors: string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F5
  export let pointMaterial3DarkColors: string[] = ["#4EAAFF", "#FA4EAB", "#FFF500", "#17EA58", "#38FFE7", "#FF9E45", "#B3F32F", "#B93CE4", "#FC5664", "#9B55FF"];
  export let pointFluent2Colors: string[] = ["#6200EE", "#09AF74", "#0076E5", "#CB3587", "#E7910F", "#0364DE", "#66CD15", "#F3A93C", "#107C10", "#C19C00"];
  export let pointFluent2DarkColors : string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F579A", "#584EC6", "#E85F9C", "#6E7A89", "#EA6266", "#0B6A0B", "#C19C00"];
+ export let pointFluent2HighContrastColors: string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F579A", "#584EC6", "#E85F9C", "#6E7A89", "#EA6266", "#0B6A0B", "#C19C00"];

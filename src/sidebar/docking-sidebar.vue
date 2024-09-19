@@ -41,7 +41,7 @@
             Dock state of the Sidebar reserves some space on the page that always remains in a visible state when the Sidebar is collapsed. It is used to show the short term of a content like icons alone instead of lengthy text.
         </p>
         <p>
-            In this demo, the list item has an icon with text representation. On dock state, only the icon listed out to interact. It can be achieved by using the <code>EnableDock</code> property.
+            In this demo, the list item has an icon with text representation. On dock state, only the icon listed out to interact. It can be achieved by using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/sidebar/#enabledock">EnableDock</a> property.
         </p>
     </div>
 </div>
@@ -145,19 +145,6 @@ export default {
         padding: 3px;
     }
 
-    .fluent2 .dockSidebar.e-close .e-listview .e-list-icon.sb-icons,
-    .fluent2-dark .dockSidebar.e-close .e-listview .e-list-icon.sb-icons,
-    .fluent2-highcontrast .dockSidebar.e-close .e-listview .e-list-icon.sb-icons {
-        padding: 6px;
-        margin-left: 6px;
-    }
-
-    .fluent2 .dockSidebar.e-close .e-listview .e-list-text,
-    .fluent2-dark .dockSidebar.e-close .e-listview .e-list-text,
-    .fluent2-highcontrast .dockSidebar.e-close .e-listview .e-list-text {
-        padding: 0;
-    }
-
     .bootstrap4 .dockSidebar .e-listview .e-list-icon.sb-icons,
     .material .dockSidebar .e-listview .e-list-icon.sb-icons,
     .material-dark .dockSidebar .e-listview .e-list-icon.sb-icons,
@@ -171,6 +158,8 @@ export default {
     .tailwind-dark .dockSidebar .e-listview .e-list-icon.sb-icons,
     .bootstrap5 .dockSidebar .e-listview .e-list-icon.sb-icons,
     .bootstrap5-dark .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap5\.3 .dockSidebar .e-listview .e-list-icon.sb-icons,
+    .bootstrap5\.3-dark .dockSidebar .e-listview .e-list-icon.sb-icons,
     .fluent .dockSidebar .e-listview .e-list-icon.sb-icons,
     .fluent-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
         margin-right: 8px;
@@ -194,7 +183,7 @@ export default {
     .fluent2.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
     .fluent2-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
     .fluent2-highcontrast.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin: 6px;
+        margin: 8px;
     }
     
     .highcontrast.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
@@ -257,7 +246,8 @@ export default {
     .fluent2 .dockToolbar.e-toolbar,
     .tailwind .dockToolbar.e-toolbar,
     .highcontrast .dockToolbar.e-toolbar,
-    .bootstrap5 .dockToolbar.e-toolbar {
+    .bootstrap5 .dockToolbar.e-toolbar,
+    .bootstrap5\.3 .dockToolbar.e-toolbar {
         border-bottom: 1px solid #eaeaeae0;
     }
 
@@ -267,7 +257,8 @@ export default {
     .fluent2-dark .dockToolbar.e-toolbar,
     .fluent2-highcontrast .dockToolbar.e-toolbar,
     .tailwind-dark .dockToolbar.e-toolbar,
-    .bootstrap5-dark .dockToolbar.e-toolbar {
+    .bootstrap5-dark .dockToolbar.e-toolbar,
+    .bootstrap5\.3-dark .dockToolbar.e-toolbar {
         border-bottom: 1px solid #eaeaea63;
     }
 
@@ -276,7 +267,8 @@ export default {
     .fabric .dockSidebar,
     .tailwind .dockSidebar,
     .highcontrast .dockSidebar,
-    .bootstrap5 .dockSidebar {
+    .bootstrap5 .dockSidebar,
+    .bootstrap5\.3 .dockSidebar {
         border-right: 1px solid #eaeaeae0;
     }
 
@@ -284,7 +276,8 @@ export default {
     .material-dark .dockSidebar,
     .fabric-dark .dockSidebar,
     .tailwind-dark .dockSidebar,
-    .bootstrap5-dark .dockSidebar {
+    .bootstrap5-dark .dockSidebar,
+    .bootstrap5\.3-dark .dockSidebar {
         border-right: 1px solid #eaeaea63;
     }
 
@@ -373,7 +366,9 @@ export default {
     }
 
     .bootstrap5 .e-folder-name,
-    .bootstrap5-dark .e-folder-name {
+    .bootstrap5-dark .e-folder-name,
+    .bootstrap5\.3 .e-folder-name,
+    .bootstrap5\.3-dark .e-folder-name {
         margin-top: -2px;
     }
 
@@ -417,6 +412,8 @@ export default {
     /* Specifies the sample level styles for Toolbar alignment for bigger mode*/
     .bootstrap5.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
     .bootstrap5-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap5\.3.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap5\.3-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
     .bootstrap-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items .e-toolbar-item:first-child,
     .highcontrast.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
         margin-left: 4px;
@@ -437,7 +434,8 @@ export default {
     .fabric .sidebar-dock-wrapper,
     .tailwind .sidebar-dock-wrapper,
     .fluent .sidebar-dock-wrapper,
-    .bootstrap5 .sidebar-dock-wrapper {
+    .bootstrap5 .sidebar-dock-wrapper,
+    .bootstrap5\.3 .sidebar-dock-wrapper {
         border: 1px solid #d7d7d7;
     }
 
@@ -446,7 +444,15 @@ export default {
     .tailwind-dark .sidebar-dock-wrapper,
     .highcontrast .sidebar-dock-wrapper,
     .fluent-dark .sidebar-dock-wrapper,
-    .bootstrap5-dark .sidebar-dock-wrapper {
+    .bootstrap5-dark .sidebar-dock-wrapper,
+    .bootstrap5\.3-dark .sidebar-dock-wrapper {
         border: 1px solid #ffffff;
     }
+
+    .fluent2 .dockSidebar.e-close .e-listview .e-list-text,
+    .fluent2-dark .dockSidebar.e-close .e-listview .e-list-text,
+    .fluent2-highcontrast .dockSidebar.e-close .e-listview .e-list-text {
+        padding: 0;
+    }
+    
 </style>

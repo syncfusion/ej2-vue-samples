@@ -266,3 +266,6 @@ body.fluent2-dark,
     height: 24px;
     margin: 7px 5px 0 0;
 }
+.fluent2-dark .sb-property-border {
+    border-right: 1px solid #525252;
+}

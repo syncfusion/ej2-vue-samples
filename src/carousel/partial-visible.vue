@@ -11,33 +11,33 @@
             <e-carousel-item :template="itemTemplate5"></e-carousel-item>
           </e-carousel-items>
         </ejs-carousel>
-        <div id="action-description">
-          <p>
-            This sample demonstrates the partial visible functionality of the
-            <a
-              href="https://www.syncfusion.com/vue-ui-components/vue-carousel"
-              target="_blank"
-              >vue Carousel</a
-            >
-            component.
-          </p>
-        </div>
-        <div id="description">
-          <p>
-            The <code>Vue Carousel</code> component shows partially visible previous/next slides by setting the
-            <code>partialVisible</code> property to true. By default, this property is set to <code>false</code>.
-          </p>
-          <p>See also</p>
-          <p>
-            <a aria-label="Carousel getting started"
-              target="_blank"
-              href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started/"
-              >Vue Carousel Getting Started</a
-            >.
-          </p>
-        </div>
       </div>
     </div>
+  </div>
+  <div id="action-description">
+    <p>
+      This sample demonstrates the partial visible functionality of the
+      <a
+        href="https://www.syncfusion.com/vue-ui-components/vue-carousel"
+        target="_blank"
+        >vue Carousel</a
+      >
+      component.
+    </p>
+  </div>
+  <div id="description">
+    <p>
+      The <code>Vue Carousel</code> component shows partially visible previous/next slides by setting the
+      <code>partialVisible</code> property to true. By default, this property is set to <code>false</code>.
+    </p>
+    <p>See also</p>
+    <p>
+      <a aria-label="Carousel getting started"
+        target="_blank"
+        href="https://ej2.syncfusion.com/vue/documentation/carousel/getting-started/"
+        >Vue Carousel Getting Started</a
+      >.
+    </p>
   </div>
 </template>
 

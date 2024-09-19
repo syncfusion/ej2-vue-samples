@@ -2,7 +2,6 @@
     "name": "Query Builder",
     "directory": "query-builder",
     "category": "Forms",
-    "type": "update",
     "ftName": "query-builder",
     "samples": [
         {
@@ -44,7 +43,6 @@
             "url": "drag-drop",
             "name": "Drag and Drop",
             "category": "Query Builder",
-            "type": "new",
             "description": "This sample demonstrates the Drag Drop support of the Query Builder component.",
             "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "fieldMode"]  }
         },
@@ -52,7 +50,6 @@
             "url": "separate-connector",
             "name": "Separate Connector",
             "category": "Query Builder",
-            "type": "new",
             "description": "This sample demonstrates the Drag Drop support of the Query Builder component.",
             "api": { "QueryBuilder": ["width", "dataSource", "columns", "rule", "fieldMode"]  }
         },

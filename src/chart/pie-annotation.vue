@@ -117,11 +117,11 @@ annotaion ellipse[id*=_Trackball_1] {
     font-size: 12px;
     color: 'black'
 }
-.e-view.highcontrast .box-bottom, .e-view.material-dark .box-bottom,.e-view.tailwind-dark .box-bottom, .e-view.fluent-dark .box-bottom,.e-view.fluent2-dark .box-bottom, .e-view.bootstrap-dark .box-bottom,.e-view.bootstrap5-dark .box-bottom,.e-view.fabric-dark .box-bottom,
-.e-view.highcontrast .first-box-bottom, .e-view.material-dark  .first-box-bottom,.e-view.tailwind-dark .first-box-bottom, .e-view.fluent-dark .first-box-bottom,.e-view.fluent2-dark .first-box-bottom,.e-view.bootstrap-dark .first-box-bottom, .e-view.bootstrap5-dark .first-box-bottom ,.e-view.fabric-dark .first-box-bottom, 
-.e-view.highcontrast .second-box-bottom,.e-view.material-dark  .second-box-bottom, .e-view.fluent-dark .second-box-bottom,.e-view.fluent2-dark .second-box-bottom,.e-view.bootstrap-dark .second-box-bottom, .e-view.bootstrap5-dark .second-box-bottom, .e-view.fabric-dark .second-box-bottom, 
-.e-view.highcontrast .third-box-bottom,.e-view.material-dark  .third-box-bottom, .e-view.fluent-dark .third-box-bottom,.e-view.fluent2-dark .third-box-bottom,.e-view.bootstrap-dark .third-box-bottom,.e-view.bootstrap5-dark .third-box-bottom,.e-view.fabric-dark .third-box-bottom,
-.e-view.highcontrast .box-left, .e-view.material-dark .box-left, .e-view.fluent-dark .box-left,.e-view.fluent2-dark .box-left,.e-view.bootstrap-dark .box-left, .e-view.bootstrap5-dark .box-left, .e-view.fabric-dark .box-left, .e-view.material3-dark .box-bottom, .e-view.material3-dark .first-box-bottom , .e-view.material3-dark .second-box-bottom,.e-view.material3-dark .third-box-bottom, .e-view.material3-dark .box-left{
+.e-view.highcontrast .box-bottom, .e-view.material-dark .box-bottom,.e-view.tailwind-dark .box-bottom, .e-view.fluent-dark .box-bottom,.e-view.fluent2-dark .box-bottom, .e-view.fluent2-highcontrast .box-bottom, .e-view.bootstrap-dark .box-bottom,.e-view.bootstrap5-dark .box-bottom,.e-view.fabric-dark .box-bottom,
+.e-view.highcontrast .first-box-bottom, .e-view.material-dark  .first-box-bottom,.e-view.tailwind-dark .first-box-bottom, .e-view.fluent-dark .first-box-bottom,.e-view.fluent2-dark .first-box-bottom,.e-view.fluent2-highcontrast .first-box-bottom,.e-view.bootstrap-dark .first-box-bottom, .e-view.bootstrap5-dark .first-box-bottom ,.e-view.fabric-dark .first-box-bottom, 
+.e-view.highcontrast .second-box-bottom,.e-view.material-dark  .second-box-bottom, .e-view.fluent-dark .second-box-bottom,.e-view.fluent2-dark .second-box-bottom,.e-view.fluent2-highcontrast .second-box-bottom,.e-view.bootstrap-dark .second-box-bottom, .e-view.bootstrap5-dark .second-box-bottom, .e-view.fabric-dark .second-box-bottom, 
+.e-view.highcontrast .third-box-bottom,.e-view.material-dark  .third-box-bottom, .e-view.fluent-dark .third-box-bottom,.e-view.fluent2-dark .third-box-bottom,.e-view.fluent2-highcontrast .third-box-bottom,.e-view.bootstrap-dark .third-box-bottom,.e-view.bootstrap5-dark .third-box-bottom,.e-view.fabric-dark .third-box-bottom,
+.e-view.highcontrast .box-left, .e-view.material-dark .box-left, .e-view.fluent-dark .box-left,.e-view.fluent2-dark .box-left,.e-view.fluent2-highcontrast .box-left,.e-view.bootstrap-dark .box-left, .e-view.bootstrap5-dark .box-left, .e-view.fabric-dark .box-left, .e-view.material3-dark .box-bottom, .e-view.material3-dark .first-box-bottom , .e-view.material3-dark .second-box-bottom,.e-view.material3-dark .third-box-bottom, .e-view.material3-dark .box-left{
     position: relative;
     background: black;
     border: 1.5px solid black;
@@ -145,7 +145,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-bottom: -1px;
     border-bottom-color: #fdf7e7;
 }
-.e-view.highcontrast .box-bottom:after, .e-view.tailwind-dark .box-bottom:after,.e-view.fluent-dark .box-bottom:after,.e-view.fluent2-dark .box-bottom:after,.e-view.material-dark .box-bottom:after,.e-view.bootstrap-dark .box-bottom:after,.e-view.bootstrap5-dark .box-bottom:after, .e-view.bootstrap4-dark .box-bottom:after, .e-view.fabric-dark .box-bottom:after, .e-view.material3-dark .box-bottom:after {
+.e-view.highcontrast .box-bottom:after, .e-view.tailwind-dark .box-bottom:after,.e-view.fluent-dark .box-bottom:after,.e-view.fluent2-dark .box-bottom:after,.e-view.fluent2-highcontrast .box-bottom:after,.e-view.material-dark .box-bottom:after,.e-view.bootstrap-dark .box-bottom:after,.e-view.bootstrap5-dark .box-bottom:after, .e-view.bootstrap4-dark .box-bottom:after, .e-view.fabric-dark .box-bottom:after, .e-view.material3-dark .box-bottom:after {
     border-color: transparent;
     border-width: 6.2px;
     left: 50%;
@@ -169,7 +169,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-bottom: -1px;
     border-bottom-color: #fdf7e7;
 }
-.e-view.highcontrast .first-box-bottom:after, .e-view.tailwind-dark .first-box-bottom:after,.e-view.fluent-dark .first-box-bottom:after,.e-view.fluent2-dark .first-box-bottom:after,.e-view.material-dark .first-box-bottom:after,.e-view.bootstrap-dark .first-box-bottom:after,.e-view.bootstrap5-dark .first-box-bottom:after,.e-view.bootstrap4-dark .first-box-bottom:after, .e-view.fabric-dark .first-box-bottom:after, .e-view.material3-dark .first-box-bottom:after {
+.e-view.highcontrast .first-box-bottom:after, .e-view.tailwind-dark .first-box-bottom:after,.e-view.fluent-dark .first-box-bottom:after,.e-view.fluent2-dark .first-box-bottom:after,.e-view.fluent2-highcontrast .first-box-bottom:after,.e-view.material-dark .first-box-bottom:after,.e-view.bootstrap-dark .first-box-bottom:after,.e-view.bootstrap5-dark .first-box-bottom:after,.e-view.bootstrap4-dark .first-box-bottom:after, .e-view.fabric-dark .first-box-bottom:after, .e-view.material3-dark .first-box-bottom:after {
     border-color: transparent;
     border-width: 6.2px;
     left: 50%;
@@ -193,7 +193,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-bottom: -1px;
     border-bottom-color: #fdf7e7;
 }
-.e-view.highcontrast .second-box-bottom:after, .e-view.tailwind-dark .second-box-bottom:after,.e-view.fluent-dark .second-box-bottom:after,.e-view.fluent2-dark .second-box-bottom:after,.e-view.material-dark .second-box-bottom:after, .e-view.bootstrap-dark .second-box-bottom:after,.e-view.bootstrap5-dark .second-box-bottom:after,.e-view.bootstrap4-dark .second-box-bottom:after, .e-view.fabric-dark .second-box-bottom:after, .e-view.material3-dark .second-box-bottom:after {
+.e-view.highcontrast .second-box-bottom:after, .e-view.tailwind-dark .second-box-bottom:after,.e-view.fluent-dark .second-box-bottom:after,.e-view.fluent2-dark .second-box-bottom:after,.e-view.fluent2-highcontrast .second-box-bottom:after,.e-view.material-dark .second-box-bottom:after, .e-view.bootstrap-dark .second-box-bottom:after,.e-view.bootstrap5-dark .second-box-bottom:after,.e-view.bootstrap4-dark .second-box-bottom:after, .e-view.fabric-dark .second-box-bottom:after, .e-view.material3-dark .second-box-bottom:after {
     border-color: transparent;
     border-width: 6.2px;
     left: 50%;
@@ -217,7 +217,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-bottom: -1px;
     border-bottom-color: #fdf7e7;
 }
-.e-view.highcontrast .third-box-bottom:after,  .e-view.tailwind-dark .third-box-bottom:after ,.e-view.fluent-dark .third-box-bottom:after,.e-view.fluent2-dark .third-box-bottom:after ,.e-view.material-dark .third-box-bottom:after ,.e-view.bootstrap-dark .third-box-bottom:after ,.e-view.bootstrap5-dark .third-box-bottom:after , .e-view.bootstrap4-dark .third-box-bottom:after , .e-view.fabric-dark .third-box-bottom:after, .e-view.material3-dark .third-box-bottom:after {
+.e-view.highcontrast .third-box-bottom:after,  .e-view.tailwind-dark .third-box-bottom:after ,.e-view.fluent-dark .third-box-bottom:after,.e-view.fluent2-dark .third-box-bottom:after ,.e-view.fluent2-highcontrast .third-box-bottom:after ,.e-view.material-dark .third-box-bottom:after ,.e-view.bootstrap-dark .third-box-bottom:after ,.e-view.bootstrap5-dark .third-box-bottom:after , .e-view.bootstrap4-dark .third-box-bottom:after , .e-view.fabric-dark .third-box-bottom:after, .e-view.material3-dark .third-box-bottom:after {
     border-color: transparent;
     border-width: 6px;
     left: 50%;
@@ -246,7 +246,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-right: -1px;
     border-right-color: #fdf7e7;
 }
-.e-view.highcontrast .box-left:after, .e-view.tailwind-dark .box-left:after,.e-view.fluent-dark .box-left:after,.e-view.fluent2-dark .box-left:after,.e-view.material-dark .box-left:after, .e-view.bootstrap-dark .box-left:after,.e-view.bootstrap5-dark .box-left:after, .e-view.bootstrap4-dark .box-left:after, .e-view.fabric-dark .box-left:after, .e-view.material3-dark .box-left:after {
+.e-view.highcontrast .box-left:after, .e-view.tailwind-dark .box-left:after,.e-view.fluent-dark .box-left:after,.e-view.fluent2-dark .box-left:after,.e-view.fluent2-highcontrast .box-left:after,.e-view.material-dark .box-left:after, .e-view.bootstrap-dark .box-left:after,.e-view.bootstrap5-dark .box-left:after, .e-view.bootstrap4-dark .box-left:after, .e-view.fabric-dark .box-left:after, .e-view.material3-dark .box-left:after {
     border-color: transparent;
     border-width: 6.5px;
     margin-right: -1px;
@@ -268,7 +268,7 @@ annotaion ellipse[id*=_Trackball_1] {
     font-size: 12px;
     color:  white;
 }
-.e-view.highcontrast .box-top, .e-view.tailwind-dark .box-top,.e-view.fluent-dark .box-top,.e-view.fluent2-dark .box-top,.e-view.material-dark .box-top,.e-view.bootstrap-dark .box-top,.e-view.bootstrap5-dark .box-top ,.e-view.bootstrap4-dark .box-top , .e-view.fabric-dark .box-top, .e-view.highcontrast .box-top-left, .e-view.tailwind-dark .box-top-left, .e-view.fluent-dark .box-top-left,.e-view.fluent2-dark .box-top-left,.e-view.material-dark .box-top-left,.e-view.bootstrap-dark .box-top-left,.e-view.bootstrap5-dark .box-top-left, .e-view.bootstrap4-dark .box-top-left, .e-view.fabric-dark .box-top-left, .e-view.material3-dark .box-top, .e-view.material3-dark .box-top-left {
+.e-view.highcontrast .box-top, .e-view.tailwind-dark .box-top,.e-view.fluent-dark .box-top,.e-view.fluent2-dark .box-top,.e-view.fluent2-highcontrast .box-top,.e-view.material-dark .box-top,.e-view.bootstrap-dark .box-top,.e-view.bootstrap5-dark .box-top ,.e-view.bootstrap4-dark .box-top , .e-view.fabric-dark .box-top, .e-view.highcontrast .box-top-left, .e-view.tailwind-dark .box-top-left, .e-view.fluent-dark .box-top-left,.e-view.fluent2-dark .box-top-left,.e-view.fluent2-highcontrast .box-top-left,.e-view.material-dark .box-top-left,.e-view.bootstrap-dark .box-top-left,.e-view.bootstrap5-dark .box-top-left, .e-view.bootstrap4-dark .box-top-left, .e-view.fabric-dark .box-top-left, .e-view.material3-dark .box-top, .e-view.material3-dark .box-top-left {
     position: relative;
     color: white;
     background: #fdf7e7;
@@ -292,7 +292,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-right: -7.5px;
     margin-top: -1.5px;
 }
-.e-view.highcontrast .box-top:after, .e-view.tailwind-dark .box-top:after,.e-view.fluent-dark .box-top:after,.e-view.fluent2-dark .box-top:after,.e-view.material-dark .box-top:after, .e-view.bootstrap-dark .box-top:after, .e-view.bootstrap5-dark .box-top:after, .e-view.bootstrap4-dark .box-top:after, .e-view.fabric-dark .box-top:after, .e-view.material3-dark .box-top:after {
+.e-view.highcontrast .box-top:after, .e-view.tailwind-dark .box-top:after,.e-view.fluent-dark .box-top:after,.e-view.fluent2-dark .box-top:after,.e-view.fluent2-highcontrast .box-top:after,.e-view.material-dark .box-top:after, .e-view.bootstrap-dark .box-top:after, .e-view.bootstrap5-dark .box-top:after, .e-view.bootstrap4-dark .box-top:after, .e-view.fabric-dark .box-top:after, .e-view.material3-dark .box-top:after {
     border-color: transparent;
     border-width: 7.5px;
     border-top-color: #fdf7e7;
@@ -307,7 +307,7 @@ annotaion ellipse[id*=_Trackball_1] {
     right: 50%;
     margin-right: -8px;
 }
-.e-view.highcontrast .box-top:before, .e-view.tailwind-dark .box-top:before,.e-view.fluent-dark .box-top:before,.e-view.fluent2-dark .box-top:before,.e-view.material-dark .box-top:before,.e-view.bootstrap-dark .box-top:before,.e-view.bootstrap5-dark .box-top:before,.e-view.bootstrap4-dark .box-top:before , .e-view.fabric-dark .box-top:before, .e-view.material3 .box-top:before {
+.e-view.highcontrast .box-top:before, .e-view.tailwind-dark .box-top:before,.e-view.fluent-dark .box-top:before,.e-view.fluent2-dark .box-top:before,.e-view.fluent2-highcontrast .box-top:before,.e-view.material-dark .box-top:before,.e-view.bootstrap-dark .box-top:before,.e-view.bootstrap5-dark .box-top:before,.e-view.bootstrap4-dark .box-top:before , .e-view.fabric-dark .box-top:before, .e-view.material3 .box-top:before {
     border-color: transparent;
     border-top-color:#fdf7e7;
     border-width: 8px;
@@ -322,7 +322,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-right: -7.5px;
     margin-bottom: -1.5px;
 }
-.e-view.highcontrast .box-top-left:after,.e-view.tailwind-dark .box-top-left:after,.e-view.fluent-dark .box-top-left:after,.e-view.fluent2-dark .box-top-left:after,.e-view.material-dark .box-top-left:after,.e-view.bootstrap-dark .box-top-left:after,.e-view.bootstrap5-dark .box-top-left:after,.e-view.bootstrap4-dark .box-top-left:after, .e-view.fabric-dark  .box-top-left:after,.e-view.material3-dark .box-top-left:after {
+.e-view.highcontrast .box-top-left:after,.e-view.tailwind-dark .box-top-left:after,.e-view.fluent-dark .box-top-left:after,.e-view.fluent2-dark .box-top-left:after,.e-view.fluent2-highcontrast .box-top-left:after,.e-view.material-dark .box-top-left:after,.e-view.bootstrap-dark .box-top-left:after,.e-view.bootstrap5-dark .box-top-left:after,.e-view.bootstrap4-dark .box-top-left:after, .e-view.fabric-dark  .box-top-left:after,.e-view.material3-dark .box-top-left:after {
     border-color: transparent;
     border-width: 7.5px;
     border-top-color: #fdf7e7;
@@ -337,7 +337,7 @@ annotaion ellipse[id*=_Trackball_1] {
     right: 20%;
     margin-right: -8px;
 }
-.e-view.highcontrast .box-top-left:before, .e-view.tailwind-dark .box-top-left:before,.e-view.fluent-dark .box-top-left:before,.e-view.fluent2-dark .box-top-left:before,.e-view.material-dark .box-top-left:before,.e-view.bootstrap-dark .box-top-left:before,.e-view.bootstrap5-dark .box-top-left:before, .e-view.bootstrap4-dark .box-top-left:before , .e-view.fabric-dark  .box-top-left:before,.e-view.material3-dark  .box-top-left:before {
+.e-view.highcontrast .box-top-left:before, .e-view.tailwind-dark .box-top-left:before,.e-view.fluent-dark .box-top-left:before,.e-view.fluent2-dark .box-top-left:before,.e-view.fluent2-highcontrast .box-top-left:before,.e-view.material-dark .box-top-left:before,.e-view.bootstrap-dark .box-top-left:before,.e-view.bootstrap5-dark .box-top-left:before, .e-view.bootstrap4-dark .box-top-left:before , .e-view.fabric-dark  .box-top-left:before,.e-view.material3-dark  .box-top-left:before {
     border-color: transparent;
     border-top-color: #fdf7e7;
     border-width: 8px;
@@ -351,10 +351,10 @@ import { annotationData } from './financial-data';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, StackingColumnSeries, Category, Legend, Selection, ChartAnnotation, AreaSeries, Tooltip } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
-let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark', 'fluent2', 'fluent2Dark'];
-let borderColor = ['#262E0B', '#5ECB9B', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6200EE', '#4EAAFF', '#6200EE', '#9BB449'];
+let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark', 'fluent2', 'fluent2highcontrast', 'fluent2dark'];
+let borderColor = ['#FD7E14', '#FD7E14', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6200EE', '#4EAAFF', '#6200EE', '#9BB449', '#9BB449'];
 export default {
     components: {
         'ejs-chart': ChartComponent,
@@ -429,7 +429,7 @@ export default {
     methods: {
         load: function (args) {
             let selectedTheme = location.hash.split('/')[1];
-            selectedTheme = selectedTheme ? selectedTheme : 'Material';
+            selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
             this.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
             if (this.theme.includes('Dark') || this.theme === 'HighContrast') {
                 args.chart.series[0].fill = "url(#" + "dark-gradient-chart)";

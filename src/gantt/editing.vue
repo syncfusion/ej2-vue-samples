@@ -12,6 +12,7 @@
             :gridLines= "gridLines"
             :height= "height"
             :treeColumnIndex= "1"
+             :actionBegin= "actionBegin"
             :resourceFields= "resourceFields"
             :resources= "resources"
             :highlightWeekends= "true"
@@ -50,8 +51,8 @@
 
 <div id="description">
     <p>
-        This CRUD operations can be configured in Gantt chart using <code>editSettings</code> and
-        <code>allowTaskbarEditing</code>. Gantt chart
+        This CRUD operations can be configured in Gantt chart using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#editsettings">editSettings</a> and
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#allowtaskbardraganddrop">allowTaskbarEditing</a>. Gantt chart
         has two modes to manipulate the datasource
         <li><code>Auto</code></li>
         <li><code>Dialog</code></li>
@@ -62,6 +63,8 @@
         state. On the chart side, you can edit the tasks using edit dialog by double clicking on the taskbars and you
         can edit the dependency connector lines using drag and drop action with connector line points available on the
         either side of taskbar. It is possible to connect parent-parent, child-child, child-parent and parent-child dependency relationships.
+        <br>
+        In this sample <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#validationrules">column.validationRules</a> has been enabled for the columns. It uses the Form Validator control to define validation rules, displaying error messages for invalid field values.
     </p>
     
     <p>
@@ -74,12 +77,28 @@
 <script>
 import { GanttComponent, Edit, Selection, Toolbar, DayMarkers  } from "@syncfusion/ej2-vue-gantt";
 import { editingData, editingResources } from './data-source';
-
+var startDate;
+function customFn(args) {
+    var endDate;
+    var gantt = document.getElementsByClassName('e-gantt')[0].ej2_instances[0]
+    if (args.element && args.value) {
+        endDate = new Date(args.value);
+        if(!startDate && gantt.editModule.dialogModule['beforeOpenArgs']) {
+            startDate = gantt.editModule.dialogModule['beforeOpenArgs'].rowData['ganttProperties'].startDate;
+        endDate = (gantt.editModule.dialogModule['beforeOpenArgs'].rowData['ganttProperties'].endDate);
+        }
+        startDate.setHours(0, 0, 0, 0);
+        endDate.setHours(0, 0, 0, 0);
+    }
+    return startDate <= endDate;
+}
+const endDateValidation = { date: true, required: [customFn, 'Please enter a value greater than the start date.'] };
 export default {
   components: {
     'ejs-gantt': GanttComponent
   },
   data: function() {
+    
       return{
             data: editingData,
             dateFormat: 'MMM dd, y',
@@ -120,12 +139,13 @@ export default {
                 },
             },
             columns: [
-                { field: 'TaskID', width: 90 },
-                { field: 'TaskName', headerText: 'Job Name', width: '250', clipMode: 'EllipsisWithTooltip' },
-                { field: 'StartDate' },
-                { field: 'Duration' },
-                { field: 'Progress' },
-                { field: 'Predecessor' }
+            { field: 'TaskID', width: 80 },
+            { field: 'TaskName', headerText: 'Job Name', width: '250', clipMode: 'EllipsisWithTooltip', validationRules: { required: true, minLength: [5, 'Task name should have a minimum length of 5 characters'], } },
+            { field: 'StartDate' },
+            { field: 'EndDate', validationRules: endDateValidation },
+            { field: 'Duration', validationRules: { required: true} },
+            { field: 'Progress', validationRules: { required: true, min: 0, max: 100 } },
+            { field: 'Predecessor' }
             ],
             eventMarkers: [
                 { day: '4/17/2024', label: 'Project approval and kick-off' },
@@ -152,6 +172,14 @@ export default {
   },
   provide: {
       gantt: [Edit, Selection, Toolbar, DayMarkers]
+  },
+  methods:{
+      actionBegin(args) {
+          if (args.columnName === "EndDate") {
+            startDate = args.rowData.ganttProperties.startDate;
+          }
+      },
+     
   }
 }
 </script>

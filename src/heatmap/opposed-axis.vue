@@ -47,8 +47,8 @@
 </template>
 <style scoped>
 
-    .e-view.fluent2 #opposed #property, .e-view.fluent2-dark #opposed #property {
-        margin-left: -20px !important; 
+    .e-view.fluent2 #opposed #property, .e-view.fluent2-dark #opposed #property, .e-view.fluent2-highcontrast #opposed #property {
+        margin-left: -20px !important;
     }
 </style>
 <script>
@@ -120,7 +120,7 @@ methods: {
       let selectedTheme = location.hash.split("/")[1];
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.heatmap.theme =
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark");
+        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, "Dark").replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
      /* custom code end */
     },
     valueXChange: function(args)

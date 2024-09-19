@@ -2,32 +2,32 @@
 <div class="control-section">
     <div class="col-lg-12 control-section">
         <ejs-toolbar id="toobar" ref="toolbar_diagram" :clicked='onItemClick'>
-          <e-items>
-            <e-item prefixIcon='e-cut e-icons' tooltipText='Cut' disabled=false></e-item>
-            <e-item prefixIcon='e-copy e-icons' tooltipText='Copy' disabled=true></e-item>
-            <e-item prefixIcon='e-icons e-paste' tooltipText='Paste' disabled=true></e-item>
-            <e-item prefixIcon='e-icons e-undo' tooltipText='Undo' disabled=true></e-item>
-            <e-item prefixIcon='e-icons e-redo' tooltipText='Redo' disabled=true></e-item>
-          <e-item type="Separator"></e-item>
-          <e-item prefixIcon='sf-diagram-icon-align-left-1' tooltipText='Align Left' disabled=true></e-item>
-          <e-item prefixIcon='sf-diagram-icon-align-center-1' tooltipText='Align Center' disabled=true></e-item>
-          <e-item prefixIcon='sf-diagram-icon-align-right-1' tooltipText='Align Right' disabled=true></e-item>
-          <e-item prefixIcon='sf-diagram-icon-align-top-1' tooltipText='Align Top' disabled=true></e-item>
-          <e-item prefixIcon='sf-diagram-icon-align-middle-1' tooltipText='Align Middle' disabled=true></e-item>
-          <e-item prefixIcon='sf-diagram-icon-align-bottom-1' tooltipText='Align Bottom' disabled=true></e-item>
-          <e-item type="Separator"></e-item>
-          <e-item prefixIcon='e-icons e-transform-right' tooltipText='Rotate Right' disabled=true></e-item>
-          <e-item prefixIcon='e-icons e-transform-left' tooltipText='Rotate Left' disabled=true></e-item>
-          <e-item type="Separator"></e-item>
-          <e-item prefixIcon='e-icons e-flip-vertical' tooltipText='Flip Vertical' disabled=true></e-item>
-          <e-item prefixIcon='e-icons e-flip-horizontal' tooltipText='Flip Horizontal' disabled=true></e-item>
-          <e-item type="Separator"></e-item>
-          <e-item prefixIcon='sf-diagram-icon-distribute-horizontal' tooltipText='Distribute Objects Horizontally' disabled=true></e-item>
-          <e-item prefixIcon='sf-diagram-icon-distribute-vertical' tooltipText='Distribute Objects Vertically' disabled=true></e-item>
-          <e-item type="Separator"></e-item>
-          <e-item prefixIcon='sf-diagram-icon-same-width' tooltipText='Same Width' disabled=true></e-item>
-          <e-item prefixIcon='sf-diagram-icon-same-height' tooltipText='Same Height' disabled=true></e-item>
-          <e-item prefixIcon='sf-diagram-icon-same-size' tooltipText='Same Size' disabled=true></e-item>
+        <e-items>
+        <e-item prefixIcon='e-cut e-icons' tooltipText='Cut' disabled=false  id='cut'></e-item>
+        <e-item prefixIcon='e-copy e-icons' tooltipText='Copy' disabled=true id='copy'></e-item>
+        <e-item prefixIcon='e-icons e-paste' tooltipText='Paste' disabled=true id='paste'></e-item>
+        <e-item prefixIcon='e-icons e-undo' tooltipText='Undo' disabled=true id='undo'></e-item>
+        <e-item prefixIcon='e-icons e-redo' tooltipText='Redo' disabled=true id='redo'></e-item>
+        <e-item type="Separator"></e-item>
+        <e-item prefixIcon='sf-diagram-icon-align-left-1' tooltipText='Align Left' disabled=true id='align_left'></e-item>
+        <e-item prefixIcon='sf-diagram-icon-align-center-1' tooltipText='Align Center' disabled=true id='align_center'></e-item>
+        <e-item prefixIcon='sf-diagram-icon-align-right-1' tooltipText='Align Right' disabled=true id='align_right'></e-item>
+        <e-item prefixIcon='sf-diagram-icon-align-top-1' tooltipText='Align Top' disabled=true id='align_top'></e-item>
+        <e-item prefixIcon='sf-diagram-icon-align-middle-1' tooltipText='Align Middle' disabled=true id='align_middle'></e-item>
+        <e-item prefixIcon='sf-diagram-icon-align-bottom-1' tooltipText='Align Bottom' disabled=true id='align_bottom'></e-item>
+        <e-item type="Separator"></e-item>
+        <e-item prefixIcon='e-icons e-transform-right' tooltipText='Rotate Right' disabled=true  id='transform_right'></e-item >
+        <e-item prefixIcon='e-icons e-transform-left' tooltipText='Rotate Left' disabled=true id='transform_left'></e-item>
+        <e-item type="Separator"></e-item>
+        <e-item prefixIcon='e-icons e-flip-vertical' tooltipText='Flip Vertical' disabled=true id='flip_vertical'></e-item>
+        <e-item prefixIcon='e-icons e-flip-horizontal' tooltipText='Flip Horizontal' disabled=true id='flip_horizontal'></e-item>
+        <e-item type="Separator"></e-item>
+        <e-item prefixIcon='sf-diagram-icon-distribute-horizontal' tooltipText='Distribute Objects Horizontally' disabled=true id='distribute_horizontal'></e-item>
+        <e-item prefixIcon='sf-diagram-icon-distribute-vertical' tooltipText='Distribute Objects Vertically' disabled=true id= 'distribute_vertical'></e-item>
+        <e-item type="Separator"></e-item>
+        <e-item prefixIcon='sf-diagram-icon-same-width' tooltipText='Same Width' disabled=true id='same_width'></e-item>
+        <e-item prefixIcon='sf-diagram-icon-same-height' tooltipText='Same Height' disabled=true id='same_height'></e-item>
+        <e-item prefixIcon='sf-diagram-icon-same-size' tooltipText='Same Size' disabled=true id= 'same_size' ></e-item>
         </e-items>
     </ejs-toolbar>
     <div class="content-wrapper">
@@ -180,106 +180,69 @@ import {
   ItemsDirective
 } from "@syncfusion/ej2-vue-navigations";
 
-let diagramInstance;
+let  diagram;
+let toolbar;
+// Function to create text nodes
+function createTextNode(content, offsetX, offsetY) {
+    return {
+        shape: { type: 'Text', content: content },
+        constraints: NodeConstraints.PointerEvents,
+        style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 },
+        offsetX: offsetX,
+        offsetY: offsetY
+    };
+}
 
-  var nodes = [
-  {
-      shape: { type: 'Text', content: 'Select the below shapes' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 150, offsetY: 40
-  },
-  {
-      id: 'node1', width: 60, height: 40, offsetX: 150, offsetY: 100, style: { fill: '#DAEBFF', strokeColor: 'white' },
-  },
-  {
-      id: 'node2', width: 80, height: 40, offsetX: 150, offsetY: 170, style: { fill: '#F5E0F7', strokeColor: 'white' },
-  },
-  {
-      id: 'node3', width: 100, height: 40, offsetX: 150, offsetY: 240, style: { fill: '#E0E5BB', strokeColor: 'white' },
-  },
-  {
-      shape: { type: 'Text', content: 'Try Alignment Commandss(AlignRight, AlignLeft \n and AlignCenter)' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 150, offsetY: 310
-  },
-  {
-      shape: { type: 'Text', content: 'Select the below shapes' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 150, offsetY: 380
-  },
-  {
-      id: 'node4', width: 40, height: 60, offsetX: 80, offsetY: 470, style: { fill: '#DAEBFF', strokeColor: 'white' },
-  },
-  {
-      id: 'node5', width: 40, height: 80, offsetX: 160, offsetY: 470, style: { fill: '#F5E0F7', strokeColor: 'white' },
-  },
-  {
-      id: 'node6', width: 40, height: 100, offsetX: 240, offsetY: 470, style: { fill: '#E0E5BB', strokeColor: 'white' },
-  },
-  {
-      shape: { type: 'Text', content: 'Try Alignment Commandss(AlignTop, AlignBottom \n and AlignMiddle)' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 150, offsetY: 550
-  },
-  {
-      shape: { type: 'Text', content: 'Select the below shapes' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 550, offsetY: 40
-  },
-  {
-      id: 'node7', width: 80, height: 40, offsetX: 475, offsetY: 100, style: { fill: '#DAEBFF', strokeColor: 'white' },
-  },
-  {
-      id: 'node8', width: 80, height: 40, offsetX: 625, offsetY: 100, style: { fill: '#F5E0F7', strokeColor: 'white' },
-  },
-  {
-      id: 'node9', width: 80, height: 40, offsetX: 595, offsetY: 180, style: { fill: '#E0E5BB', strokeColor: 'white' },
-  },
-  {
-      shape: { type: 'Text', content: 'Try SpaceAcross Commands' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 550, offsetY: 240
-  },
-  {
-      shape: { type: 'Text', content: 'Select the below shapes' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 550, offsetY: 320
-  },
-  {
-      id: 'node10', width: 80, height: 40, offsetX: 475, offsetY: 400, style: { fill: '#DAEBFF', strokeColor: 'white' },
-  },
-  {
-      id: 'node11', width: 80, height: 40, offsetX: 475, offsetY: 500, style: { fill: '#F5E0F7', strokeColor: 'white' },
-  },
-  {
-      id: 'node12', width: 80, height: 40, offsetX: 625, offsetY: 430, style: { fill: '#E0E5BB', strokeColor: 'white' },
-  },
-  {
-      shape: { type: 'Text', content: 'Try SpaceAcross Commands' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 550, offsetY: 550
-  },
-  {
-      shape: { type: 'Text', content: 'Select the below shapes' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 950, offsetY: 40
-  },
+// Function to create shape nodes
+function createShapeNode(id, width, height, offsetX, offsetY, fill) {
+    return {
+        id: id,
+        width: width,
+        height: height,
+        offsetX: offsetX,
+        offsetY: offsetY,
+        style: { fill: fill, strokeColor: 'white' }
+    };
+}
+
+//To initialise nodes for diagram.
+var nodes = [
+  createTextNode('Select the below shapes', 150, 40),
+  createShapeNode('node1', 60, 40, 150, 100, '#DAEBFF'),
+  createShapeNode('node2', 80, 40, 150, 170, '#F5E0F7'),
+  createShapeNode('node3', 100, 40, 150, 240, '#E0E5BB'),
+  createTextNode('Try Alignment Commands (AlignRight, AlignLeft, and AlignCenter)', 150, 295),
+
+  createTextNode('Select the below shapes', 150, 395),
+  createShapeNode('node4', 40, 60, 80, 500, '#DAEBFF'),
+  createShapeNode('node5', 40, 80, 160, 500, '#F5E0F7'),
+  createShapeNode('node6', 40, 100, 240, 500, '#E0E5BB'),
+  createTextNode('Try Alignment Commands (AlignTop, AlignBottom, and AlignMiddle)', 150, 595),
+
+  createTextNode('Select the below shapes', 550, 40),
+  createShapeNode('node7', 80, 40, 485, 100, '#DAEBFF'),
+  createShapeNode('node8', 80, 40, 635, 100, '#F5E0F7'),
+  createShapeNode('node9', 80, 40, 595, 180, '#E0E5BB'),
+  createTextNode('Try SpaceAcross Commands', 550, 295),
+
+  createTextNode('Select the below shapes', 550, 395),
+  createShapeNode('node10', 80, 40, 475, 430, '#DAEBFF'),
+  createShapeNode('node11', 80, 40, 475, 530, '#F5E0F7'),
+  createShapeNode('node12', 80, 40, 625, 460, '#E0E5BB'),
+  createTextNode('Try SpaceAcross Commands', 550, 595),
+
+  createTextNode('Select the below shapes', 950, 40),
   {
       id: 'RightTriangle', width: 100, height: 100, offsetX: 950, offsetY: 120, style: { fill: '#E0E5BB', strokeColor: 'white' },
       shape: { type: 'Basic', shape: 'RightTriangle' },
   },
-  {
-      shape: { type: 'Text', content: 'Try Flip Commands' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 950, offsetY: 240
-  },
-  {
-      shape: { type: 'Text', content: 'Select the below shapes' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 950, offsetY: 300
-  },
-  {
-      id: 'node14', width: 60, height: 20, offsetX: 950, offsetY: 350, style: { fill: '#DAEBFF', strokeColor: 'white' },
-  },
-  {
-      id: 'node15', width: 80, height: 40, offsetX: 950, offsetY: 420, style: { fill: '#F5E0F7', strokeColor: 'white' },
-  },
-  {
-      id: 'node16', width: 100, height: 50, offsetX: 950, offsetY: 500, style: { fill: '#E0E5BB', strokeColor: 'white' },
-  },
-  {
-      shape: { type: 'Text', content: 'Try Sizing Commands' }, constraints: NodeConstraints.PointerEvents,
-      style: { fontSize: 10, fill: 'None', fontFamily: 'sans-serif', strokeWidth: 0 }, offsetX: 950, offsetY: 550
-  }
+  createTextNode('Try Flip Commands (Distribute vertically, Distribute horizontally)', 950, 295),
+
+  createTextNode('Select the below shapes', 950, 395),
+  createShapeNode('node14', 60, 20, 950, 420, '#DAEBFF'),
+  createShapeNode('node15', 80, 40, 950, 460, '#F5E0F7'),
+  createShapeNode('node16', 100, 50, 950, 540, '#E0E5BB'),
+  createTextNode('Try Sizing Commands (Same size, Same width, Same height)', 950, 595),
 ];
 export default {
   components: {
@@ -296,54 +259,44 @@ export default {
       rulerSettings : {
         showRulers : true
       },
+      //to handle toolbar selection changes
       selectionChange :(args)=>{
-          let toolbar = this.$refs.toolbar_diagram.ej2Instances;
+        const selectedItems = args.newValue;
         if (args.state === 'Changed') {
-            if (args.type === 'Addition') {
-                if (args.newValue.length > 0) {
-                    onClickDisable(false, args.newValue, toolbar);
-                }
+            if (args.type === 'Addition' && selectedItems.length > 0) {
+                    enableToolbarItems(selectedItems);
+                
             } else {
-                onClickDisable(true, args.newValue, toolbar);
+                disableToolbarItems();
             }
         }
       },
-    historyChange :(args) => {
-      let toolbar = this.$refs.toolbar_diagram.ej2Instances;
-      var diagram = document.getElementById("diagram").ej2_instances[0];
-        if (diagram.historyManager.undoStack.length > 0) {
-            toolbar.items[3].disabled = false;
-        } else {
-            toolbar.items[3].disabled = true;
-        }
-        // Check if redo stack is empty or not
-        if (diagram.historyManager.redoStack.length > 0) {
-            toolbar.items[4].disabled = false;
-        } else {
-            toolbar.items[4].disabled = true;
-        }
-        },
+      //to handle undo redo items in toolbar
+      historyChange :(args) => {
+        updateToolbarItems(['undo'], diagram.historyManager.undoStack.length === 0);
+        updateToolbarItems(['redo'], diagram.historyManager.redoStack.length === 0);
+          },
     };
   },
 
   mounted: function() {
+        diagram = this.$refs.diagramObject.ej2Instances;
+        toolbar = this.$refs.toolbar_diagram.ej2Instances;
   
   },
   methods: {
     //click event to perform printing the diagraming objects.
     onItemClick: function(args) {
     var item = args.item.tooltipText;
-    var diagram = document.getElementById("diagram").ej2_instances[0];
-    let toolbar = this.$refs.toolbar_diagram.ej2Instances;
     if (args) {
     switch (item) {
     case 'Cut':
         diagram.cut();
-        toolbar.items[2].disabled = false;
+        updateToolbarItems(['paste'], false);
         break;
       case 'Copy':
         diagram.copy();
-        toolbar.items[2].disabled = false;
+        updateToolbarItems(['paste'], false);
         break;
       case 'Paste':
         diagram.paste();
@@ -397,47 +350,37 @@ export default {
     },
 }
 
-function onClickDisable(args, selectedItems, toolbar){
-    let diagram = document.getElementById("diagram").ej2_instances[0];
-    if (args === false) {
-    toolbar.items[0].disabled = false;
-    toolbar.items[1].disabled = false;
-    toolbar.items[13].disabled = false;
-    toolbar.items[14].disabled = false;
+// Enable relevant toolbar items based on the number and type of selected nodes
+function enableToolbarItems(selectedItems) { 
+    disableToolbarItems();
+    updateToolbarItems(['cut', 'copy', 'transform_left', 'transform_right'], false);
     if (selectedItems.length === 1) {
-      toolbar.items[16].disabled = selectedItems[0].id === "RightTriangle" ? false : true;
-      toolbar.items[17].disabled = selectedItems[0].id === "RightTriangle" ? false : true;
-        disableCommonItems(true);
-    } 
+        if (selectedItems[0].id === "RightTriangle") {
+            updateToolbarItems(['flip_horizontal', 'flip_vertical'], false);
+        }
+    }
     else if (selectedItems.length > 1) {
-        disableCommonItems(false, toolbar);
-    }
-} 
-    else {
-        toolbar.items[0].disabled = true;
-        toolbar.items[1].disabled = true;
-        toolbar.items[13].disabled = true;
-        toolbar.items[14].disabled = true;
-        toolbar.items[16].disabled = true;
-        toolbar.items[17].disabled = true;
-        disableCommonItems(true, toolbar);
+        updateToolbarItems(['align_left', 'align_center', 'align_right', 'align_top', 'align_middle', 'align_bottom', 'distribute_horizontal', 'distribute_vertical', 'same_width', 'same_height', 'same_size'], false);
     }
 }
-function disableCommonItems(args, toolbar){
-  toolbar.items[6].disabled = args;
-  toolbar.items[7].disabled = args;
-  toolbar.items[8].disabled = args;
-  toolbar.items[9].disabled = args;
-  toolbar.items[10].disabled = args;
-  toolbar.items[11].disabled = args;
-  toolbar.items[19].disabled = args;
-  toolbar.items[20].disabled = args;
-  toolbar.items[22].disabled = args;
-  toolbar.items[23].disabled = args;
-  toolbar.items[24].disabled = args;
+
+// Disable all toolbar items.
+function disableToolbarItems() {
+    updateToolbarItems(['cut', 'copy', 'align_left', 'align_center', 'align_right', 'align_top', 'align_middle', 'align_bottom', 'transform_left', 'transform_right', 'flip_vertical', 'flip_horizontal', 'distribute_horizontal', 'distribute_vertical', 'same_width', 'same_height', 'same_size'], true);
 }
+
+// Enable or disable specific toolbar items
+function updateToolbarItems(itemIds, disabled) {
+    itemIds.forEach(itemId => {
+        const item = toolbar.items.find(item => item.id === itemId);
+        if (item) {
+            item.disabled = disabled;
+        }
+    });
+}
+
+//To flip diagram objects.
 function flipObjects(flipType) {
-    let diagram = document.getElementById("diagram").ej2_instances[0];  
     var selectedObjects = diagram.selectedItems.nodes.concat(diagram.selectedItems.connectors);
     for (let i = 0; i < selectedObjects.length; i++) {
         selectedObjects[i].flip = flipType === 'Flip Horizontal' ? 'Horizontal' : 'Vertical';

@@ -19,15 +19,15 @@
                         <div>Filter Type</div>
                     </td>
                     <td style="width: 70%; padding-left:10px">
-                        <ejs-dropdownlist id='element' width='96px' :dataSource='typedata' value='Menu' :fields='typefields' :change="onTypechange"></ejs-dropdownlist>
-                </td>
+                        <ejs-dropdownlist id='element' width='100px' :dataSource='typedata' value='Menu' :fields='typefields' :change="onTypechange"></ejs-dropdownlist>
+                    </td>
                 </tr>
                 <tr style="height: 50px">
                     <td style="width: 70%">
                         <div>Hierarchy Mode</div>
                     </td>
                     <td style="width: 70%; padding-left:10px">
-                        <ejs-dropdownlist id='ddlelement' width='96px' :dataSource='ddldata' value='Parent' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
+                        <ejs-dropdownlist id='ddlelement' width='100px' :dataSource='ddldata' value='Parent' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>

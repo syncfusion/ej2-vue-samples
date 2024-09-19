@@ -11,46 +11,23 @@
             </div>
             <div class="row property-panel-content" id="appearance">
                 <div class="row property-panel-content" style="width:260px;overflow: hidden;">
-                    <div class="row">
-                        <div class="col-xs-7">
-                            <ejs-radiobutton id='UnhighlightAll' label="None" value="UnhighlightAll" name='radio' :change='buttonChange'></ejs-radiobutton>
+                  <div
+                        v-for="(button, index) in radioButtons"
+                        :key="index"
+                        :style="{ paddingTop: index === 0 ? '0px' : '8px' }">
+                        <div class="row">
+                        <div class=" col-xs-7">
+                            <ejs-radiobutton
+                                :id="button.id"
+                                :label="button.label"
+                                :value="button.value"
+                                name="radio"
+                                :change="buttonChange"
+                                :checked="button.checked"
+                            ></ejs-radiobutton>
+                         </div>
                         </div>
-                    </div>
-                    <div class="row" style="padding-top: 8px">
-                        <div class="col-xs-7">
-                            <ejs-radiobutton id='LinksInto' label="Incoming connections" value="LinksInto" name='radio' :change='buttonChange'></ejs-radiobutton>
-                        </div>
-                    </div>
-                    <div class="row" style="padding-top: 8px">
-                        <div class="col-xs-7">
-                            <ejs-radiobutton id='LinksOutOf' label='Outgoing connections' value="LinksOutOf" name='radio' :change='buttonChange'></ejs-radiobutton>
-                        </div>
-                    </div>
-                    <div class="row" style="padding-top: 8px">
-                        <div class="col-xs-7">
-                            <ejs-radiobutton id='LinksConnected' label='Incoming and outgoing connections' value="LinksConnected" name='radio' :change='buttonChange' checked="true"></ejs-radiobutton>
-                        </div>
-                    </div>
-                    <div class="row" style="padding-top: 8px">
-                        <div class="col-xs-7">
-                            <ejs-radiobutton id='NodesInto' label='Incoming nodes' value="NodesInto" name='radio' :change='buttonChange'></ejs-radiobutton>
-                        </div>
-                    </div>
-                    <div class="row" style="padding-top: 8px">
-                        <div class="col-xs-7">
-                            <ejs-radiobutton id='NodesOutOf' label='Outgoing nodes' value="NodesOutOf" name='radio' :change='buttonChange'></ejs-radiobutton>
-                        </div>
-                    </div>
-                    <div class="row" style="padding-top: 8px">
-                        <div class="col-xs-7">
-                            <ejs-radiobutton id='NodesConnected' label='Incoming and outgoing nodes' value="NodesConnected" name='radio' :change='buttonChange'></ejs-radiobutton>
-                        </div>
-                    </div>
-                    <div class="row" style="padding-top: 8px">
-                        <div class="col-xs-7">
-                            <ejs-radiobutton id='NodesReachable' label='Adjacent nodes' value="NodesReachable" name='radio' :change='buttonChange'></ejs-radiobutton>
-                        </div>
-                    </div>
+                  </div>   
                 </div>
             </div>
         </div>
@@ -68,7 +45,7 @@
         </div>
     </div>
 </template>
-    <style scoped>
+<style scoped>
      /* Proprty panel CSS */
 #flowExecitionPropertySection .row {
     margin-left: 0px;
@@ -99,6 +76,7 @@ import { radiobutton, ChangeEventArgs } from '@syncfusion/ej2-vue-buttons';
 import { enableRipple } from '@syncfusion/ej2-base';
 import { RadioButtonComponent } from '@syncfusion/ej2-vue-buttons';
 
+//Function to create connector object with basic properties.
 function CreateConnector(
     name, source, target, content, type,
     direction, targePort, length) {
@@ -106,61 +84,56 @@ function CreateConnector(
     connector.id = name;
     connector.sourceID = source;
     connector.targetID = target;
-    connector.style = { strokeWidth: 2 };
-    let annotation = {};
-    annotation.content = content;
-    annotation.style = { fill: 'white' };
-    connector.annotations = [annotation];
-    connector.style.strokeColor = '#8D8D8D';
-    connector.targetDecorator = {};
-    connector.targetDecorator.style = {};
-    connector.targetDecorator.style.strokeColor = '#8D8D8D';
-    connector.targetDecorator.style.fill = '#8D8D8D';
     if (targePort) {
         connector.targetPortID = targePort;
     }
-    let segment = {};
+    connector.style = { strokeWidth: 2 ,strokeColor :'#8D8D8D'};
+    let annotation = {content: content, style: { fill: 'white' }};
+    connector.annotations = [annotation];
+    connector.targetDecorator = {style: { strokeColor: '#8D8D8D', fill: '#8D8D8D' }};
+    let segment = {type,direction,length};
     if (type) {
         connector.type = type;
-        segment.direction = direction;
-        segment.type = type;
-        segment.length = length;
         connector.segments = [segment];
     }
     return connector;
 }
 
-function CreateNodes(
-    name, offsetX, offsetY, shape, content,
-    width, height, ports) {
-    let node = {};
-    node.id = name;
-    node.offsetX = offsetX;
-    node.width = 150;
-    node.height = 50;
-    node.offsetY = offsetY;
-    let annotations = {};
-    annotations.content = content;
+//Function to create node object with basic properties.
+function CreateNodes(id, offsetX, offsetY, shape, content,ports) {
+    let node = {
+        id,
+        offsetX,
+        offsetY,
+        width: 150,
+        height: 50,
+        shape: { type: 'Flow', shape: shape },
+        style : { fill: '#FBF6E1', strokeColor: '#E8DFB6', strokeWidth: 2 },
+    };
+    let annotations = {content: content };
     node.annotations = [annotations];
-    node.shape = { type: 'Flow', shape: shape };
-    node.style = { fill: '#FBF6E1', strokeColor: '#E8DFB6', strokeWidth: 2 };
     if (ports) {
         node.ports = ports;
     }
     return node;
 }
-let nodes = [];
+
 let port1 = { id: 'port1', offset: { x: 0.5, y: 1 } };
 let port = { id: 'port', offset: { x: 1, y: 0.5 } };
-nodes.push(CreateNodes('node1', 100, 125, 'Terminator', 'Begin', 100, 35));
-nodes.push(CreateNodes('node2', 300, 125, 'Process', 'Specify collection', 120, 25, [port]));
-nodes.push(CreateNodes('node3', 500, 125, 'Decision', 'Particulars \n required?', 100, 50, [port1]));
-nodes.push(CreateNodes('node4', 730, 125, 'Process', 'Specify particulars', 90, 25));
-nodes.push(CreateNodes('node5', 500, 225, 'Process', 'Design collection', 100, 25, [port]));
-nodes.push(CreateNodes('node6', 500, 320, 'Process', 'Cluster of events', 100, 25));
-nodes.push(CreateNodes('node7', 500, 420, 'Process', 'Start the process', 100, 25));
-nodes.push(CreateNodes('node8', 730, 320, 'Process', 'Record and analyze \n results', 170, 25, [port]));
-nodes.push(CreateNodes('node9', 730, 420, 'Terminator', 'End ', 100, 35));
+
+//Initialize diagram Nodes
+let nodes = [];
+nodes.push(CreateNodes('node1', 100, 125, 'Terminator', 'Begin'));
+nodes.push(CreateNodes('node2', 300, 125, 'Process', 'Specify collection', [port]));
+nodes.push(CreateNodes('node3', 500, 125, 'Decision', 'Particulars \n required?',[port1]));
+nodes.push(CreateNodes('node4', 730, 125, 'Process', 'Specify particulars'));
+nodes.push(CreateNodes('node5', 500, 225, 'Process', 'Design collection', [port]));
+nodes.push(CreateNodes('node6', 500, 320, 'Process', 'Cluster of events',));
+nodes.push(CreateNodes('node7', 500, 420, 'Process', 'Start the process',5));
+nodes.push(CreateNodes('node8', 730, 320, 'Process', 'Record and analyze \n results', [port]));
+nodes.push(CreateNodes('node9', 730, 420, 'Terminator', 'End ',));
+
+//Initialize diagram connectors
 let connectors = [];
 connectors.push(CreateConnector('connector1', 'node1', 'node2', ''));
 connectors.push(CreateConnector('connector2', 'node2', 'node3', ''));
@@ -175,6 +148,8 @@ connectors.push(CreateConnector('connector10', 'node4', 'node5', '', 'Orthogonal
 let node;
 let element;
 let diagram;
+let highLightedObjects = [];
+let selectedButton = 'LinksConnected';
 
 export default {
     components: {
@@ -188,7 +163,17 @@ export default {
             nodes: nodes,
             connectors: connectors,
             buttonChange: buttonChange,
-            snapSettings: { constraints: SnapConstraints.None }
+            snapSettings: { constraints: SnapConstraints.None },
+            radioButtons: [
+                { id: 'UnhighlightAll', label: 'None', value: 'UnhighlightAll' },
+                { id: 'LinksInto', label: 'Incoming connections', value: 'LinksInto' },
+                { id: 'LinksOutOf', label: 'Outgoing connections', value: 'LinksOutOf' },
+                { id: 'LinksConnected', label: 'Incoming and outgoing connections', value: 'LinksConnected', checked: true },
+                { id: 'NodesInto', label: 'Incoming nodes', value: 'NodesInto' },
+                { id: 'NodesOutOf', label: 'Outgoing nodes', value: 'NodesOutOf' },
+                { id: 'NodesConnected', label: 'Incoming and outgoing nodes', value: 'NodesConnected' },
+                { id: 'NodesReachable', label: 'Flow of Execution', value: 'NodesReachable' }
+            ]
         };
     },
     mounted: function() {
@@ -200,147 +185,145 @@ export default {
     }
 }
 
-let highLightedObjects = [];
-let selectedButton = 'LinksConnected';
-
 function buttonChange(args) {
     applyChanges(args.event.srcElement.id);
     selectedButton = args.event.srcElement.id;
 }
 
+//Function To call respective methods based on user selection.
 function applyChanges(id) {
     Unhighlight();
     switch (id) {
         case 'LinksInto':
-            linkedIn();
+            highlightIncomingConnections();
             break;
         case 'LinksOutOf':
-            LinksOut();
+            highlightOutgoingConnections();
             break;
         case 'LinksConnected':
-            LinksConnector();
+            highlightIncomingConnections();
+            highlightOutgoingConnections();
             break;
         case 'NodesInto':
-            NodesIn();
+            highlightIncomingNodes();
             break;
         case 'NodesOutOf':
-            NodesOut();
+            highlightOutgoingNodes();
             break;
         case 'NodesConnected':
-            NodesConnect();
+           highlightIncomingNodes();
+           highlightOutgoingNodes();
             break;
         case 'NodesReachable':
-            NodeReachable();
+            highlightReachableNodes();
             break;
     }
-}
-function linkedIn() {
-    if (diagram.selectedItems.nodes.length) {
-        var node = diagram.selectedItems.nodes[0].inEdges;
-        for (var i = 0; i < node.length; i++) {
-            var index = diagram.connectors.indexOf(diagram.nameTable[node[i]]);
-            highLightedObjects.push(node[i]);
-            diagram.connectors[index].style.strokeColor = '#1413F8';
-            diagram.connectors[index].targetDecorator.style.strokeColor = '#1413F8';
-            diagram.connectors[index].targetDecorator.style.fill = '#1413F8';
-            diagram.dataBind();
-        }
-    }
-}
-function LinksOut() {
-    if (diagram.selectedItems.nodes.length) {
-        var node = diagram.selectedItems.nodes[0].outEdges;
-        for (var i = 0; i < node.length; i++) {
-            var index = diagram.connectors.indexOf(diagram.nameTable[node[i]]);
-            highLightedObjects.push(node[i]);
-            diagram.connectors[index].style.strokeColor = '#1413F8';
-            diagram.connectors[index].targetDecorator.style.strokeColor = '#1413F8';
-            diagram.connectors[index].targetDecorator.style.fill = '#1413F8';
-            diagram.dataBind();
-        }
-    }
-}
-function LinksConnector() {
-    LinksOut();
-    linkedIn();
-}
-function NodesIn() {
-    if (diagram.selectedItems.nodes.length) {
-        var node = diagram.selectedItems.nodes[0].inEdges;
-        for (var i = 0; i < node.length; i++) {
-            var nodeId = diagram.nameTable[node[i]].sourceID;
-            highLightedObjects.push(nodeId);
-            var index = diagram.nodes.indexOf(diagram.nameTable[nodeId]);
-            diagram.nodes[index].style.strokeColor = '#1413F8';
-            diagram.dataBind();
-        }
-    }
-}
-function NodesOut() {
-    if (diagram.selectedItems.nodes.length) {
-        var node = diagram.selectedItems.nodes[0].outEdges;
-        for (var i = 0; i < node.length; i++) {
-            var nodeId = diagram.nameTable[node[i]].targetID;
-            highLightedObjects.push(nodeId);
-            var index = diagram.nodes.indexOf(diagram.nameTable[nodeId]);
-            diagram.nodes[index].style.strokeColor = '#1413F8';
-            diagram.dataBind();
-        }
-    }
-}
-function NodesConnect() {
-    NodesOut();
-    NodesIn();
-}
-function NodeReachable() {
-    if (diagram.selectedItems.nodes.length) {
-        var connectors_1 = diagram.selectedItems.nodes[0].outEdges;
-        var nodeList = foundNode(connectors_1, []);
-        for (var i = 0; i < nodeList.length; i++) {
-            var index = diagram.connectors.indexOf(diagram.nameTable[nodeList[i]]);
-            highLightedObjects.push(nodeList[i]);
-            diagram.connectors[index].style.strokeColor = '#1413F8';
-            diagram.connectors[index].targetDecorator.style.strokeColor = '#1413F8';
-            diagram.connectors[index].targetDecorator.style.fill = '#1413F8';
-            diagram.dataBind();
-        }
-    }
-}
-function foundNode(list, nodeList) {
-    for (var i = 0; i < list.length; i++) {
-        var connector = diagram.nameTable[list[i]];
-        if (nodeList.indexOf(connector.id) > -1) {
-            break;
-        }
-        if (!connector.annotations[0] || (connector.annotations[0] && connector.annotations[0].content !== 'No')) {
-            nodeList.push(connector.id);
-        }
-        if (diagram.nameTable[connector.targetID].outEdges.length) {
-            if (list.indexOf(connector.targetID) === -1) {
-                foundNode(diagram.nameTable[connector.targetID].outEdges, nodeList);
-            }
-        }
-    }
-    return nodeList;
-}
-function Unhighlight() {
-    for (var i = highLightedObjects.length - 1; i >= 0; i--) {
-        if (diagram.nameTable[highLightedObjects[i]] instanceof Node) {
-            var index = diagram.nodes.indexOf(diagram.nameTable[highLightedObjects[i]]);
-            diagram.nodes[index].style.strokeColor = '#E8DFB6';
-            diagram.dataBind();
-        }
-        else {
-            var index = diagram.connectors.indexOf(diagram.nameTable[highLightedObjects[i]]);
-            diagram.connectors[index].style.strokeColor = '#8D8D8D';
-            diagram.connectors[index].targetDecorator.style.strokeColor = '#8D8D8D';
-            diagram.connectors[index].targetDecorator.style.fill = '#8D8D8D';
-            diagram.dataBind();
-        }
-    }
-    highLightedObjects = [];
 }
 
+//To highlight connectors
+function highlightConnectors(edges) {
+    edges.forEach(edge => {
+        let index = diagram.connectors.indexOf(diagram.nameTable[edge]);
+        highLightedObjects.push(edge);
+        let connector = diagram.connectors[index];
+        connector.style.strokeColor = '#1413F8';
+        connector.targetDecorator.style.strokeColor = '#1413F8';
+        connector.targetDecorator.style.fill = '#1413F8';
+        diagram.dataBind();
+    });
+};
+
+// Function to Highlight the incoming connectors.
+function highlightIncomingConnections() {
+if (diagram.selectedItems.nodes.length) {
+    var node = diagram.selectedItems.nodes[0].inEdges;
+    highlightConnectors(node);
+    }
+}
+
+// Function to Highlight the outgoing connectors.
+function highlightOutgoingConnections() {
+if (diagram.selectedItems.nodes.length) {
+    var node = diagram.selectedItems.nodes[0].outEdges;
+    highlightConnectors(node);
+}
+}
+
+//To highlight nodes
+function highlightNodes(edges, edgeType) {
+    edges.forEach(edge => {
+        let nodeId = diagram.nameTable[edge][edgeType];
+        highLightedObjects.push(nodeId);
+        let index = diagram.nodes.indexOf(diagram.nameTable[nodeId]);
+        diagram.nodes[index].style.strokeColor = '#1413F8';
+        diagram.dataBind();
+    });
+};
+
+//Function to Highlight the incoming Nodes.
+function highlightIncomingNodes() {
+if (diagram.selectedItems.nodes.length) {
+    var node = diagram.selectedItems.nodes[0].inEdges;
+    highlightNodes(node, 'sourceID');
+
+  }
+}
+
+//Function to Highlight the outgoing Nodes.
+function highlightOutgoingNodes(){
+if (diagram.selectedItems.nodes.length) {
+    var node = diagram.selectedItems.nodes[0].outEdges;
+    highlightNodes(node, 'targetID');
+ }
+}
+
+//Function to display the flow of execution.
+function highlightReachableNodes() {
+if (diagram.selectedItems.nodes.length) {
+    var connectors_1 = diagram.selectedItems.nodes[0].outEdges;
+    var nodeList = foundNode(connectors_1, []);
+    highlightConnectors(nodeList);
+}
+}
+
+//Function to find the connected nodes.
+function foundNode(list, nodeList) {
+for (var i = 0; i < list.length; i++) {
+    var connector = diagram.nameTable[list[i]];
+    if (nodeList.indexOf(connector.id) > -1) {
+        break;
+    }
+    if (!connector.annotations[0] || (connector.annotations[0] && connector.annotations[0].content !== 'No')) {
+        nodeList.push(connector.id);
+    }
+    if (diagram.nameTable[connector.targetID].outEdges.length) {
+        if (list.indexOf(connector.targetID) === -1) {
+            foundNode(diagram.nameTable[connector.targetID].outEdges, nodeList);
+        }
+    }
+}
+ return nodeList;
+}
+
+//Function To unhighlight highlighted objects.
+function Unhighlight() {
+for (var i = highLightedObjects.length - 1; i >= 0; i--) {
+    if (diagram.nameTable[highLightedObjects[i]] instanceof Node) {
+        var index = diagram.nodes.indexOf(diagram.nameTable[highLightedObjects[i]]);
+        diagram.nodes[index].style.strokeColor = '#E8DFB6';
+        diagram.dataBind();
+    }
+    else {
+        var index = diagram.connectors.indexOf(diagram.nameTable[highLightedObjects[i]]);
+        var connector = diagram.connectors[index];
+        connector.style.strokeColor = '#8D8D8D';
+        connector.targetDecorator.style.strokeColor = '#8D8D8D';
+        connector.targetDecorator.style.fill = '#8D8D8D';
+        diagram.dataBind();
+    }
+}
+highLightedObjects = [];
+}
 
 
 </script>

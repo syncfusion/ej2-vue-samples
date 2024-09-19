@@ -32,7 +32,7 @@
               <td style="width: 70%; padding-left: 10px">
                 <ejs-dropdownlist
                   id="element"
-                  width="109px"
+                  width="113px"
                   :dataSource="typedata"
                   value="Shimmer"
                   :fields="typefields"
@@ -56,9 +56,9 @@
             <li><code>Shimmer</code></li>
             <li><code>Spinner</code></li>
         </ul>
-        Use the loading indicator by setting the <code>loadingIndicator.indicatorType</code> property as Spinner or Shimmer. The default value of the indicatorType is Spinner.
+        Use the loading indicator by setting the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/loadingIndicatorModel/#indicatortype">loadingIndicator.indicatorType</a> property as Spinner or Shimmer. The default value of the indicatorType is Spinner.
       </p>
-      <p>By default <code>enableVirtualMaskRow</code> is set to true which renders Shimmer during virtual scrolling.</p>
+      <p>By default <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#enablevirtualmaskrow">enableVirtualMaskRow</a> is set to true which renders Shimmer during virtual scrolling.</p>
     </div>
   </div>
 </template>

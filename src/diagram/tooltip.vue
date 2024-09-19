@@ -15,7 +15,7 @@
                     </td>
                     <td>
                         <div>
-                            <ejs-dropdownlist id='mode' :index='selectedIndex' :dataSource='modeValue' :fields='fields' :popupWidth='popupWidth' :width='dropdownWidth' :placeholder='relativeWaterMark' :change='relativeModeChange'>
+                            <ejs-dropdownlist id='mode' :index='selectedIndex' :dataSource='modeValue' :fields='fields' :popupWidth='popupWidth' :width='dropdownWidth' :change='relativeModeChange'>
                             </ejs-dropdownlist>
                         </div>
                     </td>
@@ -28,18 +28,8 @@
                     </td>
                     <td>
                         <div>
-                            <ejs-dropdownlist id='position' :index='selectedIndex' :dataSource='positionValue' :fields='fields' :popupWidth='popupWidth' :width='dropdownWidth' :placeholder='positionWaterMark' :change='positionChange'>
+                            <ejs-dropdownlist id='position' :index='selectedIndex' :dataSource='positionValue' :fields='fields' :popupWidth='popupWidth' :width='dropdownWidth' :change='positionChange'>
                             </ejs-dropdownlist>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <div id="textContentDiv" class="row" style="display: none">
-                            <div>
-                                <ejs-textbox id="textContent" floatLabelType="Auto" placeholder="Enter text content" :change="textChange"></ejs-textbox>
-                            </div>
                         </div>
                     </td>
                 </tr>
@@ -63,7 +53,7 @@
                     </td>
                     <td>
                         <div>
-                            <ejs-dropdownlist id='effect' :index='selectedIndex' :dataSource='effectValue' :fields='fields' :popupWidth='popupWidth' :width='dropdownWidth' :placeholder='effectWaterMark' :change='effectChange'>
+                            <ejs-dropdownlist id='effect' :index='selectedIndex' :dataSource='effectValue' :fields='fields' :popupWidth='popupWidth' :width='dropdownWidth' :change='effectChange'>
                             </ejs-dropdownlist>
                         </div>
                     </td>
@@ -122,22 +112,23 @@ import {
     DiagramComponent,
     Diagram,
     DiagramConstraints,
+    SnapConstraints,
     BpmnDiagrams,
     NodeConstraints
 } from "@syncfusion/ej2-vue-diagrams";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
-import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 Diagram.Inject(BpmnDiagrams);
 
 let diagramInstance;
-// FontType Collection
+//Collection of relative modes for tooltip
 let modeValue = [
     { type: 'Object', text: 'Object' },
     { type: 'Mouse', text: 'Mouse' },
 ];
 
+//Initialize Diagram Nodes
 let nodes = [
     {
         id: 'node1', width: 60, height: 60, offsetX: 35, offsetY: 120,
@@ -218,6 +209,7 @@ let nodes = [
     },
 ];
 
+//Initialize Diagram connectors
 let connectors = [
     { id: 'connector1', sourceID: 'node1', targetID: 'node2' },
     { id: 'connector2', sourceID: 'node2', targetID: 'node3' },
@@ -246,7 +238,7 @@ let connectors = [
     { id: 'connector13', sourceID: 'node9', targetID: 'node14' },
 ];
 
-// FontType Collection
+//Collection of positions for tooltip
 let positionValue = [
     { type: 'TopLeft', text: 'Top Left' },
     { type: 'TopCenter', text: 'Top Center' },
@@ -262,7 +254,7 @@ let positionValue = [
     { type: 'RightBottom', text: 'Right Bottom' },
 ];
 
-//FontType Collection
+//Collection of effects for tooltip
 let effectValue = [
     { type: 'FadeIn', text: 'Fade In' },
     { type: 'FadeOut', text: 'Fade Out' },
@@ -281,20 +273,11 @@ let effectValue = [
     { type: 'None', text: 'None' },
 ];
 
-let contentValue = [
-    { type: 'HTML Element', text: 'HTML Element' },
-    { type: 'Text', text: 'Text' },
-];
-let temp = '<div style="background-color: #f4f4f4; color: black; border-width:1px;' +
-    'border-style: solid;border-color: #d3d3d3; border-radius: 8px;white-space: nowrap;">' +
-    ' <span style="margin: 10px;">';
-
 export default {
     components: {
        'ejs-diagram': DiagramComponent,
        'ejs-dropdownlist': DropDownListComponent,
        'ejs-numerictextbox': NumericTextBoxComponent,
-       'ejs-textbox': TextBoxComponent,
        'ejs-checkbox': CheckBoxComponent
     },
     data: function() {
@@ -304,38 +287,32 @@ export default {
             height: 700,
             nodes: nodes,
             connectors: connectors,
-            snapSettings: { constraints: 0 },
+            snapSettings: { constraints: SnapConstraints.None },
             constraints: DiagramConstraints.Default,
             tooltip: {
                 content: getcontent(), position: 'TopLeft', relativeMode: 'Object',
                 animation: { open: { effect: 'FadeZoomIn', delay: 0 }, close: { effect: 'FadeZoomOut', delay: 0 } }
             },
 
-            // initialize dropdown control
+            //Initialize dropdown control
             fields: { value: 'type', text: 'text' },
             popupWidth: '150',
             dropdownWidth: '75%',
             textboxWidth:'75%',
 
-            // watermark for drodown control
-            relativeWaterMark: 'select a mode',
-            positionWaterMark: 'select a position',
-            contentWaterMark: 'select a content',
-            effectWaterMark: 'select a effect type',
-
-            // datasource for dropdown control
+            //Datasource for dropdown control
             modeValue: modeValue,
             positionValue: positionValue,
-            contentValue: contentValue,
             effectValue: effectValue,
 
-            //numerictextbox initialization
-            duration: '1000',
-            min: '1000',
-            max: '6000',
-            step: '100',
-
+            //Numerictextbox initialization
+            duration: 100,
+            min: 100,
+            max: 2000,
+            step: 100,
             selectedIndex: 0,
+
+            //Enable or disable the sticky mode
             isStickyChange: (args) => {
                 if (args.checked) {
                     diagramInstance.tooltipObject.isSticky = true;
@@ -344,28 +321,19 @@ export default {
                 }
                 diagramInstance.dataBind();
             },
-            //change events
+            //Change effect for tooltip
             effectChange: (args) => {
                 diagramInstance.tooltip.animation.open.effect = args.value;
                 diagramInstance.tooltip.animation.close.effect = args.value;
                 diagramInstance.dataBind();
             },
+            //Change animation for tooltip
             animationChange: (args) => {
                 diagramInstance.tooltip.animation.close.duration = args.value;
                 diagramInstance.tooltip.animation.open.duration = args.value;
                 diagramInstance.dataBind();
             },
-            textChange: (args) => {
-                diagramInstance.tooltip.content = args.value.toString();
-                diagramInstance.dataBind();
-            },
-            htmlChange: (args) => {
-                let tooltipContent = document.createElement('div');
-                let Description = args.value.toString();
-                tooltipContent.innerHTML = '<div style="background-color: #f4f4f4; color: black; border-width:1px;border-style: solid;border-color: #d3d3d3; border-radius: 8px;corner-radius:2px;white-space: nowrap;"> <span style="margin: 10px;"> ' + Description + ' </span>';
-                diagramInstance.tooltip.content = tooltipContent;
-                diagramInstance.dataBind();
-            },
+            //Set default value for Nodes.
             getNodeDefaults: (obj) => {
                 obj.offsetX += 0.5;
                 obj.offsetY += 0.5;
@@ -373,6 +341,7 @@ export default {
                 obj.style = { strokeWidth:2 };
                 return obj;
             },
+            //Change relative mode for tooltip
             relativeModeChange: (args) => {
                 if (args.value === 'Mouse') {
                     diagramInstance.tooltip.relativeMode = 'Mouse';
@@ -381,6 +350,7 @@ export default {
                 }
                 diagramInstance.dataBind();
             },
+            //Change position for tooltip
             positionChange: (args) => {
                 let nodes = diagramInstance.nodes;
                 for (let i = 0; i < nodes.length; i++) {
@@ -398,6 +368,7 @@ export default {
         diagramInstance.fitToPage({ mode: 'Width' });
     }
 }
+//set content for diagram tooltip
 function getcontent() {
     let tooltipContent = document.createElement('div');
     tooltipContent.innerHTML = '<div style="background-color: #f4f4f4; color: black; border-width:1px;border-style: solid;border-color: #d3d3d3; border-radius: 8px;white-space: nowrap;"> <span style="margin: 10px;"> Tooltip !!! </span> </div>';

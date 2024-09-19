@@ -116,7 +116,8 @@ export default {
 }
 .fluent2-highcontrast .e-header-cell-label.e-gantt-top-cell-text,
 .fluent-dark .e-header-cell-label.e-gantt-top-cell-text,
-.fluent2-dark .e-header-cell-label.e-gantt-top-cell-text {
+.fluent2-dark .e-header-cell-label.e-gantt-top-cell-text,
+.bootstrap5_3-dark .e-header-cell-label.e-gantt-top-cell-text{
     background-color: #000;
 }
 

@@ -235,7 +235,9 @@ export default {
     body.tailwind-dark #predefined-dashboard .e-panel .panel-content,
     body.highcontrast #predefined-dashboard .e-panel .panel-content,
     body.bootstrap5-dark #predefined-dashboard .e-panel .panel-content,
-    body.fluent-dark #predefined-dashboard .e-panel .panel-content {
+    body.fluent-dark #predefined-dashboard .e-panel .panel-content,
+    body.bootstrap5\.3-dark .e-panel .panel-content,
+    body.fluent2-highcontrast .e-panel .panel-content {
         color: #ffffff;
     }
     

@@ -254,7 +254,7 @@ export default {
      },
      load: function(args) {
         let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Material';
+        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
         args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
         selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
         switch (selectedTheme) {
@@ -298,6 +298,9 @@ export default {
                 break;
             case "fluent2-dark":
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[13], args.progressBar.element.id);
+                break;
+            case "fluent2-highcontrast":
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[12], args.progressBar.element.id);
                 break;
             default:
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[5], args.progressBar.element.id);

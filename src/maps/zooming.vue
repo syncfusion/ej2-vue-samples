@@ -87,7 +87,7 @@
                         </div>
                     </td>
                     <td align="center" class="duration" style="width: 10%; text-align: center; padding-top: 10px;">
-                        <span id="dur" style="margin-left: -55px;">500ms</span>
+                        <span id="dur" style="margin-left: -30px;">500ms</span>
                     </td>
                 </tr>
                 </tbody>
@@ -247,7 +247,7 @@ methods:{
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
     },
     /* custom code end */
     // Code for Property Panel

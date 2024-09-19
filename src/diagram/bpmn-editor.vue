@@ -1,17 +1,30 @@
+<!-- Sample for BPMN Editor -->
+
+<!-- Template for BPMN Editor -->
 <template>
+  <!-- Diagram and Symbol Palette sections -->
   <div class="control-section">
     <div style="width:100%;height:445px">
+
+      <!-- Symbol Palette component -->
       <div id="palette-space" style="width:240px;height:445px; float:left">
-        <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'  :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight' :symbolWidth='symbolWidth' :getNodeDefaults='palettegetNodeDefaults'></ejs-symbolpalette>
+        <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth'
+          :height='paletteheight' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin'
+          :symbolHeight='symbolHeight' :symbolWidth='symbolWidth'
+          :getNodeDefaults='palettegetNodeDefaults'></ejs-symbolpalette>
       </div>
 
+      <!-- Diagram component -->
       <div id="diagram-space" style="width:calc(100% - 242px);height:445px; float:left;border-color: rgba(0, 0, 0, 0.12);border-width: 1px 1px 0px 0px;
-                      border-style: solid;
-                      border-left: none;">
-        <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :mode='mode' :width='width' :height='height' :nodes='nodes' :connectors='connectors'  :dragEnter='dragEnter' :snapSettings='snapSettings' :contextMenuSettings='contextMenuSettings' :contextMenuOpen='contextMenuOpen' :contextMenuClick='contextMenuClick'></ejs-diagram>
+            border-style: solid; border-left: none;">
+        <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :mode='mode' :width='width' :height='height'
+          :nodes='nodes' :connectors='connectors' :dragEnter='dragEnter' :snapSettings='snapSettings'
+          :contextMenuSettings='contextMenuSettings' :contextMenuOpen='contextMenuOpen'
+          :contextMenuClick='contextMenuClick'></ejs-diagram>
       </div>
-
     </div>
+
+    <!-- Descriptions for the Action and the Diagram -->
     <div id="action-description">
       <p>
         This sample visualizes the hotel booking reservation system with built-in BPMN shapes.
@@ -19,21 +32,28 @@
     </div>
     <div id="description">
       <p>
-        This sample shows how to create a hotel booking reservation system using the diagram control. The nodes property can be used to define different stages of the process. To define the flow between different stages, the connectors property is used. </p>
+        This sample shows how to create a hotel booking reservation system using the diagram control. The nodes property
+        can be used to define different stages of the process. To define the flow between different stages, the
+        connectors property is used. </p>
 
       <p>
-        This sample shows how to create a hotel booking reservation system using the diagram control. The nodes property can be used to define different stages of the process. To define the flow between different stages, the connectors property is used.
+        This sample shows how to create a hotel booking reservation system using the diagram control. The nodes property
+        can be used to define different stages of the process. To define the flow between different stages, the
+        connectors property is used.
       </p>
       <p style="font-weight: 500">Injecting Module</p>
       <p>
-        The diagram component’s features are segregated into individual feature-wise modules. To enable undo and redo features, inject UndoRedo module using
-        <code>Diagram.Inject(UndoRedo)</code> method. To draw BPMN shapes, inject the BpmnDiagrams module. To customize BPMN shapes using context menu, inject DiagramContextMenu module using
+        The diagram component’s features are segregated into individual feature-wise modules. To enable undo and redo
+        features, inject UndoRedo module using
+        <code>Diagram.Inject(UndoRedo)</code> method. To draw BPMN shapes, inject the BpmnDiagrams module. To customize
+        BPMN shapes using context menu, inject DiagramContextMenu module using
         <code>(BpmnDiagrams, UndoRedo, DiagramContextMenu)</code>.
       </p>
       <br>
     </div>
   </div>
 </template>
+
 <style scoped>
 /* These styles are used for property panel icons*/
 @font-face {
@@ -43,10 +63,8 @@
   font-style: normal;
 }
 
-
 .e-bpmn-icons {
   font-family: 'e-bpmn-icons' !important;
-  speak: none;
   font-size: 55px;
   font-style: normal;
   font-weight: normal;
@@ -401,340 +419,132 @@
   padding-bottom: 15px;
 }
 </style>
+
 <script>
-import { Browser } from "@syncfusion/ej2-base";
+
+// Import necessary components and modules
 import {
-  Diagram,
   DiagramComponent,
-  NodeModel,
   UndoRedo,
   SymbolPaletteComponent,
   NodeConstraints,
-  BpmnGatewayModel,
-  BpmnShapeModel,
-  ContextMenuSettingsModel,
-  DiagramBeforeMenuOpenEventArgs,
   SnapConstraints,
-  BpmnShape,
   BpmnDiagrams,
   DiagramContextMenu,
-  BpmnEvents,
   DataBinding,
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagram;
+
+// Function to initialize a node
+function createNode(id, width, height, offsetX, offsetY,
+  shape, annotations = [], margin = {}, style = {}, constraints = NodeConstraints.Default) {
+  return {
+    id: id,
+    width: width,
+    height: height,
+    offsetX: offsetX,
+    offsetY: offsetY,
+    shape: shape,
+    annotations,
+    margin: margin,
+    style: style,
+    constraints: constraints
+  }
+};
+
+//Initializes the nodes for the diagram.
 let nodes = [
-  {
-    id: "start",
-    width: 40,
-    height: 40,
-    offsetX: 35,
-    offsetY: 180,
-    shape: {
-      type: "Bpmn",
-      shape: "Event",
-      event: { event: "Start" }
-    }
-  },
-  {
-    id: "subProcess",
-    width: 520,
-    height: 250,
-    offsetX: 355,
-    offsetY: 180,
-    constraints: NodeConstraints.Default | NodeConstraints.AllowDrop,
-    shape: {
-      shape: "Activity",
-      type: "Bpmn",
-      activity: {
-        activity: "SubProcess",
+  createNode('start', 40, 40, 35, 180, { type: 'Bpmn', shape: 'Event', event: { event: 'Start' } }),
+  createNode('subProcess', 520, 250, 355, 180,
+    {
+      shape: 'Activity', type: 'Bpmn', activity: {
+        activity: 'SubProcess',
         subProcess: {
-          type: "Transaction",
-          collapsed: false,
-          processes: [
-            "processesStart",
-            "service",
-            "compensation",
-            "processesTask",
-            "error",
-            "processesEnd",
-            "user",
-            "subProcessesEnd"
-          ]
+          type: 'Transaction', collapsed: false, processes: ['processesStart', 'service', 'compensation',
+            'error', 'processesTask', 'processesEnd', 'user', 'subProcessesEnd']
         }
       }
-    } 
+    }, [], {}, {}, NodeConstraints.Default | NodeConstraints.AllowDrop
+  ),
+  createNode('hazardEnd', 40, 40, 305, 370, { type: 'Bpmn', shape: 'Event', event: { event: 'End' } }, [
+    { id: 'label2', content: 'Hazard', verticalAlignment: 'Top', style: { fill: 'white', color: 'black' }, margin: { top: 20 } }
+  ]),
+  createNode('cancelledEnd', 40, 40, 545, 370, { type: 'Bpmn', shape: 'Event', event: { event: 'End' } }, [
+    { id: 'cancelledEndLabel2', content: 'Cancelled', verticalAlignment: 'Top', style: { fill: 'white', color: 'black' }, margin: { top: 20 } }
+  ]),
+  createNode('end', 40, 40, 665, 180, { type: 'Bpmn', shape: 'Event', event: { event: 'End' } }),
+  createNode('processesStart', 30, 30, 0, 0, { type: 'Bpmn', shape: 'Event', event: { event: 'Start' } }, [], { left: 40, top: 80 }),
+  createNode('service', 95, 70, 0, 0, {
+    type: 'Bpmn', shape: 'Activity', activity: { activity: 'Task', task: { type: 'Service', loop: 'ParallelMultiInstance' } }
   },
-  {
-    id: "hazardEnd",
-    width: 40,
-    height: 40,
-    offsetX: 305,
-    offsetY: 370,
-    shape: {
-      type: "Bpmn",
-      shape: "Event",
-      event: { event: "End" }
-    } ,
-    annotations: [
-      {
-        id: "label2",
-        content: "Hazard",
-        style: { fill: "white", color: "black" },
-        verticalAlignment: "Top",
-        margin: { top: 20 }
-      }
-    ]
+    [{ id: 'serviceLabel2', content: 'Book hotel', style: { color: 'white' }, offset: { x: 0.5, y: 0.6 } }],
+    { left: 110, top: 20 }, { fill: '#6FAAB0' }
+  ),
+  createNode('compensation', 30, 30, 0, 0, { type: 'Bpmn', shape: 'Event', event: { event: 'Intermediate', trigger: 'Compensation' } }, [], { left: 170, top: 100 }),
+  createNode('processesTask', 95, 70, 0, 0, {
+    type: 'Bpmn', shape: 'Activity', activity: { activity: 'Task', task: { type: 'Service' } }
   },
-  {
-    id: "cancelledEnd",
-    width: 40,
-    height: 40,
-    offsetX: 545,
-    offsetY: 370,
-    shape: {
-      type: "Bpmn",
-      shape: "Event",
-      event: { event: "End" }
-    },
-    annotations: [
-      {
-        id: "cancelledEndLabel2",
-        content: "Cancelled",
-        style: { fill: "white", color: "black" },
-        verticalAlignment: "Top",
-        margin: { top: 20 }
-      }
-    ]
+    [{ id: 'serviceLabel2', content: 'Charge credit card', style: { color: 'white' }, offset: { x: 0.5, y: 0.7 } }],
+    { left: 290, top: 20 }, { fill: '#F6B53F' }
+  ),
+  createNode('error', 30, 30, 0, 0, { type: 'Bpmn', shape: 'Event', event: { event: 'Intermediate', trigger: 'Error' } }, [], { left: 350, top: 100 }),
+  createNode('processesEnd', 30, 30, 0, 0, { type: 'Bpmn', shape: 'Event', event: { event: 'End' } }, [], { left: 440, top: 80 }),
+  createNode('user', 90, 80, 0, 0, {
+    type: 'Bpmn', shape: 'Activity', activity: { activity: 'Task', task: { type: 'User', compensation: true } }
   },
-  {
-    id: "end",
-    width: 40,
-    height: 40,
-    offsetX: 665,
-    offsetY: 180,
-    shape: {
-      type: "Bpmn",
-      shape: "Event",
-      event: { event: "End" }
-    }
-  },
-  {
-    id: "processesStart",
-    width: 30,
-    height: 30,
-    shape: {
-      type: "Bpmn",
-      shape: "Event",
-      event: { event: "Start" }
-    },
-    margin: { left: 40, top: 80 }
-  },
-  {
-    id: "service",
-    style: { fill: "#6FAAB0" },
-    width: 95,
-    height: 70,
-    shape: {
-      type: "Bpmn",
-      shape: "Activity",
-      activity: {
-        activity: "Task",
-        task: {
-          type: "Service",
-          loop: "ParallelMultiInstance"
-        } 
-      }
-    },
-    annotations: [
-      {
-        id: "serviceLabel2",
-        content: "Book hotel",
-        offset: { x: 0.5, y: 0.5 },
-        style: { color: "white" }
-      }
-    ],
-    margin: { left: 110, top: 20 }
-  },
-  {
-    id: "compensation",
-    width: 30,
-    height: 30,
-    shape: {
-      type: "Bpmn",
-      shape: "Event",
-      event: { event: "Intermediate", trigger: "Compensation" }
-    },
-    margin: { left: 170, top: 100 }
-  },
-  {
-    id: "processesTask",
-    style: { fill: "#F6B53F" },
-    width: 95,
-    height: 70,
-    shape: {
-      type: "Bpmn",
-      shape: "Activity",
-      activity: {
-        activity: "Task",
-        task: {
-          type: "Service"
-        }
-      }
-    },
-    annotations: [
-      {
-        id: "serviceLabel2",
-        content: "Charge credit card",
-        offset: { x: 0.5, y: 0.6 },
-        style: { color: "white" }
-      }
-    ],
-    margin: { left: 290, top: 20 }
-  },
-  {
-    id: "error",
-    width: 30,
-    height: 30,
-    shape: {
-      type: "Bpmn",
-      shape: "Event",
-      event: {
-        event: "Intermediate",
-        trigger: "Error"
-      }
-    },
-    margin: { left: 350, top: 100 }
-  },
-  {
-    id: "processesEnd",
-    width: 30,
-    height: 30,
-    shape: {
-      type: "Bpmn",
-      shape: "Event",
-      event: { event: "End" }
-    },
-    margin: { left: 440, top: 80 }
-  },
-  {
-    id: "user",
-    style: { fill: "#E94649" },
-    width: 90,
-    height: 80,
-    shape: {
-      type: "Bpmn",
-      shape: "Activity",
-      activity: {
-        activity: "Task",
-        task: {
-          type: "User",
-          Compensation: true,
-          offset: { x: 0.5, y: 1 }
-        }
-      }
-    },
-    annotations: [
-      {
-        id: "serviceLabel2",
-        content: "Cancel hotel reservation",
-        offset: { x: 0.5, y: 0.6 },
-        style: { color: "white" }
-      }
-    ],
-    margin: { left: 240, top: 160 }
-  },
-  {
-    id: "subProcessesEnd",
-    width: 30,
-    height: 30,
-    shape: {
-      type: "Bpmn",
-      shape: "Event",
-      event: { event: "End" }
-    },
-    margin: { left: 440, top: 210 }
-  }
+    [{ id: 'serviceLabel2', content: 'Cancel hotel reservation', style: { color: 'white' }, offset: { x: 0.5, y: 0.6 } }],
+    { left: 30, top: 160 }, { fill: '#E94649' }
+  ),
+  createNode('subProcessesEnd', 30, 30, 0, 0, { type: 'Bpmn', shape: 'Event', event: { event: 'End' } }, [], { left: 440, top: 210 }),
 ];
+
+
+// Function to create a connector
+function createConnector(id, sourceID, targetID, sourcePortID = " ", targetPortID = "", type = "Orthogonal",
+  segments = [], annotations = [], shape = {}, style = {}) {
+  return {
+    id: id,
+    sourceID: sourceID,
+    targetID: targetID,
+    sourcePortID: sourcePortID,
+    targetPortID: targetPortID,
+    type: type,
+    segments: segments,
+    annotations: annotations,
+    shape: shape,
+    style: style
+  }
+};
+
+//Initializes the connectors for the diagram.
 let connectors = [
-  { id: "connector1", sourceID: "start", targetID: "subProcess" },
-  {
-    id: "connector2",
-    sourceID: "subProcess",
-    sourcePortID: "success",
-    targetID: "end"
-  },
-  {
-    id: "connector3",
-    sourceID: "subProcess",
-    sourcePortID: "failure",
-    targetID: "hazardEnd",
-    type: "Orthogonal",
-    segments: [{ type: "Orthogonal", length: 50, direction: "Bottom" }],
-    annotations: [
-      {
-        id: "connector3Label2",
-        content: "Booking system failure",
-        offset: 0.5,
-        style: { fill: "white" }
-      }
-    ]
-  },
-  {
-    id: "connector4",
-    sourceID: "subProcess",
-    sourcePortID: "cancel",
-    targetID: "cancelledEnd",
-    type: "Orthogonal",
-    segments: [{ type: "Orthogonal", length: 50, direction: "Bottom" }]
-  },
-  {
-    id: "connector5",
-    sourceID: "processesStart",
-    targetID: "service",
-    type: "Orthogonal"
-  },
-  { id: "connector6", sourceID: "service", targetID: "processesTask" },
-  {
-    id: "connector7",
-    sourceID: "processesTask",
-    targetID: "processesEnd",
-    type: "Orthogonal"
-  },
-  {
-    id: "connector8",
-    sourceID: "compensation",
-    targetID: "user",
-    type: "Orthogonal",
-    shape: {
-      type: "Bpmn",
-      flow: "association",
-      association: "Directional"
-    },
-    style: {
-      strokeDashArray: "2,2"
-    },
-    segments: [
-      { type: "Orthogonal", length: 30, direction: "Bottom" },
-      { type: "Orthogonal", length: 80, direction: "Right" }
-    ]
-  },
-  {
-    id: "connector9",
-    sourceID: "error",
-    targetID: "subProcessesEnd",
-    type: "Orthogonal",
-    annotations: [
-      {
-        id: "connector9Label2",
-        content: "Cannot charge card",
-        offset: 0.5,
-        style: { fill: "white", color: "black" }
-      }
-    ],
-    segments: [{ type: "Orthogonal", length: 50, direction: "Bottom" }]
-  }
+  createConnector('connector1', 'start', 'subProcess'),
+  createConnector('connector2', 'subProcess', 'end', 'success'),
+  createConnector('connector3', 'subProcess', 'hazardEnd', 'failure', "", 'Orthogonal',
+    [{ type: 'Orthogonal', length: 50, direction: 'Bottom' }],
+    [{ id: 'connector3Label2', content: 'Booking system failure', offset: 0.50, style: { fill: 'white' } }]
+  ),
+  createConnector('connector4', 'subProcess', 'cancelledEnd', 'cancel', "", 'Orthogonal',
+    [{ type: 'Orthogonal', length: 50, direction: 'Bottom' }]
+  ),
+  createConnector('connector5', 'processesStart', 'service', "", "", 'Orthogonal'),
+  createConnector('connector6', 'service', 'processesTask'),
+  createConnector('connector7', 'processesTask', 'processesEnd', "", "", 'Orthogonal'),
+  createConnector('connector8', 'compensation', 'user', "", "", 'Orthogonal',
+    [{ type: 'Orthogonal', length: 30, direction: 'Bottom' }, { type: 'Orthogonal', length: 80, direction: 'Left' }],
+    [], { type: 'Bpmn', flow: 'Association', association: 'Directional' }, { strokeDashArray: '2,2' }
+  ),
+  createConnector('connector9', 'error', 'subProcessesEnd', null, null, 'Orthogonal',
+    [{ type: 'Orthogonal', length: 50, direction: 'Bottom' }],
+    [{
+      id: 'connector9Label2', content: 'Cannot charge card', offset: 0.5,
+      style: { fill: 'white', color: 'black' }
+    }]
+  )
 ];
+
+//Initializes the bpmn shapes for the symbol pallete.
 let bpmnShapes = [
   {
     id: "Start",
@@ -870,6 +680,8 @@ let bpmnShapes = [
     }
   }
 ];
+
+//Initializes the context menu for shapes.
 let contextMenu = {
   show: true,
   items: [
@@ -966,12 +778,14 @@ let contextMenu = {
   ],
   showCustomMenuOnly: true
 };
+
+//  Export the default object for Vue component
 export default {
   components: {
     'ejs-diagram': DiagramComponent,
     'ejs-symbolpalette': SymbolPaletteComponent
   },
-  data: function() {
+  data: function () {
     return {
       width: "100%",
       height: "100%",
@@ -981,25 +795,17 @@ export default {
       snapSettings: { constraints: SnapConstraints.None },
       contextMenuSettings: contextMenu,
       // tslint:disable-next-line:max-func-body-length
-
       contextMenuOpen: contextMenuOpen,
       // tslint:disable-next-line:max-func-body-length
       contextMenuClick: contextMenuClick,
+
+      // Function to handle drag enter from palette to diagram
       dragEnter: (args) => {
-        let obj = args.element;
-        if (obj instanceof Node) {
-          if (
-            obj &&
-            obj.shape &&
-            (obj.shape).activity &&
-            (obj.shape).activity.subProcess
-          ) {
-            let activity = (obj.shape).activity;
-            if (
-              activity &&
-              activity.subProcess &&
-              !activity.subProcess.collapsed
-            ) {
+        let node = args.element;
+        if (node instanceof Node) {
+          if (node && node.shape && (node.shape).activity && (node.shape).activity.subProcess) {
+            let activity = (node.shape).activity;
+            if (activity && activity.subProcess && !activity.subProcess.collapsed) {
               if (activity.subProcess.transaction) {
                 if (activity.subProcess.transaction.cancel) {
                   activity.subProcess.transaction.cancel.visible = true;
@@ -1012,17 +818,17 @@ export default {
                 }
               }
             } else {
-              if (obj) {
-                let oWidth = (obj.width) || 0;
-                let oHeight = (obj.height) || 0;
+              if (node) {
+                let objectWidth = (node.width) || 0;
+                let objectHeight = (node.height) || 0;
 
-                obj.width = 100;
-                obj.offsetX = obj.offsetX || 0;
-                obj.offsetY = obj.offsetY || 0;
-                obj.height = obj.height || 0;
-                obj.height *= (100 / (obj.width) || 1);
-                obj.offsetX += (obj.width - oWidth) / 2;
-                obj.offsetY += (obj.height - oHeight) / 2;
+                node.width = 100;
+                node.offsetX = node.offsetX || 0;
+                node.offsetY = node.offsetY || 0;
+                node.height = node.height || 0;
+                node.height *= (100 / (node.width) || 1);
+                node.offsetX += (node.width - objectWidth) / 2;
+                node.offsetY += (node.height - objectHeight) / 2;
               }
             }
           }
@@ -1048,7 +854,7 @@ export default {
       palettewidth: "400",
       paletteheight: "550px",
       palettegetNodeDefaults: (symbol) => {
-        symbol.style = {strokeColor: "#757575"}
+        symbol.style = { strokeColor: "#757575" }
       },
       symbolHeight: 60,
       symbolWidth: 60,
@@ -1063,89 +869,38 @@ export default {
     SymbolPalette: [BpmnDiagrams, DataBinding],
 
 
-  }, mounted: function() {
+  }, mounted: function () {
     diagram = this.$refs.diagramObject.ej2Instances;
     diagram.fitToPage();
   }
 }
-
-function getConnectors(){
+//Functon to Initializes the Connector shapes for the symbol pallete.
+function getConnectors() {
   let connectorSymbols = [
     {
-      id: "Link1",
-      type: "Orthogonal",
-      sourcePoint: { x: 0, y: 0 },
-      targetPoint: { x: 40, y: 40 },
-      targetDecorator: { shape: "Arrow", style: {strokeColor: "#757575", fill: "#757575"} },
-      style: { strokeWidth: 2, strokeColor: "#757575" }
+      id: "Link1", type: "Orthogonal", sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 40, y: 40 },
+      targetDecorator: { shape: "Arrow", style: { strokeColor: "#757575", fill: "#757575" } }, style: { strokeWidth: 2, strokeColor: "#757575" }
     },
     {
-      id: "Link2",
-      type: "Orthogonal",
-      sourcePoint: { x: 0, y: 0 },
-      targetPoint: { x: 40, y: 40 },
-      targetDecorator: { shape: "Arrow", style: {strokeColor: "#757575", fill: "#757575"} },
-      style: { strokeWidth: 2, strokeDashArray: "4 4", strokeColor: "#757575" }
+      id: "Link2", type: "Orthogonal", sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 40, y: 40 },
+      targetDecorator: { shape: "Arrow", style: { strokeColor: "#757575", fill: "#757575" } }, style: { strokeWidth: 2, strokeDashArray: "4 4", strokeColor: "#757575" }
     },
     {
-      id: "Link3",
-      type: "Straight",
-      sourcePoint: { x: 0, y: 0 },
-      targetPoint: { x: 40, y: 40 },
-      targetDecorator: { shape: "Arrow", style: {strokeColor: "#757575", fill: "#757575"} },
-      style: { strokeWidth: 2, strokeColor: "#757575" }
+      id: "Link3", type: "Straight", sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 40, y: 40 },
+      targetDecorator: { shape: "Arrow", style: { strokeColor: "#757575", fill: "#757575" } }, style: { strokeWidth: 2, strokeColor: "#757575" }
     },
     {
-      id: "link4",
-      sourcePoint: { x: 0, y: 0 },
-      targetPoint: { x: 40, y: 40 },
-      type: "Orthogonal",
-      targetDecorator: { style: {strokeColor: "#757575", fill: "#757575"} },
-      shape: {
-        type: "Bpmn",
-        flow: "Association",
-        association: "Directional"
-      },
-      style: {
-        strokeDashArray: "2,2", strokeColor: "#757575", fill: "#757575"
-      }
+      id: "link4", type: "Orthogonal", sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 40, y: 40 },
+      targetDecorator: { style: { strokeColor: "#757575", fill: "#757575" } },
+      shape: { type: "Bpmn", flow: "Association", association: "Directional" }, style: { strokeDashArray: "2,2", strokeColor: "#757575", fill: "#757575" }
     }
-    //  {
-    //     id: 'link5', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 40, y: 40 }, type: 'Orthogonal',
-    //     shape: {
-    //         type: 'Bpmn',
-    //         flow: 'Message',
-    //         association: 'Directional'
-    //     }, style: {
-    //         strokeDashArray: '2,2'
-    //     },
-    // }, {
-    //     id: 'link6', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 40, y: 40 }, type: 'Orthogonal',
-    //     shape: {
-    //         type: 'Bpmn',
-    //         flow: 'Sequence',
-    //         association: 'Directional'
-    //     }, style: {
-    //         strokeDashArray: '2,2'
-    //     },
-    // }, {
-    //     id: 'link10', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 40, y: 40 }, type: 'Orthogonal',
-    //     shape: {
-    //         type: 'Bpmn',
-    //         flow: 'Sequence',
-    //         association: 'Directional',
-    //         sequence: 'Conditional'
-    //     }, style: {
-    //         strokeDashArray: '2,2'
-    //     },
-    // }
   ];
   return connectorSymbols;
 }
+
+//function context menu click
 function contextMenuClick(args) {
-  let diagram = this.$refs.diagramObject.ej2Instances;
   if (diagram && diagram.selectedItems && diagram.selectedItems.nodes && diagram.selectedItems.nodes.length > 0) {
-    let node = diagram.selectedItems.nodes[0];
     let bpmnShape = diagram.selectedItems.nodes[0].shape;
     if (args.item.iconCss.indexOf('e-adhocs') > -1 && bpmnShape.activity && bpmnShape.activity.subProcess) {
       bpmnShape.activity.subProcess.adhoc = args.item.id === 'AdhocNone' ? false : true;
@@ -1156,11 +911,11 @@ function contextMenuClick(args) {
 
     if (args.item.iconCss.indexOf('e-trigger') > -1) {
 
-      let trigger= args.item.id;
+      let trigger = args.item.id;
       trigger = (args.item.id === 'TriggerNone') ? 'None' :
         (args.item.id === 'triggerCompensation') ? 'Compensation' : args.item.id;
       if (bpmnShape.event) {
-        bpmnShape.event.trigger = (args.item.text );
+        bpmnShape.event.trigger = (args.item.text);
       }
     }
     if (bpmnShape.activity) {
@@ -1176,7 +931,7 @@ function contextMenuClick(args) {
 
       }
       if (args.item.iconCss.indexOf('e-compensation') > -1) {
-        let compensation= (args.item.id === 'CompensationNone') ? false : true;
+        let compensation = (args.item.id === 'CompensationNone') ? false : true;
         if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
           bpmnShape.activity.task.compensation = compensation;
         }
@@ -1223,12 +978,12 @@ function contextMenuClick(args) {
       bpmnShape.dataObject.type = call;
     }
     if (args.item.iconCss.indexOf('e-collection') > -1 && bpmnShape.dataObject) {
-      let call= (args.item.id === 'Collectioncollection') ? true : false;
+      let call = (args.item.id === 'Collectioncollection') ? true : false;
       bpmnShape.dataObject.collection = call;
     }
 
     if (args.item.iconCss.indexOf('e-gate') > -1 && bpmnShape.gateway) {
-      let task= args.item.id;
+      let task = args.item.id;
       if (task === 'GateWayNone') { task = 'None'; }
       if (task === 'GatewayParallel') { task = 'Parallel'; }
       if (bpmnShape.shape === 'Gateway') {
@@ -1238,35 +993,17 @@ function contextMenuClick(args) {
     diagram.dataBind();
   }
 }
+
+// Define a function to handle opening the context menu
 function contextMenuOpen(args) {
   let hiddenId = [];
   if (args.element.className !== "e-menu-parent e-ul ") {
-    hiddenId = [
-      "Adhoc",
-      "Loop",
-      "taskCompensation",
-      "Activity-Type",
-      "Boundry",
-      "DataObject",
-      "collection",
-      "DeftCall",
-      "TriggerResult",
-      "EventType",
-      "TaskType",
-      "GateWay"
+    hiddenId = ["Adhoc", "Loop", "taskCompensation", "Activity-Type", "Boundry", "DataObject",
+      "collection", "DeftCall", "TriggerResult", "EventType", "TaskType", "GateWay"
     ];
   }
-  
-  let diagram= this.$refs.diagramObject.ej2Instances;
   for (let item of args.items) {
-    if (
-      item &&
-      item.id &&
-      diagram &&
-      diagram.selectedItems &&
-      diagram.selectedItems.nodes &&
-      diagram.selectedItems.nodes
-    ) {
+    if (item && item.id && diagram && diagram.selectedItems && diagram.selectedItems.nodes && diagram.selectedItems.nodes) {
       let node = diagram.selectedItems.nodes[0].shape;
       if (node.shape !== "DataObject" && node.shape !== "Gateway") {
         if (item.text === "Ad-Hoc") {
@@ -1274,18 +1011,9 @@ function contextMenuOpen(args) {
             hiddenId.splice(hiddenId.indexOf(item.id), 1);
           }
         }
-        if (
-          item.text === "Loop" ||
-          item.text === "Compensation" ||
-          item.text === "Activity-Type"
-        ) {
-          if (
-            (diagram.selectedItems.nodes[0].shape).shape ===
-            "DataObject" ||
-            node.shape === "Activity" ||
-            (diagram.selectedItems.nodes[0].shape).shape ===
-            "Gateway"
-          ) {
+        if (item.text === "Loop" || item.text === "Compensation" || item.text === "Activity-Type") {
+          if ((diagram.selectedItems.nodes[0].shape).shape === "DataObject" ||
+            node.shape === "Activity" || (diagram.selectedItems.nodes[0].shape).shape === "Gateway") {
             hiddenId.splice(hiddenId.indexOf(item.id), 1);
           }
         }
@@ -1306,10 +1034,7 @@ function contextMenuOpen(args) {
         }
       }
       if (item.text === "Call") {
-        if (
-          node.shape === "Activity" &&
-          node.activity.activity === "Task"
-        ) {
+        if ( node.shape === "Activity" && node.activity.activity === "Task" ) {
           hiddenId.splice(hiddenId.indexOf(item.id), 1);
         }
       }
@@ -1324,10 +1049,7 @@ function contextMenuOpen(args) {
         }
       }
       if (item.text === "Task Type") {
-        if (
-          node.shape === "Activity" &&
-          node.activity.activity === "Task"
-        ) {
+        if ( node.shape === "Activity" && node.activity.activity === "Task" ) {
           hiddenId.splice(hiddenId.indexOf(item.id), 1);
         }
       }
@@ -1336,41 +1058,20 @@ function contextMenuOpen(args) {
           hiddenId.splice(hiddenId.indexOf(item.id), 1);
         }
       }
-      if (
-        diagram.selectedItems.nodes.length > 0 &&
-        args.parentItem &&
-        args.parentItem.id === "TriggerResult" &&
-        node.shape === "Event"
-      ) {
+      if ( diagram.selectedItems.nodes.length > 0 && args.parentItem &&
+        args.parentItem.id === "TriggerResult" && node.shape === "Event" ) {
         let shape = node;
-
-        if (
-          item.text !== "None" &&
-          (item.text === shape.event.event ||
-            item.text === shape.event.trigger)
-        ) {
+        if ( item.text !== "None" && (item.text === shape.event.event || item.text === shape.event.trigger) ) {
           hiddenId.push(item.id);
         }
         if (shape.event.event === "Start") {
-          if (
-            item.text === "Cancel" ||
-            item.text === "Terminate" ||
-            item.text === "Link"
-          ) {
+          if ( item.text === "Cancel" || item.text === "Terminate" || item.text === "Link" ) {
             hiddenId.push(item.id);
           }
         }
-        if (
-          shape.event.event === "NonInterruptingStart" ||
-          item.text === "Link"
-        ) {
-          if (
-            item.text === "Cancel" ||
-            item.text === "Terminate" ||
-            item.text === "Compensation" ||
-            item.text === "Error" ||
-            item.text === "None"
-          ) {
+        if ( shape.event.event === "NonInterruptingStart" || item.text === "Link" ) {
+          if ( item.text === "Cancel" || item.text === "Terminate" ||
+            item.text === "Compensation" || item.text === "Error" || item.text === "None" ) {
             hiddenId.push(item.id);
           }
         }
@@ -1380,47 +1081,25 @@ function contextMenuOpen(args) {
           }
         }
         if (shape.event.event === "NonInterruptingIntermediate") {
-          if (
-            item.text === "Cancel" ||
-            item.text === "Terminate" ||
-            item.text === "Compensation" ||
-            item.text === "Error" ||
-            item.text === "None" ||
-            item.text === "Link"
-          ) {
+          if ( item.text === "Cancel" || item.text === "Terminate" || item.text === "Compensation" ||
+            item.text === "Error" || item.text === "None" || item.text === "Link" ) {
             hiddenId.push(item.id);
           }
         }
         if (shape.event.event === "ThrowingIntermediate") {
-          if (
-            item.text === "Cancel" ||
-            item.text === "Terminate" ||
-            item.text === "Timer" ||
-            item.text === "Error" ||
-            item.text === "None" ||
-            item.text === "Pareller" ||
-            item.text === "Conditional"
-          ) {
+          if ( item.text === "Cancel" || item.text === "Terminate" || item.text === "Timer" ||
+            item.text === "Error" || item.text === "None" || item.text === "Pareller" || item.text === "Conditional" ) {
             hiddenId.push(item.id);
           }
         }
         if (shape.event.event === "End") {
-          if (
-            item.text === "Parallel" ||
-            item.text === "Timer" ||
-            item.text === "Conditional" ||
-            item.text === "Link"
-          ) {
+          if ( item.text === "Parallel" || item.text === "Timer" || item.text === "Conditional" || item.text === "Link" ) {
             hiddenId.push(item.id);
           }
         }
       }
-      if (
-        diagram.selectedItems.nodes.length > 0 &&
-        args.parentItem &&
-        args.parentItem.id === "EventType" &&
-        node.shape === "Event"
-      ) {
+      if ( diagram.selectedItems.nodes.length > 0 && args.parentItem &&
+        args.parentItem.id === "EventType" && node.shape === "Event" ) {
         if (item.text === node.event.event) {
           hiddenId.push(item.id);
         }

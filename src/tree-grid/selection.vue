@@ -19,24 +19,26 @@
                     <td style="width: 70%">
                         <div>Selection Type</div>
                     </td>
-                    <td style="width: 70%;padding-left: 0px; padding-right:10px;padding-top:5px">
-                        <ejs-dropdownlist ref='type' width='92px' id='type' :dataSource='typedata' value='Multiple' :fields='ddlfields' :change="ontypeChange"></ejs-dropdownlist>                 
+                    <td style="width: 70%;padding-left: 10px; padding-right:10px;padding-top:5px">
+                        <div id="selectiondd1">
+                            <ejs-dropdownlist ref='type' width='120px' id='type' :dataSource='typedata' value='Multiple' :fields='ddlfields' :change="ontypeChange"></ejs-dropdownlist>
+                        </div>                     
                     </td>
                 </tr>
                 <tr style="height: 50px">
                     <td style="width: 80%">
                         <div>Selection Mode</div>
                     </td>
-                    <td style="width: 80%; padding-left: 10px; padding-right:10px;padding-top:5px">
-                        <ejs-dropdownlist ref='mode' width='92px' id='mode' :dataSource='modedata' value='Row' :fields='ddlfields' :change="onmodeChange"></ejs-dropdownlist>
+                    <td style="width: 80%; padding-left: 20px; padding-right:10px;padding-top:5px">
+                        <ejs-dropdownlist ref='mode' width='120px' id='mode' :dataSource='modedata' value='Row' :fields='ddlfields' :change="onmodeChange"></ejs-dropdownlist>
                     </td>
                 </tr>
                 <tr class='con-prop' style="height: 50px;display: none">
                     <td style="width: 80%">
                         <div> Cell Selection Mode</div>
                     </td>
-                    <td style="width: 80%; padding-left: 10px; padding-right:10px;padding-top:5px">
-                        <ejs-dropdownlist ref='cellmode' width='92px' id='cellmode' :dataSource='celldata' value='Flow' :fields='ddlfields' :change="oncellChange"></ejs-dropdownlist>
+                    <td style="width: 80%; padding-left: 20px; padding-right:10px;padding-top:5px">
+                        <ejs-dropdownlist ref='cellmode' width='120px' id='cellmode' :dataSource='celldata' value='Flow' :fields='ddlfields' :change="oncellChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>

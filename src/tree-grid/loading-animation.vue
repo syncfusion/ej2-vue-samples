@@ -25,7 +25,7 @@
             </td>
             <td>
             <div style="margin-left: -10px; width: 100%">
-              <ejs-dropdownlist ref='dropdown' width="110px" id='dropdown' :dataSource='indicatortypes' index=0 :fields='fields' :change="indicatorChange"></ejs-dropdownlist>
+              <ejs-dropdownlist ref='dropdown' id='dropdown' :dataSource='indicatortypes' index=0 :fields='fields' :change="indicatorChange"></ejs-dropdownlist>
              </div>                                 
             </td>
         </tr>

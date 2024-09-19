@@ -1,0 +1,53 @@
+{
+    "name": "AI AssistView",
+    "directory": "ai-assistview",
+    "category": "Interactive Chat",
+    "ftName": "ai-assistview",
+    "type": "preview",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "AI AssistView",
+            "api":{ "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings"] },
+            "description": "Showcases the default combinations of the AiAssistView control.",
+            "sourceFiles": [
+                { "displayName": "default.vue", "path":"src/ai-assistview/default.vue" },
+                { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "custom-views",
+            "name": "Custom Views",
+            "category": "AI AssistView",
+            "api":{ "AIAssitView": ["views", "promptRequest"] },
+            "description": "Showcases the different views of the AiAssistView control",
+            "sourceFiles": [
+                { "displayName": "custom-views.vue", "path":"src/ai-assistview/custom-views.vue" },
+                { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "template",
+            "name": "Template",
+            "category": "AI AssistView",
+            "api":{ "AIAssitView": ["bannerTemplate", "promptItemTemplate", "responseItemTemplate", "promptSuggestionItemTemplate", "promptSuggestions", "promptSuggestionsHeader", "promptRequest"] },
+            "description": "Showcases the template properties of the AiAssistView control.",
+            "sourceFiles": [
+                { "displayName": "template.vue", "path":"src/ai-assistview/template.vue" },
+                { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "dialog",
+            "name": "Dialog",
+            "category": "Integration",
+            "api":{ "AIAssitView": ["promptSuggestions", "prompts", "promptRequest", "toolbarSettings", "bannerTemplate", "responseToolbarSettings", "cssClass"] },
+            "description": "Showcases the AiAssistView control with other component integration",
+            "sourceFiles": [
+                { "displayName": "dialog.vue", "path":"src/ai-assistview/dialog.vue" },
+                { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
+            ]
+        }
+    ]
+}

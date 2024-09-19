@@ -99,10 +99,9 @@
         height: 32px !important;
     }
 
-    .e-view.fluent2 #tree_selection #property.property-panel-table div.property-checkbox, .e-view.fluent2-dark #tree_selection #property.property-panel-table div.property-checkbox {
+    .e-view.fluent2 #tree_selection #property.property-panel-table div.property-checkbox, .e-view.fluent2-dark #tree_selection #property.property-panel-table div.property-checkbox, .e-view.fluent2-higtcontrast #tree_selection #property.property-panel-table div.property-checkbox {
             padding-left: 0px;
     }
-    
 </style>
 <script>
 import { TreeMapComponent,TreeMapHighlight, TreeMapSelection} from "@syncfusion/ej2-vue-treemap";
@@ -166,7 +165,7 @@ methods:{
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
         args.treemap.theme = (theme.charAt(0).toUpperCase() +
-            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
     },
     /* custom code end */
     // Code for Property Panel

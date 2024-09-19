@@ -2,15 +2,16 @@
     <div class="control-section">
         <div class='control-wrapper sorting-multicolumn'>
             <div style='padding-top:60px;'>
-                <ejs-multicolumncombobox type="text" id='sorting' :dataSource="dataSource" :fields="fields" placeholder="Select an order ID" popupHeight="230px" :allowSorting="allowSorting" :sortOrder="sortOrder" sortType="MultiColumn">
+                <ejs-multicolumncombobox type="text" id='sorting' :dataSource="dataSource" :fields="fields" placeholder="Select a name" popupHeight="230px" :allowSorting="allowSorting" :sortOrder="sortOrder" sortType="MultiColumn">
                     <e-columns>
-                        <e-column field='OrderID' header='Order ID' width="110"/>
-                        <e-column field='CustomerID' header='Customer ID' width="130"/>
-                        <e-column field='Freight' header='Freight' width="90"/>
-                        <e-column field='ShipCountry' header='Ship Country' width="140"/>
+                        <e-column field='Name' header='Name' width="100"/>
+                        <e-column field='YearOfJoining' header='Year Of Joining' width="100"/>                        
+                        <e-column field='Status' header='Status' width="60"/>
+                        <e-column field='Location' header='Location' width="90"/>
+                        <e-column field='Experience' header='Experience in Year' width="120"/>                        
                     </e-columns>
                 </ejs-multicolumncombobox>
-                
+
             </div>
         </div>
     </div>
@@ -24,10 +25,11 @@
     </div>
 </template>
 
+<!-- custom code start -->
 <style>
     .control-wrapper.sorting-multicolumn {
         margin: 0 auto;
-        width: 500px;
+        width: 600px;
     }
 
     @media screen and (max-width: 480px) {
@@ -36,6 +38,7 @@
         }
     }
 </style>
+<!-- custom code end -->
 
 <script>
 import { MultiColumnComboBoxComponent, ColumnsDirective, ColumnDirective, SortOrder } from "@syncfusion/ej2-vue-multicolumn-combobox";
@@ -49,8 +52,8 @@ export default {
     },
     data: function() {
         return {
-            dataSource: data['orderDetails'],
-            fields: { text: 'OrderID', value: 'CustomerID' },
+            dataSource: data['workDetails'],
+            fields: { text: 'Name', value: 'YearOfJoining' },
             allowSorting: true,
             sortOrder: SortOrder.Ascending,
         }

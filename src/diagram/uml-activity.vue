@@ -1,118 +1,136 @@
+<!-- Sample for UML Activity -->
+
+<!-- Template for UML Activity -->
 <template>
-<div class="control-section">
-  <div id="umlActivityDiagram" style="width: 100%; height: 521px">
-    <div class="sb-mobile-palette-bar">
-      <div id="palette-icon" role="button"  class="e-ddb-icons1 e-toggle-palette"></div>
-    </div>
-    <div id="palette-space" class="sb-mobile-palette">
-      <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight' :getNodeDefaults='palettegetNodeDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight'
-      :symbolWidth='symbolWidth'></ejs-symbolpalette>
+  <div class="control-section">
+    <!-- Container for UML Activity Diagram -->
+    <div id="umlActivityDiagram" style="width: 100%; height: 521px">
+
+      <!-- Palette Bar for mobile view -->
+      <div class="sb-mobile-palette-bar">
+        <div id="palette-icon" ref="palette_icon" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
+      </div>
+
+      <!-- Symbol Palette Component -->
+      <div id="palette-space" ref="palette_space" class="sb-mobile-palette">
+        <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth'
+          :height='paletteheight' :getNodeDefaults='palettegetNodeDefaults' :getSymbolInfo='getSymbolInfo'
+          :symbolMargin='symbolMargin' :symbolHeight='symbolHeight' :symbolWidth='symbolWidth'></ejs-symbolpalette>
+      </div>
+
+      <!-- Diagram Component -->
+      <div id="diagram-space" ref="diagram_space" class="sb-mobile-diagram">
+        <ejs-diagram style='display:block' id="diagram" ref="diagramObject" :width='width' :height='height' :nodes='nodes'
+          :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
+          :snapSettings='snapSettings' :created='created'></ejs-diagram>
+      </div>
     </div>
 
-    <div id="diagram-space" class="sb-mobile-diagram">
-      <ejs-diagram style='display:block' id="diagram" ref="diagramObj" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' 
-                    :snapSettings='snapSettings' :created='created'></ejs-diagram>
-    </div>
-  </div>
-  <div id="action-description">
+    <!-- Descriptions for the Action and the Diagram -->
+    <div id="action-description">
       <p>
-          This sample represents the message flow from one activity to another in customer service using built-in UML activity shapes.
+        This sample represents the message flow from one activity to another in customer service using built-in UML
+        activity shapes.
       </p>
-  </div>
-  <div id="description">
+    </div>
+    <div id="description">
       <p>
-         This example shows how to create activity shapes using diagram <code>UmlActivity</code> shapes. The <code>type</code> property of the <code>shape</code> can be used to create <code>UmlActivity</code> nodes. The <code>shape</code> property of the shape allows you to create UML
+        This example shows how to create activity shapes using diagram <code>UmlActivity</code> shapes. The
+        <code>type</code> property of the <code>shape</code> can be used to create <code>UmlActivity</code> nodes. The
+        <code>shape</code> property of the shape allows you to create UML
         activity shapes.
       </p>
       <br>
+    </div>
   </div>
-</div>
 </template>
+
+<!-- Scoped CSS for the template -->
 <style scoped>
 /**To align palette */
-    #umlActivityDiagram .sb-mobile-palette {
-        width: 210px;
-        height: 100%;
-        float: left;
-    }
+#umlActivityDiagram .sb-mobile-palette {
+  width: 210px;
+  height: 100%;
+  float: left;
+}
 
-    #umlActivityDiagram .sb-mobile-palette-bar {
-        display: none;
-    }
+#umlActivityDiagram .sb-mobile-palette-bar {
+  display: none;
+}
 
-    #umlActivityDiagram .sb-mobile-diagram {
-        width: calc(100% - 212px);
-        height: 100%;
-        float: left;
-        border: 1px solid rgba(0, 0, 0, 0.12);
-        border-left: none;
-    }
+#umlActivityDiagram .sb-mobile-diagram {
+  width: calc(100% - 212px);
+  height: 100%;
+  float: left;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-left: none;
+}
 
-    @media (max-width: 550px) {
+@media (max-width: 550px) {
 
-        #umlActivityDiagram .sb-mobile-palette {
-            z-index: 19;
-            position: absolute;
-            display: none;
-            transition: transform 300ms linear, visibility 0s linear 300ms;
-            width: 39%;
-            height: 100%;
-        }
+  #umlActivityDiagram .sb-mobile-palette {
+    z-index: 19;
+    position: absolute;
+    display: none;
+    transition: transform 300ms linear, visibility 0s linear 300ms;
+    width: 39%;
+    height: 100%;
+  }
 
-        #umlActivityDiagram .sb-mobile-palette-bar {
-            display: block;
-            width: 100%;
-            background: #fafafa;
-            padding: 10px 10px;
-            border: 0.5px solid #e0e0e0;
-            min-height: 40px;
-        }
+  #umlActivityDiagram .sb-mobile-palette-bar {
+    display: block;
+    width: 100%;
+    background: #fafafa;
+    padding: 10px 10px;
+    border: 0.5px solid #e0e0e0;
+    min-height: 40px;
+  }
 
-       #umlActivityDiagram .sb-mobile-diagram {
-            width: 100%;
-            height: 100%;
-            float: left;
-            left: 0px;
-        }
+  #umlActivityDiagram .sb-mobile-diagram {
+    width: 100%;
+    height: 100%;
+    float: left;
+    left: 0px;
+  }
 
-        #palette-icon {
-            font-size: 20px;
-        }
-    }
+  #palette-icon {
+    font-size: 20px;
+  }
+}
 
-    #umlActivityDiagram .sb-mobile-palette-open {
-        position: absolute;
-        display: block;
-        right: 15px;
-    }
+#umlActivityDiagram .sb-mobile-palette-open {
+  position: absolute;
+  display: block;
+  right: 15px;
+}
 
-    @font-face {
-        font-family: 'e-ddb-icons1';
-        src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMj1tSfIAAAEoAAAAVmNtYXDnEOdVAAABiAAAADZnbHlmdC1P4gAAAcgAAAAwaGVhZBJhohMAAADQAAAANmhoZWEIVQQDAAAArAAAACRobXR4CAAAAAAAAYAAAAAIbG9jYQAYAAAAAAHAAAAABm1heHABDgAUAAABCAAAACBuYW1lm+wy9gAAAfgAAAK1cG9zdLnsYngAAASwAAAAMAABAAAEAAAAAFwEAAAAAAAD+AABAAAAAAAAAAAAAAAAAAAAAgABAAAAAQAAgNcenF8PPPUACwQAAAAAANelrs4AAAAA16WuzgAAAAAD+AN6AAAACAACAAAAAAAAAAEAAAACAAgAAgAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQQAAZAABQAAAokCzAAAAI8CiQLMAAAB6wAyAQgAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA5wDnAAQAAAAAXAQAAAAAAAABAAAAAAAABAAAAAQAAAAAAAACAAAAAwAAABQAAwABAAAAFAAEACIAAAAEAAQAAQAA5wD//wAA5wD//wAAAAEABAAAAAEAAAAAAAAAGAAAAAIAAAAAA/gDegACAAcAACUhCQEhATUhAQQC9P6G/YoBMQFF/YqGAjf+hgH0QwAAAAAAEgDeAAEAAAAAAAAAAQAAAAEAAAAAAAEAEwABAAEAAAAAAAIABwAUAAEAAAAAAAMAEwAbAAEAAAAAAAQAEwAuAAEAAAAAAAUACwBBAAEAAAAAAAYAEwBMAAEAAAAAAAoALABfAAEAAAAAAAsAEgCLAAMAAQQJAAAAAgCdAAMAAQQJAAEAJgCfAAMAAQQJAAIADgDFAAMAAQQJAAMAJgDTAAMAAQQJAAQAJgD5AAMAAQQJAAUAFgEfAAMAAQQJAAYAJgE1AAMAAQQJAAoAWAFbAAMAAQQJAAsAJAGzIERpYWdyYW1fU2hhcGVzX0ZPTlRSZWd1bGFyRGlhZ3JhbV9TaGFwZXNfRk9OVERpYWdyYW1fU2hhcGVzX0ZPTlRWZXJzaW9uIDEuMERpYWdyYW1fU2hhcGVzX0ZPTlRGb250IGdlbmVyYXRlZCB1c2luZyBTeW5jZnVzaW9uIE1ldHJvIFN0dWRpb3d3dy5zeW5jZnVzaW9uLmNvbQAgAEQAaQBhAGcAcgBhAG0AXwBTAGgAYQBwAGUAcwBfAEYATwBOAFQAUgBlAGcAdQBsAGEAcgBEAGkAYQBnAHIAYQBtAF8AUwBoAGEAcABlAHMAXwBGAE8ATgBUAEQAaQBhAGcAcgBhAG0AXwBTAGgAYQBwAGUAcwBfAEYATwBOAFQAVgBlAHIAcwBpAG8AbgAgADEALgAwAEQAaQBhAGcAcgBhAG0AXwBTAGgAYQBwAGUAcwBfAEYATwBOAFQARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAdQBzAGkAbgBnACAAUwB5AG4AYwBmAHUAcwBpAG8AbgAgAE0AZQB0AHIAbwAgAFMAdAB1AGQAaQBvAHcAdwB3AC4AcwB5AG4AYwBmAHUAcwBpAG8AbgAuAGMAbwBtAAAAAAIAAAAAAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgECAQMABlNoYXBlcwAA) format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
+@font-face {
+  font-family: 'e-ddb-icons1';
+  src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMj1tSfIAAAEoAAAAVmNtYXDnEOdVAAABiAAAADZnbHlmdC1P4gAAAcgAAAAwaGVhZBJhohMAAADQAAAANmhoZWEIVQQDAAAArAAAACRobXR4CAAAAAAAAYAAAAAIbG9jYQAYAAAAAAHAAAAABm1heHABDgAUAAABCAAAACBuYW1lm+wy9gAAAfgAAAK1cG9zdLnsYngAAASwAAAAMAABAAAEAAAAAFwEAAAAAAAD+AABAAAAAAAAAAAAAAAAAAAAAgABAAAAAQAAgNcenF8PPPUACwQAAAAAANelrs4AAAAA16WuzgAAAAAD+AN6AAAACAACAAAAAAAAAAEAAAACAAgAAgAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQQAAZAABQAAAokCzAAAAI8CiQLMAAAB6wAyAQgAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA5wDnAAQAAAAAXAQAAAAAAAABAAAAAAAABAAAAAQAAAAAAAACAAAAAwAAABQAAwABAAAAFAAEACIAAAAEAAQAAQAA5wD//wAA5wD//wAAAAEABAAAAAEAAAAAAAAAGAAAAAIAAAAAA/gDegACAAcAACUhCQEhATUhAQQC9P6G/YoBMQFF/YqGAjf+hgH0QwAAAAAAEgDeAAEAAAAAAAAAAQAAAAEAAAAAAAEAEwABAAEAAAAAAAIABwAUAAEAAAAAAAMAEwAbAAEAAAAAAAQAEwAuAAEAAAAAAAUACwBBAAEAAAAAAAYAEwBMAAEAAAAAAAoALABfAAEAAAAAAAsAEgCLAAMAAQQJAAAAAgCdAAMAAQQJAAEAJgCfAAMAAQQJAAIADgDFAAMAAQQJAAMAJgDTAAMAAQQJAAQAJgD5AAMAAQQJAAUAFgEfAAMAAQQJAAYAJgE1AAMAAQQJAAoAWAFbAAMAAQQJAAsAJAGzIERpYWdyYW1fU2hhcGVzX0ZPTlRSZWd1bGFyRGlhZ3JhbV9TaGFwZXNfRk9OVERpYWdyYW1fU2hhcGVzX0ZPTlRWZXJzaW9uIDEuMERpYWdyYW1fU2hhcGVzX0ZPTlRGb250IGdlbmVyYXRlZCB1c2luZyBTeW5jZnVzaW9uIE1ldHJvIFN0dWRpb3d3dy5zeW5jZnVzaW9uLmNvbQAgAEQAaQBhAGcAcgBhAG0AXwBTAGgAYQBwAGUAcwBfAEYATwBOAFQAUgBlAGcAdQBsAGEAcgBEAGkAYQBnAHIAYQBtAF8AUwBoAGEAcABlAHMAXwBGAE8ATgBUAEQAaQBhAGcAcgBhAG0AXwBTAGgAYQBwAGUAcwBfAEYATwBOAFQAVgBlAHIAcwBpAG8AbgAgADEALgAwAEQAaQBhAGcAcgBhAG0AXwBTAGgAYQBwAGUAcwBfAEYATwBOAFQARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAdQBzAGkAbgBnACAAUwB5AG4AYwBmAHUAcwBpAG8AbgAgAE0AZQB0AHIAbwAgAFMAdAB1AGQAaQBvAHcAdwB3AC4AcwB5AG4AYwBmAHUAcwBpAG8AbgAuAGMAbwBtAAAAAAIAAAAAAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgECAQMABlNoYXBlcwAA) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-    .e-ddb-icons1 {
-        font-family: 'e-ddb-icons1';
-        speak: none;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: normal;
-        font-variant: normal;
-        text-transform: none;
-        line-height: 1;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
+.e-ddb-icons1 {
+  font-family: 'e-ddb-icons1';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-    .e-toggle-palette::before {
-        content: "\e700"
-    }
-
+.e-toggle-palette::before {
+  content: "\e700"
+}
 </style>
+
 <script>
-import { Browser } from "@syncfusion/ej2-base";
+
+//Importing needed dependencies for diagram
 import {
   Diagram,
   PortVisibility,
@@ -124,150 +142,118 @@ import {
 let diagram;
 let palette;
 let isMobile;
+let paletteSpaceInstance;
+let paletteIconInstance;
+let diagramInstance;
+let diagramSpaceInstance;
 
-//Initializes the nodes for the diagram
+
+
+// Function to create a node with default settings
+function getDefaultNode(id, height, width, offsetX, offsetY, type, shapeType, annotations = []) {
+  return {
+    id: id,
+    height: height,
+    width: width,
+    offsetX: offsetX,
+    offsetY: offsetY,
+    shape: { type: type, shape: shapeType },
+    annotations
+  }
+};
+
+//Initializes the nodes for the diagram.
 let nodes = [
-  {
-     id: 'Start', height: 40, width: 40, offsetX: 300, offsetY: 20,
-        shape: { type: 'UmlActivity', shape: 'InitialNode' }
-  },{
-        id: 'ReceiveCall', height: 40, width: 105, offsetX: 300, offsetY: 100,
-        shape: { type: 'UmlActivity', shape: 'Action' },
-        annotations: [{ content: 'Receive Customer Call' }]
-    }, {
-        id: 'node2', height: 10, width: 70, offsetX: 300, offsetY: 170,
-        shape: { type: 'UmlActivity', shape: 'ForkNode' }
-    }, {
-        id: 'Determine', height: 40, width: 105, offsetX: 190, offsetY: 250,
-        shape: { type: 'UmlActivity', shape: 'Action' },
-        annotations: [{ content: 'Determine Type of Call' }]
-    }, {
-        id: 'Log', height: 40, width: 105, offsetX: 410, offsetY: 250,
-        shape: { type: 'UmlActivity', shape: 'Action' },
-        annotations: [{ content: 'Customer Logging a Call' }]
-    }, {
-        id: 'node5', height: 50, width: 50, offsetX: 190, offsetY: 350,
-        shape: { type: 'UmlActivity', shape: 'Decision' }
-    }, {
-        id: 'transfer_sales', height: 40, width: 105, offsetX: 100, offsetY: 450,
-        shape: { type: 'UmlActivity', shape: 'Action' },
-        annotations: [{ content: 'Transfer the call to Sales' }]
-    }, {
-        id: 'transfer_desk', height: 40, width: 105, offsetX: 280, offsetY: 450,
-        shape: { type: 'UmlActivity', shape: 'Action' },
-        annotations: [{ content: 'Transfer the call to Help Desk' }]
-    }, {
-        id: 'node8', height: 50, width: 50, offsetX: 190, offsetY: 540,
-        shape: { type: 'UmlActivity', shape: 'MergeNode' }
-    }, {
-        id: 'node9', height: 10, width: 70, offsetX: 300, offsetY: 630,
-        shape: { type: 'UmlActivity', shape: 'JoinNode' }
-    }, {
-        id: 'CloseCall', height: 40, width: 105, offsetX: 300, offsetY: 710,
-        shape: { type: 'UmlActivity', shape: 'Action' },
-        annotations: [{ content: 'Close Call', margin: { left: 25, right: 25 } }]
-    }, {
-        id: 'node11', height: 40, width: 40, offsetX: 300, offsetY: 800,
-        shape: { type: 'UmlActivity', shape: 'FinalNode' }
-    }
+  getDefaultNode("Start", 40, 40, 300, 20, "UmlActivity", "InitialNode", []),
+  getDefaultNode("ReceiveCall", 40, 105, 300, 100, "UmlActivity", "Action", [{ content: "Receive Customer Call" }]),
+  getDefaultNode("ForkNode", 10, 70, 300, 170, "UmlActivity", "ForkNode"),
+  getDefaultNode("Determine", 40, 105, 190, 250, "UmlActivity", "Action", [{ content: "Determine Type of Call" }]),
+  getDefaultNode("Log", 40, 105, 410, 250, "UmlActivity", "Action", [{ content: "Customer Logging a Call" }]),
+  getDefaultNode("Decision", 50, 50, 190, 350, "UmlActivity", "Decision"),
+  getDefaultNode("transfer_sales", 40, 105, 100, 450, "UmlActivity", "Action", [{ content: "Transfer the Call to Sales" }]),
+  getDefaultNode("transfer_desk", 40, 105, 280, 450, "UmlActivity", "Action", [{ content: "Transfer the Call to Help Desk" }]),
+  getDefaultNode("MergeNode", 50, 50, 190, 540, "UmlActivity", "MergeNode"),
+  getDefaultNode("JoinNode", 10, 70, 300, 630, "UmlActivity", "JoinNode"),
+  getDefaultNode("CloseCall", 40, 105, 300, 710, "UmlActivity", "Action", [{ content: "Close Call", margin: { left: 25, right: 25 } }]),
+  getDefaultNode("FinalNode", 40, 40, 300, 800, "UmlActivity", "FinalNode")
 ];
-//Initializes the connector for the diagram
+
+// Function to create a Connector with default settings
+function getDefaultConnector(id, sourceID, targetID, additionalProps = {}) {
+  return {
+    id: id,
+    sourceID: sourceID,
+    targetID: targetID,
+    ...additionalProps
+  }
+};
+
+//Initializes the connector for the diagram.
 let connectors = [
-  { id: "connector1", sourceID: "Start", targetID: "ReceiveCall" },
-  { id: "connector2", sourceID: "ReceiveCall", targetID: "node2" },
-  {
-    id: "connector3",
-    sourceID: "node2",
-    targetID: "Determine",
+  getDefaultConnector("connector1", "Start", "ReceiveCall"),
+  getDefaultConnector("connector2", "ReceiveCall", "ForkNode"),
+  getDefaultConnector("connector3", "ForkNode", "Determine", {
     sourcePortID: "port1",
     targetPortID: "portTop",
     segments: [
       { type: "Orthogonal", length: 20, direction: "Bottom" },
       { type: "Orthogonal", length: 50, direction: "Left" }
     ]
-  },
-  {
-    id: "connector4",
-    sourceID: "node2",
-    targetID: "Log",
+  }),
+  getDefaultConnector("connector4", "ForkNode", "Log", {
     sourcePortID: "port2",
     targetPortID: "portTop",
     segments: [
       { type: "Orthogonal", length: 20, direction: "Bottom" },
       { type: "Orthogonal", length: 50, direction: "Right" }
     ]
-  },
-  { id: "connector5", sourceID: "Determine", targetID: "node5" },
-  {
-    id: "connector6",
-    sourceID: "node5",
-    targetID: "transfer_sales",
+  }),
+  getDefaultConnector("connector5", "Determine", "Decision"),
+  getDefaultConnector("connector6", "Decision", "transfer_sales", {
     sourcePortID: "portLeft",
     targetPortID: "portTop",
-    shape: { type: "UmlActivity", flow: "Object" },
-    annotations: [
-      {
-        id: "connector6Label",
-        content: "type=New Customer",
-        offset: 0.715,
-        style: { fill: "white", color: "black", textWrapping: "NoWrap" }
-      }
-    ]
-  },
-  {
-    id: "connector7",
-    sourceID: "node5",
-    targetID: "transfer_desk",
+    shape: { type: "UmlActivity", flow: "Association" },
+    annotations: [{
+      id: "connector6Label", content: "type=New Customer", offset: 0.715,
+      style: { fill: "white", color: "black", textWrapping: 'NoWrap' }
+    }]
+  }),
+  getDefaultConnector("connector7", "Decision", "transfer_desk", {
     sourcePortID: "portRight",
     targetPortID: "portTop",
-    shape: { type: "UmlActivity", flow: "Object" },
-    annotations: [
-      {
-        id: "connector7Label",
-        content: "type=Existing Customer",
-        offset: 0.75,
-        style: { fill: "white", color: "black", textWrapping: "NoWrap" }
-      }
-    ]
-  },
-  {
-    id: "connector8",
-    sourceID: "transfer_sales",
-    targetID: "node8",
+    shape: { type: "UmlActivity", flow: "Association" },
+    annotations: [{
+      id: "connector7Label", content: "type=Existing Customer", offset: 0.75,
+      style: { fill: "white", color: "black", textWrapping: 'NoWrap' }
+    }]
+  }),
+  getDefaultConnector("connector8", "transfer_sales", "MergeNode", {
     sourcePortID: "portBottom",
     targetPortID: "portLeft",
     segments: [{ type: "Orthogonal", length: 50, direction: "Bottom" }]
-  },
-  {
-    id: "connector9",
-    sourceID: "transfer_desk",
-    targetID: "node8",
+  }),
+  getDefaultConnector("connector9", "transfer_desk", "MergeNode", {
     sourcePortID: "portBottom",
     targetPortID: "portRight",
     segments: [{ type: "Orthogonal", length: 50, direction: "Bottom" }]
-  },
-  {
-    id: "connector10",
-    sourceID: "node8",
-    targetID: "node9",
+  }),
+  getDefaultConnector("connector10", "MergeNode", "JoinNode", {
     sourcePortID: "portBottom",
     targetPortID: "port3"
-  },
-  {
-    id: "connector11",
-    sourceID: "Log",
-    targetID: "node9",
+  }),
+  getDefaultConnector("connector11", "Log", "JoinNode", {
     sourcePortID: "portBottom",
     targetPortID: "port4",
     segments: [
-      { type: "Orthogonal", length: 213, direction: "Bottom" },
+      { type: "Orthogonal", length: 265, direction: "Bottom" },
       { type: "Orthogonal", length: 50, direction: "Left" }
     ]
-  },
-  { id: "connector12", sourceID: "node9", targetID: "CloseCall" },
-  { id: "connector13", sourceID: "CloseCall", targetID: "node11" }
+  }),
+  getDefaultConnector("connector12", "JoinNode", "CloseCall"),
+  getDefaultConnector("connector13", "CloseCall", "FinalNode")
 ];
 
+// Initializes the uml activity symbols to the UML Shapes in the symbol palette
 let umlActivityShapes = [
   { id: "Action", shape: { type: "UmlActivity", shape: "Action" } },
   { id: "Decision", shape: { type: "UmlActivity", shape: "Decision" } },
@@ -277,29 +263,22 @@ let umlActivityShapes = [
   { id: "ForkNode", shape: { type: "UmlActivity", shape: "ForkNode" } },
   { id: "JoinNode", shape: { type: "UmlActivity", shape: "JoinNode" } },
   { id: "TimeEvent", shape: { type: "UmlActivity", shape: "TimeEvent" } },
-  {
-    id: "AcceptingEvent",
-    shape: { type: "UmlActivity", shape: "AcceptingEvent" }
-  },
+  { id: "AcceptingEvent", shape: { type: "UmlActivity", shape: "AcceptingEvent" } },
   { id: "SendSignal", shape: { type: "UmlActivity", shape: "SendSignal" } },
-  {
-    id: "ReceiveSignal",
-    shape: { type: "UmlActivity", shape: "ReceiveSignal" }
-  },
-  {
-    id: "StructuredNode",
-    shape: { type: "UmlActivity", shape: "StructuredNode" }
-  },
+  { id: "ReceiveSignal", shape: { type: "UmlActivity", shape: "ReceiveSignal" } },
+  { id: "StructuredNode", shape: { type: "UmlActivity", shape: "StructuredNode" } },
   { id: "Note", shape: { type: "UmlActivity", shape: "Note" } }
 ];
 
+// Exporting the default object for Vue component
 export default {
   components: {
     'ejs-diagram': DiagramComponent,
     'ejs-symbolpalette': SymbolPaletteComponent
   },
-  data: function() {
+  data: function () {
     return {
+      //Initializes diagram control
       width: "100%",
       height: "100%",
       nodes: nodes,
@@ -311,28 +290,30 @@ export default {
         addEvents();
       },
       //Sets the default values of a node
-      getNodeDefaults: (obj) => {
-        let style = obj.style;
-        obj.ports = getNodePorts(obj);
-        if (obj.ports) {
-          for (var i = 0; i < obj.ports.length; i++) {
-            obj.ports[i].visibility = PortVisibility.Hidden;
+      getNodeDefaults: (node) => {
+        let style = node.style;
+        node.ports = getNodePorts(node);
+        if (node.ports) {
+          for (var i = 0; i < node.ports.length; i++) {
+            node.ports[i].visibility = PortVisibility.Hidden;
           }
         }
-        if (obj.id === 'Start' || obj.id === 'node2' || obj.id === 'node9' || obj.id === 'node11') {
-                style.fill = '#444';
-            }
+        if (node.id === 'Start' || node.id === 'ForkNode' || node.id === 'JoinNode' || node.id === 'FinalNode') {
+          style.fill = '#444';
+        }
         style.strokeColor = '#444';
-        return obj;
+        return node;
       },
       // sets the default values of a Connector.
-      getConnectorDefaults: (obj) => {
-       if (obj && obj.id && obj.id.indexOf('connector') !== -1) {
-          obj.type = 'Orthogonal'; obj.cornerRadius = 10;
-          obj.targetDecorator = { shape: 'OpenArrow', style: { strokeColor: '#444', fill: '#444' } };
-       }
+      getConnectorDefaults: (connector) => {
+        if (connector && connector.id && connector.id.indexOf('connector') !== -1) {
+          connector.type = 'Orthogonal'; connector.cornerRadius = 10;
+          connector.targetDecorator = { shape: 'OpenArrow', style: { strokeColor: '#444', fill: '#444' } };
+        }
       },
       expandMode: "Multiple",
+
+      //Initialize a default shape in symbol palettes
       palettes: [
         {
           id: "umlActivity",
@@ -352,24 +333,19 @@ export default {
       symbolHeight: 60,
       symbolWidth: 60,
       palettegetNodeDefaults: (symbol) => {
-        if (symbol.id === "Terminator" || symbol.id === "Process") {
-          symbol.width = 80;
-          symbol.height = 40;
-        } else if (
-          symbol.id === "Decision" ||
-          symbol.id === "Document" ||
-          symbol.id === "PreDefinedProcess" ||
-          symbol.id === "PaperTap" ||
-          symbol.id === "DirectData" ||
-          symbol.id === "MultiDocument" ||
-          symbol.id === "Data"
-        ) {
-          symbol.width = 50;
-          symbol.height = 40;
+        if (symbol.id === 'JoinNode') {
+          symbol.width = 20; symbol.height = 50;
+        } else if (symbol.id === 'ForkNode') {
+          symbol.width = 50; symbol.height = 20;
+        } else if (symbol.id === 'Decision' || symbol.id === 'MergeNode') {
+          symbol.width = 50; symbol.height = 40;
         } else {
-          symbol.width = 50;
-          symbol.height = 50;
+          symbol.width = 50; symbol.height = 50;
         }
+        if (symbol.id === 'InitialNode' || symbol.id === 'FinalNode' || symbol.id === 'JoinNode' || symbol.id === 'ForkNode') {
+          symbol.style.fill = '#757575';
+        }
+        symbol.style.strokeColor = '#757575';
       },
       symbolMargin: { left: 15, right: 15, top: 15, bottom: 15 },
       getSymbolInfo: (symbol) => {
@@ -377,18 +353,21 @@ export default {
       }
     };
   },
-  mounted: function() {
-    let rect = document.getElementById('diagram-space').getBoundingClientRect();
-    let panX = (rect.width - rect.x)/ 2;
-    let diagram = this.$refs.diagramObj.ej2Instances;
-    diagram.pan(panX, 0);
+  mounted: function () {
+    paletteIconInstance = this.$refs.palette_icon;
+    paletteSpaceInstance = this.$refs.palette_space;
+    diagramSpaceInstance = this.$refs.diagram_space;
+    diagramInstance = this.$refs.diagramObject.ej2Instances;
+    let rect = diagramSpaceInstance.getBoundingClientRect();
+    let panX = (rect.width - rect.x) / 2;
+    diagramInstance.pan(panX, 0);
   }
 }
 
-// create and add ports for node.
-function getNodePorts(obj) {
-  if (obj.id === "node2" || obj.id === "node9") {
-    let node2Ports= [
+// Function to define ports for a node based on its ID
+function getNodePorts(node) {
+  if (node.id === "ForkNode" || node.id === "JoinNode") {
+    let node2Ports = [
       { id: "port1", offset: { x: 0.2, y: 1 } },
       { id: "port2", offset: { x: 0.8, y: 1 } },
       { id: "port3", offset: { x: 0.2, y: 0 } },
@@ -406,24 +385,8 @@ function getNodePorts(obj) {
   }
 }
 
-function setPaletteNodeDefaults(symbol) {
-  let style = symbol.style;
-    if (symbol.id === 'JoinNode') {
-        symbol.width = 20; symbol.height = 50;
-    } else if (symbol.id === 'ForkNode') {
-        symbol.width = 50; symbol.height = 20;
-    } else if (symbol.id === 'Decision' || symbol.id === 'MergeNode') {
-        symbol.width = 50; symbol.height = 40;
-    } else {
-        symbol.width = 50; symbol.height = 50;
-    }
-    if (symbol.id === 'InitialNode' || symbol.id === 'FinalNode' || symbol.id === 'JoinNode' || symbol.id === 'ForkNode') {
-        style.fill = '#757575';
-    }
-    style.strokeColor = '#757575';
-    return symbol;
-}
 
+// Function to generate connector style for the symbol palette
 function getConnectorStyle(dashArrayed) {
   let style = {};
   if (dashArrayed) {
@@ -434,65 +397,54 @@ function getConnectorStyle(dashArrayed) {
   return style;
 }
 
-// initializes connector symbols to the connector palette in the symbol palette
-function getConnectors(){
+// Function to generate connector symbols for the symbol palette
+function getConnectors() {
   let sourcePoint = { x: 0, y: 0 };
   let targetPoint = { x: 40, y: 40 };
   let targetDecorator = {
     shape: "Arrow",
     style: { fill: "#757575", strokeColor: "#757575" }
   };
+
+  // Define connector symbols with different styles and types
   let connectorSymbols = [
     {
-      id: "Link2",
-      sourcePoint: sourcePoint,
-      targetPoint: targetPoint,
-      type: "Orthogonal",
-      style: getConnectorStyle(true),
-      targetDecorator: targetDecorator
+      id: "Link2", sourcePoint: sourcePoint, targetPoint: targetPoint,
+      type: "Orthogonal", style: getConnectorStyle(true), targetDecorator: targetDecorator
     },
     {
-      id: "Link1",
-      sourcePoint: sourcePoint,
-      targetPoint: targetPoint,
-      type: "Orthogonal",
-      style: getConnectorStyle(),
-      targetDecorator: targetDecorator
+      id: "Link1", sourcePoint: sourcePoint, targetPoint: targetPoint,
+      type: "Orthogonal", style: getConnectorStyle(), targetDecorator: targetDecorator
     },
     {
-      id: "Link3",
-      sourcePoint: sourcePoint,
-      targetPoint: targetPoint,
-      type: "Straight",
-      style: getConnectorStyle(),
-      targetDecorator: targetDecorator
+      id: "Link3", sourcePoint: sourcePoint, targetPoint: targetPoint,
+      type: "Straight", style: getConnectorStyle(), targetDecorator: targetDecorator
     }
   ];
   return connectorSymbols;
 }
 
+// Function to add mobile events
 function addEvents() {
   isMobile = window.matchMedia("(max-width:550px)").matches;
+  // Check if device is mobile
   if (isMobile) {
-    let paletteIcon = document.getElementById(
-      "palette-icon"
-    );
-    if (paletteIcon) {
-      paletteIcon.addEventListener("click", openPalette, false);
+    if (paletteIconInstance) {
+      paletteIconInstance.addEventListener("click", openPalette, false);
     }
   }
 }
 
+// Function to open/close palette
 function openPalette() {
-  let paletteSpace = document.getElementById(
-    "palette-space"
-  );
   isMobile = window.matchMedia("(max-width:550px)").matches;
   if (isMobile) {
-    if (!paletteSpace.classList.contains("sb-mobile-palette-open")) {
-      paletteSpace.classList.add("sb-mobile-palette-open");
+    if (!paletteSpaceInstance.classList.contains("sb-mobile-palette-open")) {
+      // Open palette
+      paletteSpaceInstance.classList.add("sb-mobile-palette-open");
     } else {
-      paletteSpace.classList.remove("sb-mobile-palette-open");
+      // Close palette
+      paletteSpaceInstance.classList.remove("sb-mobile-palette-open");
     }
   }
 }

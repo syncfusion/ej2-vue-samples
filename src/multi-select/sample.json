@@ -2,7 +2,6 @@
     "name": "MultiSelect Dropdown",
     "directory": "multi-select",
     "category": "Dropdowns",
-    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -37,7 +36,6 @@
             "url": "disabled-items",
             "name": "Disabled Items",
             "category": "MultiSelect Dropdown",
-            "type": "new",
             "description": "This example demonstrates the disabled items of Vue multiselect component.",
             "sourceFiles":[
                 { "displayName": "disabled-items.vue", "path":"src/multi-select/disabled-items.vue" },

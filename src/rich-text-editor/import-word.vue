@@ -3,37 +3,33 @@
         <div class="control-section">
             <div class="sample-container">
                 <div class="default-section">
-                    <ejs-richtexteditor ref="rteObj" :value="value" :enableXhtml="enableXhtml" :actionComplete="actionCompleteHandler" :beforeQuickToolbarOpen="quickToolbarOpenHandler" :quickToolbarClose="quickToolbarClosehandler"
+                    <ejs-richtexteditor :value="value" :enableXhtml="enableXhtml" :importWord="importWord"
                         :insertImageSettings="insertImageSettings" :toolbarSettings="toolbarSettings">
                     </ejs-richtexteditor>
-                    <ejs-uploader ref="uploadObj" id='rteCustomWordUpload' name="UploadFiles" :asyncSettings="path"
-                        :success="onUploadSuccess"></ejs-uploader>
                 </div>
             </div>
         </div>
         <div id="action-description">
-            <p>This example illustrates how to efficiently import the Word document into the Rich Text Editor.</p>
+              <p>This example illustrates how to use the import/export feature of the Rich Text Editor to convert the editor
+                    content into a PDF or Word document.</p>
         </div>
         <div id="description">
-            <p>In this demo, the Word document can be imported as Rich Text Editor content by clicking the import to
-                Word icon, browsing for the document, and uploading it to the server, where it is converted to HTML and
-                then sent to the Rich Text Editor as its value.</p>
+             <p>This sample demonstrates the <code>Import/Export</code> feature of the Rich Text Editor, which allows users to
+                    import the Word document into the editor. The word document can be imported as Rich Text Editor content by clicking the
+                    import to Word icon, browsing for the document, and uploading it to the server, where it is converted to HTML
+                    and then sent to the Rich Text Editor as its value.</p>
+             <p><b>Injecting Module</b></p>
+            <p>The above features built as modules have to be included in your application. For example, to use image
+            and link, we need to inject  <code>HtmlEditor, Toolbar, Link, Image, QuickToolbar, Table, PasteCleanup, ImportExport</code> into the <code>provide</code> section.</p>
         </div>
     </div>
 </template>
-<style>
-.e-upload:has(#rteCustomWordUpload) {
-    display: none;
-}
-</style>
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, QuickToolbar, Table, Video, Audio, PasteCleanup } from "@syncfusion/ej2-vue-richtexteditor";
-import { UploaderComponent } from "@syncfusion/ej2-vue-inputs";
-import { isNullOrUndefined } from "@syncfusion/ej2-base";
+import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, QuickToolbar, Table, PasteCleanup, ImportExport } from "@syncfusion/ej2-vue-richtexteditor";
+
 export default {
     components: {
-        'ejs-richtexteditor': RichTextEditorComponent,
-        'ejs-uploader': UploaderComponent
+        'ejs-richtexteditor': RichTextEditorComponent
     },
     data: function () {
         return {
@@ -45,55 +41,23 @@ export default {
                 removeUrl: this.hostUrl + 'api/RichTextEditor/DeleteFile',
                 path: this.hostUrl + 'RichTextEditor/'
             },
-            path: {
-                saveUrl: this.hostUrl + 'api/RichTextEditor/ImportFromWord',
+            importWord: {
+                serviceUrl: this.hostUrl + 'api/RichTextEditor/ImportFromWord',
             },
             toolbarSettings: {
                 items: [
-                    'Undo',
-                    'Redo',
-                    '|',
-                    {
-                        tooltipText: "Import from Word",
-                        template: `<button class="e-tbar-btn e-control e-btn e-lib e-icon-btn" tabindex="-1" id="custom_tbarbtn_1" style="width:100%">
-                         <span class="e-rte-import-doc e-btn-icon e-icons"></span></button>`,
-                        click: this.importContentFromWord.bind(this),
-                    },
-                    '|',
-                    'Bold', 'Italic', 'Underline', 'StrikeThrough', '|',
-                    'FontName', 'FontSize', 'FontColor', 'BackgroundColor', '|',
-                    'Formats', 'Alignments', 'blockquote', '|', 'NumberFormatList', 'BulletFormatList', '|', 'CreateLink', 'Image', 'CreateTable', '|', 'ClearFormat', 'SourceCode'
+                    'Undo', 'Redo', '|', 'ImportWord', '|',
+                'Bold', 'Italic', 'Underline', 'StrikeThrough', '|',
+                'FontName', 'FontSize', 'FontColor', 'BackgroundColor', '|',
+                'Formats', 'Alignments', 'Blockquote', '|', 'NumberFormatList', 'BulletFormatList',
+                '|', 'CreateLink', 'Image', 'CreateTable', '|', 'ClearFormat', 'SourceCode'
                 ]
             },
         };
     },
-    methods: {
-        importContentFromWord(e) {
-            this.$refs.uploadObj.ej2Instances.element.click();
-        },
-        onUploadSuccess(args) {
-            this.$refs.rteObj.ej2Instances.executeCommand('insertHTML', args.e.currentTarget.response, { undo: true });
-        },
-        actionCompleteHandler: function (e) {
-            if (e.requestType === 'SourceCode') {
-            this.$refs.rteObj.ej2Instances.getToolbar().querySelector('#custom_tbarbtn_1').parentElement.classList.add('e-overlay');
-        } else if (e.requestType === 'Preview') {
-            this.$refs.rteObj.ej2Instances.getToolbar().querySelector('#custom_tbarbtn_1').parentElement.classList.remove('e-overlay');
-        }
-        },
-        quickToolbarOpenHandler: function (e) {
-            if (!isNullOrUndefined(e.targetElement) && e.targetElement.nodeName === 'IMG') {
-            this.$refs.rteObj.ej2Instances.getToolbar().querySelector('#custom_tbarbtn_1').parentElement.classList.add('e-overlay');
-        }
-        },
-        quickToolbarClosehandler: function (e) {
-           if (!isNullOrUndefined(e.element) && e.element.classList.contains('e-rte-image-popup')) {
-            this.$refs.rteObj.ej2Instances.getToolbar().querySelector('#custom_tbarbtn_1').parentElement.classList.remove('e-overlay');
-        } 
-        },
-    },
+   
     provide: {
-        richtexteditor: [Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio]
-    },
+        richtexteditor: [Toolbar, Image, Link, HtmlEditor, QuickToolbar, Table, PasteCleanup, ImportExport]
+    }
 };
 </script>

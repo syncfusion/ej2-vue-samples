@@ -4,11 +4,11 @@
             <div style='padding-top:55px;'>
                 <ejs-multicolumncombobox type="text" id='virtual' :dataSource="dataSource" :enableVirtualization="enableVirtualization" :fields="fields" placeholder="Select an engineer" popupHeight="230px" :gridSettings="gridSettings">
                     <e-columns>
-                        <e-column field='TaskID' header='Task ID' width="100"/>
-                        <e-column field='Engineer' header='Engineer' width="140"/>
-                        <e-column field='Designation' header='Designation' width="130"/>
-                        <e-column field='Estimation' header='Estimation' width="120"/>
-                        <e-column field='Status' header='Status' width="120"/>
+                        <e-column field='TaskID' header='Task ID' width="70"/>
+                        <e-column field='Engineer' header='Engineer' width="100"/>
+                        <e-column field='Designation' header='Designation' width="100"/>
+                        <e-column field='Estimation' header='Estimation' width="90"/>
+                        <e-column field='Status' header='Status' width="90"/>
                     </e-columns>
                 </ejs-multicolumncombobox>
             </div>
@@ -24,10 +24,11 @@
     </div>
 </template>
 
+<!-- custom code start -->
 <style>
     .control-wrapper.virtualization-multicolumn {
         margin: 0 auto;
-        width: 550px;
+        width: 530px;
     }
 
     @media screen and (max-width: 480px) {
@@ -36,6 +37,7 @@
         }
     }
 </style>
+<!-- custom code end -->
 
 <script>
 import { MultiColumnComboBoxComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-multicolumn-combobox";

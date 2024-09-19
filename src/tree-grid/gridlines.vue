@@ -20,7 +20,7 @@
                         <div>Grid Lines</div>
                     </td>
                     <td style="width: 70%;padding-left: 10px">
-                        <ejs-dropdownlist id='ddlelement' width='100px' :dataSource='ddldata' value='Vertical' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
+                        <ejs-dropdownlist id='ddlelement' width='130px' :dataSource='ddldata' value='Vertical' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>

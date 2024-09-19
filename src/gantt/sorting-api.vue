@@ -56,12 +56,12 @@
         </div>
     <div id="action-description">
     <p> The sorting feature enables you to order data in a particular direction. It can be enabled by setting
-        <code>allowSorting</code> to <code>true</code>.</p>
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowselection">allowSelection</a> to <code>true</code>.</p>
 </div>
 
 <div id="description">
     <p>
-        The sorting feature enables you to order data in a particular direction. It can be enabled by setting the <code>allowSorting</code> to true.
+        The sorting feature enables you to order data in a particular direction. It can be enabled by setting the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowselection">allowSelection</a> to true.
     </p>
     <p>To sort a Gantt column, click the column header. The icons (ascending) and (descending) specify the sort direction of a column.</p>
     <p>By default, the multi-sorting feature is enabled in Gantt. To sort multiple columns, hold the <strong>CTRL</strong> key, and then click the column header. To clear sort for a column, hold the <strong>SHIFT</strong> key, and then click the column header.</p>

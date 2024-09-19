@@ -27,7 +27,7 @@
 
 <div id="description">
     <p>Custom toolbar items can be added by defining the toolbar as a collection of ItemModels.
-        Actions for this customized toolbar items are defined in the <code>toolbarClick</code> event.
+        Actions for this customized toolbar items are defined in the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#toolbarclick">toolbarClick</a> event.
     </p>
     <p>In this sample, the custom toolbar element <code>Quick Filter</code> and <code>Clear Filter</code> is rendered
         along with predefined toolbar items ExpandAll and CollapseAll.
@@ -105,27 +105,42 @@ export default {
 
 <style scoped>
     #ToolbarTemplate  .e-quickfilter::before {
-        content: "\e7ee"
+        content: "\e7ee";
+        font-size : 16px;
+        font-family : "e-icons"
     }
     .fabric #ToolbarTemplate /deep/  .e-quickfilter::before,
     .highcontrast #ToolbarTemplate /deep/  .e-quickfilter::before {
         content: '\e21c';
+        font-size : 16px;
+        font-family : "e-icons"
     }
     .bootstrap #ToolbarTemplate /deep/  .e-quickfilter::before {
         content: '\e946';
+        font-size : 16px;
+        font-family : "e-icons"
     }
     .bootstrap4 #ToolbarTemplate /deep/  .e-quickfilter::before {
         content: '\e714';
+        font-size : 16px;
+        font-family : "e-icons"
     }
     .tailwind #ToolbarTemplate /deep/  .e-quickfilter::before {
         content: '\e71b';
+        font-size : 16px;
+        font-family : "e-icons"
     }
     .fluent #ToolbarTemplate /deep/  .e-quickfilter::before,
     .fluent2 #ToolbarTemplate /deep/  .e-quickfilter::before,
     .fluent2-dark #ToolbarTemplate /deep/  .e-quickfilter::before,
-    .fluent2-highcontrast #ToolbarTemplate /deep/  .e-quickfilter::before
-    {
+    .fluent2-highcontrast #ToolbarTemplate /deep/  .e-quickfilter::before,
+    .bootstrap5_3 #ToolbarTemplate /deep/  .e-quickfilter::before,
+    .bootstrap5_3-dark-lite #ToolbarTemplate /deep/  .e-quickfilter::before,
+    .bootstrap5_3-dark #ToolbarTemplate /deep/  .e-quickfilter::before, 
+    .bootstrap5_3-lite #ToolbarTemplate /deep/  .e-quickfilter::before {
         content: '\e7f7';
+        font-size : 16px;
+        font-family : "e-icons"
     }
 
 </style>

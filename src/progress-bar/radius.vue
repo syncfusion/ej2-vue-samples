@@ -168,7 +168,7 @@ export default {
     },
     load1: function (args) {
       let selectedTheme = location.hash.split("/")[1];
-      selectedTheme = selectedTheme ? selectedTheme : "Material";
+      selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
       args.progressBar.progressColor = '#FFFFFF';
       args.progressBar.theme = (
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
@@ -238,13 +238,13 @@ export default {
             args.progressBar.progressColor = '#0F6CBD';
             args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#0F6CBD"><span></span></div>';
             break;
-        case 'fluent2':
-            args.progressBar.progressColor = '#115EA3';
-            args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#115EA3"><span></span></div>';
-            break;
         case 'fluent2-dark':
             args.progressBar.progressColor = '#115EA3';
             args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#115EA3"><span></span></div>';
+            break;
+        case 'fluent2-highcontrast':
+            args.progressBar.progressColor = '#1AEBFF';
+            args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#1AEBFF"><span></span></div>';
             break;
         default:
           args.progressBar.progressColor = '#D0BCFF';
@@ -254,7 +254,7 @@ export default {
     },
     load: function (args) {
       let selectedTheme = location.hash.split("/")[1];
-      selectedTheme = selectedTheme ? selectedTheme : "Material";
+      selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
       args.progressBar.theme = (
         selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
       )

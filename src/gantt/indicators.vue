@@ -20,7 +20,7 @@
 
 <div id="description">
     <p>
-        In this example, <code>indicators</code> are displayed with some custom text in specified day of task, which are defined in dataSource. You can define the indicators with the following properties for tasks:
+        In this example, <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/taskFieldsModel/#indicators">indicators</a> are displayed with some custom text in specified day of task, which are defined in dataSource. You can define the indicators with the following properties for tasks:
        <ul>
        <li><code>date</code>: Defines the date value to where we want to display the indicators.</li>
        <li><code>iconClass </code>: Defines the icon to highlight the indicator.</li>
@@ -81,46 +81,68 @@ export default {
 <style scoped>
     #Indicators /deep/ .okIcon::before {
     content: '\ea84';
+    font-size : 16px;
+    font-family : "e-icons"
     }
     #Indicators /deep/ .description::before {
     content: '\e30d';
+    font-size : 16px;
+    font-family : "e-icons"
     }   
     .bootstrap4 #Indicators /deep/ .okIcon::before {
     content: '\e7d9';
+    font-size : 16px;
+    font-family : "e-icons"
     }
     .bootstrap4 #Indicators /deep/ .description::before {
     content: '\e7cb';
+    font-size : 16px;
+    font-family : "e-icons"
     }
     .bootstrap5 #Indicators /deep/ .okIcon::before,
     .bootstrap5-dark #Indicators /deep/ .okIcon::before {
     content: '\e72b';
+    font-size : 16px;
+    font-family : "e-icons"
     }
     .bootstrap5 #Indicators /deep/ .description::before,
     .bootstrap-dark #Indicators /deep/ .description::before {
     content: '\e72b';
+    font-size : 16px;
+    font-family : "e-icons"
     }
-    .tailwind #Indicators .okIcon::before, .tailwind-dark #Indicators .okIcon::before,
-    .material3-dark #Indicators .okIcon::before,.material3 #Indicators .okIcon::before,
-    .material3-dark #Indicators .description::before,.material3 #Indicators .description::before  {
+    .tailwind #Indicators /deep/ .okIcon::before, .tailwind-dark #Indicators /deep/ .okIcon::before,
+    .material3-dark #Indicators /deep/ .okIcon::before,.material3 #Indicators /deep/ .okIcon::before,
+    .material3-dark #Indicators /deep/ .description::before,.material3 #Indicators /deep/ .description::before  {
          content: '\e72b';
+         font-size : 16px;
+         font-family : "e-icons"
     }
-    .tailwind #Indicators .description::before,
-    .tailwind-dark #Indicators .description::before
+    .tailwind #Indicators  /deep/ .description::before,
+    .tailwind-dark #Indicators /deep/ .description::before
     {
     content: '\e7c0';
+    font-size : 16px;
+    font-family : "e-icons"
     }
     .fabric #Indicators /deep/ .description::before {
     content: '\e310';
+    font-size : 16px;
+    font-family : "e-icons"
     }
     .highcontrast #Indicators /deep/ .description::before {
     content: '\e310';
+    font-size : 16px;
+    font-family : "e-icons"
     }
     .fluent #Indicators /deep/ .okIcon::before,
     .fluent2 #Indicators /deep/ .okIcon::before,
     .fluent2-dark #Indicators /deep/ .okIcon::before,
-    .fluent2-highcontrast#Indicators /deep/ .okIcon::before,
+    .fluent2-highcontrast #Indicators /deep/ .okIcon::before,
     .fluent-dark #Indicators /deep/ .okIcon::before{
         content: '\e72b';
+        font-size : 16px;
+        font-family : "e-icons"
     }
     .fluent #Indicators /deep/ .description::before,
     .fluent2 #Indicators /deep/ .description::before,
@@ -128,6 +150,24 @@ export default {
     .fluent2-dark #Indicators /deep/ .description::before,
     .fluent-dark #Indicators /deep/ .description::before{
         content: '\e7c0';
+        font-size : 16px;
+        font-family : "e-icons"
+    }
+    .bootstrap5_3 #Indicators /deep/ .okIcon::before,
+    .bootstrap5_3-dark-lite #Indicators /deep/ .okIcon::before,
+    .bootstrap5_3-dark #Indicators /deep/ .okIcon::before,
+    .bootstrap5_3-lite #Indicators /deep/ .okIcon::before {
+    content: '\e72b';
+    font-size : 16px;
+    font-family : "e-icons"
+    }
+    .bootstrap5_3 #Indicators /deep/ .description::before,
+    .bootstrap5_3-dark-lite #Indicators /deep/ .description::before,
+    .bootstrap5_3-dark #Indicators /deep/ .description::before,
+    .bootstrap5_3-lite #Indicators /deep/ .description::before {
+    content: '\e72b';
+    font-size : 16px;
+    font-family : "e-icons"
     }
 
 </style>

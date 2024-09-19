@@ -270,7 +270,11 @@ export default {
     .bootstrap5 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
     .bootstrap5 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
     .bootstrap5-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
-    .bootstrap5-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
+    .bootstrap5-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
+    .bootstrap5.3 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .bootstrap5.3 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
+    .bootstrap5.3-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .bootstrap5.3-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
         background-color : transparent;
     }
 

@@ -3,7 +3,8 @@
     "type": "update",
     "directory": "rich-text-editor",
     "category": "File Viewers & Editors",
-    "samples": [{
+    "samples": [
+        {
             "url": "tools",
             "name": "Overview",
             "type": "update",
@@ -25,7 +26,7 @@
         {
             "url": "insert-media",
             "name": "Insert Media",
-            "category":"Rich Text Editor",
+            "category": "Rich Text Editor",
             "description": "This demo shows how to insert audio and video, Embed video, upload audio and video, and more in Insert Media."
         },
         {
@@ -131,18 +132,25 @@
             "description": "This example shows how to integrate Image Editor into Rich Text Editor component, the edited image will be inserted into the Rich Text Editor."
         },
         {
-            "url": "export-word",
+            "url": "mail-merge",
+            "name": "Mail Merge",
+            "type": "new",
+            "category": "Rich Text Editor",
+            "description": "The Mail Merge feature in the Rich Text Editor allows inserting placeholders for personalized content creation, like letters and invoices."
+        },
+        {
+            "url": "export-document",
             "name": "Export to Word / PDF",
             "description": "This demo explains how to export the content of the Rich Text Editor to Word and PDF document formats using the Syncfusion Document processing libraries.",
             "category": "Export / Import",
-            "type": "new"
+            "type": "update"
         },
         {
             "url": "import-word",
             "name": "Import from Word",
             "description": "This demo explains how to import the content from Word document to the Rich Text Editor using the Syncfusion Document processing libraries.",
             "category": "Export / Import",
-            "type": "new"
+            "type": "update"
         },
         {
             "url": "mention-integration",
@@ -153,8 +161,9 @@
         {
             "url": "smart-suggestion",
             "name": "Smart Suggestion",
-            "description": "This demo explains how to implement custom text formatting within the Rich Text Editor using the @mention component. To use it, simply type the `/` character in the editor and select the desired format from the suggestion list that appears.",
-            "category": "Mention Integration"
+            "description": "This example demonstrates how to use the slash menu feature of the Rich Text Editor to apply formats, open dialogs easily.",
+            "category": "Mention Integration",
+            "type": "update"
         },
         {
             "url": "types",
@@ -173,24 +182,6 @@
             "name": "Insert Special Characters",
             "category": "Custom Tool",
             "description": "The demo demonstrates how to add special characters or symbols into the rich content in vue Rich Text Editor using a custom toolbar command."
-        },
-        {
-            "url": "markdown-editor",
-            "name": "Overview",
-            "category": "Markdown Editor",
-            "description": "This demo covers all supported features and functionalities of the vue Markdown editor, which  is another mode of the vue Rich Text Editor."
-        },
-        {
-            "url": "markdown-preview",
-            "name": "Preview",
-            "category": "Markdown Editor",
-            "description": "This demo shows how to render a vue Markdown editor with LIVE preview for markdown content editing using a third-party library, 'marked js'."
-        },
-        {
-            "url": "markdown-format",
-            "name": "Custom Format",
-            "category": "Markdown Editor",
-            "description": "This demo explains how to convert markdown content (with the custom format) to valid HTML markup using Markdown-to-HTML of the markdown parser in vue."
         }
     ]
 }

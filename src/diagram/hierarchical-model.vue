@@ -5,11 +5,11 @@
       <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :mode='mode' :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings' :layout='layout' :dataSourceSettings='dataSourceSettings' :tool='tool'></ejs-diagram>
     </div>
   </div>
-  <div class="col-lg-4 property-section">
+  <div class="col-lg-4 property-section diagram-property-tab">
     <div class="property-panel-header">
       Properties
     </div>
-    <div class="row" id="appearance">
+    <div class="row" id="appearance" ref="panelInstance">
       <div class="row row-header">
         Appearance
       </div>
@@ -18,11 +18,11 @@
         </div>
         <div class="image-pattern-style" id="bottomToTop" style="background-image: url(./src/diagram/Images/common-orientation/bottomtotop.png); margin: 0px 3px">
         </div>
+        <div class="image-pattern-style" id="leftToRight" style="background-image: url(./src/diagram/Images/common-orientation/lefttoright.png); margin: opx 3px">
+        </div>
       </div>
       <div class="row" style="padding-top: 8px">
-        <div class="image-pattern-style" id="leftToRight" style="background-image: url(./src/diagram/Images/common-orientation/lefttoright.png); margin-right: 3px">
-        </div>
-        <div class="image-pattern-style" id="rightToLeft" style="background-image: url(./src/diagram/Images/common-orientation/righttoleft.png); margin: 0px 3px">
+        <div class="image-pattern-style" id="rightToLeft" style="background-image: url(./src/diagram/Images/common-orientation/righttoleft.png); margin-right: 3px">
         </div>
       </div>
     </div>
@@ -35,12 +35,13 @@
           <div style="display: table-cell; vertical-align: middle">Horizontal Spacing</div>
         </div>
         <div class="col-xs-6">
-          <ejs-numerictextbox ref="hSpacingObj" id="hSpacing" style="width: 100%"
-                :min='hSpacingmin'
-                :max='hSpacingmax'
-                :step='hSpacingstep'
-                :value='hSpacingvalue'
-                :change='hSpacingchange'/>
+          <ejs-numerictextbox ref="horizontalSpacingObj" id="horizontalSpacing" style="width: 100%"
+                :min=20
+                :max=60
+                :step=2
+                :value=40
+                :format=0o0
+                :change='horizontalSpacingchange'/>
         </div>
       </div>
     <div class="row" style="padding-top: 8px">
@@ -48,12 +49,13 @@
         <div style="display: table-cell; vertical-align: middle">Vertical Spacing</div>
       </div>
       <div class="col-xs-6">
-        <ejs-numerictextbox ref="vSpacingObj" id="vSpacing" style="width: 100%" 
-                    :min='vSpacingmin'
-                    :max='vSpacingmax'
-                    :step='vSpacingstep'
-                    :value='vSpacingvalue'
-                    :change='vSpacingchange' />
+        <ejs-numerictextbox ref="verticalSpacingObj" id="verticalSpacing" style="width: 100%" 
+                    :min=20
+                    :max=60
+                    :step=2
+                    :value=30
+                    :format=0o0
+                    :change='verticalSpacingchange' />
       </div>
     </div>
     <div class="row" style="padding-top: 8px">
@@ -116,12 +118,12 @@
   border-width: 2px;
 }
 /* Property panel CSS */
-.row {
+.diagram-property-tab .row {
   margin-left: 0px;
   margin-right: 0px;
 }
 
-.row-header {
+.diagram-property-tab .row-header {
   font-size: 13px;
   font-weight: 500;
 }
@@ -152,8 +154,8 @@ import { DataManager } from "@syncfusion/ej2-data";
 import { hierarchicalTree } from "./diagram-data";
 
 let diagramInstance;
-let hSpacing;
-let vSpacing;
+let horizontalSpacing;
+let verticalSpacing;
 let checkBoxObj;
 
 export default {
@@ -192,27 +194,22 @@ export default {
         enableAnimation: true
       },
       //Defines the default node and connector properties
-      getNodeDefaults: (obj, diagram) => {
-        return nodeDefaults(obj, diagram);
+      getNodeDefaults: (obj) => {
+        return nodeDefaults(obj);
       },
-      getConnectorDefaults: (connector, diagram) => {
-        return connectorDefaults(connector, diagram);
+      getConnectorDefaults: (connector) => {
+        return connectorDefaults(connector);
       },
-      hSpacingmin: 20,
-      hSpacingmax: 60,
-      hSpacingstep: 2,
-      hSpacingvalue: 40,
-      hSpacingchange: () => {
-        diagramInstance.layout.horizontalSpacing = Number(hSpacing.value);
+       //sets horizontal spacing between nodes
+      horizontalSpacingchange: () => {
+        diagramInstance.layout.horizontalSpacing = Number(horizontalSpacing.value);
+        diagramInstance.doLayout();
         diagramInstance.dataBind();
       },
-
-      vSpacingmin: 20,
-      vSpacingmax: 60,
-      vSpacingstep: 2,
-      vSpacingvalue: 30,
-      vSpacingchange: () => {
-        diagramInstance.layout.verticalSpacing = Number(vSpacing.value);
+       //sets vertical spacing between nodes
+      verticalSpacingchange: () => {
+        diagramInstance.layout.verticalSpacing = Number(verticalSpacing.value);
+        diagramInstance.doLayout();
         diagramInstance.dataBind();
       },
 
@@ -238,12 +235,12 @@ export default {
   },
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
-    hSpacing = this.$refs.hSpacingObj.ej2Instances;
-    vSpacing = this.$refs.vSpacingObj.ej2Instances;
+    horizontalSpacing = this.$refs.horizontalSpacingObj.ej2Instances;
+    verticalSpacing = this.$refs.verticalSpacingObj.ej2Instances;
     checkBoxObj = this.$refs.checkedObj.ej2Instances;
     //Click event for Appearance of the Property Panel.
-    let obj= document.getElementById("appearance") ;
-    obj.onclick = (args) => {
+    let panelObj= this.$refs.panelInstance;
+    panelObj.onclick = (args) => {
       let target = args.target;
       let selectedElement = document.getElementsByClassName(
         "e-selected-style"
@@ -253,8 +250,8 @@ export default {
       }
       if (target.className === "image-pattern-style") {
         let id = target.id;
-        let orientation1 = id.substring(0, 1).toUpperCase()+id.substring(1,id.length);
-        diagramInstance.layout.orientation = orientation1;
+        let orientation = id.substring(0, 1).toUpperCase()+id.substring(1,id.length);
+        diagramInstance.layout.orientation = orientation;
         diagramInstance.dataBind();
         diagramInstance.doLayout();
         target.classList.add('e-selected-style');
@@ -262,17 +259,8 @@ export default {
     };
   }
 }
-
-//update the orientation of the Layout.
-function updatelayout(target, orientation) {
-  diagramInstance.layout.orientation = orientation;
-  diagramInstance.dataBind();
-  diagramInstance.doLayout();
-  target.classList.add("e-selected-style");
-}
-
 //sets node default value
-function nodeDefaults(obj, diagram) {
+function nodeDefaults(obj) {
   obj.style = {
     fill: "#659be5",
     strokeColor: "none",
@@ -303,7 +291,7 @@ function nodeDefaults(obj, diagram) {
 }
 
 //sets connector default value
-function connectorDefaults(connector,diagram) {
+function connectorDefaults(connector) {
   if (connector.targetDecorator) connector.targetDecorator.shape = "None";
   connector.type = "Orthogonal";
   if (connector.style) connector.style.strokeColor = "#6d6d6d";

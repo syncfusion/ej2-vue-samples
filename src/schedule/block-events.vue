@@ -75,6 +75,23 @@
 
     .schedule-vue-sample .block-events.e-schedule .employee-designation {
         font-size: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+    @media (max-width: 550px) {
+        .e-schedule .e-day-view .employee-image {
+            display: none;
+        }
+
+        .e-schedule .e-day-view .employee-name {
+            font-size: 14px;
+        }
+
+        .e-schedule .e-day-view .employee-designation {
+            display: none;
+        }
     }
 </style>
 
@@ -119,7 +136,7 @@
          computed: {
             getImage() {
                 return (data) => {
-                    return 'https://ej2.syncfusion.com/vue/demos/source/schedule/images/' + this.getEmployeeName(data).toLowerCase() + '.png';
+                    return 'source/schedule/images/' + this.getEmployeeName(data).toLowerCase() + '.png';
                 };
             }
         },

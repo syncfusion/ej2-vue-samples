@@ -155,7 +155,7 @@ export default {
       selectedTheme = selectedTheme ? selectedTheme : "Material";
       args.maps.theme =
         (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
     },
     changezoom: function(args) {
       let maps = this.$refs.maps.ej2Instances;

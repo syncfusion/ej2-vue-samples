@@ -30,7 +30,7 @@ import { Continent_Data } from '../treemap/treemap-data/pie-chart';
 import { AccumulationChart,  PieSeries, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 import Template from './pie-temp.vue';
 
-AccumulationChart.Inject(AccumulationTooltip);
+AccumulationChart.Inject(AccumulationTooltip, PieSeries);
 let chartCollection = [];
 let count = 0;
 export default {
@@ -79,7 +79,7 @@ methods:{
         let theme = location.hash.split('/')[1];
         theme = theme ? theme : 'Material'; 
         args.treemap.theme = (theme.charAt(0).toUpperCase() +
-            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast');
+            theme.slice(1)).replace(/-dark/i, 'Dark').replace(/-high/i, 'High').replace(/contrast/i, 'Contrast').replace(/5.3/i, '5');
     },
     /* custom code end */
     tooltipRendering:function(args){

@@ -260,3 +260,9 @@ export default {
 }
 }
 </script>
+<style>
+.fluent2-highcontrast #update,
+.fluent2-highcontrast #perform {
+    color: black;
+}
+</style>

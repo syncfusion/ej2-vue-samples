@@ -39,7 +39,7 @@ import { Browser } from '@syncfusion/ej2-base';
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, PieSeries, AccumulationLegend, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 
 let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
+selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
 let seriesColor = ['#FFE066', "#FAB666", "#F68F6A", "#F3646A", "#CC555A", "#9C4649"];
 export default {
@@ -100,7 +100,7 @@ export default {
   methods: {
     pointRender: function(args) {
        let selectedTheme = location.hash.split('/')[1];
-       selectedTheme = selectedTheme ? selectedTheme : 'Material';
+       selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
         if (selectedTheme==='fluent')
         {
           args.fill = seriesColor[args.point.index % 10];

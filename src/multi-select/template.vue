@@ -63,7 +63,9 @@
         padding: 0 0 0 24px;
     }
 
-    .fluent-dark .multiselect-template .header {
+    .fluent-dark .multiselect-template .header,
+    .fluent2-dark .multiselect-template .header,
+    .fluent2-highcontrast .multiselect-template .header {
         background: #252423;
         color: #2899F5;
     }

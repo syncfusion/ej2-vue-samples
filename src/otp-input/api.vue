@@ -65,7 +65,7 @@ export default {
 </script>
 
 <template>
-    <div class="col-lg-8 control-section sb-property-border">
+    <div class="col-lg-8 control-section sb-property-border otp-wrapper">
         <div id="otp-container">
             <div class="form-container">
                 <span class="otp-header"> Enter verification code </span>
@@ -80,8 +80,8 @@ export default {
         </div>
     </div>
 
-    <div class="col-lg-4 property-section">
-        <table id="property" title="Properties">
+    <div class="col-lg-4 property-section otp-property-panel">
+        <table id="otp_api_property" title="Properties">
             <tbody>
                 <tr>
                     <td> Styling Mode </td>
@@ -137,17 +137,29 @@ export default {
 </template>
 
 <style scoped>
-    #otp-container {
-        width: 240px;
-        height: 250px;
-        margin: 60px auto;
+    .col-lg-8.control-section.otp-wrapper {
         display: flex;
+        align-items: center;
         justify-content: center;
+    }
+
+    .col-lg-4.property-section.otp-property-panel {
+        border-left: 1px solid #D7D7D7;
+    }
+
+    .sb-property-border.otp-wrapper {
+        border: none;
+    }
+
+    #otp-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
     }
 
     .form-container {
         height: 220px;
-        min-width: 300px;
         padding: 1rem 3rem;
         box-shadow: 0 1px 3px #d4d4d5, 0 0 0 1px #d4d4d5;
         border-radius: 4px;
@@ -177,8 +189,14 @@ export default {
         width: 80px;
     }
 
-    .property-panel-content td {
+    #otp_api_property td {
         padding: 10px 0px;
         width: 35%;
+    }
+
+    @media (max-width: 1200px) {
+        .col-lg-4.property-section.otp-property-panel {
+            border: none;
+        }
     }
 </style>

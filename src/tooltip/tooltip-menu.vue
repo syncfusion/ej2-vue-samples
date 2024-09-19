@@ -248,6 +248,7 @@ export default {
 .tailwind-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
 .fabric-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
 .bootstrap5 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
+.bootstrap5\.3 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
 .highcontrast .e-tooltip-menu-settings.e-tooltip-wrap.e-popup {
   border: 1px solid #dddddd;
 }
@@ -321,19 +322,6 @@ export default {
   font-family: "e-tooltip-menu-icons";
 }
 
-.fluent2 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
-.fluent2-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup,
-.fluent2-highcontrast .e-tooltip-menu-settings.e-tooltip-wrap.e-popup {
-    background-color: var(--color-sf-tooltip-bg-color);
-}
-
-.fluent2 #tooltipMenu-list .e-list-icon,
-.fluent2-dark #tooltipMenu-list .e-list-icon,
-.fluent2-highcontrast #tooltipMenu-list .e-list-icon {
-    padding: 0;
-    margin-top: 4px;
-}
-
 .e-tooltip-menu-settings #tooltipMenu-list .wifi:before {
   content: "\e700";
 }
@@ -381,6 +369,7 @@ export default {
 
 .bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
 .bootstrap5 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
+.bootstrap5\.3 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
 .tailwind .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
 .tailwind-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview,
 .fabric-dark .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-listview {
@@ -390,5 +379,11 @@ export default {
 .bootstrap4 .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-arrow-tip-outer.e-tip-top,
 .tailwind .e-tooltip-menu-settings.e-tooltip-wrap.e-popup .e-arrow-tip-outer.e-tip-top {
   border-bottom: 6px solid rgba(0, 0, 0, .15);
+}
+
+.fluent2 #tooltipMenu-list .e-list-icon, 
+.fluent2-dark #tooltipMenu-list .e-list-icon {
+    padding-left: 10px;
+    margin-top: 4px;
 }
 </style>

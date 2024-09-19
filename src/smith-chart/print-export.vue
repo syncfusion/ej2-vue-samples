@@ -94,7 +94,7 @@
         content: '\ebf9';
     }
  
-    .e-view.bootstrap5 .e-print-icon::before, .e-view.bootstrap5-dark .e-print-icon::before {
+    .e-view.bootstrap5\.3 .e-print-icon::before, .e-view.bootstrap5\.3-dark .e-print-icon::before {
         content: '\e75d';
     }
  
@@ -127,7 +127,7 @@
         content: '\e710';
     }
  
-    .e-view.bootstrap5 .e-export-icon::before, .e-view.bootstrap5-dark .e-export-icon::before {
+    .e-view.bootstrap5\.3 .e-export-icon::before, .e-view.bootstrap5\.3-dark .e-export-icon::before {
         content: '\e72e';
     }
     .e-view.fluent .e-export-icon::before, .e-view.fluent-dark .e-export-icon::before {
@@ -214,7 +214,7 @@ methods:{
     /* custom code start */
      load:function(args){
             let theme = location.hash.split('/')[1];
-            theme = theme ? theme : 'Material';
+            theme = theme ? theme : 'Fluent2';
             args.smithchart.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
     },
     /* custom code end */

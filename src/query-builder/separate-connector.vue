@@ -166,21 +166,6 @@
         display: block !important;
     }
 }
-
-.highcontrast .e-query-preview .e-sql-content,
-.highcontrast .e-query-preview .e-json-content,
-.fluent2-dark .e-query-preview .e-sql-content,
-.fluent2-dark .e-query-preview .e-json-content,
-.fluent2-highcontrast .e-query-preview .e-sql-content,
-.fluent2-highcontrast .e-query-preview .e-json-content {
-    background-color: #1f1f1f;
-}
-
-.fluent2-dark .e-query-preview .e-icons.copycode,
-.fluent2-highcontrast .e-query-preview .e-icons.copycode {
-    padding-bottom: 3px;
-    color: white;
-}
 </style>
 <!-- custom code end -->
 

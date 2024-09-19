@@ -2,7 +2,7 @@
     <div id="textarea-resize" class="col-lg-8 control-section resize">
         <div class="content_wrapper">
             <div class="resize-row">
-                <ejs-textarea id="resize" placeholder="Enter your comments" floatLabelType='Auto' :resizeMode='resizeMode'  rows="5" cols="300" ></ejs-textarea>
+                <ejs-textarea id="resize" placeholder="Enter your comments" floatLabelType='Auto' :resizeMode='resizeMode' rows="5" cols="300"></ejs-textarea>
             </div>
         </div>
     </div>  
@@ -30,6 +30,12 @@
     </div>
 </template>
 
+<style>
+    #textarea-resize .e-multi-line-input {
+        max-width: 100%;
+    }
+</style>
+
 <style scoped>
     .content_wrapper div.resize-row {
         margin: 30px 150px;
@@ -38,10 +44,6 @@
     .resize-property .left-side {
         font-size: 14px;
         padding: 8px;
-    }
-
-    #textarea-resize .e-multi-line-input {
-        max-width: 100%;
     }
 </style>
 

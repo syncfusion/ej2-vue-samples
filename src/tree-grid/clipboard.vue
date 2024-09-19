@@ -29,7 +29,7 @@
                         <div>Hierarchy Mode</div>
                     </td>
                     <td style="width: 50%; padding-left: 10px">
-                        <ejs-dropdownlist id='ddlelement' width='90px' :dataSource='ddldata' value='Parent' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
+                        <ejs-dropdownlist id='ddlelement' width='100px' :dataSource='ddldata' value='Parent' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>

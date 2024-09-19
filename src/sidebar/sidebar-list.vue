@@ -161,12 +161,14 @@ export default {
     /* Specifies the border bottom styles for toolbar in light theme*/
     .material #wrapper .e-toolbar,
     .tailwind #wrapper .e-toolbar,
-    .bootstrap5 #wrapper .e-toolbar {
+    .bootstrap5 #wrapper .e-toolbar,
+    .bootstrap5\.3 #wrapper .e-toolbar {
         border-bottom: 1px solid #eaeaeae0;
     }
 
     /* Specifies the border bottom styles for toolbar in dark theme*/
     .bootstrap5-dark #wrapper .e-toolbar,
+    .bootstrap5\.3-dark #wrapper .e-toolbar,
     .tailwind-dark #wrapper .e-toolbar,
     .material-dark #wrapper .e-toolbar {
         border-bottom: 1px solid #eaeaea63;
@@ -188,12 +190,16 @@ export default {
     .bootstrap #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
     .bootstrap-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
     .bootstrap5.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .bootstrap5-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+    .bootstrap5-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap5\.3.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap5\.3-dark.e-bigger #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
         margin-left: 8px;
     }
 
     .bootstrap5 #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .bootstrap5-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+    .bootstrap5-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap5\.3 #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+    .bootstrap5\.3-dark #wrapper .e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
         margin-left: 5px;
     }
 
@@ -213,7 +219,9 @@ export default {
     }
 
     .bootstrap5 .e-folder-name,
-    .bootstrap5-dark .e-folder-name {
+    .bootstrap5-dark .e-folder-name,
+    .bootstrap5\.3 .e-folder-name,
+    .bootstrap5\.3-dark .e-folder-name {
         margin-top: -2px;
     }
 
@@ -235,6 +243,8 @@ export default {
     /*Specifies sample level style for ListView*/
     .bootstrap5 .e-template-list,
     .bootstrap5-dark .e-template-list,
+    .bootstrap5\.3 .e-template-list,
+    .bootstrap5\.3-dark .e-template-list,
     .tailwind .e-template-list,
     .tailwind-dark .e-template-list,
     .material3 .e-template-list,
@@ -330,7 +340,9 @@ export default {
     }
 
     .bootstrap5 .list-wrapper .e-avatar,
-    .bootstrap5-dark .list-wrapper .e-avatar {
+    .bootstrap5-dark .list-wrapper .e-avatar,
+    .bootstrap5\.3 .list-wrapper .e-avatar,
+    .bootstrap5\.3-dark .list-wrapper .e-avatar {
         margin-top: -3px;
     }
 
@@ -340,12 +352,16 @@ export default {
     }
 
     .bootstrap5.e-bigger .list-wrapper .e-avatar,
-    .bootstrap5-dark.e-bigger .list-wrapper .e-avatar {
+    .bootstrap5-dark.e-bigger .list-wrapper .e-avatar,
+    .bootstrap5\.3.e-bigger .list-wrapper .e-avatar,
+    .bootstrap5\.3-dark.e-bigger .list-wrapper .e-avatar {
         margin-top: 0px;
     }
 
     .e-bigger.bootstrap5 .sidebar-list .e-listview:not(.e-list-template) .e-list-item,
-    .e-bigger.bootstrap5-dark .sidebar-list .e-listview:not(.e-list-template) .e-list-item {
+    .e-bigger.bootstrap5-dark .sidebar-list .e-listview:not(.e-list-template) .e-list-item,
+    .e-bigger.bootstrap5\.3 .sidebar-list .e-listview:not(.e-list-template) .e-list-item,
+    .e-bigger.bootstrap5\.3-dark .sidebar-list .e-listview:not(.e-list-template) .e-list-item {
         height: 43px;
     }
 
@@ -383,7 +399,8 @@ export default {
     .fabric .sidebar-list,
     .tailwind .sidebar-list,
     .highcontrast .sidebar-list,
-    .bootstrap5 .sidebar-list {
+    .bootstrap5 .sidebar-list,
+    .bootstrap5\.3 .sidebar-list {
         border-right: 1px solid #eaeaeae0;
     }
 
@@ -391,7 +408,8 @@ export default {
     .material-dark .sidebar-list,
     .fabric-dark .sidebar-list,
     .tailwind-dark .sidebar-list,
-    .bootstrap5-dark .sidebar-list {
+    .bootstrap5-dark .sidebar-list,
+    .bootstrap5\.3-dark .sidebar-list {
         border-right: 1px solid #eaeaea63;
     }
 
@@ -399,7 +417,8 @@ export default {
     .fabric #sidelistwrapper,
     .tailwind #sidelistwrapper,
     .fluent #sidelistwrapper,
-    .bootstrap5 #sidelistwrapper {
+    .bootstrap5 #sidelistwrapper,
+    .bootstrap5\.3 #sidelistwrapper {
         border: 1px solid #d7d7d7;
     }
 
@@ -408,7 +427,8 @@ export default {
     .tailwind-dark #sidelistwrapper,
     .highcontrast #sidelistwrapper,
     .fluent-dark #sidelistwrapper,
-    .bootstrap5-dark #sidelistwrapper {
+    .bootstrap5-dark #sidelistwrapper,
+    .bootstrap5\.3-dark #sidelistwrapper {
         border: 1px solid #ffffff;
     }
 </style>

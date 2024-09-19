@@ -23,7 +23,7 @@
     </div>
 </template>
 <script>
-    import { HubConnectionBuilder } from "@microsoft/signalr";
+    import { HubConnectionBuilder, HttpTransportType } from "@microsoft/signalr";
     import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop } from "@syncfusion/ej2-vue-schedule";
     import { scheduleData } from './datasource';
 
@@ -44,8 +44,8 @@
             schedule: [Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]
         },
         created() {
-            var url = 'https://ej2.syncfusion.com/aspnetcore/scheduleHub/';
-            connection = new HubConnectionBuilder().withUrl(url, { withCredentials: false }).withAutomaticReconnect().build();
+            var url = 'https://ej2.syncfusion.com/aspnetcore/schedulehub/';
+            connection = new HubConnectionBuilder().withUrl(url, { withCredentials: false, skipNegotiation: true, transport: HttpTransportType.WebSockets }).withAutomaticReconnect().build();
             connection.on("ReceiveData", (action, data) => {
                 var scheduleObj = document.querySelector('.e-schedule').ej2_instances[0];
                 if (action == "view") {

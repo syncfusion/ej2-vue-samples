@@ -48,11 +48,11 @@
     <div id="description">
         <p>This sample can be customized further with the combination of Timeline properties from the property pane. For example,</p>
         <ul>
-            <li>The layout can be changed by selecting the orientation dropdownlist from property pane.</li>
-            <li>Items alignment can be changed by selecting the alignment dropdownlist from property pane.</li>
-            <li>Show or hide the information opposite to the content by toggling the opposite content switcher button.</li>
+            <li>The layout can be changed by selecting the orientation dropdownlist from property pane.This can be achieved by using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/timeline#orientation">orientation</a> property.</li>
+            <li>Items alignment can be changed by selecting the alignment dropdownlist from property pane. This can be achieved by using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/timeline#align">align</a> property.</li>
+            <li>Show or hide the information opposite to the content by toggling the opposite content switcher button. This can be achieved by using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/timeline/timelineItemModel/#oppositecontent">oppositecontent</a> property.</li>
             <li>Show or hide the item icons by toggling the show icon switcher button.</li>
-            <li>Reverse the timeline items by toggling the reverse switcher button.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/timeline/timelineModel/#reverse">Reverse</a> the timeline items by toggling the reverse switcher button.</li>
         </ul>
     </div>
 </template>
@@ -96,6 +96,10 @@
 .timeline.property-panel-content td {
     padding: 10px 0px;
     width: 50%;
+}
+
+body.fluent2-highcontrast .e-timeline .e-dot {
+    color: #424242;
 }
 </style>
 <script>

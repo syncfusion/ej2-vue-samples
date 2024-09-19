@@ -91,6 +91,10 @@
         overflow: inherit;
         overflow-x: inherit;
     }
+    .bootstrap5\.3-dark .codeView .CodeMirror {
+        background: rgb(40, 45, 49);
+        color:#fff
+    }
 </style>
 <script>
 import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
