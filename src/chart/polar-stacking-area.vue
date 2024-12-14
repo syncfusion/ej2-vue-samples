@@ -72,7 +72,7 @@
   padding: 0px !important;
 }
 
-text[id*=_AxisLabel_] {
+text[id*=chartcontainer1_AxisLabel_] {
   text-shadow: 0 0 1px white !important;
 }
 </style>

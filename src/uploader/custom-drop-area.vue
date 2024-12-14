@@ -83,6 +83,7 @@
     .bootstrap-dark .custom-drop-area .uploader-custom-drop-browse a,
     .bootstrap5-dark .custom-drop-area .uploader-custom-drop-browse a,
     .tailwind-dark .custom-drop-area .uploader-custom-drop-browse a,
+    .tailwind3-dark .custom-drop-area .uploader-custom-drop-browse a,
     .fluent-dark .custom-drop-area .uploader-custom-drop-browse a,
     .fluent2-dark .custom-drop-area .uploader-custom-drop-browse a {
         color: #fff;
@@ -143,7 +144,8 @@
         background-color: #6c757d;
     }
 
-    .tailwind-dark .custom-drop-area .droparea-wrap {
+    .tailwind-dark .custom-drop-area .droparea-wrap,
+    .tailwind3-dark .custom-drop-area .droparea-wrap {
         background-color: #6c757d;
     }
 

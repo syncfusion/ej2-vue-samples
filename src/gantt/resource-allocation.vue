@@ -7,7 +7,7 @@
             :taskFields= "taskFields"
             :allowSelection= "true"
             :resourceFields= "resourceFields"
-	        :taskType= "taskType"
+	          :taskType= "taskType"
             :editSettings= "editSettings"
             :editDialogFields= "editDialogFields"
             :addDialogFields= "addDialogFields"
@@ -19,9 +19,11 @@
             :labelSettings= "labelSettings"
             :projectStartDate= "projectStartDate"
             :projectEndDate= "projectEndDate"
+            :cellEdit= "cellEdit"
             :actionBegin= "actionBegin"
+            :actionComplete= "actionComplete"
             :splitterSettings= "splitterSettings"
-	        :queryTaskbarInfo = "queryTaskbarInfo">
+	          :queryTaskbarInfo = "queryTaskbarInfo">
             <e-columns>
                 <e-column field='TaskID' headerText='Task ID' width='80'></e-column>
                 <e-column field='TaskName' headerText='Task Name' width='180'></e-column>
@@ -32,31 +34,31 @@
             <template v-slot:resColumnTemplate="{data}">
                 <div class="resColumnTemplate" v-if="data.ganttProperties.resourceNames">
                     <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Rose Fuller')">
-                        <div class="text" style="width:110px; height:24px; border-radius:100px; background-color:#1c5d8e; display: flex; align-items: center; justify-content: center;">
+                        <div class="text" style="width:150px; height:24px; border-radius:100px; background-color:#1c5d8e; display: flex; align-items: center; justify-content: center;">
                             <span style="color:white; font-weight:500;">{{data.ganttProperties.resourceNames}}</span>
                         </div>
                     </div>
 
                     <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Fuller King')">
-                        <div class="text" style="width:110px; height:24px; border-radius:100px; background-color:#4a7537; display: flex; align-items: center; justify-content: center;">
+                        <div class="text" style="width:150px; height:24px; border-radius:100px; background-color:#4a7537; display: flex; align-items: center; justify-content: center;">
                             <span style="color:white; font-weight:500;">{{data.ganttProperties.resourceNames}}</span>
                         </div>
                     </div>
 
                     <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Van Jack')">
-                        <div class="text" style="width:110px; height:24px; border-radius:100px; background-color:#b24531; display: flex; align-items: center; justify-content: center;">
+                        <div class="text" style="width:150px; height:24px; border-radius:100px; background-color:#b24531; display: flex; align-items: center; justify-content: center;">
                             <span style="color:white; font-weight:500;">{{data.ganttProperties.resourceNames}}</span>
                         </div>
                     </div>
 
                     <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Bergs Anton')">
-                        <div class="text" style="width:110px; height:24px; border-radius:100px; background-color:#a53576; display: flex; align-items: center; justify-content: center;">
+                        <div class="text" style="width:150px; height:24px; border-radius:100px; background-color:#a53576; display: flex; align-items: center; justify-content: center;">
                             <span style="color:white; font-weight:500;">{{data.ganttProperties.resourceNames}}</span>
                         </div>
                     </div>
 
                     <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Tamer Vinet')">
-                        <div class="text" style="width:110px; height:24px; border-radius:100px; background-color:#635688; display: flex; align-items: center; justify-content: center;">
+                        <div class="text" style="width:150px; height:24px; border-radius:100px; background-color:#635688; display: flex; align-items: center; justify-content: center;">
                             <span style="color:white; font-weight:500;">{{data.ganttProperties.resourceNames}}</span>
                         </div>
                     </div>
@@ -151,11 +153,15 @@ export default {
             dpParams: {
                 read: () => {
                     var gantt = (document.getElementsByClassName("e-gantt")[0]).ej2_instances[0];
+                    // Get the selected value from the dropdown
                     var value = dropdownlistObj.value;
                     if (value === null) {
-                        value = [];
+                        // If no value is selected, retain the existing resource(s)
+                        value = gantt.treeGridModule.currentEditRow[gantt.taskFields.resourceInfo];
+                    } else {
+                        // Update the resource info with the selected value
+                        gantt.treeGridModule.currentEditRow[gantt.taskFields.resourceInfo] = [value];
                     }
-                    gantt.treeGridModule.currentEditRow[gantt.taskFields.resourceInfo] = [value];
                     return value;
                 },
                 destroy: () => {
@@ -163,14 +169,23 @@ export default {
                 },
                 write: (args) => {
                     var gantt = (document.getElementsByClassName("e-gantt")[0]).ej2_instances[0];
+                    // Ensure the currentEditRow object is initialized
                     gantt.treeGridModule.currentEditRow = {};
+        
+                    // Retrieve the existing resource(s) from the row data or set default
+                    var existingResourceIds = gantt.treeGridModule.getResourceIds(args.rowData);
+                    var selectedValue = (existingResourceIds && existingResourceIds.length > 0) ? existingResourceIds[0] : null;
+        
+                    // Initialize the DropDownList
                     dropdownlistObj = new DropDownList({
                         dataSource: new DataManager(gantt.resources),
                         fields: { text: gantt.resourceFields.name, value: gantt.resourceFields.id },
                         enableRtl: gantt.enableRtl,
                         popupHeight: '350px',
-                        value: gantt.treeGridModule.getResourceIds(args.rowData)
+                        // Set the existing resource(s) as the selected value
+                        value: selectedValue,
                     });
+                    // Append the dropdown to the element
                     dropdownlistObj.appendTo(args.element);
                 },
             },
@@ -182,7 +197,7 @@ export default {
         };
     },
   provide: {
-     gantt: [ Selection, DayMarkers, Toolbar, Edit]
+    gantt: [ Selection, DayMarkers, Toolbar, Edit]
   },
     methods: {
         queryTaskbarInfo(args) {
@@ -238,12 +253,30 @@ export default {
                 }
             }
         },
+        cellEdit (args) {
+            // Restrict editing based on row data
+            if (args.rowData.TaskID === 1 || args.rowData.TaskID === 5) { // Example: Prevent editing Task ID 1
+                args.cancel = true; // Cancel editing for this specific cell
+            }
+        },
         actionBegin (args) {
             if (args.requestType === 'beforeOpenEditDialog' || args.requestType === 'beforeOpenAddDialog') {
+                // Restrict editing based on row data for dialog
+                if (args.rowData.TaskID === 1 || args.rowData.TaskID === 5) {
+                    args.cancel = true; // Cancel editing for this specific row dialog
+                }
                 args.Resources.selectionSettings = {};
                 args.Resources.columns.splice(0, 1);
             }
         },
+        actionComplete (args) {
+            if (args.requestType === 'add' && !args.data.TaskName) {
+                var taskName = 'Task Name ' + args.data.TaskID;
+                args.data.TaskName = taskName;
+                args.data.ganttProperties.taskName = taskName;
+                args.data.taskData.TaskName = taskName;
+            }
+        }
     }
 }
 </script>

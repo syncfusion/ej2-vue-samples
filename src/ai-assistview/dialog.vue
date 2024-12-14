@@ -65,7 +65,7 @@
         <ejs-fab id="fabElem" ref="fab" iconCss='e-icons e-assistview-icon' target=".dialog-aiassistview" content="AI Assist" v-on:click="fabClick"></ejs-fab>
     </div>
     <div id="action-description">
-        <p>This example showcases the integration of AI AssistView within the Syncfusion dialog component, allowing you to display generated responses in the notes view.</p>
+        <p>This example showcases the integration of AI AssistView within the Syncfusion<sup>®</sup> dialog component, allowing you to display generated responses in the notes view.</p>
     </div>
     <div id="description">
         <p>In this example, the AI AssistView is shown inside a dialog component, which opens with a floating action button (FAB) click.
@@ -171,25 +171,25 @@ export default {
         background: none;
     }
 
-    .dialog-aiassistview .left-content .content {
-        height: 80%;
+    .dialog-aiassistview .left-content .content,
+    .dialog-aiassistview .right-content .content {
         justify-content: flex-start;
         border: none;
         box-shadow: none;
-        padding-left: 3px; 
         background: inherit;
+    }
+
+    .dialog-aiassistview .left-content .content {
+        height: 80%;
+        padding-left: 3px; 
     }
 
     .dialog-aiassistview .right-content .content {
         height: 100%;
-        justify-content: flex-start;
-        border: none;
-        box-shadow: none;
         margin-top: 20px;
         font-size: 12px;
         overflow: auto;
         line-height: 25px;
-        background: inherit;
     }
 
     .dialog-aiassistview .note-title {

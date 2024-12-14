@@ -9,14 +9,14 @@
             "category": "Button",
             "ftName": "button",
             "api":{"Button":["isPrimary","cssClass", "iconCss", "isToggle", "iconPosition", "content"] },
-            "description": "This example demonstrates the types (flat, toogle, outline, round), sizes and styles (primary, success, info, warning) of the Syncfusion Vue Button."
+            "description": "This example demonstrates the types (flat, toogle, outline, round), sizes and styles (primary, success, info, warning) of the Syncfusion<sup>®</sup> Vue Button."
         },
         {
             "url": "button-group",
             "name": "Button Group",
             "category": "Button",
             "ftName": "button-group",
-            "description": "This example demonstrates the behaviors (default, checkbox, radio) of the Syncfusion Vue ButtonGroup."
+            "description": "This example demonstrates the behaviors (default, checkbox, radio) of the Syncfusion<sup>®</sup> Vue ButtonGroup."
         },
         {
             "url": "checkbox",
@@ -24,7 +24,7 @@
             "category": "Button",
             "ftName": "checkbox",
             "api":{"CheckBox":["label", "checked", "indeterminate", "disabled", "change"] },
-            "description": "This example demonstrates the three different states (checked, unchecked, indeterminate) of the Syncfusion Vue CheckBox."
+            "description": "This example demonstrates the three different states (checked, unchecked, indeterminate) of the Syncfusion<sup>®</sup> Vue CheckBox."
         },
         {
             "url": "radio-button",
@@ -32,7 +32,7 @@
             "category": "Button",
             "ftName": "radio-button",
             "api":{"RadioButton":["label", "name", "value", "checked"] },
-            "description": "This example demonstrates the group functionality of the Syncfusion Vue RadioButton with checked and unchecked states."
+            "description": "This example demonstrates the group functionality of the Syncfusion<sup>®</sup> Vue RadioButton with checked and unchecked states."
         },
         {
             "url": "dropdown-button",
@@ -40,7 +40,7 @@
             "category": "Button",
             "ftName": "dropdown-menu",
             "api":{"DropDownButton":["items", "cssClass", "iconCss"] },
-            "description": "This example demonstrates the usecases of the Syncfusion Vue DropDownButton with icons, text and separator in popup action items."
+            "description": "This example demonstrates the usecases of the Syncfusion<sup>®</sup> Vue DropDownButton with icons, text and separator in popup action items."
         },
         {
             "url": "split-button",
@@ -48,7 +48,7 @@
             "category": "Button",
             "ftName": "split-button",
             "api":{"SplitButton":[ "items", "content", "iconCss", "beforeItemRender"] },
-            "description": "This example demonstrates the usecases of the Syncfusion Vue SplitButton with icons and text in primary splitbutton."
+            "description": "This example demonstrates the usecases of the Syncfusion<sup>®</sup> Vue SplitButton with icons and text in primary splitbutton."
         },
         {
             "url": "switch",
@@ -56,7 +56,7 @@
             "category": "Button",
             "ftName": "toggle-switch-button",
             "api":{"Switch":[ "checked", "disabled"] },
-            "description": "This example demonstrates the toggle states (checked, unchecked) of the Syncfusion Vue Switch."
+            "description": "This example demonstrates the toggle states (checked, unchecked) of the Syncfusion<sup>®</sup> Vue Switch."
         },
         {
             "url": "progress-button",
@@ -64,7 +64,7 @@
             "category": "Button",
             "ftName": "progress-button",
             "api":{"ProgressButton":["content", "iconCss", "cssClass", "duration", "disabled", "isPrimary", "enableProgress", "end", "begin", "spinSettings", "animationSettings"]},
-            "description": "This example demonstrates the different functionalities of the Syncfusion Vue ProgressButton with spinner and progress indicator."
+            "description": "This example demonstrates the different functionalities of the Syncfusion<sup>®</sup> Vue ProgressButton with spinner and progress indicator."
         }
     ]
 }

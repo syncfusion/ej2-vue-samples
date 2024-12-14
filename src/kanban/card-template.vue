@@ -62,7 +62,7 @@
 .kanban-card-template .e-card .e-size {
   color: #795704;
     }
-    .fluent-dark .e-kanban .e-size, .bootstrap5-dark .e-kanban .e-size,.bootstrap5\.3-dark .e-kanban .e-size, .tailwind-dark .e-kanban .e-sized, .material-dark .e-kanban .e-size, .fabric-dark .e-kanban .e-size, .bootstrap-dark .e-kanban .e-size, .highcontrast .e-kanban .e-size, .material3-dark .e-kanban .e-size {
+    .fluent-dark .e-kanban .e-size, .bootstrap5-dark .e-kanban .e-size,.bootstrap5\.3-dark .e-kanban .e-size, .tailwind-dark .e-kanban .e-sized, .tailwind3-dark .e-kanban .e-sized, .material-dark .e-kanban .e-size, .fabric-dark .e-kanban .e-size, .bootstrap-dark .e-kanban .e-size, .highcontrast .e-kanban .e-size, .material3-dark .e-kanban .e-size {
         color: #b8860b;
 }
 .kanban-card-template .e-card .e-kanban-date {
@@ -162,7 +162,7 @@
 .kanban-card-template .e-card .e-readyText {
   color: #018607;
     }
-    .fluent-dark .e-kanban .e-readyText, .bootstrap5-dark .e-kanban .e-readyText,.bootstrap5\.3-dark .e-kanban .e-readyText, .tailwind-dark .e-kanban .e-readyText, .material-dark .e-kanban .e-readyText, .fabric-dark .e-kanban .e-readyText, .bootstrap-dark .e-kanban .e-readyText, .highcontrast .e-kanban .e-readyText, .material3-dark .e-kanban .e-readyText {
+    .fluent-dark .e-kanban .e-readyText, .bootstrap5-dark .e-kanban .e-readyText,.bootstrap5\.3-dark .e-kanban .e-readyText, .tailwind-dark .e-kanban .e-readyText, .tailwind3-dark .e-kanban .e-readyText, .material-dark .e-kanban .e-readyText, .fabric-dark .e-kanban .e-readyText, .bootstrap-dark .e-kanban .e-readyText, .highcontrast .e-kanban .e-readyText, .material3-dark .e-kanban .e-readyText {
         color:#21A32E;
 }
 
@@ -170,14 +170,14 @@
   color: #527708;
   animation: blinker 1.5s linear infinite;
 }
-.fluent-dark .e-kanban .e-preparingText, .bootstrap5-dark .e-kanban .e-preparingText,.bootstrap5\.3-dark .e-kanban .e-preparingText, .tailwind-dark .e-kanban .e-preparingText, .material-dark .e-kanban .e-preparingText, .fabric-dark .e-kanban .e-preparingText, .bootstrap-dark .e-kanban .e-preparingText, .highcontrast .e-kanban .e-preparingText, .material3-dark .e-kanban .e-preparingText {
+.fluent-dark .e-kanban .e-preparingText, .bootstrap5-dark .e-kanban .e-preparingText,.bootstrap5\.3-dark .e-kanban .e-preparingText, .tailwind-dark .e-kanban .e-preparingText, .tailwind3-dark .e-kanban .e-preparingText, .material-dark .e-kanban .e-preparingText, .fabric-dark .e-kanban .e-preparingText, .bootstrap-dark .e-kanban .e-preparingText, .highcontrast .e-kanban .e-preparingText, .material3-dark .e-kanban .e-preparingText {
         color: #99d126;
     }
 
 .kanban-card-template .e-card .e-deliveredText {
   color: #c80e0e;
 }
-.fluent-dark .e-kanban .e-deliveredText, .bootstrap5-dark .e-kanban .e-deliveredText,.bootstrap5\.3-dark .e-kanban .e-deliveredText, .tailwind-dark .e-kanban .e-deliveredText, .material-dark .e-kanban .e-deliveredText, .fabric-dark .e-kanban .e-deliveredText, .bootstrap-dark .e-kanban .e-deliveredText, .highcontrast .e-kanban .e-deliveredText, .material3-dark .e-kanban .e-deliveredText {
+.fluent-dark .e-kanban .e-deliveredText, .bootstrap5-dark .e-kanban .e-deliveredText,.bootstrap5\.3-dark .e-kanban .e-deliveredText, .tailwind-dark .e-kanban .e-deliveredText, .tailwind3-dark .e-kanban .e-deliveredText, .material-dark .e-kanban .e-deliveredText, .fabric-dark .e-kanban .e-deliveredText, .bootstrap-dark .e-kanban .e-deliveredText, .highcontrast .e-kanban .e-deliveredText, .material3-dark .e-kanban .e-deliveredText {
         color:#dc7c7c;
     }
 .e-kanban-dialog .e-kanban-form-wrapper table .e-label, .e-kanban-dialog .e-kanban-form-container table .e-label {
@@ -194,78 +194,10 @@
 import { createApp } from "vue";
 import { extend } from "@syncfusion/ej2-base";
 import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-kanban";
-import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { kanbanPizzaData } from "./datasource";
 import cardTemplate from "./card.vue";
-import { TextBoxComponent } from "@syncfusion/ej2-vue-inputs";
-import { DatePickerComponent } from "@syncfusion/ej2-vue-calendars";
+import ContentTemplate from "./card-addedit-content.vue";
 
-var ContentTemplate = createApp({}).component("dialogTemplate", {
-  template: `<div>
-<table>
-    <tbody>
-        <tr>
-            <td class="e-label">ID</td>
-            <td>
-              <div class="e-float-input e-control-wrapper">
-                <input id="Id" name="Id" type="text" class="e-field" v-model='data.Id' disabled />
-              </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="e-label">Category</td>
-            <td>
-               <ejs-dropdownlist id="Category" name="Category" class="e-field" v-model='data.Category' :dataSource="dataSource1" placeholder="Category"></ejs-dropdownlist>
-            </td>
-        </tr>
-        <tr>
-            <td class="e-label">Title</td>
-            <td>
-              <ejs-textbox id="Title" name="Title" v-model='data.Title' class="e-field" placeholder="Title"></ejs-textbox>
-            </td>
-        </tr>
-        <tr>
-            <td class="e-label">Size</td>
-            <td>
-              <ejs-textbox type="Size" name="Size" id="Size" v-model='data.Size' class="e-field" placeholder="Size"></ejs-textbox>
-            </td>
-        </tr>
-        <tr>
-            <td class="e-label">Description</td>
-            <td>
-              <div class="e-float-input e-control-wrapper">
-                <textarea type="text" name="Description" id="Description" class="e-field" v-model='data.Description'></textarea>
-              </div>
-            </td>
-        </tr>
-         <tr>
-            <td class="e-label">Deliver</td>
-            <td>
-              <ejs-datepicker id="datepicker" v-model='data.Date' format="MM/dd/yyyy"></ejs-datepicker>
-            </td>
-        </tr>
-    </tbody>
-</table>
-</div>`,
-  components: {
-    'ejs-dropdownlist': DropDownListComponent,
-    'ejs-textbox': TextBoxComponent,
-    'ejs-datepicker': DatePickerComponent
-  },
-  data() {
-    var categoryData = [
-      { text: "Menu" },
-      { text: "Order" },
-      { text: "Ready to Serve" },
-      { text: "Delivered" },
-      { text: "Served" },
-    ];
-    return {
-      dataSource1: categoryData,
-      data: {},
-    };
-  },
-});
 export default {
   components: {
     'ejs-kanban': KanbanComponent,
@@ -283,7 +215,7 @@ export default {
       },
       dialogSettings: {
         template: function () {
-          return { template: createApp({}).component('sortCardTemplate', ContentTemplate) };
+          return { template: createApp({}).component('contentTemplate', ContentTemplate) };
         },
       },
       dialogClose: function (args) {

@@ -2,14 +2,12 @@
    "name": "Gantt Chart",
    "directory": "gantt",
    "category": "Calendars",
-   "type": "update",
    "ftName": "gantt",
    "samples": [
       {
          "url": "overview",
          "name": "Overview",
          "category": "Gantt Chart",
-         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -44,7 +42,6 @@
       {
          "url": "editing",
          "name": "Editing",
-         "type": "update",
          "category": "Gantt Chart",
          "api": {
             "Gantt": [
@@ -88,7 +85,7 @@
                "allowSelection"
             ]
          },
-         "description": "This example illustrates binding large data and smooth scrolling with large data using the Virtual Scroll feature in the Syncfusion Gantt chart."
+         "description": "This example illustrates binding large data and smooth scrolling with large data using the Virtual Scroll feature in the Syncfusion<sup>®</sup> Gantt chart."
       },
       {
          "url": "undo-redo",
@@ -452,7 +449,6 @@
          "url": "zooming",
          "name": "Zooming",
          "category": "Timeline",
-         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -487,7 +483,7 @@
                "projectEndDate"
             ]
          },
-         "description": "This demo explains how to customize column headers to show additional HTML elements, such as icons, images, etc. in Syncfusion Essential JS2 Gantt control."
+         "description": "This demo explains how to customize column headers to show additional HTML elements, such as icons, images, etc. in Syncfusion<sup>®</sup> Essential JS2 Gantt control."
       },
       {
          "url": "header-template",
@@ -509,7 +505,7 @@
                "projectEndDate"
             ]
          },
-         "description": "This demo explains how to customize column headers to show additional HTML elements, such as icons, images, etc. in Syncfusion Essential JS2 Gantt control."
+         "description": "This demo explains how to customize column headers to show additional HTML elements, such as icons, images, etc. in Syncfusion<sup>®</sup> Essential JS2 Gantt control."
       },
       {
          "url": "reorder",
@@ -530,7 +526,7 @@
                "projectEndDate"
             ]
          },
-         "description": "This demo explains how to reorder the columns of Gantt by simple drag and drop of columns using Syncfusion Essential JS2 Gantt." 
+         "description": "This demo explains how to reorder the columns of Gantt by simple drag and drop of columns using Syncfusion<sup>®</sup> Essential JS2 Gantt." 
       },
       {
          "url": "resizing",
@@ -551,7 +547,7 @@
                "projectEndDate"
             ]
          },
-         "description": "This demo explains how to resize the width of the Gantt columns in Syncfusion Essential Javascript 2 Gantt control"
+         "description": "This demo explains how to resize the width of the Gantt columns in Syncfusion<sup>®</sup> Essential Javascript 2 Gantt control"
       },
       {
          "url": "column-menu",
@@ -574,7 +570,7 @@
                "projectEndDate"
             ]
          },
-         "description": "This demo explains the default functionalities of the Column Menu in Syncfusion Essential JS2 Gantt."
+         "description": "This demo explains the default functionalities of the Column Menu in Syncfusion<sup>®</sup> Essential JS2 Gantt."
       },
       {
          "url": "showhide",
@@ -594,7 +590,7 @@
                "projectEndDate"
             ]
          },
-         "description": "This demo explains how to hide or show the columns of Gantt dynamically using Syncfusion Essential JS2 Gantt methods."
+         "description": "This demo explains how to hide or show the columns of Gantt dynamically using Syncfusion<sup>®</sup> Essential JS2 Gantt methods."
       },
       {
          "url": "resource-allocation",
@@ -684,7 +680,7 @@
                "projectEndDate"
              ]
          },
-         "description": "This demo demonstrates how to sort multiple columns of Gantt by holding the CTRL key and clicking the column headers of Syncfusion Essential JS2 Gantt."
+         "description": "This demo demonstrates how to sort multiple columns of Gantt by holding the CTRL key and clicking the column headers of Syncfusion<sup>®</sup> Essential JS2 Gantt."
       },
       {
          "url": "sorting-api",
@@ -704,7 +700,7 @@
                "projectEndDate"
              ]
          },
-         "description": "This demo demonstrates how to sort columns and clear sorted columns dynamically using the sortColumn and clearSorting method of Syncfusion Essential JS2 Gantt."
+         "description": "This demo demonstrates how to sort columns and clear sorted columns dynamically using the sortColumn and clearSorting method of Syncfusion<sup>®</sup> Essential JS2 Gantt."
       },
       {
          "url": "taskbar-template",
@@ -776,7 +772,7 @@
                "labelSettings"
             ]
          },
-         "description": "This demo explains how to render label template for the left, right, and task labels in Syncfusion Essential JS2 Gantt."
+         "description": "This demo explains how to render label template for the left, right, and task labels in Syncfusion<sup>®</sup> Essential JS2 Gantt."
       },
       {
          "url": "tooltip-template",
@@ -800,7 +796,7 @@
                "projectEndDate"
             ]
          },
-         "description": "This demo explains how to render tooltip template for taskbar and baseline in Syncfusion Essential JS2 Gantt."
+         "description": "This demo explains how to render tooltip template for taskbar and baseline in Syncfusion<sup>®</sup> Essential JS2 Gantt."
       },
       {
          "url": "toolbar-template",
@@ -822,7 +818,7 @@
                "toolbarClick"
             ]
          },
-         "description": "This demo explains how to render custom toolbar elements in a toolbar, by which any custom operation can be performed in Syncfusion Essential JS2 Gantt."
+         "description": "This demo explains how to render custom toolbar elements in a toolbar, by which any custom operation can be performed in Syncfusion<sup>®</sup> Essential JS2 Gantt."
       },
       {
          "url": "filtering",
@@ -855,7 +851,6 @@
          "url": "advanced-filtering",
          "name": "Advanced Filtering",
          "category": "Filtering",
-         "type": "new",
          "api": {
             "Gantt": [
                "dataSource",
@@ -893,7 +888,7 @@
                "projectEndDate"
             ]
          },
-         "description": "This example demonstrates the various selection support of row and cell with different type in Syncfusion Essential JS2 Gantt"
+         "description": "This example demonstrates the various selection support of row and cell with different type in Syncfusion<sup>®</sup> Essential JS2 Gantt"
       },
       {
          "url": "context-menu",
@@ -923,7 +918,7 @@
 			   "contextMenuItems"
             ]
          },
-         "description": "This demo explains the usage of context menu and the default context menu items in Syncfusion Gantt control."
+         "description": "This demo explains the usage of context menu and the default context menu items in Syncfusion<sup>®</sup> Gantt control."
       },
       {
          "url": "exporting",
@@ -950,7 +945,7 @@
                "toolbarClick"
             ]
          },
-         "description": "This demo explains how to export Gantt content to Excel and CSV documents using the Syncfusion TypeScript Gantt control."
+         "description": "This demo explains how to export Gantt content to Excel and CSV documents using the Syncfusion<sup>®</sup> TypeScript Gantt control."
       },
       {
          "url": "drag-and-drop",
@@ -972,7 +967,7 @@
                "projectEndDate"
              ]
          },
-         "description": "This demo demonstrates how to drag and drop the gantt rows by using drag icon in left side of gantt column of Syncfusion Essential JS2 Gantt."
+         "description": "This demo demonstrates how to drag and drop the gantt rows by using drag icon in left side of gantt column of Syncfusion<sup>®</sup> Essential JS2 Gantt."
       },
       {
          "url": "split-tasks",
@@ -998,7 +993,7 @@
                "enableContextMenu"
             ]
          },
-         "description": "This demo explains how to interrupt the already scheduled tasks using the Syncfusion TypeScript Gantt control."
+         "description": "This demo explains how to interrupt the already scheduled tasks using the Syncfusion<sup>®</sup> TypeScript Gantt control."
       },
       {
          "url": "grid-lines",
@@ -1018,7 +1013,7 @@
                "projectEndDate"
             ]
          },
-         "description": "This demo explains how to customize the grid lines in Gantt by selecting values from dropdown using Syncfusion Essential JS2 Gantt."
+         "description": "This demo explains how to customize the grid lines in Gantt by selecting values from dropdown using Syncfusion<sup>®</sup> Essential JS2 Gantt."
       },
       {
          "url": "events",
@@ -1039,7 +1034,7 @@
                "toolbarClick"
             ]
          },
-         "description": "This demo demonstrates the basic functionalities of the events that are available in the Syncfusion Essential JS2 Gantt."
+         "description": "This demo demonstrates the basic functionalities of the events that are available in the Syncfusion<sup>®</sup> Essential JS2 Gantt."
       },
       {
          "url": "keyboard-interactions",
@@ -1062,7 +1057,7 @@
                "projectEndDate"
             ]
          },
-         "description": "This demo demonstrates the key combinations used to perform corresponding Gantt actions in Syncfusion Essential JS2 Gantt."
+         "description": "This demo demonstrates the key combinations used to perform corresponding Gantt actions in Syncfusion<sup>®</sup> Essential JS2 Gantt."
       }
    ]
 }

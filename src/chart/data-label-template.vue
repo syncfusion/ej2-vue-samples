@@ -401,7 +401,7 @@
           </div>
         </template>
         <template v-slot:tailwindMan="{ data }">
-          <div style="background-color: #5a61f6; border-radius: 3px">
+          <div style="background-color: #5A61F6; border-radius: 3px">
             <img src="./images/male.png" style="width: 24px; height: 24px; padding: 2px" alt="Male Icon"/>
             <div style="
                 color: white;
@@ -419,7 +419,43 @@
           </div>
         </template>
         <template v-slot:tailwindWomen="{ data }">
-          <div style="background-color: #65a30d; border-radius: 3px">
+          <div style="background-color: #65A30D; border-radius: 3px">
+            <img src="./images/female.png" style="width: 24px; height: 24px; padding: 2px" alt="Female Icon"/>
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:tailwind3Man="{ data }">
+          <div style="background-color: #2F4074; border-radius: 3px">
+            <img src="./images/male.png" style="width: 24px; height: 24px; padding: 2px" alt="Male Icon"/>
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:tailwind3Women="{ data }">
+          <div style="background-color: #03B4B4; border-radius: 3px">
             <img src="./images/female.png" style="width: 24px; height: 24px; padding: 2px" alt="Female Icon"/>
             <div style="
                 color: white;
@@ -437,7 +473,7 @@
           </div>
         </template>
         <template v-slot:tailwinddarkMan="{ data }">
-          <div style="background-color: #8b5cf6; border-radius: 3px">
+          <div style="background-color: #8B5CF6; border-radius: 3px">
             <img src="./images/male.png" style="width: 24px; height: 24px; padding: 2px" alt="Male Icon"/>
             <div style="
                 color: white;
@@ -455,7 +491,43 @@
           </div>
         </template>
         <template v-slot:tailwinddarkWomen="{ data }">
-          <div style="background-color: #22d3ee; border-radius: 3px">
+          <div style="background-color: #22D3EE; border-radius: 3px">
+            <img src="./images/female.png" style="width: 24px; height: 24px; padding: 2px" alt="Female Icon"/>
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:tailwind3darkMan="{ data }">
+          <div style="background-color: #8029F1; border-radius: 3px">
+            <img src="./images/male.png" style="width: 24px; height: 24px; padding: 2px" alt="Male Icon"/>
+            <div style="
+                color: white;
+                font-family: Roboto;
+                font-style: medium;
+                font-size: 14px;
+                float: right;
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                padding-right: 6px;
+              ">
+              <span>{{ data.point.y }} </span>
+            </div>
+          </div>
+        </template>
+        <template v-slot:tailwind3darkWomen="{ data }">
+          <div style="background-color: #1ABC9C; border-radius: 3px">
             <img src="./images/female.png" style="width: 24px; height: 24px; padding: 2px" alt="Female Icon"/>
             <div style="
                 color: white;
@@ -800,6 +872,9 @@ export default {
       } else if (theme === "Tailwind") {
         args.template =
           args.series.name === "Boys" ? "tailwindMan" : "tailwindWomen";
+      } else if (theme === "Tailwind3") {
+        args.template =
+          args.series.name === "Boys" ? "tailwind3Man" : "tailwind3Women";
       } else if (theme === "Bootstrap") {
         args.template =
           args.series.name === "Boys" ? "bootstrapMan" : "bootstrapWomen";
@@ -809,6 +884,9 @@ export default {
       } else if (theme === "TailwindDark") {
         args.template =
           args.series.name === "Boys" ? "tailwinddarkMan" : "tailwinddarkWomen";
+      } else if (theme === "Tailwind3Dark") {
+        args.template =
+          args.series.name === "Boys" ? "tailwind3darkMan" : "tailwind3darkWomen";
       } else if (theme === "MaterialDark") {
         args.template =
           args.series.name === "Boys" ? "materialdarkMan" : "materialdarkWomen";

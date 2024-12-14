@@ -229,6 +229,7 @@
 
     .highcontrast .quick-info-template .quick-info-header,
     .tailwind-dark .quick-info-template .quick-info-header,
+    .tailwind3-dark .quick-info-template .quick-info-header,
     .bootstrap-dark .quick-info-template .quick-info-header,
     .bootstrap5-dark .quick-info-template .quick-info-header,
     .bootstrap5\.3-dark .quick-info-template .quick-info-header,
@@ -241,6 +242,7 @@
     }
 
     .tailwind-dark .quick-info-template .quick-info-header-content,
+    .tailwind3-dark .quick-info-template .quick-info-header-content,
     .bootstrap-dark .quick-info-template .quick-info-header-content,
     .bootstrap5-dark .quick-info-template .quick-info-header-content,
     .bootstrap5\.3-dark .quick-info-template .quick-info-header-content,
@@ -255,7 +257,9 @@
     }
 
     .tailwind-dark .quick-info-content .event-content div label,
+    .tailwind3-dark .quick-info-content .event-content div label,
     .tailwind-dark .quick-info-content .event-content div span,
+    .tailwind3-dark .quick-info-content .event-content div span,
     .bootstrap-dark .quick-info-content .event-content div label,
     .bootstrap-dark .quick-info-content .event-content div span,
     .bootstrap5-dark .quick-info-content .event-content div label,

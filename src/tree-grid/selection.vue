@@ -16,7 +16,7 @@
             <table id="property" title="Properties" style="width: 100%">
                 <br/><br/>
                 <tr style="height: 50px">
-                    <td style="width: 70%">
+                    <td>
                         <div>Selection Type</div>
                     </td>
                     <td style="width: 70%;padding-left: 10px; padding-right:10px;padding-top:5px">
@@ -26,7 +26,7 @@
                     </td>
                 </tr>
                 <tr style="height: 50px">
-                    <td style="width: 80%">
+                    <td>
                         <div>Selection Mode</div>
                     </td>
                     <td style="width: 80%; padding-left: 20px; padding-right:10px;padding-top:5px">
@@ -34,10 +34,10 @@
                     </td>
                 </tr>
                 <tr class='con-prop' style="height: 50px;display: none">
-                    <td style="width: 80%">
+                    <td>
                         <div> Cell Selection Mode</div>
                     </td>
-                    <td style="width: 80%; padding-left: 20px; padding-right:10px;padding-top:5px">
+                    <td style="width: 80%; padding-left: 20px; padding-right:10px;">
                         <ejs-dropdownlist ref='cellmode' width='120px' id='cellmode' :dataSource='celldata' value='Flow' :fields='ddlfields' :change="oncellChange"></ejs-dropdownlist>
                     </td>
                 </tr>

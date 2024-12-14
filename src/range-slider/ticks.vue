@@ -129,6 +129,13 @@ body.fluent2 .sliderwrap .e-tick-before.e-scale.e-h-scale .e-tick,
 body.fluent2-dark .sliderwrap .e-tick-before.e-scale.e-h-scale .e-tick {
     top: -5px;
 }
+
+body.tailwind3 .sliderwrap .e-tick-after.e-scale.e-h-scale .e-tick,
+body.tailwind3-dark .sliderwrap .e-tick-after.e-scale.e-h-scale .e-tick,
+body.tailwind3.e-bigger .sliderwrap .e-tick-after.e-scale.e-h-scale .e-tick
+body.tailwind3-dark.e-bigger .sliderwrap .e-tick-after.e-scale.e-h-scale .e-tick {
+    top: 0px;
+}
 </style>
 <script>
 import { SliderComponent } from "@syncfusion/ej2-vue-inputs";

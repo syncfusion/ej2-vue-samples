@@ -11,22 +11,22 @@
         </ejs-treegrid>
       </div>
       <div>
-        <div class="col-md-3 property-section">
+        <div class="col-md-3 property-section columnformatting-section">
             <table id="property" title="Properties" style="width: 100%">
                 <br/><br/>
                 <tr style="height: 50px">
-                    <td style="width: 30%">
+                    <td>
                         <div>Column</div>
                     </td>
-                    <td style="width: 70%; padding-left: 10px; padding-right:10px;">
+                    <td style="width: 70%; padding-left: 7%; padding-right:10px;">
                         <ejs-dropdownlist width='140px' ref='columns' id='columns' :dataSource='columnNames' value='price' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
                     </td>
                 </tr>
                 <tr style="height: 50px">
-                    <td style="width: 30%">
+                    <td>
                         <div> Format</div>
                     </td>
-                    <td style="width: 70%; padding-left: 10px; padding-right:10px;">
+                    <td style="width: 70%; padding-left: 7%; padding-right:10px;">
                         <ejs-dropdownlist ref='format' width='140px' id='format' :dataSource='priceFormat' value='c2' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
@@ -48,6 +48,17 @@
 </div>
 </div>
 </template>
+<style>
+        @media (min-with:990 && max-width:1300){
+          .property-panel-section{
+            padding-left: 0px;
+          }
+          .columnformatting-section{
+            padding-left: 0px !important;
+          }
+        }
+        
+</style>
 
 <script lang="ts">
 import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Filter, Column } from "@syncfusion/ej2-vue-treegrid";

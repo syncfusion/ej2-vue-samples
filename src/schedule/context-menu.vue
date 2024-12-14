@@ -149,6 +149,7 @@
                 let eventObj;
                 let selectedCells;
                 let activeCellsData;
+                let isRightClickInSelectedCells;
                 if (this.selectedTarget.classList.contains('e-appointment')) {
                     eventObj = scheduleObj.getEventDetails(this.selectedTarget);
                 }
@@ -159,7 +160,8 @@
                     case 'Add':
                     case 'AddRecurrence':
                          selectedCells = scheduleObj.getSelectedElements();
-                         activeCellsData = scheduleObj.getCellDetails(selectedCells.length > 0 ? selectedCells : this.selectedTarget);
+                         isRightClickInSelectedCells = selectedCells.some((cell) => cell === this.selectedTarget);
+                         activeCellsData = scheduleObj.getCellDetails(isRightClickInSelectedCells ? selectedCells : [this.selectedTarget]);
                         if (selectedMenuItem === 'Add') {
                             scheduleObj.openEditor(activeCellsData, 'Add');
                         } else {

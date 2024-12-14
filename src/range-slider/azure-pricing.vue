@@ -758,7 +758,8 @@ body {
   opacity: 1;
 }
 	
-.bootstrap5\.3-dark .slider-azure .discount .e-label, .bootstrap5\.3-dark .slider-azure #cloud-slider-text .suffix {
+.bootstrap5\.3-dark .discount .e-label, .bootstrap5\.3-dark #cloud-slider-text .suffix,
+.tailwind3-dark .discount .e-label, .tailwind3-dark #cloud-slider-text .suffix {
 	color: black;
 }
 

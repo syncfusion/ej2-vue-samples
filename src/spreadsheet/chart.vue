@@ -102,7 +102,7 @@ export default {
            // Formatting cells dynamically using cellFormat method
              spreadsheet.cellFormat({ backgroundColor: '#e56590', color: '#fff', fontWeight: 'bold', textAlign: 'center' }, 'A3:E3');
              // Applying currency format to the specified range.
-             spreadsheet.numberFormat(getFormatFromType('Currency'), 'B4:E10');
+             spreadsheet.numberFormat('$#,##0.00', 'B4:E10');
              // Merging the cells from A1 to E1
              spreadsheet.merge('A1:E1');
             }

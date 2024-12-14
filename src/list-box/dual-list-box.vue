@@ -41,7 +41,7 @@
     .dual-list-groupb {
         width: 50%;
     }
-    .dual-list-groupb .e-listbox-wrapper,
+    .dual-list-groupb .e-listbox-wrapper.e-wrapper.e-lib,
     .dual-list-groupb h4 {
         width: 87%;
         margin-left: 15px;

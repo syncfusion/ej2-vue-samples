@@ -71,8 +71,7 @@
             "description": " The tree view node can be customized through the template option. In this demo the tree view nodes are templated like an mail system.",
              "sourceFiles":[
                 { "displayName":"template.vue", "path":"src/treeview/template.vue" },
-                { "displayName":"template-data.json", "path":"src/treeview/template-data.json" },
-                { "displayName":"tree-template.vue", "path":"src/treeview/tree-template.vue" }
+                { "displayName":"template-data.json", "path":"src/treeview/template-data.json" }
             ]  
 
     },

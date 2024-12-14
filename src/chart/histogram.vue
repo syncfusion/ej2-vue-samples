@@ -11,7 +11,7 @@
         </ejs-chart>
     </div>
     <div id="action-description">
-    <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/histogram-chart" aria-label="Navigate to explore the Syncfusion Vue Histogram Chart">Vue Histogram Chart</a> example visualizes final examination results. The number of students between each interval is shown in data labels.</p>
+    <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/histogram-chart" aria-label="Navigate to explore the Syncfusion<sup>®</sup> Vue Histogram Chart">Vue Histogram Chart</a> example visualizes final examination results. The number of students between each interval is shown in data labels.</p>
 </div>
 <div id="description">
     <p>

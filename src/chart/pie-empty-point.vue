@@ -2,7 +2,7 @@
   <div>
     <div class="col-md-8 control-section sb-property-border">
         <ejs-accumulationchart ref="pie" :theme='theme' style='display:block' align='center'  :enableBorderOnMouseMove='false' id='chartcontainer' :title='title'
-             :legendSettings='legendSettings' :tooltip='tooltip'  :textRender="onTextRender" :load="load">
+             :legendSettings='legendSettings' :tooltip='tooltip'  :textRender="onTextRender">
             <e-accumulation-series-collection>
                 <e-accumulation-series :dataSource='seriesData' :mode='emptydata' xName='x' yName='y' :dataLabel='dataLabel' name='Profit' type='Pie' :emptyPointSettings='emptyPointSettings'> </e-accumulation-series>
              
@@ -91,7 +91,7 @@ export default {
             visible: false,
         },
        
-         tooltip: { enable: true, format: ' <b>${point.x}</b><br> Profit: <b>$${point.y}K</b>', header: '' },
+         tooltip: { enable: true, format: ' <b>${point.x}</b><br> Profit: <b>$${point.y}K</b>', header: '', enableHighlight: true },
 
          modedata: ["Drop", "Average", "Zero" ],
 
@@ -110,17 +110,14 @@ export default {
     });
    },
   methods: {
-    load: function (args) {
-            if (selectedTheme === 'bootstrap5-dark') {
-                args.chart.series[0].emptyPointSettings.fill = '#FF7F7F';
-            }
-    },
      modeChange: function(args) {
       let empty = document.getElementById('emptypointmode').value;
         let emptyPointSettings = extend({}, this.emptyPointSettings);
             emptyPointSettings.mode = empty;
             this.emptyPointSettings = emptyPointSettings; 
-            
+            if (selectedTheme === 'bootstrap5-dark') {
+                this.emptyPointSettings.fill = '#FF7F7F';
+            }  
       },
       onTextRender: function (args) {
         args.text = args.point.x + ": $" + args.point.y + "K";

@@ -34,11 +34,13 @@
 
     .dialog-components-sample {
         overflow-y: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     #componentsDialog {
-        left: 23%;
-        top: 2%! important;
-        width: 452px!important;
+        left: unset !important;
+        top: 2% !important;
     }
 </style>
 

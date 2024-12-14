@@ -12,7 +12,7 @@
 </div>
 
 <div id="action-description">
-    <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/box-and-whisker-chart" aria-label="Navigate to explore the Syncfusion Vue Box and Whisker Chart">Vue Box and Whisker</a> example visualizes the employee’s age group in various departments of a company with box and whisker chart.</p>
+    <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/box-and-whisker-chart" aria-label="Navigate to explore the Syncfusion<sup>®</sup> Vue Box and Whisker Chart">Vue Box and Whisker</a> example visualizes the employee’s age group in various departments of a company with box and whisker chart.</p>
 </div>
 <div id="description">
     <p>
@@ -40,7 +40,7 @@
 import { EmitType } from '@syncfusion/ej2-base';
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, Category, Tooltip, BoxAndWhiskerSeries } from "@syncfusion/ej2-vue-charts";
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2HighContrastColors } from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2HighContrastColors, pointTailwind3Colors, pointTailwind3DarkColors } from './theme-color';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
@@ -163,6 +163,12 @@ export default {
             } 
             else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
                 args.fill = pointFluent2HighContrastColors[args.point.index % 10];
+            }
+            else if (selectedTheme === 'tailwind3-dark') {
+                args.fill = pointTailwind3DarkColors[args.point.index % 10];
+            } 
+            else if (selectedTheme === 'tailwind3') {
+                args.fill = pointTailwind3Colors[args.point.index % 10];
             }
             else {
                 args.fill = pointBootstrapColors[args.point.index % 10];

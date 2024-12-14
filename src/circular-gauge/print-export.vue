@@ -130,14 +130,6 @@
     content: "\e743";
 }
 
-.e-view.tailwind #CG-export-sample .e-play-icon1::before, .e-view.tailwind-dark #CG-export-sample .e-play-icon1::before {
-    content: "\e76c";
-}
-
-.e-view.tailwind #CG-export-sample .e-play-icon::before, .e-view.tailwind-dark #CG-export-sample .e-play-icon::before {
-    content: "\e7bf";
-}
-
 .e-view.highcontrast #CG-export-sample .e-play-icon1::before {
     content: "\ebf9";
 }

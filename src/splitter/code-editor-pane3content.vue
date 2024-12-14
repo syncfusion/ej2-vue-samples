@@ -12,7 +12,7 @@
 </div>
 </template>
 <style>
-.panecontent .h4 {
+    .panecontent .h4 {
         font-size: 16px;
         margin: 0 0 10px;
         font-weight: bold;

@@ -153,12 +153,12 @@ export default {
         this.fieldObj.enabled = true;
       }
 	if (args.value === 'Ascending') {
-		var data = this.sortByObj.value === 'Index' ? 'RankId' : 'None';
+		var data = this.$refs.sortBy.ej2Instances.value === 'Index' ? 'RankId' : 'None';
 		this.setFieldValue(data);
 		this.directionObj.value = 'Ascending';
 	}
 	if (args.value === 'Descending') {
-		var data = this.sortByObj.value === 'Index' ? 'RankId' : 'None';
+		var data = this.$refs.sortBy.ej2Instances.value === 'Index' ? 'RankId' : 'None';
 		this.setFieldValue(data);
 		this.directionObj.value = 'Descending';
 	}

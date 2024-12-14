@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div>
-        <ejs-treegrid ref='treegrid' :treeColumnIndex='1' :dataSource="data" childMapping='subtasks' :height='350' :allowPaging='true' :pageSettings='pageSettings' :toolbar='toolbar'>
+        <ejs-treegrid ref='treegrid' :treeColumnIndex='1' :dataSource="data" childMapping='subtasks' :height='350' :allowPaging='true' :pageSettings='pageSettings' :toolbar='toolbar' :load='load'>
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' width='70' textAlign='Right'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='200'></e-column>
@@ -29,6 +29,13 @@
 </div>
 </div>
 </template>
+<style scoped>
+    .e-print-fluent2-highcontrast.e-treegrid.e-print-grid-layout,
+    .e-print-fluent2-highcontrast.e-treegrid.e-print-grid-layout .e-gridheader,
+    .e-print-fluent2-highcontrast.e-treegrid.e-print-grid-layout .e-rowcell {
+        border-color: gray !important;
+    }
+</style>
 <script lang="ts">
 import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';
@@ -48,6 +55,9 @@ export default {
     };
   },
   methods:{
+    load: function() {
+        ((this as any).$refs.treegrid as any).$el.ej2_instances[0].grid.cssClass = document.querySelector('.fluent2-highcontrast') ? 'e-print-fluent2-highcontrast' : '';
+    }
   },
   provide: {
       treegrid: [Page, Toolbar]

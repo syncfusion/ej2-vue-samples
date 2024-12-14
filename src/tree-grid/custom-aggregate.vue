@@ -63,7 +63,6 @@
   }
   
    .e-treegrid .e-summarycell.e-templatecell .e-input-group {
-    width: 160px !important;
    input.e-control.e-dropdownlist.e-lib.e-input {
         padding-left: 6px !important;
     }
@@ -132,7 +131,7 @@ export default {
                 dataSource: foods,
                 fields: { value: 'food' },
                 placeholder: 'Select a Category',
-                width: '115px',
+                width: '165px',
                 value: value,
                 change:function () {
                     setTimeout(

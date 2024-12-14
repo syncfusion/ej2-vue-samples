@@ -158,7 +158,13 @@
 .tailwind .layout #list-container #missed.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
 .e-bigger.tailwind .layout #list-container #all.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
 .e-bigger.tailwind .layout #list-container #received.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
-.e-bigger.tailwind .layout #list-container #missed.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
+.e-bigger.tailwind .layout #list-container #missed.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.tailwind3 .layout #list-container #all.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.tailwind3 .layout #list-container #received.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.tailwind3 .layout #list-container #missed.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind3 .layout #list-container #all.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind3 .layout #list-container #received.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge),
+.e-bigger.tailwind3 .layout #list-container #missed.e-listview.e-rtl.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
     padding: 5px 50px 5px 5px;
 }
 
@@ -171,6 +177,9 @@
 .tailwind .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .tailwind .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .tailwind .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.tailwind3 .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.tailwind3 .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.tailwind3 .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .bootstrap5 .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .bootstrap5 .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .bootstrap5 .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
@@ -183,6 +192,12 @@
 .bootstrap5\.3-dark .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .bootstrap5\.3-dark .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .bootstrap5\.3-dark .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.fluent2 .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.fluent2 .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.fluent2 .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.fluent2-dark .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.fluent2-dark .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.fluent2-dark .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .fluent2-highcontrast .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .fluent2-highcontrast .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
 .fluent2-highcontrast .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
@@ -196,6 +211,16 @@
   top: 8px;
 }
 
+.e-bigger.tailwind3 .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.e-bigger.tailwind3 .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.e-bigger.tailwind3 .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.e-bigger.tailwind3-dark .layout #list-container #all.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.e-bigger.tailwind3-dark .layout #list-container #received.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar,
+.e-bigger.tailwind3-dark .layout #list-container #missed.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar{
+    top: 10px;
+    left:0px;
+}
+  
 .tailwind #list-container #tabContainer .e-tab .e-content .e-item {
   padding: 0px;
 }
@@ -208,6 +233,16 @@
 
 .call-history .layout #list-container {
   height: 405px;
+}
+
+.tailwind3-dark .layout #list-container,
+.tailwind3 .layout #list-container {
+    height: 409px;
+}
+
+.e-bigger.tailwind3-dark .layout #list-container,
+.e-bigger.tailwind3 .layout #list-container {
+    height: 417px;
 }
 
 .call-history .layout #list-container .received {
@@ -280,6 +315,7 @@
 .fabric-dark .call-history .layoutWrapper,
 .tailwind-dark .call-history .layoutWrapper .layout, .tailwind-dark .call-history .layoutWrapper .camera, .tailwind-dark .call-history .layoutWrapper .outerButton, .tailwind-dark .call-history .layoutWrapper .speaker,
 .tailwind-dark .call-history .layoutWrapper,
+.tailwind3-dark .call-history .layoutWrapper .layout, .tailwind3-dark .call-history .layoutWrapper .camera, .tailwind3-dark .call-history .layoutWrapper .outerButton, .tailwind3-dark .call-history .layoutWrapper .speaker, .tailwind3-dark .call-history .layoutWrapper,,
 .fluent2-dark .call-history .layoutWrapper .layout, .fluent2-dark .call-history .layoutWrapper .camera, .fluent2-dark .call-history .layoutWrapper .outerButton, .fluent2-dark .call-history .layoutWrapper .speaker, 
 .fluent2-dark .call-history .layoutWrapper,
 .fluent-dark .call-history .layoutWrapper .layout, .fluent-dark .call-history .layoutWrapper .camera, .fluent-dark .call-history .layoutWrapper .outerButton, .fluent-dark .call-history .layoutWrapper .speaker,
@@ -306,11 +342,13 @@ body.fabric-dark .layout #list-container .e-icon,
 body.bootstrap5-dark .layout #list-container .e-icon,
 body.fluent2-dark .layout #list-container .e-icon,
 body.fluent2-highcontrast .layout #list-container .e-icon,
-body.bootstrap5\.3-dark .layout #list-container .e-icon {
+body.bootstrap5\.3-dark .layout #list-container .e-icon,
+body.tailwind3-dark .layout #list-container .e-icon {
     color: #ffffff;
 }
 
-body.tailwind-dark .e-list-item .e-avatar.e-icon {
+body.tailwind-dark .e-list-item .e-avatar.e-icon,
+body.tailwind3-dark .e-list-item .e-avatar.e-icon {
     top:10px !important;
     margin: auto !important;
 }

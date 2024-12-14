@@ -236,8 +236,14 @@
         background-color: #f1f1f1;
     }
 
-    .highcontrast .badge-types .e-badge-showcase.e-card {
+    .highcontrast .e-badge-showcase.e-card,
+    .tailwind3-dark .e-badge-showcase.e-card,
+    .e-bigger.tailwind3-dark .e-badge-showcase.e-card {
         background-color: #000;
+    }
+
+    .e-bigger.tailwind3-dark .e-badge-showcase.e-card {
+        width: 165px;
     }
 
     .badge-types .e-badge-showcase.e-card .e-card-header .e-card-header-title {

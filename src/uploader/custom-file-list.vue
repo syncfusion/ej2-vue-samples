@@ -88,7 +88,8 @@
     .bootstrap5-dark .uploader-custom-file-drop-target span a {
         color:#0d6efd;
     }
-    .tailwind-dark .uploader-custom-file-drop-target span a {
+    .tailwind-dark .uploader-custom-file-drop-target span a,
+    .tailwind3-dark .uploader-custom-file-drop-target span a {
         color:#22d3ee;
     }
 
@@ -193,7 +194,9 @@
         content: '\e7e7';
     }
     .tailwind .uploader-template-view .close-icon-container.e-icons::before,
-    .tailwind-dark .uploader-template-view .close-icon-container.e-icons::before {
+    .tailwind3 .uploader-template-view .close-icon-container.e-icons::before,
+    .tailwind-dark .uploader-template-view .close-icon-container.e-icons::before,
+    .tailwind3-dark .uploader-template-view .close-icon-container.e-icons::before {
         content: '\e7e7';
     }
     .fabric .uploader-template-view .close-icon-container.e-icons::before,
@@ -233,8 +236,10 @@
         content: '\e820';
     }
 
-    .tailwind .uploader-template-view .close-icon-container.delete-icon::before
-    .tailwind-dark .uploader-template-view .close-icon-container.delete-icon::before {
+    .tailwind .uploader-template-view .close-icon-container.delete-icon::before,
+    .tailwind3 .uploader-template-view .close-icon-container.delete-icon::before,
+    .tailwind-dark .uploader-template-view .close-icon-container.delete-icon::before,
+    .tailwind3-dark .uploader-template-view .close-icon-container.delete-icon::before {
         content: '\e820';
     }
     .bootstrap5 .uploader-template-view .close-icon-container.delete-icon::before,
@@ -248,7 +253,8 @@
     .highcontrast .uploader-template-view .close-icon-container.delete-icon::before {
         content: '\e965';
     }
-    .tailwind .uploader-template-view .close-icon-container.delete-icon {
+    .tailwind .uploader-template-view .close-icon-container.delete-icon,
+    .tailwind3 .uploader-template-view .close-icon-container.delete-icon{
         top: 10px;
     }
 

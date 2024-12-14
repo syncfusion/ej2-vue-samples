@@ -11,7 +11,7 @@
 </div>
 <div id="description">
     <p>
-        Drawing huge amounts of nodes and connectors on initial loading slows the rendering process down. Syncfusion virtualization support helps improve the performance on initial rendering. Virtualization can be enabled by adding the <code>Virtualization</code> flag to the <code>constraints</code> property of the diagram.
+        Drawing huge amounts of nodes and connectors on initial loading slows the rendering process down. Syncfusion<sup>®</sup> virtualization support helps improve the performance on initial rendering. Virtualization can be enabled by adding the <code>Virtualization</code> flag to the <code>constraints</code> property of the diagram.
     </p>
     <br>
 </div>

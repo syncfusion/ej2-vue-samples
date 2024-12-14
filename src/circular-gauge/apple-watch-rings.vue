@@ -174,7 +174,7 @@
 
     @media screen and (max-width: 990px) {
         .panel {
-            width: 40% !important;
+            width: 190px !important;
             height: 80px !important;
             margin-left: 27% !important;
             margin-top: 0% !important;  
@@ -232,17 +232,14 @@
     }
 </style>
 <style>
- .e-view.tailwind div.annotation4, .e-view.tailwind-dark div.annotation4 {
-     margin-top: -3px; margin-left: 2px
- }
  .e-view.fabric div.annotation4, .e-view.fabric-dark div.annotation4 {
     margin-top: -4px;
     margin-left: 2px 
  }
-  .e-view.tailwind div.annotation5, .e-view.tailwind-dark div.annotation5, .e-view.fabric div.annotation5, .e-view.fabric-dark div.annotation5  {
+  .e-view.fabric div.annotation5, .e-view.fabric-dark div.annotation5  {
      margin-top: -4px; margin-left: 1px;
  }
- .e-view.tailwind div.annotation6, .e-view.tailwind-dark div.annotation6, .e-view.fabric div.annotation6, .e-view.fabric-dark div.annotation6 {
+ .e-view.fabric div.annotation6, .e-view.fabric-dark div.annotation6 {
      margin-top: -6px;
  }
  .e-view.bootstrap5 div.annotation4, .e-view.bootstrap5-dark div.annotation4 {

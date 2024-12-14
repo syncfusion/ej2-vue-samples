@@ -7,21 +7,21 @@
         {
             "url": "default",
             "name": "Default",
-            "description": "This demo for Essential JS2 Smith Chart control visualizes two transmissions. Impedance and admittance are the two types of rendering in smith chart.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Smith Chart control visualizes two transmissions. Impedance and admittance are the two types of rendering in smith chart.",
             "category": "Smith Chart",
             "api": {}
         },
         {
             "url": "custom",
             "name": "Customization",
-            "description": "This demo for Essential JS2 Smith Chart control visualizes the properties required to render the smith chart.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Smith Chart control visualizes the properties required to render the smith chart.",
             "category": "Smith Chart",
             "api": {}
         },
         {
             "url": "print-export",
             "name": "Print and Export",
-            "description": "This demo for Essential JS2 Smith Chart control explores the exporting and printing functionality of smith chart.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Smith Chart control explores the exporting and printing functionality of smith chart.",
             "category": "Smith Chart",
             "api": {}
         }

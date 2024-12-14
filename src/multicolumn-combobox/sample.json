@@ -2,68 +2,84 @@
     "name": "MultiColumn ComboBox",
     "directory": "multicolumn-combobox",
     "category": "Dropdowns",
-    "type": "preview",
     "samples": [{
         "url": "default",
         "name": "Default Functionalities",
         "description": "This example demonstrates the default functionalities of the JavaScript multicolumn-combobox control with minimum configuration.",
         "category": "MultiColumn ComboBox",
-        "api": { "MultiColumn ComboBox": ["popupHeight", "popupWidth", "change", "placeholder", "fields", "columns", "value", "text" ] }
+        "api": { "MultiColumn ComboBox": ["popupHeight", "popupWidth", "change", "placeholder", "fields", "columns", "value", "text" ] },
+        "sourceFiles": [{ "displayName": "default.vue", "path":"src/multicolumn-combobox/default.vue" },
+                        { "displayName": "dataSource.json", "path":"src/multicolumn-combobox/dataSource.json" } ]
     },
     {
         "url": "remote-databinding",
         "name": "Remote Data",
         "description": "This example demonstrates how to bind with local data source and fetch data from remote data service in the JavaScript multicolumn-combobox control.",
         "category": "MultiColumn ComboBox",
-        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "query", "popupHeight", "popupWidth", "placeholder"] }
+        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "query", "popupHeight", "popupWidth", "placeholder"] },
+        "sourceFiles": [{ "displayName": "remote-databinding.vue", "path":"src/multicolumn-combobox/remote-databinding.vue" } ]
     },
     {
         "url": "grouping",
         "name": "Grouping",
         "description": "This example demonstrates how to group based on the different categories with individual header using the JavaScript multicolumn-combobox control.",
         "category": "MultiColumn ComboBox",
-        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "placeholder", "popupHeight", "popupWidth", "groupBy"] }
+        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "placeholder", "popupHeight", "popupWidth", "groupBy"] },
+        "sourceFiles": [{ "displayName": "grouping.vue", "path":"src/multicolumn-combobox/grouping.vue" },
+                        { "displayName": "dataSource.json", "path":"src/multicolumn-combobox/dataSource.json" } ]
     },
     {
         "url": "filtering",
         "name": "Filtering",
         "description": "This example demonstrates how the filtering functionalities works based on the typed characters in the JavaScript multicolumn-combobox control.",
         "category": "MultiColumn ComboBox",
-        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "filtering", "placeholder", "popupHeight", "popupWidth"] }
+        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "filtering", "placeholder", "popupHeight", "popupWidth"] },
+        "sourceFiles": [{ "displayName": "filtering.vue", "path":"src/multicolumn-combobox/filtering.vue" },
+                        { "displayName": "dataSource.json", "path":"src/multicolumn-combobox/dataSource.json" } ]
     },
     {
         "url": "virtualization",
         "name": "Virtualization",
         "description": "This example demonstrates how to use virtualization support of the JavaScript multicolumn-combobox control.",
         "category": "MultiColumn ComboBox",
-        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "enableVirtualization", "popupHeight", "placeholder", "popupWidth"] }
+        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "enableVirtualization", "popupHeight", "placeholder", "popupWidth"] },
+        "sourceFiles": [{ "displayName": "virtualization.vue", "path":"src/multicolumn-combobox/virtualization.vue" },
+                        { "displayName": "dataSource.json", "path":"src/multicolumn-combobox/dataSource.json" } ]
     },
     {
         "url": "sorting",
         "name": "Sorting",
         "description": "This example demonstrates how to use sorting support of the JavaScript multicolumn-combobox control.",
         "category": "MultiColumn ComboBox",
-        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "popupHeight", "placeholder", "sortOrder", "popupWidth"] }
+        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "popupHeight", "placeholder", "sortOrder", "popupWidth"] },
+        "sourceFiles": [{ "displayName": "sorting.vue", "path":"src/multicolumn-combobox/sorting.vue" },
+                        { "displayName": "dataSource.json", "path":"src/multicolumn-combobox/dataSource.json" } ]
     },
     {
         "url": "rtl",
         "name": "RTL",
         "description": "This example demonstrates how to use RTL support of the JavaScript multicolumn-combobox control.",
         "category": "MultiColumn ComboBox",
-        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "enableRtl", "popupHeight", "placeholder", "popupWidth"] }
+        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "enableRtl", "popupHeight", "placeholder", "popupWidth"] },
+        "sourceFiles": [{ "displayName": "rtl.vue", "path":"src/multicolumn-combobox/rtl.vue" },
+                        { "displayName": "dataSource.json", "path":"src/multicolumn-combobox/dataSource.json" } ]
     },
     {
         "url": "keyboard-navigation",
         "name": "Keyboard Navigation",
         "description": "This example demonstrates how to use Keyboard navigation support of the JavaScript multicolumn-combobox control.",
         "category": "MultiColumn ComboBox",
-        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "popupWidth", "popupHeight", "placeholder"] }
+        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "popupWidth", "popupHeight", "placeholder"] },
+        "sourceFiles": [{ "displayName": "keyboard-navigation.vue", "path":"src/multicolumn-combobox/keyboard-navigation.vue" },
+                        { "displayName": "dataSource.json", "path":"src/multicolumn-combobox/dataSource.json" } ]
     },
     {
         "url": "template",
         "name": "Template",
         "description": "This example demonstrates how to use Template support of the JavaScript multicolumn-combobox control.",
         "category": "MultiColumn ComboBox",
-        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "template", "headerTemplate", "popupHeight", "placeholder", "popupHeight"] }
+        "api": { "MultiColumn ComboBox": ["dataSource", "fields", "template", "headerTemplate", "popupHeight", "placeholder", "popupHeight"] },
+        "sourceFiles": [{ "displayName": "template.vue", "path":"src/multicolumn-combobox/template.vue" },
+                        { "displayName": "dataSource.json", "path":"src/multicolumn-combobox/dataSource.json" } ]
     }]
 }

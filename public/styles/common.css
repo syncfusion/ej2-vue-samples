@@ -567,9 +567,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
     padding-left: 6px;
     outline: none;
     width: 100%;
-    height: 100%;
     font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
-    min-height: 23px;
     background: #fff;
 }
 
@@ -1585,7 +1583,7 @@ propertye pane
     }
 
     .sb-icon-Palette:before {
-        font-size: 25px;
+        font-size: 18px;
     }
 
     .sb-setting-text {
@@ -1917,7 +1915,10 @@ propertye pane
 
 /*sb-hide */
 
-.sb-hide {
+.sb-hide,
+#sb-setting-theme_options li[data-value="highcontrast"],
+#sb-setting-theme_options li[data-value="fluent"],
+#sb-setting-theme_options li[data-value="tailwind"] {
     display: none !important;
 }
 
@@ -2222,7 +2223,7 @@ aside#left-sidebar {
         margin: 17px auto 0px;
         float: none;
         width: 242px;
-        padding: 11px 61px;
+        padding: 11px 55px;
     }
 
     .content-area {
@@ -2253,10 +2254,10 @@ aside#left-sidebar {
 
     .free-trial {
         display: block;
-        margin: 17px auto 0px;
+        margin: 4px auto 0px;
         float: none;
         width: 242px;
-        padding: 11px 61px;
+        padding: 11px 55px;
     }
 
     .content-area {
@@ -2351,7 +2352,7 @@ aside#left-sidebar {
         display: block;
         margin: 17px auto 0px;
         float: none;
-        width: 242px;
+        width: 251px;
         padding: 11px 61px;
     }
 
@@ -2512,6 +2513,13 @@ aside#left-sidebar {
 
     .banner-cnt-pt {
         display: flex;
+    }
+}
+
+@media only screen and (min-width: 2500px) and (max-width: 2600px) {
+    .free-trial {
+        width: 210px;
+        padding: 12px 40px;
     }
 }
 

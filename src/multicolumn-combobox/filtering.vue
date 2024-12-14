@@ -1,17 +1,33 @@
 <template>
-    <div class="control-section">
+    <div class="col-lg-8 control-section">
         <div class='control-wrapper filtering-multicolumn'>
             <div style='padding-top:60px;'>
-                <ejs-multicolumncombobox id='filtering' :dataSource="dataSource" :fields="fields" placeholder="Select a name" popupHeight="230px" :filtering="filtering">
+            <label>Select an employee</label>
+                <ejs-multicolumncombobox id='filtering' :dataSource="dataSource" :fields="fields" placeholder="e.g. Alice Johnson" popupHeight="210px" popupWidth="660px" :filterType="filterType">
                     <e-columns>
-                        <e-column field='Name' header='Name' width="100"/>
-                        <e-column field='YearOfJoining' header='Year Of Joining' width="120"/>                                                
-                        <e-column field='Status' header='Status' width="90"/>
-                        <e-column field='Location' header='Location' width="100"/>
-                        <e-column field='Experience' header='Experience in Year' width="150"/>                       
+                        <e-column field='Name' header='Name' width="115"/>
+                        <e-column field='Department' header='Department' width="125"/>                                                
+                        <e-column field='Role' header='Role' width="140"/>
+                        <e-column field='Location' header='Location' width="105"/>
+                        <e-column field='Experience' header='Experience in Years' width="155"/>                       
                     </e-columns>
                 </ejs-multicolumncombobox>
             </div>
+        </div>
+    </div>
+    <div class="col-lg-4 property-section">
+        <div class="property-panel-header"> Properties </div>
+        <div class="property-panel-content">
+            <table class="property-panel-table">
+                <tbody>
+                    <tr>
+                        <td> Choose filter type </td>
+                        <td style="padding-right: 10px">
+                           <ejs-dropdownlist id='filterType' popupHeight="200px" popupWidth="300px" placeholder="select a filter type" :change="change" :dataSource="mccbDropdownListData" :index="0"></ejs-dropdownlist>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -20,7 +36,7 @@
     </div>
 
     <div id="description">
-        <p>This sample illustrates to query the datasource and pass the resulted data when characters are typed in the search box triggers the <code>filtering</code> event and using the <code>updateData</code> method to display the list of employees in the MultiColumn ComboBox.</p>
+        <p>The <code>MultiColumn ComboBox</code> supports filtering, which allows users to search for and select items by typing keywords. The available items are dynamically filtered based on the input, ensuring quick access to the desired data.</p>
     </div>
 </template>
 
@@ -28,7 +44,7 @@
 <style>
     .control-wrapper.filtering-multicolumn {
         margin: 0 auto;
-        width: 575px;
+        width: 250px;
     }
 
     @media screen and (max-width: 480px) {
@@ -41,27 +57,30 @@
 
 <script>
 import { MultiColumnComboBoxComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-multicolumn-combobox";
+import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import data from './dataSource.json';
 import { Query } from '@syncfusion/ej2-data';
+
 
 export default {
     components: {
         'ejs-multicolumncombobox': MultiColumnComboBoxComponent,
         'e-columns': ColumnsDirective,
         'e-column': ColumnDirective,
+        'ejs-dropdownlist': DropDownListComponent
     },
     data: function() {
         return {
-            dataSource: data['workDetails'],
+            dataSource: data['employee'],
             fields: { text: 'Name', value: 'Experience' },
-            query: ''
+            query: '',
+            mccbDropdownListData: ['StartsWith','EndsWith','Contains'],
+            filterType: ''
         }
     },
     methods: {
-        filtering: function(e) {
-            this.query = new Query();
-            this.query = (e.text !== '') ? this.query.where('Name', 'startswith', e.text, true) : this.query;
-            e.updateData(this.dataSource, this.query);
+        change: function (args) { 
+            this.filterType = args.value; 
         }
     }
 }

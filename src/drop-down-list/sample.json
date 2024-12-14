@@ -2,6 +2,7 @@
     "name": "Dropdown List",
     "directory": "drop-down-list",
     "category": "Dropdowns",
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -59,6 +60,17 @@
             "description": "This example demonstrates how to customize the appearance of each item in the Vue drop-down list component pop-up list using the template.",
             "sourceFiles":[
                 { "displayName": "template.vue", "path":"src/drop-down-list/template.vue" },
+                { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
+            ]
+        },
+        {
+            "url": "resize",
+            "name": "Popup Resize",
+            "category": "Dropdown List",
+            "description": "This demo showcases the custom resizing functionality of Dropdown List, You can adjust the size of the popup based on your preferences, allowing for better control over its appearance",
+            "type": "new",
+            "sourceFiles":[
+                { "displayName": "resize.vue", "path":"src/drop-down-list/resize.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 
             ]
         },

@@ -4,7 +4,7 @@
 <div>
     <div class="col-lg-8 control-section">
         <div class="content-wrapper">
-            <ejs-richtexteditor ref="eventObj" :toolbarSettings="toolbarSettings" :created="create" :actionBegin="actionBegin" :actionComplete="actionComplete" :focus="focus" :blur="blur" :change="change" :toolbarClick="toolbarClick"><p>The Rich Text Editor component is a WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
+            <ejs-richtexteditor ref="eventObj" :toolbarSettings="toolbarSettings" :fileManagerSettings="fileManagerSettings" :created="create" :actionBegin="actionBegin" :actionComplete="actionComplete" :focus="focus" :blur="blur" :change="change" :toolbarClick="toolbarClick"><p>The Rich Text Editor component is a WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
                 Users can format their content using standard toolbar commands.</p>
                 <p><b>Key features:</b></p>
                 <ul><li><p>Provides IFRAME and DIV modes</p></li>
@@ -80,7 +80,7 @@
         #EventLog b{
             color: #018607;
         }
-          .material3-dark #EventLog b, .fluent-dark #EventLog b, .bootstrap5-dark #EventLog b,.bootstrap5\.3-dark #EventLog b, .bootstrap-dark #EventLog b, .tailwind-dark #EventLog b, .highcontrast #EventLog b, .material-dark #EventLog b, .fabric-dark #EventLog b {
+          .material3-dark #EventLog b, .fluent-dark #EventLog b, .bootstrap5-dark #EventLog b,.bootstrap5\.3-dark #EventLog b, .bootstrap-dark #EventLog b, .tailwind-dark #EventLog b, .tailwind3-dark #EventLog b, .highcontrast #EventLog b, .material-dark #EventLog b, .fabric-dark #EventLog b {
         color: #21A32E;
     }
         hr {
@@ -129,14 +129,65 @@ export default {
     data: function() {
         return {
             toolbarSettings: {
-            items: ['Bold', 'Italic', 'Underline', 'StrikeThrough', 'SuperScript', 'SubScript', '|',
-                'FontName', 'FontSize', 'FontColor', 'BackgroundColor', '|',
-                'LowerCase', 'UpperCase', '|',
-                'Formats', 'Alignments', 'Blockquote', '|', 'NumberFormatList', 'BulletFormatList', '|',
-                'Outdent', 'Indent', '|', 'CreateLink', 'Image', 'FileManager', 'Video', 'Audio', 'CreateTable', '|', 'FormatPainter', 'ClearFormat',
-                '|', 'EmojiPicker', 'Print', '|',
-                'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
-        }
+                items: [
+                'Bold',
+                'Italic',
+                'Underline',
+                'StrikeThrough',
+                'SuperScript',
+                'SubScript',
+                '|',
+                'FontName',
+                'FontSize',
+                'FontColor',
+                'BackgroundColor',
+                '|',
+                'LowerCase',
+                'UpperCase',
+                '|',
+                'Formats',
+                'Alignments',
+                'Blockquote',
+                '|',
+                'NumberFormatList',
+                'BulletFormatList',
+                '|',
+                'Outdent',
+                'Indent',
+                '|',
+                'CreateLink',
+                'Image',
+                'FileManager',
+                'Video',
+                'Audio',
+                'CreateTable',
+                '|',
+                'FormatPainter',
+                'ClearFormat',
+                '|',
+                'EmojiPicker',
+                'Print',
+                '|',
+                'SourceCode',
+                'FullScreen',
+                '|',
+                'Undo',
+                'Redo',
+                ],
+            },
+            fileManagerSettings: {
+                enable: true,
+                path: '/Pictures/Food',
+                ajaxSettings: {
+                url: 'https://ej2-aspcore-service.azurewebsites.net/api/FileManager/FileOperations',
+                getImageUrl:
+                    'https://ej2-aspcore-service.azurewebsites.net/api/FileManager/GetImage',
+                uploadUrl:
+                    'https://ej2-aspcore-service.azurewebsites.net/api/FileManager/Upload',
+                downloadUrl:
+                    'https://ej2-aspcore-service.azurewebsites.net/api/FileManager/Download',
+                },
+            },
         };
     },
     methods: {

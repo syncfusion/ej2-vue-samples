@@ -139,10 +139,10 @@
         </ejs-sidebar>
 
         <div :style="{ width: isMobile ? '100%' : 'calc(100% - 200px)' }">
-          <ejs-pdfviewer ref="pdfviewer" id="container" :enableNavigationToolbar="false" :enableAnnotationToolbar = "false" :enableToolbar="false"
+          <ejs-pdfviewer ref="pdfviewer" id="container" :enableNavigationToolbar="false" :enableToolbar="false" :enableAnnotationToolbar = "false"
             documentPath="https://cdn.syncfusion.com/content/PDFViewer/Fill+and+Sign.pdf"
-            resourceUrl="https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib"
-            serviceUrl="https://services.syncfusion.com/vue/production/api/pdfviewer" :formFieldAdd="addFormField"
+            resourceUrl="https://cdn.syncfusion.com/ej2/27.2.2/dist/ej2-pdfviewer-lib"
+            :formFieldAdd="addFormField"
             :pageClick="pageClick" downloadFileName="eSign_designMode.pdf" :documentLoad="documentLoad"
             :style="{ height: isMobile ? '500px' : '640px' }">
           </ejs-pdfviewer>

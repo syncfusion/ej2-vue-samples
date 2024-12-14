@@ -70,9 +70,9 @@ export default {
         return {
             target: '.control-section',
             header: 'About SYNCFUSION Succinctly Series',
-            content: '<p>In the Succinctly series, Syncfusion created a robust, free library of more than 130 technical e-books formatted for PDF, Kindle, and EPUB. <br>'
-            + '<br> The Succinctly series was born in 2012 out of a desire to provide concise technical e-books for software developers'
-            + 'Each title in the Succinctly series is written by a carefully chosen expert and provides essential content in about 100 pages.</p>',
+            content: '<p>In the Succinctly<sup>®</sup> series, Syncfusion<sup>®</sup> created a robust, free library of more than 130 technical e-books formatted for PDF, Kindle, and EPUB. <br>'
+            + '<br> The Succinctly<sup>®</sup> series was born in 2012 out of a desire to provide concise technical e-books for software developers'
+            + 'Each title in the Succinctly<sup>®</sup> series is written by a carefully chosen expert and provides essential content in about 100 pages.</p>',
             animationSettings: { effect: 'None' },
             dlgButtons: [{ click: this.dlgBtnClick, buttonModel: { isPrimary:'true', content: 'Learn More' } }],
             OpenBtn: false

@@ -69,7 +69,7 @@ export default {
             toggleVisibility: false
         },
 
-        tooltip: {  header:'', enable: true, format: '${point.x} : <b>${point.y} cal</b>' },
+        tooltip: {  header:'', enable: true, format: '${point.x} : <b>${point.y} cal</b>' , enableHighlight: true},
 
        
       title: "Food Comparison Chart"

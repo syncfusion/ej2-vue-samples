@@ -15,12 +15,12 @@
             <table id="property" title="Properties" style="width: 100%">
                 <br/><br/>
                 <tr style="height: 50px">
-                    <td style="width: 70%">
+                    <td>
                         <div>Edit Mode</div>
                     </td>
-                    <td style="width: 70%;padding-left: 10px">
-                    <div id='columnddl'>
-                        <ejs-dropdownlist ref='ddl' width='140px' id='ddlelement' :dataSource='ddldata' value='Cell' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
+                    <td style="width: 70%;">
+                    <div id='columnddl' style='padding-left:10px'>
+                        <ejs-dropdownlist ref='ddl' width='145px' id='ddlelement' :dataSource='ddldata' value='Cell' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
                     </div>
                     </td>
                 </tr>

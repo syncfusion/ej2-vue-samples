@@ -28,7 +28,7 @@ export default {
         'e-step': StepDirective,
     },
     data: function () {
-        const regex = new RegExp('^[A-Za-z0-9._%+-]{1,}@[A-Za-z0-9._%+-]{1,}');
+        const regex = new RegExp('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
         return {
             stepText1: 'Survey Introduction',
             stepText2: 'Feedback',

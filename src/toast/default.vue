@@ -33,7 +33,9 @@
         font-size: 20px;
     }
     .tailwind #toast_default .e-meeting::before,
+    .tailwind3 #toast_default .e-meeting::before,
     .tailwind-dark #toast_default .e-meeting::before,
+    .tailwind3-dark #toast_default .e-meeting::before,
     .bootstrap5 #toast_default .e-meeting::before,
     .bootstrap5-dark #toast_default .e-meeting::before {
         content: "\e7e9";

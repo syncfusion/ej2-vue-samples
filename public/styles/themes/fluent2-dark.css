@@ -63,7 +63,7 @@ body.fluent2-dark,
     color: #115ea3;
 }
 .fluent2-dark .sb-theme-popup {
-    border: unset;
+    border: 1px solid #666;
 }
 .fluent2-dark .sb-icon-Hamburger,
 .fluent2-dark .control-name,
@@ -268,4 +268,7 @@ body.fluent2-dark,
 }
 .fluent2-dark .sb-property-border {
     border-right: 1px solid #525252;
+}
+.fluent2-dark .sb-theme-studio {
+    border-top: 1px solid #666;
 }

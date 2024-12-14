@@ -245,6 +245,7 @@ export default {
     .details-view #ui-list.e-listview {
         max-width: none;
     }
+
     .details-view .highcontrast #ui-list.e-listview .e-list-item.e-active {
         background: #ffd939;
         color: #000000;

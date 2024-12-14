@@ -16,7 +16,7 @@
                 </e-ranges>
                 <e-conditionalformats>
                     <e-conditionalformat type="GYRColorScale" range="C3:C18" ></e-conditionalformat>
-                    <e-conditionalformat type="LessThan" cFColor="RedFT" value="8/30/2019" range="G3:G18"></e-conditionalformat>
+                    <e-conditionalformat type="LessThan" cFColor="RedFT" value="8-8-2019" range="G3:G18"></e-conditionalformat>
                 </e-conditionalformats>
                     <e-columns>
                         <e-column :width=100></e-column>
@@ -111,7 +111,7 @@ export default {
   },
   methods: {
     created: function() {
-        var currencyFormat = getFormatFromType('Currency');
+        var currencyFormat = '$#,##0.00';
         var spreadsheet = this.$refs.spreadsheet;
             spreadsheet.merge('A1:H1');
             spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'A2:H2');

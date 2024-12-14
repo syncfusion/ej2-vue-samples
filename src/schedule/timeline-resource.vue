@@ -173,7 +173,8 @@
         border-color: #444c54;
     }
 
-    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div {
+    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .tailwind3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div {
         border-color: #4b5563;
     }
 
@@ -199,33 +200,43 @@
     }
 
     .tailwind .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
-    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+    .tailwind3 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .tailwind3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
         height: 39px;
     }
 
     .tailwind .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
-    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+    .tailwind3 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .tailwind3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         height: 39px;
         line-height: 39px;
     }
 
-    .tailwind .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+    .tailwind .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .tailwind3 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         background-color: #f3f4f6;
         border-color: #e5e7eb;
     }
 
-    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+    .tailwind-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .tailwind3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         background-color: #374151;
         border-color: #4b5563;
     }
 
     .tailwind.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
-    .tailwind-dark.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
+    .tailwind3.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .tailwind-dark.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .tailwind3-dark.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
         height: 40px;
     }
 
     .tailwind.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
-    .tailwind-dark.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+    .tailwind3.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .tailwind-dark.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
+    .tailwind3-dark.e-bigger .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         height: 40px;
         line-height: 40px;
     }

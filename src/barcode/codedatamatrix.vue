@@ -203,7 +203,7 @@ padding-left: 18px;"
           </div>
 
           <div class="row sb-child-row">
-            <div class="col-xs-3top barcode-panel-left">Alignment</div>
+            <div class="col-xs-3 top barcode-panel-left">Alignment</div>
             <div class="col-xs-9 ">
                 <ejs-dropdownlist
                   ref="textAlignment"

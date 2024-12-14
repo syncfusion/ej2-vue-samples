@@ -21,7 +21,7 @@
                             <e-item prefixIcon="e-icons black-out" :click='addBlackout' tooltipText="Black out" cssClass='e-pv-redact-sb-black-out-container' text="Blackout"></e-item>
                             <e-item prefixIcon="e-icons white-out" :click='addWhiteout' tooltipText="White Out" cssClass='e-pv-redact-sb-white-out-container' text="Whiteout"></e-item>
                             <e-item type="Separator"></e-item>
-                            <e-item prefixIcon="e-icons e-redact" :click='redaction' tooltipText="Redaction" id="redacticon" cssClass='e-pv-redact-sb-redaction-container' text="Redact" disabled=true></e-item>
+                            <e-item prefixIcon="e-icons e-redact" :click='redaction' id="redacticon" tooltipText="Redaction" cssClass='e-pv-redact-sb-redaction-container' text="Redact" disabled=true></e-item>
                         </e-items>
                     </ejs-toolbar>
                     <input type="file" id="documentUpload" accept=".pdf" style="display:block;visibility:hidden;width:0;height:0;"></input>
@@ -35,7 +35,7 @@
                         <template v-slot:currentPageTemplate>
                             <div><span id="current-page" title="Current Page">1 </span><span id="total-page" title="Total Page">/ 1</span></div>
                         </template>
-                        <e-item prefixIcon="e-icon e-chevron-right" :click='nextClicked' id="nextPage" tooltipText="Next Page" cssClass='e-pv-redact-sb-next-container' disabled=true></e-item>
+                        <e-item prefixIcon="e-icon e-chevron-right" :click='nextClicked' tooltipText="Next Page" id="nextPage" cssClass='e-pv-redact-sb-next-container' disabled=true></e-item>
                         <e-item type="Separator"></e-item>
                         <e-item :template="'ComboTemplate'" cssClass="percentage" tooltipText="Zoom"></e-item>
                         <template v-slot:ComboTemplate>
@@ -44,7 +44,7 @@
                     </e-items>
                 </ejs-toolbar>
             </div>
-            <ejs-pdfviewer id="pdfViewer" ref="pdfviewer" :serviceUrl="serviceUrl" :documentLoad="documentLoad" :documentPath="documentPath" :enableToolbar="enableToolbar" :enableAnnotationToolbar="enableAnnotationToolbar" :enableCommentPanel="enableCommentPanel"
+            <ejs-pdfviewer id="pdfViewer" ref="pdfviewer" :resourceUrl="resourceUrl" :documentLoad="documentLoad" :documentPath="documentPath" :enableToolbar="enableToolbar" :enableAnnotationToolbar="enableAnnotationToolbar" :enableCommentPanel="enableCommentPanel"
             :enableNavigationToolbar="enableNavigationToolbar" :pageChange="pageChange" :annotationAdd="annotationAdd" :annotationRemove="annotationRemove">
             </ejs-pdfviewer>
             <div id='dialog'>
@@ -123,6 +123,7 @@
   var currentPageBox;
   var annotation;
   var redactionCount = 0;
+  const url = "https://ej2services.syncfusion.com/vue/development/api/pdfviewer/Redaction";
 
 
   function updatePageNavigation() {
@@ -148,6 +149,60 @@
             primaryToolbarObj.items[8].disabled = false;
         }
 
+  };
+  function createBlobUrl(base64String, contentType)
+  {
+    const sliceSize = 512;
+    const byteCharacters = atob(base64String);
+    const byteArrays = [];
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        const slice = byteCharacters.slice(offset, offset + sliceSize);
+        const byteNumbers = new Array(slice.length);
+        for (let i = 0; i < slice.length; i++) {
+            byteNumbers[parseInt(i.toString(), 10)] = slice.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        byteArrays.push(byteArray);
+    }
+    const blob = new Blob(byteArrays, { type: contentType });
+    return blob;
+  };
+
+  function downloadDocument(blobUrl)
+  {
+    const Url = URL || webkitURL;
+    blobUrl = Url.createObjectURL(blobUrl);
+    viewer.fileName = fileName;
+    const anchorElement = document.createElement('a');
+    if (anchorElement.click) {
+        (anchorElement).href = blobUrl;
+        (anchorElement).target = '_parent';
+        if ('download' in anchorElement) {
+            const downloadFileName = viewer.fileName || 'downloadedFile.pdf';
+            if (downloadFileName) {
+                if (downloadFileName.endsWith('.pdf')) {
+                    (anchorElement).download = downloadFileName;
+                }
+                else {
+                    const splitPdf = downloadFileName.split('.pdf')[0] + '.pdf';
+                    (anchorElement).download = splitPdf;
+                }
+            }
+            else {
+                (anchorElement).download = 'Default.pdf';
+            }
+        }
+        (document.body || document.documentElement).appendChild(anchorElement);
+        anchorElement.click();
+    }
+    else {
+        if (window.top === window &&
+            blobUrl.split('#')[0] === window.location.href.split('#')[0]) {
+                const padCharacter = blobUrl.indexOf('?') === -1 ? '?' : '&';
+                blobUrl = blobUrl.replace(/#|$/, padCharacter + '$&');
+        }
+        window.open(blobUrl, '_parent');
+    }
   };
 
   function readFile(args) {
@@ -187,7 +242,7 @@
 
     data() {
       return {
-        serviceUrl: 'https://ej2services.syncfusion.com/vue/development/api/pdfviewer',
+        resourceUrl: "https://cdn.syncfusion.com/ej2/27.1.55/dist/ej2-pdfviewer-lib",
         documentPath: "https://cdn.syncfusion.com/content/pdf/programmatical-annotations.pdf",
         zoomList: ['10%', '25%', '50%', '75%', '100%', '200%', '400%'],
         enableToolbar: false,
@@ -229,26 +284,62 @@
           updateRedaction();
         },
         downloadClicked: function (args) {
-          viewer.fileName = fileName;
-          viewer.downloadFileName = fileName;
-          viewer.serverActionSettings.download = "Redaction";
-          viewer.download();
-          viewer.serverActionSettings.download = "Download";
+            viewer.saveAsBlob().then(function (value) {
+            let reader = new FileReader();
+            reader.readAsDataURL(value);
+            reader.onload = function (e) {
+                const base64String = e.target?.result.toString();
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+                const requestData = JSON.stringify({ base64String: base64String });
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        const blobUrl = createBlobUrl(xhr.responseText.split('base64,')[1], 'application/pdf');
+                        downloadDocument(blobUrl);
+                    }
+                    else {
+                        console.error('Download failed:', xhr.statusText);
+                    }
+                };
+                xhr.onerror = function () {
+                    console.error('An error occurred during the download:', xhr.statusText);
+                };
+                xhr.send(requestData);
+            };
+        }).catch(function (error) {
+            console.error('Error saving Blob:', error);
+        });
         },
         redaction: function (args) {
-            viewer.serverActionSettings.download = "Redaction";
+            if (redactionCount > 0) {
             viewer.saveAsBlob().then(function (value) {
-                var data = value;
-                var reader = new FileReader();
+                const data = value;
+                const reader = new FileReader();
                 reader.readAsDataURL(data);
-                reader.onload = (e) => {
-                    var base64String = e.target?.result.toString();
-                    viewer.load(base64String, null);
+                reader.onload = function (e) {
+                    const base64String = e.target?.result.toString();
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', url, true);
+                    xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+                    const requestData = JSON.stringify({ base64String });
+                    xhr.onload = function () {
+                        if (xhr.status === 200) {
+                            viewer.load(xhr.responseText, null);
+                        }
+                        else {
+                            console.error('Redaction failed:', xhr.statusText);
+                        }
+                    };
+                    xhr.onerror = function () {
+                        console.error('An error occurred during the redaction:', xhr.statusText);
+                    };
+                    xhr.send(requestData);
                 };
             });
-            viewer.fileName = fileName;
             redactionCount = 0;
-            viewer.serverActionSettings.download = "Download";
+            updateRedaction();
+        }
         },
         openClicked: function (args) {
             document.getElementById('documentUpload').click();
@@ -402,10 +493,7 @@
 }
 #e-pv-redact-sb-toolbar.e-toolbar .e-toolbar-item .e-tbar-btn {
     flex-direction: column;
-}
-#e-pv-redact-sb-toolbar.e-toolbar .e-toolbar-item .e-tbar-btn .e-image {
-    height: auto !important;
-}    
+}  
 #e-pv-redact-sb-toolbar.e-toolbar .e-toolbar-item .e-tbar-btn .e-icons.e-btn-icon 
 {
     font-size: 18px;
@@ -571,7 +659,6 @@
     width: 100%;
     height:100%;
 }
-
 #e-pv-redact-sb-dialog
 {
     max-height: 600px !important;

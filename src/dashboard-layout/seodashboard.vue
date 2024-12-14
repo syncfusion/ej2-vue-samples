@@ -190,6 +190,7 @@ export default {
   .fluent2-highcontrast .card-content.text,
   .bootstrap5-dark .card-content.text,
   .tailwind-dark .card-content.text,
+  .tailwind3-dark .card-content.text,
   .material-dark .card-content.text,
   .bootstrap-dark .card-content.text,
   .highcontrast .card-content.text {
@@ -518,6 +519,7 @@ body.highcontrast .dashboard-seo #analysisLayout.e-dashboardlayout.e-control .e-
 .material-dark li.sidebar-item.filterHover,
 .fabric-dark li.sidebar-item.filterHover,
 .tailwind-dark li.sidebar-item.filterHover,
+.tailwind3-dark li.sidebar-item.filterHover,
 .bootstrap5-dark li.sidebar-item.filterHover, 
 .fluent-dark li.sidebar-item.filterHover {
     background: inherit;

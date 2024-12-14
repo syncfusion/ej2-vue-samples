@@ -159,9 +159,8 @@ export default {
     return {
       ddData: [
         { value: 10000, text: '10,000 Rows and 10 Columns' }, 
-        { value: 100000, text: '1,00,000 Rows and 10 Columns' },
-        { value: 1000000, text: '1,000,000 Rows and 10 Columns' }
-        ],
+        { value: 100000, text: '1,00,000 Rows and 10 Columns' }
+      ],
       fields: { text: 'text', value: 'value' },
       ddValue: 10000,
       dataSourceSettings: {

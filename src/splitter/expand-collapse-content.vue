@@ -12,10 +12,10 @@ import { SplitterComponent, PanesDirective, PaneDirective } from "@syncfusion/ej
 
 var topContent = {
   template: `<div class="content">
-                <a href="https://www.syncfusion.com/ebooks/data_capture_and_extraction_with_c_sharp_succinctly" target="_blank">Data Capture and Extraction with C# Succinctly</a>
+                <a href="https://www.syncfusion.com/ebooks/data_capture_and_extraction_with_c_sharp_succinctly" target="_blank">Data Capture and Extraction with C# Succinctly<sup>®<sup></a>
                 <p>Capturing and extracting information is one of the most important tasks a developer can perform, and making this task more
                     engaging without relying entirely on specialized tools is an efficient way to improve productivity. 
-                    In Data Capture and Extraction with C# Succinctly, author Ed Freitas guides readers toward getting more out of C# in minimal time.
+                    In Data Capture and Extraction with C# Succinctly<sup>®<sup>, author Ed Freitas guides readers toward getting more out of C# in minimal time.
                     Email has become a pillar of our modern and connected society, and it now serves as a primary means of communication. Because each email 
                     is filled with valuable information, data extraction has emerged as a worthwhile skill set for developers in today’s business world.
                 </p>
@@ -29,10 +29,10 @@ var topContent = {
 
 var bottomContent = {
   template: `<div class="content">
-                    <a href="https://www.syncfusion.com/ebooks/spark" target="_blank">Spark Succinctly</a>
+                    <a href="https://www.syncfusion.com/ebooks/spark" target="_blank">Spark Succinctly<sup>®<sup></a>
                     <p>Mastering big data requires an aptitude at every step of information processing. 
                         Post-processing, one of the most important steps, is where you find Apache Spark frequently employed. 
-                        Spark Succinctly, by Marko Svaljek, addresses Spark’s use in the ultimate step in handling big data. This e-book, the 
+                        Spark Succinctly<sup>®<sup>, by Marko Svaljek, addresses Spark’s use in the ultimate step in handling big data. This e-book, the 
                         third installment in Svaljek’s IoT series, teaches the basics of using Spark and explores how to work with RDDs, Scala and
                         Python tasks, JSON files, and Cassandra.Many of the leading companies in the world today face the problem of big data.
                     </p>

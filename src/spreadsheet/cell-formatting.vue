@@ -43,7 +43,7 @@
 </style>
 <!-- custom code end -->
 <script>
-import { SpreadsheetComponent } from "@syncfusion/ej2-vue-spreadsheet";
+import { SpreadsheetComponent, getFormatFromType } from "@syncfusion/ej2-vue-spreadsheet";
 import * as dataSource from "./cell-format-data.json";
 
 export default {
@@ -81,6 +81,7 @@ export default {
         this.$refs.spreadsheet.cellFormat({ textAlign: 'center'}, 'A1:I1');
         this.$refs.spreadsheet.cellFormat({ fontFamily: 'Helvetica New', verticalAlign: 'middle' }, 'A1:I16');
         this.$refs.spreadsheet.numberFormat('m/d/yyyy', 'C2:C16');
+        this.$refs.spreadsheet.numberFormat('$#,##0.00', 'I2:I16');
         this.$refs.spreadsheet.cellFormat({ border: '1px solid #e0e0e0' }, 'A1:I16', 'Outer');
         this.$refs.spreadsheet.cellFormat({ border: '1px solid #e0e0e0' }, 'A2:I15', 'Horizontal');
     },

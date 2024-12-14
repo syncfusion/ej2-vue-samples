@@ -53,7 +53,7 @@
                   ref="measures"
                   :dataSource="measures"
                   :fields="measureFields"
-                  value="In Stock"
+                  value="In_Stock"
                   width="100%"
                 ></ejs-dropdownlist>
               </div>

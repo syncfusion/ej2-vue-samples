@@ -67,8 +67,11 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   .fluent-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .fluent2 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .fluent2-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
+  .fluent2-highcontrast .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .tailwind .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .tailwind-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
+  .tailwind3 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
+  .tailwind3-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .bootstrap5 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .bootstrap5\.3 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
   .bootstrap5\.3-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
@@ -79,6 +82,8 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   }
   .tailwind .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .tailwind-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before,
+  .tailwind3 .rte-markdown-overview .e-icon-btn .e-md-preview::before,
+  .tailwind3-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .bootstrap5 .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .bootstrap5-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .bootstrap5\.3 .rte-markdown-overview .e-icon-btn .e-md-preview::before,
@@ -87,6 +92,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   .fluent-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .fluent2 .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .fluent2-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before,
+  .fluent2-highcontrast .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .material3 .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .material3-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before {
       content: '\e7de';

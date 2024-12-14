@@ -95,6 +95,13 @@
   </div>
 </template>
 
+<style scoped>
+ .tailwind3 #merge_data,
+ .tailwind3-dark #merge_data {
+      font-weight:400;
+  }
+</style>
+
 <script>
 import {
   RichTextEditorComponent,

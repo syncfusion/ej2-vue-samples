@@ -75,7 +75,9 @@ export default {
         },
         tooltip: { 
           header:'',
-          enable: true, format: '<b>${point.x}</b><br> Gold Medals: <b>${point.y}</b>' },
+          enable: true, format: '<b>${point.x}</b><br> Gold Medals: <b>${point.y}</b>' ,
+        enableHighlight: true},
+
       
       title: "Rio Olympics Gold"
     };

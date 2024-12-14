@@ -248,7 +248,9 @@
     }
 
     .tailwind .small-textbox,
-    .tailwind-dark .small-textbox {
+    .tailwind3 .small-textbox,
+    .tailwind-dark .small-textbox,
+    .tailwind3-dark .small-textbox {
         padding-top: 3px;
     }
     
@@ -257,7 +259,9 @@
     }
 
     .tailwind.e-bigger .small-textbox,
-    .tailwind-dark.e-bigger .small-textbox {
+    .tailwind3.e-bigger .small-textbox,
+    .tailwind-dark.e-bigger .small-textbox,
+    .tailwind3-dark.e-bigger .small-textbox {
         padding-top: 1px;
     }
 
@@ -301,11 +305,13 @@
     .bootstrap4 .row.material,
     .highcontrast .row.material,
     .tailwind .row.material,
+    .tailwind3 .row.material,
     .bootstrap5 .row.material,
     .bootstrap5-dark .row.material,
-    .bootstrap5.3 .row.material,
-    .bootstrap5.3-dark .row.material,
+    .bootstrap5\.3 .row.material,
+    .bootstrap5\.3-dark .row.material,
     .tailwind-dark .row.material,
+    .tailwind3-dark .row.material,
     .fabric-dark .row.material,
     .bootstrap-dark .row.material,
     .fluent .row.material,
@@ -316,7 +322,9 @@
         vertical-align: top;
     }
     .tailwind .e-upload-picture:before,
+    .tailwind3 .e-upload-picture:before,
     .tailwind-dark .e-upload-picture:before,
+    .tailwind3-dark .e-upload-picture:before,
     .material3 .e-upload-picture:before,
     .material3-dark .e-upload-picture:before {
         content: '\e712';
@@ -328,7 +336,9 @@
     }
 
     .tailwind.e-bigger .e-upload-picture:before,
-    .tailwind-dark.e-bigger .e-upload-picture:before {
+    .tailwind3.e-bigger .e-upload-picture:before,
+    .tailwind-dark.e-bigger .e-upload-picture:before,
+    .tailwind3-dark.e-bigger .e-upload-picture:before {
         font-size: 20px;
     }
 

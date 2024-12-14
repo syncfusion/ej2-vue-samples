@@ -65,6 +65,7 @@
     .material-dark .ddl-icons-css .e-list-icon,
     .bootstrap5-dark .ddl-icons-css .e-list-icon,
     .tailwind-dark .ddl-icons-css .e-list-icon,
+    .tailwind3-dark .ddl-icons-css .e-list-icon,
     .fluent-dark .ddl-icons-css .e-list-icon,
     .fluent2-dark .ddl-icons-css .e-list-icon,
     .fluent2-highcontrast .ddl-icons-css .e-list-icon {

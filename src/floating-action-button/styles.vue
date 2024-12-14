@@ -134,6 +134,10 @@
     .fab-icon-shopping::before {
         content: "\e70c";
     }
+
+    .e-fab.e-btn .e-btn-icon {
+        margin-top: 5px !important;
+    }
 </style>
 <script>
 import { FabComponent } from "@syncfusion/ej2-vue-buttons";

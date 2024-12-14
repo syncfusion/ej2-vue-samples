@@ -66,7 +66,7 @@
                 </td>
                 <td>
                   <div class="text">
-                    <input type="range" id="minopacity" v-on:pointermove="changeMinOpacity" v-on:touchmove="changeMinOpacity" v-on:change="changeMinOpacity" step="0.1" value="0.5" min="0" max="1" style="width: 100%; margin-top: 10%;" />
+                    <input type="range" id="minopacity" v-on:change="changeMinOpacity" step="0.1" value="0.5" min="0" max="1" style="width: 100%; margin-top: 10%;" />
                  </div>   
                 </td>
             </tr>
@@ -76,7 +76,7 @@
                 </td>
                 <td>
                  <div class="text">
-                    <input type="range" id="maxopacity" v-on:pointermove="changeMaxOpacity" v-on:touchmove="changeMaxOpacity" v-on:change="changeMaxOpacity" step="0.1" value="1" min="0" max="1" style="width: 100%; margin-top: 10%;" />
+                    <input type="range" id="maxopacity" v-on:change="changeMaxOpacity" step="0.1" value="1" min="0" max="1" style="width: 100%; margin-top: 10%;" />
                  </div>   
                 </td>
             </tr>            

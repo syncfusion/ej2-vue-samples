@@ -166,11 +166,19 @@ else if(theme === 'Bootstrap5Dark'){
     TextColor = '#FFFFFF';
 }
 else if(theme === 'Tailwind'){
-    FillColors =  ["#5A61F6", "#65A30D", "#334155", "#14B8A6", "#8B5CF6", "#0369A1", "#F97316", "#9333EA", "#F59E0B", "#15803D"];
+    FillColors = ["#5A61F6", "#65A30D", "#334155", "#14B8A6", "#8B5CF6", "#0369A1", "#F97316", "#9333EA", "#F59E0B", "#15803D"];
     TextColor = '#000000';
 }
 else if(theme === 'TailwindDark'){
-    FillColors =  ["#8B5CF6", "#22D3EE", "#F87171", "#4ADE80", "#E879F9", "#FCD34D", "#F97316", "#2DD4BF", "#F472B6", "#10B981"];
+    FillColors = ["#8B5CF6", "#22D3EE", "#F87171", "#4ADE80", "#E879F9", "#FCD34D", "#F97316", "#2DD4BF", "#F472B6", "#10B981"];
+    TextColor = '#FFFFFF';
+}
+else if(theme === 'Tailwind3'){
+    FillColors = ['#2F4074', '#03B4B4', '#0D72DE', '#FF5733', '#D63384', '#F39C12', '#EF291F', '#91C822', '#2F4074', '#03B4B4'];
+    TextColor = '#000000';
+}
+else if(theme === 'Tailwind3Dark'){
+    FillColors = ['#8029F1', '#1ABC9C', '#0D72DE', '#FF5733', '#D63384', '#F39C12', '#EF291F', '#91C822', '#8029F1', '#1ABC9C'];
     TextColor = '#FFFFFF';
 }
 else if(theme === 'MaterialDark'){

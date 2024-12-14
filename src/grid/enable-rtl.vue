@@ -11,7 +11,7 @@
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' isPrimaryKey='true'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name'  width='150' textAlign='Left'></e-column>
                 <e-column field='Freight' headerText='Freight' format='C2' textAlign='Right' editType='numericedit' width='120'></e-column>
-                 <e-column field='OrderDate' headerText='Order Date' type= 'date' format= 'yMd'  editType= 'datepickeredit' width=150 textAlign='Right'></e-column>
+                 <e-column field='OrderDate' headerText='Order Date' type= 'date' format= 'yMd'  editType= 'datepickeredit' width=150 textAlign='Right' :allowGrouping='false'></e-column>
                 <e-column field='ShipCountry' textAlign='Left' headerText='Ship Country' width='150' editType='dropdownedit'></e-column>
             </e-columns>
         </ejs-grid>

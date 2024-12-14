@@ -143,7 +143,7 @@
     .custom-tree .custom-delete {
         float: right;
         font-family: 'cross-circle';
-        height: 36px;
+        height: 20px;
     }
     .custom-tree .e-rtl .custom-delete {
         float: left;
@@ -153,7 +153,9 @@
     .fluent2-highcontrast .e-hover.e-list-item .custom-delete::before {
 	    color: #000;
 	}
-	.highcontrast .custom-tree .custom-delete::before {
+	.highcontrast .custom-tree .custom-delete::before,
+	.taildwind3-dark .custom-tree .custom-delete::before,
+	.e-bigger.taildwind3-dark .custom-tree .custom-delete::before {
         color: #fff;
     }
     @font-face {
@@ -168,7 +170,7 @@
         line-height: 1.1;
         margin-top: 10px;
         margin-bottom: 10px;
-    }	
+    }
 
   .fluent2 #list .dropped-list-view-item,
   .fluent2-dark #list .dropped-list-view-item,

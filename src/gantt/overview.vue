@@ -12,7 +12,7 @@
                     <div class="title">Project Settings</div>
                     <span class="e-closed" @click="closeSidebar" style="cursor: pointer; font-size: 20px"></span>
                 </div>
-                <ul style="margin: 15px 15px; padding-left: 5px">
+                <ul style="margin: 16px 16px; padding-left: 0px">
                     <label for="defaultSlider" class="labels">Row height :</label>
                     <li class="list-fields">
                         <ejs-slider id="defaultSlider" ref="defaultSlider" v-model="value" :enabled="enabled" :min="min"
@@ -49,20 +49,23 @@
                     </li>
                     <li class="list-field stack-container">
                         <label for="WorkingDays" class="labels-style">Working days :</label>
-                        <ejs-multiselect ref="multiselect" id="WorkingDays" :dataSource="workDays" :value="defaultWeek"
-                            :fields="workWeekFields" mode="CheckBox" :showDropDownIcon="showDropDownIcons"
-                            :popupHeight="popHeight" :select="selectWeek" :removed="removeWeek"></ejs-multiselect>
+                        <div style="padding-left: 10px">
+                            <ejs-multiselect ref="multiselect" id="WorkingDays" :dataSource="workDays"
+                                :value="defaultWeek" :fields="workWeekFields" mode="CheckBox"
+                                :showDropDownIcon="showDropDownIcons" :popupHeight="popHeight" :select="selectWeek"
+                                :removed="removeWeek" :width='216'></ejs-multiselect>
+                        </div>
                     </li>
                     <li class="list-field stack-container">
                         <label for="durationChange" class="labels-style">Duration unit :</label>
-                        <div style="padding-left: 10px">
+                        <div style="padding-left: 12px">
                             <ejs-dropdownlist id="durationChange" :dataSource="durationUnit" :placeholder="Day"
                                 :fields="workFields" :change="durationChange"></ejs-dropdownlist>
                         </div>
                     </li>
                     <li class="list-field stack-container">
                         <label for="unitWidth" class="labels-style">Timeline width:</label>
-                        <div style="padding-left: 10px">
+                        <div style="padding-left: 12px">
                             <ejs-numerictextbox id="numeric" ref="numeric_instance" :value="numaricvalue"
                                 :min="numaricmin" :format="numaricformat" :change="unitChange"></ejs-numerictextbox>
                         </div>
@@ -72,14 +75,14 @@
                     </li>
                     <li class="list-field stack-container">
                         <label for="viewTypes" class="labels-style">View type:</label>
-                        <div style="padding-left: 10px">
+                        <div style="padding-left: 12px">
                             <ejs-dropdownlist id="viewTypes" :dataSource="viewTypeData" :placeholder="viewType"
                                 :fields="viewFileds" :change="typeChange"></ejs-dropdownlist>
                         </div>
                     </li>
                     <li class="list-field stack-container">
                         <label for="viewMode" class="labels-style">View mode:</label>
-                        <div style="padding-left: 10px">
+                        <div style="padding-left: 12px">
                             <ejs-dropdownlist id="viewMode" :dataSource="viewModeData" :placeholder="viewMode"
                                 :fields="modeFields" :change="modeChange"></ejs-dropdownlist>
                         </div>
@@ -108,7 +111,7 @@
                     :projectEndDate="projectEndDate">
                     <e-columns>
                         <e-column field="TaskId" textAlign="Left" :visible="false"></e-column>
-                        <e-column field="TaskName" headerText="Product Release" width="180"></e-column>
+                        <e-column field="TaskName" headerText="Product Release" width="200"></e-column>
                         <e-column field="Assignee" headerText="Assignee" :template="'columnTemplate'"
                             :allowSorting="false" width="135">
                         </e-column>
@@ -141,8 +144,8 @@
                         <div v-if="data.taskData.Status">
                             <div :style="Status(data.taskData.Status)">
                                 <span :style="StatusContent(data.taskData.Status)">{{
-                    data.taskData.Status
-                }}</span>
+                                    data.taskData.Status
+                                    }}</span>
                             </div>
                         </div>
                     </template>
@@ -151,7 +154,7 @@
                         <div v-if="data.taskData.Priority">
                             <div :style="Priority(data.taskData.Priority)">
                                 <span :style="PriorityContent(data.taskData.Priority)">{{
-                    data.taskData.Priority
+                                    data.taskData.Priority
                                     }}</span>
                             </div>
                         </div>
@@ -257,30 +260,30 @@ export default {
             },
             eventMarkers: [
                 {
-                    day: '04/04/2024',
+                    day: new Date('04/04/2024'),
                     cssClass: 'e-custom-event-marker',
                     label: 'Q-1 Release'
                 },
                 {
-                    day: '06/30/2024',
+                    day: new Date('06/30/2024'),
                     cssClass: 'e-custom-event-marker',
                     label: 'Q-2 Release'
                 },
                 {
-                    day: '09/29/2024',
+                    day: new Date('09/29/2024'),
                     cssClass: 'e-custom-event-marker',
                     label: 'Q-3 Release'
                 }
             ],
             holidays: [{
-                from: "01/01/2024",
-                to: "01/01/2024",
+                from: new Date("01/01/2024"),
+                to: new Date("01/01/2024"),
                 label: "New Year holiday",
                 cssClass: "e-custom-holiday"
             },
             {
-                from: "12/25/2023",
-                to: "12/26/2023",
+                from: new Date("12/25/2023"),
+                to: new Date("12/26/2023"),
                 label: "Christmas holidays",
                 cssClass: "e-custom-holiday"
             }],
@@ -302,7 +305,7 @@ export default {
             max: 60,
             step: 5,
             sliderWidth: "180px",
-            tooltip: { placement: "Before", isVisible: true },
+            tooltip: { placement: "Before", isVisible: true, showOn: 'Hover' },
             ticks: {
                 placement: "Before",
                 smallStep: 10,
@@ -479,12 +482,13 @@ export default {
             this.sidebarToggle = !this.sidebarToggle;
         },
         load: function (args) {
-            var themeCollection = ['bootstrap5', 'bootstrap', 'bootstrap4', 'fluent', 'fabric', 'fusionnew', 'material3', 'material', 'highcontrast', 'tailwind'];
+            var themeCollection = ['bootstrap5', 'bootstrap', 'bootstrap4', 'fluent', 'fabric', 'fusionnew', 'material3', 'material', 'highcontrast', 'tailwind', 'fluent2', 'tailwind3', 'bootstrap5.3'];
             var cls = document.body.className.split(' ');
             theme = cls.indexOf('bootstrap5') > 0 ? 'bootstrap5' : cls.indexOf('bootstrap') > 0 ? 'bootstrap' : cls.indexOf('tailwind') > 0 ? 'tailwind' :
                 cls.indexOf('fluent') > 0 ? 'fluent' : cls.indexOf('fabric') > 0 ? 'fabric' :
                     cls.indexOf('material3') > 0 ? 'material3' : cls.indexOf('bootstrap4') > 0 ? 'bootstrap4' : cls.indexOf('material') > 0 ? 'material' :
-                        cls.indexOf('fusionnew') > 0 ? 'fusionnew' : cls.indexOf('highcontrast') > 0 ? 'highcontrast' : ''
+                        cls.indexOf('fusionnew') > 0 ? 'fusionnew' : cls.indexOf('highcontrast') > 0 ? 'highcontrast' : cls.indexOf('bootstrap5.3') > 0 ? 'bootstrap5.3' :
+                        cls.indexOf('fluent2') > 0 ? 'fluent2' : cls.indexOf('tailwind3') > 0 ? 'tailwind3' : ''
             var check = themeCollection.indexOf(theme);
             if (check >= 0) {
                 CurrentTheme = true;

@@ -113,13 +113,16 @@ export default {
     }
     .tailwind #Indicators /deep/ .okIcon::before, .tailwind-dark #Indicators /deep/ .okIcon::before,
     .material3-dark #Indicators /deep/ .okIcon::before,.material3 #Indicators /deep/ .okIcon::before,
-    .material3-dark #Indicators /deep/ .description::before,.material3 #Indicators /deep/ .description::before  {
+    .material3-dark #Indicators /deep/ .description::before,.material3 #Indicators /deep/ .description::before,
+    .tailwind3 #Indicators /deep/ .okIcon::before, .tailwind3-dark #Indicators /deep/ .okIcon::before  {
          content: '\e72b';
          font-size : 16px;
          font-family : "e-icons"
     }
     .tailwind #Indicators  /deep/ .description::before,
-    .tailwind-dark #Indicators /deep/ .description::before
+    .tailwind-dark #Indicators /deep/ .description::before,
+    .tailwind3 #Indicators  /deep/ .description::before,
+    .tailwind3-dark #Indicators /deep/ .description::before
     {
     content: '\e7c0';
     font-size : 16px;

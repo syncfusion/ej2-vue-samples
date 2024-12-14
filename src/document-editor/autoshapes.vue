@@ -168,7 +168,7 @@ export default {
       printIconCss: 'e-de-icon-Print e-de-padding-right',
       exportIconCss: 'e-de-icon-Download e-de-padding-right',
       exportItems: [
-        { text: 'Syncfusion Document Text (*.sfdt)', id: 'sfdt' },
+        { text: 'Syncfusion® Document Text (*.sfdt)', id: 'sfdt' },
         { text: 'Word Document (*.docx)', id: 'word' },
         { text: 'Word Template (*.dotx)', id: 'dotx' },
         { text: 'Plain Text (*.txt)', id: 'txt' },

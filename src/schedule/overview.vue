@@ -265,11 +265,17 @@
 
 <style>
 
-    .tailwind .schedule-overview .overview-content .right-panel .control-panel {
+    .tailwind3 .schedule-overview .import-button .e-template-btn {
+        color: #fff;
+    }
+
+    .tailwind .schedule-overview .overview-content .right-panel .control-panel,
+    .tailwind3 .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #f3f4f6;
     }
 
-    .tailwind-dark .schedule-overview .overview-content .right-panel .control-panel {
+    .tailwind-dark .schedule-overview .overview-content .right-panel .control-panel,
+    .tailwind3-dark .schedule-overview .overview-content .right-panel .control-panel {
         background-color: #374151;
         color: #fff;
     }
@@ -1186,7 +1192,8 @@
                     case 'Add':
                     case 'AddRecurrence':
                         let selectedCells = scheduleObj.getSelectedElements();
-                        let activeCellsData = scheduleObj.getCellDetails(selectedCells.length > 0 ? selectedCells : this.selectedTarget);
+                        let isRightClickInSelectedCells= selectedCells.some((cell) => cell === this.selectedTarget);
+                        let activeCellsData= scheduleObj.getCellDetails(isRightClickInSelectedCells ? selectedCells : [this.selectedTarget]);
                         if (selectedMenuItem === 'Add') {
                             scheduleObj.openEditor(activeCellsData, 'Add');
                         } else {

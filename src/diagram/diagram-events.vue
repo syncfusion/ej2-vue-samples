@@ -175,9 +175,9 @@
 import {
   DiagramComponent,
   SymbolPaletteComponent,
-  Diagram, DiagramContextMenu,
+  Diagram, DiagramContextMenu, NodeConstraints
 } from "@syncfusion/ej2-vue-diagrams";
-import { ListViewComponent, ListView } from "@syncfusion/ej2-vue-lists";
+import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 let diagramInstance;
@@ -295,31 +295,47 @@ export default {
         getEventDetails(args);
       },
       selectionChange: (args) => {
-        getEventDetails(args);
+        if (args.state === "Changed") {
+          getEventDetails(args);
+        }
       },
       sizeChange: (args) => {
-        getEventDetails(args);
+        if (args.state === "Completed") {
+          getEventDetails(args);
+        }
       },
       connectionChange: (args) => {
-        getEventDetails(args);
+        if (args.state === "Changed") {
+          getEventDetails(args);
+        }
       },
       sourcePointChange: (args) => {
-        getEventDetails(args);
+        if (args.state === "Completed") {
+          getEventDetails(args);
+        }
       },
       targetPointChange: (args) => {
-        getEventDetails(args);
+        if (args.state === "Completed") {
+          getEventDetails(args);
+        }
       },
       propertyChange: (args) => {
         getEventDetails(args);
       },
       positionChange: (args) => {
-        getEventDetails(args);
+        if (args.state === "Completed") {
+          getEventDetails(args);
+        }
       },
       rotateChange: (args) => {
-        getEventDetails(args);
+        if (args.state === "Completed") {
+          getEventDetails(args);
+        }
       },
       collectionChange: (args) => {
-        getEventDetails(args);
+        if (args.state === "Changed") {
+          getEventDetails(args);
+        }
       },
       mouseEnter: (args) => {
         getEventDetails(args);
@@ -363,7 +379,8 @@ export default {
       palettewidth: "100%",
       paletteheight: "700px",
       palettegetNodeDefaults: (symbol) => {
-        symbol.style = {strokeColor: "#757575"}
+        symbol.style = {strokeColor: "#757575"};
+        symbol.constraints = NodeConstraints.Default | NodeConstraints.AllowDrop;
       },
       symbolHeight: 60,
       symbolWidth: 60,

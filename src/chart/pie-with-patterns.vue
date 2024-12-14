@@ -78,7 +78,8 @@ export default {
             tooltip: {
                 enable: true,
                 format: '<b>${point.x}</b><br>Browser Share: <b>${point.y}%</b>',
-                header: ""
+                header: "",
+                enableHighlight: true,
             }
         };
     },

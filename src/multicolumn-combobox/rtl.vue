@@ -2,10 +2,11 @@
     <div class="control-section">
         <div class='control-wrapper rtl-multicolumn'>
             <div style='padding-top:60px;'>
-                <ejs-multicolumncombobox type="text" id='rtl' :dataSource="dataSource" :fields="fields" placeholder="Select a title" popupHeight="230px" :enableRtl="rtl" >
+            <label>Select a title</label>
+                <ejs-multicolumncombobox type="text" id='rtl' :dataSource="dataSource" :fields="fields" placeholder="e.g. The Hobbit" popupHeight="210px" popupWidth="660px" :enableRtl="rtl" >
                     <e-columns>
-                        <e-column field='Title' header='Title' width="200"/>
-                        <e-column field='Author' header='Author' width="150"/>
+                        <e-column field='Title' header='Title' width="180"/>
+                        <e-column field='Author' header='Author' width="145"/>
                         <e-column field='Genre' header='Genre' width="100"/>
                         <e-column field='PublishedYear' header='Published Year' width="125"/>
                         <e-column field='Price' header='Price' width="80"/>
@@ -28,7 +29,7 @@
 <style>
     .control-wrapper.rtl-multicolumn {
         margin: 0 auto;
-        width: 680px;
+        width: 250px;
     }
 
     @media screen and (max-width: 480px) {

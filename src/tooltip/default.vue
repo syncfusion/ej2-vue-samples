@@ -3,7 +3,7 @@
         <div class="col-lg-8 control-section tooltip-default" >
             <div id="control-wrapper">
                 <div clas="tooltip-wrap">
-                    <ejs-tooltip ref="tooltip" :position="tipposition" content="Let's go green to save the planet!!" style="display:block;position:absolute;left:calc( 50% - 60px);top:45%;">
+                    <ejs-tooltip class="tooltipPosition" ref="tooltip" :position="tipposition" content="Let's go green to save the planet!!">
                         <!-- Button element -->
                         <ejs-button>Show Tooltip</ejs-button>
                     </ejs-tooltip>
@@ -74,6 +74,12 @@
 <style>
     .tooltip-default #property {
         padding-top: 200px;
+    }
+    .tooltipPosition {
+        display:block;
+        position:absolute;
+        left:calc( 50% - 60px);
+        top:35%;
     }
 </style>
 

@@ -187,7 +187,7 @@
     }
 
     .bootstrap-dark .header, .bootstrap5-dark .header,.bootstrap5\.3-dark .header, .fluent-dark .header, .fluent2-dark .header, .material3-dark .header, 
-    .fabric-dark .header, .material-dark .header, .tailwind-dark .header, .highcontrast .header {
+    .fabric-dark .header, .material-dark .header, .tailwind-dark .header, .tailwind3-dark .header, .highcontrast .header, .fluent2-highcontrast .header {
         color: #fff;
     }
 
@@ -217,7 +217,7 @@
     }
 
      .bootstrap-dark .e-like span, .bootstrap5-dark .e-like span,.bootstrap5\.3-dark .e-like span, .fluent-dark .e-like span,.material3-dark .e-like span,
-	.fabric-dark .e-like span, .material-dark .e-like span, .tailwind-dark .e-like span, .highcontrast .e-like span {
+	.fabric-dark .e-like span, .material-dark .e-like span, .tailwind-dark .e-like span, .tailwind3-dark .e-like span, .highcontrast .e-like span {
         color: #ff4b86;
     }
 
@@ -229,7 +229,7 @@
     }
 
      .bootstrap-dark .e-dislike span, .bootstrap5-dark .e-dislike span,.bootstrap5\.3-dark .e-dislike span, .fluent-dark .e-dislike span,.material3-dark .e-dislike span,
-	.fabric-dark .e-dislike span, .material-dark .e-dislike span, .tailwind-dark .e-dislike span, .highcontrast .e-dislike span {
+	.fabric-dark .e-dislike span, .material-dark .e-dislike span, .tailwind-dark .e-dislike span, .tailwind3-dark .e-dislike span,.highcontrast .e-dislike span {
         color: #BFBFBF;
     }
 
@@ -248,12 +248,12 @@
     }
 
     .bootstrap-dark .explain, .bootstrap5-dark .explain,.bootstrap5\.3-dark .explain, .fluent-dark .explain, .fluent2-dark .explain, .fluent2-dark .explain, .material3-dark .explain,
-    .fabric-dark .explain, .material-dark .explain, .tailwind-dark .explain, .highcontrast .explain {
+    .fabric-dark .explain, .material-dark .explain, .tailwind-dark .explain, .tailwind3-dark .explain, .highcontrast .explain, .fluent2-highcontrast .explain {
         color: #fff;
     }
 
      .bootstrap-dark .detailsQuestion, .bootstrap5-dark .detailsQuestion,.bootstrap5\.3-dark .detailsQuestion, .fluent-dark .detailsQuestion,.material3-dark .detailsQuestion,
-	.fabric-dark .detailsQuestion, .material-dark .detailsQuestion, .tailwind-dark .detailsQuestion, .highcontrast .detailsQuestion {
+	.fabric-dark .detailsQuestion, .material-dark .detailsQuestion, .tailwind-dark .detailsQuestion, .tailwind3-dark .detailsQuestion, .highcontrast .detailsQuestion {
         color: #BFBFBF;
     }
 
@@ -288,7 +288,7 @@
     }
 
      .bootstrap-dark .answerCount, .bootstrap5-dark .answerCount,.bootstrap5\.3-dark .answerCount, .fluent-dark .answerCount,.material3-dark .answerCount,
-	.fabric-dark .answerCount, .material-dark .answerCount, .tailwind-dark .answerCount, .highcontrast .answerCount {
+	.fabric-dark .answerCount, .material-dark .answerCount, .tailwind-dark .answerCount, .tailwind3-dark .answerCount, .highcontrast .answerCount {
         color: #BFBFBF;
     }
 
@@ -384,7 +384,7 @@
     }
 
     .bootstrap-dark .posting, .bootstrap5-dark .posting,.bootstrap5\.3-dark .posting, .fluent-dark .posting, .fluent2-dark .posting, .fluent2-dark .posting, .material3-dark .posting,
-    .fabric-dark .posting, .material-dark .posting, .tailwind-dark .posting, .highcontrast .posting {
+    .fabric-dark .posting, .material-dark .posting, .tailwind-dark .posting, .tailwind3-dark .posting, .highcontrast .posting, .fluent2-highcontrast .posting {
         color: #fff;
     }
 
@@ -395,7 +395,7 @@
     }
 
     .bootstrap-dark .authorname, .bootstrap5-dark .authorname,.bootstrap5\.3-dark .authorname, .fluent-dark .authorname,.fluent2-dark .authorname, .material3-dark .authorname,
-    .fabric-dark .authorname, .material-dark .authorname, .tailwind-dark .authorname, .highcontrast .authorname {
+    .fabric-dark .authorname, .material-dark .authorname, .tailwind-dark .authorname, .tailwind3-dark .authorname, .highcontrast .authorname, .fluent2-highcontrast .authorname  {
         color: #fff;
     }
 
@@ -407,7 +407,7 @@
     }
 
     .bootstrap-dark .detailsAnswer, .bootstrap5-dark .detailsAnswer,.bootstrap5\.3-dark .detailsAnswer, .fluent-dark .detailsAnswer,.material3-dark .detailsAnswer,
-	.fabric-dark .detailsAnswer, .material-dark .detailsAnswer, .tailwind-dark .detailsAnswer, .highcontrast .detailsAnswer {
+	.fabric-dark .detailsAnswer, .material-dark .detailsAnswer, .tailwind-dark .detailsAnswer, .tailwind3-dark .detailsAnswer, .highcontrast .detailsAnswer {
         color: #BFBFBF;
     }
     
@@ -464,7 +464,8 @@
     .fluent2-dark .tag,
     .fabric-dark .tag, 
     .material-dark .tag, 
-    .tailwind-dark .tag, 
+    .tailwind-dark .tag,
+    .tailwind3-dark .tag, 
     .highcontrast .tag {
         color: #fff;
         background: #484644;

@@ -81,9 +81,11 @@
 </div></div>
 </template>
 <style>
-.e-switch-wrapper {
+
+.custom-iOS.e-switch-wrapper {
   margin-top: 5%;
 }
+
 #chartPeriod_tooltip {
   opacity: 0;
 }

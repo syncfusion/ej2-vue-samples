@@ -20,7 +20,7 @@
                     <div class="responseItemContent">
                         <div class="response-header">
                             <span class="e-icons e-assistview-icon"></span>
-                            AI AssistView
+                            AI Assist
                         </div>
                         <div class="assist-response-content" v-html="data.response"></div>
                     </div>
@@ -156,7 +156,8 @@ export default {
         margin: 0 auto;
     }
 
-    .e-assistview-icon:before {
+    .template-aiassistview .banner-content .e-assistview-icon:before,
+    .template-aiassistview .response-header .e-assistview-icon:before {
         margin-right: 10px;
     }
 
@@ -166,7 +167,7 @@ export default {
         justify-content: center;
         text-align: center;
         align-items: center;
-        padding: 10px 10px;
+        padding: 10px;
         width: 65%;
         margin: 0 auto;
     }

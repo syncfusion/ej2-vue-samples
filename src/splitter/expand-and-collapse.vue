@@ -63,10 +63,10 @@ import rightPaneContent from "./expand-collapse-content.vue";
 
 var leftPaneContent = {
   template: `<div class="content">
-        <a href="https://www.syncfusion.com/ebooks/neuralnetworks" target="_blank">Neural Networks Using C# Succinctly</a>
+        <a href="https://www.syncfusion.com/ebooks/neuralnetworks" target="_blank">Neural Networks Using C# Succinctly<sup>®<sup></a>
         <p>Neural networks are an exciting field of software development used to calculate outputs from input data. 
         While the idea seems simple enough, the implications of such networks are staggering—think optical character recognition, 
-        speech recognition, and regression analysis. With Neural Networks Using C# Succinctly by James McCaffrey, you’ll learn 
+        speech recognition, and regression analysis. With Neural Networks Using C# Succinctly<sup>®<sup> by James McCaffrey, you’ll learn 
         how to create your own neural network to solve classification problems, or problems where the outcomes can only be one of 
         several values. <br/><br/>Learn about encoding and normalizing data, activation functions and how to choose the right one, and ultimately 
         how to train a neural network to find weights and bias values that provide accurate predictions.

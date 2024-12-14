@@ -225,7 +225,7 @@ import {
 enableRipple(false);
 
 let remoteData: DataManager = new DataManager({
-  url: "https://bi.syncfusion.com/northwindservice/api/orders",
+  url: "https://ej2services.syncfusion.com/vue/development/api/order",
   adaptor: new WebApiAdaptor(),
   crossDomain: true
 });

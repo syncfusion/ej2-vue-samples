@@ -12,14 +12,14 @@
                 <e-column field='EmployeeID' headerText='ID' width='160'></e-column>
                 <e-column field='Name' headerText='Name' width='120'></e-column>
                 <e-column field='MailID' headerText='Email ID' width='150' :template="'mailIDTemplate'"></e-column>
-                <e-column field='DateOfJoining' headerText='Date Joined' width='170' format='yMd' textAlign='Right'></e-column>
+                <e-column field='DateOfJoining' headerText='Date Joined' width='170' format='yMd' textAlign='Right' type="date"></e-column>
                 <e-column field='Designation' headerText='Designation' width='150'></e-column>
                 <e-column field='Team' headerText='Team(s)' width='150'></e-column>
                 <e-column field='ReportTo' headerText='Reporter' width='150'></e-column>
                 <e-column field='EmployeeAvailability' headerText='Availability' width='200' :template="'statusTemplate'"></e-column>
                 <e-column field='YearOfExperience' headerText='Experience' width='200'></e-column>
                 <e-column field='AssetKit' headerText='Asset Kit' width='180' :filter= 'filter' :template="'assetTemplate'"></e-column>
-                <e-column field='AssetKitDistribution' headerText='Assigned Date' width='170' format='yMd' textAlign='Right'></e-column>
+                <e-column field='AssetKitDistribution' headerText='Assigned Date' width='170' format='yMd' textAlign='Right' type="date"></e-column>
                 <e-column field='Location' headerText='Location' width='150' :template="'locationTemplate'"></e-column>
                 <e-column field='PhoneNumber' headerText='Contact No' width='150' textAlign='Right'></e-column>
               </e-columns>
@@ -62,7 +62,7 @@
       </p>
       <p>
           The column template feature allows the customization of grid cells. In this demo, the Grid showcases the <strong>Employee Image</strong>
-          column with employee photos, <strong>Mail ID</strong> column with link tags, <strong>Location</strong> column with location icons, <strong>Asset Kit</strong> column with Syncfusion Chip components and <strong>Employee Availability</strong> column with HTML span elements, using green to indicate available and red to indicate for not available.
+          column with employee photos, <strong>Mail ID</strong> column with link tags, <strong>Location</strong> column with location icons, <strong>Asset Kit</strong> column with Syncfusion<sup>®</sup> Chip components and <strong>Employee Availability</strong> column with HTML span elements, using green to indicate available and red to indicate for not available.
       </p>
       <p>
           More information on the column template can be found in this
@@ -122,6 +122,11 @@
   .e-location {
     margin-right: 5px;
   }
+  .highcontrast .e-grid td.e-rowcell.e-selectionbackground.e-active .e-icons,
+  .fluent2-highcontrast .e-grid .e-row:hover:not(.e-editedrow) .e-icons,
+  .fluent2-highcontrast .e-grid td.e-rowcell.e-selectionbackground.e-active .e-icons {
+    color: black;
+  }
   </style>
   
   <script lang="ts">
@@ -178,7 +183,7 @@
               placeholder: 'Select a value',
               popupHeight: '200px',
               allowFiltering: true,
-              mode: 'Delimiter',
+              mode: 'Box',
             });
             dropInstance.appendTo(flValInput);
           },

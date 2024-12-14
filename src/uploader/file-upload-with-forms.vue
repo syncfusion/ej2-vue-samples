@@ -105,7 +105,8 @@
             background: #212529;
         }
 
-        .tailwind-dark .form-support #control_wrapper { 
+        .tailwind-dark .form-support #control_wrapper,
+        .tailwind3-dark .form-support #control_wrapper { 
             background: #6c757d;
         }
         .form-support .upload-area, .e-bigger .form-support .upload-area {
@@ -193,7 +194,9 @@
         .fluent .e-bigger .e-dialog .e-dlg-header-content,
         .fluent-dark .e-bigger .e-dialog .e-dlg-header-content,
         .tailwind .e-bigger .e-dialog .e-dlg-header-content,
-        .tailwind-dark .e-bigger .e-dialog .e-dlg-header-content{
+        .tailwind3 .e-bigger .e-dialog .e-dlg-header-content,
+        .tailwind-dark .e-bigger .e-dialog .e-dlg-header-content,
+        .tailwind3-dark .e-bigger .e-dialog .e-dlg-header-content{
             padding-bottom: 2%;
         }
         .material-dark .e-bigger .e-dialog .e-dlg-header-content,
@@ -205,7 +208,9 @@
         .e-bigger.bootstrap5 .form-support button#browse,
         .e-bigger.bootstrap5-dark .form-support button#browse,
         .e-bigger.tailwind .form-support button#browse,
-        .e-bigger.tailwind-dark .form-support button#browse{
+        .e-bigger.tailwind3 .form-support button#browse,
+        .e-bigger.tailwind-dark .form-support button#browse,
+        .e-bigger.tailwind3-dark .form-support button#browse {
             margin-top: -41px;
         }
         

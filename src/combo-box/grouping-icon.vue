@@ -69,6 +69,7 @@
     .material3-dark .combobox-icons-css .e-list-icon,
     .bootstrap5-dark .combobox-icons-css .e-list-icon,
     .tailwind-dark .combobox-icons-css .e-list-icon,
+    .tailwind3-dark .combobox-icons-css .e-list-icon,
     .fluent-dark .combobox-icons-css .e-list-icon,
     .fluent2-dark .combobox-icons-css .e-list-icon,
     .fluent2-highcontrast .e-list-icon {

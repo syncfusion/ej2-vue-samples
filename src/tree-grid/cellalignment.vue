@@ -12,23 +12,23 @@
         </ejs-treegrid>
       </div>
       <div>
-        <div class="col-md-3 property-section">
+        <div class="col-md-3 property-section cellalignemnt-property">
             <table id="property" title="Properties" style="width: 100%">
                 <br/><br/>
                 <tr style="height: 50px">
-                    <td style="width: 30%">
+                    <td>
                         <div>Column</div>
                     </td>
-                    <td style="width: 70%;padding-top:5px;padding-left: 10px;">
-                        <ejs-dropdownlist ref='columns' width='130px' id='columns' :dataSource='columnsdata' value='taskID' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
+                    <td style="width: 70%;padding-top:5px;padding-left:10px">
+                        <ejs-dropdownlist ref='columns' width='135px' id='columns' :dataSource='columnsdata' value='taskID' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
                     </td>
                 </tr>
                 <tr id='' style="height: 50px">
-                    <td style="width: 30%">
+                    <td>
                         <div> Alignment</div>
                     </td>
-                    <td style="width: 80%; padding-left: 10px; padding-right:10px;padding-top:5px">
-                        <ejs-dropdownlist ref='alignment' width='130px' id='alignment' :dataSource='alignmentdata' value='Right' :fields='alignmentfields' :change="onChange"></ejs-dropdownlist>
+                    <td style="width: 70%; padding-left:10px;padding-top:5px">
+                        <ejs-dropdownlist ref='alignment' width='135px' id='alignment' :dataSource='alignmentdata' value='Right' :fields='alignmentfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>
@@ -66,6 +66,18 @@
   </div>
   
   </template>
+ 
+  <style scoped>
+    @media (min-width: 990px) and (max-width: 1300px) {  
+      .cellalignemnt-property{
+        padding-left: 5px;
+
+        .property-panel-section {
+          padding-left: 0px;
+        }
+      }
+    }
+</style>
 
   <script lang="ts">
 import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Column } from "@syncfusion/ej2-vue-treegrid";

@@ -38,10 +38,12 @@
     }
     .tailwind .ajaxsample .e-dialog .e-dlg-header > img.img1,
     .tailwind-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
+    .tailwind3 .ajaxsample .e-dialog .e-dlg-header > img.img1,
+    .tailwind3-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
     .bootstrap5 .ajaxsample .e-dialog .e-dlg-header > img.img1,
     .bootstrap5-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
-    .bootstrap5.3 .ajaxsample .e-dialog .e-dlg-header > img.img1,
-    .bootstrap5.3-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
+    .bootstrap5\.3 .ajaxsample .e-dialog .e-dlg-header > img.img1,
+    .bootstrap5\.3-dark .ajaxsample .e-dialog .e-dlg-header > img.img1,
     .bootstrap4 .ajaxsample .e-dialog .e-dlg-header > img.img1{
         margin-top: 0px;
     }

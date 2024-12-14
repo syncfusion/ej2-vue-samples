@@ -20,18 +20,18 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
+            <td>
                 <div style="padding-top: 8px">Start</div>
 
             </td>
-            <td style="width: 70%;padding-right: 5px">
+            <td style="width: 70%;padding-right: 5px;padding-bottom:10px">
                 <div id='numericbox' aria-label="Start Input">
                     <ejs-numerictextbox ref='start' width='110px' :min=0 format='##'></ejs-numerictextbox>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
+            <td>
                 <div style="padding-top: 8px">To</div>
             </td>
             <td style="width: 70%;padding-right: 5px">

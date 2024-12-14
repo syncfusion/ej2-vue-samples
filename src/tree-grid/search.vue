@@ -16,11 +16,11 @@
             <table id="property" title="Properties" style="width: 100%">
                 <br/><br/>
                 <tr style="height: 50px">
-                    <td style="width: 70%">
+                    <td>
                         <div>Hierarchy Mode</div>
                     </td>
-                    <td style="width: 70%;; padding-left:10px">
-                        <ejs-dropdownlist id='ddlelement' width='100px' popUpWidth='110px' :dataSource='ddldata' value='Parent' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
+                    <td style="width: 70%;; padding-left:10%">
+                        <ejs-dropdownlist id='ddlelement' width='110px' popUpWidth='110px' :dataSource='ddldata' value='Parent' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>

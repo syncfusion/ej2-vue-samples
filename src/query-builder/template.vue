@@ -201,6 +201,10 @@ For Spring Expression Language (SpEL) output, use the "spel" format. The Spring 
         padding-bottom: 3px;
         color: white;
     }
+
+    .tailwind3-dark .e-text-area-content {
+        background: transparent;
+    }
 </style>
 
 <!-- custom code end -->

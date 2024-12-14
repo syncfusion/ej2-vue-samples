@@ -133,6 +133,7 @@
     .material3 .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .material3-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
     .bootstrap5 .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .bootstrap5-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
     .tailwind .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .tailwind-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
+    .tailwind3 #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .tailwind3-dark #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before,
     .material .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before, .material-dark .slider-customticks #slider_wrapper #ticks_slider .e-scale :nth-child(6)::before {
         left: calc(100% - 6px);
     }
@@ -190,7 +191,8 @@
     .fluent #ticks_slider .e-scale .e-tick.e-custom::before, .fluent-dark #ticks_slider .e-scale .e-tick.e-custom::before,
     .bootstrap5 #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5-dark #ticks_slider .e-scale .e-tick.e-custom::before,
     .tailwind #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind-dark #ticks_slider .e-scale .e-tick.e-custom::before,
-    .bootstrap4 .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before {
+    .bootstrap4 .slider-customticks #ticks_slider .e-scale .e-tick.e-custom::before,
+    .tailwind3 #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind3-dark #ticks_slider .e-scale .e-tick.e-custom::before {
         line-height: 2.3;
     }
 
@@ -198,26 +200,33 @@
     .fluent2-highcontrast #ticks_slider .e-scale .e-tick.e-custom::before,
     .fluent #ticks_slider .e-scale .e-tick.e-custom::before, .fluent-dark #ticks_slider .e-scale .e-tick.e-custom::before,
     .bootstrap5 #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5-dark #ticks_slider .e-scale .e-tick.e-custom::before,
-    .tailwind #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind-dark #ticks_slider .e-scale .e-tick.e-custom::before {
+    .tailwind #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind-dark #ticks_slider .e-scale .e-tick.e-custom::before,
+    .tailwind3 #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind3-dark #ticks_slider .e-scale .e-tick.e-custom::before {
         left: calc(50% - 6px);
     }
 
     .bootstrap5.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5-dark.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before,
-    .tailwind.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind-dark.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before {
+    .tailwind.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind-dark.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before,
+    .tailwind3.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind3-dark.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before {
         top: 2px;
     }
 
+    .tailwind3.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before, .tailwind3-dark.e-bigger #ticks_slider .e-scale .e-tick.e-custom::before{
+        left: calc(50% - 0px);
+    }
+    
     .fluent2 #slider_wrapper .e-rtl #ticks_slider .e-scale :nth-child(6)::before, .fluent2-dark #slider_wrapper .e-rtl #ticks_slider .e-scale :nth-child(6)::before,
     .fluent2-highcontrast #slider_wrapper .e-rtl #ticks_slider .e-scale :nth-child(6)::before,
     .fluent2 #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .fluent2-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
     .fluent2-highcontrast #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
     .fluent #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .fluent-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
     .bootstrap5 #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .bootstrap5-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
-    .tailwind #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .tailwind-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before {
+    .tailwind #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .tailwind-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before,
+    .tailwind3 #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before, .tailwind3-dark #slider_wrapper #ticks_slider .e-scale :nth-child(1)::before {
         left: calc(0% - 6px);
     }
 
-    .fluent2 #ticks_slider .e-scale,
+    .fluent2 #ticks_slider .e-scale, .tailwind3 #ticks_slider .e-scale,.tailwind3-dark #ticks_slider .e-scale,
     .fluent2-dark #ticks_slider .e-scale,
     .fluent2-highcontrast #ticks_slider .e-scale {
         font-size: 14px;
@@ -242,9 +251,11 @@
     .bootstrap5\.3 #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom.e-first-tick::before, .bootstrap5\.3-dark #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom.e-first-tick::before {
         left: calc(0% - 6px);
     }
+
     .bootstrap5\.3 #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom.e-last-tick::before, .bootstrap5\.3-dark #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom.e-last-tick::before {
         left: calc(100% - 6px);
     }
+
     .bootstrap5\.3.e-bigger #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom::before, .bootstrap5\.3-dark.e-bigger #slider_wrapper #ticks_slider .e-scale .e-tick.e-custom::before {
         line-height: 3;
     }

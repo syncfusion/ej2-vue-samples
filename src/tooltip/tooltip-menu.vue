@@ -386,4 +386,9 @@ export default {
     padding-left: 10px;
     margin-top: 4px;
 }
+
+#tooltip-menu .e-listview {
+    border: 0px;
+}
+
 </style>

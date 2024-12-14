@@ -114,10 +114,6 @@
         content: "\e780";
     }
 
-    .e-view.tailwind-dark #map-export-sample .e-play-icon::before, .e-view.tailwind #map-export-sample .e-play-icon::before {
-        content: "\e7bf";
-    }
-
     .e-view.highcontrast #map-export-sample  .e-play-icon::before {
         content: "\e710";
     }

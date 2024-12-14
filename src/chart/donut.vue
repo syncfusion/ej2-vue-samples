@@ -86,6 +86,7 @@ export default {
                 size: Browser.isDevice ? '8px' : '15px'
             },
         },
+        tooltip: {enable: true ,format:"<b>${point.x}</b><br> Gold Medals: <b>${point.y}</b>" , header:"" },
         radius: Browser.isDevice ? '40%' : '70%',
         border: { width: 1 },
         legendSettings: {

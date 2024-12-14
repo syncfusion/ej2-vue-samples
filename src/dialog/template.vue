@@ -108,6 +108,8 @@ export default {
 
 	.tailwind .dialog-template .e-dialog .e-dlg-header-content,
     .tailwind-dark .dialog-template .e-dialog .e-dlg-header-content,
+    .tailwind3 .dialog-template .e-dialog .e-dlg-header-content,
+    .tailwind3-dark .dialog-template .e-dialog .e-dlg-header-content,
     .bootstrap5 .dialog-template .e-dialog .e-dlg-header-content,
     .bootstrap5-dark .dialog-template .e-dialog .e-dlg-header-content,
     .material .dialog-template .e-dialog .e-dlg-header-content,
@@ -230,6 +232,7 @@ export default {
     .bootstrap-dark .dialog-template .dialogContent .dialogText,
     .bootstrap5-dark .dialog-template .dialogContent .dialogText,
     .tailwind-dark .dialog-template .dialogContent .dialogText,
+    .tailwind3-dark .dialog-template .dialogContent .dialogText,
     .fluent-dark .dialog-template .dialogContent .dialogText {
         background-color: rgba(255,255,255,0.20);
         color: #ffff;
@@ -267,14 +270,18 @@ export default {
     .tailwind .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
     .tailwind-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
     .tailwind-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
+    .tailwind3 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .tailwind3 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
+    .tailwind3-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .tailwind3-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
     .bootstrap5 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
     .bootstrap5 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
     .bootstrap5-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
     .bootstrap5-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
-    .bootstrap5.3 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
-    .bootstrap5.3 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
-    .bootstrap5.3-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
-    .bootstrap5.3-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
+    .bootstrap5\.3 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .bootstrap5\.3 .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus,
+    .bootstrap5\.3-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:hover,
+    .bootstrap5\.3-dark .dialog-template .e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn:focus {
         background-color : transparent;
     }
 

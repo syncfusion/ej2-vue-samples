@@ -2,13 +2,13 @@
     <div class="control-section">
         <div class='control-wrapper keyboard-multicolumn'>
             <div style='padding-top:60px;'>
-                <ejs-multicolumncombobox type="text" id='keyboard' :dataSource="dataSource" :fields="fields" placeholder="Select an author" popupHeight="230px">
+            <label>Select a product</label>
+                <ejs-multicolumncombobox type="text" id='keyboard' :dataSource="dataSource" :fields="fields" placeholder="Select any product" popupHeight="210px" popupWidth="650px">
                     <e-columns>   
-                        <e-column field='Title' header='Title' width="180"/>
-                        <e-column field='Author' header='Author' width="150"/>
-                        <e-column field='Genre' header='Genre' width="100"/>
-                        <e-column field='PublishedYear' header='Published Year' width="120"/>
-                        <e-column field='Price' header='Price' width="80"/>
+                        <e-column field='ProductID' header='Product ID' width="100"/>
+                        <e-column field='ProductName' header='Product Name' width="200"/>
+                        <e-column field='UnitPrice' header='UnitPrice' width="90"/>
+                        <e-column field='UnitsInStock' header='Units In Stock' width="120"/>
                     </e-columns>
                 </ejs-multicolumncombobox>
             </div>
@@ -41,7 +41,7 @@
 <style>
     .control-wrapper.keyboard-multicolumn {
         margin: 0 auto;
-        width: 650px;
+        width: 250px;
     }
 
     @media screen and (max-width: 480px) {
@@ -64,8 +64,8 @@ export default {
     },
     data: function() {
         return {
-            dataSource: data['bookDetails'],
-            fields: { text: 'Author', value: 'Title' },
+            dataSource: data['productDetails'],
+            fields: { text: 'ProductName', value: 'ProductID' },
         }
     }
 }

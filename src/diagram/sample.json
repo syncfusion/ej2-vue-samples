@@ -3,12 +3,11 @@
   "directory": "diagram",
   "category": "Data Visualization",
   "ftName": "diagram",
-  "type": "update",
   "samples": [
     {
       "url": "default-functionality",
       "name": "Flow Chart",
-      "description": "This demo for Essential JS2 Diagram component visualizes the processing of an order placed using credit card with built-in flow shapes.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the processing of an order placed using credit card with built-in flow shapes.",
       "category": "Getting Started",
       "order": 0
     },
@@ -16,21 +15,21 @@
       "url": "node",
       "name": "Nodes",
       "order": 0,
-      "description": "This demo for Essential JS2 Diagram component visualizes the different stages of a software development life cycle using a circular flow diagram. Customizing the appearance of the nodes is illustrated in this example.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the different stages of a software development life cycle using a circular flow diagram. Customizing the appearance of the nodes is illustrated in this example.",
       "category": "Getting Started"
     },
     {
       "url": "shape-gallery",
       "name": "Shapes",
       "order": 0,
-      "description": "This demo for Essential JS2 Diagram component illustrates basic built-in shapes, such as basic shapes, flow shapes, and BPMN shapes.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component illustrates basic built-in shapes, such as basic shapes, flow shapes, and BPMN shapes.",
       "category": "Getting Started"
     },
     {
       "url": "html-node",
       "name": "HTML Shapes",
       "order": 0,
-      "description": "This demo for Essential JS2 Diagram component demonstrates how to host a HTML element inside a node. In this example, a Gauge control is hosted inside a HTML Node.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component demonstrates how to host a HTML element inside a node. In this example, a Gauge control is hosted inside a HTML Node.",
       "category": "Getting Started",
       "sourceFiles": [
         {
@@ -47,9 +46,8 @@
       "url": "connector",
       "name": "Connectors",
       "order": 0,
-      "description": "This demo for Essential JS2 Diagram component visualizes the data flow in a marketing process using predefined shapes and connectors. Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
-      "category": "Getting Started",
-      "type": "update"
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the data flow in a marketing process using predefined shapes and connectors. Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
+      "category": "Getting Started"
     },
     {
       "url": "line-routing",
@@ -62,14 +60,14 @@
       "url": "annotation",
       "name": "Annotations",
       "order": 0,
-      "description": "This demo for Essential JS2 Diagram component illustrates the competitive environment of a business through five forces chart. The elements of the five force chart is described using nodes and annotations. Customizing the position and appearance of the annotation is illustrated in this example.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component illustrates the competitive environment of a business through five forces chart. The elements of the five force chart is described using nodes and annotations. Customizing the position and appearance of the annotation is illustrated in this example.",
       "category": "Getting Started"
     },
     {
       "url": "port",
       "name": "Ports",
       "order": 0,
-      "description": "This demo for Essential JS2 Diagram component visualizes the process flow of publishing a book using connection points. Connection points are static points over the shapes that allow creating connections to the shapes. Customizing the size and appearance of the connection points is illustrated in this example.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the process flow of publishing a book using connection points. Connection points are static points over the shapes that allow creating connections to the shapes. Customizing the size and appearance of the connection points is illustrated in this example.",
       "category": "Getting Started"
     },
     {
@@ -132,57 +130,56 @@
       "url": "zooming-and-panning",
       "name": "Zooming and Panning",
       "order": 1,
-      "description": "This demo for Essential JS2 Diagram component visualizes how to zoom and pan in the diagram",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes how to zoom and pan in the diagram",
       "category": "User Interaction"
     },
     {
       "url": "snapping",
       "name": "Snapping",
       "order": 1,
-      "description": "This demo for Essential JS2 Diagram component visualizes how diagram objects snap to the nearest intersection of gridlines or objects while being dragged or resized.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes how diagram objects snap to the nearest intersection of gridlines or objects while being dragged or resized.",
       "category": "User Interaction"
     },
     {
       "url": "scrolling",
       "name": "Scrolling",
       "order": 1,
-      "description": "This demo for Essential JS2 Diagram component visualizes how to scroll a diagram using vertical and horizontal scrollbars",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes how to scroll a diagram using vertical and horizontal scrollbars",
       "category": "User Interaction"
     },
     {
       "url": "drawing-tool",
       "name": "Drawing Tools",
       "order": 1,
-      "description": "This demo for Essential JS2 Diagram component visualizes how to build a diagram interactively using drawing tools. Continuous draw option, snapping, and undo/redo support are enabled to easily draw diagrams. Rulers, gridlines, and snapping options are enabled to easily align objects.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes how to build a diagram interactively using drawing tools. Continuous draw option, snapping, and undo/redo support are enabled to easily draw diagrams. Rulers, gridlines, and snapping options are enabled to easily align objects.",
       "category": "User Interaction"
     },
     {
       "url": "keyboard-functions",
       "name": "Keyboard Interaction",
       "order": 1,
-      "description": "This demo for Essential JS2 Diagram component illustrates interaction with diagram control using shortcut keys. Command Manager support is used to manage keyboard interactions.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component illustrates interaction with diagram control using shortcut keys. Command Manager support is used to manage keyboard interactions.",
       "category": "User Interaction"
     },
     {
       "url": "quick-commands",
       "name": "User Handles",
       "order": 1,
-      "description": "This demo for Essential JS2 Diagram component visualizes a simple flow diagram along with options to execute the frequently used commands using user handles.",
-      "category": "User Interaction",
-      "type": "update"
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes a simple flow diagram along with options to execute the frequently used commands using user handles.",
+      "category": "User Interaction"
     },
     {
       "url": "overview",
       "name": "Overview Panel",
       "order": 1,
-      "description": "This demo for Essential JS2 Diagram component visualizes an organizational structure along with an overview for easily navigating the large organizational structure using Overview Panel.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes an organizational structure along with an overview for easily navigating the large organizational structure using Overview Panel.",
       "category": "User Interaction"
     },
     {
       "url": "organization-model",
       "name": "Organizational Chart",
       "order": 2,
-      "description": "This demo for Essential JS2 Diagram component illustrates a simple business management structure that is built from an external data source. Hierarchical tree layout algorithm is used to build organizational charts. Customizing the orientation and structure of the organizational chart is illustrated in this example.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component illustrates a simple business management structure that is built from an external data source. Hierarchical tree layout algorithm is used to build organizational charts. Customizing the orientation and structure of the organizational chart is illustrated in this example.",
       "category": "Automatic Layouts"
     },
     {
@@ -190,42 +187,41 @@
       "name": "Flowchart Layout",
       "order": 2,
       "description": "This sample illustrates the flowchart layout algorithm that is used to automatically arrange the flow shapes.",
-      "category": "Automatic Layouts",
-      "type":"new"
+      "category": "Automatic Layouts"
     },
     {
       "url": "mind-map",
       "name": "Mind Map",
       "order": 2,
-      "description": "This demo for Essential JS2 Diagram component demonstrates the concept of creativity using mind map layout algorithm. User handles are used to extend the mind map interactively.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component demonstrates the concept of creativity using mind map layout algorithm. User handles are used to extend the mind map interactively.",
       "category": "Automatic Layouts"
     },
     {
       "url": "hierarchical-model",
       "name": "Hierarchical Tree",
       "order": 2,
-      "description": "This demo for Essential JS2 Diagram component illustrates a simple hierarchical tree that is built from an external data source. Hierarchical tree layout algorithm is used to build hierarchical trees. Customizing the spacing between objects and orientation of the trees is illustrated in this example.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component illustrates a simple hierarchical tree that is built from an external data source. Hierarchical tree layout algorithm is used to build hierarchical trees. Customizing the spacing between objects and orientation of the trees is illustrated in this example.",
       "category": "Automatic Layouts"
     },
     {
       "url": "complex-hierarchicaltree",
       "name": "Complex Hierarchical Tree",
       "order": 2,
-      "description": "This demo for Essential JS2 Diagram component demonstrates a complex hierarchical template that is built from an external data source using complex hierarchical tree algorithm.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component demonstrates a complex hierarchical template that is built from an external data source using complex hierarchical tree algorithm.",
       "category": "Automatic Layouts"
     },
     {
       "url": "radial-tree",
       "name": "Radial Tree",
       "order": 2,
-      "description": "This demo for Essential JS2 Diagram component demonstrates a huge organizational structure using a compact layout model. Radial tree layout algorithm is used to build such a layout.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component demonstrates a huge organizational structure using a compact layout model. Radial tree layout algorithm is used to build such a layout.",
       "category": "Automatic Layouts"
     },
     {
       "url": "symmetric-layout",
       "name": "Symmetric Layout",
       "order": 2,
-      "description": "This demo for Essential JS2 Diagram component visualizes a simple network template using symmetrical layout algorithm.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes a simple network template using symmetrical layout algorithm.",
       "category": "Automatic Layouts"
     },
  
@@ -233,35 +229,35 @@
       "url": "right-to-left-tree",
       "name": "RTL Tree",
       "order": 2,
-      "description": "This demo for Essential JS2 Diagram component visualizes the concept of Artificical Intelligence using hierarchical tree layout algorithm",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the concept of Artificical Intelligence using hierarchical tree layout algorithm",
       "category": "Automatic Layouts"
     },
     {
       "url": "pert-chart",
       "name": "PERT Chart",
       "order": 2,
-      "description": "This demo for Essential JS2 Diagram component visualizes a project development process using Program Evaluation Review Technique (PERT). Complex hierarchical tree layout algorithm is used to automatically arrange the nodes.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes a project development process using Program Evaluation Review Technique (PERT). Complex hierarchical tree layout algorithm is used to automatically arrange the nodes.",
       "category": "Automatic Layouts"
     },
     {
       "url": "hierarchicaltree-with-multipleroots",
       "name": "Hierarchical Layout with multiple roots",
       "order": 2,
-      "description": "This demo for Essential JS2 Diagram component visualizes the structure of an Electricity Sector using complex hierarchical layout with multiple roots",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the structure of an Electricity Sector using complex hierarchical layout with multiple roots",
       "category": "Automatic Layouts"
     },
     {
       "url": "local-data",
       "name": "Local Data",
       "order": 3,
-      "description": "This demo for Essential JS2 Diagram component visualizes the classifications of species using hierarchical tree layout algorithm. Data Manager support is used to bind data with the diagram.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the classifications of species using hierarchical tree layout algorithm. Data Manager support is used to bind data with the diagram.",
       "category": "Data Binding"
     },
     {
       "url": "remote-data",
       "name": "Remote Data",
       "order": 3,
-      "description": "This demo for Essential JS2 Diagram component demonstrates binding remote data with the diagram using the Data Manager support.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component demonstrates binding remote data with the diagram using the Data Manager support.",
       "category": "Data Binding"
     },
     {
@@ -275,22 +271,21 @@
       "url": "serialization",
       "name": "Save and Load",
       "order": 5,
-      "description": "This demo for Essential JS2 Diagram component visualizes building diagrams interactively and editing the saved diagrams. Symbol Palette is used to easily build diagrams.",
-      "category": "Save and Restore",
-      "type": "update"
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes building diagrams interactively and editing the saved diagrams. Symbol Palette is used to easily build diagrams.",
+      "category": "Save and Restore"
     },
     {
       "url": "print-export",
       "name": "Print and Export",
       "order": 6,
-      "description": "This demo for Essential JS2 Diagram component demonstrates printing and exporting the diagram as images.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component demonstrates printing and exporting the diagram as images.",
       "category": "Export and Print"
     },
     {
       "url": "bpmn-editor",
       "name": "BPMN Editor",
       "order": 7,
-      "description": "This demo for Essential JS2 Diagram component visualizes the hotel booking reservation system and its built with readymade BPMN shapes.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the hotel booking reservation system and its built with readymade BPMN shapes.",
       "category": "Use Case Diagram"
     },
     {
@@ -325,7 +320,7 @@
       "url": "venn-diagram",
       "name": "Venn Diagram",
       "order": 7,
-      "description": "This demo for Essential JS2 Diagram component visually represents the hotel booking reservation system. It is built with readymade BPMN shapes.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visually represents the hotel booking reservation system. It is built with readymade BPMN shapes.",
       "category": "Real-time Diagrams"
     },
     {
@@ -340,13 +335,13 @@
       "url": "fishbone-diagram",
       "name": "Fishbone Diagram",
       "order": 8,
-      "description": "This demo for Essential JS2 Diagram component visually represents a simple fishbone diagram (Ishikawa). Diagram nodes and annotations are used to define fishbone diagrams. Read-only mode is enabled here.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visually represents a simple fishbone diagram (Ishikawa). Diagram nodes and annotations are used to define fishbone diagrams. Read-only mode is enabled here.",
       "category": "Real-time Diagrams"
     },
     {
       "url": "workflow-editor",
       "name": "WorkFlow Editor",
-      "description": "This demo for Essential JS2 Diagram component visualizes the different stages of a software development life cycle using a circular flow diagram. Customizing the appearance of the nodes is illustrated in this example.",
+      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the different stages of a software development life cycle using a circular flow diagram. Customizing the appearance of the nodes is illustrated in this example.",
       "order": 8,
       "category": "Real-time Diagrams"
     },

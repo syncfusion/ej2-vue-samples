@@ -80,10 +80,6 @@
         content: "\e743";
     }
 
-    .e-view.tailwind #maps-print-sample .e-play-icon::before, .e-view.tailwind-dark #maps-print-sample .e-play-icon::before {
-        content: "\e76c";
-    }
-
     .e-view.highcontrast #maps-print-sample .e-play-icon::before {
         content: "\ebf9";
     }

@@ -125,8 +125,10 @@ export default {
         font-size : 16px;
         font-family : "e-icons"
     }
-    .tailwind #ToolbarTemplate /deep/  .e-quickfilter::before {
-        content: '\e71b';
+    .tailwind #ToolbarTemplate /deep/  .e-quickfilter::before,
+    .tailwind3 #ToolbarTemplate /deep/  .e-quickfilter::before,
+    .tailwind3-dark #ToolbarTemplate /deep/  .e-quickfilter::before {
+        content: '\e7f7';
         font-size : 16px;
         font-family : "e-icons"
     }
@@ -137,7 +139,9 @@ export default {
     .bootstrap5_3 #ToolbarTemplate /deep/  .e-quickfilter::before,
     .bootstrap5_3-dark-lite #ToolbarTemplate /deep/  .e-quickfilter::before,
     .bootstrap5_3-dark #ToolbarTemplate /deep/  .e-quickfilter::before, 
-    .bootstrap5_3-lite #ToolbarTemplate /deep/  .e-quickfilter::before {
+    .bootstrap5_3-lite #ToolbarTemplate /deep/  .e-quickfilter::before,
+    .material3-dark #ToolbarTemplate /deep/  .e-quickfilter::before,
+    .material3 #ToolbarTemplate /deep/  .e-quickfilter::before {
         content: '\e7f7';
         font-size : 16px;
         font-family : "e-icons"

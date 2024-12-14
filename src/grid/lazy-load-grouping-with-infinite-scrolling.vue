@@ -6,7 +6,7 @@
      <div>
         <ejs-grid ref='grid' :dataSource="lazyLoadData" :allowSorting='true' :height='400' :enableInfiniteScrolling='true' :allowGrouping='true' :groupSettings='groupSettings'>
             <e-columns>
-                <e-column field='OrderID' headerText='Order ID' textAlign= 'Right' width='120'></e-column>
+                <e-column field='OrderID' headerText='Order ID' textAlign= 'Right' width='120' :allowGrouping='false'></e-column>
                 <e-column field='ProductName' headerText='Product Name' width='160'></e-column>
                 <e-column field='ProductID' headerText='Product ID' textAlign= 'Right' width='120'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='120'></e-column>

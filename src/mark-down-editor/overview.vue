@@ -67,6 +67,7 @@
   .fluent2-dark .markdown-preview .title,
   .material-dark .markdown-preview .title,
   .tailwind-dark .markdown-preview .title,
+  .tailwind3-dark .markdown-preview .title,
   .highcontrast .markdown-preview .title {
     color: #fff;
   }

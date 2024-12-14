@@ -46,7 +46,7 @@
                         <ejs-switch cssClass="buttonSwitch" id="checked" :change="change" :checked="true"></ejs-switch>
                     </div>
                 </div>
-                <ejs-pdfviewer id="pdfviewer" ref="pdfviewer" :serviceUrl="serviceUrl" :resourceUrl="resourceUrl"
+                <ejs-pdfviewer id="pdfviewer" class="e-pv-multi-format-pdfviewer" ref="pdfviewer" :serviceUrl="serviceUrl" :resourceUrl="resourceUrl"
                     :ajaxRequestSuccess="ajaxRequestSuccess" :toolbarSettings="toolbarSettings" :documentLoad="documentLoad"
                     :zoomMode="zoomMode">
                 </ejs-pdfviewer>
@@ -138,6 +138,14 @@
 .buttonSwitch {
     Width: 40px;
     Height: 24px;
+}
+
+.e-pv-multi-format-pdfviewer .e-pv-text-search-bar {
+    top: 40px !important;
+}
+
+.e-bigger .e-pv-multi-format-pdfviewer .e-pv-text-search-bar {
+    top: 48px !important;
 }
 </style>
 <script>
@@ -252,6 +260,9 @@ export default {
                 return;
             }
             document.getElementById("fileName").innerHTML = args.filesData[0].name;
+            var viewer = document.getElementById('pdfviewer').ej2_instances[0];
+            viewer.downloadFileName = args.filesData[0].name;
+            viewer.exportAnnotationFileName = args.filesData[0].name;
             let size = document.getElementById("fileSize");
             if ((args.filesData[0].size.toString()).length <= 7) {
                 size.innerHTML = ((args.filesData[0].size / 1024).toFixed(1)).toString() + " KB";

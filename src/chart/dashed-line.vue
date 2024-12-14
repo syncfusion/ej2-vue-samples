@@ -229,6 +229,14 @@ export default {
         {                    
             this.AnnotationColor = "light";  
         }
+        else if (selectedTheme==='tailwind3-dark')
+        {
+            this.AnnotationColor = "dark";    
+        }
+        else if (selectedTheme==='tailwind3')
+        {                    
+            this.AnnotationColor = "light";  
+        }
         else if (selectedTheme==='highcontrast')
         {
             this.AnnotationColor = "dark";            

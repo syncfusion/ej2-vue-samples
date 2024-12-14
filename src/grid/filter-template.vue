@@ -79,7 +79,7 @@
                 The
                 <code><a target="_blank" className="code"
                 href="https://helpej2.syncfusion.com/vue/documentation/api/grid/column/#filtertemplate">filterTemplate</a></code>
-                feature in the Syncfusion EJ2 Vue Grid allows customization of the controls in
+                feature in the Syncfusion<sup>®</sup> EJ2 Vue Grid allows customization of the controls in
                 the filter bar. By default, a text box appears in the filter bar cell. In this demo, the Grid showcases
                 various
                 custom input components: a custom input component for the ID, Name and Price columns, and a Syncfusion

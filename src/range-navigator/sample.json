@@ -7,66 +7,66 @@
         {
             "url": "default",
             "name": "Default",
-            "description": "This demo for Essential JS2 Range Navigator control shows the default rendering of range navigator with range area series.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Range Navigator control shows the default rendering of range navigator with range area series.",
             "category": "Range Selector"
         },
         {
             "url": "light-weight",
             "name": "Lightweight",
-            "description": "This demo for Essential JS2 Range Navigator control shows the rendering of light-weight range navigator.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Range Navigator control shows the rendering of light-weight range navigator.",
             "category": "Range Selector"
         },
         {
             "url": "date-time",
             "name": "DateTime",
-            "description": "This demo for Essential JS2 Range Navigator control shows how to plot date-time values in range navigator.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Range Navigator control shows how to plot date-time values in range navigator.",
             "category": "Axis"
         },
         {
             "url": "double",
             "name": "Numeric Axis",
-            "description": "This demo for Essential JS2 Range Navigator control shows how to plot numeric data values in the range navigator.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Range Navigator control shows how to plot numeric data values in the range navigator.",
             "category": "Axis"
         },
         {
             "url": "logarithmic",
             "name": "Logarithmic Axis",
-            "description": "This demo for Essential JS2 Range Navigator control shows how to visualize the logarithmic scale when data has values with both lower (e.g.: 10^-6) and higher (e.g.: 10^6) orders of magnitude.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Range Navigator control shows how to visualize the logarithmic scale when data has values with both lower (e.g.: 10^-6) and higher (e.g.: 10^6) orders of magnitude.",
             "category": "Axis"
         },
         {
             "url": "multilevel",
             "name": "Multilevel Labels",
-            "description": "This demo for Essential JS2 Range Navigator control shows how to display the second level labels.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Range Navigator control shows how to display the second level labels.",
             "category": "Axis"
         },
         {
             "url": "period-selector",
             "name": "Period Selector",
-            "description": "This demo for Essential JS2 Range Navigator control shows how to display the period selector for a range with specified periods.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Range Navigator control shows how to display the period selector for a range with specified periods.",
             "category": "Customization"
         },
         {
             "url": "empty-data",
             "name": "Empty Points",
-            "description": "This demo for Essential JS2 Range Navigator control shows how to render the empty points in the range navigator.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Range Navigator control shows how to render the empty points in the range navigator.",
             "category": "Customization"
         },
         {
             "url": "filter",
             "name": "Filter",
-            "description": "This demo for Essential JS2 Range Navigator control shows how to bind the filtered values of the range navigator to grid control.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Range Navigator control shows how to bind the filtered values of the range navigator to grid control.",
             "category": "Customization"
         },{
             "url": "export",
             "name": "Print and Export",
-            "description": "This demo for Essential JS2 Range Navigator control shows how to print the charts and export the chart contents to SVG, PDF, JPEG, PNG, and Excel formats at client-side.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Range Navigator control shows how to print the charts and export the chart contents to SVG, PDF, JPEG, PNG, and Excel formats at client-side.",
             "category": "Export"
         },
         {
             "url": "right-to-left",
             "name": "RTL",
-            "description": "This demo for Essential JS2 Range Navigator control shows how to invert an axis in the range navigator.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Range Navigator control shows how to invert an axis in the range navigator.",
             "category": "RTL"
         }
     ]

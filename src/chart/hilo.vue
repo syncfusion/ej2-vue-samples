@@ -12,7 +12,7 @@
             </ejs-chart>
         </div>
         <div id="action-description">
-            <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/hilo-chart" aria-label="Navigate to explore the Syncfusion Vue Hilo Chart">Vue Hilo Chart</a> example visualizes the AAPL stock price with a default Hilo series in the chart. The tooltip and crosshair show information about the stock price.</p>
+            <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/hilo-chart" aria-label="Navigate to explore the Syncfusion<sup>®</sup> Vue Hilo Chart">Vue Hilo Chart</a> example visualizes the AAPL stock price with a default Hilo series in the chart. The tooltip and crosshair show information about the stock price.</p>
         </div>
         <div id="description">
             <p>

@@ -8,7 +8,6 @@
           type="Linear"
           height="30"
           width="100%"
-          trackColor='#F5F5F5'
           :progressThickness="progressThickness"
           :trackThickness="trackThickness"
           :value="value1"
@@ -25,7 +24,6 @@
           type="Linear"
           height="30"
           width="100%"
-          trackColor='#F5F5F5'
           :progressThickness="progressThickness"
           :trackThickness="trackThickness"
           :value="value2"
@@ -42,7 +40,6 @@
           type="Linear"
           height="30"
           width="100%"
-          trackColor='#F5F5F5'
           :progressThickness="progressThickness"
           :trackThickness="trackThickness"
           :value="value3"
@@ -59,7 +56,6 @@
           type="Linear"
           height="30"
           width="100%"
-          trackColor='#F5F5F5'
           :progressThickness="progressThickness"
           :trackThickness="trackThickness"
           :value="value4"
@@ -82,7 +78,7 @@
     </div>
     <div id="description">
       <p>
-        This demo for Essential JS2 Progress Bar control shows the linear striped progress bar with help of
+        This demo for Essential<sup>®</sup> JS2 Progress Bar control shows the linear striped progress bar with help of
         <code>isStriped</code> property.
       </p>
     </div>

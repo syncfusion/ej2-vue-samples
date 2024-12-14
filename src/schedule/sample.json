@@ -34,7 +34,6 @@
             "url": "holiday-calendar",
             "name": "Holiday Calendar",
             "category": "Product Use Case",
-            "type": "New",
             "description": "This demo illustrates how to add and remove holiday events and perform CRUD operations on holiday dates in the Vue scheduler.",
             "api": {
                 "Schedule": [
@@ -48,6 +47,24 @@
                     "eventRendered",
                     "dragStop",
                     "resizeStop"
+                ]
+            }
+        },
+        {
+            "url": "event-calendar",
+            "name": "Event Calendar",
+            "category": "Product Use Case",
+            "type": "new",
+            "description": "This demo shows the way to organize and filter multiple types of events such as Personal, Birthdays, Work, and Holidays in the scheduler.",
+            "api": {
+                "Schedule": [
+                    "eventSettings",
+                    "height",
+                    "resources",
+                    "selectedDate",
+                    "showHeaderBar",
+                    "actionComplete",
+                    "created"
                 ]
             }
         },
@@ -212,7 +229,6 @@
             "url": "schedule-to-schedule-drag-drop",
             "name": "Multiple Schedulers",
             "category": "Drag and Drop",
-            "type": "new",
             "description": "This example illustrates how to drag and drop events among multiple Scheduler. You can drag events from one Scheduler to another Vue Scheduler.",
             "api": {
                 "Schedule": [
@@ -228,7 +244,6 @@
             "url": "grid-to-schedule",
             "name": "Drag Events From DataGrid",
             "category": "Drag and Drop",
-            "type": "new",
             "description": "This example illustrates how to drag and drop events between the Vue DataGrid and the Vue Scheduler",
             "api": {
                 "Schedule": [
@@ -896,11 +911,27 @@
             "description": "This demo shows how to populate a predefined set of recurrence rules in the Recurrence Editor fields to help users create recurring events."
         },
         {
+            "url": "clipboard",
+            "name": "Clipboard",
+            "category": "Miscellaneous",
+            "type": "new",
+            "description": "This demo showcases clipboard operations (cut, copy, and paste) with Scheduler events, along with a context menu for additional actions.",
+            "api": {
+                "Schedule": [
+                    "width",
+                    "height",
+                    "eventSettings",
+                    "selectedDate",
+                    "allowKeyboardInteraction",
+                    "allowClipboard"
+                ]
+            }
+        },
+        {
             "url": "keyboard-interaction",
             "name": "Keyboard Interaction",
             "category": "Miscellaneous",
             "hideOnDevice": true,
-            "type": "update",
             "description": "This demo showcases all the available keyboard shortcuts that help users perform actions using only the keyboard in the Vue Scheduler control.",
             "api": {
                 "Schedule": [

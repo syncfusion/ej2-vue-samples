@@ -11,7 +11,7 @@
                 <br/>
             </div>
             <ejs-grid ref='overviewgrid' id='overviewgrid' :dataSource="getTradeData" :query="query" :selectionSettings='selectionSettings' :allowFiltering='true' :filterSettings='filterOptions' :allowSelection='true' :allowSorting='true'
-                :enableVirtualization='true' height='400' rowHeight=38 :enableHover='false' :enableHeaderFocus='true' :load='load' :loadingIndicator='loadingIndicator'>
+                :enableVirtualization='true' height='400' rowHeight=38 :enableHover='false' :load='load' :loadingIndicator='loadingIndicator'>
                 <e-columns>
                     <e-column type='checkbox' :allowFiltering='false' :allowSorting='false' width='60'></e-column>
                     <e-column field='EmployeeID' :visible='false' headerText='Employee ID' :isPrimaryKey='true' width='130'></e-column>
@@ -26,9 +26,8 @@
                     <e-column field='CurrentSalary' headerText='Current Salary' format='C2' width='160' textAlign='Right'></e-column>
                     <e-column field='Address' headerText='Address' width='240' clipMode='EllipsisWithTooltip'></e-column>
                 </e-columns>
-                </ejs-grid>
+            </ejs-grid>
         </div>
-
         <div id="description">
             <p>
                 The Grid is used to display and manipulate tabular data with configuration options to control the way the data is presented
@@ -51,7 +50,6 @@
             <a target="_blank" aria-label="API link for documentation" href="http://ej2.syncfusion.com/vue/documentation/grid/getting-started.html#getting-started">documentation section</a>.
             </p>
         </div>
-
     </div>
 </template>
 <style scoped>
@@ -104,7 +102,6 @@
                         })
                     }
                 },
-
                 statusTemplate: function () {
                     return {
                         template: createApp({}).component('statusTemplate', {
@@ -143,7 +140,6 @@
                         })
                     }
                 },
-
                 progessTemplate: function () {
                     return {
                         template: createApp({}).component('progessTemplate', {
@@ -238,7 +234,6 @@
         provide: {
             grid: [Filter, Selection, Sort, VirtualScroll]
         }
-
     };
 
 </script>

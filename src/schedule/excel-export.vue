@@ -38,8 +38,12 @@
     </div>
 </template>
 <style>
-    .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today{
+    .schedule-vue-sample .excel-export.e-schedule .e-schedule-toolbar .e-toolbar-item.e-today {
         display: none;
+    }
+
+    .e-bigger .schedule-vue-sample .e-schedule .e-schedule-toolbar .e-toolbar-items .e-toolbar-item.e-excel-export .e-tbar-btn.e-btn.e-control .e-icons.e-btn-icon.e-icons.e-export-excel.e-icon-left {
+        padding: 5px 6px 6px;
     }
 </style>
 <script>

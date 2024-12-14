@@ -1,6 +1,6 @@
 <template>
   <div>
-  <div class="control-section">
+  <div class="control-section" style="padding-top: 0px;">
   <div class="content-wrapper">
   <div id="ganttsidebar-parent" style="overflow: hidden; height: 460px;">
   <ejs-button id="ganttfilter-btn" @click="toggleSidebar">
@@ -197,7 +197,7 @@
   <style>
   #ganttfilter-btn {
     padding: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
     cursor: pointer;
     float: right;
     display: flex;

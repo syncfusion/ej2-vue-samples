@@ -63,7 +63,7 @@
       </div>
     </div>
     <div id="action-description">
-      <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/radar-chart" aria-label="Navigate to explore the Syncfusion Vue Polar Radar Line Chart">Vue Polar Radar Line Chart</a> example visualizes data about Alaska Weather Statistics - 2016 with a default polar line series.</p>
+      <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/radar-chart" aria-label="Navigate to explore the Syncfusion<sup>®</sup> Vue Polar Radar Line Chart">Vue Polar Radar Line Chart</a> example visualizes data about Alaska Weather Statistics - 2016 with a default polar line series.</p>
     </div>
     <div id="description">
       <p>

@@ -158,6 +158,11 @@
         padding-bottom: 3px;
         color: white;
     }
+
+    .tailwind3-dark #json-content-area,
+    .tailwind3-dark #json-textarea {
+        background: transparent;
+    }
 </style>
 <!-- custom code end -->
 

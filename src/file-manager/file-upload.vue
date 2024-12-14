@@ -25,7 +25,7 @@
         </p>
          <p>
             <b>Note: </b>File Manager's upload functionality is restricted in the online demos for security reasons. If you need to test upload functionality, please install 
-            <a target="_blank" href="https://www.syncfusion.com/downloads"> Syncfusion Essential Studio </a>on your machine and run the demo.
+            <a target="_blank" href="https://www.syncfusion.com/downloads"> Syncfusion<sup>®</sup> Essential Studio<sup>®</sup> </a>on your machine and run the demo.
         </p>
     </div>
 </div>
@@ -39,7 +39,7 @@
     }
     .file-upload #openBtn {
         position: absolute;
-        top: 34px;
+        top: 28px;
         left: 43%;
     }
     .file-upload #target {
@@ -70,7 +70,7 @@
         top: 30px;
     }
 
-    .fluent2 .fileupload .e-file-select-wrap {
+    .fileupload .e-file-select-wrap {
         padding: 20px 0 20px 20px;
     }
 </style>

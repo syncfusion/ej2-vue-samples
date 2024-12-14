@@ -16,11 +16,11 @@
             <table id="property" title="Properties" style="width: 100%">
                 <br/><br/>
                 <tr style="height: 50px">
-                    <td style="width: 70%">
+                    <td>
                         <div>Grid Lines</div>
                     </td>
                     <td style="width: 70%;padding-left: 10px">
-                        <ejs-dropdownlist id='ddlelement' width='130px' :dataSource='ddldata' value='Vertical' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
+                        <ejs-dropdownlist id='ddlelement' width='140px' :dataSource='ddldata' value='Vertical' :fields='ddlfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>

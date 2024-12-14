@@ -92,7 +92,7 @@ export default {
     methods : {
         getTheme() {
               let themeName: string = location.hash.split('/')[1];
-              return ["material","material3","fabric","bootstrap","bootstrap4","bootstrap5","bootstrap5.3","tailwind","fluent","fluent2" ].includes(themeName);
+              return ["material","material3","fabric","bootstrap","bootstrap4","bootstrap5","bootstrap5.3","tailwind","tailwind3","fluent","fluent2" ].includes(themeName);
         },
         image1() {
             return (this.getTheme() ? "source/tree-grid/images/taskname.png": "source/tree-grid/images/darkTaskname.png");

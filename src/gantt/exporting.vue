@@ -2,7 +2,7 @@
   <div>
     <div class="control-section">
       <div style="display: flex">
-        <label for="checked" style="margin: 0px 5px 0px 0px; font-size: 15px">
+        <label id="gantt-export1" for="checked" style="margin: 0px 5px 0px 0px; font-size: 15px">
           AutoFit in Pdf Export
         </label>
         <div>
@@ -193,3 +193,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+  .fluent2 #gantt-export1 /deep/,
+  .fluent2-dark #gantt-export1 /deep/ {
+    margin: 6px 5px 0px 0px;
+  }
+
+</style>

@@ -53,7 +53,7 @@
 <script>
 import { Browser } from "@syncfusion/ej2-base";
 import { BulletChartComponent, BulletRangeDirective, BulletRangeCollectionDirective, BulletTooltip } from "@syncfusion/ej2-vue-charts";
-import { fabricColors, bootstrapColors, highContrastColors, materialColors, bootstarp5Colors, bootstarp5DarkColors, bootstrapDarkColors, tailwindColors, tailwindDarkColors, material3Colors, material3DarkColors, defaultColors, fluentColors, fluent2Colors, fluent2HighContrastColors } from './theme-color'
+import { fabricColors, bootstrapColors, highContrastColors, materialColors, bootstarp5Colors, bootstarp5DarkColors, bootstrapDarkColors, tailwindColors, tailwindDarkColors, material3Colors, material3DarkColors, defaultColors, fluentColors, fluent2Colors, fluent2HighContrastColors, tailwind3Colors, tailwind3DarkColors } from './theme-color'
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
@@ -172,6 +172,12 @@ export default {
                 break;
             case 'TailwindDark':
                 color = tailwindDarkColors;
+                break;
+            case "Tailwind3":
+                color = tailwind3Colors;
+                break;
+            case "Tailwind3Dark":
+                color = tailwind3DarkColors;
                 break;
             case 'Bootstrap5':
                 color = bootstarp5Colors

@@ -14,11 +14,11 @@
         <div class="col-md-3 property-section" aria-label="Properties Panel">
             <table id="property" title="Properties" style="width: 100%">
                 <tr style="height: 50px">
-                    <td style="width: 70%">
+                    <td>
                         <div>Disable Rows</div>
                     </td>
-                    <td style="width: 70%">
-                         <ejs-multiselect ref='rows' width='140px' id='multiselect-checkbox' :dataSource='ddldata' mode='CheckBox' :showDropDownIcon='true' :value='value' :select='onselect' :removed='removed' aria-label="Select Rows to Disable"></ejs-multiselect>
+                    <td style="width: 70%; padding-left:10px">
+                         <ejs-multiselect ref='rows' width='130px' id='multiselect-checkbox' :dataSource='ddldata' mode='CheckBox' :showDropDownIcon='true' :value='value' :select='onselect' :removed='removed' aria-label="Select Rows to Disable"></ejs-multiselect>
                     </td>
                 </tr>
             </table>
@@ -64,7 +64,8 @@
 <style>
 .material-dark .disableRow .e-rowcell, .fabric-dark .disableRow .e-rowcell,
 .bootstrap-dark .disableRow .e-rowcell, .bootstrap5-dark .disableRow .e-rowcell, .bootstrap5_3-dark .disableRow .e-rowcell, .fluent2-dark .disableRow .e-rowcell, .highcontrast .disableRow .e-rowcell, 
-.tailwind .disableRow .e-rowcell, .tailwind-dark .disableRow .e-rowcell, .fluent-dark .disableRow .e-rowcell, .material3-dark .disableRow .e-rowcell, .fluent2-highcontrast .disableRow .e-rowcell {
+.tailwind .disableRow .e-rowcell, .tailwind-dark .disableRow .e-rowcell, .fluent-dark .disableRow .e-rowcell, .material3-dark .disableRow .e-rowcell, .fluent2-highcontrast .disableRow .e-rowcell,
+.tailwind3 .disableRow .e-rowcell, .tailwind3-dark .disableRow .e-rowcell {
     color: #757575 !important;
 }
 .material3 .disableRow .e-rowcell {

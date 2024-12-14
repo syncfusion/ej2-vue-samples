@@ -274,7 +274,13 @@ methods: {
         if (args.gauge.theme === "Fluent2Dark" || args.gauge.theme === "Fluent2HighContrast") {
             this.$refs.lineargauge2.ej2Instances.axes[0].pointers[3].color = "#292827"; 
         } else if (args.gauge.theme === 'Bootstrap5Dark'){
-            args.gauge.axes[0].pointers[3].color = '#343A40'
+            this.$refs.lineargauge2.ej2Instances.axes[0].pointers[3].color = '#343A40';
+        } else if (args.gauge.theme === 'Tailwind3Dark') {
+            this.$refs.lineargauge2.ej2Instances.axes[0].pointers[3].color = '#282F3C';
+        } else if (args.gauge.theme === 'Material3') {
+            this.$refs.lineargauge2.ej2Instances.axes[0].pointers[3].color = '#C4C7C5';
+        } else if (args.gauge.theme === 'Material3Dark') {
+            this.$refs.lineargauge2.ej2Instances.axes[0].pointers[3].color = '#938F99';
         }
     /* custom code end */
     }

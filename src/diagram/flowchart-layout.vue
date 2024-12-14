@@ -125,7 +125,6 @@
     float: right;
     /* Ensure the property panel is on the right */
     padding: 10px;
-    background: white;
 }
 
 /* Align labels and inputs within the property panel */

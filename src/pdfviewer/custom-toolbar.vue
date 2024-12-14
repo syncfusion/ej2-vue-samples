@@ -50,17 +50,17 @@
             </e-items>
         </ejs-toolbar>
           <div id="textSearchToolbar" v-show="searchToolbarVisible">
-    <div class="e-pv-search-bar" :style="{ right: '0px', zIndex: 1111, top: '97px' }" id="container_search_box">
+    <div class="e-pv-search-bar" :style="{ marginTop: '20px', right: '0px', zIndex: 1111 }" id="container_search_box">
       <div class="e-pv-search-bar-elements" id="container_search_box_elements">
         <div class="e-input-group e-pv-search-input" id="container_search_input_container">
           <input class="e-input" id="container_search_input" type="text" placeholder="Find in document" @keypress="searchInputKeypressed" @input="inputChange" v-model="searchText" />
           <span class="e-input-group-icon e-input-search-group-icon e-icons-new e-search" id="container_search_box-icon" @click="initiateTextSearch"></span>
           <span class="e-input-group-icon e-input-search-group-icon e-icons-new e-close" id="container_close_search_box-icon" :style="{ display: 'none' }" @click="clearTextSearch"></span>
         </div>
-           <button class="e-btn e-icon-btn e-pv-search-btn e-icons e-chevron-left" id="container_prev_occurrence" type="button" aria-label="Previous Search text" @click="previousTextSearch">
+           <button class="e-btn e-icon-btn e-pv-search-btn e-icons-new e-chevron-left" id="container_prev_occurrence" type="button" :disabled="prevSearchDisabled" aria-label="Previous Search text" @click="previousTextSearch">
            <span class="e-pv-icon-search e-pv-prev-search-icon" id="container_prev_occurrenceIcon"></span>
          </button>
-        <button class="e-btn e-icon-btn e-pv-search-btn e-icons e-chevron-right" id="container_next_occurrence" type="button" aria-label="Next Search text" @click="nextTextSearch">
+        <button class="e-btn e-icon-btn e-pv-search-btn e-icons-new e-chevron-right" id="container_next_occurrence" type="button" :disabled="nextSearchDisabled" aria-label="Next Search text" @click="nextTextSearch">
           <span class="e-pv-icon-search e-pv-next-search-icon" id="container_next_occurrenceIcon"></span>
         </button>
       </div>

@@ -57,7 +57,7 @@
                 </div>
             </div>
             <ejs-pdfviewer ref="viewer" id="container" :documentPath="documentPath" :resourceUrl="resourceUrl"
-                :serviceUrl="serviceUrl" :downloadFileName="downloadFileName" :enableNavigationToolbar="false" :enableAnnotationToolbar = "false"
+                :enableNavigationToolbar="false" :enableAnnotationToolbar = "false"
                 :enableToolbar="false" :enableFormDesignerToolbar="false" :documentLoad="documentLoad"
                 :formFieldPropertiesChange="fieldChange" :downloadEnd="downloadEnd" style="height: 640px;">
             </ejs-pdfviewer>
@@ -92,7 +92,8 @@ import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { ToolbarComponent, ItemDirective, ItemsDirective } from '@syncfusion/ej2-vue-navigations';
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
-
+var viewer;
+var fileName = 'eSign_filling.pdf';
 export default {
     components: {
         "ejs-pdfviewer": PdfViewerComponent,
@@ -106,9 +107,7 @@ export default {
     data() {
         return {
             documentPath: 'https://cdn.syncfusion.com/content/pdf/eSign_filling.pdf',
-            resourceUrl: 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib',
-            serviceUrl: 'https://services.syncfusion.com/js/production/api/pdfviewer',
-            downloadFileName: 'eSign_filling.pdf',
+            resourceUrl: 'https://cdn.syncfusion.com/ej2/27.2.2/dist/ej2-pdfviewer-lib',
             status: false,
             preventChange: false,
             currentUser: 'andrew@mycompany.com',
@@ -138,19 +137,41 @@ export default {
     methods: {
 
         finishSigning() {
-            var viewer = this.$refs.viewer.ej2Instances;
+            viewer = this.$refs.viewer.ej2Instances;
+            var url = "https://ej2services.syncfusion.com/vue/development/api/pdfviewer/FlattenDownload";
             for (const formField of viewer.formFieldCollections) {
                 viewer.formDesignerModule.updateFormField(formField, { backgroundColor: this.finishedBackground });
             }
-            viewer.serverActionSettings.download = 'FlattenDownload';
-            viewer.download();
-            viewer.serverActionSettings.download = 'Download';
-        },
-        downloadEnd(args) {
-            this.$refs.viewer.ej2Instances.load(args.downloadDocument, null);
-            this.$refs.btnElement.ej2Instances.disabled = true;
-            this.$refs.userMenu.ej2Instances.enabled = false;
-        },
+            viewer.saveAsBlob().then(function (value) {
+            let reader = new FileReader();
+            reader.readAsDataURL(value);
+            reader.onload = function (e) {
+                const base64String = e.target?.result.toString();
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+                const requestData = JSON.stringify({ base64String: base64String });
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        const blobUrl = createBlobUrl(xhr.responseText.split('base64,')[1], 'application/pdf');
+                        downloadDocument(blobUrl);
+                        viewer.load(xhr.responseText, null);
+                    }
+                    else {
+                        console.error('Download failed:', xhr.statusText);
+                    }
+                };
+                xhr.onerror = function () {
+                    console.error('An error occurred during the download:', xhr.statusText);
+                };
+                xhr.send(requestData);
+            };
+        }).catch(function (error) {
+            console.error('Error saving Blob:', error);
+        });
+         this.$refs.btnElement.ej2Instances.disabled = true;
+         this.$refs.userMenu.ej2Instances.enabled = false;
+    },
         updateUserFormField() {
             var viewer = this.$refs.viewer.ej2Instances;
             const otherFormFieldDetails = viewer.formFieldCollections.filter(formField => formField.customData.author === 'anne');
@@ -339,9 +360,63 @@ export default {
             viewer.designerMode = false;
             this.updateUserFormField();
         },
-
-    }
+    }  
 };
+
+function createBlobUrl(base64String, contentType)
+  {
+    const sliceSize = 512;
+    const byteCharacters = atob(base64String);
+    const byteArrays = [];
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        const slice = byteCharacters.slice(offset, offset + sliceSize);
+        const byteNumbers = new Array(slice.length);
+        for (let i = 0; i < slice.length; i++) {
+            byteNumbers[parseInt(i.toString(), 10)] = slice.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        byteArrays.push(byteArray);
+    }
+    const blob = new Blob(byteArrays, { type: contentType });
+    return blob;
+  };
+  
+  function downloadDocument(blobUrl)
+  {
+    const Url = URL || webkitURL;
+    blobUrl = Url.createObjectURL(blobUrl);
+    viewer.fileName = fileName;
+    const anchorElement = document.createElement('a');
+    if (anchorElement.click) {
+        (anchorElement).href = blobUrl;
+        (anchorElement).target = '_parent';
+        if ('download' in anchorElement) {
+            const downloadFileName = viewer.fileName || 'downloadedFile.pdf';
+            if (downloadFileName) {
+                if (downloadFileName.endsWith('.pdf')) {
+                    (anchorElement).download = downloadFileName;
+                }
+                else {
+                    const splitPdf = downloadFileName.split('.pdf')[0] + '.pdf';
+                    (anchorElement).download = splitPdf;
+                }
+            }
+            else {
+                (anchorElement).download = 'Default.pdf';
+            }
+        }
+        (document.body || document.documentElement).appendChild(anchorElement);
+        anchorElement.click();
+    }
+    else {
+        if (window.top === window &&
+            blobUrl.split('#')[0] === window.location.href.split('#')[0]) {
+                const padCharacter = blobUrl.indexOf('?') === -1 ? '?' : '&';
+                blobUrl = blobUrl.replace(/#|$/, padCharacter + '$&');
+        }
+        window.open(blobUrl, '_parent');
+    }
+  };
 </script>
 
 <style>

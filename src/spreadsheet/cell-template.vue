@@ -222,6 +222,10 @@
         background-color: #212529;
         color: #dee2e6;
     }
+
+    .tailwind3-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-btn.e-flat {
+        background-color: #111827;
+    }
     
 </style>
 <!-- custom code end -->

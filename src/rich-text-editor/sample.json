@@ -1,13 +1,11 @@
 {
     "name": "Rich Text Editor",
-    "type": "update",
     "directory": "rich-text-editor",
     "category": "File Viewers & Editors",
     "samples": [
         {
             "url": "tools",
             "name": "Overview",
-            "type": "update",
             "category": "Rich Text Editor",
             "description": "This demo describes basic and advanced features of the vue Rich Text Editor control (WYSIWYG HTML Editor) with all its tools and functionalities."
         },
@@ -134,23 +132,20 @@
         {
             "url": "mail-merge",
             "name": "Mail Merge",
-            "type": "new",
             "category": "Rich Text Editor",
             "description": "The Mail Merge feature in the Rich Text Editor allows inserting placeholders for personalized content creation, like letters and invoices."
         },
         {
             "url": "export-document",
             "name": "Export to Word / PDF",
-            "description": "This demo explains how to export the content of the Rich Text Editor to Word and PDF document formats using the Syncfusion Document processing libraries.",
-            "category": "Export / Import",
-            "type": "update"
+            "description": "This demo explains how to export the content of the Rich Text Editor to Word and PDF document formats using the Syncfusion<sup>®</sup> Document processing libraries.",
+            "category": "Export / Import"
         },
         {
             "url": "import-word",
             "name": "Import from Word",
-            "description": "This demo explains how to import the content from Word document to the Rich Text Editor using the Syncfusion Document processing libraries.",
-            "category": "Export / Import",
-            "type": "update"
+            "description": "This demo explains how to import the content from Word document to the Rich Text Editor using the Syncfusion<sup>®</sup> Document processing libraries.",
+            "category": "Export / Import"
         },
         {
             "url": "mention-integration",
@@ -162,8 +157,7 @@
             "url": "smart-suggestion",
             "name": "Smart Suggestion",
             "description": "This example demonstrates how to use the slash menu feature of the Rich Text Editor to apply formats, open dialogs easily.",
-            "category": "Mention Integration",
-            "type": "update"
+            "category": "Mention Integration"
         },
         {
             "url": "types",

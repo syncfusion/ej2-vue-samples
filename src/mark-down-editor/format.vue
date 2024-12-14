@@ -62,8 +62,11 @@
   .fluent-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .fluent2 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .fluent2-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .fluent2-highcontrast .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .tailwind .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .tailwind-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .tailwind3 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
+  .tailwind3-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .bootstrap5 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .bootstrap5\.3 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
   .bootstrap5\.3-dark .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before,
@@ -74,6 +77,8 @@
   }
   .tailwind .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .tailwind-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .tailwind3 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .tailwind3-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .bootstrap5 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .bootstrap5\.3 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .bootstrap5\.3-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
@@ -82,6 +87,7 @@
   .fluent-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .fluent2 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .fluent2-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
+  .fluent2-highcontrast .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .material3 .rte-markdown-custom-format .e-icon-btn .e-md-preview::before,
   .material3-dark .rte-markdown-custom-format .e-icon-btn .e-md-preview::before {
       content: '\e7de';

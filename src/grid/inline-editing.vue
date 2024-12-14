@@ -25,10 +25,10 @@
     <div class="col-lg-3 property-section">
         <table id="property" title="Properties" style="width: 100%">
             <tr>
-                <td style="width: 100%">
+                <td style="width: 40%">
                     <div style="padding-top: 7px">Add New Row Position</div>
                 </td>
-                <td style="width: 50%;padding-right: 10px">
+                <td style="width: 60%;padding-right: 10px">
                     <div id='typeddl'>
                         <ejs-dropdownlist id='newRowPosition' :dataSource='newRowPositionDataSource' :fields='fields' :change='valueChange' :value='dropdownValue'></ejs-dropdownlist>
                     </div>

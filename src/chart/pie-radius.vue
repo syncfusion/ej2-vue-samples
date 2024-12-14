@@ -79,7 +79,8 @@ export default {
         enable: true,
         header: '',
         format: '<b>${point.x}</b><br>Area in square km: <b>${point.y}</b><br>Population density per square km: <b>${point.tooltip}</b>',
-        name: 'Radius'
+        name: 'Radius',
+        enableHighlight: true,
      },
      enableAnimation: true,
      enableSmartLabels: true,

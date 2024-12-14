@@ -97,7 +97,7 @@ export default {
                 spreadsheet.applyFilter([{ field: 'D', operator: 'equal', value: 'Services' }], 'A1:G51');
             });
         spreadsheet.numberFormat('m/d/yyyy', 'E2:E51');
-        spreadsheet.numberFormat(getFormatFromType('Currency'), 'F2:F51');
+        spreadsheet.numberFormat('$#,##0.00', 'F2:F51');
             }
         }
 }

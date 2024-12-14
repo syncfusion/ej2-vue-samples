@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="panecontent">
+    <div class="pane1content">
         <h3 class="h3">HTML</h3>
         <div class="code-preview">                        
             &lt;<span>!DOCTYPE html></span>
@@ -15,6 +15,11 @@
     </div>
 </div>
 </template>
+<style>
+    .panecontent {
+        width: auto;
+    }
+</style>
 
 <script>
 export default {

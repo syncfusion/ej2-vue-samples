@@ -19,7 +19,7 @@
             <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
             <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
             <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign='Right' editType='numericedit' :validationRules='freightrules'></e-column>
-            <e-column field='OrderDate' headerText='Order Date' width='130' editType='datepickeredit' format='yMd' textAlign='Right' type='date'></e-column>
+            <e-column field='OrderDate' headerText='Order Date' width='130' editType='datepickeredit' format='yMd' textAlign='Right' type='date' :allowGrouping='false'></e-column>
             <e-column field='ShipCountry' headerText='Ship Country' width='150' editType='dropdownedit' :edit='editparams'></e-column>
         </e-columns> 
         </ejs-grid>

@@ -2,13 +2,14 @@
     <div class="control-section">
         <div class='control-wrapper sorting-multicolumn'>
             <div style='padding-top:60px;'>
-                <ejs-multicolumncombobox type="text" id='sorting' :dataSource="dataSource" :fields="fields" placeholder="Select a name" popupHeight="230px" :allowSorting="allowSorting" :sortOrder="sortOrder" sortType="MultiColumn">
+            <label>Select a product</label>
+                <ejs-multicolumncombobox type="text" id='sorting' :dataSource="dataSource" :fields="fields" placeholder="e.g. laptop" popupHeight="210px" popupWidth="615px" :allowSorting="allowSorting" :sortOrder="sortOrder" sortType="MultiColumn">
                     <e-columns>
-                        <e-column field='Name' header='Name' width="100"/>
-                        <e-column field='YearOfJoining' header='Year Of Joining' width="100"/>                        
-                        <e-column field='Status' header='Status' width="60"/>
-                        <e-column field='Location' header='Location' width="90"/>
-                        <e-column field='Experience' header='Experience in Year' width="120"/>                        
+                        <<e-column field='Name' header='Name' width="110"/>
+                        <e-column field='Price' header='Price' width="70"/>                       
+                        <e-column field='Availability' header='Availability' width="98"/>
+                        <e-column field='Category' header='Category' width="95"/>
+                        <e-column field='Rating' header='Rating' width="70"/>                        
                     </e-columns>
                 </ejs-multicolumncombobox>
 
@@ -29,7 +30,7 @@
 <style>
     .control-wrapper.sorting-multicolumn {
         margin: 0 auto;
-        width: 600px;
+        width: 250px;
     }
 
     @media screen and (max-width: 480px) {
@@ -52,8 +53,8 @@ export default {
     },
     data: function() {
         return {
-            dataSource: data['workDetails'],
-            fields: { text: 'Name', value: 'YearOfJoining' },
+            dataSource: data['products'],
+            fields: { text: 'Name', value: 'Category' },
             allowSorting: true,
             sortOrder: SortOrder.Ascending,
         }

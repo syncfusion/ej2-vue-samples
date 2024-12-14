@@ -3,7 +3,6 @@
   "directory": "barcode",
   "category": "Data Visualization", 
   "ftName": "barcode",
-  "type": "update",
   "samples": [
     {
       "url": "ean8",
@@ -88,8 +87,7 @@
       "url": "qrcode",
       "name": "QR Code",
       "description": "This sample displays a machine-readable optical label that contains information about the item to which it is attached.",
-      "category": "Getting Started",
-      "type": "update"
+      "category": "Getting Started"
     },
     {
       "url": "datamatrix",

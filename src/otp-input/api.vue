@@ -65,22 +65,24 @@ export default {
 </script>
 
 <template>
-    <div class="col-lg-8 control-section sb-property-border otp-wrapper">
-        <div id="otp-container">
-            <div class="form-container">
-                <span class="otp-header"> Enter verification code </span>
-                <ejs-otpinput ref="otpRef" :separator="separator" :placeholder="placeholder" :length="length" :disabled="disabled"
-                    :stylingMode="modeValue" :cssClass="validationValue" @input="handleOtpChange">
-                </ejs-otpinput>
-                <div class="otp-actions">
-                    <button ref="resetBtn" class="e-btn" type="button" disabled=true @click="handleResetClick"> Clear </button>
-                    <button ref="verifyBtn" class="e-btn e-primary" type="button" disabled=true @click="handleVerifyClick"> Verify </button>
+    <div class="col-lg-8 control-section sb-property-border">
+        <div class="api-otp-wrapper">
+            <div id="otp-container">
+                <div class="form-container">
+                    <span class="otp-header"> Enter verification code </span>
+                    <ejs-otpinput ref="otpRef" :separator="separator" :placeholder="placeholder" :length="length" :disabled="disabled"
+                        :stylingMode="modeValue" :cssClass="validationValue" @input="handleOtpChange">
+                    </ejs-otpinput>
+                    <div class="otp-actions">
+                        <button ref="resetBtn" class="e-btn" type="button" disabled=true @click="handleResetClick"> Clear </button>
+                        <button ref="verifyBtn" class="e-btn e-primary" type="button" disabled=true @click="handleVerifyClick"> Verify </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="col-lg-4 property-section otp-property-panel">
+    <div class="col-lg-4 property-section">
         <table id="otp_api_property" title="Properties">
             <tbody>
                 <tr>
@@ -137,18 +139,13 @@ export default {
 </template>
 
 <style scoped>
-    .col-lg-8.control-section.otp-wrapper {
+    .api-otp-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-
-    .col-lg-4.property-section.otp-property-panel {
-        border-left: 1px solid #D7D7D7;
-    }
-
-    .sb-property-border.otp-wrapper {
-        border: none;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        min-height: 400px;
     }
 
     #otp-container {
@@ -192,11 +189,5 @@ export default {
     #otp_api_property td {
         padding: 10px 0px;
         width: 35%;
-    }
-
-    @media (max-width: 1200px) {
-        .col-lg-4.property-section.otp-property-panel {
-            border: none;
-        }
     }
 </style>

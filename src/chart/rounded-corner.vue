@@ -75,7 +75,8 @@ export default {
             tooltip: {
                 enable: true,
                 header: '<b>Budget</b>',
-                format: '${point.x}: <b>${point.y}%</b>'
+                format: '${point.x}: <b>${point.y}%</b>',
+                enableHighlight: true,
             },
             annotations: [
                 { content: `<div style=" padding: 5px 5px 5px 5px; font-size: ${Browser.isDevice ? '10px' : '14px'}">30%</div>`, region: 'Series', coordinateUnits: 'Point', x: 'Operations', y: 30.0 },

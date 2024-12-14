@@ -11,39 +11,32 @@
         </ejs-treegrid>
       </div>
       <div>
-        <div class="col-md-3 property-section">
+        <div class="col-md-3 property-section sorting-api">
              <table id="property" title="Properties" style="width: 100%">
         <tr>
-            <td style="width: 30%">
+            <td>
                 <div>Column</div>
             </td>
-            <td style="width: 70%;padding-right: 10px">
+            <td class='table-data' style="width: 70%;padding-right: 10px;padding-left:10px">
                 <div id='columnddl'>
-                     <ejs-dropdownlist ref='columns' width='140px' id='columns' :dataSource='columnsName' value='taskID' :fields='ddlfields'></ejs-dropdownlist>
+                     <ejs-dropdownlist ref='columns' width='147px' id='columns' :dataSource='columnsName' value='taskID' :fields='ddlfields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
+            <td>
                 <div>Direction</div>
             </td>
-            <td style="width: 70%;padding-right: 10px">
+            <td class='table-data' style="width: 70%;padding-right: 10px;padding-left:10px">
                 <div>
-                    <ejs-dropdownlist ref='direction' width='140px' id='direction' :dataSource='direction' value='Ascending' :fields='ddlfields'></ejs-dropdownlist>
+                    <ejs-dropdownlist ref='direction' width='147px' id='direction' :dataSource='direction' value='Ascending' :fields='ddlfields'></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
         <tr>
-            <td id='sort' style="width: 30%">
-                <div>
-                    <ejs-button ref='sort' v-on:click="sort">Sort</ejs-button>
-                </div>
-
-            </td>
-            <td style="width: 70%; padding:10px 10px 10px 0px">
-                <div>
+        <td colSpan="2" style="padding-top: 10%; padding-left: 10px;">
+                    <ejs-button class="btn btn-default" ref='sort' v-on:click="sort" style="margin-right:15px">Sort</ejs-button>
                     <ejs-button ref='clear' v-on:click="clear">Clear</ejs-button>
-                </div>
             </td>
         </tr>
     </table>
@@ -137,5 +130,16 @@ export default {
 <style>
 #sort {
     padding-top: 0px !important;
-};
+}
+
+@media (min-width: 990px) and (max-width: 1300px) {
+    .property-panel-section,
+    .sorting-api {
+        padding-left: 0px;
+      }
+     .table-data {
+        padding-left:0% !important;
+     }
+
+}
 </style>

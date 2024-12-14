@@ -60,7 +60,8 @@ export default {
     "-apple-system", "BlinkMacSystemFont";
     font-size: 14px;
 }
-.tailwind #multiselectwrapper #content #display .selected,.display-value{
+.tailwind #multiselectwrapper #content #display .selected,.display-value,
+.tailwind3 #multiselectwrapper #content #display .selected,.display-value {
   font-weight: 400;
   font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif",
     "-apple-system", "BlinkMacSystemFont";

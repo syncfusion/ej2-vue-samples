@@ -121,14 +121,6 @@
     content: "\e743";
 }
 
-.e-view.tailwind #LG-export-sample .e-play-icon1::before, .e-view.tailwind-dark #LG-export-sample .e-play-icon1::before {
-    content: "\e76c";
-}
-
-.e-view.tailwind #LG-export-sample .e-play-icon::before, .e-view.tailwind-dark #LG-export-sample .e-play-icon::before {
-    content: "\e7bf";
-}
-
 .e-view.highcontrast #LG-export-sample .e-play-icon1::before {
     content: "\ebf9";
 }

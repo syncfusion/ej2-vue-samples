@@ -213,7 +213,7 @@ export default {
     methods:{
       contextMenuOpen:function (args) {
         let record = args.rowData;
-      if (args.type !== 'Header') {
+      if (args.type !== 'Header' && record) {
         if (!record.hasChildRecords) {
           args.hideItems.push('Collapse the Row');
           args.hideItems.push('Expand the Row');

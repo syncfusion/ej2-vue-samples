@@ -126,7 +126,7 @@ import { Browser } from "@syncfusion/ej2-base";
 import { NumericTextBoxComponent } from '@syncfusion/ej2-vue-inputs';
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Tooltip, DataLabel, Category } from "@syncfusion/ej2-vue-charts";
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2HighContrastColors } from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2HighContrastColors, pointTailwind3Colors, pointTailwind3DarkColors } from './theme-color';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
@@ -237,6 +237,11 @@ export default {
         } 
         else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
           args.fill = pointFluent2HighContrastColors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'tailwind3') {
+          args.fill = pointTailwind3Colors[args.point.index % 10];
+        } else if (selectedTheme === 'tailwind3-dark') {
+          args.fill = pointTailwind3DarkColors[args.point.index % 10];
         }
         else {
           args.fill = pointBootstrapColors[args.point.index % 10];

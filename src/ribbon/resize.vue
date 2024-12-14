@@ -3,7 +3,7 @@
     <div class="resize-ribbon-container">
       <div id="ribbonContainer">
         <div id="ribbon">
-          <ejs-ribbon id="ribbon-resize" ref="resizeRibbon" :enablePersistence="true" :launcherIconClick="launcherIconClicked" :fileMenu="fileSettings">
+          <ejs-ribbon id="ribbon-resize" ref="resizeRibbon" :enablePersistence="true" :launcherIconClick="launcherIconClicked" :fileMenu="fileSettings" cssClass="ribbon-resize">
             <e-ribbon-tabs>
               <e-ribbon-tab header="Home">
                 <e-ribbon-groups>
@@ -438,6 +438,9 @@ export default {
   mounted() {
     window.addEventListener('resize', this.onResize);
   },
+  unmounted() {
+  window.removeEventListener('resize', this.onResize);
+  },
   methods: {
     enablePaste: function() {
         if (!isPastebtnDisabled) { return; }
@@ -690,5 +693,10 @@ export default {
 
   [class*="e-ribbon-"] .sf-icon-word:before {
       content: "\e70d";
+  }
+
+  .ribbon-resize.e-rtl .ribbonResizeDisplayText{
+      direction: rtl;
+      padding-right: 15px;
   }
 </style>

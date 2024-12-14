@@ -171,7 +171,7 @@ export default {
   },
    data: () => {
     return {
-        currencyFormat: getFormatFromType('Currency'),
+        currencyFormat: '$#,##0.00',
     }
   },
   methods: {

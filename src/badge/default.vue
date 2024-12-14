@@ -159,7 +159,6 @@
         transform: translateX(-110%);
         z-index: 100;
     }
-    
 </style>
 
 <script>

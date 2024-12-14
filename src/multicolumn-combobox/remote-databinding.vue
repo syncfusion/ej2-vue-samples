@@ -2,7 +2,8 @@
     <div class="control-section">
         <div class='control-wrapper remote-multicolumn'>
             <div style='padding-top:60px;'>
-                <ejs-multicolumncombobox type="text" id='remote' :dataSource="dataSource" :fields="fields" :query="query" placeholder="Select a name" popupHeight="230px" :allowSorting="allowSorting">
+            <label>Select an employee</label>
+                <ejs-multicolumncombobox type="text" id='remote' :dataSource="dataSource" :fields="fields" :query="query" placeholder="eg. Andrew" popupHeight="210px" popupWidth="500px" :allowSorting="allowSorting">
                     <e-columns>
                         <e-column field='EmployeeID' header='Employee ID' width="120"/>
                         <e-column field='FirstName' header='Name' width="130"/>
@@ -44,7 +45,7 @@
 <style>
     .control-wrapper.remote-multicolumn {
         margin: 0 auto;
-        width: 500px;
+        width: 250px;
     }
 
     @media screen and (max-width: 480px) {

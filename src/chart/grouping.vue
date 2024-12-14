@@ -124,7 +124,7 @@ export default {
     startAngle: 0,
     radius: Browser.isDevice ? '40%' : '70%',
     endAngle: 360,
-    tooltip: { enable: true, header:'', format:'<b>${point.x}</b><br> Gold Medals: <b>${point.y}</b>' },
+    tooltip: { enable: true, header:'', format:'<b>${point.x}</b><br> Gold Medals: <b>${point.y}</b>', enableHighlight: true },
     title: 'Rio Olympic Gold Medals',
     };
   },

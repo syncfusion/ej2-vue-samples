@@ -7,7 +7,7 @@
         <ejs-treegrid :dataSource='data' childMapping='states' :height='400' :allowReordering='true' :allowFiltering='true'
         :allowSorting='true' :filterSettings='filterSettings' :queryCellInfo='queryCellInfo' >
             <e-columns>
-                <e-column field='name' headerText='Province' width='210' :template="flagtemplate"></e-column>
+                <e-column field='name' headerText='Province' width='210' :template="flagtemplate" :filter="{ type:'Excel', itemTemplate:flagtemplate }"></e-column>
                 <e-column field='population' headerText='Population (Million)' width='188' textAlign='Right'></e-column>
                 <e-column field='gdp' headerText='GDP Rate %' :template='gdpTemplate' width='150'></e-column>
                 <e-column field='rating' headerText='Credit Rating' width='150' :template='ratingTemplate' :allowFiltering='false'></e-column>
@@ -178,8 +178,14 @@ export default {
     flagtemplate: function () {
         return {
             template: createApp({}).component('flagtemplate', {
-                template: `<div class="flagimage" style="display: inline"><img class="e-treeoverview" :alt="data.name" aria-label="Flag template"> &nbsp {{data.name }}</div>`,
-            data: function () { return { data: { } }; },
+                template: `<div class="flagimage" style="display: inline"><img :src="getFlagPath(data)" class="e-image e-treeoverview" :alt="data.name" aria-label="Flag template" :style="{ height: '14px', width: '14px' }"></div><div style="display: inline; vertical-align: middle;">{{ data.name }}</div>`,
+            data: function () {
+                 return { data: { } }; },
+                methods: {
+                    getFlagPath(data:any) {
+                        return `src/tree-grid/images/${data.parentItem ? data.parentItem.name : data.name}.png`;
+                    }
+                }
             })
         }
     },

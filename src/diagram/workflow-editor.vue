@@ -12,7 +12,7 @@
          <!-- Description section -->
         <div id="action-description">
             <p>
-                This sample provides a visual representation of a streamlined Travel Request Approval workflow created with the Syncfusion EJ2 TypeScript. The diagram incorporates BPMN nodes, connectors, and annotations to represent various diagram elements.
+                This sample provides a visual representation of a streamlined Travel Request Approval workflow created with the Syncfusion<sup>®</sup> EJ2 TypeScript. The diagram incorporates BPMN nodes, connectors, and annotations to represent various diagram elements.
             </p>
         </div>
         <div id="description">

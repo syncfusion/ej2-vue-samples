@@ -7,48 +7,48 @@
         {
             "url": "default",
             "name": "Default",
-            "description": "This demo for Essential JS2 Sparkline control visualizes population, population density, population growth rate, and birth rate of various countries.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Sparkline control visualizes population, population density, population growth rate, and birth rate of various countries.",
             "category": "Sparkline Charts",
             "api": {}
         },
         {
             "url": "series-types",
             "name": "Series Types",
-            "description": "This demo for Essential JS2 Sparkline control depicts the various series types available in the sparkline.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Sparkline control depicts the various series types available in the sparkline.",
             "category": "Sparkline Charts",
             "api": {}
         },
         {
             "url": "axis-types",
             "name": "Axis value types",
-            "description": "This demo for Essential JS2 Sparkline control depicts the various axis types available in the sparkline.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Sparkline control depicts the various axis types available in the sparkline.",
             "category": "Sparkline Charts",
             "api": {}
         },
         {
             "url": "spark-grid",
             "name": "Sparkline in Grid",
-            "description": "This demo for Essential JS2 Sparkline control demonstrates rendering sparklines in the data grid control.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Sparkline control demonstrates rendering sparklines in the data grid control.",
             "category": "Sparkline Charts",
             "api": {}
         },
         {
             "url": "customization",
             "name": "Customization",
-            "description": "This demo for Essential JS2 Sparkline control depicts the properties required to customize the sparkline.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Sparkline control depicts the properties required to customize the sparkline.",
             "category": "Sparkline Charts",
             "api": {}
         },
         {
             "url": "live-update",
             "name": "Live Update",
-            "description": "This demo for Essential JS2 Sparkline control depicts the task manager with live data update for sparklines.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Sparkline control depicts the task manager with live data update for sparklines.",
             "category": "Sparkline Charts",
             "api": {}
         },{
             "url": "range-band",
             "name": "Range Band",
-            "description": "This demo for Essential JS2 Sparkline control depicts the range band feature and its customization options.",
+            "description": "This demo for Essential<sup>®</sup> JS2 Sparkline control depicts the range band feature and its customization options.",
             "category": "Sparkline Charts",
             "api": {}
         }

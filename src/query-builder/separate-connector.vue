@@ -166,6 +166,10 @@
         display: block !important;
     }
 }
+
+.tailwind3-dark .e-text-area-content {
+    background: transparent;
+}
 </style>
 <!-- custom code end -->
 

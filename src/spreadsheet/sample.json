@@ -16,7 +16,7 @@
                     "created"
                 ]
             },
-            "description": "This example demonstrates the default functionalities of the Syncfusion JavaScript Spreadsheet that includes editing, importing & exporting.",
+            "description": "This example demonstrates the default functionalities of the Syncfusion<sup>®</sup> JavaScript Spreadsheet that includes editing, importing & exporting.",
             "sourceFiles": [
                 {
                     "displayName": "default.vue",
@@ -40,7 +40,7 @@
                     "created"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows the way of using basic formulas with minimum configuration.",
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows the way of using basic formulas with minimum configuration.",
             "sourceFiles": [
                 {
                     "displayName": "formula.vue",
@@ -63,7 +63,7 @@
                     "beforeCellRender"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control includes lock cell and protect sheet feature with its configurations.",
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control includes lock cell and protect sheet feature with its configurations.",
             "sourceFiles": [
                 {
                     "displayName": "protect-sheet.vue",
@@ -85,7 +85,7 @@
                     "created"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows freeze rows and columns feature.",
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows freeze rows and columns feature.",
             "sourceFiles": [
                 {
                     "displayName": "freeze-panes.vue",
@@ -120,7 +120,7 @@
                     "style"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows data validation feature.",
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows data validation feature.",
             "sourceFiles": [
                 {
                     "displayName": "data-validation.vue",
@@ -151,7 +151,7 @@
                     "style"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows hyperlink feature.",
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows hyperlink feature.",
             "sourceFiles": [
                 {
                     "displayName": "hyperlink.vue",
@@ -170,7 +170,7 @@
                     "sheets"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows the cell data binding feature with minimum configuration."
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows the cell data binding feature with minimum configuration."
         },
         {
             "url": "remote-data-binding",
@@ -183,7 +183,7 @@
                     "sheets"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows the way of data binding with remote service using DataManager."
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows the way of data binding with remote service using DataManager."
         },
         {
             "url": "cell-formatting",
@@ -204,7 +204,7 @@
                     "style"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows the cell formatting feature and its configuration.",
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows the cell formatting feature and its configuration.",
             "sourceFiles": [
                 {
                     "displayName": "cell-formatting.vue",
@@ -239,7 +239,7 @@
                     "startCell"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows the way of number formatting with minimum configuration.",
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows the way of number formatting with minimum configuration.",
             "sourceFiles": [
                 {
                     "displayName": "number-formatting.vue",
@@ -262,7 +262,7 @@
                     "beforeCellRender"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows conditional formatting feature.",
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows conditional formatting feature.",
             "sourceFiles": [
                 {
                     "displayName": "conditional-formatting.vue",
@@ -283,7 +283,7 @@
                     "allowFiltering"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows sorting and filtering feature.",
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows sorting and filtering feature.",
             "sourceFiles": [
                 {
                     "displayName": "sorting-and-filtering.vue",
@@ -307,7 +307,7 @@
                     "created"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows the chart feature."
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows the chart feature."
         },
         {
             "url": "image",
@@ -320,7 +320,7 @@
                     "sheets"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows image feature."
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows image feature."
         },
         {
             "url": "cell-template",
@@ -340,7 +340,7 @@
                     "sheets"
                 ]
             },
-            "description": "This demo for Essential JS 2 Spreadsheet control shows cell template feature."
+            "description": "This demo for Essential<sup>®</sup> JS 2 Spreadsheet control shows cell template feature."
         },
         {
             "url": "notes",

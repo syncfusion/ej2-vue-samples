@@ -48,7 +48,7 @@
         column header name, measure name, and value. Based on this information, the heatmap will be plotted.
       </p><br />
       <p>
-          More information on the Essential JS2 Pivot Table & Heatmap can be found in these <a target='_blank'
+          More information on the Essential<sup>®</sup> JS2 Pivot Table & Heatmap can be found in these <a target='_blank'
           href="https://ej2.syncfusion.com/vue/documentation/pivotview/row-and-column#selection">Selection</a> & <a target="_blank"
           href="https://ej2.syncfusion.com/vue/documentation/heatmap-chart/getting-started">Heatmap</a> documentation section.
       </p>

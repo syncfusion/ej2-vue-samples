@@ -104,39 +104,21 @@
         { "Name": "Steven Buchanan", "Eimg": 10, "Designation": "CEO", "Country": "Ireland", "DateofJoining": "05/03/2020" }
     ],
     "employeeData": [
-        { "Name": "John Smith", "Department": "HR", "Position": "Manager", "PhoneNo": "7801234567", "Location": "New York"},
-        { "Name": "John Doe", "Department": "IT", "Position": "Developer", "PhoneNo": "7812345678", "Location": "San Francisco"},
-        { "Name": "Alice Brown", "Department": "Finance", "Position": "Analyst", "PhoneNo": "7823456789", "Location": "Chicago"},
-        { "Name": "Robert", "Department": "Marketing", "Position": "Auditor", "PhoneNo": "7834567890", "Location": "Boston"},
-        { "Name": "Emma Black", "Department": "IT", "Position": "SysAdmin", "PhoneNo": "7845678901", "Location": "Seattle"},
-        { "Name": "Michael", "Department": "HR", "Position": "Recruiter", "PhoneNo": "7856789012", "Location": "New York"},
-        { "Name": "Linda Blue", "Department": "Finance", "Position": "Controller", "PhoneNo": "7856789012", "Location": "SanFrancisco"},
-        { "Name": "Steve Grey", "Department": "Marketing", "Position": "Specialist", "PhoneNo": "7878901234", "Location": "Chicago"},
-        { "Name": "Natalie", "Department": "Sales", "Position": "Executive", "PhoneNo": "7889012345", "Location": "Boston"},
-        { "Name": "Paul Red", "Department": "Sales", "Position": "Assistant", "PhoneNo": "7890123456", "Location": "Seattle"},
-        { "Name": "Rachel", "Department": "IT", "Position": "Developer", "PhoneNo": "7901234567", "Location": "New York"},
-        { "Name": "Eric Pink", "Department": "Marketing", "Position": "Analyst", "PhoneNo": "7912345678", "Location": "San Francisco"},
-        { "Name": "Jessica", "Department": "HR", "Position": "Assistant", "PhoneNo": "7923456789", "Location": "Chicago"},
-        { "Name": "James", "Department": "Finance", "Position": "Auditor", "PhoneNo": "7934567890", "Location": "Boston"},
-        { "Name": "Olivia Teal", "Department": "Sales", "Position": "Assistant", "PhoneNo": "7945678901", "Location": "Seattle"}
-   ],
-
-   "workDetails": [
-    { "Name": "John Smith", "YearOfJoining": "15/01/2020", "Status": "Active", "Experience": 4, "Location": "New York"},
-    { "Name": "John Doe", "YearOfJoining": "22/05/2019", "Status": "In-active", "Experience": 5, "Location": "San Francisco"},
-    { "Name": "Alice Brown", "YearOfJoining": "30/07/2021", "Status": "Active", "Experience": 3, "Location": "Chicago"},
-    { "Name": "Robert White", "YearOfJoining": "10/11/2018", "Status": "Active", "Experience": 5, "Location": "Boston"},
-    { "Name": "Emma Black", "YearOfJoining": "05/03/2022", "Status": "In-active", "Experience": 2, "Location": "Seattle"},
-    { "Name": "Michael Green", "YearOfJoining": "19/08/2020", "Status": "Active", "Experience": 4, "Location": "New York"},
-    { "Name": "Linda Blue", "YearOfJoining": "12/12/2017", "Status": "Active", "Experience": 6, "Location": "SanFrancisco"},
-    { "Name": "Steve Grey", "YearOfJoining": "25/09/2019", "Status": "Active", "Experience": 4, "Location": "Chicago"},
-    { "Name": "Natalie Gold", "YearOfJoining": "17/06/2021", "Status": "In-active", "Experience": 3, "Location": "Boston"},
-    { "Name": "Paul Red", "YearOfJoining": "08/04/2016", "Status": "Active", "Experience": 8, "Location": "Seattle"},
-    { "Name": "Rachel Orange", "YearOfJoining": "21/01/2022", "Status": "In-active", "Experience": 2, "Location": "New York"},
-    { "Name": "Eric Pink", "YearOfJoining": "14/10/2018", "Status": "Active", "Experience": 5, "Location": "San Francisco"},
-    { "Name": "Jessica Violet", "YearOfJoining": "11/11/2021", "Status": "Active", "Experience": 3, "Location": "Chicago"},
-    { "Name": "James Indigo", "YearOfJoining": "19/02/2019", "Status": "Active", "Experience": 5, "Location": "Boston"},
-    { "Name": "Olivia Teal", "YearOfJoining": "30/06/2022", "Status": "In-active", "Experience": 2, "Location": "Seattle"}
+        { "Name": "John Smith", "Department": "HR", "Position": "Manager", "Status": "Active", "Location": "New York"},
+        { "Name": "John Doe", "Department": "IT", "Position": "Developer", "Status": "In Active", "Location": "San Francisco"},
+        { "Name": "Alice Brown", "Department": "Finance", "Position": "Analyst", "Status": "Active", "Location": "Chicago"},
+        { "Name": "Robert", "Department": "Marketing", "Position": "Auditor", "Status": "Active", "Location": "Boston"},
+        { "Name": "Emma Black", "Department": "IT", "Position": "SysAdmin", "Status": "In Active", "Location": "Seattle"},
+        { "Name": "Michael", "Department": "HR", "Position": "Recruiter", "Status": "Active", "Location": "New York"},
+        { "Name": "Linda Blue", "Department": "Finance", "Position": "Controller", "Status": "Active", "Location": "San Francisco"},
+        { "Name": "Steve Grey", "Department": "Marketing", "Position": "Specialist", "Status": "Active", "Location": "Chicago"},
+        { "Name": "Natalie", "Department": "Sales", "Position": "Executive", "Status": "In Active", "Location": "Boston"},
+        { "Name": "Paul Red", "Department": "Sales", "Position": "Assistant", "Status": "Active", "Location": "Seattle"},
+        { "Name": "Rachel", "Department": "IT", "Position": "Developer", "Status": "In Active", "Location": "New York"},
+        { "Name": "Eric Pink", "Department": "Marketing", "Position": "Analyst", "Status": "Active", "Location": "San Francisco"},
+        { "Name": "Jessica", "Department": "HR", "Position": "Assistant", "Status": "Active", "Location": "Chicago"},
+        { "Name": "James", "Department": "Finance", "Position": "Auditor", "Status": "Active", "Location": "Boston"},
+        { "Name": "Olivia Teal", "Department": "Sales", "Position": "Assistant", "Status": "In Active", "Location": "Seattle"}
    ],
 
    "bookDetails": [
@@ -155,5 +137,53 @@
     { "Title": "A Brief History of Time", "Author": "Stephen Hawking", "Genre": "Science", "PublishedYear":2012, "Price": "$18.95"},
     { "Title": "The Hobbit", "Author": "Tolkien", "Genre": "Fantasy", "PublishedYear":2018, "Price": "$15.00"},
     { "Title": "Animal Farm", "Author": "George Orwell", "Genre": "Fiction", "PublishedYear":2017, "Price": "$12.50"}
-   ]  
+   ],
+
+   "products": [
+         { "Name" : "Laptop", "Price" : "999.99m", "Availability" : "In Stock", "Category" : "Electronics", "Rating" : 4.5 },
+         { "Name" : "Smartphone", "Price" : "599.99m", "Availability" : "Out of Stock", "Category" : "Electronics", "Rating" : 4.3 },
+         { "Name" : "Tablet", "Price" : "299.99m", "Availability" : "In Stock", "Category" : "Electronics", "Rating" : 4.2 },
+         { "Name" : "Headphones", "Price" : "49.99m", "Availability" : "In Stock", "Category" : "Accessories", "Rating" : 4.0 },
+         { "Name" : "Smartwatch", "Price" : "199.99m", "Availability" : "Limited Stock", "Category" : "Wearables", "Rating" : 4.4 },
+         { "Name" : "Monitor", "Price" : "129.99m", "Availability" : "In Stock", "Category" : "Electronics", "Rating" : 4.6 },
+         { "Name" : "Keyboard", "Price" : "39.99m", "Availability" : "In Stock", "Category" : "Accessories", "Rating" : 4.1 },
+         { "Name" : "Mouse", "Price" : "19.99m", "Availability" : "Out of Stock", "Category" : "Accessories", "Rating" : 4.3 },
+         { "Name" : "Printer", "Price" : "89.99m", "Availability" : "In Stock", "Category" : "Office Supplies", "Rating" : 4.2 },
+         { "Name" : "Camera", "Price" : "499.99m", "Availability" : "In Stock", "Category" : "Electronics", "Rating" : 4.7 },
+         { "Name" : "Speakers", "Price" : "149.99m", "Availability" : "In Stock", "Category" : "Accessories", "Rating" : 4.5 },
+         { "Name" : "Router", "Price" : "79.99m", "Availability" : "Out of Stock", "Category" : "Electronics", "Rating" : 4.4 },
+         { "Name" : "External Hard Drive", "Price" : "59.99m", "Availability" : "In Stock", "Category" : "Storage", "Rating" : 4.6 },
+         { "Name" : "USB Flash Drive", "Price" : "9.99m", "Availability" : "In Stock", "Category" : "Storage", "Rating" : 4.2 },
+         { "Name" : "Webcam", "Price" : "29.99m", "Availability" : "Limited Stock", "Category" : "Accessories", "Rating" : 4.1 },
+         { "Name" : "Smart TV", "Price" : "799.99m", "Availability" : "In Stock", "Category" : "Electronics", "Rating" : 4.8 },
+         { "Name" : "Projector", "Price" : "299.99m", "Availability" : "Out of Stock", "Category" : "Electronics", "Rating" : 4.5 },
+         { "Name" : "VR Headset", "Price" : "349.99m", "Availability" : "In Stock", "Category" : "Electronics", "Rating" : 4.7 },
+         { "Name" : "Drone", "Price" : "599.99m", "Availability" : "In Stock", "Category" : "Electronics", "Rating" : 4.6 },
+         { "Name" : "Fitness Tracker", "Price" : "99.99m", "Availability" : "In Stock", "Category" : "Wearables", "Rating" : 4.3 }
+   ],
+
+   "productDetails" : [
+         { "ProductID": 1, "ProductName": "Chai", "UnitPrice": "18m", "UnitsInStock": 39 },
+         { "ProductID": 2, "ProductName": "Chang", "UnitPrice": "19m", "UnitsInStock": 45 },
+         { "ProductID": 3, "ProductName": "Aniseed Syrup", "UnitPrice": "23m", "UnitsInStock": 79 },
+         { "ProductID": 4, "ProductName": "Chef Anton Cajun Seasoning", "UnitPrice": "28m", "UnitsInStock": 28 },
+         { "ProductID": 5, "ProductName": "Gumbo Mix", "UnitPrice": "11m", "UnitsInStock": 50 },
+         { "ProductID": 6, "ProductName": "Grandma Boysenberry", "UnitPrice": "37m", "UnitsInStock": 49 },
+         { "ProductID": 7, "ProductName": "Northwoods Cranberry Sauce", "UnitPrice": "23m", "UnitsInStock": 91 },
+         { "ProductID": 8, "ProductName": "Mishi Kobe Niku", "UnitPrice": "32m", "UnitsInStock": 16 },
+         { "ProductID": 9, "ProductName": "Ikura", "UnitPrice": "80m", "UnitsInStock": 29 },
+         { "ProductID": 10, "ProductName": "Uncle Bob Organic Dried Pears", "UnitPrice": "26m", "UnitsInStock": 32 },
+         { "ProductID": 11, "ProductName": "Organic Dried Pears", "UnitPrice": "29m", "UnitsInStock": 19 }
+   ],
+
+   "employee" : [ 
+    { "Name" : "Alice Johnson", "Department" : "Engineering", "Role" : "Software Engineer", "Location" : "New York", "Experience" : 5},
+    { "Name" : "Bob Smith", "Department" : "Marketing", "Role" : "Marketing Manager", "Location" : "San Francisco", "Experience" : 7},
+    { "Name" : "Catherine Lee", "Department" : "Finance", "Role" : "Financial Analyst", "Location" : "Chicago", "Experience" : 4},
+    { "Name" : "David Kim", "Department" : "Engineering", "Role" : "DevOps Engineer", "Location" : "Austin", "Experience" : 6},
+    { "Name" : "Eva Brown", "Department" : "Sales", "Role" : "Sales Executive", "Location" : "Boston", "Experience" : 3},
+    { "Name" : "Frank White", "Department" : "Human Resources", "Role" : "HR Manager", "Location" : "Seattle", "Experience" : 8},
+    { "Name" : "Grace Green", "Department" : "Design", "Role" : "UX Designer", "Location" : "Los Angeles", "Experience" : 5},
+    { "Name" : "Hank Wilson", "Department" : "Engineering", "Role" : "Front-end Developer", "Location" : "Denver", "Experience" : 4}
+   ]
 }

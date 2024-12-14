@@ -109,6 +109,7 @@ export default {
     }
     @media only screen and (max-width: 600px) {
         .speeddial-appearence-target {
+            min-height: 350px;
             width: 90%;
             margin: 5%;
         }

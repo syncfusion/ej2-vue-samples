@@ -1,0 +1,54 @@
+{
+    "name": "Chat UI",
+    "directory": "chat-ui",
+    "category": "Interactive Chat",
+    "ftName": "chat-ui",
+    "type": "preview",
+    "dataSourcePath": "src/chat-ui/messageData.json",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Chat UI",
+            "api":{ "ChatUI": ["suggestions", "headerText", "headerIconCss", "messages", "user"] },
+            "description": "Showcases the default combinations of the Chat UI control.",
+            "sourceFiles": [
+                { "displayName": "default.vue", "path":"src/chat-ui/default.vue" },
+                { "displayName": "messageData.json", "path":"src/chat-ui/messageData.json" }
+            ]
+        },
+        {
+            "url": "template",
+            "name": "Template",
+            "category": "Chat UI",
+            "api":{ "ChatUI": ["messages", "user", "emptyChatTemplate", "messageTemplate", "timeBreakTemplate", "showTimeBreak", "headerText", "headerIconCss", "messageSend"] },
+            "description": "Showcases the template UI's of the Chat UI control.",
+            "sourceFiles": [
+                { "displayName": "template.vue", "path":"src/chat-ui/template.vue" },
+                { "displayName": "messageData.json", "path":"src/chat-ui/messageData.json" }
+            ]
+        },
+        {
+            "url": "api",
+            "name": "API",
+            "category": "Chat UI",
+            "api":{ "ChatUI": ["messages", "user", "timeStampFormat", "showTimeStamp", "headerText", "headerIconCss"] },
+            "description": "Showcases the API combinations of the Chat UI control.",
+            "sourceFiles": [
+                { "displayName": "api.vue", "path":"src/chat-ui/api.vue" },
+                { "displayName": "messageData.json", "path":"src/chat-ui/messageData.json" }
+            ]
+        },
+        {
+            "url": "chat-integration",
+            "name": "Use Case",
+            "category": "Integration",
+            "api":{ "ChatUI": ["messages", "user", "timeStampFormat", "showTimeStamp", "headerText", "headerIconCss"] },
+            "description": "Showcases the chat component integration with other Chat UI control",
+            "sourceFiles": [
+                { "displayName": "chat-integration.vue", "path":"src/chat-ui/chat-integration.vue" },
+                { "displayName": "messageData.json", "path":"src/chat-ui/messageData.json" }
+            ]
+        }
+    ]
+}

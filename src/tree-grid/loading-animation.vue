@@ -13,7 +13,7 @@
 </div>
 
 <div class="col-lg-3 property-section">
-    <table id="property" title="Properties" style="width: 100%; margin-left: -10px;">
+    <table id="property" title="Properties" style="width: 100%;">
         <colgroup>
              <col span="1" style="width: 40%;">
              <col span="1" style="width: 60%;">
@@ -21,11 +21,11 @@
           <tbody>
         <tr style="height: 50px">
             <td>
-                <div style="margin-left: -10px;width: 120%;">Indicator Type</div>
+                <div >Indicator Type</div>
             </td>
             <td>
-            <div style="margin-left: -10px; width: 100%">
-              <ejs-dropdownlist ref='dropdown' id='dropdown' :dataSource='indicatortypes' index=0 :fields='fields' :change="indicatorChange"></ejs-dropdownlist>
+            <div id='dropdownindicator' style="padding-left:10%">
+              <ejs-dropdownlist ref='dropdown' id='dropdown' :dataSource='indicatortypes' index=0 :fields='fields' :change="indicatorChange" width="130" ></ejs-dropdownlist>
              </div>                                 
             </td>
         </tr>

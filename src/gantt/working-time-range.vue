@@ -51,7 +51,7 @@
             <tr>
                 <td colspan="2" style="width: 100%">
                     <div>
-                        <button type="button" id="update" style="margin-top: 10px;" v-on:click="update">Update for all days</button>
+                        <ejs-button id="update" style="margin-top: 10px;" v-on:click="update"><span>Update for all days</span></ejs-button>
                     </div>
                 </td>
             </tr>

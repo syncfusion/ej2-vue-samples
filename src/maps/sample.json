@@ -2,6 +2,7 @@
     "name": "Maps",
     "directory": "maps",
     "category": "Data Visualization",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -154,16 +155,6 @@
             ]
         },  
         {
-            "url": "osm-with-navigation-lines",
-            "name": "OSM with Navigation Line",
-            "category": "Map Providers",
-            "api": {},
-            
-            "sourceFiles": [
-                {"displayName": "osm-with-navigation-lines.vue", "path": "./src/maps/osm-with-navigation-lines.vue"}
-            ]
-        },             
-        {
             "url": "osm-with-sublayers",
             "name": "OSM with Sublayer",
             "category": "Map Providers",
@@ -171,6 +162,26 @@
             "sourceFiles": [
                 {"displayName": "osm-with-sublayers.vue", "path": "./src/maps/osm-with-sublayers.vue"},
                 {"displayName": "africa.ts", "path": "./src/maps/map-data/africa.ts"}
+            ]
+        },
+        {
+            "url": "osm-with-marker-clustering",
+            "name": "OSM with Marker Clustering",
+            "category": "Map Providers",
+            "type": "new",
+            "api": {},
+            "sourceFiles": [
+                {"displayName": "osm-with-marker-clustering.vue", "path": "./src/maps/osm-with-marker-clustering.vue"}
+            ]
+        },
+	{
+            "url": "osm-with-navigation-lines",
+            "name": "OSM with Navigation Line",
+            "category": "Map Providers",
+            "api": {},
+            
+            "sourceFiles": [
+                {"displayName": "osm-with-navigation-lines.vue", "path": "./src/maps/osm-with-navigation-lines.vue"}
             ]
         },
         {

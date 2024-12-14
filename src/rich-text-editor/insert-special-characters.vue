@@ -132,12 +132,14 @@
         border-color: #ffd939;
     }
 
-    .tailwind #rteSpecial_char .char_block.e-active {
+    .tailwind #rteSpecial_char .char_block.e-active,
+    .tailwind3 #rteSpecial_char .char_block.e-active {
         outline: 1px solid #3730a3;
         border-color: #3730a3;
     }
 
-    .tailwind-dark #rteSpecial_char .char_block.e-active {
+    .tailwind-dark #rteSpecial_char .char_block.e-active,
+    .tailwind3-dark #rteSpecial_char .char_block.e-active {
         outline: 1px solid #22d3ee;
         border-color: #22d3ee;
     }
@@ -150,14 +152,25 @@
         border-color: #0D6EFD;
     }
 
+    .bootstrap5 #rteSpecial_char .char_block.e-active,
+    .bootstrap5-dark #rteSpecial_char .char_block.e-active {
+        outline: 1px solid #0D6EFD;
+        border-color: #0D6EFD;
+    }
+
+    .fuent2-highcontrast #rteSpecial_char .char_block.e-active {
+    outline: 1px solid #22d3ee;
+    border-color: #22d3ee;
+    }
+
     .fluent #rteSpecial_char .char_block.e-active,
     .fluent-dark #rteSpecial_char .char_block.e-active {
         outline: 1px solid #0078DE;
         border-color: #0078DE;
     }
 
-    .fluent2 .e-rte-custom-tbar-section .char_block.e-active,
-    .fluent2-dark .e-rte-custom-tbar-section .char_block.e-active {
+    .fluent2 #rteSpecial_char .char_block.e-active,
+    .fluent2-dark #rteSpecial_char .char_block.e-active {
         outline: 1px solid #0f6cbd;
         border-color: #0f6cbd;
     }
@@ -254,7 +267,7 @@ export default {
                 'UnorderedList', '|', 'CreateLink', 'Image', '|', 'SourceCode',
                 {
                     tooltipText: 'Insert Symbol',
-                    template: '<button class="e-tbar-btn e-btn" tabindex="-1" id="custom_tbar"  style="width:100%"><div class="e-tbar-btn-text" style="font-weight: 500;"> &#937;</div></button>'
+                    template: '<button class="e-tbar-btn e-btn" tabindex="-1" id="custom_tbar"  style="width:100%"><div class="e-tbar-btn-text" style="font-weight: 400;"> &#937;</div></button>'
                 }, '|', 'Undo', 'Redo']
             },
         };

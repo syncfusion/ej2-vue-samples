@@ -147,7 +147,9 @@
     }
     
     .tailwind-dark .card-control-section.flip_card_layout #card_flip.e-card,
-    .tailwind-dark .card-control-section.flip_card_layout #card_flip_profile.e-card {
+    .tailwind-dark .card-control-section.flip_card_layout #card_flip_profile.e-card,
+    .tailwind3-dark .card-control-section.flip_card_layout #card_flip.e-card,
+    .tailwind3-dark .card-control-section.flip_card_layout #card_flip_profile.e-card {
         height: 314px;
     }
 

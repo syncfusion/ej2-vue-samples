@@ -16,19 +16,19 @@
             <table id="property" title="Properties" style="width: 100%">
                 <br/><br/>
                 <tr style="height: 50px">
-                    <td style="width: 30%">
+                    <td>
                         <div>Column</div>
                     </td>
                     <td style="width: 70%;padding-top:7px; padding-left: 10px;">
-                        <ejs-dropdownlist ref='columns' width='130px' id='columns' :dataSource='columnsdata' value='taskID' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
+                        <ejs-dropdownlist ref='columns' width='143px' id='columns' :dataSource='columnsdata' value='taskID' :fields='colfields' :change="onColChange"></ejs-dropdownlist>                      
                     </td>
                 </tr>
                 <tr id='' style="height: 50px">
-                    <td style="width: 70%">
+                    <td>
                         <div>Column Index</div>
                     </td>
                     <td style="width: 70%; padding-left: 10px; padding-right:10px;padding-top:7px">
-                        <ejs-dropdownlist ref='index' width='130px' id='index' :dataSource='indexdata' :value=0 :fields='indexfields' :change="onChange"></ejs-dropdownlist>
+                        <ejs-dropdownlist ref='index' width='143px' id='index' :dataSource='indexdata' :value=0 :fields='indexfields' :change="onChange"></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>

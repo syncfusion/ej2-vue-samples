@@ -623,6 +623,7 @@ export default {
           case "Copy":
             diagram.copy();
             updateToolbarItems(["Paste"], false);
+            break;
           case "Paste":
             diagram.paste();
             break;
@@ -1149,7 +1150,7 @@ function lockObject(args) {
   for (var i = 0; i < diagram.selectedItems.nodes.length; i++) {
     var node = diagram.selectedItems.nodes[i];
     if (node.constraints & NodeConstraints.Drag) {
-      node.constraints = NodeConstraints.PointerEvents | NodeConstraints.Select;
+      node.constraints = NodeConstraints.PointerEvents | NodeConstraints.Select | NodeConstraints.ReadOnly;
       isChecked = true;
     } else {
       node.constraints = NodeConstraints.Default;
@@ -1159,7 +1160,7 @@ function lockObject(args) {
   for (var j = 0; j < diagram.selectedItems.connectors.length; j++) {
     var connector = diagram.selectedItems.connectors[j];
     if (connector.constraints & ConnectorConstraints.Drag) {
-        connector.constraints = ConnectorConstraints.PointerEvents | ConnectorConstraints.Select;
+        connector.constraints = ConnectorConstraints.PointerEvents | ConnectorConstraints.Select | ConnectorConstraints.ReadOnly;
          isChecked = true;
     } else {
       connector.constraints = ConnectorConstraints.Default;

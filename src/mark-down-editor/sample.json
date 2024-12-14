@@ -1,6 +1,5 @@
 {
     "name": "Markdown Editor",
-    "type": "update",
     "directory": "mark-down-editor",
     "category": "File Viewers & Editors",
     "samples": [{
@@ -25,7 +24,6 @@
             "url": "mention-integration",
             "name": "@ Mention",
             "category": "Markdown Editor",
-            "type": "new",
             "description": "This demo covers all supported features and functionalities of the vue Markdown editor along with mention integration, which  is another mode of the vue Rich Text Editor."
         }
     ]

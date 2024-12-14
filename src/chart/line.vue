@@ -19,13 +19,13 @@
     </p>
 </div>
 <div id="description">
-    <p>
-      Vue Line Chart represents and visualizes time-dependent data to show the trends at equal intervals. In this example, you can see how to render and configure a line chart. <code>Markers</code> are used to represent individual data and its values.
+  <p>
+    In this example, you can see how to render and configure the line type charts. Line type charts are used to represent time-dependent data, showing trends in data at equal intervals.
+    You can use <code>dashArray</code>, <code>width</code>, <code>fill</code> properties to customize the line. <code>marker</code> and <code>dataLabel</code> are used to represent individual data and its value.
     </p>
     <p>
-      <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        Tooltips are enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices. The <code>enableHighlight</code> property in the tooltip allows the corresponding series to be highlighted when a data point is hovered over.
     </p>
-     
         <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use line series, we need to inject
@@ -101,6 +101,7 @@ export default {
       pentagonMarker: { visible: true, height: 7, width: 7 , shape: 'Pentagon' , isFilled: true },
       tooltip: {
         enable: true,
+        enableHighlight: true
       },
       legend: {visible : true, enableHighlight: true},
       title: "Crude Steel Production Annual Growth"

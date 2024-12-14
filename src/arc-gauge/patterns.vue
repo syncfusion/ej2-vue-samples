@@ -1662,21 +1662,11 @@ export default {
         margin-top: 0px;
     }
 
-    .e-view.tailwind div#patternsarcgauge .annotationText,
-    .e-view.tailwind-dark div#patternsarcgauge .annotationText {
-        font-size: 22px;
-        text-align: center;
-        margin-top: -15px;
-        margin-left: -23px;
-    }
     .gaugeAlign {
         width: 50%;
     }
     #patternsarcgauge .gaugeOneText {
         margin-left: 0px;margin-top: -10px;
-    }
-    .e-view.tailwind div#patternsarcgauge .gaugeOneText, .e-view.tailwind-dark div#patternsarcgauge .gaugeOneText {
-        margin-left: -3px;margin-top: -4px;
     }
     .e-view.material div#patternsarcgauge .gaugeOneText, .e-view.material-dark div#patternsarcgauge .gaugeOneText, .e-view.bootstrap-dark div#patternsarcgauge .gaugeOneText,
       .e-view.bootstrap div#patternsarcgauge .gaugeOneText, .e-view.bootstrap4 div#patternsarcgauge .gaugeOneText,
@@ -1685,8 +1675,5 @@ export default {
     }
     #patternsarcgauge .gaugeThreeText {
         margin-left: 5px;
-    }
-    .e-view.tailwind div#patternsarcgauge .gaugeThreeText, .e-view.tailwind-dark div#patternsarcgauge .gaugeThreeText {
-        margin-left: 3px;
     }
 </style>

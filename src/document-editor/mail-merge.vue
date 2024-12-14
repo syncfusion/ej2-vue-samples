@@ -38,7 +38,7 @@
 </p>
 <ul>
     <li>Fields can be inserted using API.</li>
-    <li>Document generated is mail merged by Syncfusion DocIO on the server-side.</li>
+    <li>Document generated is mail merged by Syncfusion<sup>®</sup> DocIO on the server-side.</li>
     <li>Merged document is opened in the DocumentEditor.</li>
 </ul>
                 <p style= "display: block" > More information about the document editor features can be found in this <a target="_blank" href="https://ej2.syncfusion.com/react/documentation/document-editor/">documentation section.</a>
@@ -225,7 +225,7 @@ export default {
             printIconCss: 'e-de-icon-Print e-de-padding-right',
             exportIconCss: 'e-de-icon-Download e-de-padding-right',
             exportItems: [
-                { text: 'Syncfusion Document Text (*.sfdt)', id: 'sfdt' },
+                { text: 'Syncfusion® Document Text (*.sfdt)', id: 'sfdt' },
                 { text: 'Word Document (*.docx)', id: 'word' },
                 { text: 'Word Template (*.dotx)', id: 'dotx' },
                 { text: 'Plain Text (*.txt)', id: 'txt' },

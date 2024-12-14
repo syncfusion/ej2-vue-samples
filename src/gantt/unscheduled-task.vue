@@ -109,8 +109,8 @@ export default {
     .bootstrap5 #unscheduledGantt /deep/  .e-add-icon:before,
 	  .bootstrap5-dark #unscheduledGantt /deep/  .e-add-icon:before,
     .tailwind #unscheduledGantt /deep/ .e-add-icon:before,.tailwind-dark #unscheduledGantt /deep/ .e-add-icon:before,
-    .material3-dark #unscheduledGantt /deep/ .e-add-icon:before ,.material3 #unscheduledGantt /deep/ .e-add-icon:before 
-    {
+    .material3-dark #unscheduledGantt /deep/ .e-add-icon:before ,.material3 #unscheduledGantt /deep/ .e-add-icon:before,
+    .tailwind3 #unscheduledGantt /deep/ .e-add-icon:before,.tailwind3-dark #unscheduledGantt /deep/ .e-add-icon:before {
         content: "\e836";
         font-size : 16px;
         font-family : "e-icons"

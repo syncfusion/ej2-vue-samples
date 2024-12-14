@@ -91,10 +91,6 @@
         background-color: black;
     }
 
-    .fluent-dark .e-menu-wrapper.e-lib.e-keyboard {
-        background-color: black;
-    }
-
     .material3-dark .e-menu-wrapper.e-hamburger.e-lib.e-keyboard {
         background: #1c1b1f;
         border-radius: 0;
@@ -165,6 +161,40 @@
         background-color: black;
     }
 
+    /**
+    * ej2 Menu Tailwind 3 styles
+    */
+    .tailwind3-dark .layout #container {
+        background: #111827;
+    }
+    .tailwind3-dark .deviceLayout {
+        border-color: #374151;
+        background-image: none;
+    }
+    .tailwind3-dark .deviceLayout .layout {
+        border-color: #374151;
+    }
+    .tailwind3-dark .deviceLayout .camera,
+    .tailwind3 .deviceLayout .camera {
+        display: none;
+    }
+    .tailwind3-dark .deviceLayout .speaker,
+    .tailwind3-dark .deviceLayout .outerButton {
+        border-color: #282F3C;
+        background: #282F3C;
+    }
+    .tailwind3 .deviceLayout {
+        border-color: #D1D5DB;
+        background-image: none;
+    }
+    .tailwind3 .deviceLayout .layout {
+        border-color: #D1D5DB;
+    }
+    .tailwind3 .deviceLayout .speaker,
+    .tailwind3 .deviceLayout .outerButton {
+        border-color: #E5E7EB;
+        background: #E5E7EB;
+    }
 </style>
 <!-- custom code end -->
 <script>

@@ -20,10 +20,10 @@
     <div class="col-lg-3 property-section">
     <table id="property" title="Properties" style="width: 100%">
         <tr>
-            <td style="width: 100%">
+            <td style="width: 40%">
                 <div style="padding-top: 7px">Column menu</div>
             </td>
-            <td style="width: 50%;padding-right: 10px">
+            <td style="width: 60%;padding-right: 10px">
                 <div id='typeddl'>
                 <ejs-dropdownlist ref='directions' id='direction' width='120' :dataSource='columnMenuOptions' value='Default' :fields='fields' :change="change"></ejs-dropdownlist>
                 </div>

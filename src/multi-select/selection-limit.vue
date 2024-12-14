@@ -17,7 +17,7 @@
                             Selection Limit
                         </div>
                     </td>
-                    <td style="width: 50%; padding:10px 10px 10px 0px">
+                    <td style="width: 50%;">
                         <div>
                             <ejs-numerictextbox id="maxSel" aria-label="number"  value="3" :min="min"></ejs-numerictextbox>
                         </div>
@@ -64,6 +64,11 @@
     .e-bigger .e-specific.e-multiselect.e-input-group .e-ddl-icon::before {
         transform: translateY(2px);
     }
+
+    .property-panel-table div {
+        padding: 10px 0;
+    }
+
 </style>
 <script>
 import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";

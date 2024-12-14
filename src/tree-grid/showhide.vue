@@ -12,7 +12,7 @@
         </ejs-treegrid>
       </div>
       <div>
-        <div class="col-md-3 property-section">
+        <div class="col-md-3 property-section showhideproperty">
              <table id="property" title="Properties" style="width: 100%">
         <tr>
             <td style="width: 30%">
@@ -20,7 +20,7 @@
             </td>
             <td style="width: 70%;padding-right: 10px">
                 <div id='columnddl'>
-                    <ejs-dropdownlist width='130px' ref='columns' id='columns' :dataSource='columnNames' value='taskID' :fields='colfields' :change="onColChange" aria-label="Select column"></ejs-dropdownlist>
+                    <ejs-dropdownlist width='135px' ref='columns' id='columns' :dataSource='columnNames' value='taskID' :fields='colfields' :change="onColChange" aria-label="Select column"></ejs-dropdownlist>
                 </div>
             </td>
         </tr>
@@ -88,7 +88,13 @@
     }
     .fluent2-highcontrast #columns{
         width: 100px !important;
-    };
+    }
+    @media (min-with:990 && max-width:1300){
+        .property-panel-section,
+        .showhideproperty {
+            padding-left: 0px;
+          }
+    };  
 </style>
 <!-- custom code end -->
 <script lang="ts">

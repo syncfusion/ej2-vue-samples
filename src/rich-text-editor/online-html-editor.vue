@@ -194,12 +194,16 @@
   color: #fff;
 }
 .tailwind-dark .CodeMirror-gutters,
-.tailwind-dark .CodeMirror {
+.tailwind-dark .CodeMirror,
+.tailwind3-dark .CodeMirror-gutters,
+.tailwind3-dark .CodeMirror {
   background-color: #1f2937;
   color: #fff;
 }
 .highcontrast .CodeMirror-gutters,
-.highcontrast .CodeMirror {
+.highcontrast .CodeMirror,
+.fluent2-highcontrast .CodeMirror-gutters,
+.fluent2-highcontrast .CodeMirror {
   background-color: #000000;
   color: #fff;
 }
@@ -211,7 +215,9 @@
 .fluent2-dark .title,
 .material-dark .title,
 .tailwind-dark .title,
-.highcontrast .title {
+.tailwind3-dark .title,
+.highcontrast .title,
+.fluent2-highcontrast .title {
   color: #fff;
 }
 </style>

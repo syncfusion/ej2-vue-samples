@@ -111,7 +111,8 @@
     .bootstrap5-dark .uploader-image-preview-drop-area a {
         color:#0d6efd;
     }
-    .tailwind-dark .uploader-image-preview-drop-area a {
+    .tailwind-dark .uploader-image-preview-drop-area a,
+    .tailwind3-dark .uploader-image-preview-drop-area a {
         color:#22d3ee;
     }
 	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -197,7 +198,8 @@
     .fabric-dark.uploader-preview .e-upload .e-upload-files .e-icons,
     .bootstrap-dark.uploader-preview .e-upload .e-upload-files .e-icons, 
     .bootstrap5-dark.uploader-preview .e-upload .e-upload-files .e-icons,
-    .tailwind-dark.uploader-preview .e-upload .e-upload-files .e-icons {
+    .tailwind-dark.uploader-preview .e-upload .e-upload-files .e-icons,
+    .tailwind3-dark.uploader-preview .e-upload .e-upload-files .e-icons {
         color: #333;
     }
     .file-preview .uploader-preview .progressbar {
@@ -213,7 +215,9 @@
     .bootstrap5 .file-preview .uploader-preview .progressbar,
     .bootstrap5-dark .file-preview .uploader-preview .progressbar,
     .tailwind .file-preview .uploader-preview .progressbar,
+    .tailwind3 .file-preview .uploader-preview .progressbar,
     .tailwind-dark .file-preview .uploader-preview .progressbar,
+    .tailwind3-dark .file-preview .uploader-preview .progressbar,
     .fluent-dark .file-preview .uploader-preview .progressbar {
         top: -70px;
     }
@@ -224,6 +228,7 @@
     .bootstrap-dark .file-preview .uploader-preview div.file-name,
     .bootstrap5-dark .file-preview .uploader-preview div.file-name,
     .tailwind-dark .file-preview .uploader-preview div.file-name ,
+    .tailwind3-dark .file-preview .uploader-preview div.file-name ,
     .fluent-dark .file-preview .uploader-preview div.file-name,
     .fluent2-dark .file-preview .uploader-preview div.file-name {
         color: white;
@@ -255,7 +260,8 @@
     .fabric-dark .uploader-preview progress,
     .bootstrap-dark .uploader-preview progress,
     .bootstrap5-dark .uploader-preview progress,
-    .tailwind-dark .uploader-preview progress {
+    .tailwind-dark .uploader-preview progress,
+    .tailwind3-dark .uploader-preview progress {
         border: none;
         background: black;
     }

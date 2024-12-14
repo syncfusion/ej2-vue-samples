@@ -44,7 +44,7 @@
 import { EmitType } from '@syncfusion/ej2-base';
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, BubbleSeries, Tooltip, Legend, DataLabel} from "@syncfusion/ej2-vue-charts";
-import {bubblePointMaterialColors, bubblePointMaterialDarkColors, bubblePointFabricColors, bubblePointBootstrapColors, bubblePointHighContrastColors, bubblePointBootstrap5Colors, bubblePointBootstrap5DarkColors, bubblePointFluentColors, bubblePointFluentDarkColors, bubblePointTailwindColors, bubblePointTailwindDarkColors, pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, bubbleMaterial3Colors, pointMaterial3Colors, bubbleMaterial3DarkColors, pointMaterial3DarkColors, pointFluent2Colors, bubbleFluent2Colors, pointFluent2DarkColors, bubbleFluent2DarkColors, pointFluent2HighContrastColors, bubbleFluent2HighContrastColors } from './theme-color';
+import {bubblePointMaterialColors, bubblePointMaterialDarkColors, bubblePointFabricColors, bubblePointBootstrapColors, bubblePointHighContrastColors, bubblePointBootstrap5Colors, bubblePointBootstrap5DarkColors, bubblePointFluentColors, bubblePointFluentDarkColors, bubbleTailwindColors, bubbleTailwindDarkColors, pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, bubbleMaterial3Colors, pointMaterial3Colors, bubbleMaterial3DarkColors, pointMaterial3DarkColors, pointFluent2Colors, bubbleFluent2Colors, pointFluent2DarkColors, bubbleFluent2DarkColors, pointFluent2HighContrastColors, bubbleFluent2HighContrastColors, pointTailwind3Colors, pointTailwind3DarkColors, bubbleTailwind3Colors, bubbleTailwind3DarkColors } from './theme-color';
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
@@ -97,7 +97,7 @@ export default {
         },
 
       width : Browser.isDevice ? '100%' : '75%',
-      marker: {  dataLabel: { name: 'TooltipMappingName' , visible: true , position: 'Middle' , font: { fontWeight: '500'}} },
+      marker: {  dataLabel: { name: 'TooltipMappingName' , visible: true , position: 'Middle' , font: { fontWeight: '500', color: '#ffffff' }} },
       border: { width: 2 },
       legendSettings: { visible: false },
       tooltip: {
@@ -155,13 +155,13 @@ export default {
         }
         else if (selectedTheme==='tailwind-dark')
         {
-            args.fill = bubblePointTailwindDarkColors[args.point.index % 10];
+            args.fill = bubbleTailwindDarkColors[args.point.index % 10];
             args.border.color = pointTailwindDarkColors[args.point.index % 10];                     
 
         }
         else if (selectedTheme==='tailwind')
         {                    
-            args.fill = bubblePointTailwindColors[args.point.index % 10];
+            args.fill = bubbleTailwindColors[args.point.index % 10];
             args.border.color = pointTailwindColors[args.point.index % 10];
         }
         else if (selectedTheme==='highcontrast')
@@ -188,6 +188,14 @@ export default {
         else if (selectedTheme === 'fluent2-dark') {
             args.fill = bubbleFluent2DarkColors[args.point.index % 10];
             args.border.color = pointFluent2DarkColors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'tailwind3-dark') {
+            args.fill = bubbleTailwind3DarkColors[args.point.index % 10];
+            args.border.color = pointTailwind3DarkColors[args.point.index % 10];
+        } 
+        else if (selectedTheme === 'tailwind3') {
+            args.fill = bubbleTailwind3Colors[args.point.index % 10];
+            args.border.color = pointTailwind3Colors[args.point.index % 10];
         }
         else
         {

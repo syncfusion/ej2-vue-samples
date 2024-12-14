@@ -3,7 +3,7 @@
     <div class="col-md-12 control-section">
       <div class="content-wrapper grid-to-schedule">
         <div class="schedule-container">
-          <div>
+          <div class="schedule-content">
             <h5 style="text-align: center; margin: 0;position: relative; bottom: 10px;">Tasks Management</h5>
             <ejs-schedule id="Schedule" ref="ScheduleObj" :rowAutoHeight="true" width="100%" height="100%" :cssClass="'grid-schedule'" :selectedDate="selectedDate"
               :eventSettings="eventSettings" :group="group" :currentView="currentView" :dragStop="onDragStop" :eventDragArea="'.content-wrapper'" :dataBound="onDataBound"
@@ -56,12 +56,13 @@
 <style>
 
   .content-wrapper.grid-to-schedule .schedule-container {
-    display: flex;
-    height: 500px;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
   }
 
-  .content-wrapper.grid-to-schedule .Grid-container {
-    margin-left: 10px;
+  .content-wrapper.grid-to-schedule .schedule-container .schedule-content,
+  .content-wrapper.grid-to-schedule .schedule-container .Grid-container {
+    height: 500px;
   }
 
   .grid-schedule.e-schedule.e-device .e-timeline-view .e-resource-left-td {
@@ -79,6 +80,7 @@
 
   @media screen and (max-width: 768px) {
       .content-wrapper.grid-to-schedule .schedule-container {
+        display: flex;
         flex-direction: column;
       }
 
@@ -98,8 +100,8 @@
         margin-top: 15px;
       }
 
-      .content-wrapper.grid-to-schedule .schedule-container {
-        display: flex;
+      .content-wrapper.grid-to-schedule .schedule-container .schedule-content,
+      .content-wrapper.grid-to-schedule .schedule-container .Grid-container {
         height: 100% !important;
       }
   }

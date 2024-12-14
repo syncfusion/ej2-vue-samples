@@ -87,7 +87,7 @@
 
     .material-dark #formId,
     .material3-dark #formId,
-    .bootstrap5.3-dark #formId
+    .bootstrap5\.3-dark #formId
     .bootstrap5-dark #formId {
         background: #212529;
     }
@@ -98,7 +98,8 @@
     .fabric-dark #formId {
         background: #201f1f;
     }
-    .tailwind-dark #formId {
+    .tailwind-dark #formId,
+    .tailwind3-dark #formId  {
         background: #1f2937;
     }
     .fluent2-dark #formId,
@@ -111,7 +112,8 @@
     .bootstrap-dark .form-title,
     .fabric-dark .form-title,
     .tailwind-dark .form-title,
-    .bootstrap5.3-dark .form-title,
+    .tailwind3-dark .form-title,
+    .bootstrap5\.3-dark .form-title,
     .bootstrap5-dark .form-title,
     .fluent2-dark .form-title,
     .fluent2-highcontrast .form-title

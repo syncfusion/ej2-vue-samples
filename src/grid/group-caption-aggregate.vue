@@ -9,10 +9,11 @@
             :dataSource="data" :allowSorting='true' :allowMultiSorting='true' :allowFiltering='true' 
             :enableHover='false'
             :height=300
-            :filterSettings='filterSettings' :groupSettings='groupSettings' :allowGrouping='true' :gridLines='gridLines' >
+            :gridLines='gridLines'
+            :filterSettings='filterSettings' :groupSettings='groupSettings' :allowGrouping='true' >
                 <e-columns>
                     <e-column field='ID' :isPrimaryKey='true' :visible='false'></e-column>
-                    <e-column field='Month' headerText='Month' width='120' textAlign='Right' clipMode='EllipsisWithTooltip' format='yMd'></e-column>
+                    <e-column field='Month' headerText='Month' width='120' textAlign='Right' clipMode='EllipsisWithTooltip' format='yMd' type="date"></e-column>
                     <e-column field='ConsumptionCategory' headerText='Category' width='130' clipMode='EllipsisWithTooltip' textAlign='left'  ></e-column>
                     <e-column :headerTemplate="'energyTemplate'"  textAlign='Center' :columns='energyColumns'></e-column>
                     <e-column field='WeatherCondition' textAlign='Left' clipMode='EllipsisWithTooltip' headerText='Weather' width='120'></e-column>

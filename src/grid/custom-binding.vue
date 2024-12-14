@@ -8,7 +8,7 @@
     <div>
         <ejs-grid :dataSource='data' :allowPaging='true' :pageSettings='pageOptions' :allowSorting='true' :allowGrouping='true' :dataStateChange='dataStateChange'>
             <e-columns>
-                <e-column field= "OrderID" headerText="Order ID" width="130" textAlign='Right' ></e-column>
+                <e-column field= "OrderID" headerText="Order ID" width="130" textAlign='Right' :allowGrouping='false' ></e-column>
                 <e-column field= "CustomerID" headerText="Customer Name" width="150"></e-column>
                 <e-column field= "ShipName" headerText="Ship Name" width="200"></e-column>
                 <e-column field= "ShipCity" headerText="Ship City" width="150"></e-column>

@@ -113,6 +113,8 @@
     .fluent-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before,
     .tailwind .card-control-section.reveal_card_layout .e-card .e-collapse:before,
     .tailwind-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before,
+    .tailwind3 .card-control-section.reveal_card_layout .e-card .e-collapse:before,
+    .tailwind3-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before,
     .bootstrap5 .card-control-section.reveal_card_layout .e-card .e-collapse:before,
     .bootstrap5-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before{
         content: "\e7e7";
@@ -124,6 +126,8 @@
     .fluent-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
     .tailwind .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
     .tailwind-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
+    .tailwind3 .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
+    .tailwind3-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
     .bootstrap5 .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
     .bootstrap5-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before {
     content: "\e71c";

@@ -3,7 +3,6 @@
     "directory": "file-manager",
     "category": "Navigation",
     "ftName" :"file-manager",
-    "type": "update",
     "samples": [{
         "url": "overview",
         "name": "Overview",
@@ -29,8 +28,7 @@
         "name": "API",
         "category": "File Manager",
         "api": { "FileManager": ["ajaxSettings", "view"] },
-        "description": "This example demonstrates how to render the File Manager without the navigation pane in a Vue File Manager.",
-        "type": "update"
+        "description": "This example demonstrates how to render the File Manager without the navigation pane in a Vue File Manager."
     },
     {
         "url": "drag-drop",

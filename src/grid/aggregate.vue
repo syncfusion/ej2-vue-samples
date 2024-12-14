@@ -95,10 +95,10 @@
     </div>
     </template>
     <style>
-        #default-aggregate-grid.e-grid tr.e-altrow .e-rowcell:not(.e-selectionbackground.e-active) {
-        background-color: rgb(228 228 228 / 15%);
-    }
-</style>
+      #default-aggregate-grid.e-grid tr.e-altrow .e-rowcell:not(.e-selectionbackground.e-active) {
+          background-color: rgb(228 228 228 / 15%);
+      }
+    </style>
     <script lang="ts">
     import { createApp } from "vue";
     import { GridComponent, ColumnsDirective, ColumnDirective, AggregateDirective, AggregatesDirective, Aggregate, Page, Sort, Toolbar, Edit, Filter } from "@syncfusion/ej2-vue-grids";

@@ -64,12 +64,6 @@
         margin-left: -46px;
         margin-top: -22px;
     }
-    .e-view.tailwind div#kpiarcgauge .triangle-up, .e-view.tailwind-dark div#kpiarcgauge .triangle-up {
-      margin-top: -6px;
-    }
-    .e-view.tailwind div#kpiarcgauge .text, .e-view.tailwind-dark div#kpiarcgauge .text {
-       margin-top: 0px;
-    }
     .e-view.material div#kpiarcgauge .triangle-up, .e-view.material-dark div#kpiarcgauge .triangle-up,
     .e-view.bootstrap-dark div#kpiarcgauge .triangle-up,
     .e-view.bootstrap div#kpiarcgauge .triangle-up,
@@ -80,6 +74,10 @@
         border-right: 10px solid transparent;
         border-bottom: 20px solid #84cbb5;
         margin-top: -31px;
+    }
+
+    .e-view.tailwind3 div#kpiarcgauge .triangle-up, .e-view.tailwind3-dark div#kpiarcgauge .triangle-up {
+       margin-top: -6px;
     }
 
     @media screen and (max-width: 420px) {
@@ -102,20 +100,6 @@
             border-right: 10px solid transparent;
             border-bottom: 20px solid #84cbb5;
             margin-top: -30px;
-        }
-
-        .e-view.tailwind div#kpiarcgauge .text, .e-view.tailwind-dark div#kpiarcgauge .text {
-          margin-top: 0px;
-          margin-left: -6px;
-        }
-
-        .e-view.tailwind div#kpiarcgauge .percentage, .e-view.tailwind-dark div#kpiarcgauge .percentage {
-          margin-left: -25px;
-          margin-top: -22px;
-        }
-
-        .e-view.tailwind div#kpiarcgauge .triangle-up, .e-view.tailwind-dark div#kpiarcgauge .triangle-up {
-          margin-top: -15px;
         }
        
         .e-view.material div#kpiarcgauge .percentage,

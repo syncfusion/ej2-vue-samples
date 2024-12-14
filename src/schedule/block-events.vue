@@ -80,6 +80,7 @@
         white-space: normal;
     }
 
+    
     @media (max-width: 550px) {
         .e-schedule .e-day-view .employee-image {
             display: none;

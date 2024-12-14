@@ -2,13 +2,13 @@
     <div class="control-section">
         <div class='control-wrapper virtualization-multicolumn'>
             <div style='padding-top:55px;'>
-                <ejs-multicolumncombobox type="text" id='virtual' :dataSource="dataSource" :enableVirtualization="enableVirtualization" :fields="fields" placeholder="Select an engineer" popupHeight="230px" :gridSettings="gridSettings">
+            <label>Select an employee</label>
+                <ejs-multicolumncombobox type="text" id='virtual' :dataSource="dataSource" :enableVirtualization="enableVirtualization" :fields="fields" placeholder="e.g. Alice Johnson" popupHeight="210px" popupWidth="530px" :gridSettings="gridSettings">
                     <e-columns>
-                        <e-column field='TaskID' header='Task ID' width="70"/>
-                        <e-column field='Engineer' header='Engineer' width="100"/>
-                        <e-column field='Designation' header='Designation' width="100"/>
-                        <e-column field='Estimation' header='Estimation' width="90"/>
-                        <e-column field='Status' header='Status' width="90"/>
+                        <e-column field='Name' header='Name' width="100"/>
+                        <e-column field='Department' header='Department' width="100"/>
+                        <e-column field='Role' header='Role' width="90"/>
+                        <e-column field='Location' header='Location' width="90"/>
                     </e-columns>
                 </ejs-multicolumncombobox>
             </div>
@@ -28,7 +28,7 @@
 <style>
     .control-wrapper.virtualization-multicolumn {
         margin: 0 auto;
-        width: 530px;
+        width: 250px;
     }
 
     @media screen and (max-width: 480px) {
@@ -43,20 +43,19 @@
 import { MultiColumnComboBoxComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-vue-multicolumn-combobox";
 import data from './dataSource.json';
 
-let names = ["John", "Alice", "Bob", "Mario Pontes", "Yang Wang", "Michael", "Nancy", "Robert King"];
-let hours = [8, 12, 16];
-let status = ["Pending", "Completed", "In Progress"];
-let designation = ["Engineer", "Manager", "Tester"];
+let names = ["John Doe", "Jane Smith", "Alice Johnson", "Bob Brown", "Emily Davis"];
+let departments = ["HR", "IT", "Finance", "Marketing", "Sales"];
+let roles = ["Manager", "Developer", "Analyst", "Consultant", "Executive"];
+let locations = ["New York", "San Francisco", "London", "Berlin", "Tokyo"];
 let records = [];
 function datas() {
     for (var i = 1; i <= 150; i++) {
         records.push({
-                    TaskID: i,
-                    Engineer: names[Math.floor(Math.random() * names.length)],
-                    Designation: designation[Math.floor(Math.random() * designation.length)],
-                    Estimation: hours[Math.floor(Math.random() * hours.length)],
-                    Status: status[Math.floor(Math.random() * status.length)]
-                });
+                Name: names[Math.floor(Math.random() * names.length)],
+                Department: departments[Math.floor(Math.random() * departments.length)],
+                Role: roles[Math.floor(Math.random() * roles.length)],
+                Location: locations[Math.floor(Math.random() * locations.length)]
+            });
     }
 };
 datas();
@@ -71,7 +70,7 @@ export default {
             dataSource: records,
             enableVirtualization: true,
             gridSettings: { rowHeight: 40 },
-            fields: { text: 'Engineer', value: 'TaskID'}
+            fields: { text: 'Name', value: 'Name'},
         }
     }
 }

@@ -131,7 +131,9 @@ export default {
 .bootstrap5.3-dark .datepicker-special-dates td.e-special-icons.highlight,
 .bootstrap5.3-dark .datepicker-special-dates td.e-special-icons.highlight:before,
 .tailwind-dark .datepicker-special-dates td.e-special-icons.highlight,
-.tailwind-dark .datepicker-special-dates td.e-special-icons.highlight:before {
+.tailwind3-dark .datepicker-special-dates td.e-special-icons.highlight,
+.tailwind-dark .datepicker-special-dates td.e-special-icons.highlight:before,
+.tailwind3-dark .datepicker-special-dates td.e-special-icons.highlight:before {
     color: #ff7500;
 }
 

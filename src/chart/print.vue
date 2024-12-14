@@ -65,7 +65,7 @@
         content: '\e743';
     }
  
-    .e-view.tailwind .e-print-icon::before, .e-view.tailwind-dark .e-print-icon::before {
+    .e-view.tailwind3 .e-print-icon::before, .e-view.tailwind3-dark .e-print-icon::before {
         content: '\e76c';
     }
  
@@ -91,7 +91,7 @@
 <script>
 import { Browser } from "@syncfusion/ej2-base";
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2HighContrastColors } from './theme-color';
+import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2HighContrastColors, pointTailwind3Colors, pointTailwind3DarkColors } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Legend, DataLabel } from "@syncfusion/ej2-vue-charts";
 
@@ -204,6 +204,12 @@ export default {
       else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
         args.fill = pointFluent2HighContrastColors[args.point.index % 10];
       }
+      else if (selectedTheme === 'tailwind3') {
+        args.fill = pointTailwind3Colors[args.point.index % 10];
+      } 
+      else if (selectedTheme === 'tailwind3-dark') {
+        args.fill = pointTailwind3DarkColors[args.point.index % 10];
+      } 
       else {
         args.fill = pointBootstrapColors[args.point.index % 10];
       }

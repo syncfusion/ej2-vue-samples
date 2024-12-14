@@ -64,7 +64,7 @@
                     </div>
                     <div class='sb-header-item sb-table-cell'>
                         <div id='sb-header-text' class='e-sb-header-text'>
-                            <span class='sb-header-text-left'>Essential JS 2 for </span>
+                            <span class='sb-header-text-left'>Essential Studio<sup>®</sup> for </span>
                             <span class='sb-header-text-right' role="button" tabindex="0">Vue</span>
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Fluent 2</span>
                         </li>
-                        <li class="e-list" id="tailwind" role="listitem">
+                        <li class="e-list" id="tailwind3" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Tailwind CSS</span>
                         </li>
@@ -173,11 +173,15 @@
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Fluent 2 High Contrast</span>
                         </li>
-                        <li class="e-list" id="highcontrast" role="listitem">
+                        <li class="e-list sb-hide" id="highcontrast" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">High Contrast</span>
                         </li>
-                        <li class="e-list" id="fluent" role="listitem">
+                        <li class="e-list sb-hide" id="tailwind" role="listitem">
+                            <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Tailwind</span>
+                        </li>
+                        <li class="e-list sb-hide" id="fluent" role="listitem">
                             <span class='sb-icons sb-theme-select sb-icon-icon-selection'></span>
                             <span class="switch-text">Fluent</span>
                         </li>
@@ -202,9 +206,10 @@
                                     <option value="material3">Material 3</option>
                                     <option value="bootstrap5">Bootstrap v5</option>
                                     <option value="fluent2">Fluent 2</option>
-                                    <option value="tailwind">Tailwind CSS</option>
+                                    <option value="tailwind3">Tailwind CSS</option>
                                     <option value="fluent2-highcontrast">Fluent 2 High Contrast</option>
                                     <option value="highcontrast">High Contrast</option>
+                                    <option value="tailwind">Tailwind</option>
                                     <option value="fluent">Fluent</option>
                                 </select>
                             </div>
@@ -343,7 +348,7 @@
                                     <div class="col-sm-12">
                                         <div class="col-sm-12">
                                             <div id="banner-head" class="banner-header">Transform your Vue web apps today
-                                                with Syncfusion Vue components</div>
+                                                with Syncfusion<sup>®</sup> Vue components</div>
                                         </div>
                                         <div class="col-sm-12 cnt-area">
                                             <div class="content-area">
@@ -484,8 +489,8 @@ const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
 const sbArray: string[] = ['angular', 'react', 'nextjs', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
-let selectedTheme: string = location.hash.split('/')[1] || 'fluent2';
-const themeCollection: string[] = ['material3', 'bootstrap5', 'fluent2', 'tailwind', 'fluent2-highcontrast', 'highcontrast', 'fluent'];
+let selectedTheme: string = location.hash.split('/')[1] || 'tailwind3';
+const themeCollection: string[] = ['material3', 'bootstrap5', 'fluent2', 'tailwind3', 'tailwind', 'fluent2-highcontrast', 'highcontrast', 'fluent'];
 const themesToRedirect: string[] = ['material', 'material-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'fabric', 'fabric-dark'];
 let resizeManualTrigger: boolean = false;
 const matchedCurrency: { [key: string]: string } = {
@@ -596,7 +601,7 @@ onMounted(async () => {
     sb.vars.sample = select('#sb-switcher-popup', rootEle);
     // searchEle = select('#search-popup', rootEle);
     copyRight = select('.sb-footer-copyright', rootEle);
-    copyRight.innerHTML = "Copyright © 2001 - " + new Date().getFullYear() + " Syncfusion Inc.";
+    copyRight.innerHTML = "Copyright © 2001 - " + new Date().getFullYear() + " Syncfusion<sup>®</sup> Inc.";
     searchButton = select('#sb-trigger-search', rootEle);
     searchOverlay = select('.e-search-overlay', rootEle);
     inputele = select('#search-input', rootEle);
@@ -805,7 +810,7 @@ const controlSelect = (arg: any): void => {
         controlListRefresh(arg.node || arg.item);
         if (path !== curHashCollection) {
             sampleOverlay();
-            let theme: string = location.hash.split('/')[1] || 'fluent2';
+            let theme: string = location.hash.split('/')[1] || 'tailwind3';
             if (arg.item && ((isMobile) ||
                 ((isTablet || (Browser.isDevice && isPc)) && isLeftPaneOpen()))) {
                 toggleLeftPane();
@@ -887,6 +892,8 @@ const setSelectList = (): void => {
             selectSample.scrollIntoView({ block: "nearest" });
 
         }
+        let sampleTreeView: TreeView = (select('#controlTree', rootEle) as any).ej2_instances[0];
+        sampleTreeView.selectedNodes = [control.getAttribute('data-uid') ?? ''];
     } else {
         showHideControlTree();
         list.selectItem(select('[sample-name="grid-overview"]'));
@@ -1405,7 +1412,7 @@ const setThemeModesButton = (): void => {
     }
 };
 const loadTheme = (theme: string): void => {
-    theme = themesToRedirect.indexOf(theme) !== -1 ? 'fluent2': theme;
+    theme = themesToRedirect.indexOf(theme) !== -1 ? 'tailwind3': theme;
     let body: HTMLElement = document.body;
     if (body.classList.length > 0) {
         for (let themeItem of themeCollection) {
@@ -1586,20 +1593,12 @@ const processResize = (e: any): void => {
     let rightPane: Element = select('.sb-right-pane');
     let footer: Element = select('.sb-footer-left');
     let pref: any = select('#settings-popup');
-    if (isTablet || isMobile) {
-        sb.vars.contentTab.hideTab(1);
-    } else {
-        sb.vars.contentTab.hideTab(1, false);
-    }
-    if (toggle && !isPc) {
+    if (toggle && !isPc && !isTablet) {
         toggleLeftPane();
     }
-    if (isMobile || isTablet) {
+    if (isMobile) {
         sidebar.closeOnDocumentClick = true;
         select('.sb-left-footer-links').appendChild(footer);
-        if (isTablet) {
-            select('.sb-footer').appendChild(footer);
-        }
         if (isVisible('.sb-mobile-overlay')) {
             removeMobileOverlay();
         }
@@ -1616,7 +1615,10 @@ const processResize = (e: any): void => {
             removeMobileOverlay();
         }
     }
-    if (isPc) {
+    if (isPc || isTablet) {
+        if (isTablet) {
+            select('.sb-footer').appendChild(footer);
+        }
         sidebar.target = sb.vars.source;
         sidebar.showBackdrop = false;
         sidebar.closeOnDocumentClick = false;
@@ -1730,7 +1732,7 @@ const sampleArray = (): void => {
         let samples: Samples[] & { [key: string]: Object }[] = <Samples[] & { [key: string]: Object }[]>
             dataManager.executeLocal(new Query().sortBy('order', 'ascending'));
         for (let sample of samples) {
-            let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'fluent2';
+            let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'tailwind3';
             let control: string = node.directory;
             let sampleUrl: string = sample.url;
             let loc: string = '/' + selectedTheme + '/' + control + '/' + sampleUrl + '.html';
@@ -1799,6 +1801,7 @@ const updatesourceTab = (): void => {
                 data: '',
                 content: sourceFiles[i].displayName
             });
+            updateStackBlitz();
         }
     }
     Promise.all(sourcePromise).then((results: Object[]): void => {
@@ -1825,6 +1828,10 @@ const updatesourceTab = (): void => {
         let propPanel: Element = select('#control-content .property-section');
         if (isMobile) {
             if (propPanel) {
+                select('#right-sidebar').style.display = 'none';
+                viewMobilePropPane();
+                settingSidebar.toggle();
+                select('#right-sidebar').style.display = '';
                 select('.sb-mobile-setting').classList.remove('sb-hide');
                 select('.sb-mobile-prop-pane').appendChild(propPanel);
             } else {
@@ -1846,7 +1853,7 @@ const updatesourceTab = (): void => {
                             content: `${hideLocation} component not supported in mobile device`
                         });
                     }, 200);
-                window.location.hash = "#/fluent2/grid/grid-overview.html"
+                window.location.hash = "#/tailwind3/grid/grid-overview.html"
             }
         }
         let curIndex: number = samplesAr.indexOf(location.hash);

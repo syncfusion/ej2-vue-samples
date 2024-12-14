@@ -127,7 +127,7 @@
       <p>This sample illustrates a circular progress bar with start and end angle customized.</p>
     </div>
     <div id="description">
-      <p> This demo for Essential JS2 Progress Bar control shows the customizing options for angle in circular progress bar. Annotation is enabled in the sample to represent the progress value with animation.</p>
+      <p> This demo for Essential<sup>®</sup> JS2 Progress Bar control shows the customizing options for angle in circular progress bar. Annotation is enabled in the sample to represent the progress value with animation.</p>
     </div>
   </div>
 </template>
@@ -201,7 +201,7 @@ import {
         }
         return ('<div id="point1" style="font-size:24px;font-weight:bold;color: ' + color + ' "><span>' + content + '</span></div>');
     }
-    let annotationColors = ['#e91e63', '#0078D6', '#317ab9', '#007bff', '#4F46E5', '#FFD939', '#9A9A9A', '#22D3EE', '#0D6EFD', '#6750A4', '#D0BCFF', '#0F6CBD', '#1AEBFF', '#115EA3'];
+    let annotationColors = ['#e91e63', '#0078D6', '#317ab9', '#007bff', '#4F46E5', '#FFD939', '#9A9A9A', '#22D3EE', '#0D6EFD', '#6750A4', '#D0BCFF', '#0F6CBD', '#1AEBFF', '#115EA3', '#6366F1'];
 
 export default {
   components: {
@@ -271,6 +271,7 @@ export default {
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[3], args.progressBar.element.id);
                 break;
             case 'tailwind':
+            case 'tailwind3':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[4], args.progressBar.element.id);
                 break;
             case 'bootstrap-dark':
@@ -283,6 +284,9 @@ export default {
             case 'fluent':
             case 'fluent-dark':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[8], args.progressBar.element.id);
+                break;
+            case 'tailwind3-dark':
+                args.progressBar.annotations[0].content = annotationElementContent(annotationColors[14], args.progressBar.element.id);
                 break;
             case 'tailwind-dark':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[7], args.progressBar.element.id);

@@ -98,7 +98,7 @@
     </div>
     <div id="description">
       <p>
-        This demo for Essential JS2 Progress Bar control shows the customizing
+        This demo for Essential<sup>®</sup> JS2 Progress Bar control shows the customizing
         options for radius, inner-radius, pie progress, track and progress
         thickness.
       </p>
@@ -191,6 +191,7 @@ export default {
           args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#317ab9"><span></span></div>';
           break;
         case 'tailwind':
+        case 'tailwind3':
           args.progressBar.progressColor = '#4F46E5';
           args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#4F46E5"><span></span></div>';
           break;
@@ -206,8 +207,12 @@ export default {
             args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#9A9A9A"><span></span></div>';
             break;
         case 'tailwind-dark':
-            args.progressBar.progressColor = '#22D3EE';
-            args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#22D3EE"><span></span></div>';
+          args.progressBar.progressColor = '#22D3EE';
+          args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#22D3EE"><span></span></div>';
+          break;
+        case 'tailwind3-dark':
+            args.progressBar.progressColor = '#6366F1';
+            args.progressBar.annotations[0].content = '<div id="point1" style="font-size:24px;font-weight:bold;color:#6366F1"><span></span></div>';
             break;
         case 'bootstrap4':
             args.progressBar.progressColor = '#007bff';

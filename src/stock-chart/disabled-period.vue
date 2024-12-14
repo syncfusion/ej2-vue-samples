@@ -69,8 +69,12 @@
             <stop offset="1"></stop>
         </linearGradient>
         <linearGradient id="tailwind-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0"></stop>
-                <stop offset="1"></stop>
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="tailwind3-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
         </linearGradient>
         <linearGradient id="bootstrap5-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
             <stop offset="0"></stop>
@@ -89,6 +93,10 @@
             <stop offset="1"></stop>
         </linearGradient>
         <linearGradient id="tailwind-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0"></stop>
+            <stop offset="1"></stop>
+        </linearGradient>
+        <linearGradient id="tailwind3-dark-gradient-chart" style="opacity: 0.75" class="chart-gradient" x1="0" x2="0" y1="0" y2="1">
             <stop offset="0"></stop>
             <stop offset="1"></stop>
         </linearGradient>
@@ -151,7 +159,10 @@
         stop-color: #a16ee5;
     }
     #tailwind-dark-gradient-chart stop {
-        stop-color: #8B5CF6;
+      stop-color: #8B5CF6;
+    }
+    #tailwind3-dark-gradient-chart stop {
+      stop-color: #8029F1;
     }
     #bootstrap4-gradient-chart stop {
         stop-color: #a16ee5;
@@ -160,7 +171,10 @@
         stop-color: #79ECE4;
     }
     #tailwind-gradient-chart stop {
-        stop-color: #4f46e5;
+      stop-color: #5A61F6;
+    }
+    #tailwind3-gradient-chart stop {
+      stop-color: #2F4074;
     }
     #bootstrap5-gradient-chart stop {
         stop-color: #FD7E14;

@@ -2,7 +2,8 @@
     <div class="control-section">
         <div class='control-wrapper template-multicolumn'>
             <div style='padding-top:55px;'>
-                <ejs-multicolumncombobox cssClass="multicolumn-customize" type="text" id='template' :dataSource="dataSource" :fields="fields" placeholder="Select an employee" popupHeight="230px" :gridSettings="gridSettings">
+            <label>Select an employee</label>
+                <ejs-multicolumncombobox cssClass="multicolumn-customize" type="text" id='template' :dataSource="dataSource" :fields="fields" placeholder="Select an employee" popupHeight="210px" popupWidth="540px" :gridSettings="gridSettings">
                     <e-columns>
                         <e-column field='Eimg' header='Photos' width="90" headerTemplate='<div class="header"> <span>Photo</span> </div>' template='<div><img class="empImage" src="src/images/employees/${Eimg}.png" alt="employee"/> </div>'/>
                         <e-column field='Name' header='Employee Name' width="160" headerTemplate='<div class="header"> <span class="e-icons e-multicolumn-userlogin"></span> <span>Employee info</span> </div>' template='<div class="ename"> ${Name} </div> <div class="job"> ${Designation} </div>'/>
@@ -34,7 +35,7 @@
 <style>
     .control-wrapper.template-multicolumn {
         margin: 0 auto;
-        width: 540px;
+        width: 250px;
     }
 
     @media screen and (max-width: 480px) {
@@ -48,6 +49,10 @@
         height: 40px;
     }
 
+    .multicolumn-customize .header {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
     .multicolumn-customize .ename {
         opacity: .87;

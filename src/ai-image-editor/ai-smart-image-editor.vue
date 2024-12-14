@@ -134,7 +134,7 @@ export default {
         },
         removeBG(file) {
             StabilityAiModelBGRemover(file).then(result => {
-                this.$refs.imageEditorRef.open(result, false);
+                this.$refs.imageEditorRef.open(result, false, { backgroundColor: '' });
                 setTimeout(() => {
                     hideSpinner(this.$refs.imageEditorRef.element);
                     document.getElementById('wrapper-container').style.opacity = '1';

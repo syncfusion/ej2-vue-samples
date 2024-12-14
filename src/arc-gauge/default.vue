@@ -269,7 +269,7 @@ export default {
 
     .e-view.fluent2 div#dfarcgauge .titleText,
     .e-view.fluent2-dark div#dfarcgauge .titleText {
-        margin-top: -2px;
+        margin-top: -3px;
         margin-left: -18px;
     }
 
@@ -277,6 +277,17 @@ export default {
     .e-view.fluent2-dark div#dfarcgauge .fbText,
     .e-view.fluent2-highcontrast div#dfarcgauge .fbText {
         margin-left: -18px;
+        margin-top: -3px;
+    }
+
+    .e-view.fluent2 div#dfarcgauge .tiktokText,
+    .e-view.fluent2-dark div#dfarcgauge .tiktokText {
+      margin-top: -3px;
+    }
+
+    .e-view.material3 div#dfarcgauge .fbText,
+    .e-view.material3-dark div#dfarcgauge .fbText {
+      margin-top: -3px;
     }
 
     #dfarcgauge .titleText {
@@ -289,43 +300,53 @@ export default {
     #dfarcgauge .fbText {
       font-family: inherit;
       font-size: 22px;
-      margin-top: 0px;
+      margin-top: -3px;
       margin-left: -19px;
     }
     
     #dfarcgauge .youTubeText {
         font-family:inherit;
         font-size: 22px;
-        margin-top: -2px;
+        margin-top: -4px;
         margin-left: -13px;
     }
-    
-    .e-view.tailwind div#dfarcgauge .titleText,
-    .e-view.tailwind-dark div#dfarcgauge .titleText,
-    .e-view.tailwind div#dfarcgauge .youTubeText,
-    .e-view.tailwind-dark div#dfarcgauge .youTubeText {
-        font-size: 22px;
-        margin-top: -7px;
+
+    .e-view.tailwind3 div#dfarcgauge .fbText,
+    .e-view.tailwind3-dark div#dfarcgauge .fbText {
+      font-size: 22px;
+      margin-top: 12px;
     }
-    
-    .e-view.tailwind div#dfarcgauge .fbText,
-    .e-view.tailwind-dark div#dfarcgauge .fbText {
-        font-size: 22px;
-        margin-top: 14px;
+
+    .e-view.tailwind3 div#dfarcgauge .youTubeText,
+    .e-view.tailwind3-dark div#dfarcgauge .youTubeText {
+      font-size: 22px;
+      margin-top: -9px;
+    }
+
+    .e-view.tailwind3 div#dfarcgauge .titleText,
+    .e-view.tailwind3-dark div#dfarcgauge .titleText {
+      font-size: 22px;
+      margin-top: -9px;
+    }
+
+    .e-view.tailwind3 div#dfarcgauge .tiktokText,
+    .e-view.tailwind3-dark div#dfarcgauge .tiktokText {
+      font-size: 22px;
+      margin-top: -9px;
     }
     
     #dfarcgauge .tiktokText {
         font-family:inherit;
         font-size: 22px;
-        margin-top: -2px;
+        margin-top: -3px;
         margin-left:-10px;
     }
 
-    .e-view.tailwind div#dfarcgauge .tiktokText,
-    .e-view.tailwind-dark div#dfarcgauge .tiktokText {
-        font-size: 22px;
-        margin-top: -6px;
+    .e-view.bootstrap5_3 div#dfarcgauge .tiktokText,
+    .e-view.bootstrap5_3-dark div#dfarcgauge .tiktokText {
+      margin-top: -3px;
     }
+
     #dfarcgauge .annotation {
         font-family:inherit;
         font-size: 18px;
@@ -356,34 +377,6 @@ export default {
             font-size: 13px;
             margin-top: -4px;
             margin-left: 2px;
-        }
-
-        .e-view.tailwind div#dfarcgauge .titleText,
-        .e-view.tailwind-dark div#dfarcgauge .titleText {
-            font-size: 15px;
-            margin-top: -3px;
-            margin-left:-6px;
-        }
-        
-        .e-view.tailwind div#dfarcgauge .youTubeText,
-        .e-view.tailwind-dark div#dfarcgauge .youTubeText {
-            font-size: 15px;
-            margin-top: -3px;
-            margin-left:-6px;
-        }
-        
-        .e-view.tailwind div#dfarcgauge .fbText,
-        .e-view.tailwind-dark div#dfarcgauge .fbText {
-            font-size: 15px;
-            margin-top: 19px;
-            margin-left:-6px;
-        }
-        
-        .e-view.tailwind div#dfarcgauge .tiktokText,
-        .e-view.tailwind-dark div#dfarcgauge .tiktokText {
-            font-size: 15px;
-            margin-top: -2px;
-            margin-left:-6px;
         }
     }
 </style>
