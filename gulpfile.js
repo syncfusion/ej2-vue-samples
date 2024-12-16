@@ -157,7 +157,7 @@ gulp.task('combine-samplelist', function() {
 gulp.task('generate-routes', function(done) {
     var jsonFiles = glob.sync('./src/**/sample.json');
     var imports = '',
-    routs = ["{path: '/', redirect: '/bootstrap5/grid/grid-overview'}"];
+    routs = ["{path: '/', redirect: '/tailwind3/grid/grid-overview'}"];
     jsonFiles.forEach(file => {
         var curJson = require(__dirname + '/' + file);
         curJson.samples.forEach(curSample => {
