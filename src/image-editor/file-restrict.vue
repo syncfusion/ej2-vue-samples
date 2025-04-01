@@ -17,7 +17,7 @@
         </div>
         <div class="e-img-editor-dropdown-container">
           <label>Allowed Extensions</label><br/>
-          <ejs-multiselect id="allowedExtensions" :style="{ width: '180px' }" :dataSource="fileExtensionsList" :fields="fields" mode="CheckBox" showSelectAll="true" :value="allowedExtensions" :change="updateAllowedExtensions"></ejs-multiselect>
+          <ejs-multiselect id="allowedExtensions" :style="{ width: '225px' }" :dataSource="fileExtensionsList" :fields="fields" mode="CheckBox" showSelectAll="true" :value="allowedExtensions" :change="updateAllowedExtensions"></ejs-multiselect>
         </div>
       </div>
       <div class="e-img-editor-sample">
@@ -177,14 +177,6 @@ export default {
     margin-top: 18px;
 }
 
-
-@media only screen and (max-width: 700px) {
-  .e-img-editor-sample {
-    height: 75vh;
-    width: 100%;
-  }
-}
-
 .control-wrapper {
 	height: 100%;
 }
@@ -195,5 +187,19 @@ export default {
 
 .e-img-editor-dropdown-container #dropdownbtn {
   font-weight: 400;
+}
+
+@media only screen and (max-width: 700px) {
+  .e-img-editor-sample {
+    height: 75vh;
+    width: 100%;
+  }
+  .e-img-editor-dropdown-container,
+  .e-img-editor-numeric-textbox-container {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 20px;
+      text-align: center;
+  }
 }
 </style>

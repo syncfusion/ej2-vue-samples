@@ -40,11 +40,10 @@
   <script>
   import { Browser } from '@syncfusion/ej2-base';
   import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, DataLabel, Tooltip } from "@syncfusion/ej2-vue-charts";
-  
-  let selectedTheme = location.hash.split("/")[1];
-  selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-  let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
-  export default {
+  import { loadChartTheme } from "./theme-color";
+  let theme = loadChartTheme();
+
+export default {
     components: {
       'ejs-chart': ChartComponent,
       'e-series-collection': SeriesCollectionDirective,
@@ -96,10 +95,8 @@
     },
     methods: {
       load: function (args) {
-        let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-          selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+       loadChartTheme(args);
+
       }
     },
   };

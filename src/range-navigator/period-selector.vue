@@ -106,10 +106,10 @@ import { RangeNavigatorComponent, RangenavigatorSeriesDirective, RangenavigatorS
 import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
 import { periodData } from "./period-data";
 import { Browser, remove } from "@syncfusion/ej2-base";
+import {  loadRangeNavigatorTheme } from "./theme-color";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+let theme = loadRangeNavigatorTheme();
+let selectedTheme = loadRangeNavigatorTheme(null, true);
 
 let dataBind = [];
 for (let i = 2110; i < periodData.length - 20; i++) {

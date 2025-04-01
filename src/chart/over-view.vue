@@ -4,18 +4,21 @@
         <ejs-dashboardlayout  ref="DashbordInstance" :columns="8"  :cellSpacing="spacing" :cellAspectRatio='cellAspectRatio'  :resizeStop="onPanelResize">
              <e-panels>
                 <e-panel style="height:100%; width:100%" :row="0" :col="0" :sizeX="columnSizeX" :sizeY="columnSizeY" header="<div class='charttitle' id='header1' >Sales - Yearly Performance</div>" :content="column"></e-panel>
-                    <e-panel style="height:100%; width:100%" :row="0" :col="pieColumn" :sizeX="pieSizeX" :sizeY="pieSizeY" header="<div class='charttitle' id='header2' >Product Wise Sales - 2021</div>" :content="pie"></e-panel>
-                    <e-panel style="height:100%; width:100%" :row="splineRow" :col="0" :sizeX="splineSizeX" :sizeY="splineSizeY" header="<div class='charttitle' id='header3' >Monthly Sales for 2021</div>" :content="spline"></e-panel>
+                    <e-panel style="height:100%; width:100%" :row="0" :col="pieColumn" :sizeX="pieSizeX" :sizeY="pieSizeY" header="<div class='charttitle' id='header2' >Product Wise Sales - 2024</div>" :content="pie"></e-panel>
+                    <e-panel style="height:100%; width:100%" :row="splineRow" :col="0" :sizeX="splineSizeX" :sizeY="splineSizeY" header="<div class='charttitle' id='header3' >Monthly Sales for 2024</div>" :content="spline"></e-panel>
              </e-panels>
-        </ejs-dashboardlayout>   
+        </ejs-dashboardlayout>
         </div>
         <div id="action-description">
-        <p>This sample shows an overview of <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts" aria-label="Navigate to explore the Syncfusion<sup>®</sup> Vue Charts">Vue Charts</a> that allows users to visualize data easily and take decisions based on it. There are different types of charts to create feature rich apps.</p>
+            <p>This sample shows an overview of <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts" aria-label="Navigate to explore the Syncfusion Vue Charts">Vue Charts</a> that allows users to visualize data easily and take decisions based on it. There are different types of charts to create feature rich apps.</p>
         </div>
         <div id="description">
             <p>
                 The Vue Chart is a well-crafted charting component to visualize data.
-                In this example, you will see how to render and configure line, column, and pie charts with different features such as highlight, legend, tooltip, and annotation. The Chart uses <code>SfDataManager</code>, which supports both RESTful JSON data services binding and IEnumerable binding. 
+                In this example, you will see how to render and configure line, column, and pie charts with different features such as highlight, legend, tooltip, and annotation. The Chart uses <code>SfDataManager</code>, which supports both RESTful JSON data services binding and IEnumerable binding.
+            </p>
+            <p>
+                <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover over or tap on the chart.
             </p>
             <p>
                 More information about the Vue Chart can be found in this

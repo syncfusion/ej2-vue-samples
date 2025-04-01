@@ -190,6 +190,11 @@ padding-left: 18px;"
               />
             </div>
           </div>
+          <div class="row sb-child-row">
+            <div class="col-xs-6 top barcode-panel-left">
+                <ejs-button id="downloadButton" :onClick="onDownloadbuttonClick">Download</ejs-button>
+            </div>
+        </div>
         </div>
       </div>
     </div>
@@ -364,7 +369,7 @@ This example shows how to display encoded text or numerical values as the label 
 
 
 <script>
-import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { CheckBoxComponent, ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { DataMatrixGeneratorComponent } from "@syncfusion/ej2-vue-barcode-generator";
 import {
   NumericTextBoxComponent,
@@ -429,7 +434,8 @@ export default {
     'ejs-checkbox': CheckBoxComponent,
     'ejs-colorpicker': ColorPickerComponent,
     'ejs-textbox': TextBoxComponent,
-    'ejs-dropdownlist': DropDownListComponent
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
   },
   data: function() {
     return {
@@ -499,6 +505,9 @@ export default {
       },
       displayTextchange: arg => {
         barCodeInstance.displayText.text = arg.value.toString();
+      },
+      onDownloadbuttonClick: arg=>{
+        barCodeInstance.exportImage("DataMatrix", "PNG");
       },
       created: args => {
         addEvents();

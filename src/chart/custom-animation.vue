@@ -24,7 +24,7 @@
           The <code>width</code> and <code>animation</code> properties are used to customize the appearance and behavior of the spline. The staggered animations enhance the visual experience by introducing each spline in sequence.
       </p>
       <p>
-      Tooltip is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        <code>Tooltip</code> is enabled in this example, to see the tooltip in action, hover over or tap on the chart.
       </p>
        
       <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -47,10 +47,9 @@
   import { Browser } from '@syncfusion/ej2-base';
   import { ChartComponent, SeriesDirective, SeriesCollectionDirective, SplineSeries, Legend, Tooltip,DateTime, Category, Highlight, ChartAnnotation } from "@syncfusion/ej2-vue-charts";
   
-  let selectedTheme = location.hash.split("/")[1];
-  selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-  let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
-  
+ import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
+
   export default {
     components: {
       'ejs-chart': ChartComponent,
@@ -106,7 +105,8 @@
           legend: { visible: true, enableHighlight: true },
           tooltip: {
               enable: true,
-              shared: true,
+              showNearestTooltip: true,
+              enableHighlight: true,
               header: '<b>Almond Yield - ${point.x}</b>',
               format: '${series.name}: <b>${point.y}</b>'
           },

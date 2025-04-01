@@ -32,8 +32,7 @@
         {
             "url": "redaction",
             "name": "Redaction",
-            "category": "Editor",
-            "type": "update"           
+            "category": "Editor"          
         },
 		{
             "url": "custom-toolbar",
@@ -65,19 +64,23 @@
             "url": "esigning-form-designer",
             "name": "eSigning Form Designer",
             "category": "PDF Form",
-            "type": "update",
 			"hideOnDevice": true
         },
         {
             "url": "esigning-pdf-forms",
             "name": "eSigning PDF Forms",
-            "category": "PDF Form",
-            "type": "update"
+            "category": "PDF Form"
         },
         {
             "url": "annotations",
             "name": "Annotations",
             "category": "Annotation"
+        },
+        {
+            "url": "programmatic-operations",
+            "name": "Programmatic Operations",
+            "category": "Annotation",
+             "type": "new"
         },
         {
             "url": "hand-written",

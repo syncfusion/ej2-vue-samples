@@ -11,7 +11,7 @@
         </ejs-chart>
     </div>
     <div id="action-description">
-    <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/histogram-chart" aria-label="Navigate to explore the Syncfusion<sup>®</sup> Vue Histogram Chart">Vue Histogram Chart</a> example visualizes final examination results. The number of students between each interval is shown in data labels.</p>
+    <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/histogram-chart" aria-label="Navigate to explore the Syncfusion Vue Histogram Chart">Vue Histogram Chart</a> example visualizes final examination results. The number of students between each interval is shown in data labels.</p>
 </div>
 <div id="description">
     <p>
@@ -39,10 +39,9 @@
 <script>
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ChartTheme, HistogramSeries, DataLabel, Tooltip } from "@syncfusion/ej2-vue-charts";
+import { loadChartTheme } from "./theme-color";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+let theme = loadChartTheme();
 
 export default {
   components: {
@@ -182,7 +181,7 @@ export default {
   },
   methods: {
     load: function (args) {
-      if (selectedTheme === 'highcontrast') {
+      if (theme === 'HighContrast') {
         args.chart.series[0].marker.dataLabel.font.color = '#000000';
       }
     }

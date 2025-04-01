@@ -39,6 +39,8 @@
                     :id="item.id"
                     :value="item.value"
                     :step="1"
+                    :min="item.min"
+                    :max="item.max"
                     format="##.##"
                     @change="updateLayoutProperty(item.id, $event.value)"
                   ></ejs-numerictextbox>
@@ -170,10 +172,10 @@ export default {
       snapSettings: { constraints: 0 },
 
       behaviourItems: [
-        { id: 'marginLeft', label: 'Margin X', value: 10 },
-        { id: 'marginTop', label: 'Margin Y', value: 50 },
-        { id: 'horizontalSpacing', label: 'Horizontal Spacing', value: 40 },
-        { id: 'verticalSpacing', label: 'Vertical Spacing', value: 40 },
+        { id: 'marginLeft', label: 'Margin X', value: 10, min: 10, max: 120 },
+        { id: 'marginTop', label: 'Margin Y', value: 50, min: 10, max: 120 },
+        { id: 'horizontalSpacing', label: 'Horizontal Spacing', value: 40, min: 20, max: 60 },
+        { id: 'verticalSpacing', label: 'Vertical Spacing', value: 40, min: 20, max: 60 },
       ],
       patterns: [
         [

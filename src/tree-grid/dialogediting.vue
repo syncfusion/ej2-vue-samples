@@ -10,7 +10,7 @@
             <e-columns>
                <e-column field='taskID' headerText='Task ID' width='80' textAlign='Right' isPrimaryKey='true' :edit='editparams' :validationRules='taskidrules'></e-column>
                <e-column field='taskName' headerText='Task Name' width='190'  editType= 'stringedit' :validationRules='tasknamerules'></e-column>
-               <e-column field='startDate' headerText='Start Date' width='100' format="yMd"  editType='datepickeredit' textAlign='Right' :validationRules='startdaterules'></e-column>
+               <e-column field='startDate' headerText='Start Date' width='100' format="yMd"  editType='datepickeredit' textAlign='Right' :edit='editdataparam' :validationRules='startdaterules'></e-column>
                <e-column field='duration' headerText='Duration' width='85' textAlign='Right' :edit='editparams' editType='numericedit' :validationRules='durationrules'></e-column>
                <e-column field='progress' headerText='Progress' width='85' textAlign='Right' :edit='editparams'  editType= 'numericedit' :validationRules='progressrules'></e-column>
                <e-column field='approved' headerText='Approved' width='85' textAlign='Right'  editType= 'booleanedit' :displayAsCheckBox='true'></e-column>
@@ -37,7 +37,8 @@ export default {
       toolbar: ['Add', 'Edit', 'Delete'],
       taskidrules: { required: true, number: true },
       tasknamerules: { required: true },
-      startdaterules:  { date: true },
+      startdaterules:  { date: ['M/d/yyyy', 'Please enter a valid date']},
+      editdataparam : { params: { format:'M/d/yyyy'}},
       numberrules: { number: true, min: 0},
       durationrules : { number: true , min: 0},
       progressrules : { number: true , min: 0},

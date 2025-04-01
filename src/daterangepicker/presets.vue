@@ -3,10 +3,10 @@
     <div id="wrapper">
           <ejs-daterangepicker :placeholder="waterMarkText">
             <e-presets>
-                <e-preset label="This Week" :start='weekStartDate' :end='weekEndDate'></e-preset>
-                <e-preset label="This Month" :start='monthStartDate' :end='monthEndDate'></e-preset>
-                <e-preset label="Last Month" :start='lastMonthStartDate' :end='lastMonthEndDate'></e-preset>
-                <e-preset label="Last Year" :start='lastYearStartDate' :end='lastYearEndDate'></e-preset>
+                <e-preset :label="presetLabels[0]" :start='weekStartDate' :end='weekEndDate'></e-preset>
+                <e-preset :label="presetLabels[1]" :start='monthStartDate' :end='monthEndDate'></e-preset>
+                <e-preset :label="presetLabels[2]" :start='lastMonthStartDate' :end='lastMonthEndDate'></e-preset>
+                <e-preset :label="presetLabels[3]" :start='lastYearStartDate' :end='lastYearEndDate'></e-preset>
             </e-presets>
         </ejs-daterangepicker>
     </div>
@@ -36,6 +36,7 @@ export default {
         let month = new Date().getMonth();
         return {
            waterMarkText : 'Selct a Range',
+           presetLabels: ['This Week', 'This Month', 'Last Month', 'Last Year'],
            weekStartDate :  new Date(new Date(new Date().setDate(new Date().getDate() - (new Date().getDay() + 7) % 7)).toDateString()),
 
            weekEndDate : new Date(new Date(new Date().setDate(new Date(new Date().setDate((new Date().getDate()
@@ -49,7 +50,29 @@ export default {
 
            lastMonthEndDate : new Date(new Date(new Date().setDate(0)).toDateString()),
            lastYearStartDate : new Date(year - 1, 1, 1).toDateString(),
-           lastYearEndDate  :  new Date(year - 1, 11, 31).toDateString()
+           lastYearEndDate  :  new Date(year - 1, 11, 31).toDateString(),
+            labelsByLanguage: {
+                en: ['This Week', 'This Month', 'Last Month', 'Last Year'],
+                de: ['Diese Woche', 'Dieser Monat', 'Letzter Monat', 'Letztes Jahr'],
+                'fr-CH': ['Cette semaine', 'Ce mois-ci', 'Le mois dernier', 'L\'année dernière'],
+                ar: ['هذا الأسبوع', 'هذا الشهر', 'الشهر الماضي', 'السنة الماضية'],
+                zh: ['本周', '本月', '上个月', '去年']
+            }
+        };
+    },
+    methods: {
+        updatePresetLabels(languageCode) {
+            // Update the preset labels based on the selected language
+            this.presetLabels = this.labelsByLanguage[languageCode] || this.labelsByLanguage['en'];
+        }
+    },
+    mounted() {
+        const cultureElement = document.getElementById("sb-setting-culture_hidden") || null;
+        if (cultureElement) {
+            cultureElement.addEventListener('change', (event) => {
+                const selectedLanguage = event.target.value;
+                this.updatePresetLabels(selectedLanguage);
+            });
         }
     },
     components: { 

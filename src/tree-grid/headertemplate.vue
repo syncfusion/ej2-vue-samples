@@ -67,6 +67,7 @@
       box-shadow: none !important;
       border-radius: 0 !important;
       padding-bottom: 4px;
+      vertical-align: middle;
     };
 </style>
 <!-- custom code end -->
@@ -94,20 +95,23 @@ export default {
               let themeName: string = location.hash.split('/')[1];
               return ["material","material3","fabric","bootstrap","bootstrap4","bootstrap5","bootstrap5.3","tailwind","tailwind3","fluent","fluent2" ].includes(themeName);
         },
+        checkUrl() {
+            return location.href.includes('syncfusion.com') && !location.href.includes('#');
+        },
         image1() {
-            return (this.getTheme() ? "source/tree-grid/images/taskname.png": "source/tree-grid/images/darkTaskname.png");
+            return (this.getTheme() || this.checkUrl() ? "source/tree-grid/images/taskname.png": "source/tree-grid/images/darkTaskname.png");
         },
         image2() {
-            return (this.getTheme() ? "source/tree-grid/images/startdate.png": "source/tree-grid/images/darkStartname.png");
+            return (this.getTheme() || this.checkUrl() ? "source/tree-grid/images/startdate.png": "source/tree-grid/images/darkStartname.png");
         },
         image3() {
-            return (this.getTheme() ? "source/tree-grid/images/resources.png": "source/tree-grid/images/darkResources.png");
+            return (this.getTheme() || this.checkUrl() ? "source/tree-grid/images/resources.png": "source/tree-grid/images/darkResources.png");
         },
         image4() {
-            return (this.getTheme() ? "source/tree-grid/images/duration.png": "source/tree-grid/images/darkduration.png");
+            return (this.getTheme() || this.checkUrl() ? "source/tree-grid/images/duration.png": "source/tree-grid/images/darkduration.png");
         },
         image5() {
-            return (this.getTheme() ? "source/tree-grid/images/progress.png" :"source/tree-grid/images/darkprogress.png");
+            return (this.getTheme() || this.checkUrl() ? "source/tree-grid/images/progress.png" :"source/tree-grid/images/darkprogress.png");
         }
   }
 

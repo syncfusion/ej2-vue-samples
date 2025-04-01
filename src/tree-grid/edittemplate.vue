@@ -61,7 +61,7 @@ export default {
       editparams : { params: { format: 'n' } },
       taskidrules : { required: true , number: true},
       tasknamerules : { required: true},
-      startdaterules : { date: true},
+      startdaterules : { date: ['M/d/yyyy', 'Please enter a valid date']},
       enddaterules : { date: true},
       durationrules : { number: true , min: 0},
       progressrules : { number: true , min: 0},
@@ -81,6 +81,7 @@ export default {
                 let val = getValue('startDate', args.rowData);
                 datePickerObj = new DatePicker({
                     value: new Date(val),
+                    format: 'M/d/yyyy',
                     floatLabelType: 'Never'
                 });
                 datePickerObj.appendTo(elem);

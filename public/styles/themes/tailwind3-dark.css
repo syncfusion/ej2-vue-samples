@@ -12,7 +12,6 @@
     background-color: #2E3441 !important;
     border-color: #2E3441 !important;
 }
-
 /* tailwind-dark */
 .tailwind3-dark .sb-content,
 .tailwind3-dark textarea#ruleContent {
@@ -21,8 +20,7 @@
 
 .tailwind3-dark .sb-home {
     color: #D1D5DB !important;
-}
-
+  }
 .tailwind3-dark .sb-left-pane .e-listview .e-list-item.e-active:hover {
     color: #ffffff;
 }
@@ -303,9 +301,6 @@ body.tailwind3-dark,
 .tailwind3-dark .sb-theme-studio a  {
     color: #6366f1;
 }
-.tailwind3-dark .sb-download-btn {
-    background-color: #6366f1;
-}
 .tailwind3-dark .sb-download-splitter,
 .tailwind3-dark .sb-toolbar-splitter.sb-custom-item {
     border-left: 1px solid #282f3c;
@@ -322,4 +317,13 @@ body.tailwind3-dark,
 .tailwind3-dark.e-bigger .e-samplestatus.update.tree,
 .tailwind3-dark.e-bigger .e-samplestatus.preview.tree {
     margin-top: 1px;
+}
+
+@media (max-width: 550px) {
+    .tailwind3-dark.e-bigger .sb-content-toolbar {
+        padding: 10px 0px;
+    }
+    .tailwind3-dark .sb-mobile-setting {
+        padding-top: 0px;
+    }
 }

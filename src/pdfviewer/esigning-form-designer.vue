@@ -142,7 +142,7 @@
           <ejs-pdfviewer ref="pdfviewer" id="container" :enableNavigationToolbar="false" :enableToolbar="false" :enableAnnotationToolbar = "false"
             documentPath="https://cdn.syncfusion.com/content/PDFViewer/Fill+and+Sign.pdf"
             resourceUrl="https://cdn.syncfusion.com/ej2/27.2.2/dist/ej2-pdfviewer-lib"
-            :formFieldAdd="addFormField"
+            :formFieldAdd="addFormField" :zoomMode="FitToPage"
             :pageClick="pageClick" downloadFileName="eSign_designMode.pdf" :documentLoad="documentLoad"
             :style="{ height: isMobile ? '500px' : '640px' }">
           </ejs-pdfviewer>
@@ -378,7 +378,6 @@ export default {
       this.initializeDraggable(this.$refs.initialBtn.$el, 'InitialField');
       this.$refs.pdfviewer.ej2Instances.designerMode = true;
       defaultZoomFactor = false;
-      viewer.magnification.fitToPage();
     },
 
     addFormField(args) {

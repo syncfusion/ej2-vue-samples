@@ -54,7 +54,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 /* These styles are used for property panel icons*/
 @font-face {
   font-family: 'e-bpmn-icons';
@@ -104,7 +104,7 @@
 }
 
 .e-EventBasedGateway:before {
-  content: "\e714";
+  content: "\e721";
 }
 
 .e-CatchParallelMultiple:before {
@@ -121,10 +121,6 @@
 
 .e-TimerIntermediate:before {
   content: "\e70b";
-}
-
-.e-UserCall:before {
-  content: "\e70c";
 }
 
 .e-NonInBoCatchParallelMultiple:before {
@@ -171,6 +167,18 @@
   content: "\e715";
 }
 
+.e-OutMessage:before {
+  content: "\e702";
+}
+
+.e-ScriptCall:before {
+  content: "\e703";
+}
+
+.e-UserCall:before {
+  content: "\e713";
+}
+
 .e-NonInThrowMessage:before {
   content: "\e719";
 }
@@ -180,6 +188,10 @@
 }
 
 .e-InterruptingNone:before {
+  content: "\e71e";
+}
+
+.e-ThrowingIntermediate:before {
   content: "\e711";
 }
 
@@ -255,9 +267,6 @@
   content: "\e728";
 }
 
-.e-ScriptCall:before {
-  content: "\e713";
-}
 
 .e-BoCatchCancelIn:before {
   content: "\e72f";
@@ -743,7 +752,7 @@ let contextMenu = {
       items: [{ text: 'Start', id: 'Start', iconCss: 'e-event e-bpmn-icons e-NoneStart', },
       { text: 'Intermediate', id: 'Intermediate', iconCss: 'e-event e-bpmn-icons e-InterruptingNone' },
       { text: 'NonInterruptingStart', id: 'NonInterruptingStart', iconCss: 'e-event e-bpmn-icons e-Noninterruptingstart' },
-      { text: 'ThrowingIntermediate', id: 'ThrowingIntermediate', iconCss: 'e-event e-bpmn-icons e-InterruptingNone' },
+      { text: 'ThrowingIntermediate', id: 'ThrowingIntermediate', iconCss: 'e-event e-bpmn-icons e-ThrowingIntermediate' },
       {
         text: 'NonInterruptingIntermediate', id: 'NonInterruptingIntermediate',
         iconCss: 'e-event e-bpmn-icons e-NoninterruptingIntermediate'
@@ -759,7 +768,7 @@ let contextMenu = {
         { text: 'Manual', id: 'Manual', iconCss: 'e-task e-bpmn-icons e-ManualCall' },
         { text: 'Receive', id: 'Receive', iconCss: 'e-task e-bpmn-icons e-InMessage' },
         { text: 'Script', id: 'Script', iconCss: 'e-task e-bpmn-icons e-ScriptCall' },
-        { text: 'Send', id: 'Send', iconCss: 'e-task e-bpmn-icons e-InMessage' },
+        { text: 'Send', id: 'Send', iconCss: 'e-task e-bpmn-icons e-OutMessage' },
         { text: 'User', id: 'User', iconCss: 'e-task e-bpmn-icons e-UserCall' },
       ]
     }, {

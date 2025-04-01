@@ -4,11 +4,9 @@
         <div class="control-wrapper">
             <div class="sample-container">
                 <div class="default-section">
-                   <ejs-richtexteditor ref="rteObj"  :enableAutoUrl="enableAutoUrl" :insertImageSettings="insertImageSettings" :quickToolbarSettings="quickToolbarSettings" :toolbarClick="onToolbarClick">
-                <p>Rich Text Editor allows inserting images from online sources as well as the local computers where you want to insert the image in your content.</p>
-                <p><b>Get started Quick Toolbar to click on the image</b></p>
-                <p>It is possible to add custom style on the selected image inside the Rich Text Editor through the quick toolbar.</p>
-                <img id="rteImageID" style="width:300px; height:300px;transform: rotate(0deg);" alt="Sky" src="https://cdn.syncfusion.com/ej2/richtexteditor-resources/RTE-Portrait.png" /></ejs-richtexteditor>
+                    <ejs-richtexteditor ref="rteObj"  :enableAutoUrl="enableAutoUrl" :insertImageSettings="insertImageSettings" :quickToolbarSettings="quickToolbarSettings" :toolbarClick="onToolbarClick">
+                        <h2>Insert Image in Rich Text Editor!<br></h2><p>You can insert and edit images within this editor. Click inside the editor and use the <strong>image tool</strong> to add an image.</p><h5>What You Can Do</h5><li><strong>Insert Images:</strong> Upload images from local storage or provide an image URL.</li><li><strong>Resize &amp; Drag:</strong> Easily adjust image dimensions and reposition them within the content.</li><li><strong>Align Images:</strong> Set images to align <strong>left, center, or right</strong>.</li><li><strong>Caption Support:</strong> Add captions to describe your images.</li><li><strong>Replace &amp; Remove:</strong> Change or delete images as needed.</li><h5>Try It Out!</h5><p><img id="rteImageID" style="width: 300px; height: 300px; transform: rotate(0deg);" alt="Sky" src="https://cdn.syncfusion.com/ej2/richtexteditor-resources/RTE-Portrait.png" class="e-rte-image e-imginline"></p>
+                    </ejs-richtexteditor>
                 </div>
             </div>
         </div>
@@ -86,6 +84,8 @@
     .bootstrap5 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .bootstrap5\.3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .bootstrap5\.3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .bootstrap5_3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
+    .bootstrap5_3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .bootstrap5-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .fluent .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
     .fluent-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-left::before,
@@ -105,6 +105,10 @@
     
     .bootstrap5 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .bootstrap5-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
+    .bootstrap5\.3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
+    .bootstrap5\.3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
+    .bootstrap5_3 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
+    .bootstrap5_3-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .fluent .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .fluent-dark .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,
     .fluent2 .e-rte-quick-popup .e-rte-quick-toolbar .e-rotate-right::before,

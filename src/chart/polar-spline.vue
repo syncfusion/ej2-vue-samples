@@ -72,9 +72,8 @@ import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, PolarSeries, Tooltip, Legend, Category, SplineSeries, RadarSeries, Highlight, ChartDrawType } from "@syncfusion/ej2-vue-charts";
 import { fabricColors, materialColors, bootstrapColors, highContrastColors } from './theme-color';
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
 
 export default {
   components: {

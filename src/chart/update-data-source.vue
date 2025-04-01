@@ -34,9 +34,8 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, DataLabel } from "@syncfusion/ej2-vue-charts";
 import { fabricColors, materialColors, bootstrapColors, highContrastColors, fluent2Colors, fluent2HighContrastColors, pointTailwindColors, pointTailwindDarkColors, pointTailwind3Colors, pointTailwind3DarkColors } from './theme-color';
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme, pointRenderEvent } from "./theme-color";
+let theme = loadChartTheme();
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -126,29 +125,7 @@ export default {
         }
     },
     pointRender: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        if (selectedTheme && selectedTheme.indexOf('fabric') > -1) {
-            args.fill = fabricColors[args.point.index % 10];
-        } else if (selectedTheme === 'material') {
-            args.fill = materialColors[args.point.index % 10];
-        } else if (selectedTheme === 'highcontrast') {
-            args.fill = highContrastColors[args.point.index % 10];
-        } else if (selectedTheme === 'fluent2') {
-            args.fill = fluent2Colors[args.point.index % 10];
-        } else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
-            args.fill = fluent2HighContrastColors[args.point.index % 10];
-        } else if (selectedTheme === 'tailwind') {
-            args.fill = pointTailwindColors[args.point.index % 10];
-        } else if (selectedTheme === 'tailwind-dark') {
-            args.fill = pointTailwindDarkColors[args.point.index % 10];
-        } else if (selectedTheme === 'tailwind3') {
-            args.fill = pointTailwind3Colors[args.point.index % 10];
-        } else if (selectedTheme === 'tailwind3-dark') {
-            args.fill = pointTailwind3DarkColors[args.point.index % 10];
-        } else {
-            args.fill = bootstrapColors[args.point.index % 10];
-        }
+               pointRenderEvent(args);
     }
   }
 };

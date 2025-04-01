@@ -234,6 +234,11 @@ padding-left: 18px;">
             <ejs-textbox id="displayText" value="9735940564824" :change="displayTextchange"></ejs-textbox>
           </div>
         </div>
+        <div class="row sb-child-row">
+            <div class="col-xs-6 top barcode-panel-left">
+                <ejs-button id="downloadButton" :onClick="onDownloadbuttonClick">Download</ejs-button>
+            </div>
+        </div>
       </div>
     </div>
     <div id="action-description">
@@ -407,7 +412,7 @@ padding-left: 18px;">
 
 
 <script>
-import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
+import { CheckBoxComponent, ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { BarcodeGeneratorComponent } from "@syncfusion/ej2-vue-barcode-generator";
 import {
   NumericTextBoxComponent,
@@ -459,7 +464,8 @@ export default {
     'ejs-checkbox': CheckBoxComponent,
     'ejs-colorpicker': ColorPickerComponent,
     'ejs-textbox': TextBoxComponent,
-    'ejs-dropdownlist': DropDownListComponent
+    'ejs-dropdownlist': DropDownListComponent,
+    'ejs-button': ButtonComponent
   },
   data: function() {
     return {
@@ -525,6 +531,9 @@ export default {
       },
       displayTextchange: arg => {
         barCodeInstance.displayText.text = arg.value.toString();
+      },
+      onDownloadbuttonClick: arg=>{
+        barCodeInstance.exportImage("Barcode", "PNG");
       },
       created: args => {
         addEvents();

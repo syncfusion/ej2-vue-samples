@@ -43,10 +43,10 @@ import { Browser } from '@syncfusion/ej2-base';
 import { rainFallData } from './financial-data';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, MultiColoredLineSeries, Tooltip, DateTime } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
-    
+
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
+
    let dataValues = [];
     let colors = ['red', 'green', '#ff0097', 'crimson', 'blue', 'darkorange', 'deepskyblue',
         'mediumvioletred', 'violet', 'peru', 'gray', 'deeppink', 'navy'];

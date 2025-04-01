@@ -73,6 +73,7 @@
   <script>
   import { ChartComponent, SeriesCollectionDirective, SeriesDirective, ColumnSeries, Category, Legend, DataLabel, Tooltip, Highlight } from '@syncfusion/ej2-vue-charts';
   import { Browser } from '@syncfusion/ej2-base';
+  import { loadChartTheme } from './theme-color';
   import { pointFabricColors, pointMaterialDarkColors,  pointMaterialColors, pointBootstrap5DarkColors, pointBootstrap5Colors, pointBootstrapColors, pointHighContrastColors, pointFluentDarkColors, pointFluentColors, pointTailwindDarkColors,  pointTailwindColors,  pointMaterial3Colors, pointMaterial3DarkColors, pointFluent2Colors,  pointFluent2HighContrastColors, pointFluent2DarkColors, pointTailwind3Colors, pointTailwind3DarkColors } from './theme-color'
   export default {
     components: {
@@ -133,10 +134,8 @@
     },
     methods: {
       load(args) {
-        let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        args.chart.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
-      },
+           loadChartTheme(args);
+       },
       loaded() {
         if (this.clicked) {
           for (let i = 0; i <= 6; i++) {

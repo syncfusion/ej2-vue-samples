@@ -22,7 +22,6 @@
             "url": "date-time-range",
             "name": "DateTime Range",
             "category": "DateTimePicker",
-            "type": "update",
             "api":{"DatePicker": [ "min", "max", "minTime", "maxTime", "value" ]},
             "description": "This example demonstrates how to disables the specific range of dates and times (min, max, minTime and maxTime) in a Vue DateTimePicker" 
         },
@@ -30,8 +29,9 @@
             "url": "date-time-format",
             "name": "Format",
             "category": "DateTimePicker",
+            "type": "update",
             "api":{"DateTimePicker": [ "format", "value"]},
-            "description": "This example demonstrates how to change the date and time format in the input field based on the format in a Vue DateTimePicker"
+            "description": "The InputFormats feature allows users to define multiple input formats, automatically converting typed values to the display format for a seamless experience."
         },
         {
             "url": "special-dates",

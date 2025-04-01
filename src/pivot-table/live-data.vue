@@ -324,8 +324,9 @@ export default {
         timerID = undefined;
       }
     },
-    updateCellValues: function() {
-      let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+    updateCellValues: function () {
+      if (!isNullOrUndefined(((this as any).$refs.pivotview))) {
+        let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
         if (!isNullOrUndefined(pivotObj)) {
           if (pivotObj.pivotValues.length > 0) {
             if (!previousPivotValues) {
@@ -333,7 +334,8 @@ export default {
             }
             previousPivotValues = pivotObj.pivotValues;
           }
-        pivotObj.dataSourceSettings.dataSource = generateData();
+          pivotObj.dataSourceSettings.dataSource = generateData();
+        }
       }
     },
     getCellContent: function (args: any) {

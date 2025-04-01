@@ -11,6 +11,7 @@
                     ref="dialogObj"
                     :buttons="dlgButtons"
                     :beforeOpen="OnBeforeOpen"
+                    :open="open"
                     :header="header"
                     :visible="visible"
                     :showCloseIcon="showCloseIcon"
@@ -83,7 +84,7 @@ export default {
                     <img
                       id="img1"
                       style="height: 350px;"
-                      src="./source/rich-text-editor/images/bridge.png"
+                      src="https://ej2.syncfusion.com/angular/demos/assets/image-editor/images/default.png"
                       aria-label="Bridge" />
                     </p>
                     <p>
@@ -147,19 +148,20 @@ export default {
             this.$refs.defaultRTE.ej2Instances.formatter.saveData();            
             this.dispose();
             this.$refs.dialogObj.hide();
-            this.imageELement.crossOrigin = null;
         },
         onCancel: function () {
             this.dispose();
             this.$refs.dialogObj.hide();
             this.isLoaded = true;
-            this.imageELement.crossOrigin = null;
         },
         onClose: function () {
             this.dispose();
             this.$refs.dialogObj.hide();
             this.isLoaded = true;
-            this.imageELement.crossOrigin = null;
+        },
+        open: function() {
+            this.imageEditorObj.update();
+            this.imageEditorObj.open(this.dataURL);
         },
         dispose:function () {
             var imageEditorInstance = getComponent(document.getElementById('image-editor'), 'image-editor');
@@ -209,7 +211,7 @@ export default {
 
 <style>
 .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before {
-  content: "\e81e";
+  content: "\e730";
 }
 
 .fluent .e-rte-quick-popup .e-rte-quick-toolbar .e-rte-image-editor::before,

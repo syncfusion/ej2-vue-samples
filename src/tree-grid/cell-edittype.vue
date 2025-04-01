@@ -70,7 +70,7 @@ export default  {
       dateparams: { params: { format: 'M/d/y hh:mm a' } },
       taskidrules : { required: true , number: true},
       tasknamerules : { required: true},
-      startdaterules : { date: true},
+      startdaterules : { date: ['M/d/y hh:mm a', 'Please enter a valid date']},
       enddaterules : { date: true},
       durationrules : { number: true , min: 0},
       progressrules : { number: true , min: 0},

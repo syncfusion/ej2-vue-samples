@@ -4,7 +4,7 @@
         <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legend'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='StepArea' xName='x' yName='y' name='Product Sales'  opacity = 0.1 :border = 'border' step='Center' noRisers=true  :marker='marker'> </e-series>
+                <e-series :dataSource='seriesData' type='StepArea' xName='x' yName='y' name='Product Sales'  opacity = 0.1 :border = 'border' step='Center' noRisers=true> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
@@ -39,9 +39,8 @@
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, StepAreaSeries, Highlight, Tooltip, DateTime} from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
 
 export default {
   components: {
@@ -98,7 +97,6 @@ export default {
         enable: true,
         shared: true
         },
-        marker: {allowHighlight:false},
         chartArea: {
             border: {
                 width: 0

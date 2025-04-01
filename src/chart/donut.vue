@@ -38,9 +38,9 @@
 import { Browser } from '@syncfusion/ej2-base';
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, PieSeries, AccumulationLegend, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadAccumulationChartTheme, donutPointRender } from "./theme-color";
+let theme = loadAccumulationChartTheme();
+
 let seriesColor = ['#FFE066', "#FAB666", "#F68F6A", "#F3646A", "#CC555A", "#9C4649"];
 export default {
   components: {
@@ -100,66 +100,8 @@ export default {
   },
   methods: {
     pointRender: function(args) {
-       let selectedTheme = location.hash.split('/')[1];
-       selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        if (selectedTheme==='fluent')
-        {
-          args.fill = seriesColor[args.point.index % 10];
-        }
-        else if(selectedTheme==='bootstrap5')
-        {
-          args.fill = seriesColor[args.point.index % 10];
-        }
-        if (selectedTheme.indexOf('dark') > -1 )
-        {
-          if(selectedTheme.indexOf('material') > -1 )
-          {
-            args.border.color = '#303030' ;
-           
-          }
-          else if(selectedTheme.indexOf('bootstrap5') > -1 )
-          {
-            args.border.color = '#212529' ;
-          }
-          else if(selectedTheme.indexOf('bootstrap') > -1 )
-          {
-            args.border.color = '#1A1A1A' ;
-            
-          }
-          else if(selectedTheme.indexOf('tailwind') > -1 )
-          {
-            args.border.color = '#1F2937' ;
-          }
-          else if(selectedTheme.indexOf('fluent') > -1 )
-          {
-            args.border.color = '#252423' ;
-          }
-          else if(selectedTheme.indexOf('fabric') > -1 )
-          {
-            args.border.color = '#201f1f' ;
-          }
-          else
-          {
-            args.border.color = '#222222' ;
-          }
-        }
-        else if(selectedTheme.indexOf('highcontrast') > -1)
-        {
-          args.border.color = '#000000' ;
-        }
-        else if (selectedTheme.indexOf('fluent2') > -1) 
-        {
-          args.fill = seriesColor[args.point.index % 10];
-        }
-        else if (selectedTheme.indexOf('fluent2-highcontrast') > -1) 
-        {
-          args.fill = seriesColor[args.point.index % 10];
-        }
-        else
-        {
-          args.border.color = '#FFFFFF' ;
-        }
-      }
+      donutPointRender(args);
+    }
 
   }
 

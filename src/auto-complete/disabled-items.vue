@@ -2,13 +2,13 @@
 <div>
     <div class="control-section">
         <div class="content-wrapper">
-            <div id='status' class='col-lg-6'>
+            <div id='disabled-status' class='col-lg-6'>
                 <div class="content">
                     <label class="h4">Status</label>
-                    <ejs-autocomplete id='disabled-status' :dataSource='statusData' :placeholder='statusText' :fields='statusFields'></ejs-autocomplete>
+                    <ejs-autocomplete id='status' :dataSource='statusData' :placeholder='statusText' :fields='statusFields'></ejs-autocomplete>
                 </div>
             </div>
-            <div id='vegetable' class='col-lg-6'>
+            <div id='disabled-vegetable' class='col-lg-6'>
                 <div class="content">
                     <label class="h4">Vegetable</label>
                     <ejs-autocomplete id='vegetable' :dataSource='vegetableData' :placeholder='vegetableText' :fields='vegetableFields'></ejs-autocomplete>
@@ -38,10 +38,10 @@
         font-weight: bold;
     }
     #disabled-status,
-    #vegetable {
+    #disabled-vegetable {
         margin: 0 auto;
         padding-top: 15px;
-    }    
+    }
 </style>
 
 <script>

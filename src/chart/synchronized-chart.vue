@@ -65,6 +65,9 @@
             synchronized across the charts. Hover over or zoom in on one chart to observe the corresponding impact on the
             other charts as well.
         </p>
+        <p>
+            <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover over or tap on the chart.
+        </p>
         <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use line series and area series, we need to
@@ -101,9 +104,10 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AreaSeries, SplineSeries, LineSeries, SplineAreaSeries, DateTime, Tooltip, Crosshair, Zoom } from "@syncfusion/ej2-vue-charts";
 import { synchronizedData } from './financial-data'
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+
+import { loadChartTheme } from './theme-color';
+import { keyBootstrap4Colors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointBootstrapColors, pointFabricColors, pointFluent2Colors, pointFluent2DarkColors, pointFluentColors, pointFluentDarkColors, pointHighContrastColors, pointMaterial3Colors, pointMaterial3DarkColors, pointMaterialColors, pointMaterialDarkColors, pointTailwind3Colors, pointTailwind3DarkColors, pointTailwindColors, pointTailwindDarkColors } from './theme-color';
+let theme = loadChartTheme();
 
 let zoomFactor = 0;
 let zoomPosition = 0;
@@ -181,7 +185,7 @@ export default {
             },
             euroTooltip: {
                 enable: true,
-                shared: true,
+                showNearestTooltip: true,
                 header: '', 
                 enableMarker: false,
                 format: '<b>€${point.y}</b> <br>${point.x} 2023',
@@ -189,7 +193,7 @@ export default {
             },
             yenTooltip: {
                 enable: true,
-                shared: true,
+                showNearestTooltip: true,
                 header: '', 
                 enableMarker: false,
                 format: '<b>¥${point.y}</b> <br>${point.x} 2023',
@@ -197,7 +201,7 @@ export default {
             },
             sgdTooltip: {
                 enable: true,
-                shared: true,
+                showNearestTooltip: true,
                 header: '', 
                 enableMarker: false,
                 format: '<b>$${point.y}</b> <br>${point.x} 2023',
@@ -205,7 +209,7 @@ export default {
             },
             inrTooltip: {
                 enable: true,
-                shared: true,
+                showNearestTooltip: true,
                 header: '', 
                 enableMarker: false,
                 format: '<b>₹${point.y}</b> <br>${point.x} 2023',
@@ -352,90 +356,68 @@ export default {
             }
         },
         load: function (args) {
-            let selectedTheme = location.hash.split('/')[1];
-            selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-            args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+            loadChartTheme(args);
             let themeColor = [];
-            let materialColors = ['#00bdae', '#404041', '#357cd2', '#e56590'];
-            let materialDarkColors = ['#9ECB08', '#56AEFF', '#C57AFF', '#61EAA9'];
-            let fabricColors = ['#4472c4', '#ed7d31', '#ffc000', '#70ad47'];
-            let bootstrapColors = ['#a16ee5', '#f7ce69', '#55a5c2', '#7ddf1e'];
-            let highContrastColors = ['#79ECE4', '#E98272', '#DFE6B6', '#C6E773'];
-            let bootstrap4Colors = ['#a16ee5', '#f7ce69', '#55a5c2', '#7ddf1e'];
-            let bootstrap5Colors = ['#FD7E14', '#6610F2', '#6F42C1', '#D63384'];
-            let bootstrap5DarkColors = ['#FD7E14', '#6610F2', '#6F42C1', '#D63384'];
-            let fluentColors = ['#1AC9E6', '#DA4CB2', '#EDBB40', '#AF4BCF'];
-            let tailwindColors = ['#5A61F6', '#65A30D', '#334155', '#14B8A6'];
-            let tailwindDarkColors = ['#8B5CF6', '#22D3EE', '#F87171', '#4ADE80'];
-            let tailwind3Colors = ['#2F4074', '#03B4B4', '#0D72DE', '#FF5733'];
-            let tailwind3DarkColors = ['#8029F1', '#1ABC9C', '#0D72DE', '#FF5733'];
-            let fabricdarkColors = ['#4472c4', '#ed7d31', '#ffc000', '#70ad47'];
-            let material3Colors = ['#6355C7', '#00AEE0', '#FFB400', '#F7523F'];
-            let material3DarkColors = ['#4EAAFF', '#FA4EAB', '#FFF500', '#17EA58'];
-            let fluent2Colors = ['#6200EE', '#09AF74', '#0076E5', '#CB3587'];
-            let fluent2HighContrastColors = ['#9BB449', '#2A72D5', '#43B786', '#3F579A'];
             // check the theme
             if (args.chart.theme === 'MaterialDark') {
-                themeColor = materialDarkColors;
-            }
-            else if (args.chart.theme === 'Material') {
-                themeColor = materialColors;
-            }
-            else if (args.chart.theme === "Fabric") {
-                themeColor = fabricColors;
-            }
-            else if (args.chart.theme === "FabricDark") {
-                themeColor = fabricdarkColors;
-            }
-            else if (args.chart.theme === 'Bootstrap5Dark') {
-                themeColor = bootstrap5DarkColors;
-            }
-            else if (args.chart.theme === 'Bootstrap5') {
-                themeColor = bootstrap5Colors;
-            }
-            else if (args.chart.theme === "Bootstrap4") {
-                themeColor = bootstrap4Colors;
-            }
-            else if (args.chart.theme === 'TailwindDark') {
-                themeColor = tailwindDarkColors;
-            }
-            else if (args.chart.theme === 'Tailwind') {
-                themeColor = tailwindColors;
-            }
-            else if (args.chart.theme === 'Tailwind3Dark') {
-                themeColor = tailwind3DarkColors;
-            }
-            else if (args.chart.theme === 'Tailwind3') {
-                themeColor = tailwind3Colors;
-            }
-            else if (args.chart.theme === "HighContrast") {
-                themeColor = highContrastColors;
-            }
-            else if (args.chart.theme === 'FluentDark') {
-                themeColor = fluentColors;
-            }
-            else if (args.chart.theme === 'Bootstrap') {
-                themeColor = bootstrapColors;
-            }
-            else if (args.chart.theme === 'BootstrapDark') {
-                themeColor = bootstrapColors;
-            }
-            else if (args.chart.theme === 'Material3') {
-                themeColor = material3Colors;
-            }
-            else if (args.chart.theme === 'Material3Dark') {
-                themeColor = material3DarkColors;
-            }
-            else if (args.chart.theme === 'Fluent2') {
-                themeColor = fluent2Colors;
-            }
-            else if (args.chart.theme === 'Fluent2HighContrast' || args.chart.theme === 'Fluent2Dark') {
-                themeColor = fluent2HighContrastColors;
-            }
-            else {
-                themeColor = fluentColors;
-            }
+            themeColor = pointMaterialDarkColors;
+        }
+        else if (args.chart.theme === 'Material') {
+            themeColor = pointMaterialColors;
+        }
+        else if (args.chart.theme === "Fabric") {
+            themeColor = pointFabricColors;
+        }
+        else if (args.chart.theme === "FabricDark") {
+            themeColor = pointFabricColors;
+        }
+        else if (args.chart.theme === 'Bootstrap5Dark') {
+            themeColor = pointBootstrap5DarkColors;
+        }
+        else if (args.chart.theme === 'Bootstrap5') {
+            themeColor = pointBootstrap5Colors;
+        }
+        else if (args.chart.theme === "Bootstrap4") {
+            themeColor = keyBootstrap4Colors;
+        }
+        else if (args.chart.theme === 'TailwindDark') {
+            themeColor = pointTailwindDarkColors;
+        }
+        else if (args.chart.theme === 'Tailwind') {
+            themeColor = pointTailwindColors;
+        }
+        else if (args.chart.theme === "HighContrast") {
+            themeColor = pointHighContrastColors;
+        }
+        else if (args.chart.theme === 'FluentDark') {
+            themeColor = pointFluentDarkColors;
+        }
+        else if (args.chart.theme === 'Bootstrap') {
+            themeColor = pointBootstrapColors;
+        }
+        else if (args.chart.theme === 'BootstrapDark') {
+            themeColor = pointBootstrapColors;
+        }
+        else if (args.chart.theme === 'Material3') {
+            themeColor = pointMaterial3Colors;
+        }
+        else if (args.chart.theme === 'Material3Dark') {
+            themeColor = pointMaterial3DarkColors;
+        }
+        else if (args.chart.theme === 'Fluent2') {
+            themeColor = pointFluent2Colors;
+        }
+        else if (args.chart.theme === 'Fluent2HighContrast' || args.chart.theme === 'Fluent2Dark') {
+            themeColor = pointFluent2DarkColors;
+        } else if (args.chart.theme === 'Tailwind3Dark') {
+            themeColor = pointTailwind3DarkColors;
+        }
+        else if (args.chart.theme === 'Tailwind3') {
+            themeColor = pointTailwind3Colors;
+        }
+        else {
+            themeColor = pointFluentColors;
+        }
             // check the container
             if (args.chart.element.id === 'chartcontainer1') {
                 args.chart.series[0].fill = themeColor[0];

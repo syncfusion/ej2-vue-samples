@@ -93,7 +93,7 @@
             <tr>
                 <td colspan="2" style="width: 100%">
                     <div>
-                        <button type="button" id="perform" style="margin-top: 10px;" v-on:click="perform">Update for each day</button>
+                        <ejs-button id="perform" style="margin-top: 10px;" v-on:click="perform"><span>Update for each day</span></ejs-button>
                     </div>
                 </td>
             </tr>

@@ -67,6 +67,9 @@
      <p>
         In this example, you can see how to load data for the chart on demand. The chart will fire the <code>scrollEnd</code> event, and in that event, we can update the chart with the required data based on the point length and axis range. The scrollbar in the chart can be customized using the <code>height</code>, <code>trackColor</code>, <code>trackRadius</code>, <code>scrollbarRadius</code>, <code>scrollbarColor</code>, <code>enableZoom</code>, and <code>gripColor</code> properties in <code>scrollbarSettings</code>.
     </p>
+    <p>
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover over or tap on the chart.
+    </p>
     <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
         Chart component features are segregated into individual feature-wise modules. To use lazy loading, we need to inject
@@ -106,9 +109,9 @@ import {
   ScrollBar
 } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
+
 let intl = new Internationalization();
 //let spinnerEle = document.getElementById("spinner");
 
@@ -210,7 +213,7 @@ export default {
       series: seriesData,
       animation: { enable: false },
       title: "Network Load",
-      tooltip: { enable: true, shared: true,header : '<b>${point.x}</b>', format : 'Server load : <b>${point.y}</b>' }
+      tooltip: { enable: true, showNearestTooltip: true,header : '<b>${point.x}</b>', format : 'Server load : <b>${point.y}</b>' }
     };
   },
   provide: {

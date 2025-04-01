@@ -8,14 +8,14 @@
             "name": "Default Functionalities",
             "category": "OTP Input",
             "api": { "OTP Input": ["value", "type"] },
-            "description": "This example demonstrates the default functionalities of the Syncfusion<sup>®</sup> Vue OTP Input component."
+            "description": "This example demonstrates the default functionalities of the Syncfusion Vue OTP Input component."
         },
         {
             "url": "api",
             "name": "API",
             "category": "OTP Input",
             "api": { "OTP Input": ["value", "stylingMode", "placeholder", "separator", "cssClass", "disabled", "length"] },
-            "description": "This example demonstrates the API of the Syncfusion<sup>®</sup> Vue OTP Input component."
+            "description": "This example demonstrates the API of the Syncfusion Vue OTP Input component."
         }
     ]
 }

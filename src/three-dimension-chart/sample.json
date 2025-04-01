@@ -8,7 +8,7 @@
         {
             "url": "column",
             "name": "Column",
-            "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the column3D series.",
+            "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the column3D series.",
             "category": "3D Chart",
             "sourceFiles": [
                 {"displayName": "column.vue", "path": "./src/three-dimension-chart/column.vue"}
@@ -17,7 +17,7 @@
         {
             "url": "back-to-back-column",
             "name": "Back to Back Column",
-            "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the column3D charts.",
+            "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the column3D charts.",
             "category": "3D Chart",
             "sourceFiles": [
                 {"displayName": "back-to-back-column.vue", "path": "./src/three-dimension-chart/back-to-back-column.vue"}
@@ -26,7 +26,7 @@
         {
             "url": "cylinder",
             "name": "Cylindrical Column",
-            "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the cylindrical column3D series.",
+            "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the cylindrical column3D series.",
             "category": "3D Chart",
             "sourceFiles": [
                 {"displayName": "cylinder.vue", "path": "./src/three-dimension-chart/cylinder.vue"}
@@ -35,7 +35,7 @@
         {
             "url": "bar",
             "name": "Bar",
-            "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the bar3D series.",
+            "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the bar3D series.",
             "category": "3D Chart",
             "sourceFiles": [
                 {"displayName": "bar.vue", "path": "./src/three-dimension-chart/bar.vue"}
@@ -44,7 +44,7 @@
         {
             "url": "stacked-column",
             "name": "Stacking Column with Grouping",
-            "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the stacking column3D series.",
+            "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the stacking column3D series.",
             "category": "3D Chart",
             "sourceFiles": [
                 {"displayName": "stacked-column.vue", "path": "./src/three-dimension-chart/stacked-column.vue"}
@@ -53,7 +53,7 @@
         {
             "url": "stacked-column-100",
             "name": "100% Stacked Column",
-            "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the 100 percent stacking column3D series.",
+            "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the 100 percent stacking column3D series.",
             "category": "3D Chart",
             "sourceFiles": [
                 {"displayName": "stacked-column-100.vue", "path": "./src/three-dimension-chart/stacked-column-100.vue"}
@@ -62,7 +62,7 @@
         {
             "url": "stacked-bar",
             "name": "Stacked Bar",
-            "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the stacking bar3D series.",
+            "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the stacking bar3D series.",
             "category": "3D Chart",
             "sourceFiles": [
                 {"displayName": "stacked-bar.vue", "path": "./src/three-dimension-chart/stacked-bar.vue"}
@@ -71,7 +71,7 @@
         {
             "url": "stacked-bar-100",
             "name": "100% Stacked Bar",
-            "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the 100 percent stacking bar3D series.",
+            "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the 100 percent stacking bar3D series.",
             "category": "3D Chart",
             "sourceFiles": [
                 {"displayName": "stacked-bar-100.vue", "path": "./src/three-dimension-chart/stacked-bar-100.vue"}
@@ -80,7 +80,7 @@
         {
             "url": "empty-point",
             "name": "Column with null and 0 values",
-            "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the bar3D charts.",
+            "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the bar3D charts.",
             "category": "3D Chart",
             "sourceFiles": [
                 {"displayName": "empty-point.vue", "path": "./src/three-dimension-chart/empty-point.vue"}

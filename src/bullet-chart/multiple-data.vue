@@ -55,13 +55,8 @@ import { Browser } from "@syncfusion/ej2-base";
 import { BulletChartComponent, BulletRangeDirective, BulletRangeCollectionDirective, BulletTooltip } from "@syncfusion/ej2-vue-charts";
 import { fabricColors, bootstrapColors, highContrastColors, materialColors, bootstarp5Colors, bootstarp5DarkColors, bootstrapDarkColors, tailwindColors, tailwindDarkColors, material3Colors, material3DarkColors, defaultColors, fluentColors, fluent2Colors, fluent2HighContrastColors, tailwind3Colors, tailwind3DarkColors } from './theme-color'
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1))
-  .replace(/-dark/i, "Dark")
-  .replace(/light/i, "Light")
-  .replace(/contrast/i, "Contrast")
-  .replace(/-highContrast/i, "HighContrast");
+import { loadBulletChartTheme } from "./theme-color";
+let theme = loadBulletChartTheme();
 
 export default {
   components: {
@@ -141,10 +136,7 @@ export default {
   },
   methods: {
     load: function (args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-      args.bulletChart.theme = (selectedTheme.charAt(0).toUpperCase() +
-      selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/light/i, 'Light').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+      loadBulletChartTheme(args);
       let color = [];
         switch (this.theme) {
             case 'Fabric':

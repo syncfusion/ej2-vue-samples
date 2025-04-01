@@ -178,12 +178,15 @@ export default {
     flagtemplate: function () {
         return {
             template: createApp({}).component('flagtemplate', {
-                template: `<div class="flagimage" style="display: inline"><img :src="getFlagPath(data)" class="e-image e-treeoverview" :alt="data.name" aria-label="Flag template" :style="{ height: '14px', width: '14px' }"></div><div style="display: inline; vertical-align: middle;">{{ data.name }}</div>`,
+                template: `<div class="flagimage" style="display: inline"><img :src="getFlagPath(data)" class="e-image e-treeoverview" :alt="data.name" aria-label="Flag template" :style="{ height: '14px', width: '14px', marginRight: '8px' }"></div><div style="display: inline; vertical-align: middle;">{{ data.name }}</div>`,
             data: function () {
                  return { data: { } }; },
                 methods: {
                     getFlagPath(data:any) {
-                        return `src/tree-grid/images/${data.parentItem ? data.parentItem.name : data.name}.png`;
+                        const basePath = location.href.includes("stackblitz") 
+                                         ? 'https://ej2.syncfusion.com/vue/demos/' 
+                                         : '';
+                        return `${basePath}source/tree-grid/images/${data.parentItem ? data.parentItem.name : data.name}.png`;
                     }
                 }
             })
@@ -202,8 +205,16 @@ export default {
     locationTemplate: function () {
         return {
             template: createApp({}).component('locationTemplate', {
-                template: '<div id="coordinates"><img src="source/tree-grid/images/Map.png" class="e-treeoverview" :alt="data.coordinates" aria-label="Location template"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/${data.coordinates}">{{data.coordinates}}</a></div>',
+                template: '<div id="coordinates"><img :src="getLocationPath(data)" class="e-treeoverview" :alt="data.coordinates" aria-label="Location template"/> &nbsp <a target="_blank" href="https://www.google.com/maps/place/${data.coordinates}">{{data.coordinates}}</a></div>',
             data: function() { return { data: {} }; },
+            methods: {
+                getLocationPath(data:any) {
+                    const basePath = location.href.includes("stackblitz") 
+                                     ? 'https://ej2.syncfusion.com/vue/demos/' 
+                                     : '';
+                    return `${basePath}source/tree-grid/images/Map.png`;
+                }
+            }
             })
         }
     },

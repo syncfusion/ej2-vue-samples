@@ -209,7 +209,7 @@
 <script>
 import { SparklineComponent,SparklineTooltip } from "@syncfusion/ej2-vue-charts";
 import { data, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12, data13, data14, data15, data16, data17, data18, data19, data20, data21, data22, data23, data24, data25, data26, data27, data28, data29, data30, data31, data32, data33, data34, data35, data36, data37, data38, data39, data40 } from "./defaultdata";
-
+import { loadSparkLineTheme } from "./theme-color";
 export default {
 components: {
     'ejs-sparkline': SparklineComponent
@@ -720,9 +720,7 @@ provide:{
 /* custom code start */
 methods:{
     load:function(args){
-        let theme = location.hash.split('/')[1];
-        theme = theme ? theme : 'Fluent2';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+          loadSparkLineTheme(args);
     }
 }
 /* custom code end */

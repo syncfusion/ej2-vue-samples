@@ -39,7 +39,7 @@
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' isPrimaryKey='true' textAlign='Right' width='90' :edit='editparams' editType='numericedit' :validationRules='taskIDrules'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190' editType='stringedit' :validationRules='taskNamerules'></e-column>
-                <e-column field='startDate' headerText=' Start Date' textAlign='Right' format='yMd' type='date' editType='datepickeredit' :validationRules='daterules' width='140'></e-column>
+                <e-column field='startDate' headerText=' Start Date' textAlign='Right' format='yMd' type='date' editType='datepickeredit' :edit='editdataparam' :validationRules='daterules' width='140'></e-column>
                 <e-column field='duration' headerText='Duration' textAlign='Right'  width='130' :edit='editparams' editType='numericedit' :validationRules='numberrules'></e-column>
                 <e-column field='progress' headerText='Progress' textAlign='Right' width='150' :edit='editparams' editType='numericedit' :validationRules='numberrules'></e-column>
                 <e-column headerText='Manage Records' width='140' :commands='commands'></e-column>
@@ -62,11 +62,12 @@ export default {
   data: () => {
     return {
       data: sampleData.slice(0),
-      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Row' },
+      editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Row', allowEditOnDblClick: false },
       taskIDrules: { required: true, number: true },
       taskNamerules: { required: true },
       editparams : { params: { format: 'n' } },
-      daterules:  { date: true },
+      daterules:  { date: ['M/d/yyyy', 'Please enter a valid date']},
+      editdataparam : { params: { format:'M/d/yyyy'}},
       numberrules: { number: true, min: 0},
       commands: [{ type: 'Edit', buttonOption: { iconCss: ' e-icons e-edit', cssClass: 'e-flat' } },
         { type: 'Delete', buttonOption: { iconCss: 'e-icons e-delete', cssClass: 'e-flat' } },

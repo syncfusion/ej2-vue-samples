@@ -9,7 +9,13 @@
 			    <div id="templateMention" placeholder = "Type @ and tag user"></div>
 			    <ejs-mention id='template' :target='target' mentionChar='@' :dataSource='data' :fields='mentionfields' allowSpaces='true' :itemTemplate="'iTemplate'" :displayTemplate="'dTemplate'" noRecordsTemplate="No item related to the search" popupWidth="250px" popupHeight="200px">
 				<template v-slot:iTemplate="{data}">
-				    <div class="template_listItems"><img class="mentionEmpImage" :src="data.Eimg" alt="employee"/><span class="person">{{data.Name}}</span><span class="email">{{data.EmailId}}</span></div>
+					<div class="template_listItems">
+						<img class="mentionEmpImage" :src="data.Eimg" alt="employee"/>
+						<div class="mentionDetails">
+							<span class="person">{{ data.Name }}</span>
+							<span class="email">{{ data.EmailId }}</span>
+						</div>
+					</div>
 				</template>
 				<template v-slot:dTemplate="{data}">{{data.Name}}</template>
 			    </ejs-mention>
@@ -66,32 +72,46 @@ export default {
         width: 600px;
     }
     .template_listItems {
-		padding-left: 12px;
-		vertical-align: middle;
-		width: 80%;
-	}
-	#templateMention_popup .e-dropdownbase .e-list-item {
+	padding-left: 12px;
+	vertical-align: middle;
+	width: 80%;
+        display: flex;
+        align-items: center;
+     }
+     #templateMention_popup .e-dropdownbase .e-list-item {
     	line-height: 25px;
     	text-indent: 8px;
-	}
-	#templateMention_popup .mentionEmpImage {
-		width: 44px;
-		float: left;
-	}
+      }
+      #templateMention_popup .mentionEmpImage {
+	  width: 40px;
+	  height: 40px;
+	  border-radius: 50%;
+       }
 	#templateMention_popup .person {
-		font-size: 16px;
-		margin-top: 8px;
+	  font-size: 16px;
+	  margin-top: 8px;
 	}
-    #templateMention_popup .e-dropdownbase .e-list-item * {
-        display: block;
-    }
+    #templateMention_popup .mentionDetails {
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	}
+
+	#templateMention_popup .person {
+	  font-size: 16px;
+    	  font-weight: bold;
+	}
+
+	#templateMention_popup .email {
+		font-size: 14px;
+	}
     div#templateMention[placeholder]:empty:before {
         content: attr(placeholder);
         color: #555;
     }
     #mention-template #template-size{
         font-size: 15px;
-		font-weight: 600;
+	font-weight: 600;
     }
     @media screen and (max-width: 1010px) {
         #mention-template #templateMention,

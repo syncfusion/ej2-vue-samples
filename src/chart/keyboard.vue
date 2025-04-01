@@ -136,9 +136,9 @@
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, Chart, Category, ColumnSeries, Legend, Tooltip, StripLine, Selection, Zoom} from "@syncfusion/ej2-vue-charts";
 import { Browser, EmitType } from '@syncfusion/ej2-base';
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Material";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
+
 let FillColors=[] ;
 let TextColor;
 let seriesIndex = 0;
@@ -356,9 +356,7 @@ export default {
   },
   methods: {
     load: function(args =ILoadedEventArgs) {
-        let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        this.theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1);
+        loadChartTheme(args);
         },
         legendClick : function(ILegendClickEventArgs) {
             seriesIndex = 0;

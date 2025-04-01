@@ -75,7 +75,7 @@
       <p> This sample illustrates a circular progress bar to show <code>progressCompleted</code> event with <code>annotation</code>.</p>
     </div>
     <div id="description">
-      <p> This demo for Essential<sup>®</sup> JS2 Progress Bar control shows the progress bar with custom content with the help of annotation.</p>
+      <p> This demo for Essential JS2 Progress Bar control shows the progress bar with custom content with the help of annotation.</p>
     </div>
   </div>
 </template>
@@ -110,6 +110,7 @@ import {
   ProgressBarAnnotationsDirective,
   ProgressBarAnnotationDirective
 } from "@syncfusion/ej2-vue-progressbar";
+import { loadProgressBarTheme } from "./theme-color";
 
     let clearTimeout1;
     let clearTimeout2;
@@ -147,17 +148,14 @@ export default {
       this.$refs.download.ej2Instances.refresh();
     },
     load: function(args) {
-      let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
-            selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+     let theme = loadProgressBarTheme(args);
         if (args.progressBar.element.id === 'label-progress') {
             // tslint:disable-next-line:max-line-length
-            args.progressBar.annotations[0].content = '<div id="point1" class="plabeltxt" style="color: ' + annotationColors[selectedTheme.replace(/-/i, '')] + ' "><span>80%</span></div>';
+            args.progressBar.annotations[0].content = '<div id="point1" class="plabeltxt" style="color: ' + annotationColors[theme.toLocaleLowerCase().replace(/-/i, '')] + ' "><span>80%</span></div>';
         } else if (args.progressBar.element.id === 'download-progress') {
-            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + selectedTheme.replace(/-/i, '') + '-Download.svg" alt="Download Icon"></img>';
+            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + theme.toLocaleLowerCase().replace(/-/i, '') + '-Download.svg" alt="Download Icon"></img>';
         } else {
-            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + selectedTheme.replace(/-/i, '') + '-pause.svg" alt="Pause Icon"></img>';
+            args.progressBar.annotations[0].content = '<img src="src/progress-bar/images/' + theme.toLocaleLowerCase().replace(/-/i, '') + '-pause.svg" alt="Pause Icon"></img>';
         }
     },
     progressCompleted1: function() {

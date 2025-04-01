@@ -75,7 +75,7 @@ export default {
             fields: { text: 'Name', value: 'Experience' },
             query: '',
             mccbDropdownListData: ['StartsWith','EndsWith','Contains'],
-            filterType: ''
+            filterType: 'StartsWith'
         }
     },
     methods: {

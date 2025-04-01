@@ -57,7 +57,7 @@
 <script>
 import { SparklineComponent } from "@syncfusion/ej2-vue-charts";
 import { data, data2, data3, data4 } from "./liveupdate";
-
+import { loadSparkLineTheme } from "./theme-color";
 export default {
 components: {
     'ejs-sparkline': SparklineComponent
@@ -144,9 +144,7 @@ mounted(){
 methods:{
     /* custom code start */
      load:function(args){
-        let theme = location.hash.split('/')[1];
-        theme = theme ? theme : 'Fluent2';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+      loadSparkLineTheme(args);
     },
     /* custom code end */
     update: function() {

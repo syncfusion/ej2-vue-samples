@@ -2,7 +2,7 @@
 <div class="col-lg-12 control-section">
 <div id="action-description">
     <p>This sample explains the way of rendering tooltip template for taskbar and baseline by mapping template
-        elements to the property of taskbar and baseline in <code>tooltipSettings</code>.</p>
+        elements to the property of taskbar, timeline and baseline in <code>tooltipSettings</code>.</p>
 </div>
     <div>
         <ejs-gantt ref='gantt' id="tooltipData" 
@@ -19,6 +19,7 @@
         :tooltipSettings= "tooltipSettings"
         :resourceFields= "resourceFields"
         :resources= "resources"
+        :timelineSettings="timelineSettings"
         :projectStartDate= "projectStartDate"
         :projectEndDate= "projectEndDate">
         <template v-slot:taskbarTooltipTemplate="{data}">
@@ -66,12 +67,18 @@
 </table>
 </div>
 </template>
+<template v-slot:timelineTooltipTemplate="{ data }">
+    <div v-if="data.tier == 'topTier'" v-html="topTierTooltip(data.value, data.date, data.tier)"></div>
+    <div v-if="data.tier == 'bottomTier'" v-html="bottomTierTooltip(data.date, data.tier)"></div>
+</template>
         </ejs-gantt>
     </div>
 <div id="description">
     <p>Tooltip can be enabled or disabled using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#showtooltip">tooltipSettings.showTooltip</a> property.In this demo, the
-        tooltip template is rendered for <code>taskbar</code> and <code>baseline</code> using the
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#taskbar">tooltipSettings.taskbar</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#baseline">tooltipSettings.baseline</a> properties.
+        tooltip template is rendered for <code>taskbar</code>, <code>timeline</code> and <code>baseline</code> using the
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#taskbar">tooltipSettings.taskbar</a>
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#timeline">tooltipSettings.timeline</a>
+         and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#baseline">tooltipSettings.baseline</a> properties.
     </p>
     <p>
         The baseline feature enables the user to view the deviation between the planned dates and the actual dates of
@@ -138,10 +145,21 @@ export default {
             splitterSettings: {
                 columnIndex: 2
             },
+            timelineSettings: {
+                showTooltip: true,
+                topTier: {
+                    unit:'Week',
+                },
+                bottomTier: {
+                    unit: 'Day',
+                    count: 1
+                }
+            },
             tooltipSettings: {
                 showTooltip: true,
                 taskbar: "taskbarTooltipTemplate",
-                baseline: "baselineTooltipTemplate"
+                baseline: "baselineTooltipTemplate",
+                timeline:"timelineTooltipTemplate"
             },
             projectStartDate: new Date('03/24/2024'),
             projectEndDate: new Date('05/04/2024'),
@@ -153,7 +171,78 @@ export default {
   methods: {
       format: function(value) {
                 return this.$refs.gantt.getFormatedDate(value, 'd/M/y');
+            },
+        topTierTooltip: function(value, date, tier) {
+            var endDate;
+            var startDate = new Date(date);
+                endDate = new Date(startDate.getTime());
+                endDate.setDate(startDate.getDate() + 6);
+            var data = this.getTooltipData(startDate, endDate, tier);
+            return this.generateTooltipMarkup(value, data);
+        },
+        bottomTierTooltip: function(date, tier) {
+            var startDate = new Date(date);
+            var endDate = new Date(startDate.getTime());
+            var data = this.getTooltipData(startDate, endDate, tier);
+            return this.generateTooltipMarkup(date, data);
+        },
+        getTooltipData: function(startDate, endDate, tier) {
+            var ganttElement = document.getElementsByClassName('e-gantt')[0].ej2_instances[0]
+            var activeTasks;
+            if (tier === 'topTier') {
+                activeTasks = ganttElement.currentViewData.filter(function(task) {
+                    var taskStart = new Date(task.StartDate);
+                    var taskEnd = new Date(task.EndDate);
+                    taskStart.setHours(0, 0, 0, 0);
+                    taskEnd.setHours(0, 0, 0, 0);
+                    return taskStart >= startDate && taskEnd <= endDate;
+                });
+            } else {
+                activeTasks = ganttElement.currentViewData.filter(function(task) {
+                    var taskStart = new Date(task.StartDate);
+                    var taskEnd = new Date(task.EndDate);
+                    taskStart.setHours(0, 0, 0, 0);
+                    taskEnd.setHours(0, 0, 0, 0);
+                    return taskStart.getTime() === startDate.getTime() && taskEnd.getTime() === endDate.getTime();
+                });
             }
+            var milestones = activeTasks.filter(function(task) {
+                return task.Duration === 0;
+            });
+            var totalProgress = activeTasks.reduce(function(acc, task) {
+                return acc + (task.Progress ? task.Progress : 0);
+            }, 0);
+            var overallProgress = (activeTasks.length > 0) ? (totalProgress / activeTasks.length).toFixed(2) : 0;
+            return { activeTasks: activeTasks.length, milestones: milestones.length, overallProgress: overallProgress };
+        },
+        generateTooltipMarkup: function(label, tooltipData) {
+            var themeIsDark = document.body.classList.contains('tailwind3-dark') ||
+            document.body.classList.contains('material3-dark') ||
+            document.body.classList.contains('bootstrap5.3-dark') ||
+            document.body.classList.contains('highcontrast') ||
+            document.body.classList.contains('fluent2');
+
+            var borderColor = themeIsDark ?  'black' : 'white';
+            return (
+                '<div style="padding: 5px;">' +
+                '<div style="padding-bottom: 9px; text-align: center; border-bottom: 2px solid ' + borderColor + ';">' +
+                '<span style="font-weight: bold; font-size: 14px;">' + label + '</span>' +
+                '</div>' +
+                '<div style="display: flex; padding-bottom: 5px; padding-top: 9px">' +
+                '<span style="font-weight: bold;">Active Tasks:</span>' +
+                '<span style="padding-left: 2px;">' + tooltipData.activeTasks + '</span>' +
+                '</div>' +
+                '<div style="display: flex; padding-bottom: 5px;">' +
+                '<span style="font-weight: bold;">Milestones:</span>' +
+                '<span style="padding-left: 2px;">' + tooltipData.milestones + '</span>' +
+                '</div>' +
+                '<div style="display: flex; padding-bottom: 5px;">' +
+                '<span style="font-weight: bold;">Overall Progress:</span>' +
+                '<span style="padding-left: 2px;">' + tooltipData.overallProgress + '</span>' +
+                '</div>' +
+                '</div>'
+            );
+        }
   }
 }
 </script>

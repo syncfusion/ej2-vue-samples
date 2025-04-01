@@ -192,7 +192,7 @@ export default {
         {
           id: "connectors",
           expanded: true,
-          iconCss: 'e-ddb-icons e-connector',
+          iconCss: 'e-ddb-icons e-diagram-connector',
           symbols: connectorSymbols,
           title: "Connectors"
         }

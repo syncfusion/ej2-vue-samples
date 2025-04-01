@@ -333,13 +333,25 @@ body.material3-dark,
 .material3-dark .sb-theme-select {
     color: #212529;
 }
-
+.material3-dark .sb-download-btn  {
+    font-weight: 400;
+  }
 .material3-dark .sb-left-pane .e-treeview .e-list-item.e-active.e-hover>.e-text-content .e-list-text {
     color: #000 !important;
+}
+
+.material3-dark .sb-left-pane .e-treeview .e-list-item.e-active>.e-text-content .e-list-text {
+    color: #fff;
 }
 
 .material3-dark .sb-search-input .e-ddl .e-clear-icon,
 .material3-dark .e-input-group .e-clear-icon:hover,
 .material3-dark .e-input-group.e-control-wrapper .e-clear-icon:hover {
     background: #2B2831;
+}
+
+@media (max-width: 550px) {
+    .material3-dark .sb-mobile-setting {
+        padding-top: 0px;
+    }
 }

@@ -181,15 +181,47 @@ line-height: 1;
 .e-rating-svg-icon #grad4 .end {
     stop-color: #4eaa01;
 }
+.fluent2-dark #default-rating-control {
+        background-color: #1f1f1f;
+        color: #fff
+}
+.fluent2-highcontrast #default-rating-control {
+        background-color: #1C1B1F;
+        color: #fff
+}
 </style>
 
 <script>
 import { RatingComponent } from "@syncfusion/ej2-vue-inputs";
+import { Browser } from "@syncfusion/ej2-base";
 
 export default {
-    data:function() {    
+    data: function() {
         return {};
     },
-    components: { 'ejs-rating': RatingComponent }
+    components: { 'ejs-rating': RatingComponent },
+    methods: {
+        isMobileMode() {
+            return Browser.isDevice;
+        },
+        hideTooltipOnScroll() {
+            var tooltipElement = document.querySelector('.e-rating-tooltip');
+            if (tooltipElement && this.isMobileMode()) {
+                tooltipElement.style.display = 'none';
+            }
+        }
+    },
+    mounted() {
+        if (document.getElementById('right-pane')) {
+            document.getElementById('right-pane').addEventListener('scroll', this.hideTooltipOnScroll);
+        }
+        window.addEventListener('scroll', this.hideTooltipOnScroll);
+    },
+    beforeUnmount() {
+        if (document.getElementById('right-pane')) {
+            document.getElementById('right-pane').removeEventListener('scroll', this.hideTooltipOnScroll);
+        }
+        window.removeEventListener('scroll', this.hideTooltipOnScroll);
+    }
 };
 </script>

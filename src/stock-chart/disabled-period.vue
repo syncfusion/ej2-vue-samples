@@ -233,9 +233,8 @@ import {
   Export
 } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadStockChartTheme } from './theme-color';
+let theme = loadStockChartTheme();
 
 export default {
   components: {
@@ -289,10 +288,7 @@ export default {
   },
   methods: {
     load: function(args) {
-        var selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        args.stockChart.theme = (selectedTheme.charAt(0).toUpperCase() +
-                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i,  'Contrast').replace(/-highContrast/i, 'HighContrast');
+        let selectedTheme = loadStockChartTheme(args, true);
         args.stockChart.series[0].fill = 'url(#' + selectedTheme.toLowerCase() + '-gradient-chart)';
     },
   }

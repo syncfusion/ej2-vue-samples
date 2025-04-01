@@ -23,7 +23,7 @@
             <td>
               <div>Show Hyperlink:</div>
             </td>
-            <td style="padding-bottom: 16px">
+            <td>
               <div>
                 <ejs-dropdownlist
                   id="options"
@@ -46,7 +46,7 @@
             <td>
               <div>Measures:</div>
             </td>
-            <td style="padding-bottom: 16px">
+            <td>
               <div>
                 <ejs-dropdownlist
                   id="measures"
@@ -63,7 +63,7 @@
             <td>
               <div>Condition:</div>
             </td>
-            <td style="padding-bottom: 16px">
+            <td>
               <div class="conditionscls">
                 <ejs-dropdownlist
                   id="conditions"
@@ -80,7 +80,7 @@
             <td>
               <div>Value 1:</div>
             </td>
-            <td style="padding-bottom: 16px">
+            <td>
               <div class="value1cls">
                 <ejs-numerictextbox
                   id="value1"
@@ -96,7 +96,7 @@
             <td>
               <div>Value 2:</div>
             </td>
-            <td style="padding-bottom: 16px">
+            <td>
               <div class="value2cls">
                 <ejs-numerictextbox
                   id="value2"
@@ -117,7 +117,7 @@
             <td>
               <div>Header Text:</div>
             </td>
-            <td style="padding-bottom: 16px">
+            <td>
               <div class="textcls">
                 <ejs-maskedtextbox
                   id="text"
@@ -354,7 +354,7 @@ export default {
         !args.data.indexObject) || args.currentCell.className.indexOf("e-cellvalue") > -1
       ) {
         cell += "Value Header ";
-      } else if (args.currentCell.className.indexOf("e-rowsheader") > -1) {
+      } else if (args.currentCell.parentElement.className.indexOf("e-rowsheader") > -1 || args.currentCell.className.indexOf("e-rowsheader") > -1) {
         cell += "Row Header ";
       } else if (args.currentCell.className.indexOf("e-columnsheader") > -1 ||
         args.currentCell.className.indexOf("e-pivotcell-container") > -1) {

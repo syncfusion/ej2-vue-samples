@@ -168,7 +168,7 @@ import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { data, data2 } from "./customizationdata";
-
+import { loadSparkLineTheme } from "./theme-color";
 export default {
 components: {
     'ejs-sparkline': SparklineComponent,
@@ -235,9 +235,7 @@ mounted(){
 methods:{
     /* custom code start */
     load:function(args){
-        let theme = location.hash.split('/')[1];
-        theme = theme ? theme : 'Fluent2';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast') ;
+           loadSparkLineTheme(args);
     },
     /* custom code end */
     // Code for Property Panel

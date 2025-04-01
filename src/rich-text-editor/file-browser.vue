@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="control-section" style="overflow:hidden;">
+        <div class="control-section">
             <div class="control-section">
                 <div class="control-wrapper">
                     <div class="sample-container">

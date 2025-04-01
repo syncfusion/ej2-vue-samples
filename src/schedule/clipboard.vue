@@ -73,7 +73,7 @@ export default {
         { text: 'Paste', iconCss: 'e-icons e-paste', id: 'Paste' }
       ],
       selectedTarget: null,
-      targetElement: null
+      targetElement: null,
     };
   },
   provide: {

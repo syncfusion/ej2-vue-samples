@@ -127,7 +127,7 @@
       <p>This sample illustrates a circular progress bar with start and end angle customized.</p>
     </div>
     <div id="description">
-      <p> This demo for Essential<sup>®</sup> JS2 Progress Bar control shows the customizing options for angle in circular progress bar. Annotation is enabled in the sample to represent the progress value with animation.</p>
+      <p> This demo for Essential JS2 Progress Bar control shows the customizing options for angle in circular progress bar. Annotation is enabled in the sample to represent the progress value with animation.</p>
     </div>
   </div>
 </template>
@@ -183,6 +183,7 @@ import {
   ProgressBarAnnotationsDirective,
   ProgressBarAnnotationDirective
 } from "@syncfusion/ej2-vue-progressbar";
+import { loadProgressBarTheme } from "./theme-color";
  function annotationElementContent(color, controlID) {
         let content;
         switch (controlID) {
@@ -253,57 +254,54 @@ export default {
       this.$refs.semi.ej2Instances.refresh();
      },
      load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
-        switch (selectedTheme) {
-            case 'material':
+        loadProgressBarTheme(args);
+        switch (args.progressBar.theme) {
+            case 'Material':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[0], args.progressBar.element.id);
                 break;
-            case 'fabric':
+            case 'Fabric':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[1], args.progressBar.element.id);
                 break;
-            case 'bootstrap':
+            case 'Bootstrap':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[2], args.progressBar.element.id);
                 break;
-            case 'bootstrap4':
+            case 'Bootstrap4':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[3], args.progressBar.element.id);
                 break;
-            case 'tailwind':
-            case 'tailwind3':
+            case 'Tailwind':
+            case 'Tailwind3':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[4], args.progressBar.element.id);
                 break;
-            case 'bootstrap-dark':
-            case 'fabric-dark':
-            case 'material-dark':
+            case 'BootstrapDark':
+            case 'FabricDark':
+            case 'MaterialDark':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[6], args.progressBar.element.id);
                 break;
-            case 'bootstrap5':
-            case 'bootstrap5-dark':
-            case 'fluent':
-            case 'fluent-dark':
+            case 'Bootstrap5':
+            case 'Bootstrap5Dark':
+            case 'Fluent':
+            case 'FluentDark':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[8], args.progressBar.element.id);
                 break;
-            case 'tailwind3-dark':
+            case 'Tailwind3Dark':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[14], args.progressBar.element.id);
                 break;
-            case 'tailwind-dark':
+            case 'TailwindDark':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[7], args.progressBar.element.id);
                 break;
-            case 'material3':
+            case 'Material3':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[9], args.progressBar.element.id);
                 break;
-            case 'material3-dark':
+            case 'Material3Dark':
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[10], args.progressBar.element.id);
                 break;
-            case "fluent2":
+            case "Fluent2":
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[11], args.progressBar.element.id);
                 break;
-            case "fluent2-dark":
+            case "Fluent2Dark":
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[13], args.progressBar.element.id);
                 break;
-            case "fluent2-highcontrast":
+            case "Fluent2HighContrast":
                 args.progressBar.annotations[0].content = annotationElementContent(annotationColors[12], args.progressBar.element.id);
                 break;
             default:

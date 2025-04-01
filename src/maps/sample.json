@@ -2,7 +2,6 @@
     "name": "Maps",
     "directory": "maps",
     "category": "Data Visualization",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -168,7 +167,6 @@
             "url": "osm-with-marker-clustering",
             "name": "OSM with Marker Clustering",
             "category": "Map Providers",
-            "type": "new",
             "api": {},
             "sourceFiles": [
                 {"displayName": "osm-with-marker-clustering.vue", "path": "./src/maps/osm-with-marker-clustering.vue"}

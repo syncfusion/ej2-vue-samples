@@ -29,7 +29,7 @@
 </div>
 </div>
 </template>
-<style scoped>
+<style>
 
     @font-face {
 font-family: 'e-grid-rowheight';
@@ -39,19 +39,19 @@ font-weight: normal;
 font-style: normal;
 }
 
-    /deep/ .e-small-icon::before {
+    .e-small-icon::before {
         font-family: 'e-grid-rowheight';
-        content: '\e707';
+        content: '\e707' !important;
     }
 
-   /deep/ .e-medium-icon::before {
+    .e-medium-icon::before {
         font-family: 'e-grid-rowheight';
-        content: '\e701';
+        content: '\e701' !important;
     }
 
-    /deep/ .e-big-icon::before {
+    .e-big-icon::before {
         font-family: 'e-grid-rowheight';
-        content: '\e702';
+        content: '\e702' !important;
     }
 
 </style>

@@ -2,6 +2,7 @@
    "name": "Gantt Chart",
    "directory": "gantt",
    "category": "Calendars",
+   "type": "update",
    "ftName": "gantt",
    "samples": [
       {
@@ -635,6 +636,7 @@
          "url": "resource-multi-taskbar",
          "name": "Resource Multi Taskbar",
          "category": "Resources",
+         "type": "update",
          "api": {
             "Gantt": [
                "dataSource",
@@ -777,7 +779,8 @@
       {
          "url": "tooltip-template",
          "name": "Tooltip Template",
-	 "hideOnDevice": true,
+         "hideOnDevice": true,
+         "type": "update",
         "category": "Templates",
          "api": {
             "Gantt": [
@@ -869,6 +872,61 @@
              ]
          },
          "description": "This sample demonstrates the integration of the QueryBuilder component for complex filtering in the Gantt"
+      },     
+      {
+         "url": "exporting",
+         "name": "Exporting",
+         "category": "Exporting",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "dateFormat",
+               "height",
+               "taskFields",
+               "toolbar",
+               "allowExcelExport",
+               "treeColumnIndex",
+               "allowSelection",
+               "gridLines",
+               "resourceFields",
+               "resources",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate",
+               "toolbarClick"
+            ]
+         },
+         "description": "This demo explains how to export Gantt content to Excel and CSV documents using the Syncfusion<sup>®</sup> TypeScript Gantt control."
+      },
+      {
+         "url": "advanced-exporting",
+         "name": "Advanced Exporting",
+         "category": "Exporting",
+         "type": "new",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "dateFormat",
+               "height",
+               "taskFields",
+               "toolbar",
+               "allowExcelExport",
+               "treeColumnIndex",
+               "allowSelection",
+               "gridLines",
+               "resourceFields",
+               "resources",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate",
+               "toolbarClick"
+            ]
+         },
+         "description": "This demo explains how to export Gantt chart content with customization to PDF documents using the Syncfusion<sup>®</sup> TypeScript Gantt control."
       },
       {
          "url": "selection",
@@ -919,33 +977,6 @@
             ]
          },
          "description": "This demo explains the usage of context menu and the default context menu items in Syncfusion<sup>®</sup> Gantt control."
-      },
-      {
-         "url": "exporting",
-         "name": "Exporting",
-         "category": "Miscellaneous",
-         "api": {
-            "Gantt": [
-               "dataSource",
-               "dateFormat",
-               "height",
-               "taskFields",
-               "toolbar",
-               "allowExcelExport",
-               "treeColumnIndex",
-               "allowSelection",
-               "gridLines",
-               "resourceFields",
-               "resources",
-               "highlightWeekends",
-               "timelineSettings",
-               "labelSettings",
-               "projectStartDate",
-               "projectEndDate",
-               "toolbarClick"
-            ]
-         },
-         "description": "This demo explains how to export Gantt content to Excel and CSV documents using the Syncfusion<sup>®</sup> TypeScript Gantt control."
       },
       {
          "url": "drag-and-drop",

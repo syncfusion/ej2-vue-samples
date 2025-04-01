@@ -43,6 +43,9 @@
       <p>
       The <code>snapToData</code> property snaps the crosshair to the nearest data point instead of following the exact mouse position, providing a more precise focus on data points. 
       </p>
+      <p>
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover over or tap on the chart.
+      </p>
       <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
         Chart component features are segregated into individual feature-wise modules. To use Crosshair, we need to
@@ -200,6 +203,7 @@ import {
   Crosshair,
   Category, Tooltip,
 } from "@syncfusion/ej2-vue-charts";
+import { loadChartTheme } from "./theme-color";
 let data = [
   { time: '09:00', value: 289.92 },
   { time: '09:05', value: 289.33 },
@@ -339,9 +343,8 @@ export default {
     'e-series': SeriesDirective
   },
   data() {
-    const selectedTheme = location.hash.split("/")[1] || 'Fluent2';
-    const theme = selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
-
+    const selectedTheme = loadChartTheme(null, true);
+    const theme = loadChartTheme();
     return {
       theme: theme,
       cData: data, 
@@ -371,8 +374,7 @@ export default {
       width: Browser.isDevice ? '100%' : '75%',
       tooltip: {
         enable: true,
-            shared: true,
-            location: { x: 70, y:52 },
+            showNearestTooltip: true,
             format: '<b>${point.x}</b> <br>Stock Price : <b>${point.y}</b>',
             header: '',
             enableMarker: false

@@ -65,7 +65,8 @@ export default {
                 let elem: Element = arg.event.target as Element;
                 let row: Element | null = elem.closest('.e-row');
                 let uid = row && row.getAttribute('data-uid');
-                if (uid === null || isNullOrUndefined(getValue('hasChildRecords', ((this as any).$refs.treegrid).ej2Instances.grid.getRowObjectFromUID(uid).data))) {
+                if (uid === null || isNullOrUndefined(getValue('hasChildRecords', ((this as any).$refs.treegrid).ej2Instances.grid.getRowObjectFromUID(uid).data))||
+                  !getValue('hasChildRecords', ((this as any).$refs.treegrid).ej2Instances.grid.getRowObjectFromUID(uid).data)) {
                     arg.cancel = true;
                 } else {
                     let flag: boolean = getValue('expanded', ((this as any).$refs.treegrid).ej2Instances.grid.getRowObjectFromUID(uid).data);

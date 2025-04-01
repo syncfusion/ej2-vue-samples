@@ -7,7 +7,7 @@
         </div>        
         <div style="border: 3px solid darkgray;width:200px;display:block;margin:auto;border-radius:5px">
             <img src="src/maps/images/wheel.png" alt="Steering wheel icon" style="width:30px;height:30px;margin-left:18%;margin-top:10px">
-<ejs-maps id='maps' :load='load' :projectionType='projectionType' :itemSelection='itemSelection' :height='height' :zoomSettings='zoomSettings'>
+<ejs-maps ref="maps" id='maps' :load='load' :projectionType='projectionType' :itemSelection='itemSelection' :height='height' :zoomSettings='zoomSettings'>
     <e-layers>
         <e-layer :geometryType='geometryType' :shapeData='shapeData'  :selectionSettings='selectionSettings' :shapeSettings='shapeSettings'></e-layer>
     </e-layers>
@@ -170,11 +170,14 @@ methods:{
     },
     clickClear:function(args){
         let seatInfo = document.getElementById('selectedseats');
-        seatInfo.innerHTML = '';
-        let selected = document.getElementsByClassName('ShapeselectionMapStyle');
-        for (let i = 0, length = selected.length; i < length; i++) {
-            selected[0].setAttribute('class', '');
+        if (seatInfo.innerHTML === '') {
+            return;
         }
+        let seats = seatInfo.innerText.split('-')[1].trim().split(',').map(num => Number(num.trim()));
+        for (let i = 0, length = seats.length; i < length; i++) {
+            this.$refs.maps.ej2Instances.shapeSelection(0, 'seatno', seats[i], false);
+        }
+        seatInfo.innerHTML = '';
     }
 }
 }

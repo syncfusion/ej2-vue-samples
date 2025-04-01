@@ -61,14 +61,18 @@
             </div>
           </template>
           <template v-slot:milestoneTemplate="{data}">
-            <div>
-              <div class="e-gantt-milestone" style="position:absolute;">
-                <img class="moments" src="./images/moments.svg" style="height: 24px; width: 48px;" alt="Moments svg">
-                <div class="e-milestone-top"
-                  style="border-right-width:26px; margin-top: -24px;border-left-width:26px;border-bottom-width:26px;">
+            <div style="margin-top:-7px;">
+              <div style="position:absolute; left: 3px;top: 4px">
+                <img class="moments" 
+                    height="24" 
+                    width="48" 
+                    style="z-index:1;left:1px;top:18px" 
+                    role="presentation" 
+                    src="./images/moments.svg" 
+                    alt="Moments svg"/>
+                <div class="e-gantt-milestone" 
+                    style="width:41px; height:41px; transform: rotate(45deg); background-color: #7ab748 !important; border: 0;left:0px;top:12px">
                 </div>
-                <div class="e-milestone-bottom"
-                  style="top:26px;border-right-width:26px; border-left-width:26px; border-top-width:26px;"></div>
               </div>
             </div>
           </template>

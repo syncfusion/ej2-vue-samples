@@ -141,7 +141,7 @@
 
     .fluent-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
     .bootstrap5-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
-    .bootstrap5\.3-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
+    .bootstrap5_3-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
     .tailwind-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
     .tailwind3-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
     .bootstrap-dark .schedule-vue-sample .e-schedule .e-appointment .template-wrap,
@@ -169,7 +169,7 @@
 
     .fluent-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
     .bootstrap5-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
-    .bootstrap5\.3-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
+    .bootstrap5_3-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
     .tailwind-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
     .tailwind3-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
     .bootstrap-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
@@ -184,7 +184,7 @@
 
     .fluent-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
     .bootstrap5-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
-    .bootstrap5\.3-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
+    .bootstrap5_3-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
     .tailwind-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
     .tailwind3-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,
     .bootstrap-dark .schedule-vue-sample .e-schedule .e-work-cells.best-price,

@@ -5,7 +5,7 @@
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' width='90' isPrimaryKey='true' textAlign='Right' :validationRules='taskidrules'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190' :validationRules='tasknamerules'></e-column>
-                <e-column field='startDate' headerText='Start Date' width='110' editType='datepickeredit' format="yMd" textAlign='Right' :validationRules='daterules'></e-column>
+                <e-column field='startDate' headerText='Start Date' width='110' editType='datepickeredit' format="yMd" textAlign='Right' :edit='editdataparam' :validationRules='daterules'></e-column>
                 <e-column field='duration' headerText='Duration' width='140' editType='numericedit' :edit='editparams' textAlign='Right' :validationRules='durationrules'></e-column>
             </e-columns>
         </ejs-treegrid>
@@ -56,24 +56,33 @@
 </div>
 </template>
 <style>
+    .disableRow .e-rowcell,
     .material .disableRow .e-rowcell{
         color: rgba(0, 0, 0, .38) !important;
+    }
+    .disableRow .e-rowcell,
+    body:not([class]) #_gridcontrol .disableRow .e-rowcell {
+    color: rgba(0, 0, 0, .38) !important;
     }
 </style>
 <!-- custom code start -->
 <style>
+.disableRow .e-rowcell,
 .material-dark .disableRow .e-rowcell, .fabric-dark .disableRow .e-rowcell,
 .bootstrap-dark .disableRow .e-rowcell, .bootstrap5-dark .disableRow .e-rowcell, .bootstrap5_3-dark .disableRow .e-rowcell, .fluent2-dark .disableRow .e-rowcell, .highcontrast .disableRow .e-rowcell, 
 .tailwind .disableRow .e-rowcell, .tailwind-dark .disableRow .e-rowcell, .fluent-dark .disableRow .e-rowcell, .material3-dark .disableRow .e-rowcell, .fluent2-highcontrast .disableRow .e-rowcell,
 .tailwind3 .disableRow .e-rowcell, .tailwind3-dark .disableRow .e-rowcell {
     color: #757575 !important;
 }
+.disableRow .e-rowcell,
 .material3 .disableRow .e-rowcell {
     color: rgba(0, 0, 0, .38) !important;
 }
+.disableRow .e-rowcell,
 .fabric .disableRow .e-rowcell {
     color: #c8c8c8 !important;
 }
+.disableRow .e-rowcell,
 .bootstrap .disableRow .e-rowcell, .bootstrap4 .disableRow .e-rowcell, 
 .bootstrap5 .disableRow .e-rowcell, .fluent .disableRow .e-rowcell,.bootstrap5_3 .disableRow .e-rowcell, .fluent2 .disableRow .e-rowcell {
     color: rgba(0, 0, 0, .35) !important;
@@ -107,7 +116,8 @@ export default {
       editparams : { params: { format: 'n' } },
       taskidrules : { required: true , number: true},
       tasknamerules : { required: true},
-      daterules : { date: true},
+      daterules : { date: ['M/d/yyyy', 'Please enter a valid date']},
+      editdataparam : { params: { format:'M/d/yyyy'}},
       durationrules : { number: true , min: 0},
       toolbar: ['Edit', 'Update', 'Cancel'],
       ddldata: lockRowDropDownData,

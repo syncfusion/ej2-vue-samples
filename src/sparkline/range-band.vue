@@ -83,6 +83,7 @@ import { SparklineComponent, Sparkline } from "@syncfusion/ej2-vue-charts";
 import columntempVue from "./column-template-one.vue";
 import columntempVue2 from "./column-template-two.vue";
 import { line } from "./rangeband";
+import { loadSparkLineTheme } from "./theme-color";
 
 let lineData = line;
 export default {
@@ -153,9 +154,7 @@ export default {
         }, 1000);
         /* custom code start */
     function load(args){
-        let theme = location.hash.split('/')[1];
-        theme = theme ? theme : 'Fluent2';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast') ;
+        loadSparkLineTheme(args);
         }
     },
     /* custom code end */

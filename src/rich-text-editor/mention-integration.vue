@@ -3,13 +3,13 @@
         <div class="control-section">
             <div class="sample-container">
                 <div class="default-section">
-                    <ejs-richtexteditor id="mention_integration"  placeholder="Type @ and tag the name" :actionBegin="onActionBegin">
+                    <ejs-richtexteditor id="mention_integration"  placeholder="Type @ and tag the name">
                         <p>Hello <span contenteditable="false" class="e-mention-chip"><a href="mailto:maria@gmail.com" title="maria@gmail.com">@Maria</a></span>&#8203;</p>
                         <p>Welcome to the mention integration with rich text editor demo. Type <code>@</code> character and tag user from the suggestion list. </p>
                     </ejs-richtexteditor>
                 </div>
                 <ejs-mention ref="mentionObj" id="mentionEditor" target="#mention_integration_rte-edit-view" :suggestionCount="8" :showMentionChar="false" :allowSpaces="true" :dataSource="data" :fields="fieldsData" 
-                popupWidth='250px' popupHeight='200px' :itemTemplate="'iTemplate'" :displayTemplate="'dTemplate'">
+                popupWidth='250px' popupHeight='200px' :itemTemplate="'iTemplate'" :displayTemplate="'dTemplate'" suffixText='&nbsp;'>
                     <template v-slot:iTemplate="{data}">
                        <table><tr><td><div id="mention-TemplateList"><img class="mentionEmpImage" :src="data.Eimg" alt="employee" /><span :class="'e-badge e-badge-success e-badge-overlap e-badge-dot e-badge-bottom'+ data.Status"></span></div></td><td class="mentionNameList"><span class="person">{{data.Name}}</span><span class="email">{{data.EmailId}}</span></td></tr></table>
                     </template>
@@ -51,13 +51,6 @@ export default {
     },
     provide:{
         richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio]
-    },
-    methods: {
-       onActionBegin: function(args) {
-            if (args.requestType === 'EnterAction' && this.$refs.mentionObj.ej2Instances.element.classList.contains('e-popup-open')) {
-                args.cancel = true;
-            }
-        }
     }
 }
 </script>

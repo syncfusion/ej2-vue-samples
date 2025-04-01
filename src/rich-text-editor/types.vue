@@ -72,7 +72,7 @@
 <style scoped>
 /* custom code start */
 .sb-header {
-  z-index: 100;
+  z-index: 100 !important;
 }
 .property-panel-table div {
   padding-left: 0;
@@ -157,7 +157,7 @@ export default {
         leftBar = document.querySelector("#left-sidebar");
         transformElement = document.querySelector("#right-pane");
       }
-      if (e.targetItem === "Maximize") {
+      if (e.targetItem === "Maximize" && sbCntEle != null || sbHdrEle != null) {
         if (Browser.isDevice && Browser.isIos) {
           addClass([sbCntEle, sbHdrEle], ['hide-header']);
         }
@@ -167,7 +167,8 @@ export default {
           transformElement.style.marginLeft = "0px";
         }
         transformElement.style.transform = "inherit";
-      } else if (e.targetItem === "Minimize") {
+        sbHdrEle.style.cssText = 'z-index: 100 !important;';
+      } else if (e.targetItem === "Minimize" && sbCntEle != null || sbHdrEle != null) {
         if (Browser.isDevice && Browser.isIos) {
           removeClass([sbCntEle, sbHdrEle], ['hide-header']);
         }

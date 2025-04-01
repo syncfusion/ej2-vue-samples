@@ -8,7 +8,7 @@
                     <ejs-multiselect id='tag' :dataSource='tagData' :placeholder='tagText' :fields='tagFields' :allowFiltering='true' :showDropDownIcon='true'></ejs-multiselect>
                 </div>
             </div>
-            <div id='vegetable' class='col-lg-6'>
+            <div id='#disabled-vegetable' class='col-lg-6'>
                 <div class="content">
                     <label class="h4">Vegetables</label>
                     <ejs-multiselect id='vegetable' :dataSource='vegetableData' :placeholder='vegetableText' :fields='vegetableFields' :mode='multiMode' :showDropDownIcon='true'></ejs-multiselect>
@@ -39,7 +39,7 @@
     }
     
     #tag,
-    #vegetable {
+    #disabled-vegetable {
         margin: 0 auto;
         padding-top: 15px;
     }    

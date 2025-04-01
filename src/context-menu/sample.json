@@ -2,7 +2,6 @@
     "name": "Context Menu",
     "directory": "context-menu",
     "category": "Navigation",
-    "type": "update",
     "ftName": "context-menu",
     "samples": [
         {
@@ -16,7 +15,6 @@
             "url": "template",
             "name": "Template",
             "category": "Context Menu",
-            "type": "new",
             "api":{"ContextMenu":["target", "items", "beforeItemRender", "animationSettings", "itemtemplate"], "MenuItem":["text", "iconCss", "items", "separator"] },
             "description": "This example demonstrates the Syncfusion<sup>®</sup> Vue ContextMenu items with icons, text and separator."
         }

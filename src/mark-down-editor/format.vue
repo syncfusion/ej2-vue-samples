@@ -44,13 +44,13 @@
     overflow: hidden;
   }
   .rte-markdown-custom-format .e-md-preview::before {
-    content: "\e345";
+    content: "\e7de";
   }
   .rte-markdown-custom-format .e-rte-content .e-content.e-pre-source {
     width: 100%;
   }
   .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview.e-icons::before {
-    content: "\e350";
+    content: "\e80e";
   }
   .bootstrap4 .rte-markdown-custom-format .e-icon-btn.e-active .e-md-preview::before {
     content: "\e790";
@@ -98,11 +98,13 @@
  
   import { RichTextEditorComponent, Toolbar, Link, Image, Table, MarkdownFormatter, MarkdownEditor } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from "@syncfusion/ej2-vue-base";
+  import{Tooltip} from "@syncfusion/ej2-vue-popups";
   import { marked } from 'marked';
   
   export default {
     components: {
-      'ejs-richtexteditor': RichTextEditorComponent
+      'ejs-richtexteditor': RichTextEditorComponent,
+      'ejs-tooltip': Tooltip
     },
     data: function() {
       return {
@@ -114,14 +116,15 @@
         editorMode: "Markdown",
         placeholder : "Enter your text here...",
         toolbarSettings: {
-          items: ["Bold", "Italic", "StrikeThrough", "|", "Formats", 'Blockquote', "OrderedList", "UnorderedList", "|", "CreateLink", "Image", "|",
-            {
-              tooltipText: "Preview",
-              template:
-                '<button id="preview-code" class="e-tbar-btn e-control e-btn e-icon-btn" aria-label="Preview Code">' +
-                '<span class="e-btn-icon e-icons e-md-preview"></span></button>'
-            }, "Undo", "Redo"
-          ]
+         items: ['Bold', 'Italic', 'StrikeThrough', '|',
+                'Formats', 'Blockquote', 'OrderedList', 'UnorderedList', '|',
+                'CreateLink', 'Image', '|',
+                {
+                  template:
+                    '<button id="preview-code" class="e-tbar-btn e-control e-btn e-icon-btn" aria-label="Preview Code">' +
+                    '<span class="e-btn-icon e-icons e-md-preview"></span></button>'
+                },
+                'Undo', 'Redo']
         },
         formatter: new MarkdownFormatter({
           listTags: { OL: "2. ", UL: "+ " },
@@ -138,6 +141,11 @@
         this.mdsource = document.getElementById("preview-code");
         this.htmlPreview = this.rteObj.element.querySelector(this.id);
         this.previewTextArea = this.rteObj.element.querySelector(".e-rte-content");
+        this.tooltipObj = new Tooltip({
+          content: "Preview",  
+          target: "#preview-code"  
+        });
+        this.tooltipObj.appendTo("#preview-code");
         this.textArea.onkeyup = Event => {
           this.markDownConversion();
         };
@@ -145,8 +153,10 @@
           this.fullPreview();
           if (e.currentTarget.classList.contains("e-active")) {
             this.$refs.rteInstance.disableToolbarItem(["Bold", "Italic", "StrikeThrough", "Formats", "Blockquote", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
+            this.tooltipObj.content = "CodeView";
           } else {
             this.$refs.rteInstance.enableToolbarItem(["Bold", "Italic", "StrikeThrough", "Formats", "Blockquote", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
+            this.tooltipObj.content = "Preview";
           }
         };
       },
@@ -157,11 +167,13 @@
       },
       fullPreview: function() {
         if (this.mdsource.classList.contains("e-active")) {
+          this.$refs.rteInstance.disableToolbarItem(["Bold", "Italic", "StrikeThrough", "Formats", "Blockquote", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
           this.mdsource.classList.remove("e-active");
           this.textArea.style.display = "block";
           this.htmlPreview.style.display = "none";
           this.previewTextArea.style.overflow = "hidden";
         } else {
+          this.$refs.rteInstance.enableToolbarItem(["Bold", "Italic", "StrikeThrough", "Formats", "Blockquote", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
           this.mdsource.classList.add("e-active");
           if (!this.htmlPreview) {
             this.htmlPreview = document.createElement("div");
@@ -176,7 +188,6 @@
           this.textArea.style.display = "none";
           this.htmlPreview.style.display = "block";
           this.htmlPreview.innerHTML = marked(this.textArea.value);
-          this.mdsource.parentElement.title = "Code View";
         }
       }
     },

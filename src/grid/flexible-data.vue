@@ -17,7 +17,7 @@
             </ejs-grid>
         </div>
 
-        <div class="col-lg-3 property-section e-flexible-grid-panel">
+        <div class="col-lg-3 property-section e-flexible-grid-panel e-mac">
             <div>
                 <table id="property" title="Properties" style="width: 100%">
                     <tr style="height: 50px">
@@ -215,6 +215,10 @@
     padding-right: 10px;
 }
 
+.e-mac-safari .e-flexible-grid-panel.e-mac .prop-value {
+    width: 100px !important;
+}
+
 #payload-detail {
     word-wrap: break-word;
     margin-bottom: 10px;
@@ -245,6 +249,9 @@ import { DropDownList, DropDownListComponent } from '@syncfusion/ej2-vue-dropdow
 import { CheckBoxComponent, ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { DataManager, WebApiAdaptor, UrlAdaptor, ODataV4Adaptor, Query } from "@syncfusion/ej2-data";
 
+if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+    document.body.classList.add('e-mac-safari');
+}
 export default {
     components: {
         'ejs-grid': GridComponent,

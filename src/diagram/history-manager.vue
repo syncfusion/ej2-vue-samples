@@ -46,7 +46,7 @@
                             <div style="display: table-cell; vertical-align: middle">Stack Limit</div>
                         </div>
                         <div class="col-xs-6" style="padding-left: 0px; padding-right: 0px">
-                            <ejs-numerictextbox id="StackLimit" :value=0 :step=1 format='###.##' :change='setStackLimit'></ejs-numerictextbox>
+                            <ejs-numerictextbox id="StackLimit" :value=0 :min=0 :step=1 format='###.##' :change='setStackLimit'></ejs-numerictextbox>
                         </div>
                     </div>
                     <div class="row" style="padding-top: 10px">

@@ -56,7 +56,7 @@
                     </ejs-toolbar>
                 </div>
             </div>
-            <ejs-pdfviewer ref="viewer" id="container" :documentPath="documentPath" :resourceUrl="resourceUrl"
+            <ejs-pdfviewer ref="viewer" id="container" :documentPath="documentPath" :zoomMode="zoomMode" :resourceUrl="resourceUrl"
                 :enableNavigationToolbar="false" :enableAnnotationToolbar = "false"
                 :enableToolbar="false" :enableFormDesignerToolbar="false" :documentLoad="documentLoad"
                 :formFieldPropertiesChange="fieldChange" :downloadEnd="downloadEnd" style="height: 640px;">
@@ -108,6 +108,7 @@ export default {
         return {
             documentPath: 'https://cdn.syncfusion.com/content/pdf/eSign_filling.pdf',
             resourceUrl: 'https://cdn.syncfusion.com/ej2/27.2.2/dist/ej2-pdfviewer-lib',
+            zoomMode: 'FitToPage',
             status: false,
             preventChange: false,
             currentUser: 'andrew@mycompany.com',
@@ -356,7 +357,6 @@ export default {
         },
         documentLoad() {
             var viewer = this.$refs.viewer.ej2Instances;
-            viewer.magnification.fitToPage();
             viewer.designerMode = false;
             this.updateUserFormField();
         },

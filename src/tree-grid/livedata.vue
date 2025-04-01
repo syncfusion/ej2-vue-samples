@@ -7,7 +7,7 @@
             </p>
         </div>
         <div>
-            <div style="padding-bottom: 10px;">
+            <div id="treegrid-buttons" style="padding-bottom: 10px;">
                 <h4 style="display: inline-block; font-size: 14px">Feed Delay(ms):</h4>
                 <ejs-numerictextbox ref="feeddelay" :value="value" format="N0" :min="min" :max="max" :step="step"
                     :width="width" style="margin-left: 7px;" aria-label="Feed Delay in milliseconds"></ejs-numerictextbox>
@@ -165,52 +165,54 @@ export default {
             }
         },
         updateCellValues: function () {
-            let treegrid = this.$refs.livedata.ej2Instances.grid;
-            for (let i = 0; i < treegrid.currentViewData.length; i++) {
-                if (treegrid.currentViewData[i] === undefined) {
-                    return;
+            if (this.$refs && this.$refs.livedata) {
+                let treegrid = this.$refs.livedata.ej2Instances.grid;
+                for (let i = 0; i < treegrid.currentViewData.length; i++) {
+                    if (treegrid.currentViewData[i] === undefined) {
+                        return;
+                    }
+                    let num = Math.floor(Math.random() * 40) + 1;
+                    num *= Math.floor(Math.random() * 2) === 1 ? 1 : -1;
+                    if (i % 2 === 0) {
+                        num = num * 0.25;
+                    } else if (i % 3 === 0) {
+                        num = num * 0.83;
+                    } else if (i % 5 === 0) {
+                        num = num * 0.79;
+                    } else if (i % 4 === 0) {
+                        num = num * 0.42;
+                    } else {
+                        num = num * 0.51;
+                    }
+                    this.isDataBound = true;
+                    const maxChange = 2 - treegrid.currentViewData[i]['Change'];
+                    const minChange = -2 - treegrid.currentViewData[i]['Change'];
+                    const newChange = Math.max(Math.min(num, maxChange), minChange);
+                    treegrid.setCellValue(
+                        treegrid.currentViewData[i]['id'],
+                        'Change',
+                        parseFloat(newChange.toFixed(2))
+                    );
+                    this.isDataBound = true;
+                    let newPercentageChange;
+                    if (treegrid.currentViewData[i]['indexfunds'] === "NIFTY 50") {
+                        newPercentageChange = Math.max(Math.min(newChange, 2), -2);
+                    } else if (treegrid.currentViewData[i]['indexfunds'] === "NIFTY BANK") {
+                        newPercentageChange = Math.max(Math.min(newChange, 4), -4);
+                    } else {
+                        const maxPercentageChange = 2 - treegrid.currentViewData[i]['PercentageChange'];
+                        const minPercentageChange = -2 - treegrid.currentViewData[i]['PercentageChange'];
+                        newPercentageChange = Math.max(Math.min(newChange, maxPercentageChange), minPercentageChange);
+                    }
+                    treegrid.setCellValue(
+                        treegrid.currentViewData[i]['id'],
+                        'PercentageChange',
+                        parseFloat(newPercentageChange.toFixed(2))
+                    );
+                    this.isDataBoundisDataBound = true;
+                    const val = treegrid.currentViewData[i]['Ltp'] + newPercentageChange;
+                    treegrid.setCellValue(treegrid.currentViewData[i]['id'], 'Ltp', val);
                 }
-                let num = Math.floor(Math.random() * 40) + 1;
-                num *= Math.floor(Math.random() * 2) === 1 ? 1 : -1;
-                if (i % 2 === 0) {
-                    num = num * 0.25;
-                } else if (i % 3 === 0) {
-                    num = num * 0.83;
-                } else if (i % 5 === 0) {
-                    num = num * 0.79;
-                } else if (i % 4 === 0) {
-                    num = num * 0.42;
-                } else {
-                    num = num * 0.51;
-                }
-                this.isDataBound = true;
-                const maxChange = 2 - treegrid.currentViewData[i]['Change'];
-                const minChange = -2 - treegrid.currentViewData[i]['Change'];
-                const newChange = Math.max(Math.min(num, maxChange), minChange);
-                treegrid.setCellValue(
-                    treegrid.currentViewData[i]['id'],
-                    'Change',
-                    parseFloat(newChange.toFixed(2))
-                );
-                this.isDataBound = true;
-                let newPercentageChange;
-                if (treegrid.currentViewData[i]['indexfunds'] === "NIFTY 50") {
-                    newPercentageChange = Math.max(Math.min(newChange, 2), -2);
-                } else if (treegrid.currentViewData[i]['indexfunds'] === "NIFTY BANK") {
-                    newPercentageChange = Math.max(Math.min(newChange, 4), -4);
-                } else {
-                    const maxPercentageChange = 2 - treegrid.currentViewData[i]['PercentageChange'];
-                    const minPercentageChange = -2 - treegrid.currentViewData[i]['PercentageChange'];
-                    newPercentageChange = Math.max(Math.min(newChange, maxPercentageChange), minPercentageChange);
-                }
-                treegrid.setCellValue(
-                    treegrid.currentViewData[i]['id'],
-                    'PercentageChange',
-                    parseFloat(newPercentageChange.toFixed(2))
-                );
-                this.isDataBoundisDataBound = true;
-                const val = treegrid.currentViewData[i]['Ltp'] + newPercentageChange;
-                treegrid.setCellValue(treegrid.currentViewData[i]['id'], 'Ltp', val);
             }
         }
     },
@@ -449,5 +451,8 @@ function updateCellDetails(cell, className) {
     }
     .side-space {
         padding: 0 5px;
+    }
+    .fluent2-highcontrast #treegrid-buttons #update {
+        color: #3ff23f !important;
     }
 </style>

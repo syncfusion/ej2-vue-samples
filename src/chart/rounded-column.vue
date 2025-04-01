@@ -69,13 +69,9 @@
 <script>
 import { Browser } from "@syncfusion/ej2-base";
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, DataLabel, Tooltip, Legend } from "@syncfusion/ej2-vue-charts";
-import { fabricColors, materialColors, bootstrapColors, highContrastColors } from "./theme-color";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (
-  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme, roundedPointRender } from "./theme-color";
+let theme = loadChartTheme();
 
 export default {
   components: {
@@ -142,123 +138,7 @@ export default {
   methods: {
     
     pointRender: function(args) {
-      let selectedTheme = location.hash.split("/")[1];
-      selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-      if (location.hash.indexOf("material") > -1)
-        {
-            if (location.hash.indexOf("dark") > -1)
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "#f9fafb";                
-            }
-            else
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "grey";               
-            }
-        }
-        else if (location.hash.indexOf("fabric") > -1)
-        {
-            if (location.hash.indexOf("dark") > -1)
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "#f9fafb";
-            }
-            else
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "grey";
-            }
-        }
-        else if (location.hash.indexOf("bootstrap5") > -1)
-        {
-            if (location.hash.indexOf("dark") > -1)
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "#f9fafb";
-            }
-            else
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "grey";
-            }
-        }
-        else if (location.hash.indexOf("fluent") > -1)
-        {
-            if (location.hash.indexOf("dark") > -1)
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "#f9fafb";
-            }
-            else
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "grey";
-            }
-        }
-        else if (location.hash.indexOf("bootstrap4") > -1)
-        {
-            if (args.series.yName == "Rate")
-                args.fill = "grey";
-        }
-        else if (location.hash.indexOf("bootstrap") > -1)
-        {
-            if (location.hash.indexOf("dark") > -1)
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "#f9fafb";
-            }
-            else
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "grey";
-            }
-        }
-        else if (location.hash.indexOf("tailwind") > -1)
-        {
-            if (location.hash.indexOf("dark") > -1)
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "#f9fafb";
-            }
-            else
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "grey";
-            }
-        }
-        else if (location.hash.indexOf("tailwind3") > -1)
-        {
-            if (location.hash.indexOf("dark") > -1)
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "#f9fafb";
-            }
-            else
-            {
-                if (args.series.yName == "Rate")
-                    args.fill = "grey";
-            }
-        }
-        else if (location.hash.indexOf("highcontrast") > -1)
-        {
-            if (args.series.yName == "Rate")
-                args.fill = "#f9fafb";
-        }
-        else if (location.hash.indexOf("fluent2-highcontrast") || selectedTheme === 'fluent2-dark') 
-        {
-            if (args.series.yName == "Rate")
-                args.fill = "#f9fafb";
-        } 
-        else if (location.hash.indexOf("fluent2")) {
-            if (args.series.yName == "Rate")
-                args.fill = "grey";
-        }
-        else
-        {
-            if (args.series.yName == "Rate")
-                args.fill = "grey";
-        }
+      roundedPointRender(args);
     },
   }
 };

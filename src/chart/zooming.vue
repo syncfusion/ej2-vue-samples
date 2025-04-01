@@ -4,7 +4,7 @@
       <div class="control-section">
           <div align='center'>
               <ejs-chart style='display:block;width: 100%' :theme='theme' :chartArea='chartArea' :width='width'
-                  align='center' id='chart-zooming' :primaryXAxis='primaryXAxis' :legendSettings='legend' :margin = 'margin' :titleStyle = 'titleStyle'
+                  align='center' id='chart-zooming' :primaryXAxis='primaryXAxis' :legendSettings='legend' :tooltip='tooltip' :margin = 'margin' :titleStyle = 'titleStyle'
                   :zoomSettings='zoomSettings' :title='title' :primaryYAxis='primaryYAxis'>
                   <e-series-collection>
                       <e-series :dataSource='series' type='Line' xName='x' yName='y' :animation='animation'
@@ -16,7 +16,7 @@
       </div>
       <div id="action-description">
           <p>
-            This sample demonstrates the zooming and panning features of the charts.
+            This sample demonstrates the zooming and panning features of the chart, allowing users to explore data interactively.
           </p>
       </div>
       <div id="description">
@@ -35,6 +35,7 @@
             <li><b>Y</b> - Zoom the chart with respect to the vertical axis only.</li>
           </ul>  
           <p>The <code>toolbarPosition</code> property is used to adjust the position of the zoom toolbar. In this example, the toolbar is moved 60 pixels upward from its default position. The <code>draggable</code> property is used to drag and drop the zoom toolbar to any position within the chart area.</p>
+          <p>The chart supports different scrollbar positions. By default, it appears next to the axis line, but you can adjust its placement using the <code>position</code> property of <code>scrollbarSettings</code>. This positioning allows better customization and flexibility in the chart's design.</p>
             
           <p style="font-weight: 500"><b>Injecting Module</b></p>
           <p>
@@ -226,11 +227,11 @@
 </style>
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Zoom, DateTime, ScrollBar } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Zoom, DateTime, ScrollBar, Tooltip } from "@syncfusion/ej2-vue-charts";
 import { data } from './financial-data';
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, "Contrast").replace(/-highContrast/i, "HighContrast");
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
+
 let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark', 'fluent2', 'fluent2highcontrast', 'fluent2dark', 'tailwind3', 'tailwind3dark'];
 let borderColor = ['#FD7E14', '#FD7E14', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6355C7', '#4EAAFF', '#6200EE', '#9BB449', '#9BB449', '#2F4074', '#8029F1'];
   const seriesData = [];
@@ -255,12 +256,13 @@ export default {
             majorGridLines: { width: 0 },
             majorTickLines: { width: 0 },
             scrollbarSettings: {
-                enableZoom: false
+                enableZoom: false,
+                position: 'Bottom'
             }
           },
           //Initializing Primary Y Axis
           primaryYAxis: {
-            title: 'Temperature',
+            title: 'Temperature Anomaly (°C)',
             intervalType: 'Months',
             labelFormat: '{value}°C',
             enableScrollbarOnZooming: false,
@@ -287,6 +289,12 @@ export default {
                   width: 0
               }
           },
+          tooltip: {
+          header: '<b>${point.x}</b>',
+          showNearestTooltip: true,
+          enable: true,
+          format: 'Temperature: <b>${point.y}</b>'
+          },
           margin : {top: 20},
           width: Browser.isDevice ? '100%' : '80%',
           border: { width: 2, color: borderColor[themes.indexOf(theme.toLowerCase())] },       
@@ -296,7 +304,7 @@ export default {
       };
   },
   provide: {
-      chart: [LineSeries, DateTime, Zoom, ScrollBar]
+      chart: [LineSeries, DateTime, Zoom, ScrollBar, Tooltip]
   },
   methods: {
   }

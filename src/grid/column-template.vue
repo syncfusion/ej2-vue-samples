@@ -62,7 +62,7 @@
       </p>
       <p>
           The column template feature allows the customization of grid cells. In this demo, the Grid showcases the <strong>Employee Image</strong>
-          column with employee photos, <strong>Mail ID</strong> column with link tags, <strong>Location</strong> column with location icons, <strong>Asset Kit</strong> column with Syncfusion<sup>®</sup> Chip components and <strong>Employee Availability</strong> column with HTML span elements, using green to indicate available and red to indicate for not available.
+          column with employee photos, <strong>Mail ID</strong> column with link tags, <strong>Location</strong> column with location icons, <strong>Asset Kit</strong> column with Syncfusion Chip components and <strong>Employee Availability</strong> column with HTML span elements, using green to indicate available and red to indicate for not available.
       </p>
       <p>
           More information on the column template can be found in this
@@ -122,9 +122,9 @@
   .e-location {
     margin-right: 5px;
   }
-  .highcontrast .e-grid td.e-rowcell.e-selectionbackground.e-active .e-icons,
-  .fluent2-highcontrast .e-grid .e-row:hover:not(.e-editedrow) .e-icons,
-  .fluent2-highcontrast .e-grid td.e-rowcell.e-selectionbackground.e-active .e-icons {
+  .highcontrast .e-grid td.e-rowcell.e-selectionbackground.e-active .e-location.e-icons,
+  .fluent2-highcontrast .e-grid .e-row:hover:not(.e-editedrow) .e-location.e-icons,
+  .fluent2-highcontrast .e-grid td.e-rowcell.e-selectionbackground.e-active .e-location.e-icons {
     color: black;
   }
   </style>

@@ -1,6 +1,6 @@
 <template>
     <div id="app" style='height:100%; width:100%;'>
-         <ejs-accumulationchart class="chart-content" :theme='theme' ref="accumulationInstance" style='height:100%; width:100%;' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableBorderOnMouseMove='false' enableSmartLables='false' :pointRender="onPointRender"> 
+         <ejs-accumulationchart class="chart-content" :theme='theme' ref="accumulationInstance" :textRender='onTextRender' style='height:100%; width:100%;' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableBorderOnMouseMove='false' enableSmartLables='false' :pointRender="onPointRender"> 
             <e-accumulation-series-collection>
                 <e-accumulation-series startAngle=270 endAngle=270 :palettes='palettes' :dataSource='seriesData' xName='Product' yName='Percentage' innerRadius="40%" radius="75%" :dataLabel="dataLabel" :border='border' > </e-accumulation-series>
             </e-accumulation-series-collection>
@@ -9,9 +9,9 @@
 </template>
 <script>
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, PieSeries, AccumulationDataLabel, AccumulationTooltip } from "@syncfusion/ej2-vue-charts";
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadAccumulationChartTheme } from "./theme-color";
+let theme = loadAccumulationChartTheme();
+
 
 export default {
   components: {
@@ -49,61 +49,58 @@ export default {
      accumulationchart: [PieSeries, AccumulationDataLabel, AccumulationTooltip]
   },
   methods: {
+    onTextRender: function (args) {
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
+      if (selectedTheme.indexOf('dark') > -1 || selectedTheme.indexOf('highcontrast') > -1) {
+        args.font.color = '#FFFFFF';
+      }
+    },
     onPointRender: function (args) {
-      let selectedTheme= location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        if (selectedTheme.indexOf('dark') > -1 )
-        {
-          if(selectedTheme.indexOf('material') > -1 )
-          {
-            args.border.color = '#303030' ;
-            this.layoutColor= '#303030' ;
-          }
-          else if(selectedTheme.indexOf('bootstrap5') > -1 )
-          {
-            args.border.color = '#212529' ;
-            this.layoutColor= '#212529' ;
-          }
-          else if(selectedTheme.indexOf('bootstrap') > -1 )
-          {
-            args.border.color = '#1A1A1A' ;
-            this.layoutColor= '#1A1A1A' ;
-          }
-          else if(selectedTheme.indexOf('tailwind') > -1 )
-          {
-            args.border.color = '#1F2937' ;
-            this.layoutColor= '#1F2937' ;
-          }
-          else if(selectedTheme.indexOf('fluent') > -1 )
-          {
-            args.border.color = '#252423' ;
-            this.layoutColor= '#252423' ;
-          }
-          else if(selectedTheme.indexOf('fabric') > -1 )
-          {
-            args.border.color = '#201f1f' ;
-            this.layoutColor= '#201f1f' ;
-          }
-          else
-          {
-            args.border.color = '#222222' ;
-            this.layoutColor= '#222222' ;
-          }
+      let selectedTheme = location.hash.split('/')[1];
+      selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
+      if (selectedTheme.indexOf('dark') > -1) {
+        if (selectedTheme.indexOf('material') > -1) {
+          args.border.color = '#303030';
+          this.layoutColor = '#303030';
         }
-        else if(selectedTheme.indexOf('highcontrast') > -1)
-        {
-          args.border.color = '#000000' ;
-          this.layoutColor= '#000000' ;
+        else if (selectedTheme.indexOf('bootstrap5') > -1) {
+          args.border.color = '#212529';
+          this.layoutColor = '#212529';
         }
-        else if(selectedTheme.indexOf('fluent2-highcontrast') > -1) {
-          args.border.color = '#000000';
-          this.layoutColor = '#000000';
+        else if (selectedTheme.indexOf('bootstrap') > -1) {
+          args.border.color = '#1A1A1A';
+          this.layoutColor = '#1A1A1A';
         }
-        else
-        {
-          args.border.color = '#FFFFFF' ;
-          this.layoutColor= '#FFFFFF' ;
+        else if (selectedTheme.indexOf('tailwind') > -1) {
+          args.border.color = '#1F2937';
+          this.layoutColor = '#1F2937';
         }
+        else if (selectedTheme.indexOf('fluent') > -1) {
+          args.border.color = '#252423';
+          this.layoutColor = '#252423';
+        }
+        else if (selectedTheme.indexOf('fabric') > -1) {
+          args.border.color = '#201f1f';
+          this.layoutColor = '#201f1f';
+        }
+        else {
+          args.border.color = '#222222';
+          this.layoutColor = '#222222';
+        }
+      }
+      else if (selectedTheme.indexOf('highcontrast') > -1) {
+        args.border.color = '#000000';
+        this.layoutColor = '#000000';
+      }
+      else if (selectedTheme.indexOf('fluent2-highcontrast') > -1) {
+        args.border.color = '#000000';
+        this.layoutColor = '#000000';
+      }
+      else {
+        args.border.color = '#FFFFFF';
+        this.layoutColor = '#FFFFFF';
+      }
       if (selectedTheme.indexOf('highcontrast') > -1 || selectedTheme.indexOf('dark') > -1) {
         let element = document.querySelector('#header1')
         element.style.color = '#F3F2F1';
@@ -112,15 +109,15 @@ export default {
         let element2 = document.querySelector('#header3')
         element2.style.color = '#F3F2F1';
       }
-      let elementBody =  document.querySelector('#layout_0_body')
+      let elementBody = document.querySelector('#layout_0_body')
       if (elementBody != null) {
-      elementBody.style.background= this.layoutColor;
+        elementBody.style.background = this.layoutColor;
       }
-      let elementBody1 =  document.querySelector('#layout_2_body') 
+      let elementBody1 = document.querySelector('#layout_2_body')
       if (elementBody1 != null) {
         elementBody1.style.background = this.layoutColor;
       }
-      let elementBody2 =  document.querySelector('#layout_1_body') 
+      let elementBody2 = document.querySelector('#layout_1_body')
       if (elementBody2 != null) {
         elementBody2.style.background = this.layoutColor;
       }

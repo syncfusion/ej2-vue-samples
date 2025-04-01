@@ -84,7 +84,7 @@
     </div>
     <div id="description">
       <p>
-        This demo for Essential<sup>®</sup> JS2 Progress Bar control shows the linear progress bar with different labels format with help of <code>labelStyle</code> and provide different modes using <code>role</code> property
+        This demo for Essential JS2 Progress Bar control shows the linear progress bar with different labels format with help of <code>labelStyle</code> and provide different modes using <code>role</code> property
       </p>
     </div>
   </div>
@@ -112,6 +112,7 @@
 </style>
 <script>
 import { ProgressBarComponent } from "@syncfusion/ej2-vue-progressbar";
+import { loadProgressBarTheme } from "./theme-color";
 
 export default {
   data: function() {
@@ -159,14 +160,11 @@ export default {
       this.$refs.custom.ej2Instances.refresh();
      },
   load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+     loadProgressBarTheme(args);
         if(args.progressBar.theme === 'Material') {
                 args.progressBar.trackColor = '#EAEAEA';
             }
-      }
+  }
    }
 };
 </script>

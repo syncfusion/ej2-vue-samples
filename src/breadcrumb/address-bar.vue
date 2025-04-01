@@ -100,10 +100,14 @@
 {
     right: 1px;
 }
-.material3 .e-custom-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
-.material3-dark .e-custom-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
-.e-bigger .material3 .e-custom-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
-.e-bigger .material3-dark .e-custom-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret
+.material3 .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.material3-dark .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.e-bigger .material3 .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.e-bigger .material3-dark .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.tailwind3 .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.tailwind3-dark .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.e-bigger .tailwind3 .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret,
+.e-bigger .tailwind3-dark .e-addressbar-breadcrumb .e-menu-wrapper ul .e-menu-item .e-caret
 {
     right: 2px;
 }
@@ -267,13 +271,17 @@ export default {
                             },
                             mixins: [this],
                             methods: {
-                                selectHandler: function(args) {
+                                selectHandler: function (args) {
                                     var breadcrumb = getComponent(document.getElementById('breadcrumb'), 'breadcrumb');
                                     var breadcrumbItems = breadcrumb.items || this.$options.breadcrumbItems;
                                     for (var i = 0; i < breadcrumbItems.length; i++) {
                                         if (breadcrumbItems[i].text === args.item.text) {
                                             breadcrumbItems = breadcrumbItems.slice(0, i + 1);
-                                            breadcrumbItems[0].iconCss = 'e-bicons e-' + this.$options.getItems(args.item.text, true)[0].items.type;
+                                            const itemsData = this.$options.getItems(args.item.text, true)[0] || {};
+                                            const newItemType = itemsData.items ? itemsData.items.type : null;
+                                            const newIconCss = newItemType ? 'e-bicons e-' + newItemType : breadcrumbItems[0].iconCss;
+
+                                            breadcrumbItems[0].iconCss = newIconCss;
                                             breadcrumb.items = breadcrumbItems;
                                             break;
                                         }
@@ -304,12 +312,13 @@ export default {
                                 getItems: function(text, needParent) {
                                     return this.$options.getItems(text, needParent);
                                 },
-                                subMenuSelectHandler: function(args) {
+                                subMenuSelectHandler: function (args) {
                                     if (!args.element.parentElement.classList.contains('e-menu') && (args.item).parentObj.items[0] && (args.item).parentObj.items[0].items) {
                                         var breadcrumb = getComponent(document.getElementById('breadcrumb'), 'breadcrumb');
-                                        var breadcrumbItems = breadcrumb.items;
+                                        var breadcrumbItems = breadcrumb.items || this.$options.breadcrumbItems;
                                         var subItems = (args.item).parentObj.items;
                                         var idx;
+
                                         for (let i = 0; i < subItems.length; i++) {
                                             for (let j = 0; j < breadcrumbItems.length; j++) {
                                                 if (subItems[i].text === breadcrumbItems[j].text) {
@@ -318,10 +327,15 @@ export default {
                                                 }
                                             }
                                         }
-                                        if (idx) {
+                                        if (idx !== undefined) {
                                             breadcrumbItems = breadcrumbItems.slice(0, idx);
                                         }
-                                        breadcrumbItems[0].iconCss = 'e-bicons e-' + (args.item).type;
+
+                                        const newItemIcon = (args.item).type || breadcrumbItems[0].iconCss.split(' ')[1];
+                                        const newIconCss = newItemIcon ? `e-bicons e-${newItemIcon}` : breadcrumbItems[0].iconCss;
+
+                                        breadcrumbItems[0].iconCss = newIconCss;
+
                                         if (breadcrumbItems[breadcrumbItems.length - 1].text === 'LastItem') {
                                             breadcrumbItems.pop();
                                         }

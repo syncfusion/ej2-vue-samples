@@ -49,9 +49,9 @@ import { GridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej
 import { RangeNavigatorComponent, AreaSeries, DateTime } from "@syncfusion/ej2-vue-charts";
 import { employeeData } from "./data-source";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import {  loadRangeNavigatorTheme } from "./theme-color";
+
+let theme = loadRangeNavigatorTheme();
 
 export default {
   components: {

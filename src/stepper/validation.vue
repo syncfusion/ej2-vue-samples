@@ -314,4 +314,10 @@ export default {
         margin: auto 5%;
     }
 }
+
+@media only screen and (max-width: 650px) {
+    #validation-step-content {
+        margin: auto 5% 20% 5%;
+    }
+}
 </style>

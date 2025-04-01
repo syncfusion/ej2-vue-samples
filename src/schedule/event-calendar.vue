@@ -297,6 +297,10 @@
     .event-calendar-control-section .e-sidebar {
         z-index: 1 !important;
     }
+
+    .e-bigger .e-schedule-dialog.e-device .custom-field-row {
+        padding-top: 8px;
+    }
 </style>
 <script>
 import {

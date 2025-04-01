@@ -71,9 +71,8 @@
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ChartAnnotation, MultiColoredLineSeries, Tooltip, DateTime } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
 
  let dataValues = [];
     [
@@ -161,7 +160,7 @@ export default {
   },
   methods: {
     load: function(args) {
-      if (args.chart.theme === 'highcontrast') {
+      if (args.chart.theme === 'HighContrast') {
                args.chart.series[0].segments[0].color = '#FF4741';
                args.chart.series[0].segments[1].color = '#00B400';
                args.chart.series[0].segments[2].color = '#3F9BFF';

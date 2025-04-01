@@ -44,7 +44,7 @@ import sparkgridVue3 from "./spark-grid-three.vue";
 import { SparklineComponent, Sparkline } from '@syncfusion/ej2-vue-charts';
 import { line, column } from "./grid";
 import { createApp } from "vue";
-
+import { loadSparkLineTheme } from "./theme-color";
 let lineData = line;
 let columnData = column;
 let winloss = () => {
@@ -129,9 +129,7 @@ mounted:function(){
      }, 100);
      /* custom code start */
  function load(args){
-        let theme = location.hash.split('/')[1];
-        theme = theme ? theme : 'Fluent2';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast') ;
+       loadSparkLineTheme(args);
     }
     /* custom code end */
 function getSparkData(type, count){

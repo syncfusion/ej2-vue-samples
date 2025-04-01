@@ -2,6 +2,7 @@
     "name": "Tree Grid",
     "directory": "tree-grid",
     "category": "Grids",
+    "type":"update",
     "ftName": "treegrid",
     "samples": [
       {  
@@ -151,7 +152,7 @@
          "description": "This demo explains the default functionalities of filtering and how to define the template for filter bar in Syncfusion<sup>®</sup> Essential JS2 Tree Grid."
      },
      {
-         "url":"filtermenu", "name": "Menu Filter", "category":"Filtering","api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","allowFiltering","treeColumnIndex","filterSettings"] },
+         "url":"filtermenu", "name": "Menu Filter", "category":"Filtering","type":"update","api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","allowFiltering","treeColumnIndex","filterSettings"] },
          "description": "This demo explains how to filter the content using menu filter type of Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
      },
      {

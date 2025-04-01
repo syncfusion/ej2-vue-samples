@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div id="spreadsheet-cell-template">
-      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :allowResizing="false" :allowPrint="false" :showFormulaBar="false" cssClass="e-custom-spreadsheet" :allowOpen="false" :allowSave="false" :scrollSettings="scrollSettings" :created="created" :allowEditing="false" :selectionSettings="selectionSettings">
+      <ejs-spreadsheet ref="spreadsheet" :showRibbon="false" :enableContextMenu="false" :allowResizing="false" :allowPrint="false" :showFormulaBar="false" cssClass="e-custom-spreadsheet" :allowOpen="false" :allowSave="false" :scrollSettings="scrollSettings" :created="created" :allowEditing="false" :selectionSettings="selectionSettings">
         <e-sheets>
           <e-sheet name="Registration Form" :rowCount="40" :colCount="30" :showGridLines="false">
             <e-ranges>
@@ -21,7 +21,7 @@
               </e-range>
               <e-range :template="'genderRadiobutton'" address="C4">
                 <template v-slot:genderRadiobutton>
-                  <div>
+                  <div style="padding-left: 2px">
                     <ejs-radiobutton name="gender" value="male" label="Male"></ejs-radiobutton>
                     <ejs-radiobutton name="gender" value="female" label="Female" cssClass="margin"></ejs-radiobutton>
                   </div>
@@ -226,6 +226,10 @@
     .tailwind3-dark .e-custom-spreadsheet.e-spreadsheet .e-sheet .e-sheet-content .e-cell-template .e-btn.e-flat {
         background-color: #111827;
     }
+
+    .e-spreadsheet .e-row-header .e-table .e-header-cell {
+        vertical-align: middle;
+    }
     
 </style>
 <!-- custom code end -->
@@ -270,6 +274,7 @@ export default {
       spreadsheet.cellFormat({ fontSize: '12pt', fontWeight: 'bold', textAlign: 'center', verticalAlign: 'middle', textDecoration: 'underline' }, 'B1');
       // Merges B1 and C1 cells
       spreadsheet.merge('B1:C1');
+      spreadsheet.cellFormat({ verticalAlign: 'middle' }, 'B2:C9');
     }
   }
 }

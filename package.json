@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "28.1.33",
+  "version": "29.1.33",
   "description": "Examples of Vue UI Components",
   "keywords": [],
   "dependencies": {
@@ -46,7 +46,8 @@
     "form-data": "^4.0.0",
     "openai": "^4.57.3",
     "vue": "3.5.10",
-    "vue-router": "4.2.4"
+    "vue-router": "4.2.4",
+    "@codemirror/lang-html": "^6.0.0"
   },
   "devDependencies": {
     "@microsoft/signalr": "7.0.11",
@@ -69,7 +70,7 @@
     "shelljs": "0.8.5",
     "ts-loader": "5.2.0",
     "typescript": "5.1.6",
-    "webpack": "5.94.0",
+    "webpack": "5.88.2",
     "webpack-cli": "5.1.4"
   },
   "scripts": {

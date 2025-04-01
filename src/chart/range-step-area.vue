@@ -70,9 +70,8 @@ import {
 } from "@syncfusion/ej2-vue-charts";
 import { chartDataValues } from './financial-data';
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
 
 export default {
   components: {
@@ -129,15 +128,15 @@ export default {
   },
   methods: {
     load: function (args) {
-      let selectedTheme = location.hash.split("/")[1];
+      let selectedTheme = loadChartTheme(args);
       switch (selectedTheme) {
-        case 'bootstrap5':
+        case 'Bootstrap5':
           {
             args.chart.series[0].fill = '#BDD9F5';
             args.chart.series[0].border.color = '#539DE3';
           }
           break;
-        case 'fluent':
+        case 'Fluent':
           {
             args.chart.series[0].fill = '#C3A6DB';
             args.chart.series[0].border.color = '#9E71C2';

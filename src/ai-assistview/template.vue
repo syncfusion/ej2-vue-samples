@@ -121,18 +121,24 @@ export default {
         cleanPrompt: function (prompt) {
             return prompt.replace('<span class="e-icons e-circle-info"></span>', '');
         },
-        onCreated: function() {
+        handleAction: function (e) {
             let defaultAiassist = this.$refs.aiassist.ej2Instances;
+            var target = e.target;
+           var prompt = '';
+           if (target.tagName === 'IMG') {
+               prompt = target.nextElementSibling.textContent;
+           } else if (target.className === 'e-card-header') {
+               prompt = target.textContent;
+           }
+           if (prompt) { defaultAiassist.executePrompt(prompt); }
+        },
+        onCreated: function() {           
             let carouselProxy = document.getElementById('bannerCarousel');
-            carouselProxy.addEventListener('click', function (e) {
-                var target = e.target;
-                var prompt = '';
-                if (target.tagName === 'IMG') {
-                    prompt = target.nextElementSibling.textContent;
-                } else if (target.class === 'e-card-header') {
-                    prompt = target.textContent;
-                }
-                if (prompt) { defaultAiassist.executePrompt(prompt); }
+            carouselProxy.addEventListener('click', (e) => {
+                this.handleAction(e);
+            });
+            carouselProxy.addEventListener('touchstart', (e) => {
+                this.handleAction(e);
             });
 
             new DropDownButton({
@@ -159,6 +165,12 @@ export default {
     .template-aiassistview .banner-content .e-assistview-icon:before,
     .template-aiassistview .response-header .e-assistview-icon:before {
         margin-right: 10px;
+    }
+
+    .template-aiassistview .e-rtl .banner-content .e-assistview-icon:before,
+    .template-aiassistview .e-rtl .responseItemContent .e-assistview-icon:before
+    {
+        margin-left: 10px;
     }
 
     .template-aiassistview .banner-content {

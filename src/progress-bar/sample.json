@@ -7,7 +7,7 @@
             "url": "linear",
             "name": "Linear",
             "category": "ProgressBar",
-            "description": "This demo for Essential<sup>®</sup> JS2 progress bar control",
+            "description": "This demo for Essential JS2 progress bar control",
             "sourceFiles": [
                 {
                     "displayName": "linear.vue",
@@ -19,7 +19,7 @@
             "url": "default",
             "name": "Circular",
             "category": "ProgressBar",
-            "description": "This demo for Essential<sup>®</sup> JS2 progress bar control",
+            "description": "This demo for Essential JS2 progress bar control",
             "sourceFiles": [
                 {
                     "displayName": "default.vue",
@@ -31,7 +31,7 @@
             "url": "semi-circular",
             "name": "Angle",
             "category": "ProgressBar",
-            "description": "This demo for Essential<sup>®</sup> JS2 progress bar control",
+            "description": "This demo for Essential JS2 progress bar control",
             "sourceFiles": [
                 {
                     "displayName": "semi-circular.vue",
@@ -43,7 +43,7 @@
             "url": "custom-content",
             "name": "Custom Contents",
             "category": "ProgressBar",
-            "description": "This demo for Essential<sup>®</sup> JS2 Progress Bar control shows the progress bar rendering with custom content",
+            "description": "This demo for Essential JS2 Progress Bar control shows the progress bar rendering with custom content",
             "sourceFiles": [
                 {
                     "displayName": "custom-content.vue",
@@ -55,7 +55,7 @@
             "url": "labels",
             "name": "Labels",
             "category": "ProgressBar",
-            "description": "This demo for Essential<sup>®</sup> JS2 progress bar control",
+            "description": "This demo for Essential JS2 progress bar control",
             "sourceFiles": [
                 {
                     "displayName": "labels.vue",
@@ -67,7 +67,7 @@
             "url": "tooltip",
             "name": "Tooltip",
             "category": "ProgressBar",
-            "description": "This demo for Essential<sup>®</sup> JS2 progress bar control",
+            "description": "This demo for Essential JS2 progress bar control",
             "sourceFiles": [
                 {
                     "displayName": "tooltip.vue",
@@ -79,7 +79,7 @@
             "url": "radius",
             "name": "Radius",
             "category": "ProgressBar",
-            "description": "This demo for Essential<sup>®</sup> JS2 progress bar control",
+            "description": "This demo for Essential JS2 progress bar control",
             "sourceFiles": [
                 {
                     "displayName": "radius.vue",
@@ -91,7 +91,7 @@
             "url": "stripe",
             "name": "Stripes",
             "category": "ProgressBar",
-            "description": "This demo for Essential<sup>®</sup> JS2 progress bar control",
+            "description": "This demo for Essential JS2 progress bar control",
             "sourceFiles": [
                 {
                     "displayName": "stripe.vue",
@@ -103,7 +103,7 @@
             "url": "progress_segment",
             "name": "Progress Segment",
             "category": "ProgressBar",
-            "description": "This demo for Essential<sup>®</sup> JS2 progress bar control",
+            "description": "This demo for Essential JS2 progress bar control",
             "sourceFiles": [
                 {
                     "displayName": "progress_segment.vue",

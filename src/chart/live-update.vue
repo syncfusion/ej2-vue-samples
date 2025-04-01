@@ -36,7 +36,7 @@
 <script>
 import { Browser } from '@syncfusion/ej2-base';
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, PieSeries, AccumulationDataLabel } from "@syncfusion/ej2-vue-charts";
-
+import { loadAccumulationChartTheme  } from "./theme-color";
 export default {
     components: {
         'ejs-accumulationchart': AccumulationChartComponent,
@@ -44,10 +44,7 @@ export default {
         'e-accumulation-series': AccumulationSeriesDirective
     },
     data() {
-        let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
-
+        let theme = loadAccumulationChartTheme();
         return {
             theme: theme,
             updatedData: [

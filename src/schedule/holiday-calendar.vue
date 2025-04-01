@@ -144,24 +144,19 @@ export default {
       }
     },
     onActionBegin(args) {
-      const { requestType, data } = args;
-      let isHolidayDateRange = false;
-      if (requestType === "eventCreate") {
-        const eventData = data[0];
-        isHolidayDateRange =
-          !this.holidayEventCollection &&
+      const requestType = args.requestType;
+      const isCreateOrChange = requestType === 'eventCreate' || requestType === 'eventChange';
+      if (isCreateOrChange) {
+        const eventData = requestType === 'eventCreate' ? args.data[0] : args.data;
+        const adjustedEndTime = eventData.IsAllDay ?
+          new Date(eventData.EndTime.setMinutes(eventData.EndTime.getMinutes() - 1)) :
+          eventData.EndTime;
+        const isHolidayDateRange = !this.holidayEventCollection &&
           !eventData.RecurrenceRule &&
-          this.isEventWithinHolidayRange(
-            eventData.StartTime,
-            eventData.EndTime
-          );
-      } else if (requestType === "eventChange") {
-        isHolidayDateRange =
-          !this.holidayEventCollection &&
-          this.isEventWithinHolidayRange(data.StartTime, data.EndTime);
+          this.isEventWithinHolidayRange(eventData.StartTime, adjustedEndTime);
+        args.cancel = isHolidayDateRange;
+        this.showToastForAction(requestType, isHolidayDateRange);
       }
-      args.cancel = isHolidayDateRange;
-      this.showToastForAction(requestType, isHolidayDateRange);
     },
     onEventRender(args) {
       const event = args.data;

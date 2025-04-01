@@ -8,7 +8,7 @@
                     <ejs-dropdownlist id='status' :dataSource='statusData' :placeholder='statusText' :fields='statusFields' :allowFiltering='true'></ejs-dropdownlist>
                 </div>
             </div>
-            <div id='vegetable' class='col-lg-6'>
+            <div id='disabled-vegetable' class='col-lg-6'>
                 <div class="content">
                     <label class="h4">Vegetable</label>
                     <ejs-dropdownlist id='vegetable' :dataSource='vegetableData' :placeholder='vegetableText' :fields='vegetableFields'></ejs-dropdownlist>
@@ -39,10 +39,10 @@
     }
     
     #disabled-status,
-    #vegetable {
+    #disabled-vegetable {
         margin: 0 auto;
         padding-top: 15px;
-    }    
+    }
 </style>
 
 <script>

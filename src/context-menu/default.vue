@@ -64,7 +64,9 @@
   padding: 10px;
   position: relative;
   text-align: center;
-  line-height: 17;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 14px;
 }
 
@@ -74,7 +76,6 @@
     width: auto;
   }
   #contextmenutarget {
-    line-height: 19;
     font-size: 12px;
   }
 }

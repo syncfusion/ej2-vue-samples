@@ -53,9 +53,9 @@ import {
 
  export let value = 80;
  export let series = [];
- let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+ 
+import { loadStockChartTheme } from './theme-color';
+let theme = loadStockChartTheme();
 
 function GetZoomingData() {
         let point1;

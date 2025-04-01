@@ -6,6 +6,14 @@
         </p>
     </div>
     <div>
+      <div id="export-cache-container">
+        <label id="grid-remote1" for="checked">
+          Enable Cache
+        </label>
+        <div>
+          <ejs-switch id="checked" v-on:change="onChange"></ejs-switch>
+        </div>
+      </div>
         <ejs-grid :dataSource="data" :allowPaging='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'></e-column>
@@ -47,7 +55,10 @@
         href="https://ej2.syncfusion.com/vue/documentation/api/grid/#datasource">
         dataSource
         </a></code> property.</p>
-
+        <p>The <code>DataManager</code> provides an option to avoid sending requests for previously visited pages by enabling the <code>enableCache</code> property.
+            When this property is enabled, the DataManager does not send a request to the server when revisiting a page. 
+            However, the cache will be reset if any data action, such as sorting or filtering, is performed.
+        </p>
         <p>
             More information on the data binding can be found in this
             <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/data-binding/remote-data">documentation section</a>.
@@ -55,16 +66,19 @@
     </div>
 
 </div>
+
 </template>
 <script lang="ts">
 import { GridComponent, ColumnDirective,ColumnsDirective, Page } from "@syncfusion/ej2-vue-grids";
 import { DataManager, WebApiAdaptor } from "@syncfusion/ej2-data";
+import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
 
 export default {
   components: {
     'ejs-grid': GridComponent,
     'e-column': ColumnDirective,
-    'e-columns': ColumnsDirective
+    'e-columns': ColumnsDirective,
+    "ejs-switch": SwitchComponent
   },
   data: () => {
     let SERVICE_URI: string =
@@ -76,8 +90,60 @@ export default {
       })
     };
   },
+  methods: {
+    onChange: function(args: any): void {
+      let grid = (document.getElementsByClassName('e-grid')[0] as any).ej2_instances[0];
+      let SERVICE_URI: string = "https://services.syncfusion.com/vue/production/";
+      grid.dataSource = new DataManager({
+        url: SERVICE_URI + 'api/Orders',
+        adaptor: new WebApiAdaptor(),
+        enableCache: args.checked
+      });
+    }
+  },
   provide: {
       grid: [Page]
   }
 }
 </script>
+<style>
+    #export-cache-container {
+        display: flex;
+        margin-bottom: 7px;
+    }
+
+    #export-cache-container label {
+        font-size: 15px;
+        margin-right: 8px;
+    }
+
+    .material3 #export-cache-container .e-switch-wrapper.e-wrapper,
+    .material3-dark #export-cache-container .e-switch-wrapper.e-wrapper,
+    .tailwind3 #export-cache-container .e-switch-wrapper.e-wrapper,
+    .tailwind3-dark #export-cache-container .e-switch-wrapper.e-wrapper {
+        margin: -1.25px 0px 0px 0px;
+    }
+
+    .bootstrap5_3 #export-cache-container .e-switch-wrapper.e-wrapper,
+    .bootstrap5_3-dark #export-cache-container .e-switch-wrapper.e-wrapper,
+    .fluent2 #export-cache-container .e-switch-wrapper.e-wrapper,
+    .fluent2-dark #export-cache-container .e-switch-wrapper.e-wrapper,
+    .fluent2-highcontrast #export-cache-container .e-switch-wrapper.e-wrapper {
+        margin: 1.5px 0px 0px 0px;
+    }
+
+    .e-bigger.material3 #export-cache-container .e-switch-wrapper.e-wrapper,
+    .e-bigger.material3-dark #export-cache-container .e-switch-wrapper.e-wrapper,
+    .e-bigger.tailwind3 #export-cache-container .e-switch-wrapper.e-wrapper,
+    .e-bigger.tailwind3-dark #export-cache-container .e-switch-wrapper.e-wrapper {
+        margin: -5.5px 0px 0px 0px;
+    }
+
+    .e-bigger.bootstrap5_3 #export-cache-container .e-switch-wrapper.e-wrapper,
+    .e-bigger.bootstrap5_3-dark #export-cache-container .e-switch-wrapper.e-wrapper,
+    .e-bigger.fluent2 #export-cache-container .e-switch-wrapper.e-wrapper,
+    .e-bigger.fluent2-dark #export-cache-container .e-switch-wrapper.e-wrapper,
+    .e-bigger.fluent2-highcontrast #export-cache-container .e-switch-wrapper.e-wrapper {
+        margin: -0.5px 0px 0px 0px;
+    }
+</style>

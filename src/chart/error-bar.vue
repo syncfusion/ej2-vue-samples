@@ -68,9 +68,8 @@ import Vue from "vue";
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Tooltip, ErrorBar } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
 
 export default {
     components: {
@@ -133,9 +132,8 @@ export default {
             args.text = '<b>' + args.data.pointX + ' Count' + ': ' + args.data.pointY + '</b> (error range: ' + (args.data.pointY - args.series.visiblePoints[args.data.pointIndex].verticalError / 2) + '-' + (args.data.pointY + args.series.visiblePoints[args.data.pointIndex].verticalError / 2) + ')';
         },
         pointRender: function (args) {
-            let selectedTheme = location.hash.split('/')[1];
-            selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-            if (selectedTheme === 'bootstrap5' || selectedTheme === 'fluent') {
+            let selectedTheme = loadChartTheme();
+            if (selectedTheme === 'Bootstrap5' || selectedTheme === 'Fluent') {
                 args.fill = '#81ccbb';
                 this.highlightColor = '#c7e9b6';
             }

@@ -2,7 +2,6 @@
     "name": "ComboBox",
     "directory": "combo-box",
     "category": "Dropdowns",
-    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -78,7 +77,6 @@
             "name": "Popup Resize",
             "category": "ComboBox",
             "description": "This demo showcases the custom resizing functionality of ComboBox, You can adjust the size of the popup based on your preferences, allowing for better control over its appearance",
-            "type": "new",
             "sourceFiles":[
                 { "displayName": "resize.vue", "path":"src/combo-box/resize.vue" },
                 { "displayName": "dataSource.json", "path":"src/combo-box/dataSource.json" } 

@@ -42,9 +42,7 @@
                         <span class="e-msg-icon render-mode-info-icon"
                             title="Turn OFF to render the PDF Viewer as server-backed"></span>
                     </div>
-                    <div>
-                        <ejs-switch cssClass="buttonSwitch" id="checked" :change="change" :checked="true"></ejs-switch>
-                    </div>
+                    <ejs-switch cssClass="buttonSwitch" id="checked" :change="change" :checked="true"></ejs-switch>
                 </div>
                 <ejs-pdfviewer id="pdfviewer" class="e-pv-multi-format-pdfviewer" ref="pdfviewer" :serviceUrl="serviceUrl" :resourceUrl="resourceUrl"
                     :ajaxRequestSuccess="ajaxRequestSuccess" :toolbarSettings="toolbarSettings" :documentLoad="documentLoad"
@@ -109,6 +107,7 @@
 .flex-container {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .render-mode-info {
@@ -129,10 +128,11 @@
     letter-spacing: 0.24px;
     text-align: right;
     font-size: 14px;
+    margin-bottom: 3px;
 }
 
 .render-mode-info .render-mode-info-icon::before {
-    line-height: 0.5rem;
+    line-height: normal;
 }
 
 .buttonSwitch {

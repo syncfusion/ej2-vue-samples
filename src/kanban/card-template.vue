@@ -20,7 +20,7 @@
             ></e-column>
             <e-column
               headerText="Delivered"
-              keyField="Delivered,Served"
+              keyField="Delivered"
             ></e-column>
           </e-columns>
         </ejs-kanban>

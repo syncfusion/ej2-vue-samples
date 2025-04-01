@@ -1,36 +1,47 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legend'>
-            <e-series-collection>
-                <e-series :dataSource='seriesData' type='StepArea' xName='x' yName='y' name='Renewable' width=2 opacity = 0.6 :border = 'border'> </e-series>
-                <e-series :dataSource='seriesData1' type='StepArea' xName='x' yName='y' name='Non-Renewable' width=2 opacity = 0.6 :border = 'border'> </e-series>
-               
-            </e-series-collection>
-        </ejs-chart>
+      <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title'
+        :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :chartArea='chartArea' :width='width'
+        :tooltip='tooltip' :legendSettings='legend'>
+        <e-series-collection>
+          <e-series :dataSource='seriesData' type='StepArea' xName='x' yName='y' name='Renewable' width=2 opacity=0.6
+            :border='border'> </e-series>
+          <e-series :dataSource='seriesData1' type='StepArea' xName='x' yName='y' name='Non-Renewable' width=2
+            opacity=0.6 :border='border'> </e-series>
+
+        </e-series-collection>
+      </ejs-chart>
     </div>
     <div id="action-description">
-    <p>
-      This Vue Step Area Chart example visualizes electricity generation data using renewable and non-renewable resources  in a step area chart.
-    </p>
-</div>
-<div id="description">
-  <p>
-    In this example, you can see how to render and configure the step area chart. This series forms a step progress by connecting points through vertical and horizontal lines with the area being filled.
-  </p>
-    
-        <p style="font-weight: 500"><b>Injecting Module</b></p>
-        <p>
-            Chart component features are segregated into individual feature-wise modules. To use step area series, we need to inject
-            <code>StepAreaSeries</code> module using <code>provide: { chart: [StepAreaSeries] }</code> method.
-        </p>
-        <p>
-          More information about the step area series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/step-area" aria-label="Navigate to the documentation for Step Area Chart in Vue Chart component">documentation section</a>.
-        </p> 
-</div>
-</div>
+      <p>
+        This Vue Step Area Chart example visualizes electricity generation data using renewable and non-renewable
+        resources in a step area chart.
+      </p>
+    </div>
+    <div id="description">
+      <p>
+        In this example, you can see how to render and configure the step area chart. This series forms a step progress
+        by connecting points through vertical and horizontal lines with the area being filled.
+      </p>
+      <p>
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover over or tap on the chart.
+      </p>
+
+      <p style="font-weight: 500"><b>Injecting Module</b></p>
+      <p>
+        Chart component features are segregated into individual feature-wise modules. To use step area series, we need
+        to inject
+        <code>StepAreaSeries</code> module using <code>provide: { chart: [StepAreaSeries] }</code> method.
+      </p>
+      <p>
+        More information about the step area series can be found in this
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/step-area"
+          aria-label="Navigate to the documentation for Step Area Chart in Vue Chart component">documentation
+          section</a>.
+      </p>
+    </div>
+  </div>
 
 </template>
 <style scoped>
@@ -40,9 +51,8 @@
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, StepAreaSeries, Legend, Highlight, Tooltip} from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
 
 export default {
   components: {
@@ -84,7 +94,9 @@ export default {
             majorTickLines: { width: 0}
         },
         tooltip: {
-        enable: true
+        enable: true,
+        enableHighlight: true,
+        showNearestTooltip: true
         },
         chartArea: {
             border: {

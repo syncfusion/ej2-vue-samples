@@ -39,7 +39,7 @@
 <script>
 import { Browser } from '@syncfusion/ej2-base';
 import { Chart3DComponent, Chart3DSeriesDirective, Chart3DSeriesCollectionDirective, StackingBarSeries3D, Category3D, Legend3D, Tooltip3D, Highlight3D} from "@syncfusion/ej2-vue-charts";
-
+import { load3DChartTheme } from './theme-color';
 export default {
   components: {
     'ejs-chart3d': Chart3DComponent,
@@ -94,10 +94,7 @@ export default {
             enableHighlight: true
         },
         load: function (args) {
-            var selectedTheme = location.hash.split('/')[1];
-            selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-            args.chart.theme = (selectedTheme.charAt(0).toUpperCase() +
-                selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+               load3DChartTheme(args);
         },
     };
   },

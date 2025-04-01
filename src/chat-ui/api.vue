@@ -129,7 +129,7 @@ export default {
         },
         select: function (args) {
             let chatUiInst = this.$refs.chatUiInst.ej2Instances;
-            const user = { user: args.itemData, avatarBgColor: '#bacbe4'};
+            const user = { user: args.itemData, avatarBgColor: '#87cefa'};
             if (['Laura', 'Charlie'].includes(args.itemData)) {
                 user.avatarBgColor = args.itemData === 'Charlie' ? '#e6cdde' : '#dec287';
                 user.avatarUrl = `src/chat-ui/images/${args.itemData.toLowerCase()}.png`;

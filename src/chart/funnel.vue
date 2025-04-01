@@ -1,15 +1,15 @@
 <template>
-  <div class="control-section">
+  <div class="control-section" style="text-align: center;">
     <div >
       <ejs-accumulationchart
         ref="funnel"
         :theme="theme"
         id="container"
-        style="display:block;  width: 92%"
+        :width="width"
         :tooltip="tooltip"
         :title="title"
         :legendSettings="legendSettings"
-
+        :pointRender = "pointRender"
         :enableAnimation="false"
       >
         <e-accumulation-series-collection>
@@ -17,11 +17,8 @@
             :dataSource="data"
             xName="InterviewProcess"
             yName="Candidates"
-            :neckWidth="neckWidth"
-            :neckHeight="neckHeight"
-            :width="width"
-            height="80%"
             :explode="explode"
+            :funnelMode="funnelMode"
             :dataLabel="dataLabel"
             type="Funnel"
           ></e-accumulation-series>
@@ -34,7 +31,7 @@
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure a funnel chart. The labels are smartly arranged to avoid overlapping. The width and height of the funnel chart can be customized using the <code>NeckWidth</code> and <code>NeckHeight</code> properties.
+        In this example, you can see how to render and configure a funnel chart to visualize the recruitment process. The <code>trapezoidal</code> funnelMode is set to display the stages of the employment cycle, from the number of candidates who applied to the number of hires. The labels are smartly arranged to avoid overlapping.
       </p>
      <p style="font-weight: 500">Injecting Module</p>
       <p>
@@ -66,11 +63,8 @@ import {
   AccumulationDataLabel
 } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (
-  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadAccumulationChartTheme, funnelPointRender  } from "./theme-color";
+let theme = loadAccumulationChartTheme();
 
 export default {
   components: {
@@ -82,33 +76,33 @@ export default {
     return {
       theme: theme,
       data: [
-        { InterviewProcess : "Hired", Candidates : 50, DataLabelMappingName:"Hired: 50"},
-        { InterviewProcess : "Personal Interview", Candidates : 58, DataLabelMappingName: Browser.isDevice ? "Personal <br> Interview: 58" : "Personal Interview: 58"},
-        { InterviewProcess : "Telephonic Interview", Candidates : 85, DataLabelMappingName:"Telephonic <br> Interview: 85"},
-        { InterviewProcess : "Screening", Candidates : 105, DataLabelMappingName:"Screening: 105"},
-        { InterviewProcess : "Initial Validation", Candidates : 145, DataLabelMappingName: Browser.isDevice ? "Initial <br> Validation: 145" :  "Initial Validation: 145"},
-        { InterviewProcess : "Candidates Applied", Candidates : 250, DataLabelMappingName:"Candidates Applied: 250"},
+        { InterviewProcess : "Candidates Applied", Candidates : 170, DataLabelMappingName:"Applications Received: 170"},
+        { InterviewProcess : "Initial Validation", Candidates : 145, DataLabelMappingName: "Initial Validation: 145"},
+        { InterviewProcess : "Screening", Candidates : 105, DataLabelMappingName: Browser.isDevice ? "Screening <br> Completed: 105" : "Screening Completed: 105"},
+        { InterviewProcess : "Telephonic Interview", Candidates : 85, DataLabelMappingName: Browser.isDevice ? "Phone <br> Interview: 85" : "Phone Interview: 85"},
+        { InterviewProcess : "Personal Interview", Candidates : 58, DataLabelMappingName: Browser.isDevice ? "Final <br> Interview: 58" : "Final Interview: 58"},
+        { InterviewProcess : "Hired", Candidates : 30, DataLabelMappingName: "Final <br> Selections: 30"},
       ],
-      
+      pointRender: function (args) {
+        funnelPointRender(args);
+        },
       dataLabel: {
         name: 'DataLabelMappingName', visible: true, position: 'Inside', 
         font: {
-            fontWeight: '600',  
+            fontWeight: '600', size: Browser.isDevice ? '11px' : '13px'
           },
         connectorStyle: {length:'20px'},
       },
-      neckWidth: "15%",
-      neckHeight: "18%",
-      width: Browser.isDevice ? "90%" : "50%",
       explode: false,
+      funnelMode : 'Trapezoidal',
     
       legendSettings: {
         visible: false
       },
 
       tooltip: { enable: false},
-
-      title: "Recruitment Process",
+      width: Browser.isDevice ? '100%' : '75%',
+      title: "Recruitment Funnel: From Application to Hiring",
     };
   },
   provide: {

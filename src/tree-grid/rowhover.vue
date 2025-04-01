@@ -30,6 +30,16 @@
 
 </div>
 </template>
+<style>
+    .material3 #_gridcontrol .e-row:hover .e-rowcell:not(.e-selectionbackground),
+.material3 #_gridcontrol .e-row:hover .e-rowcell:not(.e-active) {
+  background-color: #f5f5f5 !important;
+},
+.material3-dark #_gridcontrol .e-row:hover .e-rowcell:not(.e-selectionbackground),
+.material3-dark #_gridcontrol .e-row:hover .e-rowcell:not(.e-active) {
+  background-color: #e6e1e50d !important;
+}
+ </style>
 <script lang="ts">
 import { TreeGridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-treegrid";
 import { ClickEventArgs } from '@syncfusion/ej2-vue-navigations';

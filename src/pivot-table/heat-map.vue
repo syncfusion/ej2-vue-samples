@@ -125,7 +125,7 @@ export default {
       width: '100%',
       height: 500,
       gridSettings: {
-        rowHeight: 36,
+        rowHeight: 35,
         columnWidth: 120
       },
     };

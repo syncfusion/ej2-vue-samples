@@ -29,6 +29,9 @@
 .material3 #left-sidebar {
     background: #fff;
 }
+.material3 .sb-download-btn  {
+    font-weight: 400;
+ }
 
 .material3 .sb-content-tab .e-content.sb-sample-content-area {
     background: transparent;

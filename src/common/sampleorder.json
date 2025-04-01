@@ -17,7 +17,7 @@
     "Kanban",
     "Scheduler",
     "Maps",
-    "Document Editor"
+    "Word Processor"
   ],
   "Grids": [
     "Data Grid",
@@ -52,7 +52,7 @@
     "PDF Viewer",
     "Rich Text Editor",
     "Markdown Editor",
-    "DocumentEditor",
+    "Word Processor",
     "Image Editor"
   ],
   "Calendars": [
@@ -113,7 +113,8 @@
     "Signature",
     "InPlaceEditor",
     "Rating",
-    "OTP Input"
+    "OTP Input",
+    "Speech To Text"
   ],
   "Layout": [
     "Avatar",

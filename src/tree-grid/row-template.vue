@@ -59,25 +59,32 @@
 
 </div>
 </template>
-<!-- custom code start -->
+
 <style scoped>
-    /deep/ .border {
+    .border {
         border-color: #e0e0e0;
         border: 1px solid #e0e0e0;
         border-width: 1px 0px 0px 0px;
     }
 
-    /deep/ img {
+    img {
         width: 60px;
         height: 60px;
         vertical-align: baseline;
         border-radius: 50px;
         margin-left: 20px;
         background-repeat: no-repeat;
-    
+    }
+
+    .tailwind3-dark #TreeGrid .e-table td.border,
+    .fluent2-dark #TreeGrid .e-table td.border,
+    .bootstrap5\.3-dark #TreeGrid .e-table td.border,
+    .material3-dark #TreeGrid .e-table td.border,
+    .fluent2-highcontrast #TreeGrid .e-table td.border {
+       color: #fff;
     }
 </style>
-<!-- custom code end -->
+
 <script lang="ts">
 import { TreeGridComponent, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-treegrid";
 import { textdata } from "./data-source";

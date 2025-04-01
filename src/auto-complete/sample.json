@@ -2,7 +2,6 @@
     "name": "AutoComplete",
     "directory": "auto-complete",
     "category": "Dropdowns",
-    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -68,7 +67,6 @@
             "name": "Popup Resize",
             "category": "AutoComplete",
             "description": "This demo showcases the custom resizing functionality of Autocomplete, You can adjust the size of the popup based on your preferences, allowing for better control over its appearance",
-            "type": "new",
             "sourceFiles":[
                 { "displayName": "resize.vue", "path":"src/auto-complete/resize.vue" },
                 { "displayName": "dataSource.json", "path":"src/auto-complete/dataSource.json" } 

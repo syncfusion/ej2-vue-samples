@@ -49,12 +49,14 @@
         id="pdfviewer"
         ref="pdfviewer"
         :documentPath="documentPath"
-        :serviceUrl="serviceURL"
+        :resourceUrl="resourceUrl"
         :documentLoad="documentLoad"
         :addSignature="addSignature"
         :enableThumbnail="enableThumbnail"
         :enableToolbar="enableToolbar"
+        :enableTextSelection="enableTextSelection"
         :enableNavigationToolbar="enableNavigationToolbar"
+        :enableAnnotationToolbar="enableAnnotationToolbar"
       ></ejs-pdfviewer>
       <input
         type="file"
@@ -170,6 +172,7 @@ function readFile(args) {
     }
   }
 }
+
 export default {
   components: {
     "ejs-pdfviewer": PdfViewerComponent,
@@ -180,11 +183,13 @@ export default {
   },
   data: function () {
     return {
-      documentPath: "InvisibleDigitalSignature.pdf",
+      documentPath: "https://cdn.syncfusion.com/content/pdf/InvisibleDigitalSignature.pdf",
       enableToolbar: false,
       enableNavigationToolbar: false,
       enableThumbnail: false,
-      serviceURL:"https://services.syncfusion.com/vue/production/api/pdfviewer",
+      enableAnnotationToolbar: false,
+      enableTextSelection: false,
+      resourceUrl: "https://cdn.syncfusion.com/ej2/27.2.2/dist/ej2-pdfviewer-lib"
     };
   },
   provide: {
@@ -280,24 +285,37 @@ export default {
       }
     },
     signDocument: function (args) {
-      viewer.serverActionSettings.download = "AddSignature";
-      var data;
-      var base64data;
+      const url = "https://services.syncfusion.com/vue/production/api/pdfviewer/AddSignature";
       viewer.saveAsBlob().then(function (value) {
-        data = value;
-        var reader = new FileReader();
-        reader.readAsDataURL(data);
-        reader.onload = function () {
-          base64data = reader.result;
-          documentData = base64data;
-          viewer.load(base64data, null);
-          viewer.fileName = fileName;
-				  viewer.downloadFileName = fileName;
-          toolbarObj.items[1].disabled = true;
-          toolbarObj.items[2].disabled = false;
-        };
-      });
-      viewer.serverActionSettings.download = "Download";
+          const reader = new FileReader();
+          reader.readAsDataURL(value);
+          reader.onload = function (e) {
+              const base64String = e.target ? e.target.result : null;
+              const xhr = new XMLHttpRequest();
+              xhr.open('POST', url, true);
+              xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+              const requestData = JSON.stringify({ base64String: base64String });
+              xhr.onload = function () {
+                  if (xhr.status === 200) {
+                    documentData = xhr.responseText;
+                    viewer.load(xhr.responseText, null);
+                    toolbarObj.items[1].disabled = true;
+                    toolbarObj.items[2].disabled = false;
+                    viewer.fileName = fileName;
+                    viewer.downloadFileName = fileName;
+                  }
+                  else {
+                    console.error('Error in AddSignature API:', xhr.statusText);
+                  }
+              };
+              xhr.onerror = function () {
+                console.error('Error reading Blob as Base64.', xhr.statusText);
+              };
+              xhr.send(requestData);
+          };
+        }).catch(function (error) {
+            console.error('Error saving Blob:', error);
+        });
     },
   },
 };

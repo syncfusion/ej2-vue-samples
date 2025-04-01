@@ -57,7 +57,7 @@
 <script>
 import { SparklineComponent, SparklineTooltip } from "@syncfusion/ej2-vue-charts";
 import { data, data2 } from "./axistypes";
-
+import { loadSparkLineTheme } from "./theme-color";
 export default {
 components: {
     'ejs-sparkline': SparklineComponent
@@ -105,9 +105,7 @@ provide:{
 /* custom code start */
 methods:{
     load:function(args){
-        let theme = location.hash.split('/')[1];
-        theme = theme ? theme : 'Fluent2';
-        args.sparkline.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+      loadSparkLineTheme(args);
     }
 }
 /* custom code end */

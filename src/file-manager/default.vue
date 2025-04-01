@@ -14,7 +14,7 @@
 			<div id="property" title="Properties">
 				<table id="property" title="Properties">
 					<tbody>
-						<tr>
+						<tr id="rangeSelectionRow">
 						   <td style="width: 55%;">
 							<div class="checkboxElement">Enable Range Selection</div>
 						   </td>
@@ -80,7 +80,7 @@
                 <p><code>disableToolbarItems</code> specifies which items should be disabled in the toolbar.</p>
                 <p>
                     <b>Note: </b>File Manager's upload functionality is restricted in the online demos for security reasons. If you need to test upload functionality, please install 
-                    <a target="_blank" href="https://www.syncfusion.com/downloads"> Syncfusion<sup>®</sup> Essential Studio<sup>®</sup> </a>on your machine and run the demo.
+                    <a target="_blank" href="https://www.syncfusion.com/downloads"> Syncfusion Essential Studio </a>on your machine and run the demo.
                     </p>
         </div>
 
@@ -103,6 +103,11 @@
 	font-size:14px;
    }
 
+   @media (max-width: 550px) {
+        #rangeSelectionRow {
+            display: none;
+        }
+    }
 
 </style>
 

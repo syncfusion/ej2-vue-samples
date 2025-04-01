@@ -11,7 +11,7 @@
                         <ejs-mention id='employees' mentionChar='@' :target='target' :dataSource='data' :fields='remoteFields' 
                         :query='query' popupWidth='250px' popupHeight='215px' allowSpaces='true' suggestionCount='15'></ejs-mention>
 
-                        <ejs-mention id='project' mentionChar='#' :target='target' :dataSource='projectsData' :fields='projectfields' allowSpaces='true' :displayTemplate="'dTemplate'">
+                        <ejs-mention id='project' :requireLeadingSpace='false' mentionChar='#' :target='target' :dataSource='projectsData' :fields='projectfields' allowSpaces='true' :displayTemplate="'dTemplate'">
                             <template v-slot:dTemplate="{data}"><span class="e-success">{{data.Value}}</span></template>
                         </ejs-mention>
 
@@ -32,6 +32,10 @@
         <p>This sample demonstrates the default functionalities of the Mention component. Type the <code>@</code> character in the editable element and select or tag the user from the suggestion list.</p>
     </div>
     <div id="description">
+        <p>
+            The <code>requireLeadingSpace</code> property in Mention controls whether a space is needed before triggering the Mention suggestion popup. 
+            When set to <code>false</code>, it activates without a space; when set to <code>true</code>, a space is required before the Mention character. To see this feature in action, start typing with <code>#</code>.
+        </p>
         <p>The <code>Mention</code> is a component used to display a list of items that the users can select or tag from the list suggested. You can use the <code>@</code> mention support with the <code>input</code>, <code>textarea</code>, and <code>contenteditable</code> div elements.</p>
         <p>In the above sample, the input and div elements are configured with <code>@</code> mentions listing the <code>emails</code> and <code>comments</code> contents.</p>
     </div>

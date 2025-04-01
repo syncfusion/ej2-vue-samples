@@ -160,9 +160,6 @@ export default {
         text-align: center;
         align-items: center;
         padding: 10px;
-        width: 90%;
-        margin: 0 auto;
-        height: 380px;
     }
 
     .template-chatui .e-right .message-items {
@@ -189,6 +186,10 @@ export default {
         line-height: 20px;
         box-shadow: none;
         background: none;
+    }
+
+    body[class*="material3"] .template-chatui .message-items.e-card {
+        border: 1px solid rgb(230, 227, 227);
     }
 
     .template-chatui .message-items.e-card:hover {

@@ -129,12 +129,12 @@ import {
 } from "@syncfusion/ej2-vue-buttons";
 // Initial data for nodes and connectors
 let nodes =  [
-  {id: 'sdlc', offsetX: 300, offsetY: 288, annotations: [{content: 'SDLC'}]},
-  {id: 'support', offsetX: 150, offsetY: 250, annotations: [{content: 'Support'}]},
-  {id: 'analysis', offsetX: 300, offsetY: 150, annotations: [{content: 'Analysis'}]},
-  {id: 'design', offsetX: 450, offsetY: 250, annotations: [{content: 'Design'}]},
-  {id: 'implement', offsetX: 400, offsetY: 400, annotations: [{content: 'implement'}]},
-  {id: 'deploy', offsetX: 200, offsetY: 400, annotations: [{content: 'Deploy'}]}
+  {id: 'sdlc', offsetX: 300, offsetY: 288, width:100, height:100, annotations: [{content: 'SDLC'}]},
+  {id: 'support', offsetX: 150, offsetY: 250, width:100, height:100, annotations: [{content: 'Support'}]},
+  {id: 'analysis', offsetX: 300, offsetY: 150, width:100, height:100, annotations: [{content: 'Analysis'}]},
+  {id: 'design', offsetX: 450, offsetY: 250, width:100, height:100, annotations: [{content: 'Design'}]},
+  {id: 'implement', offsetX: 400, offsetY: 400, width:100, height:100, annotations: [{content: 'implement'}]},
+  {id: 'deploy', offsetX: 200, offsetY: 400, width:100, height:100, annotations: [{content: 'Deploy'}]}
 ];
 
 let connections = [
@@ -164,8 +164,6 @@ export default {
       connectors: connections,
       //Sets the default values of a node
       getNodeDefaults: (obj) => {
-        obj.width = 100;
-        obj.height = 100;
         obj.shape = { shape: "Ellipse" };
         obj.style = { fill: "#37909A", strokeColor: "#024249" };
         obj.annotations[0].margin = { left: 10, right: 10 };

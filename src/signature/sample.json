@@ -8,14 +8,14 @@
             "name": "Default Functionalities",
             "category": "Signature",
             "api": {"Signature": ["change"]},
-            "description": "This example demonstrates the default functionalities of the Syncfusion<sup>®</sup> Vue Signature."
+            "description": "This example demonstrates the default functionalities of the Syncfusion Vue Signature."
         },
         {
             "url": "toolbar",
             "name": "Toolbar",
             "category": "Signature",
             "api": {"Signature": ["change"]},
-            "description": "This example demonstrates the toolbar functionalities of the Syncfusion<sup>®</sup> Vue Signature."
+            "description": "This example demonstrates the toolbar functionalities of the Syncfusion Vue Signature."
         }
         
     ]

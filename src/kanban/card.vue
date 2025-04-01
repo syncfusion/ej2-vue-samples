@@ -48,10 +48,7 @@
                         <td
                           class="card-content"
                           v-if="
-                            data.Category == 'Delivered' ||
-                            data.Category == 'Served'
-                          "
-                        >
+                            data.Category == 'Delivered'">
                           <table>
                             <tr>
                               <td class="e-description e-tooltip-text">
@@ -93,10 +90,7 @@
                           <div
                             class="e-deliveredText e-tooltip-text"
                             v-if="
-                              data.Category == 'Delivered' ||
-                              data.Category == 'Served'
-                            "
-                          >
+                              data.Category == 'Delivered'">
                             Delivered
                           </div>
                           <div

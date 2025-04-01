@@ -51,9 +51,8 @@ import { extend } from '@syncfusion/ej2-base';
 import { Browser } from '@syncfusion/ej2-base';
 import { getElement, indexFinder, AccumulationLegend, PieSeries, AccumulationTooltip, AccumulationDataLabel, AccumulationAnnotation, AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationAnnotationDirective, AccumulationAnnotationsDirective } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadAccumulationChartTheme  } from "./theme-color";
+let theme = loadAccumulationChartTheme();
 
 export default {
   components: {
@@ -207,9 +206,8 @@ export default {
     },
     load: function(args) {
         
-        let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        if (selectedTheme === 'highcontrast' || args.accumulation.theme.indexOf('Dark') > -1){
+        let selectedTheme = loadAccumulationChartTheme(args);
+        if (selectedTheme === 'HighContrast' || args.accumulation.theme.indexOf('Dark') > -1){
              args.accumulation.series[0].dataLabel.font.color="white";
         }
 
@@ -217,7 +215,7 @@ export default {
             args.accumulation.annotations[0].region = 'Series';
             args.accumulation.annotations[0].x = '50%';
             args.accumulation.annotations[0].y = '50%';
-            args.accumulation.annotations[0].content = (selectedTheme === 'highcontrast') || (args.accumulation.theme.indexOf('Dark') > -1)  ?
+            args.accumulation.annotations[0].content = (selectedTheme === 'HighContrast') || (args.accumulation.theme.indexOf('Dark') > -1)  ?
                 '<div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/white.png" id="back" alt="White Icon"/></div>' :
                 '<div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/back.png" id="back" alt="Back Icon"/></div>';
         }

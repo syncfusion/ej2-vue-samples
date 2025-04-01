@@ -1,14 +1,6 @@
 <template>
   <div>
     <div class="control-section">
-      <div style="display: flex">
-        <label id="gantt-export1" for="checked" style="margin: 0px 5px 0px 0px; font-size: 15px">
-          AutoFit in Pdf Export
-        </label>
-        <div>
-          <ejs-switch id="checked" v-on:change="autoFit"></ejs-switch>
-        </div>
-      </div>
       <div class="content-wrapper">
         <ejs-gantt
           ref="gantt"
@@ -62,9 +54,7 @@
         and
         <a target="_blank"  href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#csvexport">csvExport</a>methods.
       </p>
-      <p>In addition we have provided support to export the Gantt component where each rows are auto-fit to the PDF document page width using 
-        <a target="_blank" href="hhttps://ej2.syncfusion.com/vue/documentation/api/gantt/pdfExportProperties/#fittowidthsettings">fitToWidthSettings</a>
-         in <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/pdfExportProperties">PdfExportProperties</a> and also it includes the functionality allowing the PDF export of <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#holidays">holidays</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#eventmarkers">eventMarkers</a>.</p>
+
       <p style="font-weight: 500">Injecting Module:</p>
       <p>
         To use Excel and CSV export features, we need to inject
@@ -175,19 +165,7 @@ export default {
       } else if (args.item.id === "GanttExport_csvexport") {
         this.$refs.gantt.ej2Instances.csvExport();
       } else if (args.item.id === "GanttExport_pdfexport") {
-        var exportProperties = {
-          fitToWidthSettings: {
-            isFitToWidth: isFitToWidth
-          },
-        };
-        this.$refs.gantt.ej2Instances.pdfExport(exportProperties);
-      }
-    },
-    autoFit: function (args) {
-      if (args.checked) {
-        isFitToWidth = true;
-      } else {
-        isFitToWidth = false;
+        this.$refs.gantt.ej2Instances.pdfExport();
       }
     },
   },

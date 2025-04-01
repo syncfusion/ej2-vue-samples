@@ -346,7 +346,7 @@ export default {
         selection: RibbonGroupButtonSelection.Single,
         header: 'Alignment',
         items: [
-          {iconCss: 'e-icons e-align-left', selected: true, click: () => { this.updateContent("Align Left") }, KeyTip: 'AL'},
+          {iconCss: 'e-icons e-align-left', selected: true, click: () => { this.updateContent("Align Left") }, keyTip: 'AL'},
           {iconCss: 'e-icons e-align-center', click: () => { this.updateContent("Align Center") }, keyTip: 'AC'}, 
           {iconCss: 'e-icons e-align-right', click: () => { this.updateContent("Align Right") }, keyTip: 'AR'}, 
           {iconCss: 'e-icons e-justify', click: () => { this.updateContent("Justify") }, keyTip: 'AJ'}

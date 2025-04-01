@@ -2,6 +2,7 @@
     "name": "Mention",
     "directory": "mention",
     "category": "Dropdowns",
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -15,8 +16,9 @@
         {
             "url": "multiple-list",
             "name": "Multiple List",
+            "type": "update",
             "category": "Mention",
-            "description": "This example demonstrates the multiple list functionalities of the Vue mention component.",
+            "description": "The RequireLeadingSpace feature controls whether a leading space is needed before using Mention. When set to false, Mention works without a space; when true, a space is required for activation.",
             "sourceFiles":[
                 { "displayName": "multiple-list.vue", "path":"src/mention/multiple-list.vue" },
                 { "displayName": "dataSource.json", "path":"src/mention/dataSource.json" } 

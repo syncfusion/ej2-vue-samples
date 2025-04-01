@@ -9,7 +9,7 @@
         "url": "over-view",
         "name": "Overview",
          "category": "Charts",
-        "description": "This demo for overview of Essential<sup>®</sup> JS2 Chart for data about the annual, monthly and product wise sales with different types of charts.",
+        "description": "This demo for overview of Essential JS2 Chart for data about the annual, monthly and product wise sales with different types of charts.",
         "sourceFiles": [
             {"displayName": "over-view.vue", "path": "./src/chart/over-view.vue"},
             {"displayName": "column-template.vue", "path": "./src/chart/over-view-columntemplate.vue"},
@@ -23,7 +23,7 @@
         "name": "Line",
         "type": "update",
         "category": "Line Charts",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the line series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the line series.",
         "sourceFiles": [
             {"displayName": "line.vue", "path": "./src/chart/line.vue"}
         ]
@@ -32,7 +32,8 @@
     {
         "url": "spline",
         "name": "Spline",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the spline series.",
+        "type": "update",
+        "description": "This demo for Essential JS2 Chart control shows how to render the spline series.",
         "category": "Line Charts",
         "sourceFiles": [
             {"displayName": "spline.vue", "path": "./src/chart/spline.vue"}
@@ -41,7 +42,7 @@
     {
         "url": "step-line",
         "name": "Step Line",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the step line series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the step line series.",
         "category": "Line Charts",
         "sourceFiles": [
             {"displayName": "step-line.vue", "path": "./src/chart/step-line.vue"}
@@ -50,7 +51,7 @@
     {
         "url": "dashed-line",
         "name": "Dashed Line",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the dashed line series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the dashed line series.",
         "category": "Line Charts",
         "sourceFiles": [
             {"displayName": "dashed-line.vue", "path": "./src/chart/dashed-line.vue"}
@@ -59,7 +60,7 @@
     {
         "url": "custom-animation",
         "name": "Custom Animation",
-        "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the spline series with delay animation.",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the spline series with delay animation.",
         "category": "Line Charts",
         "sourceFiles": [
             {"displayName": "custom-animation.vue", "path": "./src/chart/custom-animation.vue"}
@@ -68,7 +69,7 @@
     {
         "url": "spline-inversed",
         "name": "Inversed Spline",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the inversed spline series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the inversed spline series.",
         "category": "Line Charts",
         "sourceFiles": [
             {"displayName": "spline-inversed.vue", "path": "./src/chart/spline-inversed.vue"}
@@ -77,7 +78,7 @@
     {
         "url": "line-segments",
         "name": "Line Zone",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the points in a particular range using MultiColoredLine series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the points in a particular range using MultiColoredLine series.",
         "category": "Line Charts",
         "sourceFiles": [
             {"displayName": "line-segments.vue", "path": "./src/chart/line-segments.vue"}
@@ -86,7 +87,7 @@
     {
         "url": "line-multi-color",
         "name": "Multi Colored Line",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the multi colored line series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the multi colored line series.",
         "category": "Line Charts",
         "sourceFiles": [
             {"displayName": "line-multi-color.vue", "path": "./src/chart/line-multi-color.vue"}
@@ -96,7 +97,7 @@
     {
         "url": "stacked-line",
         "name": "Stacked Line",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the stacked line.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the stacked line.",
         "category": "Line Charts",
         "sourceFiles": [
             {
@@ -108,7 +109,7 @@
     {
         "url": "stacked-line-100",
         "name": "100% Stacked Line",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the 100% stacked line.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the 100% stacked line.",
         "category": "Line Charts",
         "sourceFiles": [
             {
@@ -120,7 +121,7 @@
     {
         "url": "area",
         "name": "Area",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the area series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the area series.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "area.vue", "path": "./src/chart/area.vue"}
@@ -129,7 +130,7 @@
     {
         "url": "spline-area",
         "name": "Spline Area",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the spline area series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the spline area series.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "spline-area.vue", "path": "./src/chart/spline-area.vue"}
@@ -138,7 +139,7 @@
     {
         "url": "step-area",
         "name": "Step Area",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the step area series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the step area series.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "step-area.vue", "path": "./src/chart/step-area.vue"}
@@ -147,7 +148,7 @@
     {
         "url": "step-without-riser",
         "name": "Step Without Riser",
-        "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the step area without vertical risers.",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the step area without vertical risers.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "step-without-riser.vue", "path": "./src/chart/step-without-riser.vue"}
@@ -156,7 +157,7 @@
     {
         "url": "range-step-area",
         "name": "Range Step Area",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the range step area series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the range step area series.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "range-step-area.vue", "path": "./src/chart/range-step-area.vue"}
@@ -165,7 +166,7 @@
     {
         "url": "range-area",
         "name": "Range Area",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the range area series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the range area series.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "range-area.vue", "path": "./src/chart/range-area.vue"}
@@ -174,7 +175,7 @@
     {
         "url": "spline-range-area",
         "name": "Spline Range Area",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the spline range area series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the spline range area series.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "spline-range-area.vue", "path": "./src/chart/spline-range-area.vue"}
@@ -183,7 +184,7 @@
     {
         "url": "stacked-area",
         "name": "Stacked Area",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the stacking area series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the stacking area series.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "stacked-area.vue", "path": "./src/chart/stacked-area.vue"}
@@ -192,7 +193,7 @@
     {
         "url": "stacked-step-area",
         "name": "Stacked Step Area",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the stacking step area series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the stacking step area series.",
         "category": "Area Charts",
         "sourceFiles": [
             {
@@ -204,7 +205,7 @@
     {
         "url": "stacked-area-100",
         "name": "100% Stacked Area",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the 100 percent stacking area series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the 100 percent stacking area series.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "stacked-area-100.vue", "path": "./src/chart/stacked-area-100.vue"}
@@ -213,7 +214,7 @@
     {
         "url": "area-empty",
         "name": "Area - Empty Points",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the area series with empty points.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the area series with empty points.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "area-empty.vue", "path": "./src/chart/area-empty.vue"}
@@ -222,7 +223,7 @@
     {
         "url": "area-negative",
         "name": "Area - Negative Points",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the area series with negative points.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the area series with negative points.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "area-empty.vue", "path": "./src/chart/area-negative.vue"}
@@ -231,7 +232,7 @@
     {
         "url": "area-segments",
         "name": "Area Zone",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the points in a particular range using MultiColoredArea series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the points in a particular range using MultiColoredArea series.",
         "category": "Area Charts",
         "sourceFiles": [
             {"displayName": "area-segments.vue", "path": "./src/chart/area-segments.vue"}
@@ -240,7 +241,7 @@
     {
         "url": "column",
         "name": "Column",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the column series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the column series.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "column.vue", "path": "./src/chart/column.vue"}
@@ -249,7 +250,7 @@
     {
         "url": "grouped-column",
         "name": "Grouped Column",
-        "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the grouping in column series.",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the grouping in column series.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "grouped-column.vue", "path": "./src/chart/grouped-column.vue"}
@@ -258,7 +259,7 @@
     {
         "url": "rounded-column",
         "name": "Rounded Column",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the rounded column series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the rounded column series.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "rounded-column.vue", "path": "./src/chart/rounded-column.vue"}
@@ -267,7 +268,7 @@
     {
         "url": "column-placement",
         "name": "Back to Back Column",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the column charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the column charts.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "column-placement.vue", "path": "./src/chart/column-placement.vue"}
@@ -275,9 +276,8 @@
     },
     {
         "url": "column-drilldown",
-        "type": "new",
         "name": "Column Drilldown",
-        "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the column series with drilldown.",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the column series with drilldown.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "column-drilldown.vue", "path": "./src/chart/column-drilldown.vue"}
@@ -286,7 +286,7 @@
     {
         "url": "range-column",
         "name": "Range Column",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the range column series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the range column series.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "range-column.vue", "path": "./src/chart/range-column.vue"}
@@ -295,7 +295,7 @@
     {
         "url": "range-bar",
         "name": "Inversed Range Column",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the inversed range column series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the inversed range column series.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "range-bar.vue", "path": "./src/chart/range-bar.vue"}
@@ -304,7 +304,7 @@
     {
         "url": "cylindrical-column",
         "name": "Cylindrical Column",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the cylindrical-column series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the cylindrical-column series.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "cylindrical-column.vue", "path": "./src/chart/cylindrical-column.vue"}
@@ -313,7 +313,7 @@
     {
         "url": "bar",
         "name": "Bar",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render bar series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render bar series.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "bar.vue", "path": "./src/chart/bar.vue"}
@@ -322,7 +322,8 @@
     {
         "url": "stacked-column",
         "name": "Stacked Column",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the stacking column series.",
+        "type": "update",
+        "description": "This demo for Essential JS2 Chart control shows how to render the stacking column series.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "stacked-column.vue", "path": "./src/chart/stacked-column.vue"}
@@ -331,7 +332,7 @@
     {
         "url": "stacked-column-100",
         "name": "100% Stacked Column",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the 100 percent stacking column series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the 100 percent stacking column series.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "stacked-column-100.vue", "path": "./src/chart/stacked-column-100.vue"}
@@ -340,7 +341,7 @@
     {
         "url": "stacked-bar",
         "name": "Stacked Bar",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the stacking bar series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the stacking bar series.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "stacked-bar.vue", "path": "./src/chart/stacked-bar.vue"}
@@ -349,7 +350,7 @@
     {
         "url": "stacked-bar-100",
         "name": "100% Stacked Bar",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the 100 percent stacking bar series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the 100 percent stacking bar series.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "stacked-bar-100.vue", "path": "./src/chart/stacked-bar-100.vue"}
@@ -358,7 +359,7 @@
     {
         "url": "negative-stack",
         "name": "Negative Stack",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the bar charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the bar charts.",
         "category": "Bar Charts",
         "sourceFiles": [
             {"displayName": "negative-stack.vue", "path": "./src/chart/negative-stack.vue"}
@@ -367,7 +368,7 @@
     {
         "url": "scatter-plot",
         "name": "Scatter Plot",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the scatter series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the scatter series.",
         "category": "Scatter and Bubble",
         "sourceFiles": [
             {"displayName": "scatter-plot.vue", "path": "./src/chart/scatter-plot.vue"},
@@ -377,7 +378,7 @@
     {
         "url": "bubble",
         "name": "Bubble",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the bubble series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the bubble series.",
         "category": "Scatter and Bubble",
         "sourceFiles": [
             {"displayName": "bubble.vue", "path": "./src/chart/bubble.vue"}
@@ -386,7 +387,7 @@
     {
         "url": "default-pie",
         "name": "Pie",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the pie charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the pie charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "default-pie.vue", "path": "./src/chart/default-pie.vue"}
@@ -395,7 +396,7 @@
     {
         "url": "pie-radius",
         "name": "Pie with Various Radius",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the pie chart with various radius",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the pie chart with various radius",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "pie-radius.vue", "path": "./src/chart/pie-radius.vue"}
@@ -404,7 +405,7 @@
     {
         "url": "donut",
         "name": "Donut",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the doughnut charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the doughnut charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "donut.vue", "path": "./src/chart/donut.vue"}
@@ -414,7 +415,7 @@
     {
         "url": "pyramid",
         "name": "Pyramid",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the pyramid charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the pyramid charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "pyramid.vue", "path": "./src/chart/pyramid.vue"}
@@ -423,7 +424,8 @@
     {
         "url": "funnel",
         "name": "Funnel",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the funnel charts.",
+        "type": "update",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the funnel charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "funnel.vue", "path": "./src/chart/funnel.vue"}
@@ -432,8 +434,7 @@
     {
         "url": "pie-legend",
         "name": "Pie with Legend",
-        "type": "update",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the legends in pie charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the legends in pie charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "pie-legend.vue", "path": "./src/chart/pie-legend.vue"}
@@ -442,7 +443,7 @@
     {
         "url": "semi-pie",
         "name": "Semi Pie",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render semi-pie and doughnut charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render semi-pie and doughnut charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "semi-pie.vue", "path": "./src/chart/semi-pie.vue"}
@@ -451,7 +452,7 @@
     {
         "url": "smart-labels",
         "name": "Smart Labels",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to arrange the labels smartly without overlapping with each other.",
+        "description": "This demo for Essential JS2 Chart control shows how to arrange the labels smartly without overlapping with each other.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "smart-labels.vue", "path": "./src/chart/smart-labels.vue"}
@@ -460,7 +461,7 @@
     {
         "url": "drill-down-pie",
         "name": "Drilldown",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to achieve the drill-down concept using pie charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to achieve the drill-down concept using pie charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "drill-down-pie.vue", "path": "./src/chart/drill-down-pie.vue"}
@@ -469,7 +470,7 @@
     {
         "url": "grouping",
         "name": "Grouping",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to group points in pie charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to group points in pie charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "grouping.vue", "path": "./src/chart/grouping.vue"}
@@ -478,7 +479,7 @@
     {
         "url": "pie-empty-point",
         "name": "Empty Points",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the empty points.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the empty points.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "pie-empty-point.vue", "path": "./src/chart/pie-empty-point.vue"}
@@ -487,7 +488,7 @@
     {
         "url": "rounded-corner",
         "name": "Rounded Corner",
-        "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the empty points.",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the empty points.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "rounded-corner.vue", "path": "./src/chart/rounded-corner.vue"}
@@ -496,7 +497,7 @@
     {
         "url": "pie-with-patterns",
         "name": "Pie with Patterns",
-        "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the pie chart with patterns.",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the pie chart with patterns.",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "pie-with-patterns.vue", "path": "./src/chart/pie-with-patterns.vue"}
@@ -505,7 +506,7 @@
     {
         "url": "live-update",
         "name": "Live Update",
-        "description": "This demo for Essential<sup>®</sup> JavaScript2 Chart control shows the real time charts",
+        "description": "This demo for Essential JavaScript2 Chart control shows the real time charts",
         "category": "Accumulation Charts",
         "sourceFiles": [
             {"displayName": "live-update.vue", "path": "./src/chart/live-update.vue"}
@@ -514,7 +515,7 @@
     {
         "url": "waterfall",
         "name": "Waterfall",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the waterfall series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the waterfall series.",
         "category": "Other Types",
         "sourceFiles": [
             {"displayName": "waterfall.vue", "path": "./src/chart/waterfall.vue"}
@@ -523,7 +524,7 @@
     {
         "url": "horizontal-waterfall",
         "name": "Horizontal Waterfall",
-        "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the horizontal waterfall series.",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the horizontal waterfall series.",
         "category": "Other Types",
         "sourceFiles": [
             {"displayName": "horizontal-waterfall.vue", "path": "./src/chart/horizontal-waterfall.vue"}
@@ -532,7 +533,7 @@
     {
         "url": "histogram",
         "name": "Histogram",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the histogram series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the histogram series.",
         "category": "Other Types",
         "sourceFiles": [
             {"displayName": "histogram.vue", "path": "./src/chart/histogram.vue"}
@@ -541,7 +542,7 @@
     {
         "url": "box-and-whisker",
         "name": "Box and Whisker",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the box and whisker series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the box and whisker series.",
         "category": "Other Types",
         "sourceFiles": [
             {"displayName": "box-and-whisker.vue", "path": "./src/chart/box-and-whisker.vue"}
@@ -550,7 +551,7 @@
     {
         "url": "error-bar",
         "name": "Error Bar",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the error bars in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the error bars in charts.",
         "category": "Other Types",
         "sourceFiles": [
             {"displayName": "error-bar.vue", "path": "./src/chart/error-bar.vue"}
@@ -559,7 +560,7 @@
     {
         "url": "trend-lines",
         "name": "Trendlines",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the trend lines in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the trend lines in charts.",
         "category": "Other Types",
         "sourceFiles": [
             {"displayName": "trend-lines.vue", "path": "./src/chart/trend-lines.vue"}
@@ -568,7 +569,7 @@
     {
         "url": "multi-series-chart",
         "name": "Multi-Series Chart",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to combine different types of charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to combine different types of charts.",
         "category": "Other Types",
         "sourceFiles": [
             {"displayName": "multi-series-chart.vue", "path": "./src/chart/multi-series-chart.vue"}
@@ -577,7 +578,7 @@
     {
         "url": "pareto",
         "name": "Pareto Chart",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render pareto charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render pareto charts.",
         "category": "Other Types",
         "sourceFiles": [
             {"displayName": "pareto.vue", "path": "./src/chart/pareto.vue"}
@@ -586,7 +587,7 @@
     {
         "url": "hilo",
         "name": "Hilo",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the hilo series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the hilo series.",
         "category": "Stock Charts",
         "sourceFiles": [
             {"displayName": "hilo", "path": "./src/chart/hilo.vue"},
@@ -597,7 +598,7 @@
         "url": "hilo-open-close",
         "name": "Hilo Open Close",
         "category": "Stock Charts",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the hilo open close series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the hilo open close series.",
         "sourceFiles": [
             {"displayName": "hilo-open-close", "path": "./src/chart/hilo-open-close.vue"},
             {"displayName": "chartData.vue", "path": "./src/chart/stock-chart-data.ts"}
@@ -607,7 +608,7 @@
         "url": "candle-stick",
         "name": "Candle Stick",
         "category": "Stock Charts",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the candle series.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the candle series.",
         "sourceFiles": [
             {"displayName": "candle-stick.vue", "path": "./src/chart/candle-stick.vue"},
             {"displayName": "stock-chart-data.ts", "path": "./src/chart/stock-chart-data.ts"}
@@ -616,7 +617,7 @@
     {
         "url": "accumulation-distribution-indicator",
         "name": "Accumulation Distribution",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the accumulation distribution indicator.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the accumulation distribution indicator.",
         "category": "Technical Indicators",
         "sourceFiles": [
             {"displayName": "accumulation-distribution-indicator.vue", "path": "./src/chart/accumulation-distribution-indicator.vue"},
@@ -626,7 +627,7 @@
     {
         "url": "average-true-range-indicator",
         "name": "ATR",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the average true range indicator.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the average true range indicator.",
         "category": "Technical Indicators",
         "sourceFiles": [
             {"displayName": "average-true-range-indicator.vue", "path": "./src/chart/average-true-range-indicator.vue"},
@@ -636,7 +637,7 @@
     {
         "url": "bollinger",
         "name": "Bollinger",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the bollinger band type indicator.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the bollinger band type indicator.",
         "category": "Technical Indicators",
         "sourceFiles": [
             {"displayName": "bollinger.vue", "path": "./src/chart/bollinger.vue"},
@@ -646,7 +647,7 @@
     {
         "url": "exponential-moving-average-indicator",
         "name": "EMA",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the exponential moving average indicator.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the exponential moving average indicator.",
         "category": "Technical Indicators",
         "sourceFiles": [
             {"displayName": "exponential-moving-average-indicator.vue", "path": "./src/chart/exponential-moving-average-indicator.vue"},
@@ -656,7 +657,7 @@
     {
         "url": "moving-average-convergence-divergence-indicator",
         "name": "MACD",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the moving average convergence divergence indicator.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the moving average convergence divergence indicator.",
         "category": "Technical Indicators",
         "sourceFiles": [
             {"displayName": "moving-average-convergence-divergence-indicator.vue", "path": "./src/chart/moving-average-convergence-divergence-indicator.vue"},
@@ -666,7 +667,7 @@
     {
         "url": "momentum",
         "name": "Momentum",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the momentum indicator.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the momentum indicator.",
         "category": "Technical Indicators",
         "sourceFiles": [
             {"displayName": "momentum.vue", "path": "./src/chart/momentum.vue"},
@@ -676,7 +677,7 @@
     {
         "url": "relative-strength-index-indicator",
         "name": "RSI",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the relative strength index indicator.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the relative strength index indicator.",
         "category": "Technical Indicators",
         "sourceFiles": [
             {"displayName": "relative-strength-index-indicator.vue", "path": "./src/chart/relative-strength-index-indicator.vue"},
@@ -686,7 +687,7 @@
     {
         "url": "simple-moving-average-indicator",
         "name": "SMA",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the simple moving average indicator.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the simple moving average indicator.",
         "category": "Technical Indicators",
         "sourceFiles": [
             {"displayName": "simple-moving-average-indicator.vue", "path": "./src/chart/simple-moving-average-indicator.vue"},
@@ -696,7 +697,7 @@
     {
         "url": "stochastic",
         "name": "Stochastic",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the stochastic indicator.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the stochastic indicator.",
         "category": "Technical Indicators",
         "sourceFiles": [
             {"displayName": "stochastic.vue", "path": "./src/chart/stochastic.vue"},
@@ -706,7 +707,7 @@
     {
         "url": "triangular-moving-average-indicator",
         "name": "TMA",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the triangular moving average indicator.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the triangular moving average indicator.",
         "category": "Technical Indicators",
         "sourceFiles": [
             {"displayName": "triangular-moving-average-indicator.vue", "path": "./src/chart/triangular-moving-average-indicator.vue"},
@@ -716,7 +717,7 @@
     {
         "url": "chart-performance",
         "name": "Chart Performance",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows the performance when plotting large volumes of data and handling high frequency real-time data.",
+        "description": "This demo for Essential JS2 Chart control shows the performance when plotting large volumes of data and handling high frequency real-time data.",
         "category": "Benchmark",
         "sourceFiles": [
             {"displayName": "chart-performance.vue", "path": "./src/chart/chart-performance.vue"}
@@ -725,7 +726,7 @@
     {
         "url": "update-spline",
         "name": "Spline updating each second",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows the spline updating each second in real time charts.",
+        "description": "This demo for Essential JS2 Chart control shows the spline updating each second in real time charts.",
         "category": "Real-time Charts",
         "sourceFiles": [
             {"displayName": "update-spline.vue", "path": "./src/chart/update-spline.vue"}
@@ -734,7 +735,7 @@
     {
         "url": "live-stock-data",
         "name": "Live stock data",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows the live stock data in real time charts.",
+        "description": "This demo for Essential JS2 Chart control shows the live stock data in real time charts.",
         "category": "Real-time Charts",
         "sourceFiles": [
             {"displayName": "live-stock-data.vue", "path": "./src/chart/live-stock-data.vue"}
@@ -743,7 +744,7 @@
     {
         "url": "update-data-source",
         "name": "Update data source",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows the update data source in real time charts.",
+        "description": "This demo for Essential JS2 Chart control shows the update data source in real time charts.",
         "category": "Real-time Charts",
         "sourceFiles": [
             {"displayName": "update-data-source.vue", "path": "./src/chart/update-data-source.vue"}
@@ -752,7 +753,7 @@
     {
         "url": "click-add-point",
         "name": "Click to add a point",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows the click to add a point in real time charts.",
+        "description": "This demo for Essential JS2 Chart control shows the click to add a point in real time charts.",
         "category": "Real-time Charts",
         "sourceFiles": [
             {"displayName": "click-add-point.vue", "path": "./src/chart/click-add-point.vue"}
@@ -761,7 +762,7 @@
     {
         "url": "live-data-sorting",
         "name": "Live Data Sorting",
-        "description": "This demo for Essential<sup>®</sup> JavaScript2 Chart control shows the real time charts",
+        "description": "This demo for Essential JavaScript2 Chart control shows the real time charts",
         "category": "Real-time Charts",
         "sourceFiles": [
             {"displayName": "live-data-sorting.vue", "path": "./src/chart/live-data-sorting.vue"}
@@ -770,7 +771,7 @@
     {
         "url": "polar-line",
         "name": "Line",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render line in polar and radar charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render line in polar and radar charts.",
         "category": "Polar Radar",
         "sourceFiles": [
             {"displayName": "polar-line.vue", "path": "./src/chart/polar-line.vue"}
@@ -779,7 +780,7 @@
     {
         "url": "polar-spline",
         "name": "Spline",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render spline in polar and radar charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render spline in polar and radar charts.",
         "category": "Polar Radar",
         "sourceFiles": [
             {"displayName": "polar-spline.vue", "path": "./src/chart/polar-spline.vue"},
@@ -789,7 +790,7 @@
     {
         "url": "polar-area",
         "name": "Area",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render area in polar and radar charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render area in polar and radar charts.",
         "category": "Polar Radar",
         "sourceFiles": [
             {"displayName": "polar-area.vue", "path": "./src/chart/polar-area.vue"}
@@ -798,7 +799,7 @@
     {
         "url": "polar-stacking-area",
         "name": "Stacked Area",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render stacking area in polar and radar charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render stacking area in polar and radar charts.",
         "category": "Polar Radar",
         "sourceFiles": [
             {"displayName": "polar-stacking-area.vue", "path": "./src/chart/polar-stacking-area.vue"}
@@ -807,7 +808,7 @@
     {
         "url": "polar-scatter",
         "name": "Scatter",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render scatter in polar and radar charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render scatter in polar and radar charts.",
         "category": "Polar Radar",
         "sourceFiles": [
             {"displayName": "polar-scatter.vue", "path": "./src/chart/polar-scatter.vue"}
@@ -816,7 +817,7 @@
     {
         "url": "polar-column",
         "name": "Column",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render column in polar and radar charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render column in polar and radar charts.",
         "category": "Polar Radar",
         "sourceFiles": [
             {"displayName": "polar-column.vue", "path": "./src/chart/polar-column.vue"}
@@ -825,7 +826,7 @@
     {
         "url": "polar-stacking-column",
         "name": "Wind Rose",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render wind rose using stacking column in polar and radar charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render wind rose using stacking column in polar and radar charts.",
         "category": "Polar Radar",
         "sourceFiles": [
             {"displayName": "polar-stacking-column.vue", "path": "./src/chart/polar-stacking-column.vue"}
@@ -834,7 +835,7 @@
     {
         "url": "polar-range-column",
         "name": "Range Column",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render range column in polar and radar charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render range column in polar and radar charts.",
         "category": "Polar Radar",
         "sourceFiles": [
             {"displayName": "polar-range-column.vue", "path": "./src/chart/polar-range-column.vue"}
@@ -843,7 +844,7 @@
     {
         "url": "local-data",
         "name": "Local Data",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to bind JSON data to chart.",
+        "description": "This demo for Essential JS2 Chart control shows how to bind JSON data to chart.",
         "category": "Data Binding",
         "sourceFiles": [
             {"displayName": "local-data.vue", "path": "./src/chart/local-data.vue"}
@@ -852,7 +853,7 @@
     {
         "url": "remote-data",
         "name": "Remote Data",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to consume data from remote data service.",
+        "description": "This demo for Essential JS2 Chart control shows how to consume data from remote data service.",
         "category": "Data Binding",
         "sourceFiles": [
             {"displayName": "remote-data.vue", "path": "./src/chart/remote-data.vue"}
@@ -861,7 +862,7 @@
     {
         "url": "lazy-loading",
         "name": "Lazy Loading",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control demonstrates the Lazy Loading behavior in chart.",
+        "description": "This demo for Essential JS2 Chart control demonstrates the Lazy Loading behavior in chart.",
         "category": "Data Binding",
         "sourceFiles": [
             {"displayName": "lazy-loading.vue", "path": "./src/chart/lazy-loading.vue"}
@@ -870,7 +871,7 @@
     {
         "url": "numeric",
         "name": "Numeric Axis",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to plot numeric data with the help of numeric axis in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to plot numeric data with the help of numeric axis in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "numeric.vue", "path": "./src/chart/numeric.vue"}
@@ -879,7 +880,7 @@
     {
         "url": "date-time",
         "name": "Datetime Axis",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the date-time axis in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the date-time axis in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "date-time.vue", "path": "./src/chart/date-time.vue"}
@@ -888,7 +889,7 @@
     {
         "url": "date-time-category",
         "name": "DateTime Categoty Axis",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the date-time category axis in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the date-time category axis in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "date-time-category.vue", "path": "./src/chart/date-time-category.vue"}
@@ -897,7 +898,7 @@
     {
         "url": "category",
         "name": "Category Axis",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the category axis in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the category axis in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "category.vue", "path": "./src/chart/category.vue"}
@@ -906,7 +907,7 @@
     {
         "url": "indexed",
         "name": "Indexed Category Axis",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the indexed category axis in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the indexed category axis in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "indexed.vue", "path": "./src/chart/indexed.vue"}
@@ -915,7 +916,7 @@
     {
         "url": "logarithmic-scale",
         "name": "Logarithmic Scale",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the logarithmic axis in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the logarithmic axis in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "logarithmic-scale.vue", "path": "./src/chart/logarithmic-scale.vue"}
@@ -924,7 +925,7 @@
     {
         "url": "multiple-axis",
         "name": "Multiple Axis",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the mulitple axis in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the mulitple axis in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "multiple-axis.vue", "path": "./src/chart/multiple-axis.vue"}
@@ -933,7 +934,7 @@
     {
         "url": "inversed",
         "name": "Inversed Axis",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to invert the axis in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to invert the axis in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "inversed.vue", "path": "./src/chart/inversed.vue"}
@@ -942,7 +943,7 @@
     {
         "url": "strip-line",
         "name": "Stripline",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the strip lines in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the strip lines in charts.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "strip-line.vue", "path": "./src/chart/strip-line.vue"}
@@ -952,7 +953,7 @@
         "url": "strip-line-recurrence",
         "name": "Strip Line Recurrence",
         "category": "Chart Axes",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the strip line recurrence in charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the strip line recurrence in charts.",
         "sourceFiles": [
             {"displayName": "strip-line-recurrence.vue", "path": "./src/chart/strip-line-recurrence.vue"}
         ]
@@ -960,7 +961,7 @@
     {
         "url": "smart-axis-labels",
         "name": "Smart Labels",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to arrange the labels smartly without overlapping with each other.",
+        "description": "This demo for Essential JS2 Chart control shows how to arrange the labels smartly without overlapping with each other.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "smart-axis-labels.vue", "path": "./src/chart/smart-axis-labels.vue"}
@@ -969,7 +970,7 @@
     {
         "url": "multi-level-label",
         "name": "Multi Level Labels",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to group the axis labels.",
+        "description": "This demo for Essential JS2 Chart control shows how to group the axis labels.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "multi-level-label.vue", "path": "./src/chart/multi-level-label.vue"}
@@ -978,7 +979,7 @@
     {
         "url": "axes-crossing",
         "name": "Axes Crossing",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control demonstrates the axis crossing behavior in chart.",
+        "description": "This demo for Essential JS2 Chart control demonstrates the axis crossing behavior in chart.",
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "axes-crossing.vue", "path": "./src/chart/axes-crossing.vue"}
@@ -987,7 +988,7 @@
     {
         "url": "sorting",
         "name": "Sorting",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to sort the series data in chart.",
+        "description": "This demo for Essential JS2 Chart control shows how to sort the series data in chart.",
         "category": "Chart Customization",
         "sourceFiles": [
             {"displayName": "axes-crossing.vue", "path": "./src/chart/axes-crossing.vue"}
@@ -996,7 +997,7 @@
     {
         "url": "marker-chart",
         "name": "Marker Chart",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render the marker symbols for data points.",
+        "description": "This demo for Essential JS2 Chart control shows how to render the marker symbols for data points.",
         "category": "Chart Customization",
         "sourceFiles": [
             {"displayName": "marker-chart.vue", "path": "./src/chart/marker-chart.vue"}
@@ -1005,7 +1006,7 @@
     {
         "url": "rtl",
         "name": "RTL",
-        "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates how to render and configure the RTL feature in chart.",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure the RTL feature in chart.",
         "category": "Chart Customization",
         "sourceFiles": [
             {"displayName": "rtl.vue", "path": "./src/chart/rtl.vue"}
@@ -1014,7 +1015,7 @@
     {
         "url": "pie-annotation",
         "name": "Annotation",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to add more information to the chart using annotation.",
+        "description": "This demo for Essential JS2 Chart control shows how to add more information to the chart using annotation.",
         "category": "Chart Customization",
         "sourceFiles": [
             {"displayName": "pie-annotation.vue", "path": "./src/chart/pie-annotation.vue"}
@@ -1023,7 +1024,7 @@
     {
         "url": "synchronized-chart",
         "name": "Synchronized Charts",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to add more information to the chart using Synchronized Charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to add more information to the chart using Synchronized Charts.",
         "category": "Chart Customization",
         "sourceFiles": [
             {"displayName": "synchronized-chart.vue", "path": "./src/chart/synchronized-chart.vue"}
@@ -1032,7 +1033,7 @@
     {
         "url": "data-label-template",
         "name": "DataLabel Template",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the data label template.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the data label template.",
         "category": "Chart Customization",
         "sourceFiles": [
             {"displayName": "data-label-template.vue", "path": "./src/chart/data-label-template.vue"}
@@ -1041,7 +1042,7 @@
     {
         "url": "tooltip-template",
         "name": "Tooltip Template",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the tooltip template.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the tooltip template.",
         "category": "Chart Customization",
         "sourceFiles": [
             {"displayName": "tooltip-template.vue", "path": "./src/chart/tooltip-template.vue"}
@@ -1050,7 +1051,7 @@
     {
         "url": "vertical",
         "name": "Vertical Chart",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the vertical type charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the vertical type charts.",
         "category": "Chart Customization",
         "sourceFiles": [
             {"displayName": "vertical.vue", "path": "./src/chart/vertical.vue"}
@@ -1059,7 +1060,7 @@
     {
         "url": "empty-point",
         "name": "Empty Points",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the empty points.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the empty points.",
         "category": "Chart Customization",
         "sourceFiles": [
             {"displayName": "empty-point.vue", "path": "./src/chart/empty-point.vue"}
@@ -1068,16 +1069,26 @@
     {
         "url": "range-color-mapping",
         "name": "Range Color Mapping",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the range rolor mapping.",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the range rolor mapping.",
         "category": "Chart Customization",
         "sourceFiles": [
             {"displayName": "range-color-mapping.vue", "path": "./src/chart/range-color-mapping.vue"}
         ]
     },
     {
+        "url": "series-animation",
+        "name": "Animation",
+        "type": "new",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure series animation.",
+        "category": "Chart Customization",
+        "sourceFiles": [
+            {"displayName": "series-animation.vue", "path": "./src/chart/series-animation.vue"}
+        ]
+    },
+    {
         "url": "print",
         "name": "Print",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to print the charts.",
+        "description": "This demo for Essential JS2 Chart control shows how to print the charts.",
         "category": "Print and Export",
         "sourceFiles": [
             {"displayName": "print.vue", "path": "./src/chart/print.vue"}
@@ -1086,7 +1097,7 @@
     {
         "url": "export",
         "name": "Export",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to export the charts to Excel, PDF, and image formats such as SVG, JPEG, and PNG at client-side.",
+        "description": "This demo for Essential JS2 Chart control shows how to export the charts to Excel, PDF, and image formats such as SVG, JPEG, and PNG at client-side.",
         "category": "Print and Export",
         "sourceFiles": [
             {"displayName": "export.vue", "path": "./src/chart/export.vue"}
@@ -1095,7 +1106,7 @@
     {
         "url": "selection",
         "name": "Selection",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control demonstrates the selection behavior in chart.",
+        "description": "This demo for Essential JS2 Chart control demonstrates the selection behavior in chart.",
         "category": "User Interaction",        
         "sourceFiles": [
             {"displayName": "selection.vue", "path": "./src/chart/selection.vue"}
@@ -1104,7 +1115,7 @@
     {
         "url": "range-selection",
         "name": "Range Selection",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control demonstrates the range selection in chart.",
+        "description": "This demo for Essential JS2 Chart control demonstrates the range selection in chart.",
         "category": "User Interaction",
         "sourceFiles": [
             {"displayName": "range-selection.vue", "path": "./src/chart/range-selection.vue"}
@@ -1113,7 +1124,7 @@
     {
         "url": "keyboard",
         "name": "Keyboard Navigation",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control demonstrates the keyboard Navigation in chart.",
+        "description": "This demo for Essential JS2 Chart control demonstrates the keyboard Navigation in chart.",
         "category": "User Interaction",
         "sourceFiles": [
             {"displayName": "keyboard.vue", "path": "./src/chart/keyboard.vue"}
@@ -1122,8 +1133,7 @@
     {
         "url": "cross-hair",
         "name": "Crosshair",
-        "type": "update",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control demonstrates the crosshair behavior in chart.",
+        "description": "This demo for Essential JS2 Chart control demonstrates the crosshair behavior in chart.",
         "category": "User Interaction",
         "sourceFiles": [
             {"displayName": "cross-hair.vue", "path": "./src/chart/cross-hair.vue"},
@@ -1133,7 +1143,7 @@
     {
         "url": "trackball",
         "name": "Trackball",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control demonstrates the trackball behavior in chart.",
+        "description": "This demo for Essential JS2 Chart control demonstrates the trackball behavior in chart.",
         "category": "User Interaction",
         "sourceFiles": [
             {"displayName": "trackball.vue", "path": "./src/chart/trackball.vue"},
@@ -1144,16 +1154,26 @@
         "url": "zooming",
         "name": "Zooming and Panning",
         "type": "update",
-        "description": "This demo for Essential<sup>®</sup> JS2 Chart control demonstrates the zooming and panning behavior in chart.",
+        "description": "This demo for Essential JS2 Chart control demonstrates the zooming and panning behavior in chart.",
         "category": "User Interaction",
         "sourceFiles": [
             {"displayName": "zooming.vue", "path": "./src/chart/zooming.vue"}
         ]
     },
     {
+        "url": "pagination",
+        "name": "Pagination",
+        "type": "new",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates the pagination behavior in chart.",
+        "category": "User Interaction",
+        "sourceFiles": [
+            {"displayName": "pagination.vue", "path": "./src/chart/pagination.vue"}
+        ]
+    },
+    {
         "url": "data-editing",
         "name": "Data Editing",
-        "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Chart control demonstrates the data editing behavior in chart.",
+        "description": "This demo sample for Essential JavaScript2 Chart control demonstrates the data editing behavior in chart.",
         "category": "User Interaction",
         "sourceFiles": [
             {"displayName": "data-editing.vue", "path": "./src/chart/data-editing.vue"}

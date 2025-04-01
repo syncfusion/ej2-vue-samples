@@ -5,8 +5,8 @@
             <e-columns>
                 <e-column field='taskID' headerText='Task ID' textAlign='Right' width='80'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='190'></e-column>
-                <e-column field='startDate' headerText=' Start Date' textAlign='Right' format='yMd' type='date' width='100'></e-column>
                 <e-column field='duration' headerText='Duration' textAlign='Right'  width='90'></e-column>
+                <e-column field='priority' headerText='Priority' textAlign='Left' width='100'></e-column>
                 <e-column field='progress' headerText='Progress' width='90' textAlign='Right'></e-column>
             </e-columns>
         </ejs-treegrid>

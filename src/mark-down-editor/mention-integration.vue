@@ -6,7 +6,7 @@
           <div id="defaultRTE">
             <ejs-richtexteditor id="MDdefault" ref="rteInstance" :toolbarSettings="toolbarSettings" :formatter="formatter" :created="created" :editorMode="editorMode" :height="height" :value="value">
             </ejs-richtexteditor>
-            <ejs-mention id="mention" ref="mentionObj" :target="target" :dataSource="emailData" :fields="mentionfields" allowSpaces="true" :itemTemplate="'iTemplate'" :displayTemplate="'dTemplate'" popupWidth="250px" popupHeight="200px">
+            <ejs-mention id="mention" ref="mentionObj" :target="target" :dataSource="emailData" :fields="mentionfields" allowSpaces="true" :itemTemplate="'iTemplate'" :displayTemplate="'dTemplate'" popupWidth="250px" popupHeight="200px" suffixText="&nbsp;">
               <template v-slot:iTemplate="{ data }">
                 <div class="editor-mention-item-template">
                   <div class="em-header">

@@ -2,7 +2,6 @@
   "name": "Pivot Table",
   "directory": "pivot-table",
   "category": "Grids",
-  "type": "update",
   "ftName": "pivot-table",
   "samples": [{
       "url": "overview",
@@ -25,7 +24,6 @@
       "name": "Classic Layout",
       "category": "Pivot Table",
       "hideOnDevice": false,
-      "type": "new",
       "description": "This sample demonstrates the classic (also known as tabular) layout view option of the pivot table.",
       "api": {}
     },

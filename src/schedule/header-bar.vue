@@ -145,7 +145,7 @@
     }
 
     .bootstrap5-dark .e-profile-wrapper,
-    .bootstrap5\.3-dark .e-profile-wrapper {
+    .bootstrap5_3-dark .e-profile-wrapper {
         background-color: rgb(40, 45, 49);
         border: 0.5px solid #4b5563;
     }

@@ -2,6 +2,7 @@
     "name": "Smart Paste",
     "directory": "ai-smart-paste",
     "category": "Smart Controls",
+    "type": "preview",
     "samples": [
         {
             "url": "default",

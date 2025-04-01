@@ -2,230 +2,228 @@
   <div class="col-lg-12 control-section default-ribbon-section">
     <div class="resize-ribbon-container">
       <div id="ribbonContainer">
-        <div id="ribbon">
-          <ejs-ribbon id="ribbon-resize" ref="resizeRibbon" :enablePersistence="true" :launcherIconClick="launcherIconClicked" :fileMenu="fileSettings" cssClass="ribbon-resize">
-            <e-ribbon-tabs>
-              <e-ribbon-tab header="Home">
-                <e-ribbon-groups>
-                  <e-ribbon-group header="Clipboard" id="clipboard" groupIconCss="e-icons e-paste" :showLauncherIcon="true" >
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="SplitButton" :disabled="true" id="resize-pastebtn" :allowedSizes="largeSize" :splitButtonSettings="pasteSettigs" >
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="Button" :buttonSettings="cutButton">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="Button" :buttonSettings="copyButton">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="Button" :buttonSettings="formatButton">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                  <e-ribbon-group header="Font" orientation="Row" overflowHeader="More Font Options" :enableGroupOverflow="true" :isCollapsible="false" groupIconCss="e-icons e-bold" cssClass="font-group" >
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="ComboBox" :comboBoxSettings="styleOptions" >
-                          </e-ribbon-item>
-                          <e-ribbon-item type="ComboBox" :comboBoxSettings="sizeOptions">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="GroupButton" allowedSizes="Small" :groupButtonSettings="groupButtonMultiple"></e-ribbon-item>
-                          <e-ribbon-item type="ColorPicker" :displayOptions="colorPickerDisplayMode" allowedSizes="Small" :colorPickerSettings="colorPicker" >
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                  <e-ribbon-group header="Paragraph" orientation="Row" groupIconCss="e-icons e-align-center" >
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="decreaseIndent">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="increaseIndent">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="paragraphBtn">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="GroupButton" allowedSizes="Small" :groupButtonSettings="groupButtonSingle"></e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                  <e-ribbon-group header="Editing" orientation="Row" groupIconCss="e-icons e-edit" >
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="SplitButton" :splitButtonSettings="searchOptions" >
-                          </e-ribbon-item>
-                          <e-ribbon-item type="Button" :buttonSettings="replaceButton">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="SplitButton" :splitButtonSettings="selectOptions" >
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                  <e-ribbon-group header="Voice" :isCollapsible="false" groupIconCss="sf-icon-dictate" >
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="SplitButton" :disabled="true" :allowedSizes="largeSize" :splitButtonSettings="dictateOptions" >
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                </e-ribbon-groups>
-              </e-ribbon-tab>
-              <e-ribbon-tab header="Insert">
-                <e-ribbon-groups>
-                  <e-ribbon-group header="Tables" :isCollapsible=false>
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="DropDown" :allowedSizes="largeSize" :dropDownSettings="tableSettings">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                  <e-ribbon-group header="Illustrations" id="illustration" overflowHeader="Illustrations" :showLauncherIcon=true orientation="Row" :enableGroupOverflow=true groupIconCss="e-icons e-image">
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item id="pictureddl" type="DropDown" :dropDownSettings="pictureSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="DropDown" :dropDownSettings="shapeSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="Button" :buttonSettings="modelSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="Button" :buttonSettings="artSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="Button" :buttonSettings="chartSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="Button" :buttonSettings="screenshotSettings">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                  <e-ribbon-group header="Header & Footer" id="header_footer" :showLauncherIcon=true orientation="Column" groupIconCss="e-icons e-table">
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="DropDown" :dropDownSettings="headerSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="DropDown" :dropDownSettings="footerSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="DropDown" :dropDownSettings="pageSettings">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                  <e-ribbon-group header="Comments" :isCollapsible=false>
-                    <e-ribbon-collections>
-                      <e-ribbon-collection id="defaultcollection12">
-                        <e-ribbon-items>
-                          <e-ribbon-item :allowedSizes="largeSize" type="Button" :buttonSettings="commentSettings">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                  <e-ribbon-group header="Links" groupIconCss="e-icons e-link" :isCollapsible=false>
-                    <e-ribbon-collections>
-                      <e-ribbon-collection >
-                        <e-ribbon-items>
-                          <e-ribbon-item :allowedSizes="largeSize" type="DropDown" :dropDownSettings="linkSettings">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                </e-ribbon-groups>
-              </e-ribbon-tab>
-              <e-ribbon-tab header="View">
-                <e-ribbon-groups>
-                  <e-ribbon-group header="Views" orientation="Row" groupIconCss="e-icons e-print">
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="Button" :buttonSettings="readSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="Button" :buttonSettings="printSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="Button" :buttonSettings="layoutSettings">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                  <e-ribbon-group header="Zoom" orientation="Row" groupIconCss="e-icons e-zoom-to-fit">
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="Button" :buttonSettings="zoomInSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="Button" :buttonSettings="zoomOutSettings">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                  <e-ribbon-group header="Show" :isCollapsible=false>
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item type="CheckBox" :checkBoxSettings="rulerSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="CheckBox" :checkBoxSettings="gridSettings">
-                          </e-ribbon-item>
-                          <e-ribbon-item type="CheckBox" :checkBoxSettings="navigationSettings">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                  <e-ribbon-group header="Dark Mode" :isCollapsible=false>
-                    <e-ribbon-collections>
-                      <e-ribbon-collection>
-                        <e-ribbon-items>
-                          <e-ribbon-item :allowedSizes="largeSize" type="Button" :buttonSettings="modeSettings">
-                          </e-ribbon-item>
-                        </e-ribbon-items>
-                      </e-ribbon-collection>
-                    </e-ribbon-collections>
-                  </e-ribbon-group>
-                </e-ribbon-groups>
-              </e-ribbon-tab>
-            </e-ribbon-tabs>
-          </ejs-ribbon>
-        </div>
+        <ejs-ribbon id="ribbon-resize" ref="resizeRibbon" :enablePersistence="true" :launcherIconClick="launcherIconClicked" :fileMenu="fileSettings" cssClass="ribbon-resize">
+          <e-ribbon-tabs>
+            <e-ribbon-tab header="Home">
+              <e-ribbon-groups>
+                <e-ribbon-group header="Clipboard" id="clipboard" groupIconCss="e-icons e-paste" :showLauncherIcon="true" >
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="SplitButton" :disabled="true" id="resize-pastebtn" :allowedSizes="largeSize" :splitButtonSettings="pasteSettigs" >
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="Button" :buttonSettings="cutButton">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="Button" :buttonSettings="copyButton">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="Button" :buttonSettings="formatButton">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Font" orientation="Row" overflowHeader="More Font Options" :enableGroupOverflow="true" :isCollapsible="false" groupIconCss="e-icons e-bold" cssClass="font-group" >
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="ComboBox" :comboBoxSettings="styleOptions" >
+                        </e-ribbon-item>
+                        <e-ribbon-item type="ComboBox" :comboBoxSettings="sizeOptions">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="GroupButton" allowedSizes="Small" :groupButtonSettings="groupButtonMultiple"></e-ribbon-item>
+                        <e-ribbon-item type="ColorPicker" :displayOptions="colorPickerDisplayMode" allowedSizes="Small" :colorPickerSettings="colorPicker" >
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Paragraph" orientation="Row" groupIconCss="e-icons e-align-center" >
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="decreaseIndent">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="increaseIndent">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="Button" allowedSizes="Small" :buttonSettings="paragraphBtn">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="GroupButton" allowedSizes="Small" :groupButtonSettings="groupButtonSingle"></e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Editing" orientation="Row" groupIconCss="e-icons e-edit" >
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="SplitButton" :splitButtonSettings="searchOptions" >
+                        </e-ribbon-item>
+                        <e-ribbon-item type="Button" :buttonSettings="replaceButton">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="SplitButton" :splitButtonSettings="selectOptions" >
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Voice" :isCollapsible="false" groupIconCss="sf-icon-dictate" >
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="SplitButton" :disabled="true" :allowedSizes="largeSize" :splitButtonSettings="dictateOptions" >
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+              </e-ribbon-groups>
+            </e-ribbon-tab>
+            <e-ribbon-tab header="Insert">
+              <e-ribbon-groups>
+                <e-ribbon-group header="Tables" :isCollapsible=false>
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="DropDown" :allowedSizes="largeSize" :dropDownSettings="tableSettings">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Illustrations" id="illustration" overflowHeader="Illustrations" :showLauncherIcon=true orientation="Row" :enableGroupOverflow=true groupIconCss="e-icons e-image">
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item id="pictureddl" type="DropDown" :dropDownSettings="pictureSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="DropDown" :dropDownSettings="shapeSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="Button" :buttonSettings="modelSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="Button" :buttonSettings="artSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="Button" :buttonSettings="chartSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="Button" :buttonSettings="screenshotSettings">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Header & Footer" id="header_footer" :showLauncherIcon=true orientation="Column" groupIconCss="e-icons e-table">
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="DropDown" :dropDownSettings="headerSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="DropDown" :dropDownSettings="footerSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="DropDown" :dropDownSettings="pageSettings">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Comments" :isCollapsible=false>
+                  <e-ribbon-collections>
+                    <e-ribbon-collection id="defaultcollection12">
+                      <e-ribbon-items>
+                        <e-ribbon-item :allowedSizes="largeSize" type="Button" :buttonSettings="commentSettings">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Links" groupIconCss="e-icons e-link" :isCollapsible=false>
+                  <e-ribbon-collections>
+                    <e-ribbon-collection >
+                      <e-ribbon-items>
+                        <e-ribbon-item :allowedSizes="largeSize" type="DropDown" :dropDownSettings="linkSettings">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+              </e-ribbon-groups>
+            </e-ribbon-tab>
+            <e-ribbon-tab header="View">
+              <e-ribbon-groups>
+                <e-ribbon-group header="Views" orientation="Row" groupIconCss="e-icons e-print">
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="Button" :buttonSettings="readSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="Button" :buttonSettings="printSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="Button" :buttonSettings="layoutSettings">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Zoom" orientation="Row" groupIconCss="e-icons e-zoom-to-fit">
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="Button" :buttonSettings="zoomInSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="Button" :buttonSettings="zoomOutSettings">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Show" :isCollapsible=false>
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item type="CheckBox" :checkBoxSettings="rulerSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="CheckBox" :checkBoxSettings="gridSettings">
+                        </e-ribbon-item>
+                        <e-ribbon-item type="CheckBox" :checkBoxSettings="navigationSettings">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+                <e-ribbon-group header="Dark Mode" :isCollapsible=false>
+                  <e-ribbon-collections>
+                    <e-ribbon-collection>
+                      <e-ribbon-items>
+                        <e-ribbon-item :allowedSizes="largeSize" type="Button" :buttonSettings="modeSettings">
+                        </e-ribbon-item>
+                      </e-ribbon-items>
+                    </e-ribbon-collection>
+                  </e-ribbon-collections>
+                </e-ribbon-group>
+              </e-ribbon-groups>
+            </e-ribbon-tab>
+          </e-ribbon-tabs>
+        </ejs-ribbon>
         <div id="ribbonPlaceHolder-resize">
-          <div style="width:100%; height:40px">
+          <div style="width:100%; height:40px" class="ribbonSliderWrapper">
             <p class="ribbonResizeDisplayText"> Resize Ribbon</p>
             <div id ='ribbonSlider' style="width:200px; margin:0 15px">
               <ejs-slider id="slider"  v-on:created="onCreated" v-on:change="onChange"></ejs-slider>
@@ -518,7 +516,7 @@ export default {
   }
 
   p.ribbonResizeDisplayText {
-    margin: 0 0 0 15px;
+    margin: 0 15px;
     font-size: 18px;
     font-weight: 500;
     line-height: 1.1;
@@ -533,9 +531,6 @@ export default {
       display: flex;
       flex-direction: column;
       height: 550px;
-  }
-
-  #ribbon {
       box-sizing: border-box;
   }
 
@@ -695,8 +690,7 @@ export default {
       content: "\e70d";
   }
 
-  .ribbon-resize.e-rtl .ribbonResizeDisplayText{
-      direction: rtl;
-      padding-right: 15px;
+  #ribbon-resize.e-rtl + #ribbonPlaceHolder-resize .ribbonSliderWrapper{
+    direction: rtl;
   }
 </style>

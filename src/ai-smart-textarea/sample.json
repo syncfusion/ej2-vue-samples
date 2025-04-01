@@ -2,6 +2,7 @@
     "name": "Smart TextArea",
     "directory": "ai-smart-textarea",
     "category": "Smart Controls",
+    "type": "preview",
     "samples": [
         {
             "url": "default",

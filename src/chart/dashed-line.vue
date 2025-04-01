@@ -28,7 +28,7 @@
         <code>Fill</code> properties to customize the line.
     </p>
     <p>
-        <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover over or tap on the chart.
     </p>
     
     <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -51,19 +51,6 @@
         padding: 0px !important;
     }
     
-        #dashed-chartcontainer_Series_1 {
-            stroke-dasharray: 10px 10px;
-            stroke-linejoin: round;
-            stroke-linecap: round;
-            animation: dash 1s linear infinite;
-        }
-    
-    
-    @-webkit-keyframes dash {
-        100% {
-            stroke-dashoffset: -20px;
-        }
-    }
     
     @keyframes dash {
         100% {
@@ -90,9 +77,8 @@
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AnnotationDirective, AnnotationsDirective, LineSeries, DateTime, Legend, Tooltip, Crosshair, Category, ChartAnnotation } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+  import { loadChartTheme } from "./theme-color";
+  let theme = loadChartTheme();
 
 export default {
   components: {
@@ -156,6 +142,7 @@ export default {
        tooltip: {
           header: '<b>Fruits Production</b>',
           enable: true,
+          showNearestTooltip: true,
           shared: true,
           format: '${point.x} : <b>${point.y}</b>'
       },
@@ -172,85 +159,83 @@ export default {
   
   methods: {
     load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+        let selectedTheme = loadChartTheme(args);
         args.chart.annotations[0].content = '<div style="color:black; font-family: bold ">Actual</div>';
         args.chart.annotations[1].content = '<div style="color:black; font-family: bold ">Forecast</div>';
-        if (selectedTheme==='material-dark')
+        if (selectedTheme==='MaterialDark')
         {
             this.AnnotationColor = 'dark';
         }
-        else if(selectedTheme==='material')
+        else if(selectedTheme==='Material')
         {
             this.AnnotationColor = "light";  
         }
-        else if (selectedTheme==='fabric-dark')
+        else if (selectedTheme==='FabricDark')
         {
             this.AnnotationColor = 'dark';
         }
-        else if(selectedTheme==='fabric')
+        else if(selectedTheme==='Fabric')
         {
             this.AnnotationColor = "light";  
         }
-        else if (selectedTheme==='bootstrap5-dark')
+        else if (selectedTheme==='Bootstrap5Dark')
         {
             this.AnnotationColor = 'dark';
         }
-        else if (selectedTheme==='bootstrap5')
+        else if (selectedTheme==='Bootstrap5')
         {
             this.AnnotationColor = "light";  
         }
-        else if (selectedTheme==='fluent-dark')
+        else if (selectedTheme==='FluentDark')
         {
             this.AnnotationColor = "dark";    
         }
-        else if (selectedTheme==='fluent')
+        else if (selectedTheme==='Fluent')
         {
             this.AnnotationColor = "light";  
         }
-        else if (selectedTheme==='bootstrap4')
+        else if (selectedTheme==='Bootstrap4')
         {
             this.AnnotationColor = "light";          
         }
-        else if (selectedTheme==='bootstrap-dark')
+        else if (selectedTheme==='BootstrapDark')
         {
             this.AnnotationColor = "dark";         
         }
-        else if (selectedTheme==='bootstrap')
+        else if (selectedTheme==='Bootstrap')
         {
             this.AnnotationColor = "light";          
         }
-        else if (selectedTheme==='tailwind-dark')
+        else if (selectedTheme==='TailwindDark')
         {
             this.AnnotationColor = "dark";    
         }
-        else if (selectedTheme==='tailwind')
+        else if (selectedTheme==='Tailwind')
         {                    
             this.AnnotationColor = "light";  
         }
-        else if (selectedTheme==='tailwind3-dark')
+        else if (selectedTheme==='Tailwind3Dark')
         {
             this.AnnotationColor = "dark";    
         }
-        else if (selectedTheme==='tailwind3')
+        else if (selectedTheme==='Tailwind3')
         {                    
             this.AnnotationColor = "light";  
         }
-        else if (selectedTheme==='highcontrast')
+        else if (selectedTheme==='HighContrast')
         {
             this.AnnotationColor = "dark";            
         }
-        else if (selectedTheme === 'material3-dark') {
+        else if (selectedTheme === 'Material3Dark') {
             this.AnnotationColor = "dark";  
         }
-        else if (selectedTheme === 'material3') {
+        else if (selectedTheme === 'Material3') {
             this.AnnotationColor = "light"; 
         }
-        else if (selectedTheme === 'fluent2') {
+        else if (selectedTheme === 'Fluent2') {
             this.AnnotationColor = 'light';
         } 
-        else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') 
+        else if (selectedTheme === 'Fluent2HighContrast' || selectedTheme === 'Fluent2Dark') 
         {
             this.AnnotationColor = 'dark';
         }

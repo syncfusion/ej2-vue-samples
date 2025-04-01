@@ -3,12 +3,11 @@
     "directory": "stock-chart",
     "category": "Data Visualization",
     "ftName": "stock-chart",
-    "type": "update",
     "samples": [
         {
             "url": "default",
             "name": "Default",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with candle series.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with candle series.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -21,7 +20,7 @@
         {
             "url": "ohlc",
             "name": "OHLC",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with Hilo Open Close series.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Hilo Open Close series.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -34,7 +33,7 @@
         {
             "url": "multi-pane",
             "name": "Candlestick and volume",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with candle series.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with candle series.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -47,7 +46,7 @@
         {
             "url": "multiple-series",
             "name": "Multiple Series",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with candle series.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with candle series.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -60,7 +59,7 @@
         {
             "url": "spline",
             "name": "Spline",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with Spline series.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Spline series.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -73,7 +72,7 @@
         {
             "url": "area",
             "name": "Area",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with Area series.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Area series.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -86,8 +85,7 @@
         {
             "url": "spline-area",
             "name": "Spline Area",
-            "type": "update",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with Spline Area series.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Spline Area series.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -100,7 +98,7 @@
         {
             "url": "inversed-area",
             "name": "Inversed Area",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with Area series inverted.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Area series inverted.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -113,7 +111,7 @@
         {
             "url": "plot-line",
             "name": "Plot lines",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with Spline Area series.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with Spline Area series.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -126,7 +124,7 @@
         {
             "url": "strip-line",
             "name": "Plot band",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with strip line.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with strip line.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -139,7 +137,7 @@
         {
             "url": "period-customization",
             "name": "Intraday",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with period customization.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with period customization.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -152,7 +150,7 @@
         {
             "url": "disabled-navigator",
             "name": "Hide Range Selector",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with period customization.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with period customization.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -165,7 +163,7 @@
         {
             "url": "disabled-period",
             "name": "Hide Period Selector",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with period customization.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with period customization.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -178,7 +176,7 @@
         {
             "url": "datetime-category",
             "name": "DateTime Category Axis",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock Chart with DateTime Category Axis.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock Chart with DateTime Category Axis.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [
@@ -191,7 +189,7 @@
         {
             "url": "stock-events",
             "name": "Stock Events",
-            "description": "This demo for Essential<sup>®</sup> JS2 Stock Chart control shows the default rendering of Stock with stock events.",
+            "description": "This demo for Essential JS2 Stock Chart control shows the default rendering of Stock with stock events.",
             "category": "Stock Chart",
             "api": {
                 "RangeNavigator": [

@@ -40,7 +40,7 @@
         
         <div class="ganttsidebar-header">
         <div class="ganttsidebar-title">Advanced Filters</div>
-        <ejs-button id="ganttsidebar-close" class="e-close" @click="closeSidebar"></ejs-button>
+        <span id="ganttsidebar-close" class="e-close" @click="closeSidebar"></span>
         </div>
         <ejs-querybuilder
             ref="queryBuilder"

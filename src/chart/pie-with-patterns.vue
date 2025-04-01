@@ -40,10 +40,8 @@
 <script>
 import { Browser } from '@syncfusion/ej2-base';
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip, AccumulationAnnotation } from "@syncfusion/ej2-vue-charts";
-
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadAccumulationChartTheme, accpatternPointRender } from "./theme-color";
+let theme = loadAccumulationChartTheme();
 
 export default {
     components: {
@@ -88,50 +86,7 @@ export default {
     },
     methods: {
         pointRender: (args) => {
-            if (args.point.index === 0) {
-                args.pattern = 'DiagonalBackward';
-            } else if (args.point.index === 1) {
-                args.pattern = 'DiagonalForward';
-            } else if (args.point.index === 2) {
-                args.pattern = 'HorizontalStripe';
-            } else if (args.point.index === 3) {
-                args.pattern = 'VerticalStripe';
-            } else if (args.point.index === 4) {
-                args.pattern = 'HorizontalDash';
-            }
-            let selectedTheme = location.hash.split('/')[1];
-            selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-            if (selectedTheme.indexOf('dark') > -1) {
-                if (selectedTheme.indexOf('material') > -1) {
-                    args.border.color = '#303030';
-                }
-                else if (selectedTheme.indexOf('bootstrap5') > -1) {
-                    args.border.color = '#212529';
-                }
-                else if (selectedTheme.indexOf('bootstrap') > -1) {
-                    args.border.color = '#1A1A1A';
-                }
-                else if (selectedTheme.indexOf('tailwind') > -1) {
-                    args.border.color = '#1F2937';
-                }
-                else if (selectedTheme.indexOf('fluent') > -1) {
-                    args.border.color = '#252423';
-                }
-                else if (selectedTheme.indexOf('fabric') > -1) {
-                    args.border.color = '#201f1f';
-                }
-                else {
-                    args.border.color = '#222222';
-                }
-            }
-            else if (selectedTheme.indexOf('highcontrast') > -1) {
-                args.border.color = '#000000';            }
-            else if (selectedTheme.indexOf('fluent2-highcontrast') > -1) {
-                args.border.color = '#000000';
-            }
-            else {
-                args.border.color = '#FFFFFF';
-            }
+             accpatternPointRender(args);
         },
     },
 };

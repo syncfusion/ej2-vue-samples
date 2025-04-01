@@ -134,7 +134,7 @@
         color: #fff;
         background-color: #212529;
     }
-    
+
     .material3 .e-ddt.ddt-template .e-treeview .e-fullrow,
     .material3-dark .e-ddt.ddt-template .e-treeview .e-fullrow,
     .e-bigger.material3 .e-ddt.ddt-template .e-treeview .e-fullrow,
@@ -234,9 +234,9 @@
         background-color: #FFE65E;
     }
 
-    .bootstrap5_3-dark .ddt-template .head,
-    .bootstrap5_3-dark .ddt-template .footer,
-    .bootstrap5_3-dark .ddt-template .footer-content .e-badge,
+    .bootstrap5\.3-dark .ddt-template .head,
+    .bootstrap5\.3-dark .ddt-template .footer,
+    .bootstrap5\.3-dark .ddt-template .footer-content .e-badge,
     .material3-dark .ddt-template .head,
     .material3-dark .ddt-template .footer,
     .material3-dark .ddt-template .footer-content .e-badge,

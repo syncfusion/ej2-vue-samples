@@ -9,7 +9,6 @@
         :theme="theme"
         :legendSettings="legendSettings"
         :tooltip="tooltip"
-        selectionMode="Point"
         :enableBorderOnMouseMove='false'
         :annotations='annotations'
       >
@@ -61,10 +60,8 @@ import {
   ChartAnnotation
 } from "@syncfusion/ej2-vue-charts";
 import { Browser } from '@syncfusion/ej2-base';
-
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadAccumulationChartTheme } from "./theme-color";
+let theme = loadAccumulationChartTheme();
 let fluent2Colors = ["#6200EE", "#09AF74", "#0076E5", "#CB3587", "#E7910F", "#66CD15", "#F3A93C", "#107C10", "#C19C00"];
 
 export default {

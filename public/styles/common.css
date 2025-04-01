@@ -9,7 +9,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 }
 
 .container-fluid {
-    padding: 0;
+    padding: 0 !important;
     margin-right: 15px;
     margin-left: 15px;
 }
@@ -61,7 +61,8 @@ span.e-input-group.e-control-wrapper.e-ddl {
     align-items: center;
     justify-content: space-between;
     margin-top: 1px;
-    margin-left: 5px;
+    margin-left: 6px;
+    margin-right: 20px;
     background: transparent;
     height: 32px;
     padding: 8px;
@@ -71,7 +72,6 @@ span.e-input-group.e-control-wrapper.e-ddl {
 #themeMode-switch-btn #sb-icon-text {
     font-size: 14px;
     font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
-    margin-top: 2px;
 }
 
 #themeMode-switch-btn .sb-icons {
@@ -281,7 +281,14 @@ span.e-input-group.e-control-wrapper.e-ddl {
     height: 27px;
     text-align: center;
     border-radius: 2px;
-    margin: 0px 27px 0px 28px;
+}
+
+.sb-settings-wrapper {
+    padding: 0 20px 0px 10px;
+}
+
+.sb-search-wrapper {
+    padding: 0px 10px 0px 24px;
 }
 
 .sb-setting-btn {
@@ -289,7 +296,6 @@ span.e-input-group.e-control-wrapper.e-ddl {
     height: 27px;
     text-align: center;
     border-radius: 2px;
-    margin: 0px 31px 0px 0px;
 }
 #themeMode-switch-btn:hover,
 .sb-search-btn:hover,
@@ -300,7 +306,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 }
 
 #sb-toggle-left {
-    padding-left: 18px;
+    padding-left: 15px;
     font-size: 24px;
     cursor: pointer;
 }
@@ -331,15 +337,13 @@ span.e-input-group.e-control-wrapper.e-ddl {
 .sb-header-right .sb-icons {
     font-size: 20px;
 }
-.sb-search-splitter {
-    margin-left: 16px;
-}
+
 .sb-header-splitter {
     float: left;
     border-left: 1px solid rgb(196, 196, 196);
     height: 32px;
     margin-top: 8px;
-     
+    padding-right: 22px; 
 }
 
 #search-input-wrapper .sb-reset-icon {
@@ -425,6 +429,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
     height: 32px;
     width: 150px;
     margin-top: 5px;
+    margin-right: 10px;
     cursor: default;
     padding-left: 10px;
     padding-right: 10px;
@@ -447,7 +452,11 @@ span.e-input-group.e-control-wrapper.e-ddl {
     line-height: 18px;
     height: 32px;
     border-color: transparent;
-    margin-left: 24px;
+}
+
+.sb-search-splitter {
+    margin-right: 3px;
+    padding-right: 0px;
 }
 
 .sb-header-settings {
@@ -783,7 +792,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 .sb-home {
     display: table;
     width: 100%;
-    padding: 12px 16px;
+    padding: 12px 14px;
     height: 66px;
     position: relative;
 }
@@ -951,7 +960,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 }
 
 .sb-left-pane #sb-left-back {
-    padding: 12px 20px;
+    padding: 12px 18px;
     width: 100%;
     display: table;
     cursor: pointer;
@@ -1038,7 +1047,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 }
 
 .sb-content-section {
-    background: #FFFFFF;
+    border-radius: 12px;
     border: 1px solid #D7D7D7;
     opacity: 100;
     height: 100%;
@@ -1111,7 +1120,7 @@ a.code:visited {
 
 .sb-bread-crumb {
     padding-top: 6px;
-    padding-bottom: 27px;
+    padding-bottom: 24px;
 }
 
 .sb-action-description {
@@ -2058,7 +2067,7 @@ aside#left-sidebar {
     float: right;
     font-size: 15px;
     font-weight: 600;
-    padding: 11px 29px;
+    padding: 11px 22px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.20);
     cursor: pointer;
 }
@@ -2157,7 +2166,7 @@ aside#left-sidebar {
         margin: 17px auto 0px;
         float: none;
         width: 242px;
-        padding: 11px 61px;
+        padding: 11px 56px;
     }
 
     .content-area {
@@ -2190,7 +2199,7 @@ aside#left-sidebar {
         margin: 17px auto 0px;
         float: none;
         width: 242px;
-        padding: 11px 61px;
+        padding: 11px 56px;
     }
 
     .content-area {
@@ -2286,7 +2295,7 @@ aside#left-sidebar {
         margin: 11px auto 0px;
         float: none;
         width: 242px;
-        padding: 11px 61px;
+        padding: 11px 56px;
     }
 
     .content-area {

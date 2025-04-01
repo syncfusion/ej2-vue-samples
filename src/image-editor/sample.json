@@ -3,7 +3,6 @@
     "directory": "image-editor",
     "category": "File Viewers & Editors",
     "ftName": "image-editor",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -30,7 +29,6 @@
             "url": "file-restrict",
             "name": "File Restriction",
             "category": "Image Editor",
-            "type": "new",
             "description": "The Image Editor component enables file upload restrictions by size and extensions, customizable via numeric inputs and a multi-select dropdown.",
             "api": { "ImageEditor": ["width", "created"]  }
         }

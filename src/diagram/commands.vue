@@ -171,6 +171,7 @@ import {
   Diagram,
   DiagramComponent,
   NodeConstraints,
+  FlipDirection,
 } from "@syncfusion/ej2-vue-diagrams";
 
 import {
@@ -383,7 +384,7 @@ function updateToolbarItems(itemIds, disabled) {
 function flipObjects(flipType) {
     var selectedObjects = diagram.selectedItems.nodes.concat(diagram.selectedItems.connectors);
     for (let i = 0; i < selectedObjects.length; i++) {
-        selectedObjects[i].flip = flipType === 'Flip Horizontal' ? 'Horizontal' : 'Vertical';
+        selectedObjects[i].flip ^= flipType === 'Flip Horizontal' ? FlipDirection.Horizontal : FlipDirection.Vertical;
     }
     diagram.dataBind();
 }

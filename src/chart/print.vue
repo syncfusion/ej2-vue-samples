@@ -91,13 +91,11 @@
 <script>
 import { Browser } from "@syncfusion/ej2-base";
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
-import { pointMaterialColors, pointMaterialDarkColors, pointFabricColors, pointBootstrapColors, pointHighContrastColors, pointBootstrap5Colors, pointBootstrap5DarkColors, pointFluentColors, pointFluentDarkColors, pointTailwindColors, pointTailwindDarkColors, pointFluent2Colors, pointFluent2HighContrastColors, pointTailwind3Colors, pointTailwind3DarkColors } from './theme-color';
 import { EmitType } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Legend, DataLabel } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme, pointRenderEvent } from "./theme-color";
+let theme = loadChartTheme();
 
 export default {
   components: {
@@ -166,53 +164,7 @@ export default {
       this.$refs.chart.print();
     },
     pointRender: function (args) {
-      let selectedTheme = location.hash.split('/')[1];
-      selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-      if (selectedTheme === 'material-dark') {
-        args.fill = pointMaterialDarkColors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'material') {
-        args.fill = pointMaterialColors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'fabric-dark' || selectedTheme === 'fabric') {
-        args.fill = pointFabricColors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'bootstrap5' || selectedTheme === 'bootstrap5-dark') {
-        args.fill = pointBootstrap5Colors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'fluent-dark') {
-        args.fill = pointFluentDarkColors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'fluent') {
-        args.fill = pointFluentColors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'bootstrap4' || selectedTheme === 'bootstrap') {
-        args.fill = pointBootstrapColors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'tailwind-dark') {
-        args.fill = pointTailwindDarkColors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'tailwind') {
-        args.fill = pointTailwindColors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'highcontrast') {
-        args.fill = pointHighContrastColors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'fluent2') {
-        args.fill = pointFluent2Colors[args.point.index % 10];
-      } 
-      else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
-        args.fill = pointFluent2HighContrastColors[args.point.index % 10];
-      }
-      else if (selectedTheme === 'tailwind3') {
-        args.fill = pointTailwind3Colors[args.point.index % 10];
-      } 
-      else if (selectedTheme === 'tailwind3-dark') {
-        args.fill = pointTailwind3DarkColors[args.point.index % 10];
-      } 
-      else {
-        args.fill = pointBootstrapColors[args.point.index % 10];
-      }
+      pointRenderEvent(args);
     },
 
   },

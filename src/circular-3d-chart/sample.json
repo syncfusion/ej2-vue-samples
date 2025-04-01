@@ -8,7 +8,7 @@
         {
             "url": "pie",
             "name": "Pie",
-            "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the circular 3D pie chart",
+            "description": "This demo for Essential JS2 Chart control shows how to render and configure the circular 3D pie chart",
             "category": "3D Circular Chart",
             "sourceFiles": [
                 {
@@ -20,7 +20,7 @@
         {
             "url": "donut",
             "name": "Donut",
-            "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the circular 3D doughnut charts.",
+            "description": "This demo for Essential JS2 Chart control shows how to render and configure the circular 3D doughnut charts.",
             "category": "3D Circular Chart",
             "sourceFiles": [
                 {
@@ -32,7 +32,7 @@
         {
             "url": "pie-legend",
             "name": "Pie with Legend",
-            "description": "This demo for Essential<sup>®</sup> JS2 Chart control shows how to render and configure the legends in circular 3D pie charts.",
+            "description": "This demo for Essential JS2 Chart control shows how to render and configure the legends in circular 3D pie charts.",
             "category": "3D Circular Chart",
             "sourceFiles": [
                 {
@@ -44,7 +44,7 @@
         {
             "url": "pie-radius",
             "name": "Pie with Various Radius",
-            "description": "This demo sample for Essential<sup>®</sup> JavaScript2 Circular 3D Chart control demonstrates how to render and configure the various radius pie chart.",
+            "description": "This demo sample for Essential JavaScript2 Circular 3D Chart control demonstrates how to render and configure the various radius pie chart.",
             "category": "3D Circular Chart",
             "sourceFiles": [
                 {
@@ -56,7 +56,7 @@
         {
             "url": "selection",
             "name": "Selection",
-            "description": "This demo for Essential<sup>®</sup> JS2 Chart control demonstrates the selection behavior in circular 3D chart.",
+            "description": "This demo for Essential JS2 Chart control demonstrates the selection behavior in circular 3D chart.",
             "category": "3D Circular Chart",
             "sourceFiles": [
                 {

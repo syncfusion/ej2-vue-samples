@@ -96,7 +96,7 @@ export default {
     z-index: 500 !important;
 }
 .speeddial-template-target {
-  min-height:310px;
+  min-height:320px;
   width: 60%;
   margin: 40px auto 35px;
   position: relative;
@@ -108,7 +108,7 @@ export default {
         margin: 0 5% 35px;
     }
 
-    .speeddial-template-target .e-speeddial-popup {
+    .speeddial-template-target .e-speeddial-popup.popupSpeedDial {
         width: 90%;
         position: fixed;
         top: 48%;

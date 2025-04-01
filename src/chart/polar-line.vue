@@ -63,7 +63,7 @@
       </div>
     </div>
     <div id="action-description">
-      <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/radar-chart" aria-label="Navigate to explore the Syncfusion<sup>®</sup> Vue Polar Radar Line Chart">Vue Polar Radar Line Chart</a> example visualizes data about Alaska Weather Statistics - 2016 with a default polar line series.</p>
+      <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/radar-chart" aria-label="Navigate to explore the Syncfusion Vue Polar Radar Line Chart">Vue Polar Radar Line Chart</a> example visualizes data about Alaska Weather Statistics - 2016 with a default polar line series.</p>
     </div>
     <div id="description">
       <p>
@@ -102,9 +102,8 @@ import { Browser, extend } from "@syncfusion/ej2-base";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { Tooltip, Legend, PolarSeries, Category, LineSeries, RadarSeries, ChartComponent, SeriesDirective, SeriesCollectionDirective, Highlight } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
 
 export default {
   components: {

@@ -63,10 +63,6 @@ _:-ms-fullscreen,
 .fluent .e-grid-empimg {
     background-color: #106EBE;
 }
-.tailwind3 .e-grid-empimg,
-.tailwind3-dark .e-grid-empimg {
-    background-color: rgba(79, 70, 229);
-}
 
 #Emptext {
     top: -14px;
@@ -78,6 +74,10 @@ _:-ms-fullscreen,
     height: 27px;
     width: 29px;
     border-radius: 14px;
+}
+.tailwind3 .e-grid-empimg,
+.tailwind3-dark .e-grid-empimg {
+    background-color: rgba(79, 70, 229);
 }
 
 #overviewgrid.e-rtl #Emptext{

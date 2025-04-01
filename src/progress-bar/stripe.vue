@@ -78,7 +78,7 @@
     </div>
     <div id="description">
       <p>
-        This demo for Essential<sup>®</sup> JS2 Progress Bar control shows the linear striped progress bar with help of
+        This demo for Essential JS2 Progress Bar control shows the linear striped progress bar with help of
         <code>isStriped</code> property.
       </p>
     </div>
@@ -107,6 +107,7 @@
 </style>
 <script>
 import { ProgressBarComponent } from "@syncfusion/ej2-vue-progressbar";
+import { loadProgressBarTheme } from "./theme-color";
 
 export default {
   data: function() {
@@ -128,14 +129,7 @@ export default {
   provide: {},
   methods: {
     progressLoad: function(args) {
-      let selectedTheme = location.hash.split("/")[1];
-      selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-      args.progressBar.theme = (
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-      )
-        .replace(/-dark/i, "Dark")
-        .replace(/contrast/i, "Contrast")
-        .replace(/-highContrast/i, "HighContrast");
+      loadProgressBarTheme(args);
     },
     onclick: function() {
       let button = document.getElementById("reLoad");

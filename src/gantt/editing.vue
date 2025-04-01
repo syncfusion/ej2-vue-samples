@@ -82,7 +82,8 @@ function customFn(args) {
     var endDate;
     var gantt = document.getElementsByClassName('e-gantt')[0].ej2_instances[0]
     if (args.element && args.value) {
-        endDate = new Date(args.value);
+        var dateOptions = { format: gantt.dateFormat, type: 'dateTime', skeleton: 'yMd' };
+        endDate =  gantt.globalize.parseDate(args.value, dateOptions);
         if(!startDate && gantt.editModule.dialogModule['beforeOpenArgs']) {
             startDate = gantt.editModule.dialogModule['beforeOpenArgs'].rowData['ganttProperties'].startDate;
         endDate = (gantt.editModule.dialogModule['beforeOpenArgs'].rowData['ganttProperties'].endDate);
@@ -92,7 +93,7 @@ function customFn(args) {
     }
     return startDate <= endDate;
 }
-const endDateValidation = { date: true, required: [customFn, 'Please enter a value greater than the start date.'] };
+const endDateValidation = { required: [customFn, 'Please enter a value greater than the start date.'] };
 export default {
   components: {
     'ejs-gantt': GanttComponent

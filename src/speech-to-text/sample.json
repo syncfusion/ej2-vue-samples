@@ -1,0 +1,30 @@
+{
+    "name": "Speech To Text",
+    "directory": "speech-to-text",
+    "category": "Inputs",
+    "ftName": "speech-to-text",
+    "type": "preview",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Speech To Text",
+            "api": { "SpeechToText": ["lang", "allowInterimResults", "showTooltip", "buttonSettings", "transcriptChanged", "onStart", "onStop", "onError", "cssClass"] },
+            "description": "This example demonstrates the default features of the Syncfusion JavaScript SpeechToText control, including speech recognition, and customization."
+        },
+        {
+            "url": "use-case",
+            "name": "Use Case",
+            "category": "Integration",
+            "api": { "SpeechToText": ["buttonSettings", "transcriptChanged", "onStart", "onStop", "onError", "cssClass"] },
+            "description": "Explore how to integrate the SpeechToText control into real-world applications for seamless voice-to-text conversion and enhanced usability."
+        },
+        {
+            "url": "integration",
+            "name": "AI AssistView",
+            "category": "Integration",
+            "api": { "SpeechToText": ["transcriptChanged", "onStart", "onStop", "onError", "cssClass"] },
+            "description": "Demonstrates to integrate the SpeechToText control with AI AssistView to enable real-time voice-to-text interaction for AI-powered chat experiences."
+        }
+    ]
+}

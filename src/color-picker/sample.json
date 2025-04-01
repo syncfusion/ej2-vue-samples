@@ -15,7 +15,7 @@
                     "disabled"
                 ]
             },
-            "description": "This example demonstrates the default functionalities of the Syncfusion<sup>®</sup> Vue ColorPicker with RGB, HSV and Hex codes(three, six and eight digit)."
+            "description": "This example demonstrates the default functionalities of the Syncfusion Vue ColorPicker with RGB, HSV and Hex codes(three, six and eight digit)."
         },
         {
             "url": "inline",
@@ -30,7 +30,7 @@
                     "disabled"
                 ]
             },
-            "description": "This example demonstrates the inline / flat mode rendering of the Syncfusion<sup>®</sup> Vue ColorPicker with hue and opacity color options."
+            "description": "This example demonstrates the inline / flat mode rendering of the Syncfusion Vue ColorPicker with hue and opacity color options."
         },
         {
             "url": "custom",
@@ -46,7 +46,7 @@
                     "presetColors"
                 ]
             },
-            "description": "This example demonstrates the Syncfusion<sup>®</sup> Vue ColorPicker, custom UI of the color palette with different structures and its state."
+            "description": "This example demonstrates the Syncfusion Vue ColorPicker, custom UI of the color palette with different structures and its state."
         },
         {
             "url": "api",
@@ -61,7 +61,7 @@
                     "disabled"
                 ]
             },
-            "description": "This example demonstrates the supported API's and its functionalities of the Syncfusion<sup>®</sup> Vue ColorPicker."
+            "description": "This example demonstrates the supported API's and its functionalities of the Syncfusion Vue ColorPicker."
         }
     ]
 }

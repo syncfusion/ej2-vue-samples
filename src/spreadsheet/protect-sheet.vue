@@ -7,7 +7,7 @@
                     <e-rows>
                         <e-row>
                             <e-cells>
-                                <e-cell index=1 value="Home Loan Calculator"></e-cell>
+                                <e-cell index=1 value="Home Loan Calculator" :style="{ textAlign: 'center', fontWeight: 'bold' }"></e-cell>
                             </e-cells>
                         </e-row>
                         <e-row>
@@ -68,6 +68,18 @@
                     <e-ranges>
                         <e-range :dataSource="dataSource"></e-range>
                     </e-ranges>
+                    <e-rows>
+                        <e-row>
+                            <e-cells>
+                                <e-cell :style="{ textAlign: 'center', fontWeight: 'bold' }"></e-cell>
+                                <e-cell :style="{ textAlign: 'center', fontWeight: 'bold' }"></e-cell>
+                                <e-cell :style="{ textAlign: 'center', fontWeight: 'bold' }"></e-cell>
+                                <e-cell :style="{ textAlign: 'center', fontWeight: 'bold' }"></e-cell>
+                                <e-cell :style="{ textAlign: 'center', fontWeight: 'bold' }"></e-cell>
+                                <e-cell :style="{ textAlign: 'center', fontWeight: 'bold' }"></e-cell>
+                            </e-cells>
+                        </e-row>
+                    </e-rows>
                     <e-columns>
                             <e-column index=1 :width=110></e-column>
                             <e-column :width=85></e-column>
@@ -146,8 +158,6 @@ export default {
   methods: {
     created: function() {
         var spreadsheet = this.$refs.spreadsheet;
-        spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'EMI Schedule!A1:F1');
-        spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'EMI Calculator!B1');
         spreadsheet.numberFormat('$#,##0.00', 'EMI Schedule!C2:F13');
         spreadsheet.numberFormat('m/d/yyyy', 'EMI Calculator!C5:C5');
         spreadsheet.numberFormat('m/d/yyyy', 'EMI Schedule!B2:B13');

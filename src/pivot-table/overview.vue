@@ -256,14 +256,14 @@ export default {
         let cellValue = select('.e-cellvalue', args.targetCell);
         cellValue.classList.add('e-hyperlinkcell');
         cellValue.addEventListener('click', this.hyperlinkCellClick.bind(pivotObj));
-        args.targetCell.insertBefore(imgElement, cellValue);
+        args.targetCell.firstElementChild.insertBefore(imgElement, cellValue);
       }
       return '';
     },
     hyperlinkCellClick: function (args: any) {
       let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
-      let cell = (args.target).parentElement;
-      let pivotValue = pivotObj.pivotValues[Number(cell.getAttribute('index'))][Number(cell.getAttribute('data-colindex'))];
+      let cell = (args.target).closest('.e-rowsheader');
+      let pivotValue = pivotObj.pivotValues[Number(cell.getAttribute('index'))][Number(cell.getAttribute('aria-colindex')) - 1];
       let link = pivotValue.index ? pivotObj.dataSourceSettings.dataSource[pivotValue.index[0]].link : "";
       window.open(link, '_blank');
     },

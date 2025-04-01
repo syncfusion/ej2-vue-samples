@@ -1,7 +1,7 @@
 <template>
   <div class="control-section">
     <div align='center'>
-      <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title'
+      <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :tooltip='tooltip'
         :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :chartArea='chartArea' :width='width'>
         <e-series-collection>
           <e-series :dataSource='seriesData' type='Line' xName='Period' yName='MaxTemp' name='Warmest' width=2
@@ -18,7 +18,11 @@
     </div>
     <div id="description">
       <p>
-        The date-time axis uses a date-time scale and displays date-time values as the axis labels. To use a date-time axis, set the <code>ValueType</code> in axis to <b>DateTime</b>.
+        The date-time axis uses a date-time scale and displays date-time values as the axis labels. To use a date-time
+        axis, set the <code>ValueType</code> in axis to <b>DateTime</b>.
+      </p>
+      <p>
+        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover over or tap on the chart.
       </p>
       <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
@@ -28,8 +32,8 @@
       </p>
       <p>
         More information on the DateTime axis can be found in this
-        <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/chart/date-time-axis/" aria-label="Navigate to the documentation for DateTime Axis in Vue Chart component">documentation
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/date-time-axis/"
+          aria-label="Navigate to the documentation for DateTime Axis in Vue Chart component">documentation
           section</a>.
       </p>
     </div>
@@ -43,9 +47,9 @@
 import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Legend, DateTime, DataLabel, Highlight, Tooltip } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
+
 export default {
   components: {
     'ejs-chart': ChartComponent,
@@ -88,6 +92,11 @@ export default {
         border: {
           width: 0
         }
+      },
+
+      tooltip: {
+        enable: true,
+        showNearestTooltip: true
       },
 
       marker: {

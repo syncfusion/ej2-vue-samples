@@ -16,7 +16,7 @@
         <p>The default sample illustrates the use of AutoComplete that allows the end-users to select an item from the suggestion list.
         </p>
         <p> More information on the AutoComplete instantiation can be found in the
-            <a href="http://ej2.syncfusion.com/angular/documentation/auto-complete/getting-started.html" target="_blank"> documentation section</a>.
+            <a href="https://ej2.syncfusion.com/vue/documentation/auto-complete/getting-started" target="_blank"> documentation section</a>.
         </p>
     </div>
 </div>

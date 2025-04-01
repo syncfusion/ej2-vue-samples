@@ -144,7 +144,7 @@
 import { SmithchartComponent, SeriesCollectionDirective, SeriesDirective, SmithchartLegend, TooltipRender } from '@syncfusion/ej2-vue-charts';
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
-
+import { loadSmithChartTheme } from "./theme-color";
 export default {
 components: {
     'ejs-smithchart': SmithchartComponent,
@@ -213,9 +213,7 @@ provide:{
 methods:{
     /* custom code start */
      load:function(args){
-            let theme = location.hash.split('/')[1];
-            theme = theme ? theme : 'Fluent2';
-            args.smithchart.theme = (theme.charAt(0).toUpperCase() + theme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+             loadSmithChartTheme(args);
     },
     /* custom code end */
     clickExport:function(args){

@@ -329,6 +329,7 @@ import {
   IDragEnterEventArgs,
   DiagramTools,
   GridlinesModel,
+  FlipDirection,
 } from "@syncfusion/ej2-vue-diagrams";
 import { Uploader, UploaderComponent } from "@syncfusion/ej2-vue-inputs";
 import {
@@ -1109,8 +1110,8 @@ function printDiagram(args) {
 function flipObjects(flipType) {
   var selectedObjects = diagram.selectedItems.nodes.concat(diagram.selectedItems.connectors);
   for (let i = 0; i < selectedObjects.length; i++) {
-    selectedObjects[i].flip =
-      flipType === "Flip Horizontal" ? "Horizontal" : "Vertical";
+    selectedObjects[i].flip ^=
+      flipType === "Flip Horizontal" ? FlipDirection.Horizontal : FlipDirection.Vertical;
   }
   diagram.dataBind();
 }

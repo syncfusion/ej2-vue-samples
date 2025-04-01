@@ -2,6 +2,7 @@
     "name": "Chips",
     "directory": "chips",
     "category": "Buttons",
+    "type": "update",
     "samples": [{
         "url": "default",
         "name": "Default Functionalities",
@@ -14,5 +15,14 @@
             {"displayName": "api.vue", "path": "./src/chips/api.vue"},
             {"displayName": "data.json", "path": "./src/chips/data.json"}
         ]
-    }]
+    }, {
+            "url": "draganddrop",
+            "name": "Draggable Chips",
+            "category": "Chips",
+            "type": "new",
+            "sourceFiles": [
+                {"displayName": "draganddrop.vue", "path": "./src/chips/draganddrop.vue"}
+            ]
+        }
+    ]
 }

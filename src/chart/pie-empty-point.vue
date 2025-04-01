@@ -57,9 +57,8 @@ import { Browser } from '@syncfusion/ej2-base';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationTooltip, PieSeries, AccumulationDataLabel } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadAccumulationChartTheme } from "./theme-color";
+let theme = loadAccumulationChartTheme();
 
 export default {
   components: {
@@ -115,7 +114,7 @@ export default {
         let emptyPointSettings = extend({}, this.emptyPointSettings);
             emptyPointSettings.mode = empty;
             this.emptyPointSettings = emptyPointSettings; 
-            if (selectedTheme === 'bootstrap5-dark') {
+            if (theme === 'Bootstrap5Dark') {
                 this.emptyPointSettings.fill = '#FF7F7F';
             }  
       },

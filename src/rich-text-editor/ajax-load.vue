@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         onCreate: function() {
-            let fetch = new Fetch('./source/rich-text-editor/ajax-content.html', 'GET');
+            let fetch = new Fetch('https://ej2.syncfusion.com/vue/demos/src/rich-text-editor/ajax-content.html', 'GET');
             fetch.send().then((data)  => {
                 this.$refs.rteInstance.ej2Instances.value = data;
             });

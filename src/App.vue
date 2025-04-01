@@ -109,7 +109,7 @@
                     </div>
                     <div class="sb-header-item sb-table-cell  sb-header-settings sb-icons"></div>
                     <div class="sb-header-splitter sb-download-splitter"></div>
-                    <div class='sb-header-item sb-table-cell sb-download-wrapper'>
+                    <div v-if="showTrialButton" class='sb-header-item sb-table-cell sb-download-wrapper'>
                         <a href='https://www.syncfusion.com/downloads?tag=es-seo-ej2-vue-demo-menu-trail' target="_blank"
                             aria-label="Free Trail (Opens in a new window)">
                             <button id='download-now' type="button" class='sb-download-btn'>
@@ -382,7 +382,7 @@
                         <div class="sb-footer">
                             <div class="sb-footer-left">
                                 <div class="sb-footer-links">
-                                    <a href="https://ej2.syncfusion.com/vue/documentation/" target="_blank"
+                                    <a href="https://ej2.syncfusion.com/vue/documentation/introduction" target="_blank"
                                         aria-label="Documentation (Opens in a new window)">
                                         <div class="sb-footer-link">Documentation</div>
                                     </a>
@@ -490,7 +490,7 @@ const sbArray: string[] = ['angular', 'react', 'nextjs', 'javascript', 'aspnetco
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
 let selectedTheme: string = location.hash.split('/')[1] || 'tailwind3';
-const themeCollection: string[] = ['material3', 'bootstrap5', 'fluent2', 'tailwind3', 'tailwind', 'fluent2-highcontrast', 'highcontrast', 'fluent'];
+const themeCollection: string[] = ['material3', 'bootstrap5', 'fluent2', 'tailwind3', 'fluent2-highcontrast', 'highcontrast', 'tailwind', 'fluent'];
 const themesToRedirect: string[] = ['material', 'material-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'fabric', 'fabric-dark'];
 let resizeManualTrigger: boolean = false;
 const matchedCurrency: { [key: string]: string } = {
@@ -568,6 +568,9 @@ tabContentToolbar = createElement('div', { className: 'sb-content-toolbar', inne
 /* vue instance */
 const myJson = searchJson;
 const homeEle: Ref<HTMLElement | null> = ref(null);
+
+// Determine if the "FREE TRIAL" button should be shown
+const showTrialButton = ref(window.location.hostname !== 'localhost');
 
 onBeforeMount(() => {
     samplesList = getSampleList();
@@ -1117,7 +1120,7 @@ const changeTab = (args: any): void => {
             let elementList = demoSection.getElementsByClassName('e-control e-lib');
             for (let i = 0; i < elementList.length; i++) {
                 let instance = (elementList[i] as any).ej2_instances;
-                if (instance && instance[0] && typeof instance[0].refresh === 'function') {
+                if (instance && instance[0] && typeof instance[0].refresh === 'function' && ['aiassistview', 'chat-ui'].indexOf(instance[0].getModuleName()) === -1) {
                     instance[0].refresh();
                 }
                 if (instance && instance[0] && instance[0].getModuleName() !== 'DashboardLayout')
@@ -1212,6 +1215,7 @@ const eventBinding = (): void => {
         e.preventDefault();
         e.stopPropagation();
     });
+    inputele.addEventListener('keyup', onsearchInputChange);
     themeList.addEventListener('click', changeTheme);
     sb.vars.setResponsiveElement.addEventListener('click', setMouseOrTouch);
     sb.vars.sblink.addEventListener('click', (e: MouseEvent) => {
@@ -1224,6 +1228,12 @@ const eventBinding = (): void => {
         }
     })
 
+    function onsearchInputChange(e) {
+        if (e.key === 'Escape' || e.key === 'Enter') {
+            toggleSearchOverlay();
+        }
+    }
+    
     window.addEventListener('resize', processResize);
     sbRightPane.addEventListener('click', () => {
         if (isMobile && isLeftPaneOpen()) {
@@ -1256,7 +1266,10 @@ const changeRtl = (args: any): void => {
     let elementlist: HTMLElement[] = selectAll('.e-control', (rootEle.querySelector('#control-content') as HTMLElement));
 
     for (let control of elementlist) {
-        let eleinstance: Object[] = (<DestroyMethod>control).ej2_instances;
+        let eleinstance: Object[] = ((<DestroyMethod>control).ej2_instances) ;
+        if (control.classList.contains('e-richtexteditor')) {
+            eleinstance = (<DestroyMethod>control).getElementsByTagName("textArea")[0].ej2_instances;
+        }
         if (eleinstance) {
             for (let instance of eleinstance) {
                 (<DestroyMethod>instance).enableRtl = args;
@@ -1352,7 +1365,8 @@ const SbLink = (): void => {
         if (sb === 'aspnetcore' || sb === 'aspnetmvc') {
             ele.href = sb === 'aspnetcore' ? 'https://ej2.syncfusion.com/aspnetcore/' : 'https://ej2.syncfusion.com/aspnetmvc/';
         } else if (sb === 'nextjs') {
-            ele.href = 'https://ej2.syncfusion.com/nextjs/demos/';
+            const defaultSamplePath = location.href.includes('grid/grid-overview') ? sample.split('/')[0] + '/grid/overview' : sample;
+            ele.href = 'https://ej2.syncfusion.com/nextjs/demos/' + defaultSamplePath;
         } 
         else if (sb === 'blazor') {
             ele.href = 'https://blazor.syncfusion.com/demos/';
@@ -1623,7 +1637,6 @@ const processResize = (e: any): void => {
         sidebar.showBackdrop = false;
         sidebar.closeOnDocumentClick = false;
 
-        sidebar.show();
 
         if (isVisible('.sb-mobile-overlay')) {
             removeMobileOverlay();
@@ -1801,7 +1814,7 @@ const updatesourceTab = (): void => {
                 data: '',
                 content: sourceFiles[i].displayName
             });
-            // updateStackBlitz();
+            updateStackBlitz();
         }
     }
     Promise.all(sourcePromise).then((results: Object[]): void => {

@@ -2,7 +2,6 @@
     "name": "Dropdown List",
     "directory": "drop-down-list",
     "category": "Dropdowns",
-    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -68,7 +67,6 @@
             "name": "Popup Resize",
             "category": "Dropdown List",
             "description": "This demo showcases the custom resizing functionality of Dropdown List, You can adjust the size of the popup based on your preferences, allowing for better control over its appearance",
-            "type": "new",
             "sourceFiles":[
                 { "displayName": "resize.vue", "path":"src/drop-down-list/resize.vue" },
                 { "displayName": "dataSource.json", "path":"src/drop-down-list/dataSource.json" } 

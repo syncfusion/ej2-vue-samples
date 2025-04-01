@@ -12,7 +12,7 @@
             </ejs-chart>
         </div>
         <div id="action-description">
-            <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/hilo-chart" aria-label="Navigate to explore the Syncfusion<sup>®</sup> Vue Hilo Chart">Vue Hilo Chart</a> example visualizes the AAPL stock price with a default Hilo series in the chart. The tooltip and crosshair show information about the stock price.</p>
+            <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/hilo-chart" aria-label="Navigate to explore the Syncfusion Vue Hilo Chart">Vue Hilo Chart</a> example visualizes the AAPL stock price with a default Hilo series in the chart. The tooltip and crosshair show information about the stock price.</p>
         </div>
         <div id="description">
             <p>
@@ -47,9 +47,8 @@ import { Browser } from '@syncfusion/ej2-base';
 import { ChartComponent, SeriesDirective, SeriesCollectionDirective, Category, HiloSeries, Tooltip, DateTime, Zoom, Crosshair, Logarithmic } from "@syncfusion/ej2-vue-charts";
 import { chartValue } from './financial-data';
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
 
 export default {
     components: {

@@ -20,7 +20,7 @@
           <td style="width: 60%">
             <!-- Numeric text box for spring length -->
             <ejs-numerictextbox ref="springlengthObj" id="springlength" :format='springlengthformat'
-              :value='springlengthvalue' :step='springlengthstep' />
+              :value='springlengthvalue' :step='springlengthstep' :min='springlengthmin' />
           </td>
         </tr>
         <tr>
@@ -28,7 +28,7 @@
           <td style="width: 60%">
             <!-- Numeric text box for spring factor -->
             <ejs-numerictextbox ref="springfactorbj" id="springfactor" :format='springfactorformat'
-              :value='springfactorvalue' :step='springfactorstep' />
+              :value='springfactorvalue' :step='springfactorstep' :min='springfactormin' />
           </td>
         </tr>
         <tr>
@@ -36,7 +36,7 @@
           <td style="width: 60%">
             <!-- Numeric text box for maximum iteration -->
             <ejs-numerictextbox ref="maxiterationObj" id="maxiteration" :format='maxiterationformat'
-              :value='maxiterationvalue' :step='maxiterationstep' />
+              :value='maxiterationvalue' :step='maxiterationstep' :min='maxiterationmin' />
           </td>
         </tr>
         <tr>
@@ -153,12 +153,15 @@ export default {
       springlengthformat: "###.##",
       springlengthvalue: 80,
       springlengthstep: 1, 
+      springlengthmin: 1,
       springfactorformat: "###.##",
       springfactorvalue: 0.8,
       springfactorstep: 0.1,
+      springfactormin: 0,
       maxiterationformat: "###.##",
       maxiterationvalue: 500,
-      maxiterationstep: 1
+      maxiterationstep: 1,
+      maxiterationmin: 0
     };
   },
 

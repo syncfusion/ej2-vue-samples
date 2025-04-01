@@ -240,6 +240,7 @@ export default {
       if (args && args.item && args.item.text) {
         const value = this.textToValueMap[args.item.text.trim()];
         if (value && this.$refs.rteObj && this.$refs.rteObj.ej2Instances) {
+          this.$refs.rteObj.ej2Instances.formatter.editorManager.nodeSelection.restore();
           this.$refs.rteObj.ej2Instances.executeCommand(
             'insertHTML',
             `<span contenteditable="false" class="e-mention-chip">{{${value}}}</span>`,

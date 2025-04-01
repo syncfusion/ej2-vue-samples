@@ -771,11 +771,8 @@ import {
   Highlight
 } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (
-  selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+  import { loadChartTheme } from "./theme-color";
+  let theme = loadChartTheme();
 
 export default {
   components: {
@@ -850,12 +847,7 @@ export default {
   },
   methods: {
     load: function (args) {
-      var selectedTheme = location.hash.split("/")[1];
-      selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-      theme = args.chart.theme = (
-        selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)
-      ).replace(/-dark/i, "Dark").replace(/contrast/i, "Contrast").replace(/-highContrast/i, 'HighContrast');
-      args.chart.theme = theme;
+      theme =  loadChartTheme(args);
     },
     textRender: function (args) {
       if (theme === "Material") {

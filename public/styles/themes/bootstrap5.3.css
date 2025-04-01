@@ -21,3 +21,12 @@
 .bootstrap5_3 .e-tab .e-tab-header:not(.e-vertical)::before {
     border-width: 0;
 }
+
+.bootstrap5_3 .sb-plnr-section {
+    height: 30px;
+    line-height: 25px;
+}
+
+.bootstrap5_3 .sb-desktop-setting > :nth-child(4) {
+    padding-right: 15px;
+}

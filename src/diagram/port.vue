@@ -72,6 +72,7 @@
                                             :enabled='widthenabled'
                                             :format='widthformat'
                                             :value='widthvalue'
+                                            :min='widthmin'
                                             :step='widthstep'
                                             :change='widthchange'/>
                 </div>
@@ -379,6 +380,7 @@ export default {
       widthenabled: true,
       widthformat: "###.##",
       widthvalue: 1,
+      widthmin: 0,
       widthstep: 0.5,
       widthchange: (args) => {
         applyPortStyle("strokewidth", args.value);

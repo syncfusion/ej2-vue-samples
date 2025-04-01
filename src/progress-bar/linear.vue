@@ -174,6 +174,7 @@
 </style>
 <script>
 import { ProgressBarComponent } from "@syncfusion/ej2-vue-progressbar";
+import { loadProgressBarTheme } from "./theme-color";
 
 let div = document.getElementsByClassName('progressbar-label-linear');
 
@@ -205,54 +206,51 @@ export default {
       this.$refs.segment.ej2Instances.refresh();
     },
     load: function(args) {
-        let selectedTheme = location.hash.split('/')[1];
-        selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
-        args.progressBar.theme = (selectedTheme.charAt(0).toUpperCase() +
-        selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+      loadProgressBarTheme(args);
         if(args.progressBar.theme === 'HighContrast' || args.progressBar.theme === 'Bootstrap5Dark' || args.progressBar.theme === 'BootstrapDark' || args.progressBar.theme === 'FabricDark'
                 || args.progressBar.theme === 'TailwindDark' || args.progressBar.theme === 'Tailwind3Dark' || args.progressBar.theme === 'MaterialDark' || args.progressBar.theme === 'FluentDark' || args.progressBar.theme === 'Material3Dark' || args.progressBar.theme === 'Fluent2Dark' || args.progressBar.theme === 'Fluent2HighContrast') {
             for (let i = 0; i < div.length; i++) {
                 div[i].setAttribute('style', 'color:white');
             }
          }
-         if (selectedTheme === 'fabric') {
+         if (args.progressBar.theme === 'Fabric') {
           args.progressBar.secondaryProgressColor = '#b0d0e9'
-        } else if (selectedTheme === 'material-dark') {
+        } else if (args.progressBar.theme === 'MaterialDark') {
           args.progressBar.secondaryProgressColor = '#b8b8b8'
-        } else if (selectedTheme === 'material') {
+        } else if (args.progressBar.theme === 'Material') {
           args.progressBar.secondaryProgressColor = '#f087ab'
-        } else if (selectedTheme === 'bootstrap5-dark') {
+        } else if (args.progressBar.theme === 'Bootstrap5Dark') {
           args.progressBar.secondaryProgressColor = '#2b5288'
-        } else if (selectedTheme === 'bootstrap5') {
+        } else if (args.progressBar.theme === 'Bootstrap5') {
           args.progressBar.secondaryProgressColor = '#98c5f5'
-        } else if (selectedTheme === 'bootstrap') {
+        } else if (args.progressBar.theme === 'Bootstrap') {
           args.progressBar.secondaryProgressColor = '#acc6dc'
         }
-        else if (selectedTheme === 'bootstrap4') {
+        else if (args.progressBar.theme === 'Bootstrap4') {
           args.progressBar.secondaryProgressColor = '#98c5f5'
         }
-        else if (selectedTheme === 'bootstrap-dark') {
+        else if (args.progressBar.theme === 'BootstrapDark') {
           args.progressBar.secondaryProgressColor = '#b8b8b8'
-        } else if (selectedTheme === 'highcontrast') {
+        } else if (args.progressBar.theme === 'HighContrast') {
           args.progressBar.secondaryProgressColor = '#aca379'
-        } else if (selectedTheme === 'fluent-dark') {
+        } else if (args.progressBar.theme === 'FluentDark') {
           args.progressBar.secondaryProgressColor = '#2b5288'
-        } else if (selectedTheme === 'fluent') {
+        } else if (args.progressBar.theme === 'Fluent') {
           args.progressBar.secondaryProgressColor = '#98c5f5'
-        } else if (selectedTheme === 'tailwind-dark') {
+        } else if (args.progressBar.theme === 'TailwindDark') {
           args.progressBar.secondaryProgressColor = '#22D3EE'
-        } else if (selectedTheme === 'tailwind') {
+        } else if (args.progressBar.theme === 'Tailwind') {
           args.progressBar.secondaryProgressColor = '#4F46E5'
-        } else if (selectedTheme === 'fluent2') {
+        } else if (args.progressBar.theme === 'Fluent2') {
           args.progressBar.secondaryProgressColor = '#0F6CBD'
-        } else if (selectedTheme === 'fluent2-dark') {
+        } else if (args.progressBar.theme === 'Fluent2Dark') {
           args.progressBar.secondaryProgressColor = '#115EA3'
-        } else if (selectedTheme === 'fluent2-highcontrast') {
+        } else if (args.progressBar.theme === 'Fluent2HighContrast') {
           args.progressBar.secondaryProgressColor = '#1AEBFF'
         }
-         else if (selectedTheme === 'tailwind3-dark') {
+         else if (args.progressBar.theme === 'Tailwind3Dark') {
            args.progressBar.secondaryProgressColor = '#6366F1'
-         } else if (selectedTheme === 'tailwind3') {
+         } else if (args.progressBar.theme === 'Tailwind3') {
            args.progressBar.secondaryProgressColor = '#4F46E5'
          }
   }

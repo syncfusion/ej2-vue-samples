@@ -19,7 +19,9 @@ export let fluent2DarkColors: string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F5
     "#0B6A0B", "#C19C00"];
 export let fluent2HighContrastColors: string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F579A", "#584EC6", "#E85F9C", "#6E7A89", "#EA6266",
     "#0B6A0B", "#C19C00"];
-    
+    export let keyFabricDark: string[] = ["#4472C4", "#ED7D31", "#FFC000", "#70AD47"];
+export let keyBootstrap4Colors: string[] = ['#a16ee5', '#f7ce69', '#55a5c2', '#7ddf1e', '#ff6ea6', '#7953ac', '#b99b4f', '#407c92', '#5ea716', '#b91c52'];
+export let keyBootstrapdarkColors: string[] = ["#a16ee5", "#f7ce69", "#55a5c2", "#7ddf1e", "#ff6ea6", "#7953ac", "#b99b4f", "#407c92", "#5ea716", "#b91c52"];
  export let bubblePointMaterialColors: string[] = ['rgba(0, 189, 174, 0.5)', "rgba(64, 64, 65, 0.5)", "rgba(53, 124, 210, 0.5)", "rgba(229, 101, 144, 0.5)", "rgba(248, 184, 131, 0.5)", "rgba(112, 173, 71, 0.5)", "rgba(221, 138, 189, 0.5)",
         "rgba(127, 132, 232, 0.5)", "rgba(123, 180, 235, 0.5)", "rgba(234, 122, 87, 0.5)", "rgba(64, 64, 65, 0.5)", "rgba(0, 189, 174, 0.5)"];
  export let bubblePointMaterialDarkColors: string[] = ["rgba(158, 203, 8, 0.5)", "rgba(86, 174, 255, 0.5)", "rgba(197, 122, 255, 0.5)", "rgba(97, 234, 169, 0.5)", "rgba(235, 187, 62, 0.5)", "rgba(244, 92, 92, 0.5)", "rgba(138, 119, 255, 0.5)",
@@ -78,3 +80,514 @@ export let pointTailwind3DarkColors: string[] = ['#8029F1', '#1ABC9C', '#0D72DE'
  export let pointFluent2Colors: string[] = ["#6200EE", "#09AF74", "#0076E5", "#CB3587", "#E7910F", "#0364DE", "#66CD15", "#F3A93C", "#107C10", "#C19C00"];
  export let pointFluent2DarkColors : string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F579A", "#584EC6", "#E85F9C", "#6E7A89", "#EA6266", "#0B6A0B", "#C19C00"];
  export let pointFluent2HighContrastColors: string[] = ["#9BB449", "#2A72D5", "#43B786", "#3F579A", "#584EC6", "#E85F9C", "#6E7A89", "#EA6266", "#0B6A0B", "#C19C00"];
+
+ import {
+        AccumulationTheme,
+       ChartTheme,
+       IAccLoadedEventArgs,
+       IAccPointRenderEventArgs,
+       ILoadedEventArgs,
+       IPointRenderEventArgs
+     } from "@syncfusion/ej2-vue-charts";
+import { EmitType } from "@syncfusion/ej2/base";
+   export let loadChartTheme  = (args?: ILoadedEventArgs, isGradient?: boolean): ChartTheme | string => {
+       let selectedTheme: string = location.hash.split('/')[1];
+       selectedTheme = selectedTheme ? selectedTheme : 'Tailwind3';
+   
+       const formattedTheme: string = (selectedTheme.charAt(0).toUpperCase() +
+           selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+   
+       if (args) {
+               args.chart.theme = formattedTheme as ChartTheme;
+               return isGradient ? selectedTheme : args.chart.theme;
+       }
+       else if (isGradient && !args) {
+           return selectedTheme;
+       }
+   
+       return formattedTheme;
+   };
+   export let loadAccumulationChartTheme = (args?: IAccLoadedEventArgs): string => {
+       let selectedTheme: string = location.hash.split('/')[1];
+       selectedTheme = selectedTheme ? selectedTheme : 'Tailwind3';
+       const formattedTheme: string = (selectedTheme.charAt(0).toUpperCase() +
+           selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+       if (args) {
+           args.accumulation.theme = formattedTheme as AccumulationTheme;
+           return args.chart.theme;
+       }
+       else {
+           return formattedTheme;
+       }
+   };
+
+   export let funnelPointRender: EmitType<IAccPointRenderEventArgs> = (args: IAccPointRenderEventArgs): void => {
+    let selectedTheme: string = location.hash.split('/')[1];
+    selectedTheme = selectedTheme ? selectedTheme : 'Tailwind3';
+    if (selectedTheme && selectedTheme.indexOf('fabric') > -1) {
+        args.fill = pointFabricColors[0];
+    } else if (selectedTheme === 'material-dark') {
+        args.fill = pointMaterialDarkColors[0];;
+    } else if (selectedTheme === 'material') {
+        args.fill = pointMaterialColors[0];
+    } else if (selectedTheme === 'bootstrap5-dark') {
+        args.fill = pointBootstrap5DarkColors[0];
+    } else if (selectedTheme === 'bootstrap5') {
+        args.fill = pointBootstrap5Colors[0];
+    } else if (selectedTheme === 'bootstrap') {
+        args.fill = pointBootstrapColors[0];
+    } else if (selectedTheme === 'bootstrap4') {
+        args.fill = pointBootstrapColors[0];
+    } else if (selectedTheme === 'bootstrap-dark') {
+        args.fill = pointBootstrapColors[0];
+    } else if (selectedTheme === 'highcontrast') {
+        args.fill = pointHighContrastColors[0];
+    } else if (selectedTheme === 'fluent-dark') {
+        args.fill = pointFluentDarkColors[0];
+    } else if (selectedTheme === 'fluent') {
+        args.fill = pointFluentColors[0];
+    } else if (selectedTheme === 'tailwind-dark') {
+        args.fill = pointTailwindDarkColors[0];
+    } else if (selectedTheme === 'tailwind') {
+        args.fill = pointTailwindColors[0];
+    } else if (selectedTheme === 'material3-dark') {
+        args.fill = pointMaterial3DarkColors[0];
+    } else if (selectedTheme === 'material3') {
+        args.fill = pointMaterial3Colors[0];
+    } else if (selectedTheme === 'fluent2') {
+        args.fill = pointFluent2Colors[0];
+    } else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
+        args.fill = pointFluent2HighContrastColors[0];
+    } else if (selectedTheme === 'tailwind3-dark') {
+        args.fill = pointTailwind3DarkColors[0];
+    } else if (selectedTheme === 'tailwind3') {
+        args.fill = pointTailwind3Colors[0];
+    } ;
+};
+
+
+export let accpatternPointRender: EmitType<IAccPointRenderEventArgs> = (args: IAccPointRenderEventArgs): void => {
+    if (args.point.index === 0) {
+        args.pattern = 'DiagonalBackward';
+    } else if (args.point.index === 1) {
+        args.pattern = 'DiagonalForward';
+    } else if (args.point.index === 2) {
+        args.pattern = 'HorizontalStripe';
+    } else if (args.point.index === 3) {
+        args.pattern = 'VerticalStripe';
+    } else if (args.point.index === 4) {
+        args.pattern = 'HorizontalDash';
+    }
+    let selectedTheme = location.hash.split('/')[1];
+    selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';
+    if (selectedTheme.indexOf('dark') > -1) {
+        if (selectedTheme.indexOf('material') > -1) {
+            args.border.color = '#303030';
+        }
+        else if (selectedTheme.indexOf('bootstrap5') > -1) {
+            args.border.color = '#212529';
+        }
+        else if (selectedTheme.indexOf('bootstrap') > -1) {
+            args.border.color = '#1A1A1A';
+        }
+        else if (selectedTheme.indexOf('tailwind') > -1) {
+            args.border.color = '#1F2937';
+        }
+        else if (selectedTheme.indexOf('fluent') > -1) {
+            args.border.color = '#252423';
+        }
+        else if (selectedTheme.indexOf('fabric') > -1) {
+            args.border.color = '#201f1f';
+        }
+        else {
+            args.border.color = '#222222';
+        }
+    }
+    else if (selectedTheme.indexOf('highcontrast') > -1) {
+        args.border.color = '#000000';
+    }
+    else if (selectedTheme.indexOf('fluent2-highcontrast') > -1) {
+        args.border.color = '#000000';
+    }
+    else {
+        args.border.color = '#FFFFFF';
+    }
+}
+
+   export let pointRenderEvent: EmitType<IPointRenderEventArgs> = (args: IPointRenderEventArgs): void => {
+       let selectedTheme: string = location.hash.split('/')[1];
+       selectedTheme = selectedTheme ? selectedTheme : 'Tailwind3';
+       if (selectedTheme && selectedTheme.indexOf('fabric') > -1) {
+           args.fill = pointFabricColors[args.point.index % 10];;
+       } else if (selectedTheme === 'material-dark') {
+           args.fill = pointMaterialDarkColors[args.point.index % 10];;
+       } else if (selectedTheme === 'material') {
+           args.fill = pointMaterialColors[args.point.index % 10];
+       } else if (selectedTheme === 'bootstrap5-dark') {
+           args.fill = pointBootstrap5DarkColors[args.point.index % pointBootstrap5DarkColors.length];
+       } else if (selectedTheme === 'bootstrap5') {
+           args.fill = pointBootstrap5Colors[args.point.index % pointBootstrap5Colors.length];
+       } else if (selectedTheme === 'bootstrap') {
+           args.fill = pointBootstrapColors[args.point.index % pointBootstrapColors.length];
+       } else if (selectedTheme === 'bootstrap4') {
+           args.fill = pointBootstrapColors[args.point.index % pointBootstrapColors.length];
+       } else if (selectedTheme === 'bootstrap-dark') {
+           args.fill = pointBootstrapColors[args.point.index % pointBootstrapColors.length];
+       } else if (selectedTheme === 'highcontrast') {
+           args.fill = pointHighContrastColors[args.point.index % 10];
+       } else if (selectedTheme === 'fluent-dark') {
+           args.fill = pointFluentDarkColors[args.point.index % 10];
+       } else if (selectedTheme === 'fluent') {
+           args.fill = pointFluentColors[args.point.index % 10];
+       } else if (selectedTheme === 'tailwind-dark') {
+           args.fill = pointTailwindDarkColors[args.point.index % 10];
+       } else if (selectedTheme === 'tailwind') {
+           args.fill = pointTailwindColors[args.point.index % 10];
+       } else if (selectedTheme === 'material3-dark') {
+           args.fill = pointMaterial3DarkColors[args.point.index % 10];
+       } else if (selectedTheme === 'material3') {
+           args.fill = pointMaterial3Colors[args.point.index % 10];
+       } else if (selectedTheme === 'fluent2') {
+           args.fill = pointFluent2Colors[args.point.index % 10];
+       } else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
+           args.fill = pointFluent2HighContrastColors[args.point.index % 10];
+       }
+       else if (selectedTheme === 'tailwind3-dark') {
+           args.fill = pointTailwind3DarkColors[args.point.index % 10];
+       } else if (selectedTheme === 'tailwind3') {
+           args.fill = pointTailwind3Colors[args.point.index % 10];
+       } ;
+       }
+       export let bubblePointRender: EmitType<IPointRenderEventArgs> = (args: IPointRenderEventArgs): void => {
+              let selectedTheme: string = location.hash.split('/')[1];
+       selectedTheme = selectedTheme ? selectedTheme : 'Tailwind3';
+
+        if (selectedTheme==='material-dark')
+        {
+            args.fill = bubblePointMaterialDarkColors[args.point.index % 10];
+            args.border.color = pointMaterialDarkColors[args.point.index % 10];
+        }
+        else if(selectedTheme==='material')
+        {
+            args.fill = bubblePointMaterialColors[args.point.index % 10];
+            args.border.color = pointMaterialColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='fabric-dark' || selectedTheme==='fabric')
+        {
+            args.fill = bubblePointFabricColors[args.point.index % 10];
+            args.border.color = pointFabricColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='bootstrap5-dark')
+        {
+            args.fill = bubblePointBootstrap5DarkColors[args.point.index % 10];
+            args.border.color = pointBootstrap5DarkColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='bootstrap5')
+        {
+            args.fill = bubblePointBootstrap5Colors[args.point.index % 10];
+            args.border.color = pointBootstrap5Colors[args.point.index % 10];
+        }
+        else if (selectedTheme==='fluent-dark')
+        {
+            args.fill = bubblePointFluentDarkColors[args.point.index % 10];
+            args.border.color = pointFluentDarkColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='fluent')
+        {
+            args.fill = bubblePointFluentColors[args.point.index % 10];
+            args.border.color = pointFluentColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='bootstrap4' || selectedTheme==='bootstrap')
+        {
+                args.fill = bubblePointBootstrapColors[args.point.index % 10];
+                args.border.color = pointBootstrapColors[args.point.index % 10];           
+        }
+        else if (selectedTheme==='tailwind-dark')
+        {
+            args.fill = bubbleTailwindDarkColors[args.point.index % 10];
+            args.border.color = pointTailwindDarkColors[args.point.index % 10];                     
+
+        }
+        else if (selectedTheme==='tailwind')
+        {                    
+            args.fill = bubbleTailwindColors[args.point.index % 10];
+            args.border.color = pointTailwindColors[args.point.index % 10];
+        }
+        else if (selectedTheme==='highcontrast')
+        {
+            args.fill = bubblePointHighContrastColors[args.point.index % 10];
+            args.border.color = pointHighContrastColors[args.point.index % 10];           
+        }
+        else if (selectedTheme === 'material3') {
+            args.fill = bubbleMaterial3Colors[args.point.index % 10];
+            args.border.color = pointMaterial3Colors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'material3-dark') {
+            args.fill = bubbleMaterial3DarkColors[args.point.index % 10];
+            args.border.color = pointMaterial3DarkColors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'fluent2') {
+            args.fill = bubbleFluent2Colors[args.point.index % 10];
+            args.border.color = pointFluent2Colors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'fluent2-highcontrast') {
+            args.fill = bubbleFluent2HighContrastColors[args.point.index % 10];
+            args.border.color = pointFluent2HighContrastColors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'fluent2-dark') {
+            args.fill = bubbleFluent2DarkColors[args.point.index % 10];
+            args.border.color = pointFluent2DarkColors[args.point.index % 10];
+        }
+        else if (selectedTheme === 'tailwind3-dark') {
+            args.fill = bubbleTailwind3DarkColors[args.point.index % 10];
+            args.border.color = pointTailwind3DarkColors[args.point.index % 10];
+        } 
+        else if (selectedTheme === 'tailwind3') {
+            args.fill = bubbleTailwind3Colors[args.point.index % 10];
+            args.border.color = pointTailwind3Colors[args.point.index % 10];
+        }
+        else
+        {
+            args.fill = bubblePointBootstrapColors[args.point.index % 10];
+            args.border.color = pointBootstrapColors[args.point.index % 10];           
+        }
+          };
+
+          let seriesColor: string[] = ['#FFE066', "#FAB666", "#F68F6A", "#F3646A", "#CC555A", "#9C4649"];
+export let donutPointRender: EmitType<IPointRenderEventArgs> = (args: IPointRenderEventArgs): void => {
+       let selectedTheme: string = location.hash.split('/')[1];
+       selectedTheme = selectedTheme ? selectedTheme : 'Tailwind3';
+        if (selectedTheme==='fluent')
+        {
+          args.fill = seriesColor[args.point.index % 10];
+        }
+        else if(selectedTheme==='bootstrap5')
+        {
+          args.fill = seriesColor[args.point.index % 10];
+        }
+        if (selectedTheme.indexOf('dark') > -1 )
+        {
+          if(selectedTheme.indexOf('material') > -1 )
+          {
+            args.border.color = '#303030' ;
+           
+          }
+          else if(selectedTheme.indexOf('bootstrap5') > -1 )
+          {
+            args.border.color = '#212529' ;
+          }
+          else if(selectedTheme.indexOf('bootstrap') > -1 )
+          {
+            args.border.color = '#1A1A1A' ;
+            
+          }
+          else if(selectedTheme.indexOf('tailwind') > -1 )
+          {
+            args.border.color = '#1F2937' ;
+          }
+          else if(selectedTheme.indexOf('fluent') > -1 )
+          {
+            args.border.color = '#252423' ;
+          }
+          else if(selectedTheme.indexOf('fabric') > -1 )
+          {
+            args.border.color = '#201f1f' ;
+          }
+          else
+          {
+            args.border.color = '#222222' ;
+          }
+        }
+        else if(selectedTheme.indexOf('highcontrast') > -1)
+        {
+          args.border.color = '#000000' ;
+        }
+        else if (selectedTheme.indexOf('fluent2') > -1) 
+        {
+          args.fill = seriesColor[args.point.index % 10];
+        }
+        else if (selectedTheme.indexOf('fluent2-highcontrast') > -1) 
+        {
+          args.fill = seriesColor[args.point.index % 10];
+        }
+        else
+        {
+          args.border.color = '#FFFFFF' ;
+        }
+};
+
+export let roundedCornnerPointRender: EmitType<IAccPointRenderEventArgs> = (args: IAccPointRenderEventArgs): void => {
+    let selectedTheme: string = location.hash.split('/')[1];
+    selectedTheme = selectedTheme ? selectedTheme : 'Tailwind3';
+    if (selectedTheme.indexOf('dark') > -1) {
+        if (selectedTheme.indexOf('material') > -1) {
+            args.border.color = '#303030';
+        }
+        else if (selectedTheme.indexOf('bootstrap5') > -1) {
+            args.border.color = '#212529';
+        }
+        else if (selectedTheme.indexOf('bootstrap') > -1) {
+            args.border.color = '#1A1A1A';
+
+        }
+        else if (selectedTheme.indexOf('fabric') > -1) {
+            args.border.color = '#201f1f';
+
+        }
+        else if (selectedTheme.indexOf('fluent') > -1) {
+            args.border.color = '#252423';
+
+        }
+        else if (selectedTheme.indexOf('bootstrap') > -1) {
+            args.border.color = '#1A1A1A';
+
+        }
+        else if (selectedTheme.indexOf('tailwind') > -1) {
+            args.border.color = '#1F2937';
+
+        }
+        else {
+            args.border.color = '#222222';
+
+        }
+    }
+    else if (selectedTheme.indexOf('highcontrast') > -1) {
+        args.border.color = '#000000';
+    }
+    else {
+        args.border.color = '#FFFFFF';
+    }
+}
+export let roundedPointRender: EmitType<IPointRenderEventArgs> = (args: IPointRenderEventArgs): void => {
+       let selectedTheme: string = location.hash.split('/')[1];
+       selectedTheme = selectedTheme ? selectedTheme : 'Tailwind3';
+       if (selectedTheme && selectedTheme.indexOf('fabric-dark') > -1) {
+           if (args.series.yName == "Rate")
+               args.fill = "f9fafb";
+       } else if (selectedTheme && selectedTheme.indexOf('fabric') > -1) {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'material-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "f9fafb";
+       } else if (selectedTheme === 'material') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'bootstrap5-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'bootstrap5') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'bootstrap-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "f9fafb";
+       } else if (selectedTheme === 'bootstrap') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'highcontrast') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'fluent-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'fluent') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'tailwind-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'tailwind') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'material3-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "f9fafb";
+       } else if (selectedTheme === 'material3') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'fluent2') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       }
+       else if (selectedTheme === 'tailwind3-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'tailwind3') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       }
+   };
+
+   export let piePointRender: EmitType<IPointRenderEventArgs> = (args: IPointRenderEventArgs): void => {
+       let selectedTheme: string = location.hash.split('/')[1];
+       selectedTheme = selectedTheme ? selectedTheme : 'Tailwind3';
+       if (selectedTheme && selectedTheme.indexOf('fabric-dark') > -1) {
+           if (args.series.yName == "Rate")
+               args.fill = "f9fafb";
+       } else if (selectedTheme && selectedTheme.indexOf('fabric') > -1) {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'material-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "f9fafb";
+       } else if (selectedTheme === 'material') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'bootstrap5-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'bootstrap5') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'bootstrap-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "f9fafb";
+       } else if (selectedTheme === 'bootstrap') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'highcontrast') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'fluent-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'fluent') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'tailwind-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'tailwind') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'material3-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "f9fafb";
+       } else if (selectedTheme === 'material3') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else if (selectedTheme === 'fluent2-highcontrast' || selectedTheme === 'fluent2-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'fluent2') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       }
+       else if (selectedTheme === 'tailwind3-dark') {
+           if (args.series.yName == "Rate")
+               args.fill = "#f9fafb";
+       } else if (selectedTheme === 'tailwind3') {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       } else {
+           if (args.series.yName == "Rate")
+               args.fill = "grey";
+       }
+   };

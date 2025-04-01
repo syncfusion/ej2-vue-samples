@@ -63,9 +63,10 @@ import {
   Highlight
 } from "@syncfusion/ej2-vue-charts";
 
-let selectedTheme = location.hash.split("/")[1];
-selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
-let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');
+
+import { loadChartTheme } from "./theme-color";
+let theme = loadChartTheme();
+
 let fontSize = Browser.isDevice ? "14px" : "16px";
 
 export default {
@@ -192,7 +193,7 @@ export default {
         ]
       },
       legendSettings: { visible: true, enableHighlight: true, shapeWidth: 15 },
-      tooltip: { enable: true, header: '', format: '<b>${point.x}</b> <br> ${series.name} : <b>${point.y}</b>', enableMarker: false },
+      tooltip: { enable: true, header: '', format: '<b>${point.x}</b> <br> ${series.name} : <b>${point.y}</b>', enableMarker: false, enableHighlight: true, showNearestTooltip: true },
       width: Browser.isDevice ? "100%" : "75%",
       title: "Wind Speed and Gust (km/h)",
       titleStyle: { position : 'Bottom', textAlignment:'Far' },

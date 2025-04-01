@@ -2,6 +2,7 @@
     "name": "DatePicker",
     "directory": "datepicker",
     "category": "Calendars",
+    "type": "update",
     "hideOnDevice": true,
     "samples": [{
             "url": "default",
@@ -28,8 +29,9 @@
             "url": "date-format",
             "name": "Format",
             "category": "DatePicker",
+	    "type": "update",
             "api":{"DatePicker": [ "format", "value", "placeholder" ]},
-            "description": "This example demonstrates how to change the date time format in the input field based on the format in a Vue DatePicker"
+            "description": "The InputFormats feature allows users to define multiple input formats, automatically converting typed values to the display format for a seamless experience."
         },
         {
             "url": "special-dates",

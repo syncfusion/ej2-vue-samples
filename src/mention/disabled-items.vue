@@ -8,9 +8,15 @@
 			    <label id="disabled-size">Compose your content</label>
 			    <div id="disabledMention" placeholder = "Type @ and tag user"></div>
 			    <ejs-mention id='disabled' :target='target' mentionChar='@' :dataSource='data' :fields='mentionfields' allowSpaces='true' :itemTemplate="'iTemplate'" :displayTemplate="'dTemplate'" noRecordsTemplate="No item related to the search" popupWidth="250px" popupHeight="200px">
-				<template v-slot:iTemplate="{data}">
-				    <div class="disabled_listItems"><img class="mentionEmpImage" :src="data.Eimg" alt="employee"/><span class="person">{{data.Name}}</span><span class="email">{{data.EmailId}}</span></div>
-				</template>
+				<template v-slot:iTemplate="{ data }">
+			                <div class="disabled_listItems">
+			                    <img class="mentionEmpImage" :src="data.Eimg" alt="employee" />
+			                    <div class="mention-text">
+				                    <span class="person">{{ data.Name }}</span>
+				                    <span class="email">{{ data.EmailId }}</span>
+			                    </div>
+			                </div>
+		                </template>
 				<template v-slot:dTemplate="{data}">{{data.Name}}</template>
 			    </ejs-mention>
 			</td>
@@ -61,24 +67,32 @@ export default {
         width: 600px;
     }
     .disabled_listItems {
-		padding-left: 12px;
-		vertical-align: middle;
-		width: 80%;
-	}
-	#disabledMention_popup .e-dropdownbase .e-list-item {
+	padding-left: 12px;
+	vertical-align: middle;
+	width: 80%;
+        display: flex;
+        align-items: center;
+    }
+     #disabledMention_popup .e-dropdownbase .e-list-item {
     	line-height: 25px;
     	text-indent: 8px;
+      }
+      #disabledMention_popup .mentionEmpImage {
+	  width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 10px;
+       }
+    #disabledMention_popup .mention-text {
+        display: flex;
+        flex-direction: column; /* Name and email appear in separate lines */
+    }
+    #disabledMention_popup .person {
+	font-size: 16px;
+        font-weight: 500;
 	}
-	#disabledMention_popup .mentionEmpImage {
-		width: 44px;
-		float: left;
-	}
-	#disabledMention_popup .person {
-		font-size: 16px;
-		margin-top: 8px;
-	}
-    #disabledMention_popup .e-dropdownbase .e-list-item * {
-        display: block;
+    #disabledMention_popup .email {
+	font-size: 14px;
     }
     div#disabledMention[placeholder]:empty:before {
         content: attr(placeholder);
@@ -86,7 +100,7 @@ export default {
     }
     #mention-disabled #disabled-size{
         font-size: 15px;
-		font-weight: 600;
+	font-weight: 600;
     }
     @media screen and (max-width: 1010px) {
         #mention-disabled #disabledMention,

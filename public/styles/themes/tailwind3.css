@@ -68,7 +68,7 @@
 }
 
 .tailwind3 .e-treeview .e-list-item.e-hover,
-.sb-left-pane .e-treeview .e-list-item.e-hover>.e-fullrow{
+.tailwind3 .sb-left-pane .e-treeview .e-list-item.e-hover>.e-fullrow{
     background-color: #F9FAFB !important;
     border: none;
 }
@@ -113,4 +113,13 @@
 
 .tailwind3 .sb-switch-popup li:first-child {
     color: #4f46e5;
+}
+
+@media (max-width: 550px) {
+    .tailwind3.e-bigger .sb-content-toolbar {
+        padding: 9px 0px;
+    }
+    .tailwind3 .sb-mobile-setting {
+        padding-top: 0px;
+    }
 }

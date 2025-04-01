@@ -241,7 +241,7 @@
     .e-bigger.tailwind3-dark .e-badge-showcase.e-card {
         background-color: #000;
     }
-
+    
     .e-bigger.tailwind3-dark .e-badge-showcase.e-card {
         width: 165px;
     }

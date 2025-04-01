@@ -62,7 +62,6 @@ export default {
       { text: 'Order' },
       { text: 'Ready to Serve' },
       { text: 'Delivered' },
-      { text: 'Served' },
     ];
     return {
       dataSource1: categoryData,

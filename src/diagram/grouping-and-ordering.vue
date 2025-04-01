@@ -48,7 +48,7 @@
       <!-- Diagram component -->
       <div id="diagram-space" class="sb-mobile-diagram">
         <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :width='width' :height='height'
-          :nodes='nodes' :getNodeDefaults='getNodeDefaults' :rulerSettings='rulerSettings' 
+          :nodes='nodes' :rulerSettings='rulerSettings' 
           :selectionChange='selectionChange' :getCustomTool='getCustomTool'
           :selectedItems='selectedItems' :drawingObject='drawingObject'></ejs-diagram>
       </div>
@@ -269,11 +269,6 @@ export default {
       nodes: nodes,
       created: (args) => {
         addEvents();
-      },
-      //Sets the default values of a node
-      getNodeDefaults: (node) => {
-        node.height = 50;
-        return node;
       },
       
       selectedItems: {

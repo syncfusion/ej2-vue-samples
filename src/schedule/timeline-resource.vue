@@ -94,8 +94,8 @@
     .bootstrap4 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
     .bootstrap5 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
     .bootstrap5-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
-    .bootstrap5\.3 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
-    .bootstrap5\.3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .bootstrap5_3 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
+    .bootstrap5_3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
     .fluent2 .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
     .fluent2-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text,
     .fluent2-highcontrast .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text {
@@ -168,8 +168,8 @@
 
     .bootstrap5-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
     .bootstrap5-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div,
-    .bootstrap5\.3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
-    .bootstrap5\.3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
+    .bootstrap5_3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-resource-cells .template-wrap>div,
+    .bootstrap5_3-dark .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td .e-resource-text>div {
         border-color: #444c54;
     }
 
@@ -292,7 +292,7 @@
         opacity: .8;
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 768px) {
         .schedule-vue-sample .room-scheduler.e-schedule .e-timeline-view .e-resource-left-td {
             width: 100px;
         }

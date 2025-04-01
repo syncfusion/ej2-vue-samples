@@ -6,9 +6,7 @@
             <div class="e-message render-mode-info">
                 <span class="e-msg-icon render-mode-info-icon" title="Turn OFF to render the PDF Viewer as server-backed"></span>
             </div>
-            <div>
-                <ejs-switch cssClass="buttonSwitch" id="checked" :change="change" :checked="true"></ejs-switch>
-            </div>
+            <ejs-switch cssClass="buttonSwitch" id="checked" :change="change" :checked="true"></ejs-switch>
         </div>       
         <ejs-toolbar id="customToolbar" ref="toolbar">
             <e-items>
@@ -50,17 +48,16 @@
             </e-items>
         </ejs-toolbar>
           <div id="textSearchToolbar" v-show="searchToolbarVisible">
-    <div class="e-pv-search-bar" :style="{ marginTop: '20px', right: '0px', zIndex: 1111 }" id="container_search_box">
+    <div class="e-pv-search-bar" :style="{ right: '0px', zIndex: 1111 }" id="container_search_box">
       <div class="e-pv-search-bar-elements" id="container_search_box_elements">
         <div class="e-input-group e-pv-search-input" id="container_search_input_container">
-          <input class="e-input" id="container_search_input" type="text" placeholder="Find in document" @keypress="searchInputKeypressed" @input="inputChange" v-model="searchText" />
-          <span class="e-input-group-icon e-input-search-group-icon e-icons-new e-search" id="container_search_box-icon" @click="initiateTextSearch"></span>
-          <span class="e-input-group-icon e-input-search-group-icon e-icons-new e-close" id="container_close_search_box-icon" :style="{ display: 'none' }" @click="clearTextSearch"></span>
+          <input class="e-input" id="container_search_input" type="text" placeholder="Find in document" @keypress="searchInputKeypressed" @input="inputChange" />
+          <span class="e-input-group-icon e-input-search-group-icon e-icons e-search" id="container_search_box-icon" @click="searchClickHandler"></span>
         </div>
-           <button class="e-btn e-icon-btn e-pv-search-btn e-icons-new e-chevron-left" id="container_prev_occurrence" type="button" :disabled="prevSearchDisabled" aria-label="Previous Search text" @click="previousTextSearch">
+           <button class="e-btn e-icon-btn e-pv-search-btn e-icons e-chevron-left" id="container_prev_occurrence" type="button" :disabled="prevSearchDisabled" aria-label="Previous Search text" @click="previousTextSearch">
            <span class="e-pv-icon-search e-pv-prev-search-icon" id="container_prev_occurrenceIcon"></span>
          </button>
-        <button class="e-btn e-icon-btn e-pv-search-btn e-icons-new e-chevron-right" id="container_next_occurrence" type="button" :disabled="nextSearchDisabled" aria-label="Next Search text" @click="nextTextSearch">
+        <button class="e-btn e-icon-btn e-pv-search-btn e-icons e-chevron-right" id="container_next_occurrence" type="button" :disabled="nextSearchDisabled" aria-label="Next Search text" @click="nextTextSearch">
           <span class="e-pv-icon-search e-pv-next-search-icon" id="container_next_occurrenceIcon"></span>
         </button>
       </div>
@@ -268,6 +265,7 @@ div#magnificationToolbar.e-toolbar .e-toolbar-items {
 .flex-container {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 .e-pv-fit-page-icon::before {
     content: '\e91b';
@@ -291,10 +289,11 @@ div#magnificationToolbar.e-toolbar .e-toolbar-items {
     letter-spacing: 0.24px;
     text-align: right;
     font-size: 14px;
+    margin-bottom: 3px;
 }
 
 .render-mode-info .render-mode-info-icon::before {
-    line-height: 0.5rem;
+    line-height: normal;
 }
 
 .buttonSwitch {
@@ -661,6 +660,7 @@ export default {
       prevSearchDisabled: true,
       nextSearchDisabled: true,
       matchCase: false,
+      prevMatchCase: false,
       isInkEnabled:false,
       searchActive:false,
       menuTemplate: function() {
@@ -945,67 +945,75 @@ export default {
         this.isInkEnabled =false;
       }
     },
-   initiateTextSearch: function () {
-  const textsearchPrevElement = document.getElementById("container_prev_occurrence");
-  const textsearchNextElement = document.getElementById("container_next_occurrence");
-  const textsearchcloseElement = document.getElementById("container_close_search_box-icon");
-  const textsearchElement = document.getElementById("container_search_box-icon");
-
-  const searchTextElement = document.getElementById("container_search_input");
-  const searchText = searchTextElement.value;
-
-  if (
-    textsearchPrevElement &&
-    textsearchNextElement &&
-    textsearchcloseElement &&
-    textsearchElement
-  ) {
-    if (searchText.trim() === "") {
-      textsearchPrevElement.disabled = true;
-      textsearchNextElement.disabled = true;
-    } else {
-      textsearchPrevElement.disabled = false;
-      textsearchNextElement.disabled = false;
-    }
-
-    textsearchcloseElement.style.display = "block";
-    textsearchElement.style.display = "none";
-    this.searchActive = true;
-    viewer.textSearchModule.searchText(searchText, this.matchCase);
-  }
-  },
-    clearTextSearch: function () {
-      const textsearchcloseElement = document.getElementById(
-        "container_close_search_box-icon"
-      );
-      const textsearchElement = document.getElementById(
-        "container_search_box-icon"
-      );
-        const textsearchPrevElement = document.getElementById("container_prev_occurrence");
-        const textsearchNextElement = document.getElementById("container_next_occurrence");
-      textsearchcloseElement.style.display = "none";
-      textsearchElement.style.display = "block";
-      viewer.textSearchModule.cancelTextSearch();
-      const searchTextElement = document.getElementById(
-        "container_search_input"
-      );
-      searchTextElement.value = "";
-      textsearchPrevElement.disabled = true;
-      textsearchNextElement.disabled = true;
+    initiateTextSearch: function () {
+     const textsearchPrevElement = document.getElementById("container_prev_occurrence");
+     const textsearchNextElement = document.getElementById("container_next_occurrence");
+     const textsearchElement = document.getElementById("container_search_box-icon");
+     if (textsearchPrevElement && textsearchNextElement && textsearchElement) {
+       textsearchElement.classList.add('e-close');
+       textsearchElement.classList.remove('e-search');
+       textsearchPrevElement.disabled = false;
+       textsearchNextElement.disabled = false;
+       if (this.searchText !== (document.getElementById('container_search_input').value) || this.prevMatchCase !== this.matchCase) {
+         textsearchPrevElement.addEventListener("click", (event) => {
+         this.previousTextSearch(event); 
+       });
+       textsearchNextElement.addEventListener("click", (event) => {
+       this.nextTextSearch(event);
+       });
+       viewer.textSearch.cancelTextSearch();
+       this.searchText = (document.getElementById('container_search_input')).value;
+       this.searchActive = true;
+       viewer.textSearch.searchText(this.searchText, this.matchCase);
+       this.prevMatchCase = this.matchCase;
+      }
+      else {
+        this.nextTextSearch();
+        }
+      }
     },
-    inputChange: function (event) {
+    inputChange: function () {
       viewer.textSearchModule.clearAllOccurrences();
       this.searchActive = false;
-      const textsearchcloseElement = document.getElementById('container_close_search_box-icon');
-      const textsearchElement = document.getElementById('container_search_box-icon');
-      textsearchcloseElement.style.display = 'none';
-      textsearchElement.style.display = 'block';
+      var searchInput = document.getElementById('container_search_input');
+      if(searchInput.value == '') {
+        this.updateSearchInputIcon(true);
+        viewer.textSearch.cancelTextSearch();
+        this.searchText = '';
+      }
+    },
+    searchClickHandler: function () {
+      var searchBtn = document.getElementById('container_search_box-icon');
+      if (searchBtn.classList.contains('e-search')) {
+        viewer.textSearch.cancelTextSearch();
+        this.initiateTextSearch();
+        this.updateSearchInputIcon(false);
+        this.searchText = '';
+      }
+      else if (searchBtn.classList.contains('e-close')) {
+        var searchInput = document.getElementById('container_search_input');
+        this.updateSearchInputIcon(true);
+        searchInput.value = '';
+        searchInput.focus();
+        viewer.textSearch.cancelTextSearch();
+        this.searchText = '';
+      }
+    },
+    updateSearchInputIcon: function (isEnable) {
+      var searchBtn = document.getElementById('container_search_box-icon');
+      if (isEnable) {
+        searchBtn.classList.add('e-search');
+        searchBtn.classList.remove('e-close');
+      } 
+      else {
+        searchBtn.classList.add('e-close');
+        searchBtn.classList.remove('e-search');
+      }
     },
     previousTextSearch: function () {
       viewer.textSearchModule.searchPrevious();
       this.searchActive = true;
     },
-
     nextTextSearch: function () {
       viewer.textSearchModule.searchNext();
       this.searchActive = true;

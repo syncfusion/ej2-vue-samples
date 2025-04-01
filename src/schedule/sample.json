@@ -54,7 +54,6 @@
             "url": "event-calendar",
             "name": "Event Calendar",
             "category": "Product Use Case",
-            "type": "new",
             "description": "This demo shows the way to organize and filter multiple types of events such as Personal, Birthdays, Work, and Holidays in the scheduler.",
             "api": {
                 "Schedule": [
@@ -188,6 +187,21 @@
                     "allowInline",
                     "group",
                     "resources"
+                ]
+            }
+        },{
+            "url": "overlap-events",
+            "name": "Conflict Free Event",
+            "category": "Appointments",
+            "type": "new",
+            "description": "This demo explains how to restrict overlapping appointments within the same time range.",
+            "api": {
+                "Schedule": [
+                    "width",
+                    "height",
+                    "selectedDate",
+                    "eventSettings",
+                    "allowOverlap"
                 ]
             }
         },
@@ -914,7 +928,6 @@
             "url": "clipboard",
             "name": "Clipboard",
             "category": "Miscellaneous",
-            "type": "new",
             "description": "This demo showcases clipboard operations (cut, copy, and paste) with Scheduler events, along with a context menu for additional actions.",
             "api": {
                 "Schedule": [

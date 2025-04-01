@@ -75,10 +75,10 @@ The freezing feature enables the user to freeze certain rows/columns at both sid
 </style>
 <!-- custom code end -->
 <script lang="ts">
-import { freezeDirection, Column } from "@syncfusion/ej2-vue-grids";
+import { freezeDirection } from "@syncfusion/ej2-vue-grids";
 import { Browser } from '@syncfusion/ej2-base';
 import { DropDownListComponent, ChangeEventArgs } from '@syncfusion/ej2-vue-dropdowns';
-import { TreeGridComponent, ColumnDirective, ColumnsDirective, Freeze } from "@syncfusion/ej2-vue-treegrid";
+import { TreeGridComponent, ColumnDirective, ColumnsDirective, Freeze, Column } from "@syncfusion/ej2-vue-treegrid";
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { sampleData } from "./data-source";
 
@@ -125,7 +125,7 @@ export default {
   methods: {
     columnChange: function(e: ChangeEventArgs): void {
         let columnName: string = <string>e.value;
-        let column: Column = (this as any).$refs.treegrid.ej2Instances.grid.getColumnByField(columnName);
+        let column: Column = (this as any).$refs.treegrid.ej2Instances.getColumnByField(columnName);
         let value: string = column.freeze === undefined ? 'Center' : column.freeze;
         (this as any).refresh = (this as any).$refs.directions.ej2Instances.value === value;
         (this as any).$refs.directions.ej2Instances.value = value;
@@ -133,12 +133,16 @@ export default {
     directionChange: function(e: ChangeEventArgs): void {
         if ((this as any).refresh) {
         let columnName: string = (this as any).$refs.columns.ej2Instances.value;
-        let mvblColumns: Column[] = (this as any).$refs.treegrid.ej2Instances.grid.getMovableColumns();
+        let mvblColumns: Column[] = (this as any).$refs.treegrid.ej2Instances.getMovableColumns();
         if (mvblColumns.length === 1 && columnName === mvblColumns[0].field && e.value !== mvblColumns[0].freeze) {
             ((<any>this).$refs.alertDialog as any).show();
         } else {
-            ((this as any).$refs.treegrid.ej2Instances.grid.getColumnByField(columnName) as any).freeze = e.value === 'Center' ? undefined : e.value as freezeDirection;
-            (this as any).$refs.treegrid.ej2Instances.grid.refreshColumns();
+            let columns = (this as any).$refs.treegrid.ej2Instances.getColumns();
+	    let column = columns.find((col: any) => col.field === columnName);
+	    if (column) {
+    	    column.freeze = e.value === 'Center' ? undefined : e.value as freezeDirection;
+	    }
+	    (this as any).$refs.treegrid.ej2Instances.columns = columns;
         }
         }
         (this as any).refresh = true;
