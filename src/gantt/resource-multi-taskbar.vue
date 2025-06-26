@@ -161,9 +161,4 @@ export default {
             margin: 5px 5px 0px 5px !important;
         }
     }
-    .fluent2 #ResourceMultiTaskbarallow ,
-    .fluent2-dark #ResourceMultiTaskbarallow,
-    .fluent2-highcontrast #ResourceMultiTaskbarallow{
-        padding-top: 6px;
-    }
 </style>

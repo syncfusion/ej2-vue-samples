@@ -112,7 +112,7 @@ export default {
         interval: 1,
         coefficient: Browser.isDevice ? 80 : 100
       },
-      tooltip: { enable: true },
+      tooltip: { enable: true, enableHighlight: true },
       seriesType: "Polar",
       legendSettings: { enableHighlight: true },
       polardata: ["Polar", "Radar"],

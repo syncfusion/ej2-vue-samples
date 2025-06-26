@@ -84,7 +84,7 @@ export default {
                     <img
                       id="img1"
                       style="height: 350px;"
-                      src="https://ej2.syncfusion.com/angular/demos/assets/image-editor/images/default.png"
+                      src="src/rich-text-editor/images/bridge.png"
                       aria-label="Bridge" />
                     </p>
                     <p>
@@ -98,7 +98,7 @@ export default {
                 "Align",
                 "Caption",
                 "Remove",
-                "-",
+                "|",
                 "InsertLink",
                 "OpenImageLink",
                 "EditImageLink",

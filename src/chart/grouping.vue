@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="col-md-8 control-section sb-property-border">
-        <ejs-accumulationchart id="containerPie" ref="pie" style='display:block; width: 92%' :legendSettings="legendSettings" :tooltip="tooltip" :title="title" :textRender="onTextRender" :pointRender="onPointRender" :theme='theme' :enableBorderOnMouseMove='false'>
+        <ejs-accumulationchart id="containerPie" ref="pie" style='display:block; width: 92%' :legendSettings="legendSettings" :tooltip="tooltip" :title="title" :subTitle="subTitle" :theme='theme' :enableBorderOnMouseMove='false'>
             <e-accumulation-series-collection>
                 <e-accumulation-series name='RIO' :animation='animation' :explode='true' :dataSource='data' xName='x' yName='y' :startAngle="startAngle" :endAngle="endAngle" :radius="radius" innerRadius="0%"
-                 groupMode='Point' :dataLabel="dataLabel" :groupTo='clubvalue'>
+                 groupMode='Point' :dataLabel="dataLabel" :groupTo='clubvalue' :border="border" borderRadius="3">
                 </e-accumulation-series>
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
@@ -43,7 +43,7 @@
 
     <div id="action-description">
     <p>
-        This sample shows the gold medal count scored by each country at the Rio Olympic Games, along with the pie series grouping functionality.
+        This sample shows the gold medal count scored by each country at the summer olympic 2024 games, along with the pie series grouping functionality.
     </p>
 </div>
 <div id="description">
@@ -91,20 +91,20 @@ export default {
             enable: true
         },
         data: [
-            { 'x': 'Australia', y: 26, text: 'Australia: 26' },
-            { 'x': 'Russia', y: 19, text: 'Russia: 19' },
-            { 'x': 'Germany', y: 17, text: 'Germany: 17' },
-            { 'x': 'Japan', y: 12, text: 'Japan: 12' },
-            { 'x': 'China', y: 10, text: 'China: 10' },
-            { 'x': 'South Korea', y: 9, text: 'South Korea: 9' },
-            { 'x': 'Great Britain', y: 27, text: 'Great Britain: 27' },
-            { 'x': 'Italy', y: 8, text: 'Italy: 8' },
-            { 'x': 'France', y: 8, text: 'France: 8' },
-            { 'x': 'Spain', y: 7, text: 'Spain: 7' },
-            { 'x': 'Hungary', y: 8, text: 'Hungary: 8' },
-            { 'x': 'Brazil', y: 7, text: 'Brazil: 7' },
-            { 'x': 'Netherlands', y: 8, text: 'Netherlands: 8' },
-            { 'x': 'Kenya', y: 6, text: 'Kenya: 6' },
+            { x: 'China', y: 40, text: 'China: 40' },
+            { x: 'Japan', y: 20, text: Browser.isDevice ? 'Japan:<br> 20' : 'Japan: 20' },
+            { x: 'Australia', y: 18, text: Browser.isDevice ? 'Australia:<br> 18' : 'Australia: 18' },
+            { x: 'France', y: 16, text: 'France: 16' },
+            { x: 'Netherlands', y: 15, text: 'Netherlands: 15' },
+            { x: 'Great Britain', y: 14, text: 'Great Britain: 14' },
+            { x: 'South Korea', y: 13, text: 'South Korea: 13' },
+            { x: 'Germany', y: 12, text: Browser.isDevice ? 'Germany:<br> 12' : 'Germany: 12' },
+            { x: 'Italy', y: 12, text: Browser.isDevice ? 'Italy:<br> 12' : 'Italy: 12' },
+            { x: 'Canada', y: 9, text: Browser.isDevice ? 'CA: 9' : 'Canada: 9' },
+            { x: 'Hungary', y: 6, text: Browser.isDevice ? 'HU: 6' : 'Hungary: 6' },
+            { x: 'Spain', y: 5, text: 'Spain: 5' },
+            { x: 'Kenya', y: 4, text: 'Kenya: 4' },
+            { x: 'Brazil', y: 3, text: 'Brazil: 3' }
     ],
     //Initializing Legend
     legendSettings: {
@@ -113,18 +113,21 @@ export default {
     //Initializing DataLabel
     dataLabel: {
         visible: true,
-        position: 'Outside',
-        connectorStyle: { type: 'Curve', length: '20px' },
+        position: 'Outside', name: 'text',
+        connectorStyle: { type: 'Curve', length: Browser.isDevice ? '10px' : '20px' },
         font: {
+            size: Browser.isDevice ? '8px' : '13px', 
             fontWeight: '600',  
         }
     },
     clubvalue: '9',
-    startAngle: 0,
-    radius: Browser.isDevice ? '40%' : '70%',
-    endAngle: 360,
+    startAngle: -20,
+    radius: Browser.isDevice ? '40%' : '55%',
+    endAngle: 340,
+    border: { width: 1, color: '#ffffff' },
     tooltip: { enable: true, header:'', format:'<b>${point.x}</b><br> Gold Medals: <b>${point.y}</b>', enableHighlight: true },
-    title: 'Rio Olympic Gold Medals',
+    title: 'Summer Olympic 2024 - Gold Medals',
+    subTitle: 'Source: wikipedia.org'
     };
   },
   provide: {
@@ -147,14 +150,6 @@ export default {
         let clubvalue = document.getElementById('clubvalue').value;
         this.clubvalue = clubvalue;
         document.getElementById('clubtext').innerHTML = clubvalue;
-    },
-    onTextRender: function (args) {
-        args.text = args.point.x + ' ' + args.point.y;
-    },
-    onPointRender: function (args) {
-        if (args.point.isClubbed || args.point.isSliced) {
-            args.fill = '#D3D3D3';
-        }
     },
   },
     updated: function() {

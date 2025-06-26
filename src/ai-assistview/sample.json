@@ -31,11 +31,22 @@
             "url": "streaming",
             "name": "Streaming Response",
             "category": "AI AssistView",
-            "type": "new",
             "api":{ "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings"]},
             "description": "Showcases the AiAssistView control with its streaming support.",
             "sourceFiles": [
                 { "displayName": "streaming.vue", "path":"src/ai-assistview/streaming.vue" },
+                { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "attachments",
+            "name": "File Attachments",
+            "category": "AI AssistView",
+            "type": "new",
+            "api":{ "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "enableAttachments", "attachmentSettings"]},
+            "description": "Showcases the AiAssistView control with its attachment support.",
+            "sourceFiles": [
+                { "displayName": "attachments.vue", "path":"src/ai-assistview/attachments.vue" },
                 { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
             ]
         },

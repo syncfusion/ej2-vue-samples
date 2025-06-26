@@ -1,7 +1,7 @@
 <template>
     <div class="control-section e-tbar-section-popup">
         <div class="e-sample-resize-container" style="margin-top: 100px; width: 100%; max-width: 100%;">
-        <ejs-toolbar overflowMode='Popup' cssClass='template'>
+        <ejs-toolbar overflowMode='Popup' cssClass='template' :keyDown="onKeyDown">
             <e-items>
             <e-item prefixIcon='e-icons e-folder' tooltipText='Open File' text='Open' showTextOn='Overflow' align="Left"></e-item>
             <e-item type='Separator'></e-item>
@@ -14,22 +14,22 @@
                 <div><ejs-numerictextbox width="50px" value="0" min="0" max="100" :showSpinButton= false format="###.##"></ejs-numerictextbox><span class="total-page">of 100</span></div>            
             </template>            
             <e-item type='Separator'></e-item>
-            <e-item prefixIcon='e-icons e-zoom-out' tooltipText='Zoom-Out' text='Zoom-Out' showTextOn='Overflow' align="Left"></e-item>
+            <e-item prefixIcon='e-icons e-zoom-out' tooltipText='Zoom-Out' text='Zoom-Out' showTextOn='Overflow' align="Left" tabIndex='0'></e-item>
             <e-item prefixIcon='e-icons e-zoom-in' tooltipText='Zoom-In' text='Zoom-In' showTextOn='Overflow' align="Left"></e-item>
             <e-item :template="'ComboTemplate'" cssClass="percentage "></e-item>
             <template v-slot:ComboTemplate>
                 <ejs-combobox  width="80px" popupWidth="80px" value="100%" :showClearButton=false :dataSource="zoomData"></ejs-combobox >            
             </template>
             <e-item type='Separator'></e-item>            
-            <e-item prefixIcon='e-icons e-mouse-pointer' tooltipText='Text selection tool' text='Selection' showTextOn='Overflow' align="Left"></e-item>
+            <e-item prefixIcon='e-icons e-mouse-pointer' tooltipText='Text selection tool' text='Selection' showTextOn='Overflow' align="Left" tabIndex='0'></e-item>
             <e-item prefixIcon='e-icons e-pan' tooltipText='Pan mode' text='Pan mode' showTextOn='Overflow' align="Left"></e-item>
             <e-item type='Separator'></e-item>
             <e-item prefixIcon='e-icons e-undo' tooltipText='Undo' text='Undo' showTextOn='Overflow' align="Left"></e-item>
             <e-item prefixIcon='e-icons e-redo' tooltipText='Redo' text='Redo' showTextOn='Overflow' align="Left"></e-item>
             <e-item type='Separator'></e-item>
-            <e-item prefixIcon='e-pv-comment-icon' tooltipText='Add Comments' text='Add Comments' showTextOn='Overflow' align="Left"></e-item>
+            <e-item prefixIcon='e-pv-comment-icon' tooltipText='Add Comments' text='Add Comments' showTextOn='Overflow' align="Left" tabIndex='0'></e-item>
             <e-item type='Separator'></e-item>
-            <e-item text='Submit Form' align="Left"></e-item>
+            <e-item text='Submit Form' align="Left" tabIndex='0'></e-item>
             <e-item :template="'searchTemplate'" cssClass="find" align="Right"></e-item>
             <template v-slot:searchTemplate>
                 <div class="e-input-group e-float-icon-left">
@@ -100,6 +100,25 @@ export default {
         zoomData: ["25%", "50%", "75%", "100%"]
     }
   },
-  methods: {}
+  methods: {
+    onKeyDown: function (args) {
+        if (args.originalEvent.action === 'moveRight') {
+            focusInputElement(args.nextItem, args);
+        }
+        else if (args.originalEvent.action === 'moveLeft') {
+            focusInputElement(args.nextItem, args);
+        }
+    },
+
+    focusInputElement(item, args) {
+        if (item && item.classList.contains('e-template')) {
+            var inputElement = item.querySelector('input');
+            if (inputElement) {
+                inputElement.focus();
+                args.cancel = true;
+            }
+        }
+    }
+  }
 }
 </script>

@@ -113,7 +113,7 @@ function getConnectorDefaults(connector, diagram) {
 function getLayoutInfo(node, tree) {
   if (!tree.hasSubTree) {
     tree.orientation = "Vertical";
-    tree.type = "Right";
+    tree.type = "Alternate";
   }
 }
 

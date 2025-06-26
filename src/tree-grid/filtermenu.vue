@@ -62,7 +62,7 @@
         If the filtered records do not have any parent and child record then only the filtered records are displayed.</li>
         <li><code>None</code> - Only the filtered records are displayed.</li>
     </ul>
-     <p>The Tree Grid now supports improved <code>in</code> and <code>not in</code> filter operators, allowing users to filter multiple values within the same column. When the menu filter is enabled, a Syncfusion DropDownList component with checkboxes appears to select the <code>in</code> or <code>not in</code> operators.</p>
+     <p>The Tree Grid now supports improved <code>in</code> and <code>not in</code> filter operators, allowing users to filter multiple values within the same column. When the menu filter is enabled, a Syncfusion DropDownList component with checkboxes appears to select the <code>in</code> or <code>not in</code> operators.</p>     
      <p style="font-weight: 500">Injecting Module:</p>
         <p>
             Tree Grid features are segregated into individual feature-wise modules. To use Filtering feature, we need to inject

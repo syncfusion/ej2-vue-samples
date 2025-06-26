@@ -2,8 +2,9 @@
     "communityMessagedata" : [
         {
             "author": {
-                "user": "Alice",
-                "id": "admin"
+                "user": "Alice brown",
+                "id": "admin",
+                "statusIconCss": "e-icons e-user-busy"
             },
             "text": "Hey Michale, Charlie! Seen the latest posts in the Design Community? Amazing projects!",
             "timeStamp": "October 25, 2024 07:30"
@@ -12,7 +13,8 @@
             "author": {
                 "user": "Michale Suyama",
                 "id": "user1",
-                "avatarBgColor": "#87cefa"
+                "avatarBgColor": "#87cefa",
+                "statusIconCss": "e-icons e-user-online"
             },
             "text": "Hi Alice! Yes, Dana’s new UI design is incredible.",
             "timeStamp": "October 25, 2024 08:00"
@@ -21,16 +23,27 @@
             "author": {
                 "user": "Charlie",
                 "id": "user2",
-                "avatarUrl": "./src/chat-ui/images/charlie.png",
-                "avatarBgColor": "#e6cdde"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/charlie.png",
+                "avatarBgColor": "#e6cdde",
+                "statusIconCss": "e-icons e-user-away"
             },
             "text": "Hey! I loved Dana’s use of color. Frank’s typography guide was great too.",
             "timeStamp": "October 25, 2024 11:00"
         },
         {
             "author": {
-                "user": "Alice",
-                "id": "admin"
+                "user": "Jordan Peele",
+                "id": "user4",
+                "statusIconCss": "e-icons e-user-busy"
+            },
+            "text": "Dana’s work is so inspiring!",
+            "timeStamp": "October 25, 2024 11:30"
+        },
+        {
+            "author": {
+                "user": "Alice Brown",
+                "id": "admin",
+                "statusIconCss": "e-icons e-user-busy"
             },
             "text": "Absolutely! Any new community events planned?",
             "timeStamp": "October 26, 2024 11:00"
@@ -39,7 +52,8 @@
             "author": {
                 "user": "Michale Suyama",
                 "id": "user1",
-                "avatarBgColor": "#87cefa"
+                "avatarBgColor": "#87cefa",
+                "statusIconCss": "e-icons e-user-online"
             },
             "text": "We should organize a design challenge.",
             "timeStamp": "October 26, 2024 12:15"
@@ -49,7 +63,8 @@
                 "user": "Janet",
                 "id": "user3",
                 "avatarBgColor": "#dec287",
-                "avatarUrl": "./src/chat-ui/images/janet.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/janet.png",
+                "statusIconCss": "e-icons e-user-offline"
             },
             "text": "I am excited to see the new projects.",
             "timeStamp": "October 26, 2024 12:17"
@@ -58,16 +73,18 @@
             "author": {
                 "user": "Charlie",
                 "id": "user2",
-                "avatarUrl": "./src/chat-ui/images/charlie.png",
-                "avatarBgColor": "#e6cdde"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/charlie.png",
+                "avatarBgColor": "#e6cdde",
+                "statusIconCss": "e-icons e-user-away"
             },
             "text": "Great idea! Let’s discuss it in the next meeting.",
             "timeStamp": "October 26, 2024 12:30"
         },
         {
             "author": {
-                "user": "Alice",
-                "id": "admin"
+                "user": "Alice Brown",
+                "id": "admin",
+                "statusIconCss": "e-icons e-user-busy"
             },
             "text": "Sounds good! This community is so inspiring."
         },
@@ -75,7 +92,8 @@
             "author": {
                 "user": "Michale Suyama",
                 "id": "user1",
-                "avatarBgColor": "#87cefa"
+                "avatarBgColor": "#87cefa",
+                "statusIconCss": "e-icons e-user-online"
             },
             "text": "Agreed! Excited to see everyone’s ideas."
         },
@@ -83,8 +101,9 @@
             "author": {
                 "user": "Charlie",
                 "id": "user2",
-                "avatarUrl": "./src/chat-ui/images/charlie.png",
-                "avatarBgColor": "#e6cdde"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/charlie.png",
+                "avatarBgColor": "#e6cdde",
+                "statusIconCss": "e-icons e-user-away"
             },
             "text": "I am looking forward to the design challenge."
         }
@@ -95,7 +114,7 @@
             "author": {
                 "user": "Albert",
                 "id": "user1",
-                "avatarUrl": "./src/chat-ui/images/andrew.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/andrew.png"
             },
             "text": "Hi there! How's it going?"
         },
@@ -103,7 +122,7 @@
             "author": {
                 "user": "Reena",
                 "id": "user2",
-                "avatarUrl": "./src/chat-ui/images/reena.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/reena.png"
             },
             "text": "Hey! I'm doing well, thanks. How about you?"
         },
@@ -111,7 +130,7 @@
             "author": {
                 "user": "Albert",
                 "id": "user1",
-                "avatarUrl": "./src/chat-ui/images/andrew.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/andrew.png"
             },
             "text": "Mostly the usual stuff. I did start a new hobby - painting!"
         }
@@ -122,7 +141,7 @@
             "author": {
                 "user": "Reena",
                 "id": "user1",
-                "avatarUrl": "./src/chat-ui/images/reena.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/reena.png"
             },
             "text": "Hey, I'm having trouble with my computer. It keeps freezing."
         },
@@ -130,7 +149,7 @@
             "author": {
                 "user": "Albert",
                 "id": "user2",
-                "avatarUrl": "./src/chat-ui/images/andrew.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/andrew.png"
             },
             "text": "Oh, that's annoying. Have you tried restarting it?"
         },
@@ -138,7 +157,7 @@
             "author": {
                 "user": "Reena",
                 "id": "user1",
-                "avatarUrl": "./src/chat-ui/images/reena.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/reena.png"
             },
             "text": "Yeah, I did, but it didn't help."
         },
@@ -146,7 +165,7 @@
             "author": {
                 "user": "Albert",
                 "id": "user2",
-                "avatarUrl": "./src/chat-ui/images/andrew.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/andrew.png"
             },
             "text": "Sometimes, outdated software or malware can cause issues."
         },
@@ -154,7 +173,7 @@
             "author": {
                 "user": "Reena",
                 "id": "user1",
-                "avatarUrl": "./src/chat-ui/images/reena.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/reena.png"
             },
             "text": "Okay, I'll try that. Thanks for the help!"
         }
@@ -165,7 +184,7 @@
             "author": {
                 "user": "Bot",
                 "id": "bot",
-                "avatarUrl": "./src/chat-ui/images/bot.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/bot.png"
             },
             "text": "Hello Sam, I am a virtual assitant."
         },
@@ -173,7 +192,7 @@
             "author": {
                 "user": "Bot",
                 "id": "bot",
-                "avatarUrl": "./src/chat-ui/images/bot.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/bot.png"
             },
             "text": "Which room are you looking to decorate?"
         }
@@ -200,7 +219,7 @@
             "author": {
                 "user": "Sam",
                 "id": "user2",
-                "avatarUrl": "./src/chat-ui/images/laura.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/laura.png"
             },
             "text": "Hey Charlie, have you thought about where you want to go for our vacation?"
         },
@@ -208,7 +227,7 @@
             "author": {
                 "user": "Charlie",
                 "id": "user5",
-                "avatarUrl": "./src/chat-ui/images/charlie.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/charlie.png"
             },
             "text": "Hi Sam! I was thinking about going to Bali. I've heard the beaches are beautiful and there's so much to do."
         },
@@ -216,7 +235,7 @@
             "author": {
                 "user": "Sam",
                 "id": "user2",
-                "avatarUrl": "./src/chat-ui/images/laura.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/laura.png"
             },
             "text": "Bali sounds amazing! I've always wanted to try surfing. Do you know any good places to stay?"
         },
@@ -224,7 +243,7 @@
             "author": {
                 "user": "Charlie",
                 "id": "user5",
-                "avatarUrl": "./src/chat-ui/images/charlie.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/charlie.png"
             },
             "text": "Yes, I found a few nice resorts and some budget-friendly options too. I'll send you the links."
         },
@@ -232,7 +251,7 @@
             "author": {
                 "user": "Sam",
                 "id": "user2",
-                "avatarUrl": "./src/chat-ui/images/laura.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/laura.png"
             },
             "text": "Great! Let's finalize our plans this weekend."
         }
@@ -243,7 +262,7 @@
             "author": {
                 "user": "Laura Callahan",
                 "id": "user1",
-                "avatarUrl": "./src/chat-ui/images/laura.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/laura.png"
             },
             "text": "Hey Sam, can we have a quick meeting tomorrow morning to discuss the new project?"
         },
@@ -251,7 +270,7 @@
             "author": {
                 "user": "Sam",
                 "id": "user3",
-                "avatarUrl": "./src/chat-ui/images/laura.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/laura.png"
             },
             "text": "Sure, what time works best for you?"
         },
@@ -259,7 +278,7 @@
             "author": {
                 "user": "Laura Callahan",
                 "id": "user1",
-                "avatarUrl": "./src/chat-ui/images/laura.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/laura.png"
             },
             "text": "10 AM?"
         },
@@ -267,7 +286,7 @@
             "author": {
                 "user": "Sam",
                 "id": "user3",
-                "avatarUrl": "./src/chat-ui/images/laura.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/laura.png"
             },
             "text": "10 AM works for me."
         }
@@ -285,7 +304,7 @@
             "author": {
                 "user": "Janet",
                 "id": "user2",
-                "avatarUrl": "./src/chat-ui/images/janet.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/janet.png"
             },
             "text": "Hi Sir, excited about the new team."
         },
@@ -300,7 +319,7 @@
             "author": {
                 "user": "Charlie",
                 "id": "user2",
-                "avatarUrl": "./src/chat-ui/images/charlie.png"
+                "avatarUrl": "https://ej2.syncfusion.com/vue/demos/source/chat-ui/images/charlie.png"
             },
             "text": "Hi all, what's the purpose of this new team formation ?"
         },

@@ -96,7 +96,7 @@ export default {
        width : Browser.isDevice ? '100%' : '75%',
        legend: {enableHighlight : true},
        tooltip: {
-        enable: true
+        enable: true, enableHighlight: true, showNearestTooltip: true
       },
       title: "Inflation Rate in Percentage"
     };

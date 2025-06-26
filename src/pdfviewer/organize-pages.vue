@@ -14,7 +14,8 @@
                 ref="pdfviewer" 
                 :documentPath="documentPath"
                 :documentLoad="documentLoad"
-                :resourceUrl="resourceUrl">
+                :resourceUrl="resourceUrl"
+                :pageOrganizerSettings="pageOrganizerSettings">
             </ejs-pdfviewer>
         </div>
        <div id="action-description">
@@ -35,7 +36,8 @@
             <li>Click the "Import Documents" icon in the toolbar to import a document. If any thumbnail is selected, the new document will be imported next to it; otherwise, it will be imported as the first thumbnail.</li>
             <li>Undo and redo actions are available at the organize pages dialog.</li>
             <li>Enjoy real-time updates as any changes made to the page organization are instantly reflected within the PDF Viewer, when you click on the <code>Save</code> button.</li>
-            <li>Utilize the <code>Save As</code> feature to preserve edits, enabling users to download the modified version of the PDF document for future reference.</li> 
+            <li>Utilize the <code>Save As</code> feature to preserve edits, enabling users to download the modified version of the PDF document for future reference.</li>
+            <li>Zoom in or out of page images using the slider opened through the page zoom icon available in the toolbar or using keyboard accessibility.</li>
         </ul>      
        <p>
        More information on the PDF Viewer instantiation can be found in this
@@ -100,7 +102,9 @@ export default {
     data: function() {
         return {
 			documentPath:'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
-            resourceUrl: 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib'}
+            resourceUrl: 'https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib',
+            pageOrganizerSettings: { showImageZoomingSlider: true }
+        }
     },
 	provide: {
       PdfViewer: [Toolbar, Magnification, Navigation, LinkAnnotation, BookmarkView, ThumbnailView, Print, TextSelection, TextSearch, Annotation, FormFields, FormDesigner,PageOrganizer]

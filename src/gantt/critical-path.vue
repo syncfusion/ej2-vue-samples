@@ -25,7 +25,7 @@
 
     <div id="description">
      <p>
-        In this example, you can see how to render a Gantt chart with critical path.The default timeline view week-day mode is applied to Gantt chart.
+        In this example, you can see how to render a Gantt Chart with critical path.The default timeline view week-day mode is applied to Gantt Chart.
         The dependency lines are enabled in this example to represent the execution order or the hierarchy between the phases.
     </p>
     <p>

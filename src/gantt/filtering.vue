@@ -74,7 +74,7 @@
       <p>
         This sample visualizes the manned lunar mission, which landed the first
         human on the Moon using the Apollo 11 spacecraft in the year 1969. It
-        also demonstrates the filtering feature available in the Gantt chart.
+        also demonstrates the filtering feature available in the Gantt Chart.
         You can filter a particular column using the filter menu available in
         the columns. This sample is also enabled with the toolbar searching
         option to filter the Gantt content across all the columns.
@@ -93,12 +93,12 @@
                 <li><code>Menu</code></li>
                 <li><code>Excel</code></li>
             </ul>
-        Gantt chart also provides support for a set of filtering modes with <code>hierarchyMode</code> property. 
-        The below are the type of filter mode available in Gantt chart.
+        Gantt Chart also provides support for a set of filtering modes with <code>hierarchyMode</code> property. 
+        The below are the type of filter mode available in Gantt Chart.
         <ul>
         <li>
           <code>Parent</code> - This is the default filter hierarchy mode in
-          Gantt chart. The filtered records are displayed with its parent
+          Gantt Chart. The filtered records are displayed with its parent
           records, if the filtered records not have any parent record then the
           filtered record alone will be displayed.
         </li>

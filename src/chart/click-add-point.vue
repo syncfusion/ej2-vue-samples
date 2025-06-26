@@ -31,7 +31,7 @@
 
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, DataLabel, Tooltip } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, DataLabel, Tooltip, Highlight } from "@syncfusion/ej2-vue-charts";
 
 import { loadChartTheme } from "./theme-color";
 let theme= loadChartTheme();
@@ -78,12 +78,12 @@ export default {
             height: 13
         },
         tooltip : {
-            enable: true 
+            enable: true, enableHighlight: true
         }
     };
   },
   provide: {
-    chart: [LineSeries, DataLabel, Tooltip]
+    chart: [LineSeries, DataLabel, Tooltip, Highlight]
   },
   methods: {
     chartMouseClick: function(args) {

@@ -67,9 +67,9 @@
     }
 
     .schedule-vue-sample .schedule-event-template.e-schedule .template-wrapper .image img {
-        height: 100%;
+        height: 65px;
         width: 100%;
-        padding: 10px 25%;
+        padding: 10px;
     }
 
     .schedule-vue-sample .schedule-event-template.e-schedule .template-wrapper .subject {

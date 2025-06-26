@@ -1,5 +1,5 @@
 <template>
-<div class="control-section">
+<div class="control-section diagram-port">
 <div class="col-lg-8 control-section">
         <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :selectionChange='selectionChange' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings'></ejs-diagram>
     </div>
@@ -73,6 +73,7 @@
                                             :format='widthformat'
                                             :value='widthvalue'
                                             :min='widthmin'
+                                            :max='widthmax'
                                             :step='widthstep'
                                             :change='widthchange'/>
                 </div>
@@ -88,6 +89,7 @@
                                             :format='sizeformat'
                                             :value='sizevalue'
                                             :min='sizemin'
+                                            :max='sizemax'
                                             :step='sizestep'
                                             :change='sizechange'/>
                 </div>
@@ -120,21 +122,21 @@
 
 <style scoped>
 /*To align property panel */
-.sb-child-row {
+.diagram-port .sb-child-row {
   margin-top: 8px;
 }
 
-.property-panel-header {
+.diagram-port .property-panel-header {
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
-.property-section .e-remove-selection {
+.diagram-port .property-section .e-remove-selection {
   cursor: not-allowed;
 }
 
 /* To disable pointer events when there is no selection in diagram */
-.e-remove-selection .property-section-content {
+.diagram-port .e-remove-selection .property-section-content {
   pointer-events: none;
 }
 </style>
@@ -371,6 +373,7 @@ export default {
       sizeenabled: true,
       sizeformat: "###.##",
       sizemin: 1,
+      sizemax: 30,
       sizevalue: 6,
       sizestep: 1,
       sizechange: (args) => {
@@ -380,7 +383,8 @@ export default {
       widthenabled: true,
       widthformat: "###.##",
       widthvalue: 1,
-      widthmin: 0,
+      widthmin: 1,
+      widthmax: 15,
       widthstep: 0.5,
       widthchange: (args) => {
         applyPortStyle("strokewidth", args.value);

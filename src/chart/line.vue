@@ -24,7 +24,7 @@
     You can use <code>dashArray</code>, <code>width</code>, <code>fill</code> properties to customize the line. <code>marker</code> and <code>dataLabel</code> are used to represent individual data and its value.
     </p>
     <p>
-      <code>Tooltips</code> are enabled in this example. To see them in action, hover over or tap on the chart. The <code>EnableHighlight</code> property in the tooltip allows the corresponding series to be highlighted when a data point is hovered over.
+      <code>Tooltips</code> are enabled in this example. To see a tooltip in action, hover over or tap on the chart.
     </p>
         <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>

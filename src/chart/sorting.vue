@@ -66,7 +66,7 @@
   </style>
   <script>
   import { Browser } from '@syncfusion/ej2-base';
-  import { ChartComponent, SeriesDirective, SeriesCollectionDirective, StackingColumnSeries, Legend, Category, Tooltip, sort } from "@syncfusion/ej2-vue-charts";
+  import { ChartComponent, SeriesDirective, SeriesCollectionDirective, StackingColumnSeries, Legend, Category, Tooltip, sort, Highlight } from "@syncfusion/ej2-vue-charts";
   import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 
 import { loadChartTheme } from "./theme-color";
@@ -118,13 +118,13 @@ let theme = loadChartTheme();
       serieswidth: 120,
       seriesType: "StackingColumn",
     tooltip: {
-            enable: true
+            enable: true, enableHighlight: true
         },
         title: "Vehicle Sales by Region"
       };
     },
     provide: {
-      chart: [StackingColumnSeries, Category, Legend, Tooltip]
+      chart: [StackingColumnSeries, Category, Legend, Tooltip, Highlight]
     },
      updated: function () {
     this.$nextTick(function() {

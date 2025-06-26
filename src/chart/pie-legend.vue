@@ -2,7 +2,6 @@
   <div class="control-section">
     <div class="control-section">
       <ejs-accumulationchart
-      :title='title'
         id="container"
         ref="pie"
         style="display:block;"
@@ -10,16 +9,15 @@
         :legendSettings="legendSettings"
         :tooltip="tooltip"
         :enableBorderOnMouseMove='false'
-        :annotations='annotations'
+        :annotations='annotations' selectionMode='Point'
       >
         <e-accumulation-series-collection>
           <e-accumulation-series
             :dataSource="data"
             xName="x"
             yName="y"
-            :startAngle="startAngle"
             :innerRadius= "innerRadius"
-            :radius = "radius"
+            borderRadius="3" :border="border" 
             :dataLabel="dataLabel"
           ></e-accumulation-series>
         </e-accumulation-series-collection>
@@ -29,7 +27,7 @@
       <p>This sample demonstrates a donut chart showcasing mobile browser usage statistics, with legends displayed at the bottom of the chart.</p>
     </div>
     <div id="description">
-      <p> This example demonstrates how to render a donut chart with legends positioned at the bottom. The legend can be arranged in horizontal, vertical, or auto layout modes. Using the <code>maximumColumns</code> property, you can define the maximum number of columns in auto layout. Additionally, a fixed width option ensures uniform legend sizes for a polished appearance.</p>
+      <p> In this example, you can see how to render a donut chart with legends. You can use <code>radius</code> and <code>innerRadius</code> properties to render the donut.</p>
       <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
 AccumulationChart component features are segregated into individual feature-wise modules. To use legend, we need to Inject <code>AccumulationLegend</code> module using <code>provide: { accumulationchart: [ AccumulationLegend ] }</code> method. 
@@ -74,43 +72,35 @@ export default {
     return {
       theme: theme,
       data: [
-        { 'x': 'Chrome', y: 57.28, text: '57.28%' },
-        { 'x': 'UC Browser', y: 4.37, text: '4.37%' },
-        { 'x': 'Internet Explorer', y: 6.12, text: '6.12%' },
-        { 'x': 'QQ', y: 5.96, text: '5.96%' },
-        { 'x': 'Edge', y: 7.48, text: '7.48%' },
-        { 'x': 'Others', y: 14.06, text: '14.06%' },
+        { 'x': 'China', y: 35, text: '35%' },
+        { 'x': 'India', y: 30, text: '30%' },
+        { 'x': 'USA', y: 10.7, text: '10.7%' },
+        { 'x': 'Indonesia', y: 7, text: '7%' },
+        { 'x': 'Brazil', y: 5.3, text: '5.3%' },
+        { 'x': 'Others', y: 12, text: '12%' },
       ],
       innerRadius: '50%',
       radius: Browser.isDevice ? '80%' : '85%',
       legendSettings: {
         visible: true,
         toggleVisibility: false,
-        position: 'Bottom',
-        maximumColumns: Browser.isDevice ? 2 : 3,
-        fixedWidth: true
+        position: 'Bottom', textWrap: 'Wrap'
       },
-
-      title: Browser.isDevice ? 'Browser Market Share' : '',
+      border: { width: 1, color: '#ffffff' },
       dataLabel: {
-        name: 'text',
-        visible: true,
-        font: {
-          fontWeight: '600',
-          color: '#ffffff'
-        }
+        visible: false,
       },
       startAngle: 30,
       tooltip: {
         enable: true,
-        format:  '<b>${point.x}</b><br>Browser Share: <b>${point.y}%</b>',
+        format:  '<b>${point.x}</b><br>Percentage: <b>${point.y}%</b>',
         header:""  ,
         enableHighlight: true,
       },
       annotations:[{
-        content: Browser.isDevice ? " " : "<div style='font-Weight:600;font-size:14px'>Browser<br>Market<br> Share</div>",
+        content: Browser.isDevice ? " " : "<div style='font-Weight:600;font-size:14px'>Internet Users <br> by Country<br>2025</div>",
         region: 'Series',
-        x: '52%',
+        x: '50%',
         y: '50%'
        },
       ]

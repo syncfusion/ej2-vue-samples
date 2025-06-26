@@ -96,6 +96,11 @@ export default {
 </script>
 
 <style scoped>
+.e-add-icon:before {
+        content: "\e836";
+        font-size : 16px;
+        font-family : "e-icons"
+    }
    #unscheduledGantt /deep/  .e-add-icon:before {
         content: "\e506";
         font-size : 16px;
@@ -120,10 +125,10 @@ export default {
     .fluent2 #unscheduledGantt /deep/ .e-add-icon:before,
     .fluent2-highcontrast #unscheduledGantt /deep/ .e-add-icon:before,
     .fluent2-dark #unscheduledGantt /deep/ .e-add-icon:before,
-    .bootstrap5_3 #unscheduledGantt /deep/ .e-add-icon:before,
-    .bootstrap5_3-dark-lite #unscheduledGantt /deep/ .e-add-icon:before,
-    .bootstrap5_3-dark #unscheduledGantt /deep/ .e-add-icon:before, 
-    .bootstrap5_3-lite #unscheduledGantt /deep/ .e-add-icon:before{
+    .bootstrap5_3 #Unscheduled /deep/ .e-add-icon:before,
+    .bootstrap5_3-dark-lite #Unscheduled /deep/ .e-add-icon:before,
+    .bootstrap5_3-dark #Unscheduled /deep/ .e-add-icon:before, 
+    .bootstrap5_3-lite #Unscheduled /deep/ .e-add-icon:before{
       content: "\e836" !important;
       font-size : 16px;
       font-family : "e-icons"

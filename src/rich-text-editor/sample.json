@@ -2,11 +2,13 @@
     "name": "Rich Text Editor",
     "directory": "rich-text-editor",
     "category": "File Viewers & Editors",
+    "type": "update",
     "samples": [
         {
             "url": "tools",
             "name": "Overview",
             "category": "Rich Text Editor",
+            "type": "update",
             "description": "This demo describes basic and advanced features of the vue Rich Text Editor control (WYSIWYG HTML Editor) with all its tools and functionalities."
         },
         {
@@ -49,6 +51,7 @@
             "url": "iframe",
             "name": "IFrame",
             "category": "Rich Text Editor",
+            "type": "update",
             "description": "This demo shows how to render a classic vue Rich Text Editor (iframe editor) that was designed by using the iframe element covering all tool functionalities."
         },
         {
@@ -163,7 +166,15 @@
             "url": "types",
             "name": "Type",
             "category": "Toolbar",
-            "description": "This demo demonstrates different types and behaviors of a toolbar used in the vue HTML Editor such as expand/collapse, multirow, and floating."
+            "type": "update",
+            "description": "This demo demonstrates different types and behaviors of a toolbar used in the vue HTML Editor such as expand/collapse,multirow,floating and popup."
+        },
+        {
+            "url": "bottom-toolbar",
+            "name": "Bottom Toolbar",
+            "category": "Toolbar",
+            "type": "new",
+            "description": "The demo demonstrates how to add special characters or symbols into the rich content in vue Rich Text Editor using a custom toolbar command."
         },
         {
             "url": "quick-format-toolbar",

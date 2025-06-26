@@ -2,10 +2,10 @@
   <div class="control-section">
     <div >
         <ejs-accumulationchart ref='pie' :theme='theme' style='display:block' align='center' id='chartcontainer' 
-             :legendSettings='legendSettings' :tooltip='tooltip' :enableAnimation='false' :enableBorderOnMouseMove='false' :annotations='annotations'>
+             :legendSettings='legendSettings' :enableAnimation='false' :enableBorderOnMouseMove='false' :annotations='annotations'>
             <e-accumulation-series-collection>
-                <e-accumulation-series :dataSource='seriesData' :innerRadius='innerRadius' tooltipMappingName='tooltipMappingName' :radius='radius' :startAngle='startAngle' 
-                :endAngle='endAngle' xName='Browser' yName='Users' :dataLabel='dataLabel' > </e-accumulation-series>
+                <e-accumulation-series :dataSource='seriesData' :innerRadius='innerRadius' borderRadius="3" :radius='radius' :startAngle='startAngle' 
+                :endAngle='endAngle' xName='Browser' yName='Users' :dataLabel='dataLabel' :border='border' > </e-accumulation-series>
              
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
@@ -14,12 +14,12 @@
 </div>
  <div id="action-description"> 
     <p>
-      This example demonstrates a semi-pie chart for mobile browsers usage statistics.
+      This example demonstrates a semi-pie chart for mobile browsers usage statistics. Data label shows the information about the points.
     </p>
 </div>
 <div id="description">
     <p>
-      In this example, you can see how to render a semi pie chart using <code>StartAngle</code> and <code>EndAngle</code> properties. Data labels are wrapped to fit inside the pie slice. To enable the datalabel wrap feature, use the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/data-label/#text-wrap" aria-label="Navigate to the textWrap property reference for Vue Accumulation Chart DataLabel">textwrap</a> datalabel property.
+      In this example, you can see how to render a semi pie chart using <code>StartAngle</code> and <code>EndAngle</code> properties. Data labels are wrapped to fit inside the pie slice. To enable the datalabel wrap feature, use the <code>textWrap</code> datalabel property.
     </p>
      
     <p>
@@ -60,26 +60,25 @@ export default {
 
       ],
      
-     
+    border: { color: '#ffffff', width: 1},
     dataLabel: {
         visible: true, position: 'Inside', enableRotation: true, 
         connectorStyle: { length: '20px', type: 'Curve' }, name: 'text',
-        font: { fontWeight: '600',  size: Browser.isDevice ? '8px' : '11px', color: "#ffffff" }
+        font: { fontWeight: '600',  size: Browser.isDevice ? '7px' : '11px' }
         },
                
         legendSettings: {
             visible: false,
         },
         startAngle : 270, endAngle : 90,
-          tooltip: { enable: true, format: "<b>${point.x}</b><br>Browser Share: <b>${point.tooltip}</b>", header:'', enableHighlight: true, },
 
-      innerRadius: '40%',
-      radius : Browser.isDevice ? '85%' : '100%',
+      innerRadius: '50%',
+      radius : '100%',
       annotations:[{
-        content: Browser.isDevice ? '<div style="font-size:11px; font-weight:600">Browser<br> Market <br />Shares</div>' : '<div style="font-size:14px; font-weight:600">Browser<br> Market <br />Shares</div>',
+        content: Browser.isDevice ? '<div style="font-size:10px; font-weight:600">Browser<br> Market <br />Shares</div>' : '<div style="font-size:14px; font-weight:600">Browser<br> Market <br />Shares</div>',
         region: 'Series',
-        x:  Browser.isDevice ? "51%" : "50%",
-        y:  Browser.isDevice ? "82%" : "85%" 
+        x: "50%",
+        y: "85%" 
        },
       ]
      

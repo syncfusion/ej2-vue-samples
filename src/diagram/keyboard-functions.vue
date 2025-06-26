@@ -1,5 +1,5 @@
 <template>
-<div class="control-section">
+<div class="control-section diagram-keyboard">
   <div class="col-lg-9 control-section">
     <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height'
      :layout='layout' :getNodeDefaults='getNodeDefaults'
@@ -48,23 +48,23 @@
 
 <style scoped>
 /*To align the diagram */
-  .control-section {
+  .diagram-keyboard .control-section {
     padding-top: 0px;
     padding-bottom: 0px;
     padding-right: 0px;
     padding-left: 0px;
   }
 /*To align the property panel */
-  .property-panel-header {
+  .diagram-keyboard .property-panel-header {
     padding-bottom: 0px;
   }
 
-  .property-panel-content {
+  .diagram-keyboard .property-panel-content {
     padding-top: 0px !important;
   }
 
   @media (max-width: 550px) {
-    .property-panel-content {
+    .diagram-keyboard .property-panel-content {
       padding-top: 0px !important;
     }
   }

@@ -14,7 +14,7 @@
       </div>
     </div>
      <!-- Right section: Property Panel -->
-    <div class="col-lg-4 property-section">
+    <div class="col-lg-4 diagram-event-property-section">
       <div id="diagramEventsPropertySection" style="height:100%;border: 1px solid #e0e0e0">
          <!-- Listview for event selection -->
         <div class="listbox">
@@ -24,7 +24,7 @@
           <ejs-listview id='listview-def' ref="listView" :dataSource='data' showCheckBox='true' height="calc(100% - 40px)"></ejs-listview>
         </div>
         <!-- Event Log panel -->
-        <div class="prop-grid content" style="height:50%; border-top: 1px solid #e0e0e0">
+        <div class="prop-grid content" style="height:50%; border-top: 1px solid #e0e0e0; width:100%;">
           <div class="heading">
             <span style="display: inline-block;margin-top: 5px;">Event Trace</span>
             <div class="evtbtn">
@@ -132,12 +132,12 @@
       color: #388e3c;
     }
 
-    hr {
+    .diagram-event-property-section hr {
       margin: 1px 10px 1px 0px;
       border-top: 1px solid #eee;
     }
   /* Property panel CSS */
-.property-section {
+.diagram-event-property-section {
   padding-top: 20px;
   padding-bottom: 20px;
   height: 740px;

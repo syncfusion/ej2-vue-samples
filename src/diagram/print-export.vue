@@ -1,7 +1,7 @@
 <template>
 <div class="control-section" style="padding-top: 10px;">
    <div>
-    <ejs-toolbar id="toolbar_default" :clicked='onItemClick'>
+    <ejs-toolbar id="toolbar-diagram-print" :clicked='onItemClick'>
     <e-items>
     <e-item  type= "Input"
         text= "Export" :template='template' ></e-item>
@@ -37,7 +37,7 @@
 
 <style scoped>
 
-#toolbar_default {
+#toolbar-diagram-print {
   font-size: 12px;
   margin-right: 0px;
 }

@@ -8,13 +8,13 @@
             <p style="visibility:hidden; display:inline-block" id="symbol">&nbsp;&gt;&gt;&nbsp;</p>
             <p id="text" style="display:inline-block;"></p>
         </div>
-        <ejs-accumulationchart ref="pie" :theme="theme" id="container" style='display:block;'  :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :load='load' :enableBorderOnMouseMove='false'>
+        <ejs-accumulationchart ref="pie" :theme="theme" id="container" style='display:block;'  :legendSettings="legendSettings" :enableSmartLabels='enableSmartLabels' :title="title" :subTitle="subTitle" :textRender="onTextRender" :chartMouseClick="onChartMouseClick" :load='load' :enableBorderOnMouseMove='false'>
              <e-accumulation-annotations>
                 <e-accumulation-annotation :content= 'initialContent'>
                 </e-accumulation-annotation>
             </e-accumulation-annotations>
             <e-accumulation-series-collection>
-                <e-accumulation-series :dataSource='data' xName='x' yName='y' :animation='animation' :startAngle="startAngle" :endAngle="endAngle" :innerRadius="innerRadius" radius="70%" :dataLabel="dataLabel" :explode="isExplode" explodeOffset='10%'>
+                <e-accumulation-series :dataSource='data' xName='x' yName='y' name='Automobile Sales' :animation='animation' :borderRadius='borderRadius' :startAngle="startAngle" :endAngle="endAngle" :innerRadius="innerRadius" radius="70%" :border="border" :dataLabel="dataLabel">
                 </e-accumulation-series>
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
@@ -22,7 +22,7 @@
 
 <div id="action-description">
     <p>
-        This sample demonstrates a drill down chart with a pie for automobiles sales by category. By clicking one category, you can navigate to other sub-categories where companies are differentiated.
+        This sample demonstrates a drill down chart with a pie for automobiles sales by region. Selecting a category navigates to its sub-categories, where sales are further broken down by country.
     </p>
 </div>
 <div id="description">
@@ -70,39 +70,34 @@ export default {
     enableSmartLabels: false,
     initialContent: null,
     data: [
-        { x: 'SUV', y: 25 }, { x: 'Car', y: 37 }, { x: 'Pickup', y: 15 },
-        { x: 'Minivan', y: 23 }
+        { x: 'Asia-Pacific', y: 45 }, { x: 'Europe', y: 25 }, { x: 'North America', y: 25 }, {x: 'Latin America', y: 7},
+        { x: 'Middle East & Africa', y: 3 }
     ],
-    suvs: [{ x: 'Toyota', y: 8 }, { x: 'Ford', y: 12 }, { x: 'GM', y: 17 }, { x: 'Renault', y: 6 }, { x: 'Fiat', y: 3 },
-    { x: 'Hyundai', y: 16 }, { x: 'Honda', y: 8 }, { x: 'Maruthi', y: 10 }, { x: 'BMW', y: 20 }],
+    asiaPacific: [{ x: 'China', y: 66.7 }, { x: 'Japan', y: 17.8 }, { x: 'India', y: 11.1 }, { x: 'South Korea', y: 3.3 }, { x: 'Others', y: 1.1 }],
 
-    cars: [{ x: 'Toyota', y: 7 }, { x: 'Chrysler', y: 12 }, { x: 'Nissan', y: 9 }, { x: 'Ford', y: 15 },
-    { x: 'Tata', y: 10 },
-    { x: 'Mahindra', y: 7 }, { x: 'Renault', y: 8 }, { x: 'Skoda', y: 5 }, { x: 'Volkswagen', y: 15 }, { x: 'Fiat', y: 3 }],
+    europe: [{ x: 'Germany', y: 32 }, { x: 'UK', y: 20 }, { x: 'France', y: 16 }, { x: 'Italy', y: 12 }, { x: 'Spain', y: 8 }, { x: 'Others', y: 12 }],
 
-    pickups: [{ x: 'Nissan', y: 9 }, { x: 'Chrysler', y: 4 }, { x: 'Ford', y: 7 }, { x: 'Toyota', y: 20 },
-    { x: 'Suzuki', y: 13 }, { x: 'Lada', y: 12 }, { x: 'Bentley', y: 6 }, { x: 'Volvo', y: 10 }, { x: 'Audi', y: 19 }],
+    northAmerica: [{ x: 'USA', y: 75 }, { x: 'Canada', y: 15 }, { x: 'Mexico', y: 10 }],
 
-    minivans: [{ x: 'Hummer', y: 11 }, { x: 'Ford', y: 5 }, { x: 'GM', y: 12 }, { x: 'Chrysler', y: 3 },
-    { x: 'Jaguar', y: 9 },
-    { x: 'Fiat', y: 8 }, { x: 'Honda', y: 15 }, { x: 'Hyundai', y: 4 }, { x: 'Scion', y: 11 }, { x: 'Toyota', y: 17 }],
+    latinAmerica: [{ x: 'Brazil', y: 57.1 }, { x: 'Argentina', y: 21.4 }, { x: 'Chile', y: 14.3 }, { x: 'Others', y: 7.1 }],
+    middleEastAfrica: [{ x: 'South Africa', y: 33.3 }, { x: 'Egypt', y: 26.7 }, { x: 'UAE', y: 23.3 }, { x: 'Others', y: 16.7 }],
 
-    //Initializing Legend
     legendSettings: {
         visible: false,
     },
-    //Initializing Datalabel
     dataLabel: {
-        visible: true, position: 'Inside',  connectorStyle: { type: 'Curve', length: '10%' }, font: {  fontWeight:'600' , color: 'white' }, enableRotation: false
+        visible: true, position: 'Outside',  connectorStyle: { type: 'Curve', length: Browser.isDevice ? '5%' : '10%' }, font: {  fontWeight:'600' , color: 'black', size: Browser.isDevice ? '6px' : '12px' }, enableRotation: false
     },
-    startAngle: 0,
+    startAngle: -30,
     radius: '70%',
-    isExplode: false,
+    borderRadius: 3,
     animation: {
         enable: true
     },
-    endAngle: 360,
-    title: 'Automobile Sales by Category'
+    border: { width: 1, color: '#ffffff' },
+    endAngle: 330,
+    title: 'Automobile Sales by Region - 2023',
+    subTitle: 'Source: wikipedia.org'
     };
   },
   provide: {
@@ -110,43 +105,49 @@ export default {
   },
   methods: {
     onTextRender: function (args) {
-        args.text = args.point.x + ' ' + args.point.y + ' %';
+        args.text = args.point.x + ' ' + args.point.y + '%';
     },
     onChartMouseClick: function (args) {
         let  accChart = document.getElementById("container").ej2_instances;
         let index = indexFinder(args.target);
         this.isExplode = false;
         if (document.getElementById('container_Series_' + index.series + '_Point_' + index.point) && !this.innerChart) {
-            this.innerRadius = '30%';
-            this.radius = Browser.isDevice ? '90%' : '80%';
+            this.innerRadius = '40%';
+            this.radius = '80%';
             switch (index.point) {
                 case 0:
-                    this.data = this.suvs;
-                    this.title = 'Automobile Sales in the SUV Segment';
-                    document.getElementById('text').innerHTML = 'SUV';
+                    this.data = this.asiaPacific;
+                    this.title = 'Automobile Sales in the Asia-Pacific region';
+                    document.getElementById('text').innerHTML = 'Asia-Pacific';
                     break;
                 case 1:
-                    this.data = this.cars;
-                    this.title = 'Automobile Sales in the Car Segment';
-                    document.getElementById('text').innerHTML = 'Car';
+                    this.data = this.europe;
+                    this.title = 'Automobile Sales in the Europe region';
+                    document.getElementById('text').innerHTML = 'Europe';
                     break;
                 case 2:
-                    this.data = this.pickups;
-                    this.title = 'Automobile Sales in the Pickup Segment';
-                    document.getElementById('text').innerHTML = 'Pickup';
+                    this.data = this.northAmerica;
+                    this.title = 'Automobile Sales in the North America region';
+                    document.getElementById('text').innerHTML = 'North America';
                     break;
                 case 3:
-                    this.data = this.minivans;
-                    this.title = 'Automobile Sales in the Minivan Segment';
+                    this.data = this.latinAmerica;
+                    this.title = 'Automobile Sales in the Latin America region';
+                    document.getElementById('text').innerHTML = 'Minivan';
+                    break;
+                case 4:
+                    this.data = this.middleEastAfrica;
+                    this.title = 'Automobile Sales in the Middle East & Africa region';
                     document.getElementById('text').innerHTML = 'Minivan';
                     break;
             }
             let dataLabel = extend({}, this.dataLabel);
             dataLabel.position = Browser.isDevice ? 'Inside' : 'Outside';
-            dataLabel.enableRotation = true;
-            dataLabel.connectorStyle.length = '20px'
+            dataLabel.enableRotation = Browser.isDevice ? true : false;
+            dataLabel.connectorStyle.length = Browser.isDevice ? '5%' : '10%';
             dataLabel.font.color = '';
             this.dataLabel = dataLabel;
+            this.animation.enable = false;
             let legendSettings = this.legendSettings;
             legendSettings.visible = false;
             this.legendSettings = legendSettings;   
@@ -157,14 +158,14 @@ export default {
             this.innerChart = true;
         }
         if (args.target.indexOf('back') > -1) {
-            this.data = [{ x: 'SUV', y: 25 }, { x: 'Car', y: 37 }, { x: 'Pickup', y: 15 }, { x: 'Minivan', y: 23 }]
+            this.data = [{ x: 'Asia-Pacific', y: 45 }, { x: 'Europe', y: 25 }, { x: 'North America', y: 25 }, {x: 'Latin America', y: 7},
+        { x: 'Middle East & Africa', y: 3 }]
             accChart[0].annotations = [{ content: null }];
             this.isExplode = false;
             let dataLabel = extend({}, this.dataLabel);
-            dataLabel.position = 'Inside';
-             let animation = this.animation;
-             animation.enable = false;
-            dataLabel.font.color = 'white';
+            dataLabel.position = 'Outside';
+            this.animation.enable = false;
+            dataLabel.font.color = 'black';
             dataLabel.enableRotation = false;
             this.dataLabel = dataLabel;
             let legendSettings = this.legendSettings;
@@ -183,10 +184,11 @@ export default {
         let  accChart = document.getElementById("container").ej2_instances;
         accChart[0].annotations = [{ content: null }];
         this.isExplode = false;
-        this.data = [{ x: 'SUV', y: 25 }, { x: 'Car', y: 37 }, { x: 'Pickup', y: 15 }, { x: 'Minivan', y: 23 }]
+        this.data = [{ x: 'Asia-Pacific', y: 45 }, { x: 'Europe', y: 25 }, { x: 'North America', y: 25 }, {x: 'Latin America', y: 7},
+        { x: 'Middle East & Africa', y: 3 }]
         let dataLabel = extend({}, this.dataLabel);
-        dataLabel.position = 'Inside';
-        dataLabel.font.color = 'white';
+        dataLabel.position = 'Outside';
+        dataLabel.font.color = 'black';
         dataLabel.enableRotation = false;
         this.radius = '70%';
         this.dataLabel = dataLabel;
@@ -207,7 +209,7 @@ export default {
     load: function(args) {
         
         let selectedTheme = loadAccumulationChartTheme(args);
-        if (selectedTheme === 'HighContrast' || args.accumulation.theme.indexOf('Dark') > -1){
+        if (selectedTheme.indexOf('HighContrast') > -1 || args.accumulation.theme.indexOf('Dark') > -1){
              args.accumulation.series[0].dataLabel.font.color="white";
         }
 
@@ -215,7 +217,7 @@ export default {
             args.accumulation.annotations[0].region = 'Series';
             args.accumulation.annotations[0].x = '50%';
             args.accumulation.annotations[0].y = '50%';
-            args.accumulation.annotations[0].content = (selectedTheme === 'HighContrast') || (args.accumulation.theme.indexOf('Dark') > -1)  ?
+            args.accumulation.annotations[0].content = (selectedTheme.indexOf('HighContrast') > -1) || (args.accumulation.theme.indexOf('Dark') > -1)  ?
                 '<div id= "white" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/white.png" id="back" alt="White Icon"/></div>' :
                 '<div id="back" style="cursor:pointer;padding:3px;width:30px; height:30px;"><img src="source/chart/images/back.png" id="back" alt="Back Icon"/></div>';
         }

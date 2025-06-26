@@ -63,6 +63,7 @@
         <li><code>Expand</code>: The toolbar hides the overflowing items in the next row. Click the expand arrow to view overflowing toolbar items</li>
         <li><code>Multi Row</code>: The toolbar hides the overflowing items in the next row.</li>
         <li><code>Scrollable</code>: All the elements are displayed in a single line with horizontal scrolling enabled.</li>
+        <li><code>Popup</code>: The toolbar hides the overflowing items inside a popup menu when there is limited space. The popup menu is displayed when clicking the toolbar overflow icon.</li>
     </ul>
     <p><b>Injecting Module</b></p>
     <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, Table</code> into the <code>provide</code> section.</p>
@@ -109,7 +110,7 @@ export default {
   },
   data: function() {
     return {
-      data: [{ text: "Expand", value: 1 }, { text: "MultiRow", value: 2 },{ text: "Scrollable", value: 3 }],
+      data: [{ text: "Expand", value: 1 }, { text: "MultiRow", value: 2 },{ text: "Scrollable", value: 3 },{ text: "Popup", value: 4 }],
       fields: { text: "text", value: "value" },
       toolbarSettings: {
         type: "Expand",
@@ -136,6 +137,9 @@ export default {
         case 3:
           this.$refs.rteInstance.ej2Instances.toolbarSettings.type = "Scrollable";
           break;
+        case 4:
+          this.$refs.rteInstance.ej2Instances.toolbarSettings.type = "Popup";
+          break;   
       }
       this.$refs.rteInstance.ej2Instances.dataBind();
     },

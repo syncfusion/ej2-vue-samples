@@ -3,6 +3,7 @@
   "directory": "pivot-table",
   "category": "Grids",
   "ftName": "pivot-table",
+  "type": "update",
   "samples": [{
       "url": "overview",
       "name": "Overview",
@@ -57,7 +58,8 @@
       "category": "Data Binding",
       "hideOnDevice": false,
       "description": "This sample demonstrates the ability to use an external pivot engine to bind and populate data from a remote service and display it in the pivot table.",
-      "api": {}
+      "api": {},
+      "type": "update"
     },
     {
       "url": "olap",
@@ -209,7 +211,8 @@
       "category": "Sorting",
       "hideOnDevice": false,
       "description": "This demo for Essential<sup>®</sup> JS2 Pivot Table control shows sorting values on column or row wise in ascending or descending order",
-      "api": {}
+      "api": {},
+      "type": "update"
     },
     {
       "url": "filtering",

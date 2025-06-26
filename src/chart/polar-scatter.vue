@@ -138,7 +138,7 @@ export default {
       marker2: { visible: false, height: 7, width: 7, shape: 'Triangle', dataLabel: { name: 'TooltipMappingName' } },
       tooltip: {
         enable: true,
-        format: '${point.text} : <b>${point.y}%</b>'
+        format: '${point.text} : <b>${point.y}%</b>', enableHighlight: true
       },
       legendSettings: {
         enableHighlight: true,

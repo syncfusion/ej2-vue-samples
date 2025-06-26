@@ -55,7 +55,7 @@
 </style>
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AnnotationsDirective, AnnotationDirective, SplineSeries, ChartAnnotation, ColumnSeries, Category, Tooltip } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AnnotationsDirective, AnnotationDirective, SplineSeries, ChartAnnotation, ColumnSeries, Category, Tooltip, Highlight } from "@syncfusion/ej2-vue-charts";
 
 import { loadChartTheme } from "./theme-color";
 let theme = loadChartTheme();
@@ -116,7 +116,7 @@ export default {
             marker: { visible: true, width: 7, height: 7, },
             marker1: { visible: true, width: 7, height: 7, isFilled: true },
             width: Browser.isDevice ? '100%' : '75%',
-            tooltip: { enable: true },
+            tooltip: { enable: true, enableHighlight: true },
             legendSettings: {
                 visible: false
             },
@@ -124,7 +124,7 @@ export default {
         };
     },
     provide: {
-        chart: [SplineSeries, ColumnSeries, Category, Tooltip, ChartAnnotation]
+        chart: [SplineSeries, ColumnSeries, Category, Tooltip, ChartAnnotation, Highlight]
     },
     methods: {
     },

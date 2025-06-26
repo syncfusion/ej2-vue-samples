@@ -8,7 +8,7 @@
         <ejs-treegrid :dataSource='data' idMapping='TaskID' :height='350' parentIdMapping='parentItem' hasChildMapping='isParent' :treeColumnIndex='1' :allowPaging='true' :pageSettings='pageSettings'>
             <e-columns>
                 <e-column field='TaskID' headerText='Task ID' width='100' textAlign='Right'></e-column>
-                <e-column field='TaskName' headerText='Task Name' width='160'></e-column>
+                <e-column field='TaskName' headerText='Task Name' width='200'></e-column>
                 <e-column field='StartDate' headerText='Start Date' width='140' format="yMd" textAlign='Right'></e-column>
                 <e-column field='EndDate' headerText='End Date' width='140' format="yMd" textAlign='Right'></e-column>
                 <e-column field='Duration' headerText='Duration' width='120' textAlign='Right'></e-column>

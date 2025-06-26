@@ -21,7 +21,6 @@
             "url": "loadOn-demand",
             "name": "Load On-demand",
             "category": "Chat UI",
-            "type": "new",
             "api":{ "ChatUI": ["headerText", "headerIconCss","messages", "user", "loadOnDemand"] },
             "description": "Showcases the load on demand features in the Chat UI control",
             "sourceFiles": [
@@ -43,6 +42,7 @@
             "url": "api",
             "name": "API",
             "category": "Chat UI",
+            "type":"update",
             "api":{ "ChatUI": ["messages", "user", "timeStampFormat", "showTimeStamp", "headerText", "headerIconCss"] },
             "description": "Showcases the API combinations of the Chat UI control.",
             "sourceFiles": [

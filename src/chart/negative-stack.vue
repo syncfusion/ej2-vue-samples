@@ -1,25 +1,27 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :subTitle='subTitle' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :tooltip='tooltip' :tooltipRender='tooltipRender' :axisLabelRender='axisLabelRender' :legendSettings='legendSettings'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='StackingBar' xName='Height' yName='Female' name='Female' width=2 :marker='marker' columnWidth=0.5> </e-series>
-                <e-series :dataSource='seriesData' type='StackingBar' xName='Height' yName='Male' name='Male' width=2 :marker='markerSeries2' columnWidth=0.5> </e-series>
+                <e-series :dataSource='seriesData' type='StackingBar' xName='age' yName='femalePercentValue' name='Female' :marker='femaleMarker' columnWidth=0.5 legendShape='Rectangle' :cornerRadius='cornerRadius'> </e-series>
+                <e-series :dataSource='seriesData' type='StackingBar' xName='age' yName='malePercentValue' name='Male' :marker='maleMarker' columnWidth=0.5 legendShape='Rectangle' :cornerRadius='cornerRadius'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-      This sample illustrates a stacked bar chart with negative data points. Data point values are shown in data labels.
+        This sample illustrates a stacked bar chart representing the population distribution by age and gender, including negative data points. Data point values are displayed as data labels.
     </p>
 </div>
 <div id="description">
     <p>
-      In this example, you can see how to render and configure negative values in a stacked bar chart. The stacked bar chart stacks points in the series horizontally. You can also use the <code>StackingGroup</code> property to group stacked collections based on category.
+        In this example, you can see how to render and configure negative values in a stacked bar chart. The stacked bar
+        chart stacks points in the series horizontally.
     </p>
     <p>
-      <code>Tooltip</code> is enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
+        <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover over a point or tap on a
+        point in touch-enabled devices.
     </p>
      
         <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -46,6 +48,28 @@ import { ChartComponent, SeriesDirective, SeriesCollectionDirective, StackingBar
 import { loadChartTheme } from "./theme-color";
 let theme = loadChartTheme();
 
+let seriesData = [
+    { age: '90 - 94', male: 123, female: 153, malePercent: '0.03%', femalePercent: '0.04%', malePercentValue: 0.03, femalePercentValue: -0.04 },
+    { age: '85 - 89', male: 407, female: 457, malePercent: '0.1%', femalePercent: '0.11%', malePercentValue: 0.1, femalePercentValue: -0.11 },
+    { age: '80 - 84', male: 879, female: 970, malePercent: '0.21%', femalePercent: '0.23%', malePercentValue: 0.21, femalePercentValue: -0.23 },
+    { age: '75 - 79', male: 1609, female: 1768, malePercent: '0.39%', femalePercent: '0.42%', malePercentValue: 0.39, femalePercentValue: -0.42 },
+    { age: '70 - 74', male: 2769, female: 3004, malePercent: '0.66%', femalePercent: '0.72%', malePercentValue: 0.66, femalePercentValue: -0.72 },
+    { age: '65 - 69', male: 4250, female: 4511, malePercent: '1.02%', femalePercent: '1.08%', malePercentValue: 1.02, femalePercentValue: -1.08 },
+    { age: '60 - 64', male: 6152, female: 6369, malePercent: '1.48%', femalePercent: '1.53%', malePercentValue: 1.48, femalePercentValue: -1.53 },
+    { age: '55 - 59', male: 7741, female: 7976, malePercent: '1.86%', femalePercent: '1.91%', malePercentValue: 1.86, femalePercentValue: -1.91 },
+    { age: '50 - 54', male: 9643, female: 10086, malePercent: '2.31%', femalePercent: '2.42%', malePercentValue: 2.31, femalePercentValue: -2.42 },
+    { age: '45 - 49', male: 11332, female: 11585, malePercent: '2.72%', femalePercent: '2.78%', malePercentValue: 2.72, femalePercentValue: -2.78 },
+    { age: '40 - 44', male: 13569, female: 13713, malePercent: '3.25%', femalePercent: '3.29%', malePercentValue: 3.25, femalePercentValue: -3.29 },
+    { age: '35 - 39', male: 16293, female: 15999, malePercent: '3.91%', femalePercent: '3.84%', malePercentValue: 3.91, femalePercentValue: -3.84 },
+    { age: '30 - 34', male: 18805, female: 18038, malePercent: '4.51%', femalePercent: '4.32%', malePercentValue: 4.51, femalePercentValue: -4.32 },
+    { age: '25 - 29', male: 20023, female: 19216, malePercent: '4.8%', femalePercent: '4.61%', malePercentValue: 4.8, femalePercentValue: -4.61 },
+    { age: '20 - 24', male: 20428, female: 19689, malePercent: '4.9%', femalePercent: '4.72%', malePercentValue: 4.9, femalePercentValue: -4.72 },
+    { age: '15 - 19', male: 19663, female: 18950, malePercent: '4.71%', femalePercent: '4.54%', malePercentValue: 4.71, femalePercentValue: -4.54 },
+    { age: '10 - 14', male: 18701, female: 17859, malePercent: '4.48%', femalePercent: '4.28%', malePercentValue: 4.48, femalePercentValue: -4.28 },
+    { age: '05 - 09', male: 19863, female: 18942, malePercent: '4.76%', femalePercent: '4.54%', malePercentValue: 4.76, femalePercentValue: -4.54 },
+    { age: '00 - 04', male: 18171, female: 17316, malePercent: '4.36%', femalePercent: '4.15%', malePercentValue: 4.36, femalePercentValue: -4.15 }
+];
+
 export default {
   components: {
     'ejs-chart': ChartComponent,
@@ -54,87 +78,103 @@ export default {
   },
   data: function() {
     return {
-         theme: theme,
-      seriesData: [
-        { Height : 4.5, Female : 31, Male : -31, Text : "31 KG", Female_Text : "31 KG" },
-        { Height : 4.8, Female : 37, Male : -39, Text : "39 KG", Female_Text : "37 KG" },
-        { Height : 5.1, Female : 49, Male : -52, Text : "52 KG", Female_Text : "49 KG" },
-        { Height : 5.4, Female : 57, Male : -64, Text : "64 KG", Female_Text : "57 KG" },
-        { Height : 5.7, Female : 63, Male : -70, Text : "70 KG", Female_Text : "63 KG" },
-        { Height : 6, Female : 69, Male : -74, Text : "74 KG", Female_Text : "69 KG" }
-        ],
+        theme: theme,
+        seriesData: seriesData,
 
-      //Initializing Primary X Axis
-     primaryXAxis: {
-            vvalueType: 'Category',
-            title: 'Height in Inches',
-            interval: 0.3,
-            majorTickLines: { width: 0 },
+        //Initializing Primary X Axis
+        primaryXAxis: {
+            valueType: 'Category',
+            title: 'Population by Age Range',
+            minimum: 0,
+            interval: 3,
             majorGridLines: { width: 0 },
-            edgeLabelPlacement: 'Shift'
+            majorTickLines: { width: 0 }
         },
-      //Initializing Primary Y Axis
-          primaryYAxis:
-        {
-            title: 'Weight (kg)',
-            labelFormat: '{value}',
+        //Initializing Primary Y Axis
+        primaryYAxis: {
+            labelFormat: '{value}%',
+            interval: 3,
+            title: 'Share of Total Population (%)',
             lineStyle: { width: 0 },
             edgeLabelPlacement: 'Shift',
             rangePadding: 'Round',
+            majorTickLines: { width: 0 }
         },
         chartArea: {
             border: {
                 width: 0
+            },
+            margin: {
+                bottom: 12
             }
         },
-        marker: {
+        femaleMarker: {
             dataLabel: {
-            name: 'Female_Text',
-            visible: true,
-            position: 'Top',
-            font: {
-                fontWeight: '600'
-            }
+                name: 'femalePercent',
+                visible: true,
+                position: 'Outer',
+                font: {
+                    fontWeight: '600',
+                    size: '9px'
+                }
             }
         },
-        markerSeries2: {
+        maleMarker: {
             dataLabel: {
-            name: 'Text',
-            visible: true,
-            position: 'Top',
-            font: {
-                fontWeight: '600'
-            }
+                name: 'malePercent',
+                visible: true,
+                position: 'Outer',
+                font: {
+                    fontWeight: '600',
+                    size: '9px'
+                }
             }
         },
-
         width : Browser.isDevice ? '100%' : '75%',
-           tooltip: { 
-            enable: true
-         },
-        legendSettings: {
-            position: Browser.isDevice ? 'Bottom' : 'Right',
-            enableHighlight : true
+        tooltip: { 
+            enable: true,
+            header: '${point.x}',
+            enableHighlight: true
         },
-      title: "Height vs Weight"
+        legendSettings: {
+            enableHighlight: true,
+            shapeWidth: 8,
+            shapeHeight: 8
+        },
+        title: 'Belize Demographic Breakdown by Age and Gender (2024)',
+        subTitle: 'Source: statisticstimes.com',
+        cornerRadius: { bottomRight: 4, topRight: 4 }
     };
   },
   provide: {
     chart: [StackingBarSeries, Legend, Category, Tooltip, DataLabel, Highlight]
   },
   methods: {
-   
-     tooltipRender: function(args){
-        args.text = args.text.indexOf('-') > 0 ? args.text.replace('-', '') : args.text;
-        args.text = args.text + " " + "<b>kg</b>";
-    },
-    axisLabelRender: function (args) {
-        if (args.value < 0) {
-            args.text = (-args.value).toString();
-        }
-    },
 
-  },
+        tooltipRender: function (args) {
+            let ageGroup = args.point.x;
+            let dataPoint = seriesData.find(function (d) {
+                return d.age === ageGroup;
+            });
+
+            if (args.text && dataPoint) {
+                let value = '';
+                if (args.series.name === 'Male') {
+                    value = dataPoint.malePercent;
+                } else if (args.series.name === 'Female') {
+                    value = dataPoint.femalePercent;
+                }
+                if (value) {
+                    args.text = args.series.name + " Population: <b>" + value + "</b>";
+                }
+            }
+        },
+        axisLabelRender: function (args) {
+            if (args.value < 0) {
+                args.text = (-args.value + '%').toString();
+            }
+        }
+  }
  
 };
 </script>

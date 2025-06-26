@@ -2,7 +2,6 @@
     "name": "Scheduler",
     "directory": "schedule",
     "category": "Calendars",
-    "type": "update",
     "ftName": "scheduler",
     "samples": [{
             "url": "overview",
@@ -193,7 +192,6 @@
             "url": "overlap-events",
             "name": "Conflict Free Event",
             "category": "Appointments",
-            "type": "new",
             "description": "This demo explains how to restrict overlapping appointments within the same time range.",
             "api": {
                 "Schedule": [

@@ -98,7 +98,7 @@
         width : Browser.isDevice ? '100%' : '75%',
         legend: {enableHighlight : true},
         title: "Profit and Loss",
-        tooltip:{ enable:true }
+        tooltip:{ enable:true, enableHighlight: true, showNearestTooltip: true }
       };
     },
     provide: {

@@ -259,7 +259,6 @@ function createConnector(
     targetPortID: targetId + '_in_' + targetPortIndex,
     type: 'Orthogonal',
     segments: [
-      { type: 'Orthogonal', direction: 'Left', length: 25 },
       { type: 'Orthogonal' },
     ],
     style: { strokeColor: color, strokeWidth: 2 },
@@ -312,14 +311,14 @@ function initDiagramModel() {
   createConnector('connector18', 'node2', 'node3', 1, 5, 'lightGreen');
   createConnector('connector19', 'node2', 'node3', 2, 6);
   createConnector('connector20', 'node2', 'node3', 3, 7);
+  createConnector('connector21', 'node2', 'node5', 4, 4, 'lightGreen');
+  createConnector('connector22', 'node2', 'node5', 5, 5, 'lightGreen');
+  createConnector('connector23', 'node2', 'node5', 6, 6, 'lightGreen');
+  createConnector('connector24', 'node2', 'node5', 7, 7, 'lightGreen');
   createConnector('connector25', 'node2', 'node4', 8, 4);
   createConnector('connector26', 'node2', 'node4', 9, 5, 'lightGreen');
   createConnector('connector27', 'node2', 'node4', 10, 6);
   createConnector('connector28', 'node2', 'node4', 11, 7);
-  createConnector('connector24', 'node2', 'node5', 7, 7, 'lightGreen');
-  createConnector('connector23', 'node2', 'node5', 6, 6, 'lightGreen');
-  createConnector('connector22', 'node2', 'node5', 5, 5, 'lightGreen');
-  createConnector('connector21', 'node2', 'node5', 4, 4, 'lightGreen');
   createConnector('connector29', 'node2', 'node6', 12, 4, 'lightGreen');
   createConnector('connector30', 'node2', 'node6', 13, 5);
   createConnector('connector31', 'node2', 'node6', 14, 6);

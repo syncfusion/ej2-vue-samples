@@ -338,7 +338,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <img id="ribbonImage" class="ribbon-image" src="src/ribbon/images/empire-state-building.png" alt="image" @click="handleImageClick"/>
+                        <img id="ribbonImage" class="ribbon-image" src="./images/empire-state-building.png" alt="image" @click="handleImageClick"/>
                     </div>
                 </div>
             </div>

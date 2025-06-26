@@ -90,7 +90,7 @@
   float: left;
 }
 
-.image-pattern-style:hover {
+.diagramNodes-property .image-pattern-style:hover {
   border-color: gray;
   border-width: 2px;
 }
@@ -105,7 +105,7 @@
   font-weight: 500;
 }
 /* Selection indicator */
-.e-selected-style {
+.diagramNodes-property .e-selected-style {
   border-color: #006ce6;
   border-width: 2px;
 }
@@ -315,7 +315,7 @@ function setLockConstraints(args) {
             node.constraints &= ~(NodeConstraints.Resize | NodeConstraints.Rotate | NodeConstraints.Drag | NodeConstraints.Delete);
             node.constraints |= NodeConstraints.ReadOnly;
         } else {
-            node.constraints |= NodeConstraints.Default & ~(NodeConstraints.ReadOnly);
+            node.constraints = NodeConstraints.Default;
         }
     }
      for (let j = 0; j < diagramInstance.connectors.length; j++) {
@@ -324,7 +324,7 @@ function setLockConstraints(args) {
             connector.constraints &= ~(ConnectorConstraints.DragSourceEnd | ConnectorConstraints.DragTargetEnd | ConnectorConstraints.Drag | ConnectorConstraints.Delete);
             connector.constraints |= ConnectorConstraints.ReadOnly;
         } else {
-            connector.constraints |= ConnectorConstraints.Default & ~ConnectorConstraints.ReadOnly;
+            connector.constraints = ConnectorConstraints.Default;
         }
     }
     diagramInstance.dataBind();

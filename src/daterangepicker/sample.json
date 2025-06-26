@@ -3,6 +3,7 @@
     "directory": "daterangepicker",
     "category": "Calendars",
     "hideOnDevice": true,
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -28,6 +29,7 @@
             "url": "date-format",
             "name": "Format",
             "category": "DateRangePicker",
+            "type": "update",
             "api":{"DateRangePicker": [ "format", "value" ]},
             "description": "This example demonstrates how to change the date time format in the input field based on the format in a Vue DateRangePicker"
         },

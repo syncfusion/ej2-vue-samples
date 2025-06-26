@@ -3,7 +3,7 @@
 <div class="control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor ref="rteInstance" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings" :iframeSettings="iframeSettings" :height="height" :fileManagerSettings="fileManagerSettings">
+        <ejs-richtexteditor ref="rteInstance" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings" :iframeSettings="iframeSettings" :height="height" :fileManagerSettings="fileManagerSettings" :exportWord="exportWord" :exportPdf="exportPdf" :importWord="importWord">
             <p>The Rich Text Editor component is a WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
             Users can format their content using standard toolbar commands.</p>
             <p><b>Key features:</b></p>
@@ -30,7 +30,7 @@
    <p>The Rich Text Editor is WYSIWYG ("what you see is what you get") editor that is used to create and edit content, and return valid HTML markup. The editor provides a standard toolbar to format content using its commands. The toolbar contains commands to align the text, insert link, insert image, 
        insert list, undo/redo the operation, HTML view, and more.</P>
     <p><b>Injecting Module</b></p>
-    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager, Audio, Video, FormatPainter, EmojiPicker, PasteCleanup</code> into the <code>provide</code> section.</p>
+    <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager, Audio, Video, FormatPainter, EmojiPicker, PasteCleanup, CodeBlock</code> into the <code>provide</code> section.</p>
 </div>
 </div>
 </template>
@@ -47,7 +47,7 @@
 </style>
 <script>
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorComponent, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager, Audio, Video, FormatPainter, EmojiPicker, PasteCleanup } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager, Audio, Video, FormatPainter, EmojiPicker, PasteCleanup, CodeBlock, ImportExport } from "@syncfusion/ej2-vue-richtexteditor";
 
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
@@ -58,14 +58,39 @@ export default {
     data: function() {
         return {
             toolbarSettings: {
-         items: ['Bold', 'Italic', 'Underline', 'StrikeThrough', 'InlineCode', 'SuperScript', 'SubScript', '|',
-                'FontName', 'FontSize', 'FontColor', 'BackgroundColor', '|',
-                'LowerCase', 'UpperCase', '|',
-                'Formats', 'Alignments', 'Blockquote', '|', 'NumberFormatList', 'BulletFormatList', '|',
-                'Outdent', 'Indent', '|', 'CreateLink', 'Image', 'FileManager', 'Video', 'Audio', 'CreateTable', '|', 'ClearFormat',
-                '|', 'EmojiPicker', 'Print', '|',
-                'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+         items: ['Undo', 'Redo', '|', 'ImportWord', 'ExportWord', 'ExportPdf', '|',
+                'Bold', 'Italic', 'Underline', 'StrikeThrough', 'InlineCode', '|', 'CreateLink', 'Image', 'CreateTable', 'CodeBlock',
+                'HorizontalLine', 'Blockquote', '|', 'BulletFormatList', 'NumberFormatList', '|', 'Formats', 'Alignments', '|', 'Outdent', 'Indent', '|',
+                'FontColor', 'BackgroundColor', 'FontName', 'FontSize', '|', 'LowerCase', 'UpperCase', '|', 'SuperScript', 'SubScript', '|',
+                'EmojiPicker', 'FileManager', 'Video', 'Audio', '|', 'FormatPainter', 'ClearFormat',
+                '|', 'Print', 'FullScreen', '|', 'SourceCode']
     },
+    importWord: {
+                serviceUrl: 'https://services.syncfusion.com/vue/production/api/RichTextEditor/ImportFromWord',
+            },
+    exportWord: {
+          serviceUrl: 'https://services.syncfusion.com/vue/production/api/RichTextEditor/ExportToDocx',
+          fileName: 'RichTextEditor.docx',
+          stylesheet: `
+          .e-rte-content {
+              font-size: 1em;
+              font-weight: 400;
+              margin: 0;
+          }
+      `
+        },
+
+        exportPdf: {
+          serviceUrl: 'https://services.syncfusion.com/vue/production/api/RichTextEditor/ExportToPdf',
+          fileName: 'RichTextEditor.pdf',
+          stylesheet: `
+          .e-rte-content{
+              font-size: 1em;
+              font-weight: 400;
+              margin: 0;
+          }
+          `
+        },
     height: 500,
     fileManagerSettings: {
         enable: true,
@@ -120,7 +145,7 @@ export default {
     }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Table, Image, QuickToolbar, HtmlEditor, FileManager,Audio, Video, EmojiPicker, PasteCleanup]
+        richtexteditor:[Toolbar, Link, Table, Image, QuickToolbar, HtmlEditor, FileManager,Audio, Video, EmojiPicker, PasteCleanup, CodeBlock, ImportExport]
     }
 }
 </script>

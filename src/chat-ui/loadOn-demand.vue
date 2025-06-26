@@ -58,7 +58,7 @@ for (let i = 1; i <= 200; i++) {
     }
 
     .loadonDemand-chatui .chat_user2_avatar {
-        background-image: url('/src/chat-ui/images/andrew.png');
+        background-image: url('./images/andrew.png');
         background-color: unset;
     }   
 

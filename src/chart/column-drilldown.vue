@@ -13,6 +13,7 @@
           :primaryYAxis="primaryYAxis"
           :chartArea="chartArea"
           :title="title"
+          :subTitle="subTitle"
           :tooltip="tooltip"
           :width="width"
           :legendSettings="legendSettings"
@@ -23,6 +24,7 @@
           :pointClick="pointClick"
           :load="load"
           :loaded="loaded"
+          :tooltipRender="tooltipRender"
         >
           <e-series-collection>
             <e-series
@@ -114,6 +116,7 @@
         },
         width: Browser.isDevice ? '100%' : '75%',
         title: 'Top Populated Continents of 2023',
+        subTitle: 'A Look at Population Rankings and Trends in 2023',
         legendSettings: { visible: false },
         theme: 'Fluent2',
         clicked: false,
@@ -133,6 +136,11 @@
       chart: [ColumnSeries, DataLabel, Category, Legend, Tooltip, Highlight]
     },
     methods: {
+        tooltipRender: function (args) {
+            args.text = args.text.replace(/\d+/g, function (num) {
+                return Number(num).toLocaleString('en-US');
+            });
+        },
       load(args) {
            loadChartTheme(args);
        },
@@ -188,6 +196,7 @@
                     document.getElementById("text").style.visibility = "visible";
                     if (args.point.index === 0) {
                         args.series.chart.title = "Top Populated Countries of Asia - 2023";
+                        args.series.chart.subTitle = "A Look at Population Rankings and Trends in 2023";
                         this.clicked = true;
                         args.series.chart.series[0].dataSource = [{
                                 y: 1422,
@@ -225,6 +234,7 @@
                     }
                     if (args.point.index === 1) {
                         args.series.chart.title = "Top Populated Countries of Africa - 2023";
+                        args.series.chart.subTitle = "A Look at Population Rankings and Trends in 2023";
                         this.clicked = true;
                         args.series.chart.series[0].dataSource = [{
                                 y: 223,
@@ -258,6 +268,7 @@
                     }
                     if (args.point.index === 2) {
                         args.series.chart.title = "Top Populated Countries of Europe - 2023";
+                        args.series.chart.subTitle = "A Look at Population Rankings and Trends in 2023";
                         this.clicked = true;
                         args.series.chart.series[0].dataSource = [{
                                 y: 143,
@@ -287,6 +298,7 @@
                     }
                     if (args.point.index === 3) {
                         args.series.chart.title = "Top Populated Countries of North America - 2023";
+                        args.series.chart.subTitle = "A Look at Population Rankings and Trends in 2023";
                         this.clicked = true;
                         args.series.chart.series[0].dataSource = [{
                                 y: 339,
@@ -324,6 +336,7 @@
                     }
                     if (args.point.index === 4) {
                         args.series.chart.title = "Top Populated Countries of Oceania - 2023";
+                        args.series.chart.subTitle = "A Look at Population Rankings and Trends in 2023";
                         this.clicked = true;
                         args.series.chart.series[0].dataSource = [{
                                 y: 26,
@@ -444,6 +457,7 @@
 
                         if (args.index === 0) {
                             args.chart.title = "Top Populated Countries of Asia - 2023";
+                            args.chart.subTitle = "A Look at Population Rankings and Trends in 2023";
                             this.clicked = true;
                             args.chart.series[0].dataSource = [{
                                 y: 1422,
@@ -481,6 +495,7 @@
                         }
                         if (args.index === 1) {
                             args.chart.title = "Top Populated Countries of Africa - 2023";
+                            args.chart.subTitle = "A Look at Population Rankings and Trends in 2023";
                             this.clicked = true;
                             args.chart.series[0].dataSource = [{
                                 y: 223,
@@ -514,6 +529,7 @@
                         }
                         if (args.index === 2) {
                             args.chart.title = "Top Populated Countries of Europe - 2023";
+                            args.chart.subTitle = "A Look at Population Rankings and Trends in 2023";
                             this.clicked = true;
                             args.chart.series[0].dataSource = [{
                                 y: 143,
@@ -543,6 +559,7 @@
                         }
                         if (args.index === 3) {
                             args.chart.title = "Top Populated Countries of North America - 2023";
+                            args.chart.subTitle = "A Look at Population Rankings and Trends in 2023";
                             this.clicked = true;
                             args.chart.series[0].dataSource = [{
                                 y: 339,
@@ -580,6 +597,7 @@
                         }
                         if (args.index === 4) {
                             args.chart.title = "Top Populated Countries of Oceania - 2023";
+                            args.chart.subTitle = "A Look at Population Rankings and Trends in 2023";
                             this.clicked = true;
                             args.chart.series[0].dataSource = [{
                                 y: 26,
@@ -604,6 +622,7 @@
         
 
         this.$refs.chart.ej2Instances.title = "Top Populated Continents of 2023";
+        this.$refs.chart.ej2Instances.subTitle = "A Look at Population Rankings and Trends in 2023";
         this.$refs.chart.ej2Instances.primaryXAxis.labelStyle.color = "blue";
         this.$refs.chart.ej2Instances.primaryYAxis.interval = 1000;
         this.$refs.chart.ej2Instances.series[0].dataSource = this.initialData;

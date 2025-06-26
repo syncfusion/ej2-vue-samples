@@ -254,24 +254,19 @@ export default {
         return false;
        },
        closeOnChange: function(args){
-          var checkObj = args.event.target.ej2_instances[0];
-          checkObj.checked ? this.apiObj.showCloseButton = true : this.apiObj.showCloseButton = false;
+           this.apiObj.showCloseButton = args.checked;
        },
        OnProgressChange: function(args){
-           var checkObj1 = args.event.target.ej2_instances[0];
-           checkObj1.checked ? this.apiObj.showProgressBar = true : this.apiObj.showProgressBar = false;
+           this.apiObj.showProgressBar = args.checked;
        },
        closeNewestOnChange: function(args){
-           var checkObj2 = args.event.target.ej2_instances[0];
-           checkObj2.checked ? this.apiObj.newestOnTop = true : this.apiObj.newestOnTop = false;
+           this.apiObj.newestOnTop = args.checked;
        },
        OnPrevDubChange: function(args){
-           var checkObj3 = args.event.target.ej2_instances[0];
-           this.prevDuplicates = checkObj3.checked;
+           this.prevDuplicates = args.checked;
        },
        OnactionBtnChange: function(args){
-           var checkObj4 = args.event.target.ej2_instances[0];
-           if (checkObj4.checked) {
+           if (args.checked) {
                this.apiObj.buttons = [{ model: { content: '<div class="e-toast-btn"> Click Here </div>' }, click: this.onActionBtnClick }];
         } else { this.apiObj.buttons = []; }
        },

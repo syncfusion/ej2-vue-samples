@@ -1,5 +1,5 @@
 <template>
-<div class="control-section">
+<div class="control-section diagram-complex-hierarchical">
   <div class="col-lg-8 control-section">
       <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'></ejs-diagram>
   </div>
@@ -82,7 +82,7 @@
 </template>
 <style scoped>
 /* Css for images in property panel  */
-.image-pattern-style {
+.diagram-complex-hierarchical .image-pattern-style {
   background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
@@ -94,23 +94,23 @@
   float: left;
 }
 
-.row {
+.diagram-complex-hierarchical .row {
   margin-left: 0px;
   margin-right: 0px;
 }
 
-.row-header {
+.diagram-complex-hierarchical .row-header {
   font-size: 15px;
   font-weight: 500;
 }
 
 /* Selection indicator */
-.e-selected-style {
+.diagram-complex-hierarchical .e-selected-style {
   border-color: #6c6c6c;
   border-width: 2px;
 }
 
-.col-xs-6 {
+.diagram-complex-hierarchical .col-xs-6 {
   padding-left: 0px;
   padding-right: 0px;
 }

@@ -2,7 +2,7 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :subTitle='subTitle' :stackLabels='stackLabels' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip' :axisLabelRender='OnChartAxisLabelRender' :legendClick='legendClick' :legendSettings='legend' >
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendClick='legendClick' :legendSettings='legend' >
             <e-series-collection>
                 <e-series :dataSource='seriesData1' type='StackingColumn' xName='x' yName='y' name='India' columnWidth=0.4 :border='border' :marker="marker" legendShape='Rectangle'> </e-series>
                 <e-series :dataSource='seriesData2' type='StackingColumn' xName='x' yName='y' name='China' columnWidth=0.4 :border='border' :marker="marker" legendShape='Rectangle'> </e-series>
@@ -12,17 +12,20 @@
     </div>
    <div id="action-description">
     <p>
-      This Vue stacked column chart visualizes global cotton production trends over the years, with data points enhanced by data labels.
+        This stacked column chart visualizes global cotton production trends over the years, with data points enhanced by data labels.
     </p>
 </div>
 <div id="description">
-  <p>
-    In this example, you can see how to render and configure the stacked column chart. The stacked column chart stacks points in the series vertically. You can also use the <code>StackingGroup</code> property to group stacked collections based on category.
-    This chart displays data labels for individual points and the total value on top of each stack.
-  </p>
-  <p>
-    <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
-  </p>
+    <p>
+        In this example, you can see how to render and configure a stacked column chart. The stacked column chart stacks
+        points in the series vertically. You can also use the <code>stackingGroup</code> property to group stacked
+        collections based on category. This chart displays data labels for individual points and the total value on top
+        of each stack.
+    </p>
+    <p>
+        <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover over a point or tap on a
+        point in touch-enabled devices.
+    </p>
    
         <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
@@ -139,7 +142,7 @@ export default {
         },
         marker: { visible: false, dataLabel: { visible: true, font: { size: Browser.isDevice ? '10px' : '12px' }}},
         cornerRadius: {topLeft: 4, topRight: 4},
-        legend: {enableHighlight : true, shapeWidth: 9, shapeHeight: 9},
+        legend: { enableHighlight : true, shapeWidth: 9, shapeHeight: 9 },
         border: {color: '#ffffff', width:1},
         width : Browser.isDevice ? '100%' : '75%',
       title: "Global Cotton Production by Country (2019–2024)",

@@ -101,7 +101,7 @@ let theme = loadChartTheme();
         animation4: { enable: true,delay: 4800,  duration: 1500 },
         animation5: { enable: true,delay: 6200,  duration: 1500 },
         width : Browser.isDevice ? '100%' : '75%',
-        title: 'Almond Yield',
+        title: 'Almond Yield Comparison Across Countries (2010–2022)',
           legend: { visible: true, enableHighlight: true },
           tooltip: {
               enable: true,

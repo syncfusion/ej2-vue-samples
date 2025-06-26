@@ -79,6 +79,16 @@ export default {
 </script>
 
 <style scoped>
+    .okIcon::before {
+    content: '\e72b';
+    font-size : 16px;
+    font-family : "e-icons"
+    }
+    .description::before {
+    content: '\e72b';
+    font-size : 16px;
+    font-family : "e-icons"
+    }
     #Indicators /deep/ .okIcon::before {
     content: '\ea84';
     font-size : 16px;

@@ -74,7 +74,7 @@
                 border: 0.5px solid #e0e0e0;
                 min-height: 40px;
             }
-            #palette-icon {
+            .diagram-swimlane #palette-icon {
                 font-size: 20px;
             }
         }

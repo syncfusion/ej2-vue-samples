@@ -106,7 +106,8 @@ import {
   Crosshair,
   Legend,
   DateTime,
-  ScrollBar
+  ScrollBar,
+  Highlight
 } from "@syncfusion/ej2-vue-charts";
 
 import { loadChartTheme } from "./theme-color";
@@ -213,11 +214,11 @@ export default {
       series: seriesData,
       animation: { enable: false },
       title: "Network Load",
-      tooltip: { enable: true, showNearestTooltip: true,header : '<b>${point.x}</b>', format : 'Server load : <b>${point.y}</b>' }
+      tooltip: { enable: true, showNearestTooltip: true,header : '<b>${point.x}</b>', format : 'Server load : <b>${point.y}</b>', enableHighlight: true }
     };
   },
   provide: {
-    chart: [LineSeries, DateTime, Legend, ScrollBar, Tooltip, Crosshair]
+    chart: [LineSeries, DateTime, Legend, ScrollBar, Tooltip, Crosshair, Highlight]
   },
   methods: {
     scrollEnd: function(args) {

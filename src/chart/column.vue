@@ -1,26 +1,27 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis'
-         :primaryYAxis='primaryYAxis' :chartArea='chartArea' :width='width' :tooltip='tooltip' :load='load' :legendSettings='legend'>
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :subTitle='subTitle' :primaryXAxis='primaryXAxis'
+         :primaryYAxis='primaryYAxis' :chartArea='chartArea' :width='width' :tooltip='tooltip' :load='load' :axisLabelRender='axisLabelRender' :tooltipRender='tooltipRender' :legendSettings='legendSettings'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Column' xName='Country' yName='GoldMedal' name='Gold' width=2 :marker='marker' tooltipMappingName='MappingName' columnSpacing='0.1'> </e-series>
-                <e-series :dataSource='seriesData' type='Column' xName='Country' yName='SilverMedal' name='Silver' width=2 :marker='marker' tooltipMappingName='MappingName' columnSpacing='0.1'> </e-series>
-                <e-series :dataSource='seriesData' type='Column' xName='Country' yName='BronzeMedal' name='Bronze' width=2 :marker='marker' tooltipMappingName='MappingName' columnSpacing='0.1'> </e-series>
+                <e-series :dataSource='seriesData' type='Column' xName='country' yName='walnuts' name='Walnuts' legendShape='Rectangle' columnSpacing=0.4 :cornerRadius='cornerRadius'> </e-series>
+                <e-series :dataSource='seriesData' type='Column' xName='country' yName='almonds' name='Almonds' legendShape='Rectangle' columnSpacing=0.4 :cornerRadius='cornerRadius'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-      This Vue column chart example visualizes the medal count from the Rio Olympics with the default column series in the chart.
+        This Vue column chart example visualizes the production of Walnuts and Almonds for different countries in 2023.
     </p>
 </div>
 <div id="description">
     <p>
-      In this example, you can see how to render and configure a column chart. The column chart is used to compare the frequency, count, total, or average of data in different categories.
+        In this example, you can see how to render and configure a column chart. The column chart is used to compare the
+        frequency, count, total, or average of data in different categories.
     </p>
     <p>
-      <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
+        Tooltip is enabled in this example. To see the tooltip in action, hover over a point or tap on a point in
+        touch-enabled devices.
     </p>
     
     <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -41,7 +42,7 @@
 </style>
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, DataLabel, Tooltip, Legend, Highlight} from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, Tooltip, Legend, Highlight} from "@syncfusion/ej2-vue-charts";
 
 import { loadChartTheme } from "./theme-color";
 let theme = loadChartTheme();
@@ -54,60 +55,57 @@ export default {
   },
   data: function() {
     return {
-         theme: theme,
-      seriesData: [
-        { Country : "GBR", GoldMedal : 27, SilverMedal : 23, BronzeMedal : 17, MappingName : "Great Britain" },
-        { Country : "CHN", GoldMedal : 26, SilverMedal : 18, BronzeMedal : 26, MappingName : "China" },
-        { Country : "AUS", GoldMedal : 8, SilverMedal : 11, BronzeMedal : 10, MappingName : "Australia" },
-        { Country : "RUS", GoldMedal : 19, SilverMedal : 17, BronzeMedal : 20, MappingName : "Russia" },
-        { Country : "GER", GoldMedal : 17, SilverMedal : 10, BronzeMedal : 15, MappingName : "Germany" },
-        { Country : "UA", GoldMedal : 2, SilverMedal : 5, BronzeMedal : 24, MappingName : "Ukraine" },       
-        { Country : "ES", GoldMedal : 7, SilverMedal : 4, BronzeMedal : 6, MappingName : "Spain" },
-        { Country : "UZB", GoldMedal : 4, SilverMedal : 2, BronzeMedal : 7, MappingName : "Uzbekistan" },
-        { Country : "JPN", GoldMedal : 12, SilverMedal : 8, BronzeMedal : 21, MappingName : "Japan" },
-        { Country : "NL", GoldMedal : 46, SilverMedal : 37, BronzeMedal : 38, MappingName : "NetherLand" },
-        { Country : "USA", GoldMedal : 8, SilverMedal : 7, BronzeMedal : 4, MappingName : "United States" },
-      ],
+        theme: theme,
+        seriesData: [
+          { country: 'Chile', walnuts: 175000, almonds: 11300 },
+          { country: 'European Union', walnuts: 140000, almonds: 135000 },
+          { country: 'Turkey', walnuts: 67000, almonds: 24000 },
+          { country: 'India', walnuts: 33000, almonds: 4200 },
+          { country: 'Australia', walnuts: 12000, almonds: 154000 }
+        ],
 
       //Initializing Primary X Axis
         primaryXAxis: {
-             valueType: 'Category', interval: 1, majorGridLines: { width: 0 }, majorTickLines: { width: 0 }, labelIntersectAction: Browser.isDevice ? 'None' : 'Rotate45', labelRotation: Browser.isDevice ? -45 : 0 ,
+            valueType: 'Category',
+            interval: 1,
+            labelIntersectAction: Browser.isDevice ? 'None' : 'Trim',
+            labelRotation: Browser.isDevice ? -45 : 0,
+            majorGridLines: { width: 0 },
+            majorTickLines: { width: 0 }
         },
-        chartArea: { border: { width: 0 } },
-
+        chartArea: { border: { width: 0 }, margin: { bottom: 12 } },
       //Initializing Primary Y Axis
-          primaryYAxis:
+        primaryYAxis:
         {
-             title: 'Medal Count',
-             maximum: 50,
-             interval: 10,
-             majorTickLines: { width: 0 }, lineStyle: { width: 0 }, 
+            title: 'Metric Tons',
+            interval: 40000,
+            majorTickLines: { width: 0 },
+            lineStyle: { width: 0 } 
         },
-
-       width : Browser.isDevice ? '100%' : '75%',
-     marker:
-           {  dataLabel: { visible: false, position: 'Top', font: { fontWeight: '600', color: '#ffffff' } }},
-      legend: {enableHighlight : true},
-      tooltip: { 
-            enable: true,
-            header: '<b>${point.tooltip}</b>',
-            shared: true
-         }, 
-      title: "Olympic Medal Counts - RIO",
+        width : Browser.isDevice ? '100%' : '75%',
+        cornerRadius: { topLeft: 4, topRight: 4 },
+        title: 'Walnuts and Almonds Estimated Production for 2023',
+        subTitle: 'Source: fas.usda.gov',
+        tooltip: { enable: true, header: '<b>${point.x}</b>', format: '${series.name}: <b>${point.y}</b>', enableHighlight: true },
+        legendSettings: { visible: true, enableHighlight: true, shapeWidth: 9, shapeHeight: 9 }
     };
   },
   provide: {
-    chart: [ColumnSeries, Legend, DataLabel, Category, Tooltip, Highlight]
+    chart: [ColumnSeries, Legend, Category, Tooltip, Highlight]
   },
   methods: {
-    load: function(args) {
-        let selectedTheme = loadChartTheme(args);
-         if (selectedTheme === 'HighContrast') {
-            args.chart.series[0].marker.dataLabel.font.color = '#000000';
-            args.chart.series[1].marker.dataLabel.font.color = '#000000';
-            args.chart.series[2].marker.dataLabel.font.color = '#000000';
-            }
-    }
+      axisLabelRender: function (args) {
+        let value = parseInt(args.text.replace(/,/g, ''), 10);
+        if (value >= 1000) {
+            args.text = value / 1000 + 'K';
+          }
+        },
+      tooltipRender: function (args) {
+        if (args.text) {
+            var value = args.point.y.toLocaleString('en-US');
+            args.text = args.series.name + ": <b>" + value + "</b>";
+        }
+      }
   },
  
 };

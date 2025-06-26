@@ -101,7 +101,7 @@
     margin-right: 0px;
 }
 
-table{
+#tooltipDiagramSection table{
     border-collapse: separate;
 }
 

@@ -31,7 +31,7 @@
             <ul>
               <li>Client-side exporting</li>
               	<ul>
-                  <li>Syncfusion<sup>®</sup> Document Text (*.sfdt)</li>
+                  <li>Syncfusion Document Text (*.sfdt)</li>
                   <li>Word Document (*.docx)</li>
                   <li>Word Template (*.dotx)</li>
                   <li>Plain Text (*.txt)</li>
@@ -133,7 +133,7 @@ export default {
             dataSource: [
                 {
                     class: 'data',
-                    text: 'Syncfusion® Document Text (*.sfdt)',
+                    text: 'Syncfusion Document Text (*.sfdt)',
                     id: 'sfdt',
                     category: 'Client side exporting',
                 },
@@ -201,7 +201,7 @@ export default {
             printIconCss: 'e-de-icon-Print e-de-padding-right',
             exportIconCss: 'e-de-icon-Download e-de-padding-right',
             exportItems: [
-                { text: 'Syncfusion® Document Text (*.sfdt)', id: 'sfdt' },
+                { text: 'Syncfusion Document Text (*.sfdt)', id: 'sfdt' },
                 { text: 'Word Document (*.docx)', id: 'word' },
                 { text: 'Word Template (*.dotx)', id: 'dotx' },
                 { text: 'Plain Text (*.txt)', id: 'txt' },

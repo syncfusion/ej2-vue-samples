@@ -1,5 +1,5 @@
 <template>
-  <div class="control-section">
+  <div class="control-section diagram-default-functionality">
     <div>
       <ejs-toolbar
         id="toolbar"
@@ -53,7 +53,7 @@
     <div style="width: 100%">
       <div class="sb-mobile-palette-bar">
         <div
-          id="palette-icon"
+          id="palette-icon-default"
           ref="paletteIcon"
           role="button"
           class="e-ddb-icons1 e-toggle-palette"
@@ -88,6 +88,7 @@
           :getNodeDefaults="getNodeDefaults"
           :getConnectorDefaults="getConnectorDefaults"
           :dragEnter="dragEnter"
+          :textEdit="textEdit"
           :selectionChange="selectionChange"
           :historyChange="historyChange"
           :snapSettings="snapSettings"
@@ -143,24 +144,24 @@
 </template>
 <style scoped>
 /*To align palette */
-.sb-mobile-palette {
+.diagram-default-functionality .sb-mobile-palette {
   width: 240px;
   height: 100%;
   float: left;
 }
 
-.sb-mobile-palette-bar {
+.diagram-default-functionality .sb-mobile-palette-bar {
   display: none;
 }
 /*To align diagram */
-.sb-mobile-diagram {
+.diagram-default-functionality .sb-mobile-diagram {
   width: calc(100% - 242px);
   height: 100%;
   float: left;
 }
 
 @media (max-width: 550px) {
-  .sb-mobile-palette {
+  .diagram-default-functionality .sb-mobile-palette {
     z-index: 19;
     position: absolute;
     display: none;
@@ -169,7 +170,7 @@
     height: 100%;
   }
 
-  .sb-mobile-palette-bar {
+  .diagram-default-functionality .sb-mobile-palette-bar {
     display: block;
     width: 100%;
     background: #fafafa;
@@ -178,19 +179,19 @@
     min-height: 40px;
   }
 
-  .sb-mobile-diagram {
+  .diagram-default-functionality .sb-mobile-diagram {
     width: 100%;
     height: 100%;
     float: left;
     left: 0px;
   }
 
-  #palette-icon {
+  #palette-icon-default {
     font-size: 20px;
   }
 }
 
-.sb-mobile-palette-open {
+.diagram-default-functionality .sb-mobile-palette-open {
   position: absolute;
   display: block;
   right: 15px;
@@ -330,6 +331,9 @@ import {
   DiagramTools,
   GridlinesModel,
   FlipDirection,
+  UndoRedo,
+  Node,
+  Connector,
 } from "@syncfusion/ej2-vue-diagrams";
 import { Uploader, UploaderComponent } from "@syncfusion/ej2-vue-inputs";
 import {
@@ -487,7 +491,9 @@ function getNodeDefaults(node) {
   if (node.width === undefined) {
     node.width = 145;
   }
-  node.style = { fill: "#357BD2", strokeColor: "white" };
+  if (node.shape.type !== 'Text') {
+    node.style = { fill: "#357BD2", strokeColor: "white" };
+  }
   for (let i = 0; i < node.annotations.length; i++) {
     node.annotations[i].style = {
       color: "white",
@@ -574,6 +580,13 @@ export default {
       },
       dragEnter: (args) => {
         return dragEnter(args);
+      },
+     textEdit: (args) => {
+        var obj = args.element;
+        obj.annotations[0].style = {
+            color: 'white',
+            fill: 'transparent',
+        };
       },
       expandMode: "Multiple",
       palettes: [
@@ -662,6 +675,27 @@ export default {
               .click();
             break;
         }
+        var selectedItems = diagram.selectedItems.nodes;
+            selectedItems = selectedItems.concat(diagram.selectedItems.connectors);
+        if (selectedItems) {
+          var obj = selectedItems[0];
+          if (obj instanceof Node) {
+              if (obj.constraints === (NodeConstraints.PointerEvents | NodeConstraints.Select | NodeConstraints.ReadOnly)) {
+                updateToolbarItems(["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects"], true);
+              }
+              else {
+                enableItems();
+              }
+          }
+          else if (obj instanceof Connector) {
+              if (obj.constraints === (ConnectorConstraints.PointerEvents | ConnectorConstraints.Select | ConnectorConstraints.ReadOnly)) {
+              updateToolbarItems(["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects"], true);
+              }
+              else {
+                enableItems();
+              }
+          }
+        }
         diagram.dataBind();
       },
       //To enable and disable toolbar items based on selection changes
@@ -672,7 +706,7 @@ export default {
             diagram.selectedItems.connectors
           );
           if (selectedItems.length === 0) {
-            updateToolbarItems(["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects",], true);
+            updateToolbarItems(["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects"], true);
             disableMultiselectedItems();
           }
           if (selectedItems.length === 1) {
@@ -1041,7 +1075,7 @@ export default {
     };
   },
   provide: {
-    diagram: [PrintAndExport],
+    diagram: [PrintAndExport,UndoRedo],
   },
   mounted: function () {
     diagram = this.$refs.diagramObject.ej2Instances;
@@ -1168,7 +1202,7 @@ function lockObject(args) {
       isChecked = false;
     }
   }
-  updateToolbarItems(["Cut", "Copy", "Delete", "orderCommands", "rotateObjects", "flipObjects"],isChecked);
+  updateToolbarItems(["Cut", "Copy", "Delete", "orderCommands", "rotateObjects", "flipObjects"], isChecked);
   diagram.dataBind();
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "29.1.33",
+  "version": "30.1.37",
   "description": "Examples of Vue UI Components",
   "keywords": [],
   "dependencies": {
@@ -42,6 +42,7 @@
     "@syncfusion/ej2-vue-image-editor": "*",
     "@syncfusion/ej2-vue-multicolumn-combobox": "*",
     "@syncfusion/ej2-vue-interactive-chat": "*",
+    "@syncfusion/ej2-vue-blockeditor": "*",
     "@xenova/transformers": "^2.17.2",
     "form-data": "^4.0.0",
     "openai": "^4.57.3",

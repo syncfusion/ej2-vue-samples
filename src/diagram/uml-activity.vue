@@ -29,13 +29,12 @@
     <!-- Descriptions for the Action and the Diagram -->
     <div id="action-description">
       <p>
-        This sample represents the message flow from one activity to another in customer service using built-in UML
-        activity shapes.
+        This sample represents the message flow from one activity to another in customer service using built-in UML activity shapes.
       </p>
     </div>
     <div id="description">
       <p>
-        This example shows how to create activity shapes using diagram <code>UmlActivity</code> shapes. The
+         This example shows how to create activity shapes using diagram <code>UmlActivity</code> shapes. The
         <code>type</code> property of the <code>shape</code> can be used to create <code>UmlActivity</code> nodes. The
         <code>shape</code> property of the shape allows you to create UML
         activity shapes.
@@ -93,7 +92,7 @@
     left: 0px;
   }
 
-  #palette-icon {
+  #umlActivityDiagram #palette-icon {
     font-size: 20px;
   }
 }

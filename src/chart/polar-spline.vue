@@ -98,7 +98,7 @@ export default {
       },
 
       tooltip: {
-        enable: true
+        enable: true, enableHighlight: true
       },
        
       polardata : [ 'Polar', 'Radar' ],

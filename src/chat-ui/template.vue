@@ -66,7 +66,7 @@ export default {
             showFooter: false,
             templateMessages: data['templateMessagedata'],
             bot: {id: 'bot', user: 'Bot', avatarUrl: 'src/chat-ui/images/bot.png' },
-            botAdmin: {id: 'admin', user: 'Admin', avatarUrl: '/src/chat-ui/images/bot.png' }
+            botAdmin: {id: 'admin', user: 'Admin', avatarUrl: 'src/chat-ui/images/bot.png' }
         }
     },
     methods: {
@@ -90,7 +90,7 @@ export default {
         },
         handleSuggestionClick: function(suggestion) {
             let templateChatUI = this.$refs.templateChatUI.ej2Instances;
-            const message = this.templateMessages.find((message) => message.text === suggestion.innerText);
+            const message = this.templateMessages.find((message) => message.text.toLowerCase() === suggestion.innerText.toLowerCase());
             if (message) {
                 templateChatUI.addMessage(message.text);
                 setTimeout(() => {
@@ -144,7 +144,7 @@ export default {
     }
 
     .template-chatui .chat-bot {
-        background-image: url('/src/chat-ui/images/bot.png');
+        background-image: url('./images/bot.png');
         background-color: unset;
     }
 

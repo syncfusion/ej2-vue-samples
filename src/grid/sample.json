@@ -57,6 +57,15 @@
             "api": { "Grid": ["columns", "dataSource","allowPaging", "pageSettings"] }
         },
         {
+            "url": "chart",
+            "name": "Integrate Chart in Grid",
+            "type": "new",
+            "category": "Data Grid",
+            "description": "This demo of the Essential JS 2 Grid component showcases the visual representation of data using a chart.",
+            "hideOnDevice": true,
+            "api": { "Grid": ["contextMenuItems", "columns", "dataSource", "allowSelection", "selectionSettings", "contextMenuClick", "enablePropertyPanel", "allowExport", "enableRtl", "locale"] }
+        },
+        {
             "url": "local-data",
             "name": "Local Data",
             "category": "Data Binding",
@@ -68,7 +77,6 @@
             "url": "remote-data",
             "name": "Remote Data",
             "category": "Data Binding",
-            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows how to consume data from a remote data service.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
@@ -113,7 +121,6 @@
             "url": "stacked-header",
             "name": "Stacked Header",
             "category": "Columns",
-            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows the usage of the stacked header feature.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
@@ -313,7 +320,6 @@
             "url": "filter-menu",
             "name": "Filter Menu",
             "category": "Filtering",
-            "type": "update",
             "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowFiltering", "allowSorting"] },

@@ -88,8 +88,7 @@
     color: rgba(0, 0, 0, .35) !important;
 }
 .e-multiselect {
-    padding-top: 0px !important;
-    padding-left: 0px !important;
+    padding: 0px 0px 0px 0px !important;
 }
 </style>
 <!-- custom code end -->

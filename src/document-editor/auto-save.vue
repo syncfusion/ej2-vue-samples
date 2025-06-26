@@ -1,15 +1,22 @@
 <template>
 <div>
     <div class="col-lg-9 control-section">
-        <div class="default-section">
+<div class="flex-container">
+                <label class="switchLabel" for="checked">Ribbon UI</label>
+                <div class="e-message render-mode-info">
+                    <span class="e-msg-icon render-mode-info-icon" title="Turn OFF to switch from Ribbon to toolbar UI"></span>
+                </div>
+                <ejs-switch cssClass="buttonSwitch" id="toolbarSwitch" :change="change" :checked="true"></ejs-switch>
+            </div>
+                    <div class="default-section">
             <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
                 <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
                     <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle">{{documentName}}</label>
                 </div>
-                <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
+                <ejs-button ref="de-print" id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
                 <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>
             </div>
-            <ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl"  :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>
+            <ejs-documenteditorcontainer ref="doceditcontainer" :toolbarMode="'Ribbon'" :serviceUrl="hostUrl"  :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>
         </div>
     </div>
     <div class="col-lg-3 property-section">
@@ -43,6 +50,41 @@
 </div>
 </template>
 <style>
+.flex-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.render-mode-info {
+    background: none;
+    border: none;
+    padding-left: 0px;
+}
+
+.render-mode-info .render-mode-info-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.switchLabel {
+    font-family: "Segoe UI", "GeezaPro", "DejaVu Serif", sans-serif;        
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.24px;
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.render-mode-info .render-mode-info-icon::before {
+    line-height: normal;
+}
+
+.buttonSwitch {
+    Width: 40px;
+    Height: 24px;
+}
 
 #documenteditor_titlebar {
     height: 36px;
@@ -104,16 +146,17 @@
 
 </style>
 <script>
-import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
+import { DocumentEditorContainerComponent, Toolbar, Ribbon } from "@syncfusion/ej2-vue-documenteditor";
 import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
-import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent, SwitchComponent } from "@syncfusion/ej2-vue-buttons";
 import { defaultDocument } from "./data";
 
 export default {
     components: {
         'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
         'ejs-dropdownbutton': DropDownButtonComponent,
-        'ejs-button': ButtonComponent
+        'ejs-button': ButtonComponent,
+        'ejs-switch': SwitchComponent
     },
     data: function() {
         return {
@@ -127,7 +170,7 @@ export default {
             printIconCss: 'e-de-icon-Print e-de-padding-right',
             exportIconCss: 'e-de-icon-Download e-de-padding-right',
             exportItems: [
-                { text: 'Syncfusion® Document Text (*.sfdt)', id: 'sfdt' },
+                { text: 'Syncfusion Document Text (*.sfdt)', id: 'sfdt' },
                 { text: 'Word Document (*.docx)', id: 'word' },
                 { text: 'Word Template (*.dotx)', id: 'dotx' },
                 { text: 'Plain Text (*.txt)', id: 'txt' },
@@ -135,7 +178,7 @@ export default {
         };
     },  
     provide:{
-        DocumentEditorContainer:[Toolbar]
+        DocumentEditorContainer:[Toolbar,Ribbon]
     },
       methods: {
         onExport: function (args) {
@@ -193,6 +236,15 @@ export default {
         titleBarClickEvent: function () {
             this.updateDocumentEditorTitle();
         },
+        showButtons: function(show) {
+          var displayStyle = show ? 'block' : 'none';
+          if (this.$refs['de-print']) {
+            this.$refs['de-print'].$el.style.display = displayStyle;
+          }
+          if (this.$refs['de-export']) {
+            this.$refs['de-export'].$el.style.display = displayStyle;
+          }
+        },
         clearLog: function() {
             document.getElementById('AutosaveLog').innerHTML = '';
         },
@@ -206,6 +258,15 @@ export default {
             this.documentTitle = obj.documentName === '' ? 'Untitled Document' : obj.documentName;
             document.getElementById("documenteditor_title_name").textContent = obj.documentName ;
             setTimeout(() => { obj.scrollToPage(1); }, 10);
+        },
+    change: function (args) {
+            var container = this.$refs.doceditcontainer.ej2Instances;
+            if (args.checked) {
+                container.toolbarMode = "Ribbon";
+            } else {
+                container.toolbarMode = "Toolbar";
+            }
+            this.showButtons(container.toolbarMode != "Ribbon");     
         }
     },
     mounted() {
@@ -217,6 +278,7 @@ export default {
           this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
             };
+            this.showButtons(this.$refs.doceditcontainer.ej2Instances.toolbarMode != "Ribbon");
             setInterval(() => {
                 if (this.contentChanged) {
                     //You can save the document as below

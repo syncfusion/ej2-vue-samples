@@ -46,7 +46,7 @@
           <div v-if="data.ganttProperties.resourceInfo">
             <span v-for="resource in data.ganttProperties.resourceInfo">
               <img :src="'src/gantt/images/' + resource.resourceName + '.png'"
-              style="height: 20px;" :alt="resource.resourceName"/>
+              style="height: 40px;" :alt="resource.resourceName"/>
               <span style="marginLeft:5px;marginRight:5px">{{ resource.resourceName }}</span>
             </span>
           </div>

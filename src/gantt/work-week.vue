@@ -17,7 +17,7 @@
         </ejs-gantt>
         </div>
     </div>
-        <div class="col-md-4 property-section">
+        <div class="col-md-4 property-section" style="padding-left: 0px;">
             <table id="property" title="Properties" style="width: 100%;">
                 <colgroup>
                     <col style="width:30%" />
@@ -33,17 +33,40 @@
                     </div>
                     </td>
                  </tr>
+                 <tr>
+                    <td style="width: 42%; padding-top: 10px; padding-bottom: 10px;">
+                        <div>Show Weekends</div>
+                    </td>
+                    <td style="width: 70%;padding-bottom: 10px;">
+                        <div style="padding-top: 0px">
+                        <ejs-checkbox ref="showWeekendsCheck" class="checkbox" id="showWeekends" :checked="true" :change="showWeekendsCheckbox">
+                        </ejs-checkbox>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 30%;padding-top: 10px; padding-bottom: 10px;">
+                        <div>Highlight Weekends</div>
+                    </td>
+                    <td style="width: 70%">
+                        <div style="padding-top: 0px">
+                        <ejs-checkbox ref="highlightWeekendsCheck" class="checkbox" id="highlightWeekends" :checked="true" :change="highlightWeekendsCheckbox">
+                        </ejs-checkbox>
+                        </div>
+                    </td>
+                </tr>
             </table>
         </div>
-    <div id="action-description">
-    <p>This sample visualizes the support for changing different set of working days in a week. The selected working days in drop down list will be applied to Gantt chart.</p>
+        <div id="action-description">
+        <p>This sample demonstrates how to adjust the working days within a week and manage the visibility of non-working days in the timeline, enabling customized project scheduling.</p>
     </div>
 <div id="description">
     <p>
-        In this example, you can see how to render a Gantt chart with the provided data source and customizable array of working days. These working days alone will be considered for taskbar rendering and duration calculations.        
-    </p>
+        In this example, you can customize which days of the week are considered working days using the <a target="_blank" href="https://helpej2.syncfusion.com/angular/documentation/api/gantt/#workweek">workWeek</a> property. 
+        Simply select your preferred working days from the dropdown list in the property panel, and they will be applied to the Gantt Chart. Weekends can be highlighted using the <a target="_blank" href="https://helpej2.syncfusion.com/angular/documentation/api/gantt/#highlightweekends">highlightweekends</a> property for easy identification.     
+    </p>        
     <p>
-        The working days in your project can be customized using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#workweek">workWeek</a> property and the selected days in the dropdown list available in the property panel will be applied to Gantt chart. You can get to know the working days in the Gantt chart timeline by the highlighted weekend days. This can be enabled by using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#highlightweekends">highlightWeekends</a> property
+        Non-working days are visible by default in the Gantt Chart timeline, their visibility can be customized using the <a target="_blank" href="https://ej2.syncfusion.com/angular/documentation/api/gantt/timelineSettingsModel/#showWeekend">timelineSettings.showWeekend</a> property. Setting this to false will hide non-working days from the timeline.
     </p>
 </div>
 </div>
@@ -53,12 +76,13 @@ import { extend } from '@syncfusion/ej2-base';
 import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
 import { MultiSelectComponent, CheckBoxSelection } from '@syncfusion/ej2-vue-dropdowns';
-
+import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
 
 export default {
   components: {
     'ejs-gantt': GanttComponent,
-    'ejs-multiselect': MultiSelectComponent
+    'ejs-multiselect': MultiSelectComponent,
+    'ejs-checkbox': CheckBoxComponent
   },
   data: function() {
       return{
@@ -122,6 +146,20 @@ export default {
            let index = this.$refs.gantt.ej2Instances.workWeek.indexOf(e.itemData.day);
             if (index !== -1) {
                 this.$refs.gantt.ej2Instances.workWeek = this.$refs.multiselect.ej2Instances.value;
+            }
+        },
+        showWeekendsCheckbox: function () {
+            if (this.$refs.showWeekendsCheck.ej2Instances.checked) {
+                this.$refs.gantt.ej2Instances.timelineSettings.showWeekend = true;
+            } else {
+                this.$refs.gantt.ej2Instances.timelineSettings.showWeekend = false;
+            }
+        },
+        highlightWeekendsCheckbox: function () {
+            if (this.$refs.highlightWeekendsCheck.ej2Instances.checked) {
+                this.$refs.gantt.ej2Instances.highlightWeekends = true;
+            } else {
+                this.$refs.gantt.ej2Instances.highlightWeekends = false;
             }
         }
     }

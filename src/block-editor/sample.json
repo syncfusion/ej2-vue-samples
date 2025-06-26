@@ -1,0 +1,43 @@
+{
+    "name": "Block Editor",
+    "directory": "block-editor",
+    "category": "File Viewers & Editors",
+    "ftName": "block-editor",
+    "type": "preview",
+    "dataSourcePath": "src/block-editor/blockData.json",
+    "samples": [
+        {
+            "url": "overview",
+            "name": "Overview",
+            "category": "Block Editor",
+            "api":{ "BlockEditor": ["blocks"] },
+            "description": "This demo describes basic and advanced features of the Block Editor control with all its tools and functionalities.",
+            "sourceFiles": [
+                { "displayName": "overview.vue", "path":"src/block-editor/overview.vue" },
+                { "displayName": "blockData.json", "path":"src/block-editor/blockData.json" }
+            ]
+        },
+        {
+            "url": "api",
+            "name": "API",
+            "category": "Block Editor",
+            "api":{ "BlockEditor": ["blocks", "readOnly", "enableDragDrop", "enableHtmlEncode", "getJsonData", "getBlockCount", "selectAllBlocks", "focusIn", "focusOut"] },
+            "description": "This demo covers important APIs of the JS Block Editor such as HTML encoding, read-only, Drag and Drop, and more.",
+            "sourceFiles": [
+                { "displayName": "api.vue", "path":"src/block-editor/api.vue" },
+                { "displayName": "blockData.json", "path":"src/block-editor/blockData.json" }
+            ]
+        },
+        {
+            "url": "events",
+            "name": "Events",
+            "category": "Block Editor",
+            "api":{ "BlockEditor": ["blocks", "created", "contentChanged", "selectionChanged", "blockAdded", "blockRemoved", "blockMoved", "blockDrag", "blockDragStart", "blockDrop", "focus", "blur"] },
+            "description": "This demo showcases how to handle and interact with various event actions provided by the Block Editor component.",
+            "sourceFiles": [
+                { "displayName": "events.vue", "path":"src/block-editor/events.vue" },
+                { "displayName": "blockData.json", "path":"src/block-editor/blockData.json" }
+            ]
+        }
+    ]
+}

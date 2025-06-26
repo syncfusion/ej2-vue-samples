@@ -8,7 +8,7 @@
         :allowSorting='true' :filterSettings='filterSettings' :queryCellInfo='queryCellInfo' >
             <e-columns>
                 <e-column field='name' headerText='Province' width='210' :template="flagtemplate" :filter="{ type:'Excel', itemTemplate:flagtemplate }"></e-column>
-                <e-column field='population' headerText='Population (Million)' width='188' textAlign='Right'></e-column>
+                <e-column field='population' headerText='Population (Million)' width='250' textAlign='Right'></e-column>
                 <e-column field='gdp' headerText='GDP Rate %' :template='gdpTemplate' width='150'></e-column>
                 <e-column field='rating' headerText='Credit Rating' width='150' :template='ratingTemplate' :allowFiltering='false'></e-column>
                 <e-column field='unemployment' headerText='Unemployment Rate' :allowFiltering='false' width='170' :template='unemploymentTemplate'></e-column>
@@ -51,6 +51,7 @@
         background-color: #C3F1D0;
         color: #00752F;
         width: 47px;
+        background-color: inherit !important;
     }
      /deep/ .material3-dark .rating .star.checked, .material3 .rating .star.checked {
         color: #6750A4;
@@ -64,7 +65,7 @@
         background-color: rgba(242, 184, 181, 1);
     }
     
-    /deep/ .e-bigger.tailwind .e-grid .statustemp, .e-bigger.tailwind-dark .e-grid .statustemp,
+    /deep/ .e-bigger.tailwind3 .e-grid .statustemp, .e-bigger.tailwind3-dark .e-grid .statustemp,
     .e-bigger.bootstrap5 .e-grid .statustemp, .e-bigger.bootstrap5-dark .e-grid .statustemp{
         padding-top: 1px;
     }
@@ -131,15 +132,57 @@
     /deep/ #myBar.progressdisable {
         background-color: #df2222;
     }
-    /deep/ .tailwind .e-grid #coordinates.e-checkbox-wrapper .e-label, .e-css.e-checkbox-wrapper .e-label,
-    .tailwind-dark .e-grid #coordinates.e-checkbox-wrapper .e-label, .e-css.e-checkbox-wrapper .e-label {
+    /deep/ .tailwind3 .e-grid #coordinates.e-checkbox-wrapper .e-label, .e-css.e-checkbox-wrapper .e-label,
+    .tailwind3-dark .e-grid #coordinates.e-checkbox-wrapper .e-label, .e-css.e-checkbox-wrapper .e-label {
         display: inline;
     }
     /deep/ #coordinates .e-treeoverview {
         filter: brightness(180%);
     }
-    .e-bigger .e-grid .e-rowcell {
+    /deep/ .e-bigger .e-grid .e-rowcell {
         line-height: 24px;
+    }
+    /deep/ td.e-rowcell .statustxt {
+        color: #00cc00;
+        position: relative;
+        background: #c3f1d0;
+        border-radius: 18px;
+        padding: 1px 5px 3px 7px;
+    }
+    /deep/ td.e-rowcell .statustxt.e-lowgdp {
+        color: #e60000;
+        position: relative;
+        background: #ffd7cc;
+        border-radius: 18px;
+        padding: 1px 5px 3px 7px;
+    }
+    /deep/ .tailwind3 .statustxt,
+    .tailwind3-dark .statustxt,
+    .material .statustxt,
+    .material3 .statustxt,
+    .material-dark .statustxt,
+    .material3-dark .statustxt,
+    .bootstrap4 .statustxt,
+    .bootstrap .statustxt,
+    .bootstrap-dark .statustxt {
+        color: #00cc00;
+        position: relative;
+        background: #c3f1d0;
+        border-radius: 18px;
+        padding: 2px 5px 2px 7px;
+    }
+    /deep/ .tailwind3 .statustxt.e-lowgdp,
+    .tailwind3-dark .statustxt.e-lowgdp,
+    .material .statustxt.e-lowgdp,
+    .material-dark .statustxt.e-lowgdp,
+    .bootstrap4 .statustxt.e-lowgdp,
+    .bootstrap .statustxt.e-lowgdp,
+    .bootstrap-dark .statustxt.e-lowgdp {
+        color: #e60000;
+        position: relative;
+        background: #ffd7cc;
+        border-radius: 18px;
+        padding: 2px 5px 2px 7px;
     }
 </style>
 <script lang="ts">

@@ -1,27 +1,25 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legend'>
+        <ejs-chart style='display:block' align='center' :theme='theme' id='chartcontainer' :title='title' :subTitle='subTitle' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legend' :legendClick='legendClick' :tooltipRender='tooltipRender'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='StackingBar100' xName='Month' yName='AppleSales' name='Apple' width=2 columnWidth=0.6 :border='border'> </e-series>
-                <e-series :dataSource='seriesData' type='StackingBar100' xName='Month' yName='OrangeSales' name='Orange' width=2 columnWidth=0.6 :border='border'> </e-series>
-                <e-series :dataSource='seriesData' type='StackingBar100' xName='Month' yName='Wastage' name='Wastage' width=2 columnWidth=0.6 :border='border'> </e-series>
-               
+                <e-series :dataSource='seriesData1' type='StackingBar100' xName='x' yName='y' name='Wind' columnWidth=0.6 :border='border' legendShape='Rectangle'> </e-series>
+                <e-series :dataSource='seriesData2' type='StackingBar100' xName='x' yName='y' name='Solar' columnWidth=0.6 :border='border' legendShape='Rectangle'> </e-series>
+                <e-series :dataSource='seriesData3' type='StackingBar100' xName='x' yName='y' name='Hydro' columnWidth=0.6 :border='border' legendShape='Rectangle' :cornerRadius='cornerRadius'> </e-series>           
             </e-series-collection>
         </ejs-chart>
     </div>
   <div id="action-description">
     <p>
-      This Vue 100% stacked bar chart example visualizes a comparison of sales percentages over several months with a default 100% stacked bar series. The legend in the sample shows more information about the series.
+        This Vue 100% stacked bar chart example visualizes the comparison of renewable energy generation in China from 2020 to 2023, segmented by wind, solar, and hydro sources, using a default 100% stacked bar series. The legend provides additional information about the series.
     </p>
 </div>
 <div id="description">
     <p>
-      In this example, you can see how to render and configure the 100% stacked bar chart. The 100% stacked bar chart displays multiple series of data as stacked bars, ensuring that the cumulative value of each stacked element always totals 100%.
-    </p>
+        In this example, you can see how to render and configure the 100% stacked bar chart. The 100% stacked bar chart displays multiple series of data as stacked bars, ensuring that the cumulative value of each stacked element always totals 100%.</p>
     <p>
-      <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch-enabled devices.
+        <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover over a point or tap on a point in touch-enabled devices.
     </p>
     
     <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -56,54 +54,133 @@ export default {
   },
   data: function() {
     return {
-         theme: theme,
-      seriesData: [
-      { Month : "Jan", AppleSales : 6, OrangeSales : 6, Wastage : 1 },
-        { Month : "Feb", AppleSales : 8, OrangeSales : 8, Wastage : 1.5 },
-        { Month : "Mar", AppleSales : 12, OrangeSales : 11, Wastage : 2 },
-        { Month : "Apr", AppleSales : 15, OrangeSales : 16, Wastage : 2.5 },
-        { Month : "May", AppleSales : 20, OrangeSales : 21, Wastage : 3 },
-        { Month : "Jun", AppleSales : 24, OrangeSales : 25, Wastage : 3.5 }
-           ],
+        theme: theme,
+        seriesData1: [
+            { x: '2020', y: 466 },
+            { x: '2021', y: 656 },
+            { x: '2022', y: 763 },
+            { x: '2023', y: 886 }
+        ],
+        seriesData2: [
+            { x: '2020', y: 261 },
+            { x: '2021', y: 327 },
+            { x: '2022', y: 427 },
+            { x: '2023', y: 584 }
+        ],
+        seriesData3: [
+            { x: '2020', y: 1355 },
+            { x: '2021', y: 1340 },
+            { x: '2022', y: 1352 },
+            { x: '2023', y: 1286 }
+        ],
 
       //Initializing Primary X Axis
-          primaryXAxis: {
+        primaryXAxis: {
             valueType: 'Category',
             majorGridLines: { width: 0 },
             majorTickLines: { width: 0 }
         },
 
       //Initializing Primary Y Axis
-       primaryYAxis:
+        primaryYAxis:
         {
-            title: 'Sales (In Percentage)',
-            lineStyle: { width: 0},
-            majorTickLines: {width: 0},
-            labelFormat: '{value}%',
-            interval: 20,
+            lineStyle: { width: 0 },
+            majorTickLines: { width: 0 },
             edgeLabelPlacement: 'Shift'
         },
         chartArea: {
             border: {
                 width: 0
+            },
+            margin: {
+                bottom: 12
             }
         },
-        legend: {enableHighlight : true},
+        legend: {
+            enableHighlight: true,
+            shapeWidth: 9,
+            shapeHeight: 9
+        },
         tooltip: {
             enable: true,
-            format: '${point.x} : <b>${point.y} (${point.percentage}%)</b>'
-         },
-      border: {color: '#ffffff', width:1},
-      width : Browser.isDevice ? '100%' : '75%',
-      title: "Sales Comparison"
+            enableHighlight: true,
+            header: '<b>Renewable Energy Generation</b>'
+        },
+        border: { width: 1, color: "white" },
+        cornerRadius: { bottomRight: 4, topRight: 4 },
+        width : Browser.isDevice ? '100%' : '75%',
+        title: 'Annual Renewable Energy Generation in China (2020–2023) by Source',
+        subTitle: 'Source: wikipedia.org',
     };
   },
   provide: {
     chart: [StackingBarSeries, Legend, Category, Tooltip, Highlight]
   },
   methods: {
-  
-  },
+        legendClick: function (args) {
+            if (args.series.index === 0) {
+                if (args.chart.series[2].visible) {
+                    args.chart.series[2].cornerRadius.bottomRight = 4;
+                    args.chart.series[2].cornerRadius.topRight = 4;
+                    args.chart.series[0].cornerRadius.bottomRight = 0;
+                    args.chart.series[0].cornerRadius.topRight = 0;
+                } else if (args.chart.series[1].visible) {
+                    args.chart.series[1].cornerRadius.bottomRight = 4;
+                    args.chart.series[1].cornerRadius.topRight = 4;
+                    args.chart.series[0].cornerRadius.bottomRight = 0;
+                    args.chart.series[0].cornerRadius.topRight = 0;
+                } else {
+                    args.chart.series[0].cornerRadius.bottomRight = 4;
+                    args.chart.series[0].cornerRadius.topRight = 4;
+                }
+            }
+            if (args.series.index === 1) {
+                if (args.chart.series[2].visible) {
+                    args.chart.series[2].cornerRadius.bottomRight = 4;
+                    args.chart.series[2].cornerRadius.topRight = 4;
+                    args.chart.series[1].cornerRadius.bottomRight = 0;
+                    args.chart.series[1].cornerRadius.topRight = 0;
+                } else if (args.series.visible && args.chart.series[0].visible) {
+                    args.chart.series[0].cornerRadius.bottomRight = 4;
+                    args.chart.series[0].cornerRadius.topRight = 4;
+                    args.chart.series[1].cornerRadius.bottomRight = 0;
+                    args.chart.series[1].cornerRadius.topRight = 0;
+                } else {
+                    args.chart.series[1].cornerRadius.bottomRight = 4;
+                    args.chart.series[1].cornerRadius.topRight = 4;
+                    args.chart.series[0].cornerRadius.bottomRight = 0;
+                    args.chart.series[0].cornerRadius.topRight = 0;
+                }
+            }
+
+            if (args.series.index === 2) {
+                if (!args.series.visible) {
+                    args.chart.series[2].cornerRadius.bottomRight = 4;
+                    args.chart.series[2].cornerRadius.topRight = 4;
+                    args.chart.series[1].cornerRadius.bottomRight = 0;
+                    args.chart.series[1].cornerRadius.topRight = 0;
+                    args.chart.series[0].cornerRadius.bottomRight = 0;
+                    args.chart.series[0].cornerRadius.topRight = 0;
+                } else if (args.chart.series[1].visible) {
+                    args.chart.series[1].cornerRadius.bottomRight = 4;
+                    args.chart.series[1].cornerRadius.topRight = 4;
+                    args.chart.series[2].cornerRadius.bottomRight = 0;
+                    args.chart.series[2].cornerRadius.topRight = 0;
+                } else if (args.series.visible && args.chart.series[0].visible) {
+                    args.chart.series[0].cornerRadius.bottomRight = 4;
+                    args.chart.series[0].cornerRadius.topRight = 4;
+                    args.chart.series[2].cornerRadius.bottomRight = 0;
+                    args.chart.series[2].cornerRadius.topRight = 0;
+                }
+            }
+        },
+        tooltipRender: function (args) {
+            if (args.text) {
+                let value = args.point.y.toLocaleString('en-US');
+                args.text = args.series.name + ": <b>" + value + "TWh (" + args.point.percentage + "%)</b>";
+            }
+        }
+  }
  
 };
 </script>

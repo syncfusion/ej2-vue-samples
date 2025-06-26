@@ -1,5 +1,6 @@
 {
     "name": "Word Processor",
+    "type": "update",
     "directory": "document-editor",
     "category": "File Viewers & Editors",
     "ftName": "document-editor",
@@ -7,6 +8,7 @@
     "samples": [
         {
             "url": "default",
+            "type": "update",
             "name": "Default Functionalities",
             "category": "DocumentEditor",
             "description": "The Document Editor component is used to create, edit, view, and print Word documents in web applications."
@@ -21,7 +23,7 @@
             "url": "mail-merge",
             "name": "Mail Merge",
             "category": "Mail Merge",
-            "description": "The Document Editor component provides support to mail merge document with the help of Syncfusion® DocIO."
+            "description": "The Document Editor component provides support to mail merge document with the help of Syncfusion DocIO."
         },
         {
             "url": "comments",
@@ -40,6 +42,13 @@
             "name": "Document Protection",
             "category": "Security",
             "description": "The Document Editor provides document protection supports to restrict the types of changes can be made to the document by a user/user group."
+        },
+        {
+            "url": "ribbon-customization",
+            "type": "new",
+            "name": "Ribbon Customization",
+            "category": "Customization",
+            "description": "The Document editor allows to customize the built-in ribbon for better editing experience."
         },
         {
             "url": "custom-context-menu",
@@ -98,8 +107,9 @@
         {
             "url": "autoshapes",
             "name": "Auto Shapes",
+            "type": "update",
             "category": "Shapes",
-            "description": "The Document Editor component supports Auto shapes preservation",
+            "description": "The Document Editor component supports Auto shapes and Group shapes preservation",
             "api": {
                 "Editor": [
                     "insertShape"

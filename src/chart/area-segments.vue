@@ -152,7 +152,7 @@ export default {
         enable: true,
         header: '<b>Revenue</b>',
         format: '${point.x} : <b>${point.y}</b>',
-        shared: true
+        showNearestTooltip: true
     },
     title: 'US Season Retail Sales Growth',
 

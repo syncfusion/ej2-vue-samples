@@ -41,12 +41,12 @@
           <ul>
             <li><b>File Extensions</b>: Use a multi-select dropdown with checkboxes to dynamically choose the allowed file
             extensions. Supported values include <code>jpeg</code>, <code>jpg</code>, <code>png</code>,
-            <code>svg</code>, and <code>webp</code>.</li>
+            <code>svg</code>, <code>webp</code>, and <code>bmp</code>.</li>
             <li><b>File Size</b>: Numeric textboxes to set minimum and maximum file sizes dynamically.</li>
             <li><b>Dynamic Updates</b>: Changes made to the numeric textboxes or the dropdown options immediately reflect in the component's <code>uploadSettings</code>.</li>
             <li><b>Upload Settings</b>: Predefined settings include:
                 <ul>
-                    <li><b>Allowed Extensions</b>: <code>.jpeg</code>, <code>.png</code>, <code>.svg</code>, <code>.webp</code></li>
+                    <li><b>Allowed Extensions</b>: <code>.jpeg</code>, <code>.png</code>, <code>.svg</code>, <code>.webp</code>, <code>.bmp</code></li>
                     <li><b>Minimum File Size</b>: 1 KB</li>
                     <li><b>Maximum File Size</b>: 100 KB</li>
                 </ul>
@@ -80,19 +80,20 @@ export default {
       defaultUnit: "KB",
       minFileSize: 1,
       maxFileSize: 100,
-      allowedExtensions: [".jpeg", ".jpg", ".png", ".svg", ".webp"], // Default extensions
+      allowedExtensions: [".jpeg", ".jpg", ".png", ".svg", ".webp", ".bmp"], // Default extensions
       fileExtensionsList: [
         { Name: "JPEG", Value: ".jpeg" },
         { Name: "JPG", Value: ".jpg" },
         { Name: "PNG", Value: ".png" },
         { Name: "SVG", Value: ".svg" },
-	{ Name: "WebP", Value: ".webp" }
+	      { Name: "WebP", Value: ".webp" },
+        { Name: "BMP", Value: ".bmp" }
       ],
       fields: { text: "Name", value: "Value" },
       uploadSettings: {
         minFileSize: 1,
         maxFileSize: 1.5,
-        allowedExtensions: ".jpeg, .jpg, .png, .svg, .webp",
+        allowedExtensions: ".jpeg, .jpg, .png, .svg, .webp, .bmp",
       },
       units: [
         { text: "MB" },
@@ -118,7 +119,7 @@ export default {
     },
     updateAllowedExtensions(args) {
         if (args.value.length === 0) {
-          this.allowedExtensions = ".jpeg, .jpg, .png, .svg, .webp";
+          this.allowedExtensions = ".jpeg, .jpg, .png, .svg, .webp, .bmp";
         } else {
           this.allowedExtensions = args.value;
         }
@@ -159,7 +160,27 @@ export default {
             this.theme = theme
         }
     }
+  },
+  /* custom code start */
+  mounted() {
+    this.hasOpenedOnce = false;
+    this.sidebarChangeHandler = (event) => {
+      if (event.name === 'open') {
+        if (this.hasOpenedOnce) return;
+        this.hasOpenedOnce = true;
+      }
+      this.$refs.imgObj.ej2Instances.update();
+    };
+    this.$nextTick(() => {
+      const sidebarEle = document.getElementById('left-sidebar');
+      const instance = sidebarEle.ej2_instances[0];
+      instance.removeEventListener('open', this.sidebarChangeHandler);
+      instance.addEventListener('open', this.sidebarChangeHandler);
+      instance.removeEventListener('change', this.sidebarChangeHandler);
+      instance.addEventListener('change', this.sidebarChangeHandler);
+    });
   }
+  /* custom code end */
 };
 </script>
 

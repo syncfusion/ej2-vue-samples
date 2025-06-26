@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="diagram-flowchart-layout">
         <div class="control-section">
             <div class="content-wrapper" style="width:100%;background: white">
             <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height'
@@ -7,7 +7,7 @@
                 :getConnectorDefaults='getConnectorDefaults' :scrollSettings='scrollSettings'></ejs-diagram>
         </div>
         </div>
-        <div class="flow-property-section">
+        <div class="flow-property-section diagram-flowchart-property">
             <div class="property-panel-header">
                 <p>Properties</p>
             </div>
@@ -95,24 +95,24 @@
 </template>
 <style scoped>
 /* Container for diagram and property panel */
-.control-section {
+.diagram-flowchart-layout .control-section {
     width: 75%;
     float: left;
     border-right: 1px solid #D5D5D5;
     /* Keep the diagram section on the left */
 }
 
-.property-panel-header {
+.diagram-flowchart-property .property-panel-header {
     font-size: larger;
 }
 
-.input-element {
+.diagram-flowchart-property .input-element {
         margin-left: 10px;
         width: 50%;
 }
 
 /* Diagram content style */
-.content-wrapper {
+.diagram-flowchart-layout .content-wrapper {
     width: 100%;
     background: white;
     border: 1px solid #D5D5D5;
@@ -128,13 +128,13 @@
 }
 
 /* Align labels and inputs within the property panel */
-.row {
+.diagram-flowchart-property .row {
     margin-left: 0;
     margin-right: 0;
     padding-top: 8px;
 }
 
-.property-panel-content .row {
+.diagram-flowchart-property .property-panel-content .row {
     display: flex;
     align-items: center;
     margin-bottom: 8px;

@@ -116,7 +116,7 @@ export default {
         visible: false,
       },
       tooltip: {
-        enable: true, shared: true
+        enable: true, shared: true, enableHighlight: true
       },
       title: "Stock Price Analysis"
     };

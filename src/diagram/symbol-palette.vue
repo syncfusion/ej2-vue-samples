@@ -40,6 +40,14 @@
                 <ejs-checkbox id="itemtext" :change='itemTextChange'></ejs-checkbox>
             </td>
         </tr>
+        <tr>
+          <td>
+              <div>Header icon: </div>
+          </td>
+          <td>
+              <ejs-checkbox id="header" :change='headerIconchange' :checked='headerChecked'></ejs-checkbox>
+          </td>
+      </tr>
     </table>
 </div>
 <div id="action-description">
@@ -58,7 +66,11 @@
 </div>
 </div>
 </template>
-
+<style>
+.e-diagram-connector::before {
+    content: "\e725";
+}
+</style>
 <script>
 import {
   DiagramComponent,
@@ -242,6 +254,7 @@ export default {
       },
 
       animationChecked: true,
+      headerChecked:true,
       animationChange: onAnimationChange,
 
       itemTextChange: onItemTextChange,
@@ -264,7 +277,13 @@ export default {
 function onHeaderIconChange(args) {
   for (let i= 0; i < palette.palettes.length; i++) {
     if (args.checked) {
-      palette.palettes[i].iconCss = "shapes";
+      if (i === 0) {
+            palette.palettes[i].iconCss = 'e-ddb-icons e-flow';
+        } else if (i === 1) {
+            palette.palettes[i].iconCss = 'e-ddb-icons e-basic';
+        } else if (i === 2) {
+            palette.palettes[i].iconCss = 'e-ddb-icons e-diagram-connector';
+        }
     } else {
       palette.palettes[i].iconCss = "";
     }

@@ -51,15 +51,15 @@
 
 <div id="description">
     <p>
-        This CRUD operations can be configured in Gantt chart using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#editsettings">editSettings</a> and
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#allowtaskbardraganddrop">allowTaskbarEditing</a>. Gantt chart
+        This CRUD operations can be configured in Gantt Chart using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#editsettings">editSettings</a> and
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#allowtaskbardraganddrop">allowTaskbarEditing</a>. Gantt Chart
         has two modes to manipulate the datasource
         <li><code>Auto</code></li>
         <li><code>Dialog</code></li>
         
         In this demo, <code>Auto</code> mode is enabled for editing. On the TreeGrid side, you can start editing any row
         by double
-        clicking on it or clicking on toolbar’s Edit button, then the currently selected row will be changed to edited
+        clicking on it or clicking on toolbar Edit button, then the currently selected row will be changed to edited
         state. On the chart side, you can edit the tasks using edit dialog by double clicking on the taskbars and you
         can edit the dependency connector lines using drag and drop action with connector line points available on the
         either side of taskbar. It is possible to connect parent-parent, child-child, child-parent and parent-child dependency relationships.

@@ -8,48 +8,41 @@
         align="center"
         id="chartcontainerR"
         :title="title"
+        :subTitle="subTitle"
+        :titleStyle="titleStyle"
         :primaryXAxis="primaryXAxis"
         :primaryYAxis="primaryYAxis"
         :chartArea="chartArea"
         :width="width"
         :tooltip="tooltip"
         :legendSettings="legendSettings"
-        :pointRender="pointRender"
-        :enableSideBySidePlacement="false" 
-        :highlightColor="highlightColor"      
+        :height="height"    
       >
         <e-series-collection>
           <e-series
             :dataSource="seriesData"
-            type="Column"
-            xName="Country"
-            yName="Rate"
-            width="2"
-            :enableTooltip="false"
-            opacity='0.5'
-            columnWidth='0.8'
+            type="Bar"
+            xName="x"
+            yName="y"
+            columnWidth=0.5
             :cornerRadius="cornerRadius"
-          ></e-series>
-          <e-series
-            :dataSource="seriesData"
-            type="Column"
-            xName="Country"
-            yName="Literacy_Rate"
-            width="2"
             :marker="marker"
-            tooltipMappingName='Text'
-            columnWidth=0.8
-            :cornerRadius="cornerRadius"
           ></e-series>
         </e-series-collection>
       </ejs-chart>
     </div>
     <div id="action-description">
-      <p>This sample shows the literacy rate by country in 2015 with the default column series in the chart.</p>
+      <p>
+        This sample showcases a bar chart with rounded corners, illustrating the anticipated growth rates across various sectors in 2024.
+      </p>
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure the column chart. The column chart is used to compare the frequency, count, total, or average of data in different categories. You can use the <code>ChartCornerRadius</code> option to customize the vertical rectangle, resulting in a rounded column.
+        In this example, you can see how to render and configure the bar chart. The bar chart is similar to the column chart, but the orientation of the y-axis is horizontal rather than vertical. You can use the <code>cornerRadius</code> option to customize the horizontal rectangle, resulting in a rounded bar.
+      </p>
+      <p>
+        <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover over a point or tap on a point in
+        touch-enabled devices.
       </p>
       <p style="font-weight: 500"><b>Injecting Module</b></p>
       <p>
@@ -68,7 +61,7 @@
 </style>
 <script>
 import { Browser } from "@syncfusion/ej2-base";
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, ColumnSeries, Category, DataLabel, Tooltip, Legend } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, BarSeries, Category, DataLabel, Tooltip, Legend } from "@syncfusion/ej2-vue-charts";
 
 import { loadChartTheme, roundedPointRender } from "./theme-color";
 let theme = loadChartTheme();
@@ -83,63 +76,66 @@ export default {
     return {
       theme: theme,
       seriesData: [
-        { Country : "Niger", Rate : 100, Literacy_Rate : 19.1, Text : "19.1%" },
-        { Country : "Sierra Leone", Rate : 100, Literacy_Rate : 48.1, Text : "48.1%" },
-        { Country : "South Sudan", Rate : 100, Literacy_Rate : 26.8, Text : "26.8%" },
-        { Country : "Nepal", Rate : 100, Literacy_Rate : 64.7, Text : "64.7%" },
-        { Country : "Gambia", Rate : 100, Literacy_Rate : 55.5, Text : "55.5%" },
-        { Country : "Gyana", Rate : 100, Literacy_Rate : 88.5, Text : "88.5%" },
-        { Country : "Kenya", Rate : 100, Literacy_Rate : 78.0, Text : "78.0%" },
-        { Country : "Singapore", Rate : 100, Literacy_Rate : 96.8, Text : "96.8%" }
+          { x: 'Healthcare', y: 0.9, text: '0.9%' },
+          { x: 'Real Estate', y: 1.3, text: '1.3%' },
+          { x: 'Energy', y: 2.3, text: '2.3%' },
+          { x: Browser.isDevice ? 'Consumer <br> Staples' : 'Consumer Staples', y: 12.0, text: '12.0%' },
+          { x: 'Industrials', y: 15.6, text: '15.6%' },
+          { x: 'Utilities', y: 19.6, text: '19.6%' },
+          { x: Browser.isDevice ? 'S&P <br> 500 Average' : 'S&P 500 Average', y: 23.3, text: '23.3%' },
+          { x: 'Financials', y: 28.4, text: '28.4%' },
+          { x: Browser.isDevice ? 'Consumer <br> Discretionary' : 'Consumer Discretionary', y: 29.1, text: '29.1%' },
+          { x: Browser.isDevice ? 'Information <br> Technology' : 'Information Technology', y: 35.7, text: '35.7%' },
+          { x: Browser.isDevice ? 'Communication <br> Services' : 'Communication Services', y: 38.9, text: '38.9%' }
       ],
 
       //Initializing Primary X Axis
       primaryXAxis: {
-        majorTickLines: {width : 0}, minorTickLines: {width: 0},valueType: 'Category', interval: 1, majorGridLines: { width: 0 }, majorTickLines: { width: 0 }, labelRotation: Browser.isDevice ? -45 : 0, labelIntersectAction: Browser.isDevice ? 'None' : 'Rotate45'
+        valueType: 'Category',
+        interval: 1,
+        majorGridLines: { width: 0 },
+        majorTickLines: { width: 0 },
+        minorTickLines: { width: 0 },
+        lineStyle: { width: 0 },
+        labelPosition: 'Outside',
+        labelIntersectAction: Browser.isDevice ? 'None' : 'Rotate45'
       },
       chartArea: { border: { width: 0 } },
 
       //Initializing Primary Y Axis
       primaryYAxis: {
+        minimum: 0,
+        maximum: 50,
+        title: 'Sector-wise Growth (%)',
         labelFormat: '{value}%',
-        title: 'Literacy Rate In Percentage',
-        minimum: 0, maximum: 100, interval: 25, majorTickLines: { width: 0 },
-        minorTickLines: { width: 0 }, lineStyle: { width: 0 }
+        interval: 10,
+        majorGridLines: { width: 0 },
+        majorTickLines: { width: 0 },
+        lineStyle: { width: 0 },
+        opposedPosition: true
       },
-
-      width: Browser.isDevice ? "100%" : "75%",
-
+      width: Browser.isDevice ? "100%" : "77%",
+      height: "500px",
       marker: {
-        dataLabel: {
-          visible: true,
-          position: "Top",
-          font: { fontWeight: "600", color: "#ffffff", size: Browser.isDevice ? '8px' : '11px'}
-          
-        }
+        dataLabel: { visible: true, name: 'text', enableRotation: false, angle: -90, font: { fontWeight: '600' } }
       },
-
       legendSettings: { visible: false },
       highlightColor: 'transparent',
       tooltip: {
-         enable: true,
-        header: '<b>${point.x}</b>',
-        format : 'Rate : <b>${point.tooltip}</b>'
+        enable: true, 
+        header: Browser.isDevice ? "" : "<b>${point.x}</b>", 
+        format: "Growth Rate : <b>${point.text}</b>"
       },
-
-      cornerRadius: {
-        bottomLeft:  Browser.isDevice ? 12 : 35, bottomRight:  Browser.isDevice ? 12 : 35, topLeft:  Browser.isDevice ? 12 : 35, topRight:  Browser.isDevice ? 12 : 35
-      },
-      title: "Literacy rate by Country in 2015"
+      cornerRadius: { bottomLeft: Browser.isDevice ? 8 : 10, bottomRight: Browser.isDevice ? 8 : 10, topLeft: Browser.isDevice ? 8 : 10, topRight: Browser.isDevice ? 8 : 10 },
+      title: 'Top Performing Market Sectors by Growth Rate (2024)',
+      subTitle: 'Source: visualcapitalist.com',
+      titleStyle: { position: 'Bottom' }
     };
   },
   provide: {
-    chart: [ColumnSeries, Legend, DataLabel, Category, Tooltip]
+    chart: [BarSeries, Legend, DataLabel, Category, Tooltip]
   },
   methods: {
-    
-    pointRender: function(args) {
-      roundedPointRender(args);
-    },
   }
 };
 </script>

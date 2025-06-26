@@ -9,7 +9,7 @@
         <span class="property-panel-header">
             Properties
         </span>
-        <div class="db-prop-row">
+        <div class="diagram-snapping db-prop-row">
             <div class="db-prop-text-style">
                 <span class="db-prop-text-style text-content">Snapping Interval </span>
                 <div style="float: right;margin-right: 10px;">
@@ -73,31 +73,31 @@
     height: 100%;
     float: left;
     }
-    .db-prop-row {
+    .diagram-snapping .db-prop-row {
     margin-top: 6px;
     }
-    .db-col-left {
+    .diagram-snapping .db-col-left {
     padding-left: 10px;
     padding-right: 3px;
     }
 
-    .db-prop-text-style {
+    .diagram-snapping .db-prop-text-style {
     font-size: 13px;
     font-weight: normal;
     font-family: 'Calibri';
     margin-top: 25px;
     }
-    .radio-text-style{
+    .diagram-snapping .radio-text-style{
     font-size: 13px;
     font-weight: normal;
     font-family: 'Calibri';
     margin-top: 10px;
     }
-    .text-content{
+    .diagram-snapping .text-content{
         margin-left: 10px;
     }
   
-    .db-text-input{
+    .diagram-snapping .db-text-input{
         height: 25px!important;
     }
     

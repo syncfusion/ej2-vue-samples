@@ -2,6 +2,7 @@
     "name": "Dropdown List",
     "directory": "drop-down-list",
     "category": "Dropdowns",
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -86,6 +87,7 @@
             "url": "filtering",
             "name": "Filtering",
             "category": "Dropdown List",
+            "type": "update",
             "description": "This example demonstrates how the filtering functionalities works based on the typed characters in the Vue drop-down list component.",
             "sourceFiles":[
                 { "displayName": "filtering.vue", "path":"src/drop-down-list/filtering.vue" },

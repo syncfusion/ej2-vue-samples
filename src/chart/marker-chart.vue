@@ -106,7 +106,7 @@ export default {
       tooltip: {
         enable: true,
         header: '',
-        format: '<b>${point.x}</b> <br> ${series.name} : <b>${point.y}</b>'
+        format: '<b>${point.x}</b> <br> ${series.name} : <b>${point.y}</b>', enableHighlight: true, showNearestTooltip: true
       },
       legendSettings: { visible: true, enableHighlight: true },
 

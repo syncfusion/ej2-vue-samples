@@ -547,6 +547,32 @@
 </template>
 
 <style scoped>
+.flex-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.switchLabel {
+    font-family: "Segoe UI", "GeezaPro", "DejaVu Serif", sans-serif;        
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.24px;
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.render-mode-info {
+    background: none;
+    border: none;
+    padding-left: 0px;
+}
+
+.render-mode-info .render-mode-info-icon {
+    height: 16px;
+    width: 16px;
+}
 .main-panel {
   border-left: 1px solid #d7d7d7;
   height: 700px;
@@ -953,7 +979,7 @@ export default {
   },
   data: function () {
     return {
-      documentPath: "https://cdn.syncfusion.com/content/pdf/annotations.pdf",
+      documentPath: "https://cdn.syncfusion.com/content/pdf/annotations-v3.pdf",
       resourceUrl:
         "https://cdn.syncfusion.com/ej2/23.2.6/dist/ej2-pdfviewer-lib",
       toolbarSettings: { showTooltip: true, toolbarItems: ['OpenOption', 'UndoRedoTool', 'PageNavigationTool', 'MagnificationTool', 'PanTool', 'SelectionTool', 'CommentTool', 'SubmitForm', 'FormDesignerEditTool', 'FreeTextAnnotationOption', 'InkAnnotationOption', 'ShapeAnnotationOption', 'StampAnnotation', 'SignatureOption', 'SearchOption', 'PrintOption', 'DownloadOption'], formDesignerToolbarItems: ['TextboxTool', 'PasswordTool', 'CheckBoxTool', 'RadioButtonTool', 'DropdownTool', 'ListboxTool', 'DrawSignatureTool', 'DeleteTool'] },
@@ -998,6 +1024,7 @@ export default {
         { ID: "Highlight", Text: "Highlight" },
         { ID: "Underline", Text: "Underline" },
         { ID: "Strikethrough", Text: "Strikethrough" },
+        { ID: "Squiggly", Text: "Squiggly"},
         { ID: "Line", Text: "Line" },
         { ID: "Arrow", Text: "Arrow" },
         { ID: "Rectangle", Text: "Rectangle" },
@@ -1171,18 +1198,22 @@ export default {
       if (viewer) {
         this.pageCount = viewer.pageCount;
       }
-      if (args.documentName === "annotations.pdf") {
+      if (args.documentName === "annotations-v3.pdf") {
         viewer.annotation.addAnnotation("Highlight", {
-          bounds: [{ x: 97, y: 610, width: 350, height: 14 }],
+          bounds: [{ x: 97, y: 610, width: 340, height: 14 }],
           pageNumber: 1,
         });
         viewer.annotation.addAnnotation("Underline", {
-          bounds: [{ x: 97, y: 723, width: 353.5, height: 14 }],
+          bounds: [{ x: 97, y: 705, width: 346, height: 14 }],
           pageNumber: 1,
         });
         viewer.annotation.addAnnotation("Strikethrough", {
-          bounds: [{ x: 97, y: 836, width: 376.5, height: 14 }],
+          bounds: [{ x: 97, y: 800, width: 367, height: 14 }],
           pageNumber: 1,
+        });
+        viewer.annotation.addAnnotation("Squiggly", {
+            bounds: [{x: 97, y: 895.5, width: 336, height: 14 }],
+            pageNumber: 1
         });
         viewer.annotation.addAnnotation("Line", {
           offset: { x: 200, y: 230 },
@@ -1376,7 +1407,8 @@ export default {
       switch (this.selectedAnnotation.AnnotationType) {
         case "Highlight":
         case "Underline":
-        case "Strikethrough": {
+        case "Strikethrough":
+        case "Squiggly": {
           this.strokethickenssIstrue = true;
           this.deladdboundsButtonsIstrue = false;
           this.allowinstractionsIstrue = false;
@@ -1754,10 +1786,10 @@ export default {
       else if ((property === 'fillColor' || property === 'strokeColor' || property === 'fontColor') && !this.isAnnotationUnselected) {
         this.enableUpdateButton = true;
       }
-      else if ((property === "x" || property === "y") && (this.selectedAnnotation.AnnotationType === "Polygon" || this.selectedAnnotation.AnnotationType === "Area" || this.selectedAnnotation.AnnotationType === "Volume" || this.selectedAnnotation.AnnotationType === "Perimeter" || this.selectedAnnotation.AnnotationType === "Highlight" || this.selectedAnnotation.AnnotationType === "Underline" || this.selectedAnnotation.AnnotationType === "Strikethrough") && event.isInteracted && !this.isAnnotationUnselected) {
+      else if ((property === "x" || property === "y") && (this.selectedAnnotation.AnnotationType === "Polygon" || this.selectedAnnotation.AnnotationType === "Area" || this.selectedAnnotation.AnnotationType === "Volume" || this.selectedAnnotation.AnnotationType === "Perimeter" || this.selectedAnnotation.AnnotationType === "Highlight" || this.selectedAnnotation.AnnotationType === "Underline" || this.selectedAnnotation.AnnotationType === "Strikethrough" || this.selectedAnnotation.AnnotationType === "Squiggly") && event.isInteracted && !this.isAnnotationUnselected) {
         this.enableUpdateButton = false;
       }
-      else if ((property === "width" || property === "height") && (this.selectedAnnotation.AnnotationType === "Highlight" || this.selectedAnnotation.AnnotationType === "Underline" || this.selectedAnnotation.AnnotationType === "Strikethrough") && !this.isAnnotationUnselected && event.isInteracted) {
+      else if ((property === "width" || property === "height") && (this.selectedAnnotation.AnnotationType === "Highlight" || this.selectedAnnotation.AnnotationType === "Underline" || this.selectedAnnotation.AnnotationType === "Strikethrough" || this.selectedAnnotation.AnnotationType === "Squiggly") && !this.isAnnotationUnselected && event.isInteracted) {
         this.enableUpdateButton = false;
       }
       else if ((property === "standardBusinessStamp" || property === "signHereStamp" || property === "dynamicStamp") && this.isAnnotationUnselected) {
@@ -1795,14 +1827,13 @@ export default {
         thickness: this.selectedAnnotation.thickness,
         strokeColor: this.selectedAnnotation.strokeColor,
         fillColor: this.selectedAnnotation.fillColor,
-        bounds: [
-          {
-            x: this.selectedAnnotation.x,
-            y: this.selectedAnnotation.y,
-            width: this.selectedAnnotation.width,
-            height: this.selectedAnnotation.height,
-          },
-        ],
+        bounds: (this.selectedAnnotation.bounds && this.selectedAnnotation.bounds.length > 0) ? this.selectedAnnotation.bounds.map((item) => ({ x: item.X, y: item.Y, width: item.Width, height: item.Height })) :
+                [{
+                    x: this.selectedAnnotation.x,
+                    y: this.selectedAnnotation.y,
+                    width: this.selectedAnnotation.width,
+                    height: this.selectedAnnotation.height
+                }],
         vertexPoints: this.selectedAnnotation.vertexPoints,
         fontFamily: this.selectedAnnotation.fontFamily,
         fontStyle: this.selectedAnnotation.fontStyle,
@@ -1933,7 +1964,7 @@ export default {
         selectedAnnotation.fontSize = 16;
         selectedAnnotation.fontColor = "#000000";
         selectedAnnotation.fillColor = "#00000000";
-        selectedAnnotation.strokeColor = "#00000000";
+        selectedAnnotation.strokeColor = "#FFFFFF00";
       } else if (ShapeAnnotation == "StickyNotes") {
         selectedAnnotation.x = 100;
         selectedAnnotation.y = 100;
@@ -2004,7 +2035,8 @@ export default {
       } else if (
         ShapeAnnotation == "Highlight" ||
         ShapeAnnotation == "Underline" ||
-        ShapeAnnotation == "Strikethrough"
+        ShapeAnnotation == "Strikethrough" ||
+        ShapeAnnotation == "Squiggly"
       ) {
         selectedAnnotation.x = 10;
         selectedAnnotation.y = 10;
@@ -2017,6 +2049,8 @@ export default {
         } else if (selectedAnnotation.AnnotationType === "Underline") {
           selectedAnnotation.fillColor = "#00ff00";
         } else if (selectedAnnotation.AnnotationType === "Strikethrough") {
+          selectedAnnotation.fillColor = "#ff0000";
+        } else if (selectedAnnotation.AnnotationType === "Squiggly") {
           selectedAnnotation.fillColor = "#ff0000";
         }
       } else {
@@ -2049,13 +2083,16 @@ export default {
       if (
         this.selectedAnnotation.AnnotationType === "Highlight" ||
         this.selectedAnnotation.AnnotationType === "Underline" ||
-        this.selectedAnnotation.AnnotationType === "Strikethrough"
+        this.selectedAnnotation.AnnotationType === "Strikethrough" ||
+        this.selectedAnnotation.AnnotationType === "Squiggly"
       ) {
         if (this.selectedAnnotation.AnnotationType === "Highlight") {
           this.selectedAnnotation.fillColor = "#ffff00";
         } else if (this.selectedAnnotation.AnnotationType === "Underline") {
           this.selectedAnnotation.fillColor = "#00ff00";
         } else if (this.selectedAnnotation.AnnotationType === "Strikethrough") {
+          this.selectedAnnotation.fillColor = "#ff0000";
+        } else if (this.selectedAnnotation.AnnotationType === "Squiggly") {
           this.selectedAnnotation.fillColor = "#ff0000";
         }
         pdfviewerControl.annotation.addAnnotation(
@@ -2189,7 +2226,6 @@ export default {
         this.selectedAnnotation.vertexPoints = [];
       } else if (this.selectedAnnotation.AnnotationType === "FreeText") {
         this.selectedAnnotation.strokeColor = "rgba(0, 0, 0, 0)";
-        currentannotationSettings.borderColor = "";
         pdfviewerControl.annotation.addAnnotation(
           this.selectedAnnotation.AnnotationType,
           currentannotationSettings
@@ -2304,7 +2340,8 @@ export default {
       if (
         currentannotation.textMarkupAnnotationType === "Highlight" ||
         currentannotation.textMarkupAnnotationType === "Underline" ||
-        currentannotation.textMarkupAnnotationType === "Strikethrough"
+        currentannotation.textMarkupAnnotationType === "Strikethrough" ||
+        currentannotation.textMarkupAnnotationType === "Squiggly"
       ) {
         this.selectedAnnotation.AnnotationType =
           currentannotation.textMarkupAnnotationType;
@@ -2380,7 +2417,7 @@ export default {
 
       if (
         (this.selectedAnnotation.AnnotationType === "Highlight" || this.selectedAnnotation.AnnotationType === "Underline" ||
-          this.selectedAnnotation.AnnotationType === "Strikethrough") &&
+          this.selectedAnnotation.AnnotationType === "Strikethrough" || this.selectedAnnotation.AnnotationType === "Squiggly") &&
         (currentannotation.annotationAddMode === "Imported Annotation" || currentannotation.annotationAddMode === "Existing Annotation")
       ) {
         this.selectedAnnotation.width = currentannotation.bounds[0].Width;
@@ -2391,7 +2428,7 @@ export default {
         this.selectedAnnotation.bounds = currentannotation.bounds;
       } else if (
         (this.selectedAnnotation.AnnotationType === "Highlight" || this.selectedAnnotation.AnnotationType === "Underline" ||
-          this.selectedAnnotation.AnnotationType === "Strikethrough") &&
+          this.selectedAnnotation.AnnotationType === "Strikethrough" || this.selectedAnnotation.AnnotationType === "Squiggly") &&
         (currentannotation.annotationAddMode === "UI Drawn Annotation")
       ) {
         this.selectedAnnotation.width = currentannotation.bounds[0].width;
@@ -2464,7 +2501,7 @@ export default {
         this.selectedAnnotation.x = currentannotation.vertexPoints[0].x;
         this.selectedAnnotation.y = currentannotation.vertexPoints[0].y;
         this.generateTable();
-      } else if (this.selectedAnnotation.AnnotationType === "Highlight" || this.selectedAnnotation.AnnotationType === "Underline" || this.selectedAnnotation.AnnotationType === "Strikethrough") {
+      } else if (this.selectedAnnotation.AnnotationType === "Highlight" || this.selectedAnnotation.AnnotationType === "Underline" || this.selectedAnnotation.AnnotationType === "Strikethrough" || this.selectedAnnotation.AnnotationType === "Squiggly") {
         this.generateTable();
       }
       this.selectedAnnotation.author = currentannotation.author;
@@ -2538,7 +2575,8 @@ export default {
       if (
         (this.selectedAnnotation.AnnotationType === "Highlight" ||
           this.selectedAnnotation.AnnotationType === "Underline" ||
-          this.selectedAnnotation.AnnotationType === "Strikethrough")
+          this.selectedAnnotation.AnnotationType === "Strikethrough" ||
+          this.selectedAnnotation.AnnotationType === "Squiggly")
       ) {
         currentannotation.bounds = [];
         currentannotation.color = this.selectedAnnotation.fillColor ? (this.selectedAnnotation.fillColor.includes("rgba") ? this.rgbaStringToHex(this.selectedAnnotation.fillColor) : this.selectedAnnotation.fillColor) : "";

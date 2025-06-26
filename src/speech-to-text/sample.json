@@ -3,7 +3,6 @@
     "directory": "speech-to-text",
     "category": "Inputs",
     "ftName": "speech-to-text",
-    "type": "preview",
     "samples": [
         {
             "url": "default",

@@ -104,8 +104,6 @@ body.highcontrast #date_label {
   margin-top: -13px;
   display: block;
   margin-left: 4px;
-  font-weight: bold;
-  font-size: 14px;
 }
 
 .calendar-special-dates td span.e-special-icons.highlight {
@@ -182,6 +180,11 @@ body.highcontrast .calendar-special-dates td.vacation span.e-special-icons.highl
 
 .calendar-special-dates .e-special-icons {
   font-family: 'e-special-icons' !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: none;
 }
 
 @font-face {

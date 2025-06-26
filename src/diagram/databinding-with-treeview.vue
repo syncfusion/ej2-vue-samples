@@ -198,17 +198,22 @@ export default {
         setTimeout(function () {
             targetNodeId = args.target.id;
             tempData = workingData.filter(checkData);
-            tempData[0].hasChild = true;
-            tempData[0].expanded = true;
+            if(tempData.length>0) {
+                tempData[0].hasChild = true;
+                tempData[0].expanded = true;
+            }
             if (args.element.inEdges.length === 0) {
                 var id = args.element.id;
                 var item = {
                     Name: args.element.annotations[0].content, Id: args.element.id, ParentId: targetNodeId, hasChild: false, expanded: false
                 };
                 treeObj.addNodes([item], targetNodeId, null);
-                connector = { sourceID: targetNodeId, targetID: id };
-                diagram.add(connector);
-                diagram.doLayout();
+                if (args.target instanceof Node && targetNodeId && id) {
+                    connector = { sourceID: targetNodeId, targetID: id };
+                    diagram.add(connector);
+                    diagram.doLayout();
+                    diagram.fitToPage();
+                }
                 index++;
                 workingData.push(item);
             } else {

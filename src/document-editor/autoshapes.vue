@@ -1,5 +1,12 @@
 <template>
-  <div class="control-section">
+     <div class="control-section">
+<div class="flex-container">
+                <label class="switchLabel" for="checked">Ribbon UI</label>
+                <div class="e-message render-mode-info">
+                    <span class="e-msg-icon render-mode-info-icon" title="Turn OFF to switch from Ribbon to toolbar UI"></span>
+                </div>
+                <ejs-switch cssClass="buttonSwitch" id="toolbarSwitch" :change="change" :checked="true"></ejs-switch>
+            </div>
     <div class="sample-container">
       <div class="default-section">
         <div
@@ -24,6 +31,7 @@
           </div>
           <ejs-button
             id="de-print"
+            ref="de-print"
             :style="iconStyle"
             :iconCss="printIconCss"
             v-on:click="printBtnClick"
@@ -46,17 +54,17 @@
           ref="doceditcontainer"
           :serviceUrl="hostUrl"
           :enableToolbar="true"
+          :toolbarMode="'Ribbon'"
           height="600px"
         ></ejs-documenteditorcontainer>
       </div>
     </div>
     <div id="action-description">
-      <p>This sample shows auto shapes preservation in Document Editor.</p>
+      <p>This sample shows the preservation of auto shapes and group shapes in Document Editor.</p>
     </div>
     <div id="description">
       <p>
-        With Document Editor, you can see the auto shapes from your Word
-        Document.
+        With Document Editor, you can view the auto shapes and group shapes present in your Word Document.
       </p>
       <p style="display: block">List of shapes preserved:</p>
       <ul>
@@ -80,6 +88,41 @@
   </div>
 </template>
 <style>
+.flex-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.render-mode-info {
+    background: none;
+    border: none;
+    padding-left: 0px;
+}
+
+.render-mode-info .render-mode-info-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.switchLabel {
+    font-family: "Segoe UI", "GeezaPro", "DejaVu Serif", sans-serif;        
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.24px;
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.render-mode-info .render-mode-info-icon::before {
+    line-height: normal;
+}
+
+.buttonSwitch {
+    Width: 40px;
+    Height: 24px;
+}
 #documenteditor_titlebar {
   border-bottom: 1px solid #2b3481;
   height: 36px;
@@ -142,17 +185,18 @@
 <script>
 import {
   DocumentEditorContainerComponent,
-  Toolbar,
+  Toolbar, Ribbon
 } from '@syncfusion/ej2-vue-documenteditor';
 import { DropDownButtonComponent } from '@syncfusion/ej2-vue-splitbuttons';
 import { autoShapes } from './data';
-import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
+import { ButtonComponent, SwitchComponent } from '@syncfusion/ej2-vue-buttons';
 
 export default {
   components: {
     'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
     'ejs-dropdownbutton': DropDownButtonComponent,
-    'ejs-button': ButtonComponent,
+            'ejs-button': ButtonComponent,
+        'ejs-switch': SwitchComponent
   },
   data: function () {
     return {
@@ -168,7 +212,7 @@ export default {
       printIconCss: 'e-de-icon-Print e-de-padding-right',
       exportIconCss: 'e-de-icon-Download e-de-padding-right',
       exportItems: [
-        { text: 'Syncfusion® Document Text (*.sfdt)', id: 'sfdt' },
+        { text: 'Syncfusion Document Text (*.sfdt)', id: 'sfdt' },
         { text: 'Word Document (*.docx)', id: 'word' },
         { text: 'Word Template (*.dotx)', id: 'dotx' },
         { text: 'Plain Text (*.txt)', id: 'txt' },
@@ -176,7 +220,7 @@ export default {
     };
   },
   provide: {
-    DocumentEditorContainer: [Toolbar],
+    DocumentEditorContainer: [Toolbar, Ribbon],
   },
   methods: {
     onExport: function (args) {
@@ -297,6 +341,25 @@ export default {
         obj.scrollToPage(1);
       }, 10);
     },
+            showButtons: function(show) {
+          var displayStyle = show ? 'block' : 'none';
+          if (this.$refs['de-print']) {
+            this.$refs['de-print'].$el.style.display = displayStyle;
+          }
+          if (this.$refs['de-export']) {
+            this.$refs['de-export'].$el.style.display = displayStyle;
+          }
+        },
+    change: function (args) {
+            var container = this.$refs.doceditcontainer.ej2Instances;
+            if (args.checked) {
+                container.toolbarMode = "Ribbon";
+            } else {
+                container.toolbarMode = "Toolbar";
+            }
+            this.showButtons(container.toolbarMode != "Ribbon");
+            
+          }
   },
   mounted() {
     this.$nextTick(function () {
@@ -307,7 +370,8 @@ export default {
       this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
         this.documentChangedEvent();
       };
+      this.showButtons(this.$refs.doceditcontainer.ej2Instances.toolbarMode != "Ribbon");
     });
-  },
+  }
 };
 </script>

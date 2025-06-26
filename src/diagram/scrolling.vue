@@ -185,12 +185,12 @@
             left: 0px;
         }
     
-        #palette-icon {
+        .diagram-scroll #palette-icon {
             font-size: 20px; 
         }
     }
         
-    .sb-mobile-palette-open {
+    .diagram-scroll .sb-mobile-palette-open {
         position: absolute;
         display: block;
         right: 15px;

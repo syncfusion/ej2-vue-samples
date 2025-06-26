@@ -249,9 +249,41 @@
          },
          "description": "This example demonstrates how to change the task modes depends upon tasks."
       },
+
+       {
+         "url": "constraints",
+         "name": "Constraints",
+         "category": "Scheduling Concepts",
+         "type":"new",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "taskFields",
+               "editSettings",
+               "toolbar",
+               "columns",
+               "treeColumnIndex",
+               "allowSelection",
+               "gridLines",
+               "resourceFields",
+               "resources",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate",
+               "editDialogFields",
+               "splitterSettings"
+            ]
+         },
+         "description": "This example demonstrates the constraint feature of the gantt chart"
+      },
+
       {
          "url": "work-week",
          "name": "Workweek",
+         "type": "update",
          "category": "Scheduling Concepts",
          "api": {
             "Gantt": [
@@ -593,6 +625,34 @@
          },
          "description": "This demo explains how to hide or show the columns of Gantt dynamically using Syncfusion<sup>®</sup> Essential JS2 Gantt methods."
       },
+      { 
+          "url": "wbs-column",
+         "name": "WBS Column",
+         "type": "new",
+         "category": "Columns",
+         "api": {
+            "Gantt": [
+               "dataSource",
+               "height",
+               "taskFields",
+               "allowSelection",
+               "highlightWeekends",
+               "timelineSettings",
+               "labelSettings",
+               "projectStartDate",
+               "projectEndDate",
+               "splitterSettings",
+               "selectionSettings",
+               "tooltipSettings",
+               "filterSettings",
+               "toolbar",
+               "enableWBS",
+               "enableAutoWbsUpdate"
+            ]
+         },
+         
+         "description": "This example demonstrates how to enable and automatically update the WBS (Work Breakdown Structure) column."
+      },
       {
          "url": "resource-allocation",
          "name": "Resource Allocation",
@@ -636,7 +696,7 @@
          "url": "resource-multi-taskbar",
          "name": "Resource Multi Taskbar",
          "category": "Resources",
-         "type": "update",
+         
          "api": {
             "Gantt": [
                "dataSource",
@@ -780,7 +840,6 @@
          "url": "tooltip-template",
          "name": "Tooltip Template",
          "hideOnDevice": true,
-         "type": "update",
         "category": "Templates",
          "api": {
             "Gantt": [
@@ -904,7 +963,7 @@
          "url": "advanced-exporting",
          "name": "Advanced Exporting",
          "category": "Exporting",
-         "type": "new",
+         
          "api": {
             "Gantt": [
                "dataSource",

@@ -1,6 +1,6 @@
 
 import { CircularChart3DLoadedEventArgs, CircularChart3DTheme } from "@syncfusion/ej2-vue-charts";
-import { EmitType } from "@syncfusion/ej2/base";
+import { EmitType } from "@syncfusion/ej2-base";
 export let loadCircular3DChartTheme: EmitType<CircularChart3DLoadedEventArgs> = (args: CircularChart3DLoadedEventArgs): CircularChart3DTheme => {
       let selectedTheme: string = location.hash.split("/")[1];
        selectedTheme = selectedTheme ? selectedTheme : "Tailwind3";

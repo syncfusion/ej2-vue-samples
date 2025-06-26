@@ -4,7 +4,7 @@
         <ejs-accumulationchart ref="pie" :theme='theme' style='display:block' align='center'  :enableBorderOnMouseMove='false' id='chartcontainer' :title='title'
              :legendSettings='legendSettings' :tooltip='tooltip'  :textRender="onTextRender">
             <e-accumulation-series-collection>
-                <e-accumulation-series :dataSource='seriesData' :mode='emptydata' xName='x' yName='y' :dataLabel='dataLabel' name='Profit' type='Pie' :emptyPointSettings='emptyPointSettings'> </e-accumulation-series>
+                <e-accumulation-series :dataSource='seriesData' :mode='emptydata' xName='x' yName='y' :dataLabel='dataLabel' name='Profit' type='Pie' :emptyPointSettings='emptyPointSettings' :border='border' borderRadius="3" radius="80%"> </e-accumulation-series>
              
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
@@ -30,7 +30,7 @@
 </div>
 <div id="action-description">
     <p>
-        This sample illustrates the annual product-wise profit analysis of an organization with empty point functionality in the pie series.
+        This sample illustrates the movie genre revenue share with empty point functionality in the pie series. The Mode of empty point can be changed by using <code>Empty Point Mode</code> in property panel.
     </p>
 </div>
 <div id="description">
@@ -71,15 +71,13 @@ export default {
     return {
          theme: theme,
       seriesData: [
-            { x: 'Rice', y: 80 }, { x: 'Wheat', y: null }, { x: 'Oil', y: 70 },
-            { x: 'Corn', y: 60 }, { x: 'Gram', y: null },
-            { x: 'Milk', y: 70 }, { x: 'Peas', y: 80 },
-            { x: 'Fruit', y: 60 }, { x: 'Butter', y: null }
+            { x: 'Action', y: 35,}, { x: 'Drama', y: 25 }, { x: 'Comedy', y: null },
+            { x: 'Romance', y: 20 }, { x: 'Horror', y: 10 }, { x: 'Sci-Fi', y: null }
       ],
         
         dataLabel: {
                     visible: true, position: 'Inside',enableRotation: true, font: {
-                        fontWeight: '600',
+                        fontWeight: '600', size: Browser.isDevice ? '8px' : '12px'
                     }
                 },
                 emptyPointSettings: {
@@ -95,8 +93,8 @@ export default {
          modedata: ["Drop", "Average", "Zero" ],
 
       modewidth: 120,
-       
-      title: "Annual Product-Wise Profit Analysis"
+       border: { width: 1, color: '#ffffff' },
+      title: "Movie Genre Revenue Share"
     };
   },
   provide: {

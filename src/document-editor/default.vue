@@ -1,41 +1,135 @@
 <template>
-<div class="control-section">
-  
-    <div class="sample-container">
-        <div class="default-section">
-          <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
-    <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line" id="documenteditor_title_contentEditor" title="Document Name. Click or tap to rename this document." contenteditable="false">
-        <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name" :style="titileStyle" >{{documentName}}</label>
-    </div>    
-    <ejs-button id="de-print" :style="iconStyle" :iconCss="printIconCss" v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>	
-    <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss" cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown" title="Download this document."></ejs-dropdownbutton>        
-</div>
-<ejs-documenteditorcontainer ref="doceditcontainer" :serviceUrl="hostUrl" :enableToolbar='true' height='600px'></ejs-documenteditorcontainer>            
+    <div class="control-section">
+        <div class="flex-container">
+            <label class="switchLabel" for="checked">Ribbon UI</label>
+            <div class="e-message render-mode-info">
+                <span class="e-msg-icon render-mode-info-icon"
+                    title="Turn OFF to switch from Ribbon to toolbar UI"></span>
+            </div>
+            <ejs-switch cssClass="buttonSwitch" id="toolbarSwitch" :change="change" :checked="true"></ejs-switch>
+        </div>
+        <div class="sample-container">
+            <div class="default-section">
+                <div ref="de_titlebar" id="documenteditor_titlebar" class="e-de-ctn-title">
+                    <div v-on:keydown="titleBarKeydownEvent" v-on:click="titleBarClickEvent" class="single-line"
+                        id="documenteditor_title_contentEditor"
+                        title="Document Name. Click or tap to rename this document." contenteditable="false">
+                        <label v-on:blur="titleBarBlurEvent" id="documenteditor_title_name"
+                            :style="titileStyle">{{ documentName }}</label>
+                    </div>
+                    <ejs-button id="de-print" ref="de-print" :style="iconStyle" :iconCss="printIconCss"
+                        v-on:click="printBtnClick" title="Print this document (Ctrl+P).">Print</ejs-button>
+                    <ejs-dropdownbutton ref="de-export" :style="iconStyle" :items="exportItems" :iconCss="exportIconCss"
+                        cssClass="e-caret-hide" content="Download" v-bind:select="onExport" :open="openExportDropDown"
+                        title="Download this document."></ejs-dropdownbutton>
+                </div>
+                <ejs-documenteditorcontainer ref="doceditcontainer" :toolbarMode="'Ribbon'" :serviceUrl="hostUrl" :enableToolbar='true'
+                    height='600px'></ejs-documenteditorcontainer>
+            </div>
+        </div>
+        <div id="action-description">
+            <p>This sample demonstrates how to create, edit, and print Word documents (DOCX) online using document
+                editor without any server-side dependencies.</p>
+        </div>
+        <div id="description">
+            <p>In this example, you can create and edit Word documents online much faster and easier using intuitive UI
+                options of the document editor. All independent features of the document editor component are defined as
+                separate modules to help build a lightweight Word editor with the features you require.
+            </p>
+            <p style="display: block">Features of document editor:</p>
+            <ul>
+                <li>Create and edit: Opens and saves documents in native "Syncfusion Document Text (*.sfdt)" file format
+                    without any server-side dependencies. This helps build a purely client-side Word editor application.
+                </li>
+                <li>Supported elements: Document elements like text, images, hyperlinks, tables, bookmarks, page
+                    numbers, tables of contents, headers, and footers.
+                </li>
+                <li>Formatting: Text levels, paragraph levels, bullets and numbering, table levels, page settings, and
+                    styles.</li>
+                <li>Editing operations: Undo, redo, cut, copy, and paste.</li>
+                <li>Find and replace text within the document.</li>
+                <li>Interactions through touch, mouse, and keyboard.</li>
+            </ul>
+            <p style="display: block"> More information about the document editor features can be found in this
+                <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/document-editor/getting-started/">documentation
+                    section.</a>
+            </p>
         </div>
     </div>
-    <div id="action-description">
-    <p>This sample demonstrates how to create, edit, and print Word documents (DOCX) online using document editor without any server-side dependencies.</p>
-</div>
-<div id="description">
-    <p>In this example, you can create and edit Word documents online much faster and easier using intuitive UI options of the document editor. All independent features of the document editor component are defined as separate modules to help build a lightweight Word editor with the features you require.
-    </p>
-    <p style="display: block">Features of document editor:</p>
-    <ul>
-        <li>Create and edit: Opens and saves documents in native "Syncfusion<sup>®</sup> Document Text (*.sfdt)" file format without any server-side dependencies. This helps build a purely client-side Word editor application.</li>
-        <li>Supported elements: Document elements like text, images, hyperlinks, tables, bookmarks, page numbers, tables of contents, headers, and footers.
-        </li>
-        <li>Formatting: Text levels, paragraph levels, bullets and numbering, table levels, page settings, and styles.</li>
-        <li>Editing operations: Undo, redo, cut, copy, and paste.</li>
-        <li>Find and replace text within the document.</li>
-        <li>Interactions through touch, mouse, and keyboard.</li>
-    </ul>
-    <p style="display: block"> More information about the document editor features can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/document-editor/getting-started/">documentation section.</a>
-    </p>
-</div>
-</div>
 </template>
 <style>
+.flex-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.render-mode-info {
+    background: none;
+    border: none;
+    padding-left: 0px;
+}
+
+.render-mode-info .render-mode-info-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.switchLabel {
+    font-family: "Segoe UI", "GeezaPro", "DejaVu Serif", sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.24px;
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.render-mode-info .render-mode-info-icon::before {
+    line-height: normal;
+}
+
+.buttonSwitch {
+    Width: 40px;
+    Height: 24px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.render-mode-info {
+    background: none;
+    border: none;
+    padding-left: 0px;
+}
+
+.render-mode-info .render-mode-info-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.switchLabel {
+    font-family: "Segoe UI", "GeezaPro", "DejaVu Serif", sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.24px;
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.render-mode-info .render-mode-info-icon::before {
+    line-height: normal;
+}
+
+.buttonSwitch {
+    Width: 40px;
+    Height: 24px;
+}
 
 #documenteditor_titlebar {
     height: 36px;
@@ -85,42 +179,42 @@
 .e-de-icon-Download:before {
     content: "\e728";
 }
-
 </style>
 <script>
-import { DocumentEditorContainerComponent, Toolbar } from "@syncfusion/ej2-vue-documenteditor";
+import { DocumentEditorContainerComponent, Toolbar, Ribbon } from "@syncfusion/ej2-vue-documenteditor";
 import { DropDownButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
 import { defaultDocument } from "./data";
-import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { ButtonComponent, SwitchComponent } from "@syncfusion/ej2-vue-buttons";
 
 export default {
     components: {
         'ejs-documenteditorcontainer': DocumentEditorContainerComponent,
         'ejs-dropdownbutton': DropDownButtonComponent,
-        'ejs-button': ButtonComponent
+        'ejs-button': ButtonComponent,
+        'ejs-switch': SwitchComponent
     },
-    data: function() {
+    data: function () {
         return {
-          hostUrl : 'https://services.syncfusion.com/vue/production/api/documenteditor/',
-          documentName : 'Getting Started',
-          documentTitle: 'Untitled Document',
-          iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
+            hostUrl: 'https://services.syncfusion.com/vue/production/api/documenteditor/',
+            documentName: 'Getting Started',
+            documentTitle: 'Untitled Document',
+            iconStyle: 'float:right;background: transparent;box-shadow:none;border-color: transparent;border-radius: 2px;color:inherit;font-size:12px;text-transform:capitalize;margin-top:4px;height:28px;font-weight:400;font-family:inherit;',
             titileStyle: 'text-transform:capitalize;font-weight:400;font-family:inherit;text-overflow:ellipsis;white-space:pre;overflow:hidden;user-select:none;cursor:text',
             openIconCss: 'e-de-icon-Open e-de-padding-right',
             printIconCss: 'e-de-icon-Print e-de-padding-right',
             exportIconCss: 'e-de-icon-Download e-de-padding-right',
             exportItems: [
-                { text: 'Syncfusion® Document Text (*.sfdt)', id: 'sfdt' },
+                { text: 'Syncfusion Document Text (*.sfdt)', id: 'sfdt' },
                 { text: 'Word Document (*.docx)', id: 'word' },
                 { text: 'Word Template (*.dotx)', id: 'dotx' },
                 { text: 'Plain Text (*.txt)', id: 'txt' },
             ]
         };
-    },  
-    provide:{
-        DocumentEditorContainer:[Toolbar]
     },
-      methods: {
+    provide: {
+        DocumentEditorContainer: [Toolbar, Ribbon]
+    },
+    methods: {
         onExport: function (args) {
             switch (args.item.id) {
                 case 'word':
@@ -149,7 +243,7 @@ export default {
         },
         save: function (format) {
             // tslint:disable-next-line:max-line-length
-             this.$refs.doceditcontainer.ej2Instances.documentEditor.save( this.$refs.doceditcontainer.ej2Instances.documentEditor.documentName === '' ? 'sample' :  this.$refs.doceditcontainer.ej2Instances.documentEditor.documentName, format);
+            this.$refs.doceditcontainer.ej2Instances.documentEditor.save(this.$refs.doceditcontainer.ej2Instances.documentEditor.documentName === '' ? 'sample' : this.$refs.doceditcontainer.ej2Instances.documentEditor.documentName, format);
         },
         openBtnClick: function () {
             this.$refs.uploadDocument.click();
@@ -176,6 +270,15 @@ export default {
         titleBarClickEvent: function () {
             this.updateDocumentEditorTitle();
         },
+        showButtons: function (show) {
+            var displayStyle = show ? 'block' : 'none';
+            if (this.$refs['de-print']) {
+                this.$refs['de-print'].$el.style.display = displayStyle;
+            }
+            if (this.$refs['de-export']) {
+                this.$refs['de-export'].$el.style.display = displayStyle;
+            }
+        },
         updateDocumentEditorTitle: function () {
             document.getElementById("documenteditor_title_contentEditor").contentEditable = 'true';
             document.getElementById("documenteditor_title_contentEditor").focus();
@@ -184,19 +287,29 @@ export default {
         documentChangedEvent: function () {
             var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
             this.documentTitle = obj.documentName === '' ? 'Untitled Document' : obj.documentName;
-            document.getElementById("documenteditor_title_name").textContent = obj.documentName ;
+            document.getElementById("documenteditor_title_name").textContent = obj.documentName;
             setTimeout(() => { obj.scrollToPage(1); }, 10);
+        },
+        change: function (args) {
+            var container = this.$refs.doceditcontainer.ej2Instances;
+            if (args.checked) {
+                container.toolbarMode = "Ribbon";
+            } else {
+                container.toolbarMode = "Toolbar";
+            }
+            this.showButtons(container.toolbarMode != "Ribbon");
         }
     },
     mounted() {
         this.$nextTick(function () {
-          var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
-          obj.open(JSON.stringify(defaultDocument));
-          obj.documentName='Getting Started';
-          this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
+            var obj = this.$refs.doceditcontainer.ej2Instances.documentEditor;
+            obj.open(JSON.stringify(defaultDocument));
+            obj.documentName = 'Getting Started';
+            this.$refs.doceditcontainer.ej2Instances.documentChange = () => {
                 this.documentChangedEvent();
             };
-       });
+            this.showButtons(this.$refs.doceditcontainer.ej2Instances.toolbarMode != "Ribbon");
+        });
     }
 };
 </script>

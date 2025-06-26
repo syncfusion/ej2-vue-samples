@@ -1,6 +1,6 @@
 <template>
 
-<div class="control-section">
+<div class="control-section diagram-uml-class">
   <link href="https://ej2.syncfusion.com/javascript/demos/src/diagram/styles/diagram-common.css" rel="stylesheet">
   <div id="umlclass-Diagram" style="width: 100%;">
     <div class="sb-mobile-palette-bar">
@@ -42,17 +42,17 @@
      content: "\e700"
  }
 /*To align palette */
- .sb-mobile-palette {
+ .diagram-uml-class .sb-mobile-palette {
      width: 26%;
      height: 559px;
      float: left;
  }
 
- .sb-mobile-palette-bar {
+ .diagram-uml-class .sb-mobile-palette-bar {
      display: none;
  }
 /*To align diagram */
- .sb-mobile-diagram {
+ .diagram-uml-class .sb-mobile-diagram {
     width: 74%;
      height: 559px;
      float: left;
@@ -61,7 +61,7 @@
  }
 
  @media (max-width: 550px) {
-     .sb-mobile-palette {
+     .diagram-uml-class .sb-mobile-palette {
          z-index: 19;
          position: absolute;
          display: none;
@@ -69,13 +69,13 @@
          width: 39%;
          height: 100%;
      }
-     .sb-mobile-diagram {
+     .diagram-uml-class .sb-mobile-diagram {
          width: 60%;
          height: 100%;
          float: left;
          left: 0px;
      }
-     .sb-mobile-palette-bar {
+     .diagram-uml-class .sb-mobile-palette-bar {
          display: block;
          width: 100%;
          background: #fafafa;
@@ -83,7 +83,7 @@
          border: 0.5px solid #e0e0e0;
          min-height: 40px;
      }
-     #palette-icon {
+     .diagram-uml-class #palette-icon {
          font-size: 20px;
      }
  }

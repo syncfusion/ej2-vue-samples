@@ -74,7 +74,7 @@ export default {
             user: { id: 'user1', user: 'Albert', avatarUrl: 'src/chat-ui/images/andrew.png' },
             template: '<div ${if(category!==null)} class = "clearfix desc e-list-wrapper e-list-multi-line e-list-avatar" ${else} ' +
                         'class = "clearfix e-list-wrapper e-list-multi-line e-list-avatar" ${/if}> ${if(imgSrc!=="")}' +
-                        '<img class="e-avatar" src="./src/chat-ui/images/${imgSrc}.png" alt="image" style="border-radius: 50%;"/> ' +
+                        '<img class="e-avatar" src="src/chat-ui/images/${imgSrc}.png" alt="image" style="border-radius: 50%;"/> ' +
                         '${/if} <span class="e-list-item-header">${title} </span>' +
                         '${if(message!=="")} <div class="chat_message" style="font-size: 12px;">' +
                         '${message} </div> ${/if} </div>'
@@ -209,27 +209,27 @@ export default {
     }
 
     .integration-chatui .chat_user1_avatar {
-        background-image: url('/src/chat-ui/images/andrew.png');
+        background-image: url('./images/andrew.png');
     }
 
     .integration-chatui .chat_user2_avatar {
-        background-image: url('/src/chat-ui/images/charlie.png');
+        background-image: url('./images/charlie.png');
     }
 
     .integration-chatui .chat_user3_avatar {
-        background-image: url('/src/chat-ui/images/laura.png');
+        background-image: url('./images/laura.png');
     }
 
     .integration-chatui .chat_user4_avatar {
-        background-image: url('/src/chat-ui/images/reena.png');
+        background-image: url('./images/reena.png');
     }
 
     .integration-chatui .chat_team_avatar {
-        background-image: url('/src/chat-ui/images/calendar.png');
+        background-image: url('./images/calendar.png');
     }
 
     .integration-chatui .chat_bot_avatar {
-        background-image: url('/src/chat-ui/images/bot.png');
+        background-image: url('./images/bot.png');
     }
 
     .integration-chatui #chat-ui-listview-template {

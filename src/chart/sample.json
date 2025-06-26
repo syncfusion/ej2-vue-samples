@@ -2,8 +2,8 @@
     "name": "Chart",
     "directory": "chart",
     "category": "Data Visualization",
-    "type": "update",
     "ftName": "chart",
+    "type": "update",
     "samples": [
     {
         "url": "over-view",
@@ -21,7 +21,6 @@
     {
         "url": "line",
         "name": "Line",
-        "type": "update",
         "category": "Line Charts",
         "description": "This demo for Essential JS2 Chart control shows how to render the line series.",
         "sourceFiles": [
@@ -32,7 +31,6 @@
     {
         "url": "spline",
         "name": "Spline",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render the spline series.",
         "category": "Line Charts",
         "sourceFiles": [
@@ -257,15 +255,6 @@
         ]
     },
     {
-        "url": "rounded-column",
-        "name": "Rounded Column",
-        "description": "This demo for Essential JS2 Chart control shows how to render the rounded column series.",
-        "category": "Bar Charts",
-        "sourceFiles": [
-            {"displayName": "rounded-column.vue", "path": "./src/chart/rounded-column.vue"}
-        ]
-    },
-    {
         "url": "column-placement",
         "name": "Back to Back Column",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the column charts.",
@@ -320,9 +309,17 @@
         ]
     },
     {
+        "url": "rounded-column",
+        "name": "Rounded Bar",
+        "description": "This demo for Essential JS2 Chart control shows how to render the rounded bar series.",
+        "category": "Bar Charts",
+        "sourceFiles": [
+            {"displayName": "rounded-column.vue", "path": "./src/chart/rounded-column.vue"}
+        ]
+    },
+    {
         "url": "stacked-column",
         "name": "Stacked Column",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render the stacking column series.",
         "category": "Bar Charts",
         "sourceFiles": [
@@ -424,7 +421,6 @@
     {
         "url": "funnel",
         "name": "Funnel",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the funnel charts.",
         "category": "Accumulation Charts",
         "sourceFiles": [
@@ -737,6 +733,7 @@
         "name": "Live stock data",
         "description": "This demo for Essential JS2 Chart control shows the live stock data in real time charts.",
         "category": "Real-time Charts",
+        "type": "update",
         "sourceFiles": [
             {"displayName": "live-stock-data.vue", "path": "./src/chart/live-stock-data.vue"}
         ]
@@ -1078,7 +1075,6 @@
     {
         "url": "series-animation",
         "name": "Animation",
-        "type": "new",
         "description": "This demo sample for Essential JavaScript2 Chart control demonstrates how to render and configure series animation.",
         "category": "Chart Customization",
         "sourceFiles": [
@@ -1153,7 +1149,6 @@
     {
         "url": "zooming",
         "name": "Zooming and Panning",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control demonstrates the zooming and panning behavior in chart.",
         "category": "User Interaction",
         "sourceFiles": [
@@ -1163,7 +1158,6 @@
     {
         "url": "pagination",
         "name": "Pagination",
-        "type": "new",
         "description": "This demo sample for Essential JavaScript2 Chart control demonstrates the pagination behavior in chart.",
         "category": "User Interaction",
         "sourceFiles": [

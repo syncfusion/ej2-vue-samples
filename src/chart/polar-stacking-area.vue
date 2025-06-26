@@ -131,7 +131,7 @@ export default {
         enableHighlight: true
       },
       tooltip: {
-        enable: true,
+        enable: true, enableHighlight: true
       },
       animation: { enable: true },
 

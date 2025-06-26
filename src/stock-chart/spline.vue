@@ -22,6 +22,7 @@
             xName="x"
             name="Apple Inc"
             yName="high"
+            :lastValueLabel="lastValueLabel"
           ></e-stockchart-series>
         </e-stockchart-series-collection>
       </ejs-stockchart>
@@ -32,7 +33,7 @@
     </div>
     <div id="description">
       <p>
-        In this example, you can see how to render and configure stock chart to visualize the stock data with spline series. Use series <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockSeries/#type" aria-label="Navigate to the type property reference for Vue Stock Chart component">type</a> as <b>Spline</b> to render a spline series.
+        This example shows how to render and configure a stock chart to visualize stock data with a last value label using the <code>lastValueLabel</code> option. A spline series is used by setting the series <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/stock-chart/stockSeries/#type" aria-label="Navigate to the type property reference for Vue Stock Chart component">type</a> to <b>Spline</b>.
       </p>
       <p>
         <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover the chart or tap on it in touch enabled devices.
@@ -81,7 +82,8 @@ import {
   AccumulationDistributionIndicator,
   MacdIndicator,
   StochasticIndicator,
-  Export
+  Export,
+  LastValueLabel
 } from "@syncfusion/ej2-vue-charts";
 
 import { loadStockChartTheme } from './theme-color';
@@ -102,8 +104,8 @@ export default {
       primaryXAxis: { valueType: "DateTime", majorGridLines: { width: 0 },crosshairTooltip: { enable: true } },
       //Initializing Primary Y Axis
       primaryYAxis: {
-        lineStyle: { color: "transparent" },
-        majorTickLines: { color: "transparent", width: 0 }
+        lineStyle: { color: "transparent" }, labelPosition: 'Outside', tickPosition: 'Outside',
+        majorTickLines: { color: "transparent", width: 10, height: 17 }
       },
 
       chartArea: {
@@ -114,7 +116,8 @@ export default {
      title: 'AAPL Stock Price',
       tooltip: { enable: true },
       crosshair: { enable: true },
-      border: { width: 0}
+      border: { width: 0},
+      lastValueLabel: { enable: true, dashArray: '3,2', lineWidth: 0.5 }
     };
   },
   provide: {
@@ -140,7 +143,8 @@ export default {
       AccumulationDistributionIndicator,
       MacdIndicator,
       StochasticIndicator,
-      Export
+      Export,
+      LastValueLabel
     ]
   },
   methods: {}

@@ -3,7 +3,6 @@
     "directory": "datetimepicker",
     "category": "Calendars",
     "hideOnDevice": true,
-    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -29,7 +28,6 @@
             "url": "date-time-format",
             "name": "Format",
             "category": "DateTimePicker",
-            "type": "update",
             "api":{"DateTimePicker": [ "format", "value"]},
             "description": "The InputFormats feature allows users to define multiple input formats, automatically converting typed values to the display format for a seamless experience."
         },

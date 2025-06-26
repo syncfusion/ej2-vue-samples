@@ -20,7 +20,7 @@
 
     <div id="description">
        <p>
-        The sample demonstrates the zooming support in Gantt chart. 
+        The sample demonstrates the zooming support in Gantt Chart. 
             You can zoom in or zoom out the project timeline dynamically with following toolbar buttons.
         <ul>
         <li><code>ZoomIn</code> - To perform zoom in action on Gantt timeline.</li>
@@ -28,7 +28,7 @@
         <li><code>ZoomToFit </code> - To show all tasks with timeline fit into available chart width.</li>
         </ul>
         The zooming feature enables you to view the tasks in the project clearly from minute to year timespan. You need to include 
-        <code>ZoomIn</code>, <code>ZoomOut </code> and <code>ZoomToFit </code> buttons in the toolbar for performing zooming actions in Gantt chart.
+        <code>ZoomIn</code>, <code>ZoomOut </code> and <code>ZoomToFit </code> buttons in the toolbar for performing zooming actions in Gantt Chart.
         <ul>
         <li><code>ZoomIn</code> - If the user clicks on the <code>ZoomIn</code> icon we have increased the timeline cell width, 
             when the cell size exceeds the specified range then we have changed the timeline view mode.</li>

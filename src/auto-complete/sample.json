@@ -2,6 +2,7 @@
     "name": "AutoComplete",
     "directory": "auto-complete",
     "category": "Dropdowns",
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -96,6 +97,7 @@
             "url": "custom-filtering",
             "name": "Custom Filtering",
             "category": "AutoComplete",
+            "type": "update",
             "description": "This example demonstrates how to achieve the custom filtering functionalities in the Vue autocomplete component.",
             "sourceFiles":[
                 { "displayName": "custom-filtering.vue", "path":"src/auto-complete/custom-filtering.vue" },

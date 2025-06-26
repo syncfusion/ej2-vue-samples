@@ -1,5 +1,5 @@
 <template>
-<div class="control-section">
+<div class="control-section diagram-serialization">
 <div>
     <ejs-toolbar id='toolbar' style="width:100%;height: 10%;margin-top: 10px;"
                 :clicked='toolbarclicked'
@@ -69,17 +69,17 @@
 </style>
 <style scoped>
 /*To align the palette */
-.sb-mobile-palette {
+.diagram-serialization .sb-mobile-palette {
         width:240px;
         height:100%;
         float:left;
     }
     
-    .sb-mobile-palette-bar {
+    .diagram-serialization .sb-mobile-palette-bar {
         display: none;
     }
     /*To align the diagram */
-    .sb-mobile-diagram {
+    .diagram-serialization .sb-mobile-diagram {
         width:calc(100% - 242px);
         height: 100%;
         float: left;
@@ -87,7 +87,7 @@
     
     @media (max-width: 550px) {
     
-        .sb-mobile-palette {
+        .diagram-serialization .sb-mobile-palette {
             z-index: 19;
             position: absolute;
             display: none;
@@ -96,7 +96,7 @@
             height:100%;
         }
         
-        .sb-mobile-palette-bar {
+        .diagram-serialization .sb-mobile-palette-bar {
             display: block;
             width: 100%;
             background:#fafafa;
@@ -105,19 +105,19 @@
             min-height: 40px;
         }
         
-        .sb-mobile-diagram {
+        .diagram-serialization .sb-mobile-diagram {
             width: 100%;
             height: 100%;
             float: left;
             left: 0px;
         }
     
-        #palette-icon {
+        .diagram-serialization #palette-icon {
             font-size: 20px; 
         }
     }
         
-    .sb-mobile-palette-open {
+    .diagram-serialization .sb-mobile-palette-open {
         position: absolute;
         display: block;
         right: 15px;
@@ -252,8 +252,10 @@ export default {
       height: "700px",
       nodes: nodes,
       connectors: connectors,
-      loaded: () => {
-        diagramInstance.select([diagramInstance.nodes[0]]);
+       loaded: () => {
+        setTimeout(() => {
+          diagramInstance.select([diagramInstance.nodes[0]]);
+        }, 100); 
       },
       snapSettings: {
         horizontalGridlines: gridlines,
@@ -319,6 +321,7 @@ export default {
 
       toolbarclicked: (args) => {
         if (args.item.text === "New") {
+          diagramInstance.clearSelection();
           diagramInstance.clear();
         } else if (args.item.text === "Load") {
           let element = document.getElementsByClassName(
@@ -404,6 +407,7 @@ function loadDiagram(event) {
   let results=(event.target).result;
   // Loads the diagram from the JSON string.
   diagramInstance.loadDiagram(results);
+  diagramInstance.fitToPage();
 }
 
 // Preparing flow shapes for the symbol palette.

@@ -122,9 +122,9 @@
   .e-location {
     margin-right: 5px;
   }
-  .highcontrast .e-grid td.e-rowcell.e-selectionbackground.e-active .e-location.e-icons,
-  .fluent2-highcontrast .e-grid .e-row:hover:not(.e-editedrow) .e-location.e-icons,
-  .fluent2-highcontrast .e-grid td.e-rowcell.e-selectionbackground.e-active .e-location.e-icons {
+  .highcontrast #column-template-grid td.e-rowcell.e-selectionbackground.e-active .e-location.e-icons,
+  .fluent2-highcontrast #column-template-grid .e-row:hover:not(.e-editedrow) .e-location.e-icons,
+  .fluent2-highcontrast #column-template-grid td.e-rowcell.e-selectionbackground.e-active .e-location.e-icons {
     color: black;
   }
   </style>

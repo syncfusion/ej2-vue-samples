@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="control-section">
-        <div id='content' style="margin: 0px auto; max-width:350px; padding-top: 5px;">
+        <div id='content' style="margin: 0px auto; max-width:370px; padding-top: 5px;">
             <ejs-dropdowntree id='multi-template' :fields='fields' cssClass='ddt-template' :placeholder='watermark'
              :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :footerTemplate="'fTemplate'" :valueTemplate="'vTemplate'" popupHeight="210px" width="100%">
                 <template v-slot:hTemplate="{}">

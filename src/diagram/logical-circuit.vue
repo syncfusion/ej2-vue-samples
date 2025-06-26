@@ -1,8 +1,8 @@
 <template>
-<div class="control-section">
+<div class="control-section diagram-logic">
   <div id="logicCircuit" style="width: 100%; height: 600px">
     <div class="sb-mobile-palette-bar">
-      <div id="palette-icon" role="button"  class="e-ddb-icons1 e-toggle-palette" ref="paletteiconInsatnce"></div>
+      <div id="palette-icon-logical" role="button"  class="e-ddb-icons1 e-toggle-palette" ref="paletteiconInsatnce"></div>
     </div>
     <div id="palette-space" class="sb-mobile-palette" ref="palletteSpaceInstance">
       <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight' :getSymbolInfo='getSymbolInfo' :symbolHeight='symbolHeight'
@@ -80,17 +80,17 @@
 
   
 /*To align palette */
-  .sb-mobile-palette {
+  .diagram-logic .sb-mobile-palette {
     width:240px;
     height:100%;
     float:left;
 }
 
-.sb-mobile-palette-bar {
+.diagram-logic .sb-mobile-palette-bar {
     display: none;
 }
 /*To align diagram */
-.sb-mobile-diagram {
+.diagram-logic .sb-mobile-diagram {
     width:calc(100% - 242px);
     height: 100%;
     float: left;
@@ -98,7 +98,7 @@
 
 @media (max-width: 550px) {
 
-    .sb-mobile-palette {
+    .diagram-logic .sb-mobile-palette {
         z-index: 19;
         position: absolute;
         display: none;
@@ -107,7 +107,7 @@
         height:100%;
     }
     
-    .sb-mobile-palette-bar {
+    .diagram-logic .sb-mobile-palette-bar {
         display: block;
         width: 100%;
         background:#fafafa;
@@ -116,18 +116,18 @@
         min-height: 40px;
     }
     
-    .sb-mobile-diagram {
+    .diagram-logic .sb-mobile-diagram {
         width: 100%;
         height: 100%;
         float: left;
         left: 0px;
     }
 
-    #palette-icon {
+    #palette-icon-logical {
         font-size: 20px; 
     }
 }
-.sb-mobile-palette-open {
+.diagram-logic .sb-mobile-palette-open {
     position: absolute;
     display: block;
     right: 15px;
@@ -136,7 +136,7 @@
         border: 1px solid rgba(0, 0, 0, 0.12);
         border-left: none;
     }
-    .e-symbolpalette {
+    .diagram-logic .e-symbolpalette {
         display: block;
     }
 

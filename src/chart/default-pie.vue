@@ -1,10 +1,10 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-accumulationchart  ref='pie' :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title'
+        <ejs-accumulationchart  ref='pie' :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :subTitle='subTitle' 
              :legendSettings='legendSettings' :tooltip='tooltip' enableSmartLables='true' :enableAnimation='enableAnimation' :enableBorderOnMouseMove='false' >
             <e-accumulation-series-collection>
-                <e-accumulation-series :dataSource='seriesData' :startAngle='startAngle'  :explodeOffset='explodeOffset' :explodeIndex='explodeIndex' :radius='radius'  xName='Browser' yName='Users' :dataLabel='dataLabel' name='Browser' innerRadius='0%'  explode='true'> </e-accumulation-series>
+                <e-accumulation-series :dataSource='seriesData' :startAngle='startAngle' :border='border' :explodeOffset='explodeOffset' :explodeIndex='explodeIndex' :radius='radius'  xName='Browser' yName='Users' :dataLabel='dataLabel' name='Browser' innerRadius='0%' borderRadius='3' explode='true'> </e-accumulation-series>
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
     </div>
@@ -12,7 +12,7 @@
     </div>
     <div id="action-description">
     <p>
-      This Vue Pie Chart example demonstrates a pie chart for mobile browsers usage statistics. Datalabels show information about the points.
+      This Vue Pie Chart example demonstrates a pie chart for global electricity generation. Datalabels show information about the points.
     </p>
 </div>
 <div id="description">
@@ -56,49 +56,42 @@ export default {
   data: function() {
     return {
          theme: theme,
-         seriesData: Browser.isDevice ?
-        [{ Browser: 'Chrome', Users: 59.28, DataLabelMappingName: 'Chrome: 59.28%' },
-          { Browser: 'Safari', Users: 4.73, DataLabelMappingName: Browser.isDevice ? 'Safari <br> 4.73%' :  'Safari: 4.73%' },
-          { Browser: 'Opera', Users: 6.12, DataLabelMappingName: 'Opera: 6.12%' },
-          { Browser: 'Edge', Users: 7.48, DataLabelMappingName: 'Edge: 7.48%' },
-          { Browser: 'Others', Users: 22.39, DataLabelMappingName: 'Others: 22.39%' }
-        ] : [
-          { Browser: "Chrome", Users: 59.28, DataLabelMappingName: "  Chrome: 59.28%" },
-          { Browser: "UC Browser", Users: 4.37, DataLabelMappingName: "  UC Browser: 4.37%" },
-          { Browser: "Opera", Users: 3.12, DataLabelMappingName: "  Opera: 3.12%" },
-          { Browser: "Sogou Explorer", Users: 1.73, DataLabelMappingName: "  Sogou Explorer: 1.73%" },
-          { Browser: "QQ", Users: 3.96, DataLabelMappingName: "  QQ: 3.96%" },
-          { Browser: "Safari", Users: 4.73, DataLabelMappingName: "  Safari: 4.73%" },
-          { Browser: "Internet Explorer", Users: 6.12, DataLabelMappingName: "  Internet Explorer: 6.12%" },
-          { Browser: "Edge", Users: 7.48, DataLabelMappingName: "  Edge: 7.48%" },
-          { Browser: "Others", Users: 9.57, DataLabelMappingName: "  Others: 9.57%" },
+         seriesData:
+        [{ Browser: "Coal", Users: 34.4, DataLabelMappingName: "Coal: 34.4%" },
+        { Browser: "Natural Gas", Users: 22.1, DataLabelMappingName: "Natural Gas: 22.1%" },
+        { Browser: "Hydro", Users: 14.4, DataLabelMappingName: "Hydro: 14.4%" },
+        { Browser: "Nuclear", Users: 9.0, DataLabelMappingName: "Nuclear: 9.0%" },
+        { Browser: "Wind", Users: 8.1, DataLabelMappingName: "Wind: 8.1%" },
+        { Browser: "Others", Users: 12.0, DataLabelMappingName: "Others: 12.0%" }
         ],
 
      dataLabel: {
                 visible: true,
                 position: 'Outside', name: 'DataLabelMappingName',
                 font: {
+                        size: Browser.isDevice ? '8px' : '12px',
                         fontWeight: '600'
                     },
-                connectorStyle: { length: '20px', type: 'Curve'}
+                connectorStyle: { length: Browser.isDevice ? '10px' : '20px', type: 'Curve'}
                 },
-                radius: Browser.isDevice ? '40%' : '70%',
+                radius: Browser.isDevice ? '40%' : '60%',
         legendSettings: {
             visible: false,
         },
-
+    border: { width: 1, color: 'white' },
     tooltip: {  
         enable: true,
-        format: '<b>${point.x}</b><br>Browser Share: <b>${point.y}%</b>',
+        format: '<b>${point.x}</b><br>Percentage: <b>${point.y}%</b>',
         header:'', 
         enableHighlight: true
     },
       enableSmartLabels: true,
       enableAnimation: true,
-      startAngle: Browser.isDevice ? '55' : '35', 
+      startAngle: Browser.isDevice ? '70' : '30', 
       explodeOffset: '10%',
       explodeIndex : 0,
-      title: "Browser Market Share"
+      title: "Global Electricity Generation by Source - 2024",
+      subTitle: "Source: wikipedia.org"
     };
   },
   provide: {

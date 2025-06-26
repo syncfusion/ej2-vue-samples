@@ -90,7 +90,7 @@
         printIconCss: 'e-icons e-print e-de-padding-right',
         exportIconCss: 'e-icons e-download e-de-padding-right',
         exportItems: [
-          { text: 'Syncfusion® Document Text (*.sfdt)', id: 'sfdt' },
+          { text: 'Syncfusion Document Text (*.sfdt)', id: 'sfdt' },
           { text: 'Word Document (*.docx)', id: 'word' },
           { text: 'Word Template (*.dotx)', id: 'dotx' },
           { text: 'Plain Text (*.txt)', id: 'txt' },

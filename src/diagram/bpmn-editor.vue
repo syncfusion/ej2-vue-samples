@@ -3,7 +3,7 @@
 <!-- Template for BPMN Editor -->
 <template>
   <!-- Diagram and Symbol Palette sections -->
-  <div class="control-section">
+  <div class="control-section diagram-bpmn">
     <div style="width:100%;height:445px">
 
       <!-- Symbol Palette component -->
@@ -424,9 +424,6 @@
   content: "\e72c";
 }
 
-.container-fluid {
-  padding-bottom: 15px;
-}
 </style>
 
 <script>

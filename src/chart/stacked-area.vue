@@ -124,7 +124,7 @@ export default {
         },
       border: { width: 2, color:' #666666'},
       tooltip: {
-        enable: true
+        enable: true, enableHighlight: true, showNearestTooltip: true
       },
       legend: {enableHighlight : true},
       width : Browser.isDevice ? '100%' : '75%',

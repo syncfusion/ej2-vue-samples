@@ -45,7 +45,97 @@
 </template>
 
 <style scoped>
-    @import "../../styles/Grid/adaptive.css";
+    .e-responsive-dialog {
+    box-shadow: none;
+    border: 1px solid #dddddd;
+}
+
+#adaptivebrowser:not(.e-grid.e-row-responsive) > .e-gridcontent {
+    height: calc(100% - 224px) !important;
+}
+
+/* Render the mobile pager by default */
+@media (max-width: 3840px) {
+    .e-adaptive-demo .e-pager {
+        padding: 13px 0;
+    }
+    .fluent2,
+    .fluent2-dark,
+    .fluent2-highcontrast {
+        .e-adaptive-demo .e-pager {
+            .e-mfirst,
+            .e-mprev,
+            .e-mnext,
+            .e-mlast {
+                padding: 1% 3.4%;
+            }
+        }
+    }
+    .e-adaptive-demo .e-pager div.e-parentmsgbar {
+        box-sizing: border-box;
+        display: inline-block;
+        float: initial;
+        padding-bottom: 0;
+        padding-right: 0;
+        padding-top: 0;
+        text-align: center;
+        vertical-align: top;
+        width: calc(60% - 48px);
+    }
+    .e-adaptive-demo .e-pager .e-pagesizes {
+        display: none;
+    }
+    .e-adaptive-demo .e-pager .e-pagecountmsg {
+        display: none;
+    }
+    .e-adaptive-demo .e-pager .e-pagercontainer {
+        display: none;
+    }
+    .e-adaptive-demo .e-pager .e-icons {
+        font-size: 11px;
+    }
+    .e-adaptive-demo .e-pager .e-mfirst,
+    .e-adaptive-demo .e-pager .e-mprev,
+    .e-adaptive-demo .e-pager .e-mnext,
+    .e-adaptive-demo .e-pager .e-mlast {
+        border: 0;
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 1% 5%;
+    }
+    .e-adaptive-demo .e-pager .e-mfirst {
+        margin-right: 4px;
+        text-align: right;
+        width: calc(10% + 11px);
+    }
+    .e-adaptive-demo .e-pager .e-mprev {
+        margin: 0 4px;
+        text-align: right;
+        width: 10%;
+    }
+    .e-adaptive-demo .e-pager .e-mnext {
+        margin: 0 4px;
+        text-align: left;
+        width: 10%;
+    }
+    .e-adaptive-demo .e-pager .e-mlast {
+        margin-left: 4px;
+        text-align: left;
+        width: calc(10% + 11px);
+    }
+    .e-adaptive-demo .e-bigger .e-pager,
+    .e-adaptive-demo .e-pager.e-bigger {
+        padding: 19px 0;
+    }
+    .e-adaptive-demo .e-bigger .e-pager.e-rtl div.e-parentmsgbar,
+    .e-adaptive-demo .e-pager.e-bigger.e-rtl div.e-parentmsgbar {
+        margin-right: 0;
+    }
+    .e-adaptive-demo .e-bigger .e-pager div.e-parentmsgbar,
+    .e-adaptive-demo .e-pager.e-bigger div.e-parentmsgbar {
+        padding: 0;
+    }
+}
      /* The device with borders */
     .e-mobile-layout {
         position: relative;
@@ -101,6 +191,10 @@
         border-top-width: 60px;
         border-bottom-width: 60px;
         box-shadow: -1px 2px white, -2px -2px white, 2px -2px white, 2px 1px white;
+    }
+ 
+    .e-bigger .e-responsive-dialog .e-dlg-header-content .e-btn .e-btn-icon {
+        margin-top: 0px !important;
     }
 </style>
 

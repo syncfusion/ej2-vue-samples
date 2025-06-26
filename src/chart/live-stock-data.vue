@@ -3,12 +3,8 @@
     <div align='center'>
         <ejs-chart ref="chart" style='display:block' :theme='theme' :load='load' :axisRangeCalculated='axisRangeCalculated' :pointRender='pointRender' align='center' id='stock' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :width='width' :crosshair='crosshair'>
-            <e-annotations>
-                <e-annotation content="<div style='width: 800px; height: 0; border-width: 1px 0; border-style: dashed; border-color: #868180; background: none; position: absolute;'></div>" coordinateUnits='Point' region='Series'>
-                </e-annotation>
-            </e-annotations>
             <e-series-collection>
-                <e-series :dataSource='seriesData1' type='Candle' bearFillColor='#2ecd71' bullFillColor='#e74c3d' columnWidth=0.4
+                <e-series :dataSource='seriesData1' type='Candle' :lastValueLabel='lastValueLabel' bearFillColor='#2ecd71' bullFillColor='#e74c3d' columnWidth=0.4
                 xName='x' low='low' high='high' open='open' close='close'> </e-series>
             </e-series-collection>
         </ejs-chart>
@@ -20,7 +16,7 @@
 </div>
 <div id="description">
     <p>
-        In this example, you can see how to render and configure a candlestick series to display data that updates every second using the <code>setData</code> method and adds new data every five seconds using the <code>addPoint</code> method. The chart demonstrates setting up a crosshair to follow the latest data and adjusting the point color based on the value.
+        In this example, you can see how to render and configure a candlestick series to display data that updates every second using the <code>setData</code> method and adds new data every five seconds using the <code>addPoint</code> method. The chart demonstrates how to set up a last value label that follows the latest data.
     </p>
     <p style="font-weight: 500"><b>Injecting Module</b></p>
     <p>
@@ -36,7 +32,7 @@
 
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AnnotationDirective, AnnotationsDirective, CandleSeries, DateTime, Crosshair, ChartAnnotation } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AnnotationDirective, AnnotationsDirective, CandleSeries, DateTime, Crosshair, ChartAnnotation, LastValueLabel } from "@syncfusion/ej2-vue-charts";
 
 import { loadChartTheme } from "./theme-color";
 let theme = loadChartTheme();
@@ -46,7 +42,7 @@ let getData = () => {
     let series = [];
     let point;
     for (let i = 0; i < 30; i++) {
-        value = 180 + Math.round((Math.random() * 25) * Math.sin(i * Math.PI / 8)); // Adjust the function as needed
+        value = 180 + ((Math.random() * 25) * Math.sin(i * Math.PI / 8)); // Adjust the function as needed
         value = Math.max(140, Math.min(260, value));
         if (value > 260) {
             value = 260;
@@ -54,6 +50,7 @@ let getData = () => {
         if (value < 140) {
             value = 140;
         }
+        value += Math.random() * 0.1;
         let open = value + Math.round(Math.random() * 18);
         let low = Math.min(value, open) - Math.round(Math.random() * 6);
         let high = Math.min(220, Math.max(value, open) + Math.round(Math.random() * 15));
@@ -86,6 +83,7 @@ export default {
     return {
         theme: theme,
         seriesData1: data,
+        lastValueLabel: { enable: true, background: 'red', dashArray: '3,2', lineWidth: 0.5, font: {size: '10px'} },
         //Initializing Primary X Axis
         primaryXAxis: {
             valueType: 'DateTime', 
@@ -117,17 +115,10 @@ export default {
             enable: true, 
             dashArray: '5,5' 
         },
-        annotations: [{
-            x: new Date(2000, 5, 2, 2, 0, 1),
-            region: "Series",
-            coordinateUnits: 'Point',
-            y: 140,
-            content: `<div></div>`
-        }]
     };
   },
   provide: {
-    chart: [CandleSeries, DateTime, Crosshair, ChartAnnotation]
+    chart: [CandleSeries, DateTime, Crosshair, ChartAnnotation, LastValueLabel]
   },
   methods: {
       load: function (args) {
@@ -157,7 +148,7 @@ export default {
                       }
                   }
                   else {
-                      let change = Math.round((Math.random() < 0.49 ? 1 : -1) * Math.random() * 10);
+                      let change = (Math.random() < 0.49 ? 1 : -1) * Math.random() * 10;
                       value += change;
                       if (value > 260) {
                           value = 260;
@@ -165,6 +156,7 @@ export default {
                       if (value < 140) {
                           value = 140;
                       }
+                      value += Math.random() * 0.1;
                       let open = value + Math.round(Math.random() * 12);
                       let low = Math.min(value, open) - Math.round(Math.random() * 8);
                       let high = Math.max(value, open) + Math.round(Math.random() * 15);
@@ -200,23 +192,7 @@ export default {
         }
     },
     pointRender: function(args) {
-        if (args.series.chart.enableRtl) {
-            args.series.chart.annotations[0].x = 0;
-        }
-        if (pointAdded && args.series.points[args.series.points.length - 1] === args.point) {
-            let firstPoint = args.series.chart.enableRtl ? args.series.points[args.series.points.length - 1].x : args.series.points[0].x;
-            args.series.chart.annotations[0].x = new Date(firstPoint).getTime() + (args.series.chart.enableRtl ? 2000 : 1000);
-            args.series.chart.annotations[0].y = args.point.close + 0.25;
-            args.series.chart.annotations[0].content = `<div style="width: ${args.series.chart.initialClipRect.width}px; height: 0; left: ${Browser.isDevice ? -10 : -16}px; position: absolute;">
-                <svg width="100%" height="2" style="display: block;">
-                  <line x1="0" y1="1" x2="${args.series.chart.initialClipRect.width}" y2="1" 
-                    style="stroke:#868180; stroke-width:0.75; stroke-dasharray:5,5;" />
-                </svg>
-              </div>
-              <div style="width: 40px; height: 18px; background-color: ${args.fill}; border: 1px solid rgba(48, 153, 245, 0.4); color: white; font-size: 11px; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 18px; position: absolute; left: ${(args.series.chart.enableRtl ? -args.series.chart.initialClipRect : args.series.chart.initialClipRect.width - 20)}px; top: -9px;">
-                ${(args.point.close).toFixed(2)}
-                </div>`;
-        }
+        args.series.lastValueLabel.background = args.fill;
     }
   }
 };

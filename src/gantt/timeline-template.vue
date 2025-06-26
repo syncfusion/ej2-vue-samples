@@ -12,20 +12,21 @@
         :timelineSettings="timelineSettings"
         :projectEndDate="projectEndDate"
         :timelineTemplate="'timelineTemplates'">
-        <template v-slot:timelineTemplates="{data}">
-          <div v-if="data.tier === 'topTier'" class="e-header-cell-label e-gantt-top-cell-text"
-            :style="{width: '100%', fontWeight: 'bold', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}"
-            :title="data.date">
-            <div
-              style="width:100%; height: 100%; display: flex; justify-content: center ; align-items: center; flex-direction: column;">
-              <div style="line-height: initial; font-weight: normal;">{{ weekDate(data.date) }}</div>
-              <div style="line-height: normal; padding-top: 5px; padding-bottom: 2px; font-weight: normal;">{{ formatDate(data.date) }}</div>
-              <div style="width: 20px; height: 20px; line-height: normal;">
-                <img style="width: 100%; height: 100%;" :src="imageString(data.date)">
-              </div>
-            </div>
+        <template v-slot:timelineTemplates ="{data}">
+    <div v-if="data.tier === 'topTier'" class="e-header-cell-label e-gantt-top-cell-text"
+        style="width:100%; font-weight: bold;height: 100%;display: flex; justify-content: center ; align-items: center;   "
+        title=${data.date}>
+        <div
+          style="width:100%; height: 100%; display: flex; justify-content: center ; align-items: center;flex-direction: column; ">
+          <div style=" line-height: initial; font-weight: normal;">{{ weekDate(data.date) }}</div>
+          <div style=" line-height: normal; padding-top: 5px; padding-bottom: 2px; font-weight: normal;">
+            {{formatDate(data.date) }}</div>
+          <div style="width:20px; height: 20px; line-height: normal;">
+            <img style="width:100%; height:100%;" :src="imageString(data.date)">
           </div>
-        </template>
+        </div>
+    </div>
+</template>
 </ejs-gantt>
 </div>
 <div id="description">
@@ -143,12 +144,12 @@ export default {
 #timelinetemplate .e-header-cell-label.e-gantt-top-cell-text{
   background-color: #fff
 }
-.fluent2-highcontrast #timelinetemplate .e-header-cell-label.e-gantt-top-cell-text,
-.fluent-dark #timelinetemplate .e-header-cell-label.e-gantt-top-cell-text,
-.fluent2-dark #timelinetemplate .e-header-cell-label.e-gantt-top-cell-text,
-.bootstrap5_3-dark #timelinetemplate .e-header-cell-label.e-gantt-top-cell-text,
-.tailwind3-dark #timelinetemplate .e-header-cell-label.e-gantt-top-cell-text,
-.material3-dark #timelinetemplate .e-header-cell-label.e-gantt-top-cell-text {
+.fluent2-highcontrast .e-header-cell-label.e-gantt-top-cell-text,
+.fluent-dark .e-header-cell-label.e-gantt-top-cell-text,
+.fluent2-dark .e-header-cell-label.e-gantt-top-cell-text,
+.bootstrap5_3-dark .e-header-cell-label.e-gantt-top-cell-text,
+.tailwind3-dark .e-header-cell-label.e-gantt-top-cell-text,
+.material3-dark .e-header-cell-label.e-gantt-top-cell-text {
   background-color: #000;
 }
 
@@ -163,5 +164,5 @@ export default {
 }
 #timelinetemplate .e-timeline-single-header-cell {
     height: 70px !important;
-}  
+}
 </style>

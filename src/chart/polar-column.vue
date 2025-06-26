@@ -131,7 +131,7 @@ export default {
       tooltip: {
         enable: true,
         header:'',
-        format: '<b>${point.text}</b> <br> ${series.name} : <b>${point.y}</b>'
+        format: '<b>${point.text}</b> <br> ${series.name} : <b>${point.y}</b>', enableHighlight: true
       },
       polardata: ['Polar', 'Radar'],
 

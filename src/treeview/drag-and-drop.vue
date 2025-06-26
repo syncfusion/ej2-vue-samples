@@ -182,6 +182,11 @@
   .fluent2-highcontrast .custom-delete {
       margin-top: 1px;
   }
+  .bootstrap5.e-bigger .e-drag-item.e-treeview .e-icons.e-icon-expandable,
+    .bootstrap5\.3.e-bigger .e-drag-item.e-treeview .e-icons.e-icon-expandable {
+        height: 30px;
+        width: 30px;
+    }
 </style>
 /* custom code end */
 <script>

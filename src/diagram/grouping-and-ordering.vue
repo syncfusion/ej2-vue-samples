@@ -2,7 +2,7 @@
 
 <!-- Template for Grouping and Ordering -->
 <template>
-  <div class="control-section">
+  <div class="control-section diagram-grouping-ordering">
     <div>
       <!-- Toolbar section -->
       <ejs-toolbar id="toolbar_default" ref="toolbar_diagram" :clicked='toolbarclicked'>
@@ -36,7 +36,7 @@
     </div>
     <!-- Diagram and Symbol Palette sections -->
     <div style="width:100%">
-      <div class="sb-mobile-palette-bar">
+      <div class="sb-mobile-palette-bar diagram-grouping-ordering">
         <div id="palette-icon" ref="palette_icon" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
       </div>
       <!-- Symbol Palette component -->
@@ -81,35 +81,27 @@
 
 <style scoped>
 /*To align palette */
-.sb-mobile-palette {
+.diagram-grouping-ordering .sb-mobile-palette {
   width: 240px;
   height: 100%;
   float: left;
 }
 
-.sb-mobile-palette-bar {
+.diagram-grouping-ordering .sb-mobile-palette-bar {
   display: none;
 }
 
 /*To align diagram */
-.sb-mobile-diagram {
+.diagram-grouping-ordering .sb-mobile-diagram {
   width: calc(100% - 242px);
   height: 100%;
   float: left;
 }
 
-.sb-bpmn-editor {
-  border-color: rgba(0, 0, 0, 0.12);
-  border-width: 1px 1px 1px 0px;
-  border-style: solid;
-}
 
 @media (max-width: 550px) {
-  .sb-bpmn-editor {
-    border-width: 0px 1px 1px;
-  }
-
-  .sb-mobile-palette {
+  
+  .diagram-grouping-ordering .sb-mobile-palette {
     z-index: 19;
     position: absolute;
     display: none;
@@ -118,7 +110,7 @@
     height: 100%;
   }
 
-  .sb-mobile-palette-bar {
+  .diagram-grouping-ordering .sb-mobile-palette-bar {
     display: block;
     width: 100%;
     background: #fafafa;
@@ -127,19 +119,19 @@
     min-height: 40px;
   }
 
-  .sb-mobile-diagram {
+  .diagram-grouping-ordering .sb-mobile-diagram {
     width: 100%;
     height: 100%;
     float: left;
     left: 0px;
   }
 
-  #palette-icon {
+  .diagram-grouping-ordering #palette-icon {
     font-size: 20px;
   }
 }
 
-.sb-mobile-palette-open {
+.diagram-grouping-ordering .sb-mobile-palette-open {
   position: absolute;
   display: block;
   right: 15px;

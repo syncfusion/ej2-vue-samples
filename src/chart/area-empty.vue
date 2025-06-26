@@ -74,7 +74,7 @@ export default {
         },
         tooltip: {
           enable: true,
-          format: '${point.x} : <b>${point.y}</b>'
+          format: '${point.x} : <b>${point.y}</b>', enableHighlight: true, showNearestTooltip: true
         },
       marker: { visible: true, height: 7, width: 7 , isFilled: true },
       diamondMarker: {  visible: true, height: 7, width: 7 , shape: 'Diamond' , isFilled: true  },

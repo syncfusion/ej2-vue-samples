@@ -104,11 +104,11 @@ annotaion ellipse[id*=_Trackball_1] {
     stroke: white !important;
 }
 
-.e-view.highcontrast .box-bottom, .e-view.tailwind .box-bottom, .e-view.tailwind3 .box-bottom, .e-view.fluent .box-bottom, .e-view.fluent2 .box-bottom, .e-view.material .box-bottom, .e-view.bootstrap .box-bottom,.e-view.bootstrap5 .box-bottom,.e-view.bootstrap4 .box-bottom, .e-view.fabric .box-bottom,.e-view.highcontrast .first-box-bottom,
-.e-view.tailwind .first-box-bottom, .e-view.tailwind3 .first-box-bottom, .e-view.fluent .first-box-bottom, .e-view.fluent2 .first-box-bottom, .e-view.material .first-box-bottom,.e-view.bootstrap .first-box-bottom, .e-view.bootstrap5 .first-box-bottom, .e-view.bootstrap4 .first-box-bottom ,.e-view.fabric .first-box-bottom, .e-view.highcontrast .first-box-bottom,
-.e-view.tailwind .first-box-bottom, .e-view.tailwind3 .first-box-bottom, .e-view.fluent .second-box-bottom, .e-view.fluent2 .second-box-bottom, .e-view.tailwind3 .second-box-bottom, .e-view.material .second-box-bottom,.e-view.bootstrap .second-box-bottom, .e-view.bootstrap5 .second-box-bottom,.e-view.bootstrap4 .second-box-bottom, .e-view.fabric .second-box-bottom, .e-view.highcontrast .third-box-bottom,
-.e-view.tailwind .first-box-bottom, .e-view.tailwind3 .first-box-bottom, .e-view.fluent .third-box-bottom, .e-view.fluent2 .third-box-bottom, .e-view.tailwind3 .third-box-bottom, .e-view.material .third-box-bottom,.e-view.bootstrap .third-box-bottom,.e-view.bootstrap5 .third-box-bottom,.e-view.bootstrap4 .third-box-bottom,.e-view.fabric .third-box-bottom,.e-view.highcontrast .box-left,
-.e-view.material .first-box-bottom, .e-view.tailwind .first-box-bottom, .e-view.tailwind3 .first-box-bottom, .e-view.fluent .box-left, .e-view.tailwind3 .box-left, .e-view.fluent2 .box-left, .e-view.bootstrap .box-left, .e-view.bootstrap5 .box-left, .e-view.bootstrap4 .box-left,.e-view.fabric .box-left,.e-view.material3 .box-bottom, .e-view.material3 .first-box-bottom , .e-view.material3 .second-box-bottom,.e-view.material3 .third-box-bottom, .e-view.material3 .box-left {
+.e-view.highcontrast .box-bottom, .e-view.tailwind .box-bottom, .e-view.tailwind3 .box-bottom, .e-view.fluent .box-bottom, .e-view.fluent2 .box-bottom, .e-view.material .box-bottom, .e-view.bootstrap .box-bottom,.e-view.bootstrap5\.3 .box-bottom,.e-view.bootstrap4 .box-bottom, .e-view.fabric .box-bottom,.e-view.highcontrast .first-box-bottom,
+.e-view.tailwind .first-box-bottom, .e-view.tailwind3 .first-box-bottom, .e-view.fluent .first-box-bottom, .e-view.fluent2 .first-box-bottom, .e-view.material .first-box-bottom,.e-view.bootstrap .first-box-bottom, .e-view.bootstrap5\.3 .first-box-bottom, .e-view.bootstrap4 .first-box-bottom ,.e-view.fabric .first-box-bottom, .e-view.highcontrast .first-box-bottom,
+.e-view.tailwind .first-box-bottom, .e-view.tailwind3 .first-box-bottom, .e-view.fluent .second-box-bottom, .e-view.fluent2 .second-box-bottom, .e-view.tailwind3 .second-box-bottom, .e-view.material .second-box-bottom,.e-view.bootstrap .second-box-bottom, .e-view.bootstrap5\.3 .second-box-bottom,.e-view.bootstrap4 .second-box-bottom, .e-view.fabric .second-box-bottom, .e-view.highcontrast .third-box-bottom,
+.e-view.tailwind .first-box-bottom, .e-view.tailwind3 .first-box-bottom, .e-view.fluent .third-box-bottom, .e-view.fluent2 .third-box-bottom, .e-view.tailwind3 .third-box-bottom, .e-view.material .third-box-bottom,.e-view.bootstrap .third-box-bottom,.e-view.bootstrap5\.3 .third-box-bottom,.e-view.bootstrap4 .third-box-bottom,.e-view.fabric .third-box-bottom,.e-view.highcontrast .box-left,
+.e-view.material .first-box-bottom, .e-view.tailwind .first-box-bottom, .e-view.tailwind3 .first-box-bottom, .e-view.fluent .box-left, .e-view.tailwind3 .box-left, .e-view.fluent2 .box-left, .e-view.bootstrap .box-left, .e-view.bootstrap5\.3 .box-left, .e-view.bootstrap4 .box-left,.e-view.fabric .box-left,.e-view.material3 .box-bottom, .e-view.material3 .first-box-bottom , .e-view.material3 .second-box-bottom,.e-view.material3 .third-box-bottom, .e-view.material3 .box-left {
     position: relative;
     background: #fdf7e7;
     border: 1.5px solid black;
@@ -117,11 +117,11 @@ annotaion ellipse[id*=_Trackball_1] {
     font-size: 12px;
     color: 'black'
 }
-.e-view.highcontrast .box-bottom,.e-view.material-dark .box-bottom, .e-view.tailwind-dark .box-bottom, .e-view.fluent-dark .box-bottom,  .e-view.fluent2-dark .box-bottom, .e-view.tailwind3-dark .box-bottom, .e-view.fluent2-highcontrast .box-bottom, .e-view.bootstrap-dark .box-bottom,.e-view.bootstrap5-dark .box-bottom,.e-view.fabric-dark .box-bottom,.e-view.highcontrast .first-box-bottom,
-.e-view.material-dark  .first-box-bottom, .e-view.tailwind-dark .first-box-bottom, .e-view.fluent-dark .first-box-bottom, .e-view.fluent2-dark .first-box-bottom, .e-view.tailwind3-dark .first-box-bottom, .e-view.fluent2-highcontrast .first-box-bottom, .e-view.bootstrap-dark .first-box-bottom, .e-view.bootstrap5-dark .first-box-bottom ,.e-view.fabric-dark .first-box-bottom, .e-view.highcontrast .second-box-bottom,
-.e-view.material-dark  .second-box-bottom, .e-view.fluent-dark .second-box-bottom, .e-view.fluent2-dark .second-box-bottom, .e-view.tailwind3-dark .second-box-bottom, .e-view.fluent2-highcontrast .second-box-bottom, .e-view.bootstrap-dark .second-box-bottom, .e-view.bootstrap5-dark .second-box-bottom, .e-view.fabric-dark .second-box-bottom, .e-view.highcontrast .third-box-bottom,
-.e-view.material-dark  .third-box-bottom, .e-view.fluent-dark .third-box-bottom, .e-view.fluent2-dark .third-box-bottom, .e-view.tailwind3-dark .third-box-bottom, .e-view.fluent2-highcontrast .third-box-bottom, .e-view.bootstrap-dark .third-box-bottom,.e-view.bootstrap5-dark .third-box-bottom,.e-view.fabric-dark .third-box-bottom,.e-view.highcontrast .box-left,
-.e-view.material-dark .box-left, .e-view.fluent-dark .box-left, .e-view.fluent2-dark .box-left, .e-view.tailwind3-dark .box-left, .e-view.fluent2-highcontrast .box-left, .e-view.bootstrap-dark .box-left, .e-view.bootstrap5-dark .box-left, .e-view.fabric-dark .box-left,.e-view.material3-dark .box-bottom, .e-view.material3-dark .first-box-bottom , .e-view.material3-dark .second-box-bottom,.e-view.material3-dark .third-box-bottom, .e-view.material3-dark .box-left{
+.e-view.highcontrast .box-bottom,.e-view.material-dark .box-bottom, .e-view.tailwind-dark .box-bottom, .e-view.fluent-dark .box-bottom,  .e-view.fluent2-dark .box-bottom, .e-view.tailwind3-dark .box-bottom, .e-view.fluent2-highcontrast .box-bottom, .e-view.bootstrap-dark .box-bottom,.e-view.bootstrap5\.3-dark .box-bottom,.e-view.fabric-dark .box-bottom,.e-view.highcontrast .first-box-bottom,
+.e-view.material-dark  .first-box-bottom, .e-view.tailwind-dark .first-box-bottom, .e-view.fluent-dark .first-box-bottom, .e-view.fluent2-dark .first-box-bottom, .e-view.tailwind3-dark .first-box-bottom, .e-view.fluent2-highcontrast .first-box-bottom, .e-view.bootstrap-dark .first-box-bottom, .e-view.bootstrap5\.3-dark .first-box-bottom ,.e-view.fabric-dark .first-box-bottom, .e-view.highcontrast .second-box-bottom,
+.e-view.material-dark  .second-box-bottom, .e-view.fluent-dark .second-box-bottom, .e-view.fluent2-dark .second-box-bottom, .e-view.tailwind3-dark .second-box-bottom, .e-view.fluent2-highcontrast .second-box-bottom, .e-view.bootstrap-dark .second-box-bottom, .e-view.bootstrap5\.3-dark .second-box-bottom, .e-view.fabric-dark .second-box-bottom, .e-view.highcontrast .third-box-bottom,
+.e-view.material-dark  .third-box-bottom, .e-view.fluent-dark .third-box-bottom, .e-view.fluent2-dark .third-box-bottom, .e-view.tailwind3-dark .third-box-bottom, .e-view.fluent2-highcontrast .third-box-bottom, .e-view.bootstrap-dark .third-box-bottom,.e-view.bootstrap5\.3-dark .third-box-bottom,.e-view.fabric-dark .third-box-bottom,.e-view.highcontrast .box-left,
+.e-view.material-dark .box-left, .e-view.fluent-dark .box-left, .e-view.fluent2-dark .box-left, .e-view.tailwind3-dark .box-left, .e-view.fluent2-highcontrast .box-left, .e-view.bootstrap-dark .box-left, .e-view.bootstrap5\.3-dark .box-left, .e-view.fabric-dark .box-left,.e-view.material3-dark .box-bottom, .e-view.material3-dark .first-box-bottom , .e-view.material3-dark .second-box-bottom,.e-view.material3-dark .third-box-bottom, .e-view.material3-dark .box-left{
     position: relative;
     background: black;
     border: 1.5px solid black;
@@ -137,7 +137,7 @@ annotaion ellipse[id*=_Trackball_1] {
     content: "";
     position: absolute;
 }
-.e-view.highcontrast .box-bottom:after, .e-view.tailwind .box-bottom:after, .e-view.tailwind3 .box-bottom:after, .e-view.fluent .box-bottom:after, .e-view.fluent2 .box-bottom:after, .e-view.material .box-bottom:after,.e-view.bootstrap .box-bottom:after,.e-view.bootstrap5 .box-bottom:after, .e-view.bootstrap4 .box-bottom:after, .e-view.fabric .box-bottom:after, .e-view.material3 .box-bottom:after {
+.e-view.highcontrast .box-bottom:after, .e-view.tailwind .box-bottom:after, .e-view.tailwind3 .box-bottom:after, .e-view.fluent .box-bottom:after, .e-view.fluent2 .box-bottom:after, .e-view.material .box-bottom:after,.e-view.bootstrap .box-bottom:after,.e-view.bootstrap5\.3 .box-bottom:after, .e-view.bootstrap4 .box-bottom:after, .e-view.fabric .box-bottom:after, .e-view.material3 .box-bottom:after {
     border-color: transparent;
     border-width: 6.2px;
     left: 50%;
@@ -145,7 +145,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-bottom: -1px;
     border-bottom-color: #fdf7e7;
 }
-.e-view.highcontrast .box-bottom:after, .e-view.tailwind-dark .box-bottom:after, .e-view.fluent-dark .box-bottom:after, .e-view.fluent2-dark .box-bottom:after, .e-view.tailwind3-dark .box-bottom:after, .e-view.fluent2-highcontrast .box-bottom:after, .e-view.material-dark .box-bottom:after,.e-view.bootstrap-dark .box-bottom:after,.e-view.bootstrap5-dark .box-bottom:after, .e-view.bootstrap4-dark .box-bottom:after, .e-view.fabric-dark .box-bottom:after, .e-view.material3-dark .box-bottom:after {
+.e-view.highcontrast .box-bottom:after, .e-view.tailwind-dark .box-bottom:after, .e-view.fluent-dark .box-bottom:after, .e-view.fluent2-dark .box-bottom:after, .e-view.tailwind3-dark .box-bottom:after, .e-view.fluent2-highcontrast .box-bottom:after, .e-view.material-dark .box-bottom:after,.e-view.bootstrap-dark .box-bottom:after,.e-view.bootstrap5\.3-dark .box-bottom:after, .e-view.bootstrap4-dark .box-bottom:after, .e-view.fabric-dark .box-bottom:after, .e-view.material3-dark .box-bottom:after {
     border-color: transparent;
     border-width: 6.2px;
     left: 50%;
@@ -161,7 +161,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-left: -7px;
     margin-bottom: 0.5px;
 }
-.e-view.highcontrast .first-box-bottom:after, .e-view.tailwind .first-box-bottom:after, .e-view.tailwind3 .first-box-bottom:after, .e-view.fluent .first-box-bottom:after, .e-view.fluent2 .first-box-bottom:after, .e-view.material .first-box-bottom:after,.e-view.bootstrap .first-box-bottom:after,.e-view.bootstrap5 .first-box-bottom:after,.e-view.bootstrap4 .first-box-bottom:after, .e-view.fabric .first-box-bottom:after, .e-view.material3 .first-box-bottom:after {
+.e-view.highcontrast .first-box-bottom:after, .e-view.tailwind .first-box-bottom:after, .e-view.tailwind3 .first-box-bottom:after, .e-view.fluent .first-box-bottom:after, .e-view.fluent2 .first-box-bottom:after, .e-view.material .first-box-bottom:after,.e-view.bootstrap .first-box-bottom:after,.e-view.bootstrap5\.3 .first-box-bottom:after,.e-view.bootstrap4 .first-box-bottom:after, .e-view.fabric .first-box-bottom:after, .e-view.material3 .first-box-bottom:after {
     border-color: transparent;
     border-width: 6.2px;
     left: 50%;
@@ -169,7 +169,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-bottom: -1px;
     border-bottom-color: #fdf7e7;
 }
-.e-view.highcontrast .first-box-bottom:after,.e-view.tailwind-dark .first-box-bottom:after,.e-view.fluent-dark .first-box-bottom:after, .e-view.fluent2-dark .first-box-bottom:after, .e-view.tailwind3-dark .first-box-bottom:after, .e-view.fluent2-highcontrast .first-box-bottom:after, .e-view.material-dark .first-box-bottom:after,.e-view.bootstrap-dark .first-box-bottom:after,.e-view.bootstrap5-dark .first-box-bottom:after,.e-view.bootstrap4-dark .first-box-bottom:after, .e-view.fabric-dark .first-box-bottom:after, .e-view.material3-dark .first-box-bottom:after {
+.e-view.highcontrast .first-box-bottom:after,.e-view.tailwind-dark .first-box-bottom:after,.e-view.fluent-dark .first-box-bottom:after, .e-view.fluent2-dark .first-box-bottom:after, .e-view.tailwind3-dark .first-box-bottom:after, .e-view.fluent2-highcontrast .first-box-bottom:after, .e-view.material-dark .first-box-bottom:after,.e-view.bootstrap-dark .first-box-bottom:after,.e-view.bootstrap5\.3-dark .first-box-bottom:after,.e-view.bootstrap4-dark .first-box-bottom:after, .e-view.fabric-dark .first-box-bottom:after, .e-view.material3-dark .first-box-bottom:after {
     border-color: transparent;
     border-width: 6.2px;
     left: 50%;
@@ -185,7 +185,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-left: -7px;
     margin-bottom: 0.5px;
 }
-.e-view.highcontrast .second-box-bottom:after,.e-view.tailwind .second-box-bottom:after,.e-view.tailwind3 .second-box-bottom:after,.e-view.fluent .second-box-bottom:after, .e-view.fluent2 .second-box-bottom:after, .e-view.tailwind3 .second-box-bottom:after, .e-view.material .second-box-bottom:after, .e-view.bootstrap .second-box-bottom:after, .e-view.bootstrap5 .second-box-bottom:after,.e-view.bootstrap4 .second-box-bottom:after, .e-view.fabric .second-box-bottom:after, .e-view.material3 .second-box-bottom:after {
+.e-view.highcontrast .second-box-bottom:after,.e-view.tailwind .second-box-bottom:after,.e-view.tailwind3 .second-box-bottom:after,.e-view.fluent .second-box-bottom:after, .e-view.fluent2 .second-box-bottom:after, .e-view.tailwind3 .second-box-bottom:after, .e-view.material .second-box-bottom:after, .e-view.bootstrap .second-box-bottom:after, .e-view.bootstrap5\.3 .second-box-bottom:after,.e-view.bootstrap4 .second-box-bottom:after, .e-view.fabric .second-box-bottom:after, .e-view.material3 .second-box-bottom:after {
     border-color: transparent;
     border-width: 6.2px;
     left: 50%;
@@ -193,7 +193,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-bottom: -1px;
     border-bottom-color: #fdf7e7;
 }
-.e-view.highcontrast .second-box-bottom:after,.e-view.tailwind-dark .second-box-bottom:after,.e-view.fluent-dark .second-box-bottom:after, .e-view.fluent2-dark .second-box-bottom:after, .e-view.tailwind3-dark .second-box-bottom:after, .e-view.fluent2-highcontrast .second-box-bottom:after, .e-view.material-dark .second-box-bottom:after, .e-view.bootstrap-dark .second-box-bottom:after, .e-view.bootstrap5-dark .second-box-bottom:after,.e-view.bootstrap4-dark .second-box-bottom:after, .e-view.fabric-dark .second-box-bottom:after, .e-view.material3-dark .second-box-bottom:after {
+.e-view.highcontrast .second-box-bottom:after,.e-view.tailwind-dark .second-box-bottom:after,.e-view.fluent-dark .second-box-bottom:after, .e-view.fluent2-dark .second-box-bottom:after, .e-view.tailwind3-dark .second-box-bottom:after, .e-view.fluent2-highcontrast .second-box-bottom:after, .e-view.material-dark .second-box-bottom:after, .e-view.bootstrap-dark .second-box-bottom:after, .e-view.bootstrap5\.3-dark .second-box-bottom:after,.e-view.bootstrap4-dark .second-box-bottom:after, .e-view.fabric-dark .second-box-bottom:after, .e-view.material3-dark .second-box-bottom:after {
     border-color: transparent;
     border-width: 6.2px;
     left: 50%;
@@ -209,7 +209,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-left: -7px;
     margin-bottom: 0.5px;
 }
-.e-view.highcontrast .third-box-bottom:after,.e-view.tailwind .third-box-bottom:after,.e-view.tailwind3 .third-box-bottom:after,.e-view.fluent .third-box-bottom:after ,.e-view.fluent2 .third-box-bottom:after, .e-view.tailwind3 .third-box-bottom:after ,.e-view.material .third-box-bottom:after ,.e-view.bootstrap .third-box-bottom:after ,.e-view.bootstrap5 .third-box-bottom:after , .e-view.bootstrap4 .third-box-bottom:after , .e-view.fabric .third-box-bottom:after,.e-view.material3 .third-box-bottom:after {
+.e-view.highcontrast .third-box-bottom:after,.e-view.tailwind .third-box-bottom:after,.e-view.tailwind3 .third-box-bottom:after,.e-view.fluent .third-box-bottom:after ,.e-view.fluent2 .third-box-bottom:after, .e-view.tailwind3 .third-box-bottom:after ,.e-view.material .third-box-bottom:after ,.e-view.bootstrap .third-box-bottom:after ,.e-view.bootstrap5\.3 .third-box-bottom:after , .e-view.bootstrap4 .third-box-bottom:after , .e-view.fabric .third-box-bottom:after,.e-view.material3 .third-box-bottom:after {
     border-color: transparent;
     border-width: 6px;
     left: 50%;
@@ -217,7 +217,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-bottom: -1px;
     border-bottom-color: #fdf7e7;
 }
-.e-view.highcontrast .third-box-bottom:after ,.e-view.tailwind-dark .third-box-bottom:after, .e-view.fluent-dark .third-box-bottom:after ,.e-view.fluent2-dark .third-box-bottom:after , .e-view.tailwind3-dark .third-box-bottom:after, .e-view.fluent2-highcontrast .third-box-bottom:after ,.e-view.material-dark .third-box-bottom:after ,.e-view.bootstrap-dark .third-box-bottom:after ,.e-view.bootstrap5-dark .third-box-bottom:after , .e-view.bootstrap4-dark .third-box-bottom:after , .e-view.fabric-dark .third-box-bottom:after, .e-view.material3-dark .third-box-bottom:after {
+.e-view.highcontrast .third-box-bottom:after ,.e-view.tailwind-dark .third-box-bottom:after, .e-view.fluent-dark .third-box-bottom:after ,.e-view.fluent2-dark .third-box-bottom:after , .e-view.tailwind3-dark .third-box-bottom:after, .e-view.fluent2-highcontrast .third-box-bottom:after ,.e-view.material-dark .third-box-bottom:after ,.e-view.bootstrap-dark .third-box-bottom:after ,.e-view.bootstrap5\.3-dark .third-box-bottom:after , .e-view.bootstrap4-dark .third-box-bottom:after , .e-view.fabric-dark .third-box-bottom:after, .e-view.material3-dark .third-box-bottom:after {
     border-color: transparent;
     border-width: 6px;
     left: 50%;
@@ -240,13 +240,13 @@ annotaion ellipse[id*=_Trackball_1] {
     content: "";
     position: absolute;
 }
-.e-view.highcontrast .box-left:after,.e-view.tailwind .box-left:after,.e-view.tailwind3 .box-left:after,.e-view.fluent .box-left:after, .e-view.fluent2 .box-left:after, .e-view.tailwind3 .box-left:after, .e-view.material .box-left:after,.e-view.bootstrap .box-left:after,.e-view.bootstrap5 .box-left:after, .e-view.bootstrap4 .box-left:after, .e-view.fabric .box-left:after, .e-view.material3 .box-left:after {
+.e-view.highcontrast .box-left:after,.e-view.tailwind .box-left:after,.e-view.tailwind3 .box-left:after,.e-view.fluent .box-left:after, .e-view.fluent2 .box-left:after, .e-view.tailwind3 .box-left:after, .e-view.material .box-left:after,.e-view.bootstrap .box-left:after,.e-view.bootstrap5\.3 .box-left:after, .e-view.bootstrap4 .box-left:after, .e-view.fabric .box-left:after, .e-view.material3 .box-left:after {
     border-color: transparent;
     border-width: 6.5px;
     margin-right: -1px;
     border-right-color: #fdf7e7;
 }
-.e-view.highcontrast .box-left:after,.e-view.tailwind-dark .box-left:after,.e-view.fluent-dark .box-left:after, .e-view.fluent2-dark .box-left:after, .e-view.tailwind3-dark .box-left:after, .e-view.fluent2-highcontrast .box-left:after, .e-view.material-dark .box-left:after,.e-view.bootstrap-dark .box-left:after,.e-view.bootstrap5-dark .box-left:after, .e-view.bootstrap4-dark .box-left:after, .e-view.fabric-dark .box-left:after, .e-view.material3-dark .box-left:after {
+.e-view.highcontrast .box-left:after,.e-view.tailwind-dark .box-left:after,.e-view.fluent-dark .box-left:after, .e-view.fluent2-dark .box-left:after, .e-view.tailwind3-dark .box-left:after, .e-view.fluent2-highcontrast .box-left:after, .e-view.material-dark .box-left:after,.e-view.bootstrap-dark .box-left:after,.e-view.bootstrap5\.3-dark .box-left:after, .e-view.bootstrap4-dark .box-left:after, .e-view.fabric-dark .box-left:after, .e-view.material3-dark .box-left:after {
     border-color: transparent;
     border-width: 6.5px;
     margin-right: -1px;
@@ -258,8 +258,8 @@ annotaion ellipse[id*=_Trackball_1] {
     border-width: 6.2px;
     margin-right: 1px;
 }
-.e-view.highcontrast .box-top,.e-view.tailwind .box-top,.e-view.tailwind3 .box-top,.e-view.fluent .box-top, .e-view.fluent2 .box-top, .e-view.material .box-top,.e-view.bootstrap .box-top,.e-view.bootstrap5 .box-top ,.e-view.bootstrap4 .box-top , .e-view.fabric .box-top,
-.e-view.highcontrast .box-top-left,.e-view.tailwind .box-top,.e-view.tailwind3 .box-top,.e-view.fluent .box-top-left, .e-view.fluent2 .box-top-left, .e-view.material .box-top-left,.e-view.bootstrap .box-top-left,.e-view.bootstrap5 .box-top-left, .e-view.bootstrap4 .box-top-left, .e-view.fabric .box-top-left,.e-view.material3 .box-top, .e-view.material3 .box-top-left, .e-view.tailwind3 .box-top-left {
+.e-view.highcontrast .box-top,.e-view.tailwind .box-top,.e-view.tailwind3 .box-top,.e-view.fluent .box-top, .e-view.fluent2 .box-top, .e-view.material .box-top,.e-view.bootstrap .box-top,.e-view.bootstrap5\.3 .box-top ,.e-view.bootstrap4 .box-top , .e-view.fabric .box-top,
+.e-view.highcontrast .box-top-left,.e-view.tailwind .box-top,.e-view.tailwind3 .box-top,.e-view.fluent .box-top-left, .e-view.fluent2 .box-top-left, .e-view.material .box-top-left,.e-view.bootstrap .box-top-left,.e-view.bootstrap5\.3 .box-top-left, .e-view.bootstrap4 .box-top-left, .e-view.fabric .box-top-left,.e-view.material3 .box-top, .e-view.material3 .box-top-left, .e-view.tailwind3 .box-top-left {
     position: relative;
     color: white;
     background: black;
@@ -269,8 +269,8 @@ annotaion ellipse[id*=_Trackball_1] {
     font-size: 12px;
     color:  white;
 }
-.e-view.highcontrast .box-top,.e-view.tailwind-dark .box-top,.e-view.fluent-dark .box-top, .e-view.fluent2-dark .box-top, .e-view.tailwind3-dark .box-top, .e-view.fluent2-highcontrast .box-top, .e-view.material-dark .box-top,.e-view.bootstrap-dark .box-top,.e-view.bootstrap5-dark .box-top ,.e-view.bootstrap4-dark .box-top , .e-view.fabric-dark .box-top,
-.e-view.highcontrast .box-top-left,.e-view.tailwind-dark .box-top,.e-view.fluent-dark .box-top-left ,.e-view.fluent2-dark .box-top-left , .e-view.tailwind3-dark .box-top-left, .e-view.fluent2-highcontrast .box-top-left ,.e-view.material-dark .box-top-left,.e-view.bootstrap-dark .box-top-left,.e-view.bootstrap5-dark .box-top-left, .e-view.bootstrap4-dark .box-top-left, .e-view.fabric-dark .box-top-left, .e-view.material3-dark .box-top, .e-view.material3-dark .box-top-left {
+.e-view.highcontrast .box-top,.e-view.tailwind-dark .box-top,.e-view.fluent-dark .box-top, .e-view.fluent2-dark .box-top, .e-view.tailwind3-dark .box-top, .e-view.fluent2-highcontrast .box-top, .e-view.material-dark .box-top,.e-view.bootstrap-dark .box-top,.e-view.bootstrap5\.3-dark .box-top ,.e-view.bootstrap4-dark .box-top , .e-view.fabric-dark .box-top,
+.e-view.highcontrast .box-top-left,.e-view.tailwind-dark .box-top,.e-view.fluent-dark .box-top-left ,.e-view.fluent2-dark .box-top-left , .e-view.tailwind3-dark .box-top-left, .e-view.fluent2-highcontrast .box-top-left ,.e-view.material-dark .box-top-left,.e-view.bootstrap-dark .box-top-left,.e-view.bootstrap5\.3-dark .box-top-left, .e-view.bootstrap4-dark .box-top-left, .e-view.fabric-dark .box-top-left, .e-view.material3-dark .box-top, .e-view.material3-dark .box-top-left {
     position: relative;
     color: white;
     background: #fdf7e7;
@@ -286,7 +286,7 @@ annotaion ellipse[id*=_Trackball_1] {
     content: "";
     position: absolute;
 }
-.e-view.highcontrast .box-top:after,.e-view.tailwind .box-top:after,.e-view.tailwind3 .box-top:after,.e-view.fluent .box-top:after,.e-view.fluent2 .box-top:after, .e-view.material .box-top:after, .e-view.bootstrap .box-top:after, .e-view.bootstrap5 .box-top:after, .e-view.bootstrap4 .box-top:after, .e-view.fabric .box-top:after,.e-view.material3 .box-top:after {
+.e-view.highcontrast .box-top:after,.e-view.tailwind .box-top:after,.e-view.tailwind3 .box-top:after,.e-view.fluent .box-top:after,.e-view.fluent2 .box-top:after, .e-view.material .box-top:after, .e-view.bootstrap .box-top:after, .e-view.bootstrap5\.3 .box-top:after, .e-view.bootstrap4 .box-top:after, .e-view.fabric .box-top:after,.e-view.material3 .box-top:after {
     border-color: transparent;
     border-width: 7.5px;
     border-top-color:black;
@@ -294,7 +294,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-right: -7.5px;
     margin-top: -1.5px;
 }
-.e-view.highcontrast .box-top:after,.e-view.tailwind-dark .box-top:after,.e-view.fluent-dark .box-top:after,.e-view.fluent2-dark .box-top:after, .e-view.tailwind3-dark .box-top:after, .e-view.fluent2-highcontrast .box-top:after,.e-view.material-dark .box-top:after, .e-view.bootstrap-dark .box-top:after, .e-view.bootstrap5-dark .box-top:after, .e-view.bootstrap4-dark .box-top:after, .e-view.fabric-dark .box-top:after,.e-view.material3-dark .box-top:after {
+.e-view.highcontrast .box-top:after,.e-view.tailwind-dark .box-top:after,.e-view.fluent-dark .box-top:after,.e-view.fluent2-dark .box-top:after, .e-view.tailwind3-dark .box-top:after, .e-view.fluent2-highcontrast .box-top:after,.e-view.material-dark .box-top:after, .e-view.bootstrap-dark .box-top:after, .e-view.bootstrap5\.3-dark .box-top:after, .e-view.bootstrap4-dark .box-top:after, .e-view.fabric-dark .box-top:after,.e-view.material3-dark .box-top:after {
     border-color: transparent;
     border-width: 7.5px;
     border-top-color: #fdf7e7;
@@ -302,21 +302,21 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-right: -7.5px;
     margin-top: -1.5px;
 }
-.e-view.highcontrast .box-top:before, .e-view.tailwind .box-top:before, .e-view.tailwind3 .box-top:before, .e-view.fluent .box-top:before,.e-view.fluent2 .box-top:before,.e-view.material .box-top:before,.e-view.bootstrap .box-top:before,.e-view.bootstrap5 .box-top:before,.e-view.bootstrap4 .box-top:before , .e-view.fabric .box-top:before, .e-view.material3 .box-top:before {
+.e-view.highcontrast .box-top:before, .e-view.tailwind .box-top:before, .e-view.tailwind3 .box-top:before, .e-view.fluent .box-top:before,.e-view.fluent2 .box-top:before,.e-view.material .box-top:before,.e-view.bootstrap .box-top:before,.e-view.bootstrap5\.3 .box-top:before,.e-view.bootstrap4 .box-top:before , .e-view.fabric .box-top:before, .e-view.material3 .box-top:before {
     border-color: transparent;
     border-top-color:black;
     border-width: 8px;
     right: 50%;
     margin-right: -8px;
 }
-.e-view.highcontrast .box-top:before,.e-view.tailwind-dark .box-top:before, .e-view.fluent-dark .box-top:before,.e-view.fluent2-dark .box-top:before, .e-view.tailwind3-dark .box-top:before, .e-view.fluent2-highcontrast .box-top:before,.e-view.material-dark .box-top:before,.e-view.bootstrap-dark .box-top:before,.e-view.bootstrap5-dark .box-top:before,.e-view.bootstrap4-dark .box-top:before , .e-view.fabric-dark .box-top:before ,.e-view.material3-dark .box-top:before{
+.e-view.highcontrast .box-top:before,.e-view.tailwind-dark .box-top:before, .e-view.fluent-dark .box-top:before,.e-view.fluent2-dark .box-top:before, .e-view.tailwind3-dark .box-top:before, .e-view.fluent2-highcontrast .box-top:before,.e-view.material-dark .box-top:before,.e-view.bootstrap-dark .box-top:before,.e-view.bootstrap5\.3-dark .box-top:before,.e-view.bootstrap4-dark .box-top:before , .e-view.fabric-dark .box-top:before ,.e-view.material3-dark .box-top:before{
     border-color: transparent;
     border-top-color:#fdf7e7;
     border-width: 8px;
     right: 50%;
     margin-right: -8px;
 }
-.e-view.highcontrast .box-top-left:after,.e-view.tailwind .box-top-left:after,.e-view.tailwind3 .box-top-left:after,.e-view.fluent .box-top-left:after, .e-view.fluent2 .box-top-left:after, .e-view.material .box-top-left:after,.e-view.bootstrap .box-top-left:after,.e-view.bootstrap5 .box-top-left:after,.e-view.bootstrap4 .box-top-left:after, .e-view.fabric  .box-top-left:after, .e-view.material3 .box-top-left:after, .e-view.tailwind3 .box-top-left:after{
+.e-view.highcontrast .box-top-left:after,.e-view.tailwind .box-top-left:after,.e-view.tailwind3 .box-top-left:after,.e-view.fluent .box-top-left:after, .e-view.fluent2 .box-top-left:after, .e-view.material .box-top-left:after,.e-view.bootstrap .box-top-left:after,.e-view.bootstrap5\.3 .box-top-left:after,.e-view.bootstrap4 .box-top-left:after, .e-view.fabric  .box-top-left:after, .e-view.material3 .box-top-left:after, .e-view.tailwind3 .box-top-left:after{
     border-color: transparent;
     border-width: 7.5px;
     border-top-color: black;
@@ -324,7 +324,7 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-right: -7.5px;
     margin-bottom: -1.5px;
 }
-.e-view.highcontrast .box-top-left:after,.e-view.tailwind-dark .box-top-left:after,.e-view.fluent-dark .box-top-left:after, .e-view.fluent2-dark .box-top-left:after, .e-view.tailwind3-dark .box-top-left:after, .e-view.fluent2-highcontrast .box-top-left:after, .e-view.material-dark .box-top-left:after,.e-view.bootstrap-dark .box-top-left:after,.e-view.bootstrap5-dark .box-top-left:after,.e-view.bootstrap4-dark .box-top-left:after, .e-view.fabric-dark  .box-top-left:after,.e-view.material3-dark .box-top-left:after{
+.e-view.highcontrast .box-top-left:after,.e-view.tailwind-dark .box-top-left:after,.e-view.fluent-dark .box-top-left:after, .e-view.fluent2-dark .box-top-left:after, .e-view.tailwind3-dark .box-top-left:after, .e-view.fluent2-highcontrast .box-top-left:after, .e-view.material-dark .box-top-left:after,.e-view.bootstrap-dark .box-top-left:after,.e-view.bootstrap5\.3-dark .box-top-left:after,.e-view.bootstrap4-dark .box-top-left:after, .e-view.fabric-dark  .box-top-left:after,.e-view.material3-dark .box-top-left:after{
     border-color: transparent;
     border-width: 7.5px;
     border-top-color: #fdf7e7;
@@ -332,14 +332,14 @@ annotaion ellipse[id*=_Trackball_1] {
     margin-right: -7.5px;
     margin-bottom: -1.5px;
 }
-.e-view.highcontrast .box-top-left:before,.e-view.tailwind .box-top-left:before,.e-view.tailwind3 .box-top-left:before,.e-view.fluent .box-top-left:before, .e-view.fluent2 .box-top-left:before, .e-view.material .box-top-left:before,.e-view.bootstrap .box-top-left:before,.e-view.bootstrap5 .box-top-left:before, .e-view.bootstrap4 .box-top-left:before , .e-view.fabric  .box-top-left:before, .e-view.material3  .box-top-left:before {
+.e-view.highcontrast .box-top-left:before,.e-view.tailwind .box-top-left:before,.e-view.tailwind3 .box-top-left:before,.e-view.fluent .box-top-left:before, .e-view.fluent2 .box-top-left:before, .e-view.material .box-top-left:before,.e-view.bootstrap .box-top-left:before,.e-view.bootstrap5\.3 .box-top-left:before, .e-view.bootstrap4 .box-top-left:before , .e-view.fabric  .box-top-left:before, .e-view.material3  .box-top-left:before {
     border-color: transparent;
     border-top-color: black;
     border-width: 8px;
     right: 20%;
     margin-right: -8px;
 }
-.e-view.highcontrast .box-top-left:before,.e-view.tailwind-dark .box-top-left:before,.e-view.fluent-dark .box-top-left:before, e-view.fluent2-dark .box-top-left:before, e-view.fluent2-highcontrast .box-top-left:before, .e-view.material-dark .box-top-left:before,.e-view.bootstrap-dark .box-top-left:before,.e-view.bootstrap5-dark .box-top-left:before, .e-view.bootstrap4-dark .box-top-left:before , .e-view.fabric-dark  .box-top-left:before,.e-view.material3-dark  .box-top-left:before {
+.e-view.highcontrast .box-top-left:before,.e-view.tailwind-dark .box-top-left:before,.e-view.fluent-dark .box-top-left:before, e-view.fluent2-dark .box-top-left:before, e-view.fluent2-highcontrast .box-top-left:before, .e-view.material-dark .box-top-left:before,.e-view.bootstrap-dark .box-top-left:before,.e-view.bootstrap5\.3-dark .box-top-left:before, .e-view.bootstrap4-dark .box-top-left:before , .e-view.fabric-dark  .box-top-left:before,.e-view.material3-dark  .box-top-left:before {
     border-color: transparent;
     border-top-color: #fdf7e7;
     border-width: 8px;
@@ -354,7 +354,7 @@ import { ChartComponent, SeriesDirective, SeriesCollectionDirective, StackingCol
  import { loadChartTheme } from "./theme-color";
 let selectedTheme = loadChartTheme(null, true);
 let theme = loadChartTheme();
-let themes = ['bootstrap5', 'bootstrap5dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark', 'fluent2', 'fluent2highcontrast', 'fluent2dark', 'tailwind3', 'tailwind3dark'];
+let themes = ['bootstrap5\.3', 'bootstrap5\.3dark', 'tailwind', 'tailwinddark', 'material', 'materialdark', 'bootstrap4', 'bootstrap', 'bootstrapdark', 'fabric', 'fabricdark', 'highcontrast', 'fluent', 'fluentdark', 'material3', 'material3dark', 'fluent2', 'fluent2highcontrast', 'fluent2dark', 'tailwind3', 'tailwind3dark'];
 let borderColor = ['#FD7E14', '#FD7E14', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB08', '#a16ee5', '#a16ee5', '#a16ee5', '#4472c4', '#4472c4', '#79ECE4', '#614570', '#8AB113', '#6200EE', '#4EAAFF', '#6200EE', '#9BB449', '#9BB449', '#2F4074', '#8029F1'];
 export default {
     components: {

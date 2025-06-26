@@ -4,7 +4,7 @@
         <ejs-treegrid :dataSource='data' idMapping='TaskID' parentIdMapping='parentID' :treeColumnIndex='1' :height= '380'>
             <e-columns>
                 <e-column field='TaskID' headerText='Task ID' width='100' textAlign='Right'></e-column>
-                <e-column field='TaskName' headerText='Task Name' width='150'></e-column>
+                <e-column field='TaskName' headerText='Task Name' width='180'></e-column>
                 <e-column field='StartDate' headerText='Start Date' width='130' format="yMd" textAlign='Right'></e-column>
                 <e-column field='EndDate' headerText='End Date' width='130' format="yMd" textAlign='Right'></e-column>
                 <e-column field='Duration' headerText='Duration' width='100' textAlign='Right'></e-column>

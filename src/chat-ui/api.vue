@@ -1,7 +1,7 @@
 <template>
     <div class="col-lg-8 control-section">
         <div class="api-chatui">
-            <ejs-chatui id="chatui" ref="chatUiInst" :messages="chatData" :autoScrollToBottom="autoScrollToBottom" :user="user" :showTimeStamp="showTimestamp" :showTimeBreak="showTimeBreak" :showHeader="showHeader" :showFooter="showFooter" :timeStampFormat="timeStampFormat" :headerIconCss="headerIconCss" :headerText="headerText"></ejs-chatui>
+            <ejs-chatui id="chatui" ref="chatUiInst" :messages="chatData" :autoScrollToBottom="autoScrollToBottom" :user="user" :showTimeStamp="showTimestamp" :showTimeBreak="showTimeBreak" :showHeader="showHeader" :showFooter="showFooter" :enableCompactMode="enableCompactMode" :timeStampFormat="timeStampFormat" :headerIconCss="headerIconCss" :headerText="headerText" :messageToolbarSettings="messageToolbarSettings"></ejs-chatui>
         </div>
     </div>
 
@@ -59,6 +59,16 @@
                     </td>
                 </tr>
                 <tr>
+                    <td >
+                        <div>Compact Mode</div>
+                    </td>
+                    <td style="padding-right: 10px">
+                        <div style="padding-left: 0;padding-top: 0">
+                            <ejs-switch id="compactMode"  v-model:checked="enableCompactMode"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
                     <td>
                         <div>Typing users</div>
                     </td>
@@ -82,7 +92,10 @@
             <li><code>showTimeBreak</code>: Enables or disables the display of time breaks in the chat interface.</li>
             <li><code>showHeader</code>: Lets users toggle the visibility of the chat header.</li>
             <li><code>showFooter</code>: Toggles the visibility of the chat footer.</li>
+            <li><code>enableCompactMode</code>: Reduces spacing and left-aligns all messages to display more content within the visible chat area. </li>
             <li><code>typingUsers</code>: Allows users to manage the list of users who are typing, updated through the multi-select options in the property pane.</li>
+            <li><code>statusIconCss</code>: Defines a CSS class for the status bar icon, with built-in styles for Online, Offline, Away, and Busy statuses, while allowing further customization.</li>
+            <li><code>messageToolbarSettings</code>: Configures the toolbar that appears on individual messages, allowing customization such as copy, forward, reply, pin and delete. Supports adding, removing, or reordering toolbar items based on application needs.</li>
         </ul>
         <p>
             These properties can be adjusted via the property pane for a highly flexible and customizable chat experience.
@@ -115,12 +128,38 @@ export default {
             showFooter: true,
             showHeader: true,
             showTimestamp: true,
+            enableCompactMode: false,
             headerText: "Design Community",
             headerIconCss: "chat_header_icon",
             user: { user: 'Alice', id: 'admin' },
             dataSource: [ "MM/dd hh:mm a", "dd/MM/yy hh:mm a", "hh:mm a", "MMMM hh:mm a" ],
-            multiSelectDataSource: [ "Michale", "Laura", "Charlie" ]
-        }
+            multiSelectDataSource: [ "Michale", "Laura", "Charlie", "Jordan" ],
+            messageToolbarSettings: {
+              items: [
+                  { type: "Button", iconCss: "e-icons e-chat-forward", tooltip: "Forward" },
+                  { type: "Button", iconCss: "e-icons e-chat-copy", tooltip: "Copy" },
+                  { type: "Button", iconCss: "e-icons e-chat-reply", tooltip: "Reply" },
+                  { type: "Button", iconCss: "e-icons e-chat-pin", tooltip: "Pin" },
+                  { type: "Button", iconCss: "e-icons e-chat-trash", tooltip: "Delete" }
+                ],
+              itemClicked: (args) => {
+                if (args.item.prefixIcon === "e-icons e-chat-forward") {
+                  const newMessageObj = {
+                    id: 'chat-message-' + (this.$refs.chatUiInst.ej2Instances.messages.length + 1).toString(),
+                    isForwarded: true,
+                    isPinned: args.message.isPinned,
+                    author: args.message.author,
+                    text: args.message.text,
+                    timeStamp: args.message.timeStamp,
+                    timeStampFormat: args.message.timeStampFormat,
+                    status: args.message.status,
+                    replyTo: args.message.replyTo
+                  };
+                  this.$refs.chatUiInst.ej2Instances.addMessage(newMessageObj);
+                }
+              }
+            }
+          }
     },
     methods: {
         change: function (args) {
@@ -152,7 +191,7 @@ export default {
     }
 
     .api-chatui .chat_header_icon {
-        background-image: url('/src/chat-ui/images/public-event.png');
+        background-image: url('./images/public-event.png');
         background-color: unset;
     }
 

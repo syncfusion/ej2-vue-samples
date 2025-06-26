@@ -1,4 +1,5 @@
 <template>
+<div class="diagram-quick-command">
 <div class="col-lg-8 control-section">
     <div class="content-wrapper">
         <!-- Configures the diagram with dynamic properties and settings -->
@@ -6,7 +7,7 @@
          :selectionChange='selectionChange' :fixedUserHandleClick='fixedUserHandleClick' :fixedUserHandleTemplate="fixedUserHandleTemplate" :snapSettings='snapSettings'></ejs-diagram>
     </div>
 </div>
-<div class="col-lg-4 property-section diagram-property">
+<div class="col-lg-4 property-section diagram-property-quick">
     <div class="property-panel-header">
       Properties
     </div>
@@ -61,10 +62,11 @@
     </p>
     <br>
 </div>
+</div>
 </template>
 
 <style scoped>
-.diagram-property .image-pattern-style {
+.diagram-property-quick .image-pattern-style {
   background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
@@ -76,50 +78,44 @@
   float: left;
 }
 
-.diagram-property .image-pattern-style:hover {
+.diagram-property-quick .image-pattern-style:hover {
   border-color: gray;
   border-width: 2px;
 }
 
-.diagram-property .row {
+.diagram-property-quick .row {
   margin: 10px 0px 0px 0px;
 }
 
-.diagram-property .e-selected-style {
+.diagram-property-quick .e-selected-style {
   border-color: #006ce6;
   border-width: 2px;
 }
 
-.diagram-property .row-header {
+.diagram-property-quick .row-header {
   font-size: 15px;
   font-weight: 500;
   margin-top: 10px;
 }
 
-.diagram-property .e-checkbox-wrapper .e-label {
-  font-size: 12px;
-}
 
-.control-section {
+.diagram-quick-command .control-section {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-right: 0px;
   padding-left: 0px;
 }
 
-.container-fluid {
-  padding-left: 0px;
-}
 
-.col-xs-6 {
+.diagram-quick-command .col-xs-6 {
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 5px;
 }
- .property-section .e-remove-selection {
+.diagram-quick-command .property-section .e-remove-selection {
   cursor: not-allowed;
 }
-.e-remove-selection .property-section-content {
+.diagram-quick-command .e-remove-selection .property-section-content {
   pointer-events: none;
 }
 </style>

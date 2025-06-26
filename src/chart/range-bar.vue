@@ -1,24 +1,24 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip' :isTransposed='isTransposed'>
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :subTitle='subTitle' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :isTransposed='isTransposed' :legendSettings='legendSettings'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='RangeColumn' xName='Month' high='CA_HighTemp' low='CA_LowTemp' :marker='marker' columnSpacing='0.1' tooltipMappingName='Text'> </e-series>
+                <e-series :dataSource='seriesData' type='RangeColumn' xName='country' high='high' low='low' :marker='marker' columnSpacing=0.4 :cornerRadius='cornerRadius'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-      This sample shows the maximum and minimum temperatures for several months with the default range column series inverted. The tooltip shows the information for the data point.
+        This sample visually represents changes in visa-free access for various countries using an inverted Range Column chart. It highlights the countries that have experienced the most significant increases and decreases over the past decade.
     </p>
 </div>
 <div id="description">
     <p>
-      In this example, you can see how to render and configure the range column chart in an inverted manner. You can use <code>IsTransposed</code> property to invert your chart.
+        In this example, you can see how to render and configure the range column chart in an inverted manner. You can use <code>isTransposed</code> property to invert your chart.
     </p>
     <p>
-      <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover over a point or tap on a point in touch-enabled devices.
+        <code>Tooltips</code> are enabled in this example, to see the tooltip in action, hover a point or tap on a point in touch enabled devices.
     </p>
 
     <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -52,56 +52,56 @@ export default {
   },
   data: function() {
     return {
-         theme:theme,
-      seriesData: [
-        { Month : "Jan", CA_LowTemp : 28, CA_HighTemp : 72, Text : "January", CO_LowTemp : 38, CO_HighTemp : 78 },
-        { Month : "Feb", CA_LowTemp : 25, CA_HighTemp : 75, Text : "February", CO_LowTemp : 38, CO_HighTemp : 78 },
-        { Month : "Mar", CA_LowTemp : 18, CA_HighTemp : 65, Text : "March", CO_LowTemp : 27, CO_HighTemp : 78 },
-        { Month : "Apr", CA_LowTemp : 22, CA_HighTemp : 69, Text : "April", CO_LowTemp : 38, CO_HighTemp : 78 },
-        { Month : "May", CA_LowTemp : 56, CA_HighTemp : 87, Text : "May", CO_LowTemp : 28, CO_HighTemp : 79 },
-        { Month : "Jun", CA_LowTemp : 48, CA_HighTemp : 75, Text : "June", CO_LowTemp : 38, CO_HighTemp : 78 },
-        { Month : "Jul", CA_LowTemp : 40, CA_HighTemp : 78, Text : "July", CO_LowTemp : 37, CO_HighTemp : 66 },
-        { Month : "Aug", CA_LowTemp : 35, CA_HighTemp : 73, Text : "August", CO_LowTemp : 38, CO_HighTemp : 78 },
-        { Month : "Sep", CA_LowTemp : 43, CA_HighTemp : 64, Text : "September", CO_LowTemp : 25, CO_HighTemp : 52 },
-        { Month : "Oct", CA_LowTemp : 38, CA_HighTemp : 77, Text : "October", CO_LowTemp : 38, CO_HighTemp : 78 },
-        { Month : "Nov", CA_LowTemp : 28, CA_HighTemp : 54, Text : "November", CO_LowTemp : 20, CO_HighTemp : 60 },
-        { Month : "Dec", CA_LowTemp : 29, CA_HighTemp : 56, Text : "December", CO_LowTemp : 20, CO_HighTemp : 60 }
-            ],
+        theme: theme,
+        seriesData: [
+          { country: 'Solomon Islands', low: 44, high: 134 },
+          { country: 'Tonga', low: 52, high: 131 },
+          { country: 'Trinidad and Tobago', low: 36, high: 151 },
+          { country: 'Samoa', low: 49, high: 131 },
+          { country: 'Saint Lucia', low: 39, high: 148 },
+          { country: 'Georgia', low: 68, high: 122 },
+          { country: 'Peru', low: 56, high: 141 },
+          { country: 'Grenada', low: 41, high: 147 },
+          { country: 'Dominica', low: 46, high: 143 },
+          { country: 'Ukraine', low: 64, high: 148 },
+          { country: 'Colombia', low: 64, high: 134 }
+        ],
 
       //Initializing Primary X Axis
         primaryXAxis: {
             valueType: 'Category',
             majorGridLines: { width: 0 },
-            majorTickLines: { width: 0 }
+            majorTickLines: { width: 0 },
+            lineStyle: { width: 0 }
         },
-
-
       //Initializing Primary Y Axis
-          primaryYAxis: {
-            title: 'Temperature (In Fahrenheit)',
-            labelFormat: '{value}˚F',
+        primaryYAxis: {
+            labelFormat: '{value}',
+            minimum: 0,
+            maximum: 200,
+            interval: 20,
             edgeLabelPlacement: 'Shift',
             lineStyle: { width: 0 },
-            majorTickLines: { width: 0 }
+            majorTickLines: { width: 0 },
+            title: 'Growth in Visa-Free Destinations',
+            labelRotation: Browser.isDevice ? -45 : 0
         },
         chartArea: {
             border: {
                 width: 0
             }
         },
-
         isTransposed: true,
-
         width : Browser.isDevice ? '100%' : '75%',
-     
-      tooltip: { 
+        tooltip: { 
             enable: true,
-            header: '<b>${point.tooltip}</b>',
-            format: 'Temperature : <b>${point.low} - ${point.high}</b>',
-            enableMarker: false
-         },
-      marker: { dataLabel:{visible: true, position: 'Outer'} },
-      title: "Temperature Variation"
+            format: '${point.x}: <b>${point.low} - ${point.high}</b>'
+        },
+        marker: { dataLabel: { visible: true, position: 'Outer' } },
+        title: 'Global Passport Rankings: Growth in Visa-Free Access (2006–2024)',
+        subTitle: 'Source: wikipedia.org',
+        legendSettings: { visible: false },
+        cornerRadius: { topLeft: 4, topRight: 4, bottomLeft: 4, bottomRight: 4 }
     };
   },
   provide: {

@@ -2,7 +2,6 @@
     "name": "Chips",
     "directory": "chips",
     "category": "Buttons",
-    "type": "update",
     "samples": [{
         "url": "default",
         "name": "Default Functionalities",
@@ -19,7 +18,6 @@
             "url": "draganddrop",
             "name": "Draggable Chips",
             "category": "Chips",
-            "type": "new",
             "sourceFiles": [
                 {"displayName": "draganddrop.vue", "path": "./src/chips/draganddrop.vue"}
             ]

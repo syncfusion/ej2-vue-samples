@@ -1,12 +1,12 @@
 <template>
-<div class="control-section">
+<div class="control-section diagram-annotation">
 <div class="col-lg-8 control-section">
     <div class="content-wrapper">
         <ejs-diagram style='display:block' ref="diagramControl" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
         :selectionChange='selectionChange' :snapSettings='snapSettings'></ejs-diagram>
     </div>
 </div>
-<div class="col-lg-4 property-section diagram-property-tab">
+<div class="col-lg-4 property-section diagram-property-annotation">
     <div class="property-panel-header">
         Properties
     </div>
@@ -126,7 +126,7 @@
 
 <style scoped>
 /* Css for images in property panel  */
-.image-pattern-style {
+.diagram-annotation .image-pattern-style {
   background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
@@ -138,16 +138,16 @@
   float: left;
 }
 
-.image-pattern-style:hover {
+.diagram-annotation .image-pattern-style:hover {
   border-color: gray;
   border-width: 2px;
 }
 /* To disable pointer events when there is no selection in diagram */
-.e-remove-selection .property-section-content {
+.diagram-annotation .e-remove-selection .property-section-content {
   pointer-events: none;
 }
 
-.diagram-property-tab .column-style {
+.diagram-property-annotation .column-style {
   display: table;
   height: 35px;
   padding-right: 4px;
@@ -155,28 +155,28 @@
   width: calc((100% - 12px) / 3);
 }
 
-.diagram-property-tab .row {
+.diagram-property-annotation .row {
   margin-left: 0px;
   margin-right: 0px;
 }
 
-.diagram-property-tab .row-header {
+.diagram-property-annotation .row-header {
   font-size: 15px;
   font-weight: 500;
 }
 /* Selection indicator */
-.e-selected-style {
+.diagram-annotation .e-selected-style {
   border-color: #006ce6;
   border-width: 2px;
 }
 
-.col-xs-6 {
+.diagram-annotation .col-xs-6 {
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 5px;
 }
 
-.property-section .e-remove-selection {
+.diagram-annotation .property-section .e-remove-selection {
   cursor: not-allowed;
 }
 /* These styles are used for property panel icons*/
@@ -376,8 +376,9 @@ data: function() {
           selectedElement[0].classList.remove("e-selected-style");
         }
         // Apply styles based on annotation position
-        if (arg.newValue[0]) {
+        if (arg.newValue && arg.newValue[0]) {
           let node = arg.newValue[0];
+          if (node.annotations && node.annotations.length > 0) {
           let annotations = node.annotations;
           let offset = annotations[0].offset;
           if (offset.x === 0 && offset.y === 0 && annotations[0].verticalAlignment === "Top" && annotations[0].horizontalAlignment === "Left") {
@@ -394,6 +395,8 @@ data: function() {
             updateAnnotationPosition("bottomCenter");
           }
         }
+      }
+        enablecheckBox(arg)
         // Enable property panel for the selected node
         enablePropertyPanel(arg);
       }
@@ -623,7 +626,28 @@ function setAnnotationPosition(
   }
   target.classList.add("e-selected-style"); // Apply selected style to the target
 }
-
+function enablecheckBox(arg){
+    // Update checkbox based on annotation constraints
+        const checkbox = document.getElementById('labelConstraints');
+        if (arg.newValue && arg.newValue[0]) {
+          const node = arg.newValue[0];
+          if (node.annotations && node.annotations.length > 0) {
+            const annotation = node.annotations[0];
+            // Check if annotation has Interaction constraint
+            const hasInteraction = (annotation.constraints & AnnotationConstraints.Interaction) === AnnotationConstraints.Interaction;
+            checkbox.ej2_instances[0].checked = hasInteraction;
+            checkbox.ej2_instances[0].disabled = false;
+          } else {
+            // No annotations - disable and uncheck
+            checkbox.ej2_instances[0].checked = false;
+            checkbox.ej2_instances[0].disabled = true;
+          }
+        } else {
+          // No selection - disable and uncheck
+          checkbox.ej2_instances[0].checked = false;
+          checkbox.ej2_instances[0].disabled = true;
+        }
+}
 // Enable or disable the property panel based on the argument
 function enablePropertyPanel(arg) {
   let selectedElement = document.getElementsByClassName("e-remove-selection");

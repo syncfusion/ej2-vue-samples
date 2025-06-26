@@ -86,7 +86,7 @@ export default {
                     width: 0
                 }
             },
-            tooltip: { enable: true, format: '${point.x}th Over : <b>${point.y} Runs</b>' },
+            tooltip: { enable: true, format: '${point.x}th Over : <b>${point.y} Runs</b>', enableHighlight: true },
             marker: {
                 dataLabel: {
                     visible: true,

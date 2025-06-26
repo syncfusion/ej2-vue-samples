@@ -3,10 +3,12 @@
     "directory": "image-editor",
     "category": "File Viewers & Editors",
     "ftName": "image-editor",
+    "type": "update",
     "samples": [
         {
             "url": "default",
             "name": "Default Functionalities",
+            "type": "update",
             "category": "Image Editor",
             "description": "This sample demonstrates the overview of basic ImageEditor features such as crop, rotate, flip, insert a shapes and text features.",
             "api": { "ImageEditor": ["width", "created"]  }
@@ -28,6 +30,7 @@
         {
             "url": "file-restrict",
             "name": "File Restriction",
+            "type": "update",
             "category": "Image Editor",
             "description": "The Image Editor component enables file upload restrictions by size and extensions, customizable via numeric inputs and a multi-select dropdown.",
             "api": { "ImageEditor": ["width", "created"]  }

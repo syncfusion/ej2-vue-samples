@@ -43,7 +43,7 @@
         <code>Markers</code> represent individual data points with different shapes, while the <code>crosshair</code> enhances data tracking by highlighting the category.
       </p>
       <p>
-        <code>Tooltips</code> are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        <code>Tooltips</code> are enabled in this example. To see a tooltip in action, hover over or tap on the chart.
       </p>
 
       <p style="font-weight: 500"><b>Injecting Module</b></p>

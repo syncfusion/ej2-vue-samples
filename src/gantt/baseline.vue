@@ -53,7 +53,7 @@
 <div id="description">
     <p>
         The baseline feature enables the user to view the deviation between the planned dates and the actual dates of
-        the tasks in a project. Baselines can be enabled in Gantt chart by enabling the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#renderbaseline">renderBaseline</a>
+        the tasks in a project. Baselines can be enabled in Gantt Chart by enabling the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#renderbaseline">renderBaseline</a>
         property along
         with mapping the data source values for <code>baselineStartDate</code> and <code>baselineEndDate</code>
         properties.

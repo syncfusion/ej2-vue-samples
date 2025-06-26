@@ -1,9 +1,9 @@
     <template>
   <div class="control-section">
     <div class="control-section">
-        <ejs-accumulationchart id="container" ref="pie" style='display:block;' :title='title' :theme='theme' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableSmartLabels='enableSmartLabels' :enableBorderOnMouseMove='false'>
+        <ejs-accumulationchart id="container" ref="pie" style='display:block;' :title='title' :subTitle='subTitle' :theme='theme' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableSmartLabels='enableSmartLabels' :enableBorderOnMouseMove='false'>
             <e-accumulation-series-collection>
-                <e-accumulation-series  :dataSource='data' xName='Country' yName='Population' :radius='radius' innerRadius="20%" :dataLabel="dataLabel" tooltipMappingName='Radius'> </e-accumulation-series>
+                <e-accumulation-series  :dataSource='data' xName='Country' yName='Population' borderRadius="3" :border='border' :radius='radius' innerRadius="20%" :dataLabel="dataLabel" tooltipMappingName='Radius'> </e-accumulation-series>
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
 
@@ -15,7 +15,7 @@
 </div>
 <div id="description">
     <p> 
-        In this example, you can see how to render a doughnut chart with different radius. You can use the <code>Radius</code> mapping property to achieve this feature. DataLabels are used to represent individual data and its values. In addition, the sample shows how to change the order of legends for the doughnut chart by using the Reverse property.
+        In this example, you can see how to render donut chart with different radius. You can use <code>Radius</code> mapping property to achieve this feature. <code>DataLabel</code> is used to represent individual data and its value.
     </p>
     <p> 
         <code>Tooltip</code> is enabled in this example, to see the tooltip in action, hover a point or tap on a point
@@ -57,21 +57,24 @@ export default {
     return {
         theme: theme,
         data: [
-        { Country : " Argentina", Population : 505370, Radius :  Browser.isDevice ? '110' :  "100", text: 'Argentina'},
-        { Country : " Belgium",    Population : 551500, Radius : Browser.isDevice ? '120' : "118.7", text: 'Belgium'},
-        { Country : " Dominican Republic",  Population : 312685 , Radius : "137.5", text: Browser.isDevice ? 'Dominican <br> Republic' :  'Dominican Republic'},
-        { Country : " Cuba", Population : 350000 , Radius :  '124.6',  text: 'Cuba'},
-        { Country : " Egypt", Population : 301000 , Radius : "150.8", text: 'Egypt' },
-        { Country : " Kazakhstan", Population : 300000, Radius :  "155.5", text: 'Kazakhstan'},
-        { Country : " Somalia",  Population : 357022, Radius :  "160.6", text: 'Somalia' }
+        { Country: "Cuba", Population: 103800, Radius: "106", text: "CUB" },
+        { Country: "Syria", Population: 185178, Radius: "133", text: "SYR" },
+        { Country: "Benin", Population: 112760, Radius: "128", text: "BEN" },
+        { Country: "Portugal", Population: 91606, Radius: "114", text: "POR" },
+        { Country: "Austria", Population: 82520, Radius: "111", text: "AUS" },
+        { Country: "Honduras", Population: 111890, Radius: "97", text: "HON" },
+        { Country: "Azerbaijan", Population: 82650, Radius: "125", text: "AZE" }
      ],
      radius: 'Radius',
-     legendSettings: { visible: true, reverse: true },
+     border: { color: '#ffffff', width: 1},
+     legendSettings: { visible: false },
      dataLabel: { visible: true, position: Browser.isDevice ? 'Inside' : 'Outside',
-        name: 'text', enableRotation: true,
-        connectorStyle: { length: '20px', type:'Curve' },
+        enableRotation: false,
+        name: Browser.isDevice ? 'text' : 'Country',
+        connectorStyle: { length: Browser.isDevice ? '10px' : '20px', type:'Curve' },
+        textWrap: Browser.isDevice ? 'Wrap' : 'Normal',
         font: {
-            fontWeight: '600'
+            fontWeight: '600', size: Browser.isDevice ? '7px' : '12px', 
         },
     },
      tooltip: {
@@ -83,7 +86,8 @@ export default {
      },
      enableAnimation: true,
      enableSmartLabels: true,
-     title: 'Pie with different Radius'
+     title: 'Global Distribution of Population and Land Area by Country - 2025',
+     subTitle: 'Source: wikipedia.org'
 	};
   },
   provide: {

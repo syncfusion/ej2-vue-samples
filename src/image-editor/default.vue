@@ -91,12 +91,35 @@ export default {
             var slider = getComponent(document.getElementById('imageeditor_sliderWrapper'), 'slider');
             slider.refreshTooltip(slider.tooltipTarget);
         }
+    
+    },
+    /* custom code start */
+    sidebarChangeHandler(event) {
+      if (event.name === 'open') {
+        if (this.hasOpenedOnce) return;
+        this.hasOpenedOnce = true;
+      }
+      this.$refs.imageEditorObj.ej2Instances.update();
     }
+    /* custom code end */
   },
   mounted: function() {
     if (!isNullOrUndefined(document.getElementById("right-pane"))) {
         document.getElementById("right-pane").addEventListener("scroll", this.onScroll.bind(this));
     }
+    /* custom code start */
+    this.hasOpenedOnce = false;
+    this.$nextTick(() => {
+      const sidebarEle = document.getElementById('left-sidebar');
+      if (sidebarEle && sidebarEle.ej2_instances && sidebarEle.ej2_instances[0]) {
+        const instance = sidebarEle.ej2_instances[0];
+        instance.removeEventListener('open', this.sidebarChangeHandler);
+        instance.addEventListener('open', this.sidebarChangeHandler);
+        instance.removeEventListener('change', this.sidebarChangeHandler);
+        instance.addEventListener('change', this.sidebarChangeHandler);
+      }
+    });
+    /* custom code end */
   },
   computed: {
     themeValue: {

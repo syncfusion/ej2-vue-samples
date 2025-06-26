@@ -3,7 +3,7 @@
 <!-- Template for Fishbone -->
 <template>
     <!-- Diagram Component -->
-    <div class="control-section">
+    <div class="control-section fishbone-diagram">
         <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :mode='mode' :width='width' :tool='tool'
             :height='height' :connectors='connectors' :nodes='nodes' :snapSettings='snapSettings'
             :getConnectorDefaults='getConnectorDefaults'>
@@ -28,7 +28,7 @@
 </template>
 
 <style scoped>
-.control-section {
+.fishbone-diagram .control-section {
     padding-top: 0px;
     padding-bottom: 0px;
     padding-right: 0px;

@@ -27,8 +27,9 @@
             id="insertField"
             :items="itemsName"
             :content="dropdownContent"
-            cssClass="e-rte-dropdown-btn e-rte-dropdown-popup e-rte-dropdown-items e-rte-elements e-tbar-btn"
+            cssClass="e-rte-dropdown-btn e-rte-dropdown-popup e-rte-dropdown-items e-rte-elements e-rte-dropdown-menu"
             @select="onItemSelect($event)"
+            @close = "onDropDownClose"
           ></ejs-dropdownbutton>
         </div>
         <ejs-mention
@@ -204,8 +205,8 @@ export default {
           'Image',
           'CreateTable',
           '|',
-          { tooltipText: 'Merge Data', template: '#merge_data' },
-          { tooltipText: 'Insert Field', template: '#insertField' },
+          { tooltipText: 'Merge Data', template: '#merge_data', command: 'Custom' },
+          { tooltipText: 'Insert Field', template: '#insertField', command: 'Custom' },
           'SourceCode',
           '|',
           'Undo',
@@ -230,6 +231,11 @@ export default {
     };
   },
   methods: {
+    onDropDownClose() {
+      if (this.$refs.rteObj && this.$refs.rteObj.ej2Instances) {
+        this.$refs.rteObj.ej2Instances.focusIn();
+      }
+    },
     formatMentionTemplate(value) {
       return `{{${value}}}`;
     },
@@ -243,7 +249,7 @@ export default {
           this.$refs.rteObj.ej2Instances.formatter.editorManager.nodeSelection.restore();
           this.$refs.rteObj.ej2Instances.executeCommand(
             'insertHTML',
-            `<span contenteditable="false" class="e-mention-chip">{{${value}}}</span>`,
+            `<span contenteditable="false" class="e-mention-chip">{{${value}}}</span>&nbsp;`,
             { undo: true }
           );
         } else {

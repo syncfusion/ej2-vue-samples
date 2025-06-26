@@ -63,7 +63,7 @@ import {
   LineSeries,
   Category,
   Legend,
-  Tooltip
+  Tooltip, Highlight
 } from "@syncfusion/ej2-vue-charts";
 
 import { loadChartTheme } from "./theme-color";
@@ -127,13 +127,13 @@ export default {
       },
       tooltip: {
         enable: true,
-        template: "myTemplate"
+        template: "myTemplate", enableHighlight: true, showNearestTooltip: true
       },
       title: "USA Wheat Production"
     };
   },
   provide: {
-    chart: [LineSeries, Category, Legend, Tooltip]
+    chart: [LineSeries, Category, Legend, Tooltip, Highlight]
   },
   methods: {}
 };

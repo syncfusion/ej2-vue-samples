@@ -67,7 +67,7 @@
     background-color: transparent;
 }
 
-.tailwind3 .e-treeview .e-list-item.e-hover,
+.tailwind3 .sb-left-pane .e-treeview .e-list-item.e-hover,
 .tailwind3 .sb-left-pane .e-treeview .e-list-item.e-hover>.e-fullrow{
     background-color: #F9FAFB !important;
     border: none;

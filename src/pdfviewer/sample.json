@@ -27,7 +27,8 @@
         {
             "url": "organize-pages",
             "name": "Organize Pages",
-            "category": "Editor"
+            "category": "Editor",
+            "type": "update"
         },
         {
             "url": "redaction",
@@ -74,13 +75,14 @@
         {
             "url": "annotations",
             "name": "Annotations",
-            "category": "Annotation"
+            "category": "Annotation",
+            "type": "update"
         },
         {
             "url": "programmatic-operations",
             "name": "Programmatic Operations",
             "category": "Annotation",
-             "type": "new"
+             "type": "update"
         },
         {
             "url": "hand-written",

@@ -49,8 +49,6 @@
     stroke-dasharray: 1px 2px;
     stroke-linejoin: round;
     stroke-linecap: round;
-    -webkit-animation: dash 1s linear infinite;
-    animation: dash 1s linear infinite;
   }
   
   @-webkit-keyframes dash {

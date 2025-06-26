@@ -31,7 +31,7 @@
 </div>
 </template>
 <style>
-    .material3 #_gridcontrol .e-row:hover .e-rowcell:not(.e-selectionbackground),
+.material3 #_gridcontrol .e-row:hover .e-rowcell:not(.e-selectionbackground),
 .material3 #_gridcontrol .e-row:hover .e-rowcell:not(.e-active) {
   background-color: #f5f5f5 !important;
 },

@@ -1,6 +1,6 @@
 <template>
  <div v-if="data.id == 'node1Template'">
-    <div class="diagram_border_cus diagram_border_cal">
+    <div class="diagram_border_complex diagram_border_cal">
       <ejs-daterangepicker
         :startDate="startVal"
         :endDate="endVal"
@@ -12,14 +12,14 @@
       ></ejs-daterangepicker>
      </div>
  </div>
-   <div  v-else-if="data.id == 'node2Template'" class="diagram_border_cus diagram_chart">
+   <div  v-else-if="data.id == 'node2Template'" class="diagram_border_complex diagram-template-chart">
       <ejs-chart id="linechart" :chartArea={lchartArea} :titleStyle="title"  :height='lineheight' :primaryXAxis='lprimaryXAxis' :primaryYAxis='lprimaryYAxis' :margin='margin' :useGroupingSeperator='sepert' :annotations='lannotations'  >
         <e-series-collection>
                 <e-series  :dataSource="lineChartData" :animation="lanimation" :marker="marker" :border="lBorder" :width="lwidth" type='Area' xName='DateTime' yName='Amount' fill='rgba(4, 112, 216, 0.3)' name='Amount'></e-series>
             </e-series-collection>
        </ejs-chart>
   </div> 
-   <div  v-else-if="data.id == 'node3Template'" class="diagram_border_cus diagram_chart">
+   <div  v-else-if="data.id == 'node3Template'" class="diagram_border_complex diagram-template-chart">
       <ejs-chart id="columnchart" :primaryXAxis='primaryXAxis'  :primaryYAxis='primaryYAxis' :height='lineheight'  :margin='margin' useGroupingSeperator='true' :annotations='annotations' :legendSettings='legendSettings' :titleStyle='titleStyle'>
         <e-series-collection>
                 <e-series  :dataSource="colChartIncomeData" :animation="animation" legendShape='Circle' :marker="marker" :border="cBorder" :width="lwidth" type='Column' xName='DateTime' yName='Amount' fill='#A16EE5' name='Income' > </e-series>
@@ -28,11 +28,11 @@
       </ejs-chart>
   </div>
   <div  v-else-if="data.id == 'node4Template'">
-      <div id="diagram_control" class="diagram_border_cus">
+      <div id="diagram-complex-template" class="diagram_border_complex">
       <div class="pane col-xs-12 col-sm-12 col-md-12 pie-container">
-        <div class="pieChartHeader">
+        <div class="diagram-pieChartHeader">
           <p class="chart-title">Total Expenses</p>
-          <p id="rangeDate" class="chart-value">Jun 1 - Dec 1</p>
+          <p id="rangeDate" class="diagram-chart-value">Jun 1 - Dec 1</p>
         </div>
         <div id="pie" style="height:100%; width:49%; overflow:hidden;float:left;" margin="20px">
           <ejs-accumulationchart id="piechart" style="display:block;" width='100%' height='350px' :legendSettings="acclegendSettings" enableSmartLabels='true' :textRender="onTextRender" :animationComplete="onAnimateCompleted">
@@ -56,12 +56,12 @@
   </div> 
 </template>
 <style scoped>
-#diagram_control .chart-title {
+#diagram-complex-template .chart-title {
   font-size: 16px;
 }
 
-#diagram_control .chart-title,
-#diagram_control .chart-subtitle {
+#diagram-complex-template .chart-title,
+#diagram-complex-template .chart-subtitle {
   font-family: Roboto;
   font-size: 16px;
   font-weight: 400;
@@ -71,18 +71,18 @@
   color: #797979 !important;
 }
 
-.chart-value {
+.diagram-chart-value {
   color: #9d9d9d;
 }
 
-#diagram_control {
+#diagram-complex-template {
   background-color: white;
   height: 450px;
   width: auto;
 }
 
-#diagram_control .e-grid,
-#diagram_control .e-grid .e-gridheader {
+#diagram-complex-template .e-grid,
+#diagram-complex-template .e-grid .e-gridheader {
   border: none;
 }
 
@@ -90,19 +90,19 @@
     border: none;
 }
 
-.pieChartHeader {
+.diagram-pieChartHeader {
   margin-left: 20px;
   margin-top: 20px;
 }
 
-.diagram_border_cus {
+.diagram_border_complex {
   border: 1px solid transparent;
   background: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 6px;
 }
 
-.diagram_chart {
+.diagram-template-chart {
   padding-left: 15px;
   padding-right: 15px;
 }

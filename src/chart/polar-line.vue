@@ -158,7 +158,7 @@ export default {
         enableHighlight: true
       },
       tooltip: {
-        enable: true
+        enable: true, enableHighlight: true
       },
       title: "Alaska Weather Statistics - 2016",
       seriesType: 'Polar'

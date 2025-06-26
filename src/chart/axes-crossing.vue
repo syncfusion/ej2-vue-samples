@@ -138,7 +138,7 @@ export default {
             },
             //Initializing Tooltip
             enableTooltip : false,
-            tooltip: { enable: true },
+            tooltip: { enable: true,  enableHighlight: true },
             title: 'Spline Interpolation',
             legend: {
                 visible: true,

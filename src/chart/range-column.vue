@@ -1,16 +1,16 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip' >
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :subTitle='subTitle' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :legendSettings='legendSettings'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='RangeColumn' xName='Days' high='IND_HighTemp' low='IND_LowTemp'  :marker='marker' width=2 columnSpacing='0.1' > </e-series>
+                <e-series :dataSource='seriesData' type='RangeColumn' xName='month' high='max' low='min' :marker='marker' columnSpacing=0.4 tooltipMappingName='text' :cornerRadius='cornerRadius'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-        This Vue range column chart example visualizes the maximum and minimum temperatures for a week in different countries with the default range column series.
+        This sample demonstrates the Range Column series, highlighting the maximum and minimum temperature changes in the Contiguous U.S. for the year 2024 over different months.
     </p>
 </div>
 <div id="description">
@@ -18,7 +18,7 @@
         In this example, you can see how to render and configure the range column chart. The range column chart is used to display a range of data by plotting two y-values per data point. The two y-values are used as the upper and lower bounds of a column.
     </p>
     <p>
-        <code>Tooltip</code> is enabled in this example. To see the tooltip in action, hover over a point or tap on a point in touch-enabled devices.
+        Tooltip is enabled in this example. To see the tooltip in action, hover over a point or tap on a point in touch-enabled devices.
     </p>
 
     <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -40,7 +40,7 @@
 </style>
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, RangeColumnSeries, Category, Tooltip, Highlight, DataLabel} from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, RangeColumnSeries, Category, Tooltip, DataLabel} from "@syncfusion/ej2-vue-charts";
 
 import { loadChartTheme } from "./theme-color";
 let theme = loadChartTheme();
@@ -53,52 +53,61 @@ export default {
   },
   data: function() {
     return {
-         theme: theme,
-      seriesData: [
-               { Days : "Sun", IND_LowTemp : 3.1, IND_HighTemp : 10.8, GER_LowTemp : 2.5, GER_HighTemp : 9.8  },
-               { Days : "Mon", IND_LowTemp : 5.7, IND_HighTemp : 14.4, GER_LowTemp : 4.7, GER_HighTemp : 11.4  },
-               { Days : "Tue", IND_LowTemp : 8.4, IND_HighTemp : 16.9, GER_LowTemp : 6.4, GER_HighTemp : 14.4  },
-               { Days : "Wed", IND_LowTemp : 9.6, IND_HighTemp : 18.2, GER_LowTemp : 9.6, GER_HighTemp : 17.2 },
-               { Days : "Thu", IND_LowTemp : 8.5, IND_HighTemp : 16.1, GER_LowTemp : 7.5, GER_HighTemp : 15.1 },
-               { Days : "Fri", IND_LowTemp : 6.0, IND_HighTemp : 12.5, GER_LowTemp : 3.0, GER_HighTemp : 10.5 },
-               { Days : "Sat", IND_LowTemp : 1.5, IND_HighTemp : 6.9, GER_LowTemp : 1.2, GER_HighTemp : 7.9  }
-              ],
+        theme: theme,
+        seriesData: [
+          { month: 'Jan', min: 22.75, max: 41.02, text: 'January' },
+          { month: 'Feb', min: 29.71, max: 51.93, text: 'February' },
+          { month: 'Mar', min: 33.53, max: 56.39, text: 'March' },
+          { month: 'Apr', min: 41.22, max: 66.06, text: 'April' },
+          { month: 'May', min: 49.87, max: 74.64, text: 'May' },
+          { month: 'Jun', min: 59.02, max: 84.58, text: 'June' },
+          { month: 'Jul', min: 62.94, max: 88.43, text: 'July' },
+          { month: 'Aug', min: 61.27, max: 86.72, text: 'August' },
+          { month: 'Sep', min: 55.36, max: 81.86, text: 'September' },
+          { month: 'Oct', min: 44.76, max: 73.13, text: 'October' },
+          { month: 'Nov', min: 34.79, max: 55.54, text: 'November' },
+          { month: 'Dec', min: 28.04, max: 48.36, text: 'December' }
+        ],
 
       //Initializing Primary X Axis
-       primaryXAxis: {
+        primaryXAxis: {
             valueType: 'Category',
             majorGridLines: { width: 0 },
-           majorTickLines: { width: 0 },
-           minorTickLines: { width: 0 }
+            majorTickLines: { width: 0 },
+            lineStyle: { width: 0 }
         },
 
-
       //Initializing Primary Y Axis
-          primaryYAxis: {
-            title: 'Temperature (In Celsius)',
-            labelFormat: '{value}˚C',
-            maximum: 20,
+        primaryYAxis: {
+            labelFormat: '{value}°F',
+            minimum: 0,
+            maximum: 100,
+            interval: 20,
             edgeLabelPlacement: 'Shift',
             lineStyle: { width: 0 },
-            majorTickLines: { width: 0 }
+            majorTickLines: { width: 0 },
+            title: 'Monthly Temperature Variation (°F)'
         },
         chartArea: {
             border: {
                 width: 0
             }
         },
-       width : Browser.isDevice ? '100%' : '75%',
-        tooltip: { 
+        width : Browser.isDevice ? '100%' : '75%',
+        tooltip: {
             enable: true,
-            header: '<b>${point.x}</b>',
+            header: '<b>${point.tooltip}</b>',
             format: 'Temperature : <b>${point.low} - ${point.high}</b>'
-         },
-        marker: { dataLabel:{visible: true, position: 'Outer'} },
-      title: "Temperature Variation by Week"
+        },
+        marker: { dataLabel: { visible: true, position: 'Outer' } },
+        cornerRadius: { topLeft: 4, topRight: 4, bottomLeft: 4, bottomRight: 4 },
+        title: 'Contiguous U.S. Average Temperature in 2024',
+        subTitle: 'Source: ncei.noaa.gov',
+        legendSettings: { visible: false }
     };
   },
   provide: {
-    chart: [RangeColumnSeries,  Category, Tooltip, Highlight, DataLabel]
+    chart: [RangeColumnSeries, Category, Tooltip, DataLabel]
   },
   methods: {
     load: function(args) {

@@ -7,8 +7,8 @@
     <div>
         <ejs-grid ref='gridInstance' id='gridInstance' :dataSource="data" :allowPaging='true' :enableHover='false' :clipMode="'EllipsisWithTooltip'" :allowResizing='true' :allowSorting='true' :allowMultiSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :showColumnChooser='true' :columnChooserSettings='columnChooserSettings' :queryCellInfo='queryCellInfo' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
-                <e-column field='CustomerID' headerText='Customer ID' width='160' minWidth='100' textAlign='Right' :showInColumnChooser="false" :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
-                <e-column field='CustomerName' headerText='Name' width='100' minWidth='100'></e-column>
+                <e-column field='CustomerID' headerText='Customer ID' width='160' minWidth='115' textAlign='Right' :showInColumnChooser="false" :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
+                <e-column field='CustomerName' headerText='Name' width='150' minWidth='120'></e-column>
                 <e-column headerText='Order Details' :columns='orderColumns' textAlign='Center'></e-column>
                 <e-column headerText='Shipping Details' :columns='shipColumns' textAlign='Center'></e-column>
                 <e-column headerText='Delivery Status' :columns='deliveryColumns' textAlign='Center'></e-column>
@@ -34,7 +34,7 @@
 
             <template v-slot:locationTemplate="{ data }">
               <div>
-                <img src="https://ej2.syncfusion.com/javascript/demos/src/grid/images/Map.png" class="e-grid-location-image" alt="Location" />
+                <img src="src/grid/images/Map.png" class="e-grid-location-image" alt="Location" />
                 <span>{{ data.ShipCountry }}</span>
               </div>
             </template>
@@ -123,15 +123,15 @@ export default {
           enableRTL: false,
           orderColumns: [
                 { field: 'OrderID', headerText: 'ID', textAlign: 'Right', width: 90, minWidth: 90 },
-                { field: 'OrderDate', headerText: 'Date', textAlign: 'Right', width: 110, minWidth: 100, format: 'yMd', editType: 'datepickeredit' }
+                { field: 'OrderDate', headerText: 'Date', textAlign: 'Right', width: 110, minWidth: 105, format: 'yMd', editType: 'datepickeredit' }
             ],
             shipColumns: [
-                { field: 'ShipCountry', headerText: 'Country', textAlign: 'Left', width: 115, minWidth: 100, editType: 'dropdownedit', template : 'locationTemplate', validationRules: { required: true } },
-                { field: 'Freight', headerText: 'Charges', textAlign: 'Right', width: 130, minWidth: 100, format: 'C2', editType: 'numericedit', validationRules: { required: true, number: true } },
+                { field: 'ShipCountry', headerText: 'Country', textAlign: 'Left', width: 150, minWidth: 120, editType: 'dropdownedit', template : 'locationTemplate', validationRules: { required: true } },
+                { field: 'Freight', headerText: 'Charges', textAlign: 'Right', width: 130, minWidth: 115, format: 'C2', editType: 'numericedit', validationRules: { required: true, number: true } },
             ],
             deliveryColumns: [
-                { field: 'Status', headerText: 'Status', textAlign: 'Center', width: 110, minWidth: 100, editType: 'dropdownedit', validationRules: { required: true, } },
-                { field: 'Feedback', headerText: 'Feedback', allowResizing: false, textAlign: 'Center', width: 130, minWidth: 100, template : 'feedbackTemplate', editType: 'numericedit', validationRules: { required: true, min: 0, max: 5 } }
+                { field: 'Status', headerText: 'Status', textAlign: 'Center', width: 150, minWidth: 120, editType: 'dropdownedit', validationRules: { required: true, } },
+                { field: 'Feedback', headerText: 'Feedback', allowResizing: false, textAlign: 'Center', width: 130, minWidth: 115, template : 'feedbackTemplate', editType: 'numericedit', validationRules: { required: true, min: 0, max: 5 } }
             ],
         }
     },

@@ -147,7 +147,7 @@ export default {
     }
     
     .dashboard-default .e-clear-icon::before {
-        content: '\e7a7';
+        content: '\e7e7';
         font-size: 12px;
         font-family: 'e-icons';
     }

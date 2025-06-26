@@ -1,10 +1,10 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-accumulationchart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title'
+        <ejs-accumulationchart ref="chart" :theme='theme' style='display:block' align='center' id='chartcontainer' :title='title' :subTitle='subTitle'
             :legendSettings='legendSettings' :tooltip='tooltip'>
             <e-accumulation-series-collection>
-                <e-accumulation-series :dataSource='seriesData' type='Pyramid' xName='Foods' yName='Calories' :dataLabel='dataLabel'  name='Food' width='45%' height='80%' neckWidth='15%' gapRatio=0.03 explode='true' :emptyPointSettings='emptyPointSettings' > </e-accumulation-series>
+                <e-accumulation-series :dataSource='seriesData' type='Pyramid' xName='Foods' yName='Calories' :dataLabel='dataLabel'  name='Food' width='45%' height='80%' neckWidth='15%' gapRatio=0.03 :emptyPointSettings='emptyPointSettings' > </e-accumulation-series>
             </e-accumulation-series-collection>
         </ejs-accumulationchart>
     </div>
@@ -49,16 +49,17 @@ export default {
     return {
          theme: theme,
       seriesData: [
-        { Foods :  "Milk, Youghnut, Cheese", Calories : 435, DataLabelMappingName : Browser.isDevice ? 'Milk, Youghnut,<br> Cheese:  435 cal' :  "Milk, Youghnut, Cheese: 435 cal" },
-        { Foods :  "Vegetables", Calories : 470, DataLabelMappingName : "Vegetables: 470 cal" },
-        { Foods :  "Meat, Poultry, Fish", Calories : 475, DataLabelMappingName : Browser.isDevice ? 'Meat, Poultry,<br> Fish: 475 cal' : "Meat, Poultry, Fish: 475 cal" },
-        { Foods :  "Rice, Pasta", Calories : 930, DataLabelMappingName : Browser.isDevice ? 'Rice, Pasta:<br> 930 cal' : "Rice, Pasta: 930 cal" },
-        { Foods :  "Fruits", Calories : 520, DataLabelMappingName : Browser.isDevice ? 'Fruits: <br> 520 cal' :  "Fruits: 520 cal" },
+        { Foods: "Oils", Calories: 2, DataLabelMappingName: "Oils: 2%" },
+        { Foods: "Protein", Calories: 10, DataLabelMappingName: "Protein: 10%" },
+        { Foods: "Fruits", Calories: 15, DataLabelMappingName: "Fruits: 15%" },
+        { Foods: "Dairy", Calories: 23, DataLabelMappingName: "Dairy: 23%" },
+        { Foods: "Vegetables", Calories: 23, DataLabelMappingName: "Vegetables: 23%" },
+        { Foods: "Grains", Calories: 27, DataLabelMappingName: "Grains: 27%" }
       ],
         
         dataLabel: {
-          name: 'DataLabelMappingName', visible: true, position: 'Outside', connectorStyle: {length: '20px'}, font: {
-            fontWeight: '600'}
+          name: 'DataLabelMappingName', visible: true, position: 'Outside', connectorStyle: {length: Browser.isDevice ? '10px' : '20px'}, font: {
+            fontWeight: '600',  size: Browser.isDevice ? '7px' : '12px' }
         },
 
         emptyPointSettings: { mode: 'Drop', fill: 'red' },
@@ -68,10 +69,11 @@ export default {
             toggleVisibility: false
         },
 
-        tooltip: {  header:'', enable: true, format: '${point.x} : <b>${point.y} cal</b>' , enableHighlight: true},
+        tooltip: {  header:'', enable: true, format: '${point.x} : <b>${point.y}% of Daily Intake</b>' , enableHighlight: true},
 
        
-      title: "Food Comparison Chart"
+      title: "Food Consumption Pyramid",
+      subTitle: 'Source: wikipedia.org'
     };
   },
   provide: {

@@ -101,7 +101,7 @@
 </style>
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AreaSeries, SplineSeries, LineSeries, SplineAreaSeries, DateTime, Tooltip, Crosshair, Zoom } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, AreaSeries, SplineSeries, LineSeries, SplineAreaSeries, DateTime, Tooltip, Crosshair, Zoom, Highlight } from "@syncfusion/ej2-vue-charts";
 import { synchronizedData } from './financial-data'
 
 
@@ -189,7 +189,8 @@ export default {
                 header: '', 
                 enableMarker: false,
                 format: '<b>€${point.y}</b> <br>${point.x} 2023',
-                fadeOutDuration: Browser.isDevice ? 2500 : 1000
+                fadeOutDuration: Browser.isDevice ? 2500 : 1000,
+                enableHighlight: true
             },
             yenTooltip: {
                 enable: true,
@@ -197,7 +198,8 @@ export default {
                 header: '', 
                 enableMarker: false,
                 format: '<b>¥${point.y}</b> <br>${point.x} 2023',
-                fadeOutDuration: Browser.isDevice ? 2500 : 1000
+                fadeOutDuration: Browser.isDevice ? 2500 : 1000,
+                enableHighlight: true
             },
             sgdTooltip: {
                 enable: true,
@@ -229,7 +231,7 @@ export default {
         };
     },
     provide: {
-        chart: [AreaSeries, SplineSeries, LineSeries, SplineAreaSeries, DateTime, Tooltip, Crosshair, Zoom]
+        chart: [AreaSeries, SplineSeries, LineSeries, SplineAreaSeries, DateTime, Tooltip, Crosshair, Zoom, Highlight]
     },
     methods: {
         zoomComplete: function (args) {

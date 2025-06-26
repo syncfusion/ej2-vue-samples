@@ -37,7 +37,7 @@
 </style>
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Legend, Tooltip, ColumnSeries, Category } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Legend, Tooltip, ColumnSeries, Category, Highlight } from "@syncfusion/ej2-vue-charts";
 import { loadChartTheme } from "./theme-color";
 let theme = loadChartTheme();
 
@@ -94,14 +94,14 @@ export default {
                     width: 0
                 }
             },
-            tooltip: { enable: true },
+            tooltip: { enable: true, enableHighlight: true },
             legendSettings: { visible: false },
             width: Browser.isDevice ? '100%' : '75%',
             title: 'Sales Vs Profit Margin'
         };
     },
     provide: {
-        chart: [LineSeries, Legend, Tooltip, ColumnSeries, Category]
+        chart: [LineSeries, Legend, Tooltip, ColumnSeries, Category, Highlight]
     },
     methods: {
     },

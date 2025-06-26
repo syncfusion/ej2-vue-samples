@@ -89,7 +89,7 @@ export let pointTailwind3DarkColors: string[] = ['#8029F1', '#1ABC9C', '#0D72DE'
        ILoadedEventArgs,
        IPointRenderEventArgs
      } from "@syncfusion/ej2-vue-charts";
-import { EmitType } from "@syncfusion/ej2/base";
+import { EmitType } from "@syncfusion/ej2-base";
    export let loadChartTheme  = (args?: ILoadedEventArgs, isGradient?: boolean): ChartTheme | string => {
        let selectedTheme: string = location.hash.split('/')[1];
        selectedTheme = selectedTheme ? selectedTheme : 'Tailwind3';

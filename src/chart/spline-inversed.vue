@@ -1,26 +1,27 @@
 <template>
   <div class="control-section">
     <div align='center'>
-        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :chartArea='chartArea' :width='width' :tooltip='tooltip' :isTransposed='isTransposed'>
+        <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :subTitle='subTitle' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+            :chartArea='chartArea' :width='width' :tooltip='tooltip' :isTransposed='isTransposed' :legendSettings='legendSettings'>
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Spline' xName='Month' yName='FR_Temperature' opacity=1 width=2 :marker='marker'> </e-series> 
+                <e-series :dataSource='seriesData' type='Spline' xName='country' yName='y' width=2 :marker='marker'> </e-series> 
             </e-series-collection>
         </ejs-chart>
     </div>
     <div id="action-description">
     <p>
-        This sample shows the music album sales with spline series by inverting X and Y Axes. 
-        Data points are enhanced by a marker and tooltip.
+        This sample showcases an inversed spline chart depicting stock market capitalization as a percentage of GDP by
+        country, with enhanced interactivity through markers and tooltips.
     </p>
 </div>
 <div id="description">
      <p>
-      In this example, you can see how to render and configure the spline type charts. A Spline chart uses a curved line to connect points in a data series. 
-        <code>Markers</code>are used to represent individual data and its value.
+        In this example, you can see how to render and configure inversed spline type charts using the
+        <code>isTransposed</code> property. A spline chart uses a curved line to connect points in a data series.
+        <code>Markers</code> are used to represent individual data points and their values.
     </p>
     <p>
-      <code>Tooltips</code>are enabled in this example. To see the tooltip in action, hover a point or tap on a point in touch enabled devices.
+        <code>Tooltips</code> are enabled in this example. To see a tooltip in action, hover over or tap on the chart.
     </p>
       
         <p style="font-weight: 500"><b>Injecting Module</b></p>
@@ -43,7 +44,7 @@
 </style>
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, SplineSeries, Category, Legend, Tooltip} from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, SplineSeries, Category, Highlight, Tooltip, Legend} from "@syncfusion/ej2-vue-charts";
 
 import { loadChartTheme } from "./theme-color";
 let theme = loadChartTheme();
@@ -56,68 +57,67 @@ export default {
   },
   data: function() {
     return {
-         theme: theme,
-      seriesData: [
-        { Month : 2000, LDN_Temperature : -1, FR_Temperature : 10 },
-        { Month : 2002, LDN_Temperature : -1, FR_Temperature : 7 },
-        { Month : 2004, LDN_Temperature : 25, FR_Temperature : 13 },
-        { Month : 2005, LDN_Temperature : 31, FR_Temperature : 16 },
-        { Month : 2007, LDN_Temperature : 14, FR_Temperature : 11 },
-        { Month : 2010, LDN_Temperature : 8, FR_Temperature : 10 },
-        { Month : 2011, LDN_Temperature : 8, FR_Temperature : 15 },
-        { Month : 2013, LDN_Temperature : 8, FR_Temperature : 20 },
-        { Month : 2014, LDN_Temperature : 8, FR_Temperature : 17 },
-        { Month : 2015, LDN_Temperature : 8, FR_Temperature : 5 }
-            ],
+        theme: theme,
+        seriesData: [
+            { country: 'United States', y: 194.55 },
+            { country: 'Japan', y: 146.2 },
+            { country: 'China', y: 65.1 },
+            { country: 'France', y: 84.9 },
+            { country: 'India', y: 140.1 },
+            { country: 'Canada', y: 160.7 },
+            { country: 'Brazil', y: 68.4 },
+            { country: 'United Kingdom', y: 100.2 },
+            { country: 'Sweden', y: 162 },
+            { country: 'Netherlands', y: 132.3 },
+            { country: 'Bangladesh', y: 27.7 }
+        ],
       //Initializing Primary X Axis
         primaryXAxis: {
-            title: 'Years',
-            valueType: 'Double',
-            maximum: 2016,
-            minimum: 2000,
-            interval: 4,
+            valueType: 'Category',
             minorTickLines: { width: 0 },
-
+            lineStyle: { width: 0 },
+            majorTickLines: { width: 0 },
+            labelPlacement: 'OnTicks'
         },
         chartArea: {
             border: {
                 width: 0
             }
         },
-      
-
       //Initializing Primary Y Axis
         primaryYAxis:
         {
-            title: 'Sales (In Millions)',
-            maximum: 25,
-            minimum: 0,
-            interval: 5,
-            labelFormat: '{value}M',
-            edgeLabelPlacement: 'Shift'
+            labelFormat: '{value}%',
+            title: 'Capitalization Ratio (% of GDP)',
+            interval: 40,
+            edgeLabelPlacement: 'Shift',
+            lineStyle: { width: 0 },
+            majorTickLines: { width: 0 },
+            majorGridLines: { width: 0 },
+            labelRotation: Browser.isDevice ? -45 : 0
         },
-
-
-     isTransposed: true,
-
-      width : Browser.isDevice ? '100%' : '75%',
-       marker: {
-        visible: true,
-        height: 7,
-        width: 7,
-        isFilled: true
-      },
-      tooltip: {
-        enable: true,
-        header: "<b>Album Sale</b>",
-        shared: true,
-        format: '${point.x}: <b>${point.y}</b>',
-      },
-     title: "Music Album Sales"
+        isTransposed: true,
+        width : Browser.isDevice ? '100%' : '75%',
+        marker: {
+            visible: true,
+            height: 7,
+            width: 7,
+            isFilled: true
+        },
+        tooltip: {
+            enable: true,
+            showNearestTooltip: true,
+            header: '<b>Stock Market Cap</b>',
+            format: '${point.x}: <b>${point.y}</b>',
+            enableHighlight: true
+        },
+        title: 'Stock Market Capitalization as a Percentage of GDP by Country',
+        subTitle: 'Source: wikipedia.org',
+        legendSettings: { visible: false }
     };
   },
   provide: {
-    chart: [SplineSeries, Legend, Category, Tooltip]
+    chart: [SplineSeries, Category, Highlight, Tooltip, Legend]
   },
   methods: {
 

@@ -66,12 +66,12 @@
                 <img class="moments" 
                     height="24" 
                     width="48" 
-                    style="z-index:1;left:1px;top:18px" 
+                    style="z-index:1;left:-3px;top:22px" 
                     role="presentation" 
                     src="./images/moments.svg" 
                     alt="Moments svg"/>
                 <div class="e-gantt-milestone" 
-                    style="width:41px; height:41px; transform: rotate(45deg); background-color: #7ab748 !important; border: 0;left:0px;top:12px">
+                  style="width:41px; height:41px; transform: rotate(45deg); background-color: #7ab748 !important; border: 0;left:-3px;top:14px">
                 </div>
               </div>
             </div>
@@ -101,7 +101,7 @@
 
     <div id="description">
       <p>
-        The Gantt chart provides support for customizing taskbar UI using taskbar template feature. The
+        The Gantt Chart provides support for customizing taskbar UI using taskbar template feature. The
         <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#taskbartemplate">taskbarTemplate</a>
         property accepts either string or HTML element`s ID value, which will be used as the template for the taskbars.
         The summary tasks and the milestone items can also customized using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#parenttaskbartemplate">parentTaskbarTemplate</a> and

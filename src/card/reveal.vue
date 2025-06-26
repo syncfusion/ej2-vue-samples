@@ -248,7 +248,7 @@
     }
 
     .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before {
-        content: "\e984";
+        content: "\e71c";
     }
 
     .card-control-section.reveal_card_layout .col-xs-6.col-sm-6.col-lg-6.col-md-6 {

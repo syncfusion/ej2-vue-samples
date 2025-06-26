@@ -1,10 +1,10 @@
 <template>
 <div>
-<div class="control-section">
+<div class="control-section ">
    <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :rulerSettings='rulerSettings' :selectionChange='selectionChange' :selectedItems='selectedItems' :nodes='nodes' :connectors='connectors'  :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :contextMenuSettings="contextMenuSettings" :onUserHandleMouseDown="onUserHandleMouseDown"></ejs-diagram>
 </div>
-  <div class="col-lg-2 property-section diagram-property-tab" style="float:right;margin-top:-720px; margin-right:-10px">
-            <div class="property-panel-header">
+  <div class="col-lg-2 property-section diagram-property-constraints" style="float:right;margin-top:-720px; margin-right:-10px">
+            <div class="property-panel-header-constraints-constraints">
                <p>Diagram Constraints</p>
             </div>
             <div class="row property-panel-content" style="padding-top: 5px;margin-left:-40px">
@@ -43,15 +43,15 @@
 </div>
 </template>
 <style scoped>
-.property-panel-header{
+.property-panel-header-constraints{
     margin-left : -40px
 }
-.diagram-property-tab .row{
+.diagram-property-constraints .row{
     margin-left: 2px;
     margin-right: 0px;
     padding-top: 8px;
 }
-.diagram-property-tab .check-box{
+.diagram-property-constraints .check-box{
     margin-top: 10px;
 }
 </style>

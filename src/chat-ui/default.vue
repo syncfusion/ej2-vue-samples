@@ -106,12 +106,12 @@ export default {
     }
 
     .default-chatui .chat_user1_avatar {
-        background-image: url('/src/chat-ui/images/andrew.png');
+        background-image: url('./images/andrew.png');
         background-color: unset;
     }
 
     .default-chatui .chat_user2_avatar {
-        background-image: url('/src/chat-ui/images/reena.png');
+        background-image: url('./images/reena.png');
         background-color: unset;
     }    
 

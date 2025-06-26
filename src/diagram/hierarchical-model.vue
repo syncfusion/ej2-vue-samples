@@ -5,7 +5,7 @@
       <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :mode='mode' :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings' :layout='layout' :dataSourceSettings='dataSourceSettings' :tool='tool'></ejs-diagram>
     </div>
   </div>
-  <div class="col-lg-4 property-section diagram-property-tab">
+  <div class="col-lg-4 property-section diagram-property-hierarchical">
     <div class="property-panel-header">
       Properties
     </div>
@@ -101,7 +101,7 @@
 </template>
 <style scoped>
 /* Css for images in property panel  */
-.image-pattern-style {
+.diagram-property-hierarchical .image-pattern-style {
   background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
@@ -113,22 +113,22 @@
   float: left;
 }
 
-.image-pattern-style:hover {
+.diagram-property-hierarchical .image-pattern-style:hover {
   border-color: gray;
   border-width: 2px;
 }
 /* Property panel CSS */
-.diagram-property-tab .row {
+.diagram-property-hierarchical .row {
   margin-left: 0px;
   margin-right: 0px;
 }
 
-.diagram-property-tab .row-header {
+.diagram-property-hierarchical .row-header {
   font-size: 13px;
   font-weight: 500;
 }
 
-.e-selected-style {
+.diagram-property-hierarchical .e-selected-style {
   border-color: #006ce6;
   border-width: 2px;
 }

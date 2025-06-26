@@ -189,7 +189,10 @@ gulp.task('build', function(done) {
 });
 
 gulp.task('src-ship', function (done) {
-    shelljs.cp('-rf', ['./public', './**.config.js', './Syncfusion_License.js', './**.json', './newWindowSamples/*', './src', './samples', './manifest.Webmanifest', './**.xml'], './dist/');
+    if (!fs.existsSync('./dist/')) {
+        fs.mkdirSync('./dist/', { recursive: true });
+    }
+    shelljs.cp('-rf', ...['./public', './**.config.js', './Syncfusion_License.js', './**.json', './newWindowSamples/*', './src', './samples', './manifest.Webmanifest', './**.xml'], './dist/');
     done();
 });
 

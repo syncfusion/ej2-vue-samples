@@ -227,7 +227,7 @@
 </style>
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Zoom, DateTime, ScrollBar, Tooltip } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Zoom, DateTime, ScrollBar, Tooltip, Highlight } from "@syncfusion/ej2-vue-charts";
 import { data } from './financial-data';
 import { loadChartTheme } from "./theme-color";
 let theme = loadChartTheme();
@@ -293,7 +293,7 @@ export default {
           header: '<b>${point.x}</b>',
           showNearestTooltip: true,
           enable: true,
-          format: 'Temperature: <b>${point.y}</b>'
+          format: 'Temperature: <b>${point.y}</b>', enableHighlight: true
           },
           margin : {top: 20},
           width: Browser.isDevice ? '100%' : '80%',
@@ -304,7 +304,7 @@ export default {
       };
   },
   provide: {
-      chart: [LineSeries, DateTime, Zoom, ScrollBar, Tooltip]
+      chart: [LineSeries, DateTime, Zoom, ScrollBar, Tooltip, Highlight]
   },
   methods: {
   }

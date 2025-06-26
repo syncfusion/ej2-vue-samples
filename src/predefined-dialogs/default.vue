@@ -74,7 +74,8 @@ export default {
                 content: '10% of battery remaining',
                 okButton: {click:this.alertOkAction},
                 position: { X: 'center', Y: 'center' },
-                closeOnEscape: true
+                closeOnEscape: true,
+                close : this.alertOkAction
             });
         },
         alertOkAction:function(){
@@ -90,7 +91,8 @@ export default {
                 okButton: { click:this.confirmOkAction},
                 cancelButton: { click:this.confirmCancelAction},
                 position: { X: 'center', Y: 'center' },
-                closeOnEscape: true
+                closeOnEscape: true,
+                close : this.confirmCancelAction 
             });
         },
         confirmOkAction:function () {
@@ -111,7 +113,8 @@ export default {
                 okButton: { click:this.promptOkAction },
                 cancelButton: { click:this.promptCancelAction},
                 position: { X: 'center', Y: 'center' },
-                closeOnEscape: true
+                closeOnEscape: true,
+                close : this.promptOkAction
             });
         },
         promptOkAction:function () {

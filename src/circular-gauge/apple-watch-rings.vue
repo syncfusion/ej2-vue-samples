@@ -76,7 +76,7 @@
                 </ejs-circulargauge>
                 </div>                
                 <div class="subgauge" style="margin-top: 10px"> 
-                 <span class="firstcontent" style="font-size: 18px;">EXERCISE</span>
+                 <span class="firstcontent" id="panel-two" style="font-size: 18px;">EXERCISE</span>
                         <span class="firstcontent" style="font-size: 18px;color: #99ff01"> 43%</span><br/>
                         <span class="secondcontent" style="color: #99ff01; font-size: 19px">13/30 MIN</span>               
                 </div>
@@ -156,7 +156,7 @@
             width: 165px !important;
         }
 
-        .firstcontent {
+        .firstcontent, .e-view.tailwind #panel-two {
             font-size: 13px !important;
         }
 
@@ -190,7 +190,7 @@
             margin-top: 2% !important;
         }
 
-        .firstcontent {
+        .firstcontent, .e-view.tailwind #panel-two {
             font-size: 16px !important;
         }
 
@@ -265,6 +265,10 @@
   .e-view.bootstrap4 div.annotation5, .e-view.highcontrast div.annotation5 {
       margin-top: 2px;
       margin-left: 1px;
+ }
+
+ .e-view.tailwind #panel-two {
+    font-size: 16px !important;
  }
 
 </style>
