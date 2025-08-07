@@ -96,7 +96,7 @@ const sendMessage = () => {
         contentElement.innerHTML = '';
         contentElement.dataBind();
         contentElement.clearUndoRedo();
-        contentElement.focus();
+        contentElement.focusIn();
     }
 };
 
@@ -105,7 +105,7 @@ const cancelMessage = () => {
     contentElement.innerHTML = '';
     contentElement.dataBind();
     contentElement.clearUndoRedo();
-    contentElement.focus();
+    contentElement.focusIn();
     
 };
 
@@ -189,5 +189,7 @@ const cancelMessage = () => {
     bottom: 57px;
     right: 60px;
 }
-
+.chat-section {
+    height: 600px;
+}
 </style>

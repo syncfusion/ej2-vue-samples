@@ -186,7 +186,7 @@ export default {
 
     [class^="sf-icon-"],
     [class*=" sf-icon-"] {
-        font-family: 'e-sb-icons';
+        font-family: 'e-sb-icons' !important;
         font-size: 15px;
         font-style: normal;
         font-weight: normal;

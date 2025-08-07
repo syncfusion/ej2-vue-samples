@@ -394,7 +394,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 }
 
 .sb-download-text {
-    color: #111111;
+    color: #fff;
 }
 
 .sb-download-wrapper {
@@ -444,7 +444,7 @@ span.e-input-group.e-control-wrapper.e-ddl {
 }
 
 .sb-download-btn {
-    background-color: #3C78EF;
+    background-color: #006ee5;
     opacity: 100;
     border-radius: 2px;
     font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif";
