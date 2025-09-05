@@ -132,7 +132,7 @@ export default {
   },
   methods: {
     getImage: function (url) {
-      return "source/kanban/images/" + url;
+      return "https://ej2.syncfusion.com/vue/demos/source/kanban/images/" + url;
     },
   },
 };

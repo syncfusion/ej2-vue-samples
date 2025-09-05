@@ -315,7 +315,8 @@ function setLockConstraints(args) {
             node.constraints &= ~(NodeConstraints.Resize | NodeConstraints.Rotate | NodeConstraints.Drag | NodeConstraints.Delete);
             node.constraints |= NodeConstraints.ReadOnly;
         } else {
-            node.constraints = NodeConstraints.Default;
+           node.constraints |= (NodeConstraints.Resize | NodeConstraints.Rotate | NodeConstraints.Drag | NodeConstraints.Delete);
+           node.constraints &= ~NodeConstraints.ReadOnly;
         }
     }
      for (let j = 0; j < diagramInstance.connectors.length; j++) {

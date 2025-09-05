@@ -128,7 +128,7 @@ export default {
     },
    methods:{
        onChange: function(e: ChangeEventArgs): void {
-        // this.filterSettings = { type: 'FilterBar', hierarchyMode: <any>e.value, mode: 'Immediate'};
+        (this as any).filterSettings = { type: 'FilterBar', hierarchyMode: <any>e.value, mode: 'Immediate'};
         ((this as any).$refs.treegrid).clearFiltering();
         dropDownFilter.value = 'All';
     }

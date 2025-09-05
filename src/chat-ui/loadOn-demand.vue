@@ -1,6 +1,6 @@
 <template>
     <div class="control-section chat-ui">
-        <div class="loadonDemand-chatui">
+        <div class="chatui-loadonDemand">
             <ejs-chatui id="loadonDemand" :user="currentUser" headerText="Michale Suyama" headerIconCss="chat_user2_avatar" showTimeBreak="true" loadOnDemand="true" :messages="chatMessages"></ejs-chatui>
         </div>
     </div>
@@ -48,7 +48,7 @@ for (let i = 1; i <= 200; i++) {
 </script>
 
 <style>
-    .loadonDemand-chatui {
+    .chatui-loadonDemand {
         height: 500px;
         width: 40%;
         margin: 0 auto;
@@ -57,13 +57,13 @@ for (let i = 1; i <= 200; i++) {
         gap: 50px;
     }
 
-    .loadonDemand-chatui .chat_user2_avatar {
+    .chatui-loadonDemand .chat_user2_avatar {
         background-image: url('./images/andrew.png');
         background-color: unset;
     }   
 
     @media only screen and (max-width: 850px) {
-        .loadonDemand-chatui {
+        .chatui-loadonDemand {
             flex-direction: column;
             height: 500px;
             width: 80%;

@@ -214,6 +214,7 @@ export default defineComponent({
           document.getElementsByClassName('e-treegrid')[0]?.ej2_instances[0];
         treegrid?.clearSorting();
         treegrid?.clearFiltering();
+        treegrid?.refresh();
     },
     getColumns(viewer) {
       const baseColumns = [

@@ -249,9 +249,12 @@ import { DropDownList, DropDownListComponent } from '@syncfusion/ej2-vue-dropdow
 import { CheckBoxComponent, ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { DataManager, WebApiAdaptor, UrlAdaptor, ODataV4Adaptor, Query } from "@syncfusion/ej2-data";
 
-if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
-    document.body.classList.add('e-mac-safari');
-}
+document.addEventListener('DOMContentLoaded', function () {
+    if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+        document.body.classList.add('e-mac-safari');
+    }
+});
+
 export default {
     components: {
         'ejs-grid': GridComponent,

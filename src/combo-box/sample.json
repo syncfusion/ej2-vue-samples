@@ -2,7 +2,6 @@
     "name": "ComboBox",
     "directory": "combo-box",
     "category": "Dropdowns",
-    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -97,7 +96,6 @@
             "url": "filtering",
             "name": "Filtering",
             "category": "ComboBox",
-            "type": "update",
             "description": "This example demonstrates how the filtering functionalities works based on the typed characters in the Vue combo box component.",
             "sourceFiles":[
                 { "displayName": "filtering.vue", "path":"src/combo-box/filtering.vue" },

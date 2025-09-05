@@ -2,7 +2,7 @@
 <div>
 <div class="control-section">
     <div class="content-wrapper">
-        <ejs-pivotview id="pivotview" ref="pivotview" :dataSourceSettings="dataSourceSettings" :width="width" :height="height" :showFieldList="showFieldList" :showGroupingBar="showGroupingBar" :enableVirtualization="enableVirtualization" :dataBound="dataBound" :allowDataCompression="allowDataCompression"
+        <ejs-pivotview id="pivotview" ref="pivotview" :dataSourceSettings="dataSourceSettings" :width="width" :height="height" :showFieldList="showFieldList" :showGroupingBar="showGroupingBar" :dataBound="dataBound" :allowDataCompression="allowDataCompression"
         :gridSettings="gridSettings" :allowExcelExport="allowExcelExport" :allowPdfExport="allowPdfExport" :showToolbar="showToolbar" :toolbarRender="beforeToolbarRender"
         :toolbar="toolbar" :beforeExport="beforeExport">        
         </ejs-pivotview>
@@ -31,9 +31,15 @@
         connected to the pivot table.
     </p>
     <p>
-        In this demo, the pivot table is shown with the virtualization option enabled through the <a target="_blank"
-            href="https://ej2.syncfusion.com/vue/documentation/api/pivotview/#enablevirtualization"> enableVirtualization</a> property
-        and an external server engine. This would improve pivot table rendering performance when working with large amounts of data.
+        In this demo, the Pivot Table is rendered using an external server-side engine, which significantly enhances
+        performance when handling large datasets. By offloading data processing to the server, client-side rendering becomes
+        faster and more efficient—ensuring a smoother user experience even with complex or high-volume data.
+    </p>
+    <p>
+        For further performance improvements when working with large data volumes, we recommend enabling <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/api/pivotview/#enablevirtualization">
+            virtualization</a> or <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/pivotview/paging">
+            paging</a> features.
     </p>
     <p>
         The built-in toolbar includes export options for Excel, CSV, and PDF documents. These export features support
@@ -42,15 +48,6 @@
     <p>
         Additionally, a custom toolbar menu is provided to switch between <strong>Compact</strong> and
         <strong>Tabular</strong> layouts at runtime, offering flexibility in how the summarized data is displayed.
-    </p>
-    <br />
-    <p>
-        <strong>Injecting Module:</strong>
-    </p>
-    <p>
-        The pivot table features are segregated into individual modules. To use the virtual scrolling option, inject
-        <code> VirtualScroll</code> module using the
-        <code>provide</code> section.
     </p>
     <br />
     <p>
@@ -114,7 +111,7 @@ export default {
     },
     gridToolbarClicked: function(args: any) {
         let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
-        if (pivotObj && pivotObj.gridSettings && pivotObj.gridSettings.layout !== args.item.id) {
+        if (pivotObj && pivotObj.gridSettings && pivotObj.gridSettings.layout !== args.item.id && (args.item.id == 'Compact' || args.item.id == 'Tabular')) {
           pivotObj.setProperties({
               gridSettings: {
                   layout: args.item.id
@@ -217,7 +214,7 @@ export default {
   data: () => {
     return {
       dataSourceSettings: {
-            url: 'https://ej2services.syncfusion.com/vue/release/api/pivot/post',
+            url: 'https://ej2services.syncfusion.com/vue/development/api/pivot/post',
             mode: 'Server',
             expandAll: false,
             enableSorting: true,
@@ -225,16 +222,19 @@ export default {
             ],
             values: [
                 { name: 'Sold', caption: 'Units Sold' },
-                { name: 'Price', caption: 'Sold Amount' }
+                { name: 'Amount', caption: 'Sold Amount' }
             ],
-            rows: [{ name: 'ProductID', caption: 'Product ID' }, {name: 'Country'}],
-            drilledMembers: [{ name: 'ProductID', items: ['PRO-10001', 'PRO-10002', 'PRO-10003'] }],
-            formatSettings: [{ name: 'Price', format: 'C0' }, { name: 'Sold', format: 'N0' }],
-            filters: []
+            rows: [{ name: 'Country' }, {name: 'Products'}],
+            drilledMembers: [{ name: 'Country', items: ['France', 'Germany'] }],
+            formatSettings: [{ name: 'Amount', format: 'C0' }, { name: 'Sold', format: 'N0' }],
+            filters: [],
+            fieldMapping: [
+                { name: 'Product_Categories', groupName: 'Product Details'},
+                { name: 'Products', groupName: 'Product Details' }
+            ]
       },
       showFieldList: true,
       showGroupingBar: true,
-      enableVirtualization: true,
       width: "100%",
       allowDataCompression: true,
       height: 450,
@@ -252,7 +252,7 @@ export default {
     };
   },
   provide: {
-    pivotview: [VirtualScroll, FieldList, GroupingBar, Toolbar, PDFExport, ExcelExport]
+    pivotview: [FieldList, GroupingBar, Toolbar, PDFExport, ExcelExport]
   }
 }
 </script>

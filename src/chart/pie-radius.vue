@@ -28,7 +28,7 @@ AccumulationChart component features are segregated into individual feature-wise
 </p>
 <p>
         More information about the pie series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pie-dough-nut/#various-radius-pie-chart" aria-label="Navigate to the documentation for Various Radius Pie Chart in Vue Accumulation Chart component">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/accumulation-chart/pie-dough-nut" aria-label="Navigate to the documentation for Various Radius Pie Chart in Vue Accumulation Chart component">documentation section</a>.
     </p>
 
 </div>

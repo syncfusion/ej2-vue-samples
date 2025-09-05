@@ -7,7 +7,10 @@
     <div>
         <ejs-gantt ref='gantt' id="tooltipData" 
         :dataSource= "data"        
-        :height = "height"
+
+:height="height"
+:rowHeight="46"
+:taskbarHeight="25"
         :renderBaseline= 'true'     
         :highlightWeekends= 'true'  
         :allowSelection = 'true'       
@@ -91,6 +94,8 @@
         <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code> method.To use markers, inject the
         <code>DayMarkers</code> module using the <code>Gantt.Inject(DayMarkers)</code> method.
     </p>
+    <br>
+    <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/tooltip#enable-tooltip">documentation section</a>.</p>
 </div>
 </div>
 </template>
@@ -107,7 +112,7 @@ export default {
   data: function() {
       return{
             data: tooltipData,
-            height: '450px',             
+            height: '650px',             
             taskFields: {
                id: 'TaskID',
                name: 'TaskName',
@@ -129,8 +134,8 @@ export default {
                 { field: 'Duration' },
                 { field: 'Predecessor' },
                 { field: 'Progress' },
-                { field: 'BaselineStartDate' },
-                { field: 'BaselineEndDate' },
+                { field: 'BaselineStartDate', width: 200 },
+                { field: 'BaselineEndDate', width: 200 },
                 { field: 'resources' },
             ],
             resourceFields: {
@@ -161,8 +166,8 @@ export default {
                 baseline: "baselineTooltipTemplate",
                 timeline:"timelineTooltipTemplate"
             },
-            projectStartDate: new Date('03/24/2024'),
-            projectEndDate: new Date('05/04/2024'),
+              projectStartDate: new Date('03/26/2025'),
+            projectEndDate: new Date('06/01/2025'),
       };
   },
   provide: {

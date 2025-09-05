@@ -45,7 +45,7 @@
                                         <td style="text-align:right">
                                             <div class="e-card-actions">
                                                 <button class="e-card-btn" id="showcarddata_icon" title="Click to see more...">
-                                                    <span class="e-btn-icon e-icons e-reveal-icon e-icon-right" style="margin:0"></span>
+                                                    <span class="e-icons e-more-vertical-1" style="margin:0"></span>
                                                 </button>
                                             </div>
                                         </td>
@@ -107,7 +107,11 @@
         background-color: unset;
         border: 1px solid #22d3ee;
     }
-    
+
+    .e-bigger.tailwind3-dark .e-card #card_revealed .e-card-actions,
+    .e-bigger.tailwind3 .e-card #card_revealed .e-card-actions {
+        padding: 16px 0px;
+    }
     
     .fluent .card-control-section.reveal_card_layout .e-card .e-collapse:before,
     .fluent-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before,
@@ -119,18 +123,6 @@
     .bootstrap5-dark .card-control-section.reveal_card_layout .e-card .e-collapse:before{
         content: "\e7e7";
         font-size: 12px;
-    }
-    
-    
-    .fluent .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
-    .fluent-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
-    .tailwind .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
-    .tailwind-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
-    .tailwind3 .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
-    .tailwind3-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
-    .bootstrap5 .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before,
-    .bootstrap5-dark .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before {
-    content: "\e71c";
     }
 
     .card-control-section.reveal_card_layout .row.card-layout .e-card #card_reveal.e-reveal-show {
@@ -238,17 +230,6 @@
     .card-control-section.reveal_card_layout .e-card .e-collapse:before {
         content: "\e7fc";
         font-size: 12px;
-    }
-
-    .card-control-section.reveal_card_layout .e-card .e-reveal-icon {
-        -webkit-transform: rotate(-90deg);
-        transform: rotate(-90deg);
-        -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-    }
-
-    .card-control-section.reveal_card_layout .e-card .e-reveal-icon:before {
-        content: "\e71c";
     }
 
     .card-control-section.reveal_card_layout .col-xs-6.col-sm-6.col-lg-6.col-md-6 {

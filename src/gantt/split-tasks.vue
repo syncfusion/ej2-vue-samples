@@ -10,7 +10,10 @@
             :editSettings= "editSettings"
 			:labelSettings="labelSettings"
             :toolbar= "toolbar"
-            :height= "height"
+
+:height="height"
+:rowHeight="46"
+:taskbarHeight="25"
             :treeColumnIndex= "1"
             :highlightWeekends= "true"
             :columns= "columns"
@@ -33,6 +36,7 @@
         can be defined in the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/taskFieldsModel/#segments">taskFields.segments</a> property. Segments can be created or merged by two ways: Using Edit Dialog and Context Menu.
     </p>
     <p>A task must have a duration of minimum two time unit cells in order to be split. Similarly, milestone tasks or parent tasks cannot be split into segments.</p>   
+    <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/managing-tasks/splitting-and-merging-tasks">documentation section</a>.</p>
 </div>
 </div>
 </template>
@@ -68,7 +72,7 @@ export default {
                 { field: 'Predecessor' }
             ],
             toolbar: ['Add', 'Edit', 'Update', 'Delete', 'Cancel', 'ExpandAll', 'CollapseAll'],
-            height: '450px',
+            height: '650px',
             editSettings: {
                 allowAdding: true,
                 allowEditing: true,
@@ -80,10 +84,10 @@ export default {
                leftLabel: 'TaskName',
                taskLabel: '${Progress}%'
             },
-            projectStartDate: new Date('01/30/2024'),
-            projectEndDate: new Date('03/04/2024'),
+             projectStartDate: new Date('01/29/2025'),
+            projectEndDate: new Date('04/20/2025'),
             splitterSettings: {
-                position: "35%"
+                columnIndex:2
             }
       };
   },

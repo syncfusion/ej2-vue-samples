@@ -3,7 +3,7 @@
     <div class="control-section">
         <div class="sample-container">
             <div class="default-section">
-                <ejs-richtexteditor ref="rteInstance" :toolbarSettings="toolbarSettings" >
+                <ejs-richtexteditor ref="rteInstance" :toolbarSettings="toolbarSettings" :insertAudioSettings="insertAudioSettings" :insertVideoSettings="insertVideoSettings" >
                     <p>Rich Text Editor allows inserting video and audio from online sources and the local computers where you want to insert a video and audio into your content.</p>
                     <p><b>Get started with Quick Toolbar to click on a video</b></p>
                     <p>Using the quick toolbar, users can replace, align, display, dimension, and delete the selected video.</p>
@@ -21,7 +21,7 @@
     </div>
 
     <div id="action-description">
-        <p>This sample demonstrates the option to insert the media into the Rich Text Editor content. Click the audio and video button from the toolbar item to insert the media.</p>
+        <p>This sample demonstrates the option to insert the media into the Rich Text Editor content. Click the audio and video button from the toolbar item to insert the media, or drag and drop audio and video files directly into the editor.</p>
     </div>
 
     <div id="description">
@@ -49,6 +49,7 @@
 <script>
 import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor ,Video ,Audio, PasteCleanup, Table } from "@syncfusion/ej2-vue-richtexteditor";
 
+let hostUrl = 'https://services.syncfusion.com/vue/production/';
 export default {
     components: {
       'ejs-richtexteditor': RichTextEditorComponent
@@ -57,6 +58,16 @@ export default {
         return {
             toolbarSettings: {
                 items:['Bold', 'Italic', 'Underline', '|', 'Formats', 'Alignments', 'Blockquote', 'OrderedList', 'UnorderedList', '|', 'CreateLink', 'Image', 'Audio', 'Video', '|', 'SourceCode', 'Undo', 'Redo']
+            },
+            insertVideoSettings: {
+                saveUrl: hostUrl + 'api/RichTextEditor/SaveFile',
+                removeUrl: hostUrl + 'api/RichTextEditor/DeleteFile',
+                path: hostUrl + 'RichTextEditor/'
+            },
+            insertAudioSettings: {
+                saveUrl: hostUrl + 'api/RichTextEditor/SaveFile',
+                removeUrl: hostUrl + 'api/RichTextEditor/DeleteFile',
+                path: hostUrl + 'RichTextEditor/'
             }
         };
     },

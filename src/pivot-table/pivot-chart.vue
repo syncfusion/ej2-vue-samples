@@ -140,7 +140,7 @@ export default {
         columns: [{ name: "Country" }, { name: "Products" }],
         valueSortSettings: { headerDelimiter: " - " },
         dataSource: Pivot_Data,
-        drilledMembers: [{ name: 'Year', items: ['FY 2015'] }],
+        drilledMembers: [{ name: 'Year', items: ['FY 2022'] }],
         values: [{ name: "Amount", caption: "Sales Amount" }],
         formatSettings: [{ name: "Amount", format: "C" }],
         filters: []

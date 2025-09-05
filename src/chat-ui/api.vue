@@ -1,7 +1,7 @@
 <template>
     <div class="col-lg-8 control-section">
         <div class="api-chatui">
-            <ejs-chatui id="chatui" ref="chatUiInst" :messages="chatData" :autoScrollToBottom="autoScrollToBottom" :user="user" :showTimeStamp="showTimestamp" :showTimeBreak="showTimeBreak" :showHeader="showHeader" :showFooter="showFooter" :enableCompactMode="enableCompactMode" :timeStampFormat="timeStampFormat" :headerIconCss="headerIconCss" :headerText="headerText" :messageToolbarSettings="messageToolbarSettings"></ejs-chatui>
+            <ejs-chatui id="chatui" ref="chatUiInst" :messages="chatData" :autoScrollToBottom="autoScrollToBottom" :user="user" :showTimeStamp="showTimestamp" :showTimeBreak="showTimeBreak" :showHeader="showHeader" :showFooter="showFooter" :enableCompactMode="enableCompactMode" :timeStampFormat="timeStampFormat" :headerIconCss="headerIconCss" :headerText="headerText" :messageToolbarSettings="messageToolbarSettings" :mentionUsers="mentionUsers"></ejs-chatui>
         </div>
     </div>
 
@@ -78,6 +78,16 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <div>Mention users</div>
+                    </td>
+                    <td style="padding-right: 10px">
+                        <div style="padding-left: 0;padding-top: 0">
+                            <ejs-multiselect id="chat_mentionUsers" :dataSource="mentionUsersDataSource" placeholder="Mention users..." :select="mentionSelect" :removed="mentionRemoved" :value="mentionUsersDataSource"></ejs-multiselect>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -94,6 +104,7 @@
             <li><code>showFooter</code>: Toggles the visibility of the chat footer.</li>
             <li><code>enableCompactMode</code>: Reduces spacing and left-aligns all messages to display more content within the visible chat area. </li>
             <li><code>typingUsers</code>: Allows users to manage the list of users who are typing, updated through the multi-select options in the property pane.</li>
+            <li><code>mentionUsers</code>: Configurable list of users that can be tagged using '@' in chat messages.</li>
             <li><code>statusIconCss</code>: Defines a CSS class for the status bar icon, with built-in styles for Online, Offline, Away, and Busy statuses, while allowing further customization.</li>
             <li><code>messageToolbarSettings</code>: Configures the toolbar that appears on individual messages, allowing customization such as copy, forward, reply, pin and delete. Supports adding, removing, or reordering toolbar items based on application needs.</li>
         </ul>
@@ -117,6 +128,13 @@ export default {
         "ejs-multiselect": MultiSelectComponent
     },
     data: function() {
+        let mentionUsersMap = {
+            'Alice Brown': { user: 'Alice Brown', id: 'admin', avatarBgColor: '#87cefa', statusIconCss: 'e-icons e-user-busy' },
+            'Michale Suyama': { user: 'Michale Suyama', id: 'user1', avatarBgColor: '#87cefa', statusIconCss: 'e-icons e-user-online' },
+            'Charlie': { user: 'Charlie', id: 'user2', avatarBgColor: '#e6cdde', avatarUrl: './src/chat-ui/images/charlie.png', statusIconCss: 'e-icons e-user-away' },
+            'Janet': { user: 'Janet', id: 'user3', avatarBgColor: '#dec287', avatarUrl: './src/chat-ui/images/janet.png', statusIconCss: 'e-icons e-user-offline' },
+            'Jordan Peele': { user: 'Jordan Peele', id: 'user4', avatarBgColor: '#87cefa', statusIconCss: 'e-icons e-user-busy' }
+        };
         return {
             chatData: data['communityMessagedata'].map(message => ({
                 ...message,
@@ -134,6 +152,9 @@ export default {
             user: { user: 'Alice', id: 'admin' },
             dataSource: [ "MM/dd hh:mm a", "dd/MM/yy hh:mm a", "hh:mm a", "MMMM hh:mm a" ],
             multiSelectDataSource: [ "Michale", "Laura", "Charlie", "Jordan" ],
+            mentionUsersDataSource: ['Alice Brown', 'Michale Suyama', 'Charlie', 'Janet', 'Jordan Peele'],
+            mentionUsers: Object.values(mentionUsersMap),
+            mentionUsersMap,
             messageToolbarSettings: {
               items: [
                   { type: "Button", iconCss: "e-icons e-chat-forward", tooltip: "Forward" },
@@ -149,6 +170,7 @@ export default {
                     isForwarded: true,
                     isPinned: args.message.isPinned,
                     author: args.message.author,
+                    mentionUsers: args.message.mentionUsers,
                     text: args.message.text,
                     timeStamp: args.message.timeStamp,
                     timeStampFormat: args.message.timeStampFormat,
@@ -178,6 +200,21 @@ export default {
         removed: function (args) {
             let chatUiInst = this.$refs.chatUiInst.ej2Instances;
             chatUiInst.typingUsers = chatUiInst.typingUsers.filter(user => user.user !== args.itemData);
+        },
+        mentionSelect: function(args) {
+            let chatUiInst = this.$refs.chatUiInst.ej2Instances;
+            if (args.itemData) {
+                let user = this.mentionUsersMap[args.itemData];
+                chatUiInst.mentionUsers = [...chatUiInst.mentionUsers, user];
+                chatUiInst.dataBind();
+            }
+        },
+        mentionRemoved: function(args) {
+            let chatUiInst = this.$refs.chatUiInst.ej2Instances;
+            if (args.itemData) {
+                chatUiInst.mentionUsers = chatUiInst.mentionUsers.filter(user => user.user !== args.itemData);
+                chatUiInst.dataBind();
+            }
         }
     }
 }

@@ -345,7 +345,7 @@ export default {
         }
 
         if ((args.column as Column).field === 'rating') {
-           let rating: number = getObject('rating', args.data); let ratingElement;
+            let rating: number = getObject('rating', args.data); let ratingElement;
            if (isNullOrUndefined(rating)) {
               ratingElement = (args.cell as Element).querySelector('.rating');
               addClass([ratingElement as Element], ['e-hide']);

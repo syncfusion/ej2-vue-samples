@@ -13,7 +13,7 @@
           :allowGrouping="allowGrouping" :enableValueSorting="enableValueSorting" :toolbar="toolbar"
           :saveReport="saveReport" :loadReport="loadReport" :fetchReport="fetchReport" :renameReport="renameReport"
           :removeReport="removeReport" :newReport="newReport" :toolbarRender="beforeToolbarRender"
-          :chartSeriesCreated="chartSeriesCreated" :displayOption="displayOption" :chartSettings="chartSettings"
+          :chartSeriesCreated="chartSeriesCreated" :load="load" :displayOption="displayOption" :chartSettings="chartSettings"
           :cellTemplate="'myTemplate'" :enableFieldSearching="enableFieldSearching">
           <template v-slot:myTemplate="{ data }">
             <span class="template-wrap" v-html="getCellContent(data)"></span>
@@ -83,7 +83,7 @@ import {
   Grouping,
   DrillThrough
 } from "@syncfusion/ej2-vue-pivotview";
-import { createElement, enableRipple, select, isNullOrUndefined } from "@syncfusion/ej2-base";
+import { createElement, enableRipple, select, isNullOrUndefined, Browser } from "@syncfusion/ej2-base";
 import { ExcelQueryCellInfoEventArgs } from '@syncfusion/ej2-grids';
 import { Universitydata } from "./data-source";
 enableRipple(false);
@@ -395,6 +395,11 @@ export default {
       args.customToolbar.splice(9, 0, {
         type: 'Separator'
       });
+    },
+    load: function (args: any) {
+      if (Browser.isDevice) {
+        args.dataSourceSettings.rows = [{ name: 'rank_display', caption: 'Rank', expandAll: true, allowDragAndDrop: false }];
+      }
     }
   },
   provide: {

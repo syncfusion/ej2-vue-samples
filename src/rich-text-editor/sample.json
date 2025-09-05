@@ -26,6 +26,7 @@
         {
             "url": "insert-media",
             "name": "Insert Media",
+            "type": "update",
             "category": "Rich Text Editor",
             "description": "This demo shows how to insert audio and video, Embed video, upload audio and video, and more in Insert Media."
         },
@@ -88,6 +89,7 @@
             "url": "events",
             "name": "Events",
             "category": "Rich Text Editor",
+            "type": "update",
             "description": "This demo explains client-side events of vue HTML Text Editor that is triggered on editing and formatting operations with an event tracer."
         },
         {
@@ -166,14 +168,12 @@
             "url": "types",
             "name": "Type",
             "category": "Toolbar",
-            "type": "update",
             "description": "This demo demonstrates different types and behaviors of a toolbar used in the vue HTML Editor such as expand/collapse,multirow,floating and popup."
         },
         {
             "url": "bottom-toolbar",
             "name": "Bottom Toolbar",
             "category": "Toolbar",
-            "type": "new",
             "description": "The demo demonstrates how to add special characters or symbols into the rich content in vue Rich Text Editor using a custom toolbar command."
         },
         {

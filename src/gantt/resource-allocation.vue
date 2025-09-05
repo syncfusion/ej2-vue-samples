@@ -1,100 +1,130 @@
 <template>
-<div>
-<div class="control-section">
-    <div class="content-wrapper">
-        <ejs-gantt ref='gantt' id="resource"  
-            :dataSource= "data"
-            :taskFields= "taskFields"
-            :allowSelection= "true"
-            :resourceFields= "resourceFields"
-	          :taskType= "taskType"
-            :editSettings= "editSettings"
-            :editDialogFields= "editDialogFields"
-            :addDialogFields= "addDialogFields"
-            :toolbar= "toolbar"
-            :height= "height"
-            :resources= "resources"
-            :highlightWeekends= "true"
-            :columns= "columns"
-            :labelSettings= "labelSettings"
-            :projectStartDate= "projectStartDate"
-            :projectEndDate= "projectEndDate"
-            :cellEdit= "cellEdit"
-            :actionBegin= "actionBegin"
-            :actionComplete= "actionComplete"
-            :splitterSettings= "splitterSettings"
-	          :queryTaskbarInfo = "queryTaskbarInfo">
-            <e-columns>
-                <e-column field='TaskID' headerText='Task ID' width='80'></e-column>
-                <e-column field='TaskName' headerText='Task Name' width='180'></e-column>
-                <e-column field='resources' headerText= 'Resources' width='190' :template="'resColumnTemplate'" editType="dropdownedit" :edit="dpParams"></e-column>
-                <e-column field='Duration' width='100'></e-column>
-                <e-column field='taskType' headerText='Task Type' width='110'></e-column>
-            </e-columns>
-            <template v-slot:resColumnTemplate="{data}">
-                <div class="resColumnTemplate" v-if="data.ganttProperties.resourceNames">
-                    <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Rose Fuller')">
-                        <div class="text" style="width:150px; height:24px; border-radius:100px; background-color:#1c5d8e; display: flex; align-items: center; justify-content: center;">
-                            <span style="color:white; font-weight:500;">{{data.ganttProperties.resourceNames}}</span>
-                        </div>
-                    </div>
+    <div>
+        <div class="control-section">
+            <div class="content-wrapper">
+                <ejs-gantt ref='gantt' id="resource" :dataSource="data" :taskFields="taskFields" :allowSelection="true"
+                    :resourceFields="resourceFields" :taskType="taskType" :editSettings="editSettings"
+                    :editDialogFields="editDialogFields" :addDialogFields="addDialogFields" :toolbar="toolbar"
+                    :height="height" :rowHeight="46" :taskbarHeight="25" :resources="resources"
+                    :highlightWeekends="true" :columns="columns" :labelSettings="labelSettings"
+                    :projectStartDate="projectStartDate" :projectEndDate="projectEndDate" :cellEdit="cellEdit"
+                    :actionBegin="actionBegin" :actionComplete="actionComplete" :splitterSettings="splitterSettings"
+                    :queryTaskbarInfo="queryTaskbarInfo">
+                    <e-columns>
+                        <e-column field='TaskID' headerText='Task ID' width='80'></e-column>
+                        <e-column field='TaskName' headerText='Task Name' width='180'></e-column>
+                        <e-column field='resources' headerText='Resources' width='190' :template="'resColumnTemplate'"
+                            editType="dropdownedit" :edit="dpParams"></e-column>
+                        <e-column field='Duration' width='100'></e-column>
+                        <e-column field='taskType' headerText='Task Type' width='110'></e-column>
+                    </e-columns>
+                    <template v-slot:resColumnTemplate="{ data }">
+                        <div class="resColumnTemplate" v-if="data.ganttProperties.resourceNames">
+                            <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Rose Fuller')">
+                                <div class="text"
+                                    style="width:150px; height:24px; border-radius:100px; background-color:#1c5d8e; display: flex; align-items: center; justify-content: center;">
+                                    <span
+                                        style="color:white; font-weight:500;">{{ data.ganttProperties.resourceNames }}</span>
+                                </div>
+                            </div>
 
-                    <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Fuller King')">
-                        <div class="text" style="width:150px; height:24px; border-radius:100px; background-color:#4a7537; display: flex; align-items: center; justify-content: center;">
-                            <span style="color:white; font-weight:500;">{{data.ganttProperties.resourceNames}}</span>
-                        </div>
-                    </div>
+                            <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Fuller King')">
+                                <div class="text"
+                                    style="width:150px; height:24px; border-radius:100px; background-color:#4a7537; display: flex; align-items: center; justify-content: center;">
+                                    <span
+                                        style="color:white; font-weight:500;">{{ data.ganttProperties.resourceNames }}</span>
+                                </div>
+                            </div>
 
-                    <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Van Jack')">
-                        <div class="text" style="width:150px; height:24px; border-radius:100px; background-color:#b24531; display: flex; align-items: center; justify-content: center;">
-                            <span style="color:white; font-weight:500;">{{data.ganttProperties.resourceNames}}</span>
-                        </div>
-                    </div>
+                            <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Van Jack')">
+                                <div class="text"
+                                    style="width:150px; height:24px; border-radius:100px; background-color:#b24531; display: flex; align-items: center; justify-content: center;">
+                                    <span
+                                        style="color:white; font-weight:500;">{{ data.ganttProperties.resourceNames }}</span>
+                                </div>
+                            </div>
 
-                    <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Bergs Anton')">
-                        <div class="text" style="width:150px; height:24px; border-radius:100px; background-color:#a53576; display: flex; align-items: center; justify-content: center;">
-                            <span style="color:white; font-weight:500;">{{data.ganttProperties.resourceNames}}</span>
-                        </div>
-                    </div>
+                            <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Bergs Anton')">
+                                <div class="text"
+                                    style="width:150px; height:24px; border-radius:100px; background-color:#a53576; display: flex; align-items: center; justify-content: center;">
+                                    <span
+                                        style="color:white; font-weight:500;">{{ data.ganttProperties.resourceNames }}</span>
+                                </div>
+                            </div>
 
-                    <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Tamer Vinet')">
-                        <div class="text" style="width:150px; height:24px; border-radius:100px; background-color:#635688; display: flex; align-items: center; justify-content: center;">
-                            <span style="color:white; font-weight:500;">{{data.ganttProperties.resourceNames}}</span>
+                            <div v-if="data.ganttProperties.resourceNames.split('[')[0].includes('Tamer Vinet')">
+                                <div class="text"
+                                    style="width:150px; height:24px; border-radius:100px; background-color:#635688; display: flex; align-items: center; justify-content: center;">
+                                    <span
+                                        style="color:white; font-weight:500;">{{ data.ganttProperties.resourceNames }}</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </template>
-        </ejs-gantt>
+                    </template>
+                </ejs-gantt>
+            </div>
+        </div>
+
+        <div id="action-description">
+            <p>This sample demonstrates the options to allocate one or more resources to tasks based on the task
+                requirement.
+                The Work is the total labor hours necessary to complete a task.
+                Work can be mapped from the data source field using the property <code>work</code> and when the work
+                value is
+                mapped from the data source,
+                the end date and duration of the task will be calculated automatically based on the work and resource
+                unit
+                values from the data source.
+                Work can be measured in hours, days and minutes. It is measured in ‘hours’ scale by default and this can
+                be
+                changed by using the <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#workunit">workUnit</a> property.</p>
+        </div>
+
+        <div id="description">
+            <p>In this example, you can see how to allocate single or multiple resources for the task. Based on the task
+                complexity and the resource availability, you can plan and allocate the resources to task in the
+                project. In
+                this demo, there is a set of predefined resources and those IDs are assigned to the task. Resource
+                information
+                can be shown in Gantt Chart by using the <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#labelsettings">labelSetting</a>
+                property.</p>
+            <p>Resources can be mapped using <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#resourcefields">resourceFields:</a>
+            </p>
+            <p><code>id</code>: To map resource ID</p>
+            <p><code>name</code>: To map resource name</p>
+            <p><code>unit</code>: To map resource unit</p>
+
+            <p>The work, duration and resource unit fields of a task depends upon each other values and will change
+                automatically on editing any one of these fields. But we can also set these field’s values as constant
+                using the
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#tasktype">taskType</a>
+                property.
+                The following values can be set to the type property:
+            </p>
+
+            <p><code>FixedDuration</code>: Duration task field will remain constant while updating resource unit or work
+                field.
+            </p>
+            <p><code>FixedWork</code>: Work field will remain constant while updating resource unit or duration fields.
+            </p>
+            <p><code>FixedUnit</code>: Resource units will remain constant while updating duration or work field.</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use a selection, inject
+                the
+                <code>Selection</code> module.To use markers, inject the <code>DayMarkers</code> module.
+                To edit resource unit, task type and duration, inject the <code>Toolbar</code> and <code>Edit</code>
+                module.
+            </p>
+            <br>
+            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started">documentation section</a>.
+            </p>
+        </div>
     </div>
-</div>
 
-<div id="action-description">
-    <p>This sample demonstrates the options to allocate one or more resources to tasks based on the task requirement.
-        The Work is the total labor hours necessary to complete a task. 
-        Work can be mapped from the data source field using the property <code>work</code> and when the work value is mapped from the data source, 
-        the end date and duration of the task will be calculated automatically based on the work and resource unit values from the data source.
-        Work can be measured in hours, days and minutes. It is measured in ‘hours’ scale by default and this can be changed by using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#workunit">workUnit</a> property.</p>
-</div>
-
-<div id="description">
-    <p>In this example, you can see how to allocate single or multiple resources for the task. Based on the task complexity and the resource availability, you can plan and allocate the resources to task in the project. In this demo, there is a set of predefined resources and those IDs are assigned to the task. Resource information can be shown in Gantt Chart by using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#labelsettings">labelSetting</a> property.</p> 
-    <p>Resources can be mapped using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#resourcefields">resourceFields:</a> </p>
-        <p><code>id</code>: To map resource ID</p>
-        <p><code>name</code>: To map resource name</p>
-        <p><code>unit</code>: To map resource unit</p>
-        
-        <p>The work, duration and resource unit fields of a task depends upon each other values and will change automatically on editing any one of these fields. But we can also set these field’s values as constant using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#tasktype">taskType</a> property. The following values can be set to the type property:</p>
-        
-        <p><code>FixedDuration</code>: Duration task field will remain constant while updating resource unit or work field.</p>
-        <p><code>FixedWork</code>: Work field will remain constant while updating resource unit or duration fields.</p>
-        <p><code>FixedUnit</code>: Resource units will remain constant while updating duration or work field.</p>
-    <p>
-        Gantt component features are segregated into individual feature-wise modules. To use a selection, inject the
-        <code>Selection</code> module.To use markers, inject the <code>DayMarkers</code> module.
-        To edit resource unit, task type and duration, inject the <code>Toolbar</code> and <code>Edit</code> module.
-    </p>    
-</div>
-</div>
 </template>
 <script>
 import { GanttComponent, Selection, Edit, DayMarkers, Toolbar, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-gantt";
@@ -104,13 +134,13 @@ import { DataManager } from '@syncfusion/ej2-data';
 
 let dropdownlistObj;
 export default {
-  components: {
-    'ejs-gantt': GanttComponent,
-    'e-columns': ColumnsDirective,
-    'e-column': ColumnDirective
-  },  
-  data: function() {
-      return{
+    components: {
+        'ejs-gantt': GanttComponent,
+        'e-columns': ColumnsDirective,
+        'e-column': ColumnDirective
+    },
+    data: function () {
+        return {
             data: resourceAllocationData,
             taskFields: {
                 id: 'TaskID',
@@ -124,14 +154,14 @@ export default {
                 resourceInfo: 'resources',
                 type: 'taskType'
             },
-	        taskType: "FixedWork",
+            taskType: "FixedWork",
             resourceFields: {
                 id: 'resourceId',
                 name: 'resourceName',
                 unit: 'unit'
             },
             toolbar: ['Add', 'Edit', 'Update', 'Delete', 'Cancel', 'ExpandAll', 'CollapseAll'],
-            height: '450px',
+            height: '650px',
             resources: resourceAllocationResources,
             editSettings: {
                 allowAdding: true,
@@ -171,11 +201,11 @@ export default {
                     var gantt = (document.getElementsByClassName("e-gantt")[0]).ej2_instances[0];
                     // Ensure the currentEditRow object is initialized
                     gantt.treeGridModule.currentEditRow = {};
-        
+
                     // Retrieve the existing resource(s) from the row data or set default
                     var existingResourceIds = gantt.treeGridModule.getResourceIds(args.rowData);
                     var selectedValue = (existingResourceIds && existingResourceIds.length > 0) ? existingResourceIds[0] : null;
-        
+
                     // Initialize the DropDownList
                     dropdownlistObj = new DropDownList({
                         dataSource: new DataManager(gantt.resources),
@@ -189,16 +219,16 @@ export default {
                     dropdownlistObj.appendTo(args.element);
                 },
             },
-            projectStartDate: new Date('03/28/2024'),
-            projectEndDate: new Date('07/28/2024'),
+            projectStartDate: new Date('03/28/2025'),
+            projectEndDate: new Date('07/28/2025'),
             splitterSettings: {
                 columnIndex: 3
             }
         };
     },
-  provide: {
-    gantt: [ Selection, DayMarkers, Toolbar, Edit]
-  },
+    provide: {
+        gantt: [Selection, DayMarkers, Toolbar, Edit]
+    },
     methods: {
         queryTaskbarInfo(args) {
             if (args.data.ganttProperties.resourceNames) {
@@ -253,13 +283,13 @@ export default {
                 }
             }
         },
-        cellEdit (args) {
+        cellEdit(args) {
             // Restrict editing based on row data
             if (args.rowData.TaskID === 1 || args.rowData.TaskID === 5) { // Example: Prevent editing Task ID 1
                 args.cancel = true; // Cancel editing for this specific cell
             }
         },
-        actionBegin (args) {
+        actionBegin(args) {
             if (args.requestType === 'beforeOpenEditDialog' || args.requestType === 'beforeOpenAddDialog') {
                 // Restrict editing based on row data for dialog
                 if (args.rowData.TaskID === 1 || args.rowData.TaskID === 5) {
@@ -269,7 +299,7 @@ export default {
                 args.Resources.columns.splice(0, 1);
             }
         },
-        actionComplete (args) {
+        actionComplete(args) {
             if (args.requestType === 'add' && !args.data.TaskName) {
                 var taskName = 'Task Name ' + args.data.TaskID;
                 args.data.TaskName = taskName;

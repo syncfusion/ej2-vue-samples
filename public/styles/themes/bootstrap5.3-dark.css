@@ -289,3 +289,7 @@ body.bootstrap5_3-dark,
 .bootstrap5_3-dark .sb-desktop-setting > :nth-child(4) {
     padding-right: 15px;
 }
+
+.bootstrap5_3-dark .e-tab .e-tab-header:not(.e-vertical)::before {
+    border-width: 0;
+}

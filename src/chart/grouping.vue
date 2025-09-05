@@ -18,7 +18,7 @@
                 </td>
                 <td style="width: 50%;">
                     <div>
-                        <ejs-dropdownlist id='groupMode' :change='changeMode'  index=0 :dataSource='groupModeData' width='80'></ejs-dropdownlist>
+                        <ejs-dropdownlist id='groupMode' :change='changeMode'  index=0 :dataSource='groupModeData' width='120'></ejs-dropdownlist>
                     </div>
                   </td>
                   </tr>

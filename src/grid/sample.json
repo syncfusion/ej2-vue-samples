@@ -59,7 +59,6 @@
         {
             "url": "chart",
             "name": "Integrate Chart in Grid",
-            "type": "new",
             "category": "Data Grid",
             "description": "This demo of the Essential JS 2 Grid component showcases the visual representation of data using a chart.",
             "hideOnDevice": true,
@@ -247,6 +246,14 @@
             "description": "This demo for Essential JS 2 grid control shows the usage of the row and column spanning feature.",
             "hideOnDevice": true,
             "api": { "Grid": ["dataSource","allowTextWrap","columns","queryCellInfo","gridLines","width","height"] }
+        },
+        {
+            "url": "row-spanning-api",
+            "name": "Row Spanning API",
+            "type": "new",
+            "category": "Rows",
+            "description": "This demo for Essential JS 2 grid control demonstrates the row and column spanning feature. In this sample, we have spanned row cells together.",
+            "api": { "Grid": ["dataSource","allowTextWrap","columns","gridLines","width","height","allowFiltering","filterSettings","allowSorting", "enableRowSpan", "enableColumnSpan"] }
         },
         {
             "url": "inline-editing",

@@ -53,7 +53,7 @@
         {
             "url": "chat-integration",
             "name": "Use Case",
-            "category": "Integration",
+            "category": "Chat UI",
             "api":{ "ChatUI": ["messages", "user", "timeStampFormat", "showTimeStamp", "headerText", "headerIconCss"] },
             "description": "Showcases the chat component integration with other Chat UI control",
             "sourceFiles": [

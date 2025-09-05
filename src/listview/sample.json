@@ -8,37 +8,37 @@
             "url": "default",
             "name": "Default Functionalities",
             "category": "ListView",
-            "description":"Demo of Essential<sup>®</sup> JS 2 ListView control default renderings of flat and group list views. Click any list item to select and highlight it."
+            "description":"Demo of Essential JS 2 ListView control default renderings of flat and group list views. Click any list item to select and highlight it."
         },
         {
             "url": "remote-list",
             "name": "Remote List",
             "category": "ListView",
-            "description":"Demo of Essential<sup>®</sup> JS 2 ListView control rendering the list view with remote data, which uses DataManager and query properties to fetch data."
+            "description":"Demo of Essential JS 2 ListView control rendering the list view with remote data, which uses DataManager and query properties to fetch data."
         },
         {
             "url": "checklist",
             "name": "Checklist",
             "category": "ListView",
-            "description":"Essential<sup>®</sup> JS 2 ListView control demo of the checked list view, which supports selecting more than one list item."
+            "description":"Essential JS 2 ListView control demo of the checked list view, which supports selecting more than one list item."
         },
         {
             "url": "nested-list",
             "name": "Nested List",
             "category": "ListView",
-            "description":"Demo of Essential<sup>®</sup> JS 2 ListView control showing the visual representation of nested data using the child property."
+            "description":"Demo of Essential JS 2 ListView control showing the visual representation of nested data using the child property."
         },
         {
             "url": "virtualization",
             "name": "Virtualization",
             "category": "ListView",
-            "description":"Demo of Essential<sup>®</sup> JS 2 ListView control loading items in the view port with virtualization, which improves performance when loading large amounts of data."
+            "description":"Demo of Essential JS 2 ListView control loading items in the view port with virtualization, which improves performance when loading large amounts of data."
         },
         {
             "url": "template",
             "name": "Template",
             "category": "Customization",
-            "description":"Demo of Essential<sup>®</sup> JS 2 ListView control rendering customized elements inside list items. This sample is a news feed application built using a list view.",
+            "description":"Demo of Essential JS 2 ListView control rendering customized elements inside list items. This sample is a news feed application built using a list view.",
             "sourceFiles": [
                 {"displayName": "template.vue", "path": "./src/listview/template.vue"}
             ]
@@ -47,19 +47,19 @@
             "url": "group-template",
             "name": "Group Template",
             "category": "Customization",
-            "description":"Essential<sup>®</sup> JS 2 ListView control demo of list item and header customization using a template. The mobile settings showcase built-in CSS."
+            "description":"Essential JS 2 ListView control demo of list item and header customization using a template. The mobile settings showcase built-in CSS."
         },
         {
             "url": "call-history",
             "name": "Call History",
             "category": "Use Case",
-            "description":"Demo of Essential<sup>®</sup> JS 2 ListView control in a real-world use case as a call history app, featuring mobile contacts, mail inbox, and more."
+            "description":"Demo of Essential JS 2 ListView control in a real-world use case as a call history app, featuring mobile contacts, mail inbox, and more."
         },
         {
             "url": "scrolling",
             "name": "Scrolling",
             "category": "ListView",
-            "description":"Demo of Essential<sup>®</sup> JS 2 ListView control in a real-world use case as a food order application built using a list view."
+            "description":"Demo of Essential JS 2 ListView control in a real-world use case as a food order application built using a list view."
         }
     ]
 }

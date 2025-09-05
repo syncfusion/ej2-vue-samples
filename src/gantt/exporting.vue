@@ -2,32 +2,13 @@
   <div>
     <div class="control-section">
       <div class="content-wrapper">
-        <ejs-gantt
-          ref="gantt"
-          id="GanttExport"
-          :dataSource="data"
-          :dateFormat="dateFormat"
-          :taskFields="taskFields"
-          :toolbar="toolbar"
-          :allowSelection="true"
-          :allowExcelExport="true"
-          :gridLines="gridLines"
-          :height="height"
-          :treeColumnIndex="1"
-          :toolbarClick="toolbarClick"
-          :resourceFields="resourceFields"
-          :resources="resources"
-          :highlightWeekends="true"
-          :timelineSettings="timelineSettings"
-          :labelSettings="labelSettings"
-          :projectStartDate="projectStartDate"
-          :projectEndDate="projectEndDate"
-          :columns="columns"
-          :allowPdfExport="true"
-          :holidays= "holidays"
-          :eventMarkers= "eventMarkers"
-          :splitterSettings="splitterSettings"
-        >
+        <ejs-gantt ref="gantt" id="GanttExport" :dataSource="data" :dateFormat="dateFormat" :taskFields="taskFields"
+          :toolbar="toolbar" :allowSelection="true" :allowExcelExport="true" :gridLines="gridLines" :height="height"
+          :rowHeight="46" :taskbarHeight="25" :treeColumnIndex="1" :toolbarClick="toolbarClick"
+          :resourceFields="resourceFields" :resources="resources" :highlightWeekends="true"
+          :timelineSettings="timelineSettings" :labelSettings="labelSettings" :projectStartDate="projectStartDate"
+          :projectEndDate="projectEndDate" :columns="columns" :allowPdfExport="true" :holidays="holidays"
+          :eventMarkers="eventMarkers" :splitterSettings="splitterSettings">
         </ejs-gantt>
       </div>
     </div>
@@ -47,12 +28,13 @@
       </p>
       <p>
         In this demo, we have defined actions in the
-        <a target="_blank"  href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#toolbarclick">toolbarClick</a>
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#toolbarclick">toolbarClick</a>
         event to export the Gantt data using the
-        <a target="_blank"  href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#excelexport">excelExport</a>,
-        <a target="_blank"  href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#pdfexport">pdfExport</a>
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#excelexport">excelExport</a>,
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#pdfexport">pdfExport</a>
         and
-        <a target="_blank"  href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#csvexport">csvExport</a>methods.
+        <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#csvexport">csvExport</a>methods.
       </p>
 
       <p style="font-weight: 500">Injecting Module:</p>
@@ -63,6 +45,10 @@
       <p>
         To use PDF feature, we need to inject <code>PdfExport</code> module using the
         <code>PdfExport</code> into the <code>provide</code> section.
+      </p>
+      <br>
+      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/excel-export/excel-export">documentation section</a>.
       </p>
     </div>
   </div>
@@ -89,44 +75,13 @@ export default {
         duration: "Duration",
         progress: "Progress",
         dependency: "Predecessor",
-        child: "subtasks",
+        parentID: 'ParentId',
         resourceInfo: "resources",
       },
-      eventMarkers: [
-            {
-                day: new Date('04/02/2024'),               
-            }, {
-                day: new Date('04/09/2024'),
-                label: 'Design phase'
-            }, {
-                day: new Date('04/19/2024'),
-                label: 'Research phase'
-            }, {
-                day: new Date('05/23/2024'),
-                label: 'Production phase'
-            }, {
-                day: new Date('06/20/2024'),
-                label: 'Sales and marketing phase'
-            }
-        ],
-      holidays: [
-            {
-                from: new Date('04/04/2024'),
-                to: new Date('04/04/2024'),
-                label: 'Local Holiday'
-            }, {
-                from: new Date('04/19/2024'),
-                to: new Date('04/19/2024'),
-                label: 'Good Friday'
-            }, {
-                from: new Date('04/30/2024'),
-                to: new Date('04/30/2024'),
-                label: 'Release Holiday'
-            }, 
-        ],
+
       toolbar: ["ExcelExport", "CsvExport", "PdfExport"],
       gridLines: "Both",
-      height: "450px",
+      height: "650px",
       resourceFields: {
         id: "resourceId",
         name: "resourceName",
@@ -144,8 +99,8 @@ export default {
       labelSettings: {
         leftLabel: "TaskName"
       },
-      projectStartDate: new Date("03/25/2024"),
-      projectEndDate: new Date("07/28/2024"),
+      projectStartDate: new Date('03/26/2025'),
+      projectEndDate: new Date('09/01/2025'),
       columns: [
         { field: "TaskID" },
         { field: "TaskName", width: "250" },
@@ -173,10 +128,8 @@ export default {
 </script>
 
 <style scoped>
-
-  .fluent2 #gantt-export1 /deep/,
-  .fluent2-dark #gantt-export1 /deep/ {
-    margin: 6px 5px 0px 0px;
-  }
-
+.fluent2 #gantt-export1 /deep/,
+.fluent2-dark #gantt-export1 /deep/ {
+  margin: 6px 5px 0px 0px;
+}
 </style>

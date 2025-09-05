@@ -1,9 +1,8 @@
 <template>
     <div className='control-section'>
-        <div className="col-lg-8 control-section">
+        <div className="col-lg-8 control-section sb-property-border">
             <div className="content-wrapper">
-                <div id="events-blockeditor"></div>
-                <ejs-blockeditor id='events-blockeditor' :blocks="blocks" :created="logEvent('created')" :contentChanged="logEvent('contentChanged')" :blockAdded="logEvent('blockAdded')" :blockRemoved="logEvent('blockRemoved')" :blockMoved="logEvent('blockMoved')" :blockDrag="logEvent('blockDrag')" :blockDragStart="logEvent('blockDragStart')" :blockDrop="logEvent('blockDrop')" :focus="logEvent('focus')" :blur="logEvent('blur')" :selectionChanged="logEvent('selectionChanged')" :beforePaste="logEvent('beforePaste')" :afterPaste="logEvent('afterPaste')" :undoRedoPerformed="logEvent('undoRedoPerformed')"></ejs-blockeditor>
+                <ejs-blockeditor id='events-blockeditor' :blocks="blocks" :created="logEvent('created')" :contentChanged="logEvent('contentChanged')" :blockAdded="logEvent('blockAdded')" :blockRemoved="logEvent('blockRemoved')" :blockMoved="logEvent('blockMoved')" :blockDrag="logEvent('blockDrag')" :blockDragStart="logEvent('blockDragStart')" :blockDrop="logEvent('blockDrop')" :focus="logEvent('focus')" :blur="logEvent('blur')" :selectionChanged="logEvent('selectionChanged')" :beforePaste="logEvent('beforePaste')" :afterPaste="logEvent('afterPaste')" :undoRedoPerformed="undoRedoPerformedEvent"  :keyActionExecuted="keyActionExecutedEvent" :inlineToolbar="inlineToolbar"></ejs-blockeditor>
             </div>
         </div>
         <div className="col-lg-4 property-section">
@@ -48,6 +47,7 @@
                 <li><code>beforePaste</code> - Triggers before pasting the content in the block editor.</li>
                 <li><code>afterPaste</code> - Triggers after pasting the content in the block editor.</li>
                 <li><code>undoRedoPerformed</code> - Triggers when the undo/redo actions are performed in the block editor.</li>
+                <li><code>keyActionExecuted</code> - Triggers when the keyboard actions are performed in the block editor.</li>
             </ul>
         </div>
     </div>
@@ -63,11 +63,22 @@ export default {
         "ejs-blockeditor": BlockEditorComponent,
         'ejs-button': ButtonComponent
     },
-    data: function() {
-        return {
-            blocks: data['blockDataEvents']
+   data() {
+    return {
+      blocks: data['blockDataEvents'] || [], // Fallback to empty array if data is missing
+      inlineToolbar: {
+        open: (args) => {
+          this.appendElement('BlockEditor inline toolbar <b>opened</b><hr>');
+        },
+        close: (args) => {
+          this.appendElement('BlockEditor inline toolbar <b>closed</b><hr>');
+        },
+        itemClicked: (args) => {
+          this.appendElement(`BlockEditor inline toolbar <b>${args.item?.item || 'Unknown'}</b> clicked<hr>`);
         }
-    },
+      }
+    };
+  },
     methods: {
         appendElement: function(html) {
             var span = document.createElement('span');
@@ -79,7 +90,29 @@ export default {
             return (args) => {
                 this.appendElement(`BlockEditor <b>${eventName}</b> event called<hr>`);
             };
+        },
+        undoRedoPerformedEvent(args){
+        this.appendElement(`BlockEditor <b>${args.isUndo ? 'Undo' : 'Redo'}</b> action performed<hr>`);
+    },
+    keyActionExecutedEvent(args) {
+        if (args.action === 'bold') {
+            this.appendElement('BlockEditor <b>Bold</b> keyAction clicked<hr>');
+        } else if (args.action === 'italic') {
+            this.appendElement('BlockEditor <b>Italic</b> keyAction clicked<hr>');
+        } else if (args.action === 'underline') {
+            this.appendElement('BlockEditor <b>Underline</b> keyAction clicked<hr>');
+        } else if (args.action === 'strikethrough') {
+            this.appendElement('BlockEditor <b>Strikethrough</b> keyAction clicked<hr>');
+        } else if (args.action === 'link') {
+            this.appendElement('BlockEditor <b>Insert Link</b> keyAction clicked<hr>');
+        } else if (args.action === 'cut') {
+            this.appendElement('BlockEditor <b>Cut</b> keyAction clicked<hr>');
+        } else if (args.action === 'copy') {
+            this.appendElement('BlockEditor <b>Copy</b> keyAction clicked<hr>');
+        } else if (args.action === 'paste') {
+            this.appendElement('BlockEditor <b>Paste</b> keyAction clicked<hr>');
         }
+    }
     },
     mounted() {
         document.getElementById('clear').onclick = function() {

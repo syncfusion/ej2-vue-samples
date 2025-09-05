@@ -1,6 +1,6 @@
 <template>
   <div class="call-history col-lg-12 control-section">
-      <div class="layoutWrapper">
+      <div class="layoutWrapper e-device-layout">
           <div class="speaker">
               <div class="camera"></div>
           </div>
@@ -25,8 +25,7 @@
                   </ejs-listview>
                   <ejs-listview id="received" :dataSource='callHistoryData' :cssClass='cssClass' style="display:none" :fields="listFields" :template="listTemplate">
                   </ejs-listview>
-                  <ejs-listview id="missed" :dataSource='callHistoryData' :cssClass='cssClass' style="display:none" :fields="listFields" :actionComplete="onComplete"
-                      :template="listTemplate">
+                  <ejs-listview id="missed" :dataSource='callHistoryData' :cssClass='cssClass' style="display:none" :fields="listFields" :template="listTemplate">
                   </ejs-listview>
               </div>
           </div>
@@ -98,8 +97,7 @@
   cursor: pointer;
 }
 
-.call-history .layoutWrapper.e-device-layout,
-.call-history .e-visbile-layer {
+.call-history .layoutWrapper.e-device-layout {
   visibility: visible;
 }
 
@@ -220,7 +218,7 @@
     top: 10px;
     left:0px;
 }
-  
+
 .tailwind #list-container #tabContainer .e-tab .e-content .e-item {
   padding: 0px;
 }
@@ -244,7 +242,7 @@
 .e-bigger.tailwind3 .layout #list-container {
     height: 417px;
 }
-
+  
 .call-history .layout #list-container .received {
   font-family: Call-icons;
 }
@@ -315,7 +313,7 @@
 .fabric-dark .call-history .layoutWrapper,
 .tailwind-dark .call-history .layoutWrapper .layout, .tailwind-dark .call-history .layoutWrapper .camera, .tailwind-dark .call-history .layoutWrapper .outerButton, .tailwind-dark .call-history .layoutWrapper .speaker,
 .tailwind-dark .call-history .layoutWrapper,
-.tailwind3-dark .call-history .layoutWrapper .layout, .tailwind3-dark .call-history .layoutWrapper .camera, .tailwind3-dark .call-history .layoutWrapper .outerButton, .tailwind3-dark .call-history .layoutWrapper .speaker, .tailwind3-dark .call-history .layoutWrapper,,
+.tailwind3-dark .call-history .layoutWrapper .layout, .tailwind3-dark .call-history .layoutWrapper .camera, .tailwind3-dark .call-history .layoutWrapper .outerButton, .tailwind3-dark .call-history .layoutWrapper .speaker, .tailwind3-dark .call-history .layoutWrapper,
 .fluent2-dark .call-history .layoutWrapper .layout, .fluent2-dark .call-history .layoutWrapper .camera, .fluent2-dark .call-history .layoutWrapper .outerButton, .fluent2-dark .call-history .layoutWrapper .speaker, 
 .fluent2-dark .call-history .layoutWrapper,
 .fluent-dark .call-history .layoutWrapper .layout, .fluent-dark .call-history .layoutWrapper .camera, .fluent-dark .call-history .layoutWrapper .outerButton, .fluent-dark .call-history .layoutWrapper .speaker,
@@ -423,16 +421,6 @@ export default {
         }
       });
       return newData;
-    },
-    onComplete: function() {
-      if (Browser.isDevice) {
-        document
-          .getElementsByClassName("layoutWrapper")[0]
-          .classList.add("e-device-layout");
-        document
-          .getElementsByClassName("tabContainer")[0]
-          .classList.add("e-visbile-layer");
-      }
     }
   }
 }

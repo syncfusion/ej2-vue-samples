@@ -9,7 +9,7 @@
 
 <div id="action-description">
     <p>This sample demonstrates ordering of column and row header values in ascending or descending order. Here, the
-        <b>FY 2015 → In Stock</b> column header and the <b>France</b> row header are both ordered by defining
+        <b>FY 2022 → In Stock</b> column header and the <b>France</b> row header are both ordered by defining
         sort-related settings in code behind.
     </p>
 </div>
@@ -54,7 +54,7 @@ export default {
     return {
       dataSourceSettings: {
         valueSortSettings: {
-          columnHeaderText: 'FY 2015##In Stock',
+          columnHeaderText: 'FY 2022##In Stock',
           headerDelimiter: '##',
           columnSortOrder: 'Descending',
           rowHeaderText: 'France',

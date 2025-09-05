@@ -123,11 +123,15 @@
         },
         methods : {
             setAllowedFormats: function(e) {
-                this.$refs.formatPainterRTE.formatPainterSettings.allowedFormats = e.value;
+                if (e.value) {
+                    this.$refs.formatPainterRTE.formatPainterSettings.allowedFormats = e.value;
+                }
 
             },
             setdeniedFormats: function (e) {
-                this.$refs.formatPainterRTE.formatPainterSettings.deniedFormats = e.value;
+                if (e.value) {
+                    this.$refs.formatPainterRTE.formatPainterSettings.deniedFormats = e.value; 
+                }
 
             }
         },

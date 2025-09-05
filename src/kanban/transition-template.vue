@@ -36,7 +36,7 @@ export default {
       return tagDiv;
     },
     image: function(data) {
-      return 'source/kanban/images/' + data.ImageURL;
+      return 'https://ej2.syncfusion.com/vue/demos/source/kanban/images/' + data.ImageURL;
     }
   }
 };

@@ -120,7 +120,7 @@
                             </div>
                             <div class="col-right">
                                 <ejs-multiselect id='resources' ref="resourcesObj" cssClass="schedule-resource" index="0" :dataSource='resourceDataSource' 
-                                    :mode='checkboxMode' :fields='calendarFields' enableSelectionOrder="false" showClearButton="false" showDropDownIcon="true" 
+                                    :mode='checkboxMode' :fields='calendarFields' :enableSelectionOrder="false" :showClearButton="false" :showDropDownIcon="true" 
                                     :value='calendarsValue' :change='onResourceChange'></ejs-multiselect>
                             </div>
                         </div>
@@ -138,8 +138,8 @@
                                 <label style="line-height: 34px; margin: 0;">Work week</label>
                             </div>
                             <div class="col-right">
-                                <ejs-multiselect id='workWeekDays' ref="workWeekDaysObj" cssClass="schedule-workweek" :dataSource='weekDays' enableSelectionOrder="false" :showClearButton="false"
-                                    showDropDownIcon="true" :mode='checkboxMode' :fields='fields' :value='workDays'
+                                <ejs-multiselect id='workWeekDays' ref="workWeekDaysObj" cssClass="schedule-workweek" :dataSource='weekDays' :enableSelectionOrder="false" :showClearButton="false"
+                                    :showDropDownIcon="true" :mode='checkboxMode' :fields='fields' :value='workDays'
                                     :change='onWorkWeekDayChange'></ejs-multiselect>
                             </div>
                         </div>
@@ -464,7 +464,8 @@
         padding-left: 0 !important;
     }
 
-    .schedule-overview .calendar-import.e-upload .e-btn-icon {
+    .schedule-overview .calendar-import.e-upload .e-btn-icon,
+    .e-bigger .schedule-overview .calendar-import.e-upload .e-btn-icon {
         margin-left: initial;
     }
 
@@ -964,7 +965,7 @@
         let endDate = new Date(weekDate.getFullYear(), weekDate.getMonth(), weekDate.getDate(), 11, 30);
         eventData.push({
             Id: 1,
-            Subject: eventSubjects[Math.floor(Math.random() * (24 - 0 + 1) + 0)],
+            Subject: 'Stand-Up Meeting',
             StartTime: startDate,
             EndTime: endDate,
             Location: '',

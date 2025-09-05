@@ -140,5 +140,37 @@
             "Eimg": "styles/images/Employees/10.png",
             "EmailId": "william@gmail.com"
         }
-    ]
+    ],
+    "chatMessagedata": [
+    {
+      "author": {
+        "id": "user1",
+        "user": "Albert"
+      },
+      "text": "Hi Michale, are we on track for the deadline?"
+    },
+    {
+      "author": {
+        "id": "user2",
+        "user": "Michale Suyama",
+        "avatarUrl": "https://ej2.syncfusion.com/vue/demos/src/chat-ui/images/andrew.png"
+      },
+      "text": "Yes, the design phase is complete."
+    },
+    {
+      "author": {
+        "id": "user1",
+        "user": "Albert"
+      },
+      "text": "I will review it and send feedback by today."
+    },
+    {
+      "author": {
+        "id": "user2",
+        "user": "Michale Suyama",
+        "avatarUrl": "https://ej2.syncfusion.com/vue/demos/src/chat-ui/images/andrew.png"
+      },
+      "text": "Okay."
+    }
+  ]
 }

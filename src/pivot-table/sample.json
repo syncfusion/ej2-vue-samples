@@ -58,8 +58,7 @@
       "category": "Data Binding",
       "hideOnDevice": false,
       "description": "This sample demonstrates the ability to use an external pivot engine to bind and populate data from a remote service and display it in the pivot table.",
-      "api": {},
-      "type": "update"
+      "api": {}
     },
     {
       "url": "olap",
@@ -86,6 +85,15 @@
       "api": {}
     },
     {
+      "url": "pivot-chart-fieldlist",
+      "name": "Pivot Chart with Field List",
+      "type": "new",
+      "category": "Integration",
+      "hideOnDevice": false,
+      "description": "This demo for Essential<sup>®</sup> JS2 Pivot Table control demonstrate the basic rendering of the pivot table data into a simple pivot chart with static field list",
+      "api": {}
+    },
+    {
       "url": "external-binding",
       "name": "External Binding",
       "category": "Integration",
@@ -99,6 +107,15 @@
       "category": "Integration",
       "hideOnDevice": false,
       "description": "In this sample, we show you how to visualize the bound data by making the pivot table cells look like a heatmap",
+      "api": {}
+    },
+    {
+      "url": "sparkline",
+      "name": "Sparkline Chart",
+      "type": "new",
+      "category": "Integration",
+      "hideOnDevice": false,
+      "description": "This sample demonstrates how to embed sparkline charts inside Pivot Table cells to provide a visual representation of trends.",
       "api": {}
     },
     {
@@ -211,8 +228,7 @@
       "category": "Sorting",
       "hideOnDevice": false,
       "description": "This demo for Essential<sup>®</sup> JS2 Pivot Table control shows sorting values on column or row wise in ascending or descending order",
-      "api": {},
-      "type": "update"
+      "api": {}
     },
     {
       "url": "filtering",
@@ -236,6 +252,15 @@
       "category": "Filtering",
       "hideOnDevice": false,
       "description": "This demo for Essential<sup>®</sup> JS2 Pivot Table control demonstrate the filtering of field headers based on the grand total (value based)",
+      "api": {}
+    },
+    {
+      "url": "external-data-based-filtering",
+      "name": "External Filtering",
+      "type": "new",
+      "category": "Filtering",
+      "hideOnDevice": false,
+      "description": "This sample demonstrates how to externally filter data using a date range in the Pivot Table.",
       "api": {}
     },
     {
@@ -295,10 +320,19 @@
     },
     {
       "url": "exporting",
-      "name": "Export",
-      "category": "Miscellaneous",
+      "name": "Default Export",
+      "category": "Exporting",
       "hideOnDevice": false,
       "description": "This demo for Essential<sup>®</sup> JS2 Pivot Table control demonstrate client-side exporting of the pivot table to Excel, CSV and PDF formats",
+      "api": {}
+    },
+    {
+      "url": "pivot-table-exporting",
+      "name": "Export as Pivot",
+      "type": "new",
+      "category": "Exporting",
+      "hideOnDevice": false,
+      "description": "This demo for Essential<sup>®</sup> JS2 Pivot Table control demonstrate server-side exporting of the pivot table to Excel, CSV and PDF formats",
       "api": {}
     }
   ]

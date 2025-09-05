@@ -152,10 +152,10 @@ export default {
                 if (
                     th &&
                     th.classList.contains('e-filterbarcell') &&
-                    th.hasAttribute('e-mappinguid')
+                    th.hasAttribute('data-mappinguid')
                 ) {
                     const field: string = ((this as any).$refs.grid).getColumnByUid(
-                        th.getAttribute('e-mappinguid')
+                        th.getAttribute('data-mappinguid')
                     ).field;
                     if (field === 'UnitPrice') {
                         args.cancel = true;

@@ -3,7 +3,10 @@
     <div>
         <ejs-gantt ref='gantt' id="HeaderTemplate" 
         :dataSource= "data"        
-        :height = "height"
+
+:height="height"
+:rowHeight="46"
+:taskbarHeight="25"
         :highlightWeekends= 'true'         
         :taskFields= "taskFields"
         :labelSettings= "labelSettings"
@@ -58,6 +61,8 @@
     </p>
     <p>In this demo, we have rendered the customized template for all column headers.</p> 
     <p>More information about the header template can be found in documentation section.</p>
+    <br>
+    <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started">documentation section</a>.</p>
 </div>
 
 </div>
@@ -85,7 +90,7 @@ export default {
   data: () => {
     return {
            data: templateData,
-            height: '450px',             
+            height: '650px',             
             taskFields: {
                 id: 'TaskID',
                 name: 'TaskName',
@@ -108,8 +113,8 @@ export default {
             splitterSettings:{
                 columnIndex: 4
             },
-            projectStartDate: new Date('03/24/2024'),
-            projectEndDate: new Date('07/06/2024'),
+           projectStartDate: new Date('03/24/2025'),
+            projectEndDate: new Date('07/06/2025')
     };
   },
    provide : {

@@ -31,7 +31,7 @@
         </p>
         <p>
           More information about the area series can be found in this
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/area#area" aria-label="Navigate to the documentation for Area Chart in Vue Chart component">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/area" aria-label="Navigate to the documentation for Area Chart in Vue Chart component">documentation section</a>.
         </p> 
 </div>
 

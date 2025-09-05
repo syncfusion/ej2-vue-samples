@@ -56,15 +56,29 @@
     .ajaxsample .e-dlg-header-content {
        min-height: 65px; 
     }
-    .tailwind .ajaxsample .e-dlg-header-content,
-    .tailwind-dark .ajaxsample .e-dlg-header-content,
-    .bootstrap5 .ajaxsample .e-dlg-header-content,
-    .bootstrap5-dark .ajaxsample .e-dlg-header-content,
-    .bootstrap5.3 .ajaxsample .e-dlg-header-content,
-    .bootstrap5.3-dark .ajaxsample .e-dlg-header-content,
-    .bootstrap4 .ajaxsample .e-dlg-header-content {
-       min-height: 50px; 
+    .material3 .ajaxsample .e-dlg-header-content,
+    .material3-dark .ajaxsample .e-dlg-header-content {
+       min-height: 65px;
+       padding-top: 25px;
+       padding-left: 85px;
     }
+    .tailwind .ajaxsample .e-dlg-header-content,
+    .tailwind3 .ajaxsample .e-dlg-header-content,
+    .tailwind-dark .ajaxsample .e-dlg-header-content,
+    .tailwind3-dark .ajaxsample .e-dlg-header-content {
+        min-height: 50px;
+        padding-top: 18px;
+        padding-left: 80px;
+    }
+    .bootstrap5 .ajaxcontent .e-dlg-header-content,
+    .bootstrap5-dark .ajaxcontent .e-dlg-header-content,
+    .bootstrap5\.3 .ajaxcontent .e-dlg-header-content,
+    .bootstrap5\.3-dark .ajaxcontent .e-dlg-header-content {
+       min-height: 50px;
+       padding-top: 12px;
+       padding-left: 80px;
+    }
+
 	.ajaxsample .e-dialog .e-icon-dlg-close::before{
 	    top: 6px;
     }

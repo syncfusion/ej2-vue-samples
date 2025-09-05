@@ -27,7 +27,7 @@
         <code>RangeColumnSeries</code> module using <code>provide: { chart: [RangeColumnSeries] }</code> method.
     </p>
     <p>
-      More information about the column series can be found in this
+      More information about the range column series can be found in this
         <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/range-column" aria-label="Navigate to the documentation for Range Column in Vue Chart component">documentation section</a>.
     </p>
 </div>

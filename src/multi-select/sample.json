@@ -2,7 +2,6 @@
     "name": "MultiSelect Dropdown",
     "directory": "multi-select",
     "category": "Dropdowns",
-    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -87,7 +86,6 @@
             "url": "filtering",
             "name": "Filtering",
             "category": "MultiSelect Dropdown",
-            "type": "update",
             "description": "This example demonstrates how the filtering functionalities works based on the typed characters in the Vue multiselect component.",
             "sourceFiles":[
                 { "displayName": "filtering.vue", "path":"src/multi-select/filtering.vue" },

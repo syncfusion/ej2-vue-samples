@@ -3,6 +3,7 @@
     "directory": "kanban",
     "category": "Data Visualization",
     "ftName": "kanban",
+    "type": "update",
     "samples": [
         {
             "url": "overview",
@@ -327,6 +328,26 @@
             },
             "sourceFiles":[
                 { "displayName":"show-hide.vue", "path":"src/kanban/show-hide.vue" },
+                { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
+            ]
+        },
+        {
+            "url": "column-rearrangement",
+            "name": "Column Rearrangement",
+            "category": "Columns",
+            "description": "The example demonstrates how to show or hide the columns of JavaScript Kanban board dynamically, which is achieved from code using the public methods.",
+            "api": {
+                "Kanban": [
+                    "dataSource",
+                    "keyField",
+                    "columns",
+                    "cardSettings",
+                    "allowColumnDragAndDrop"
+                ]
+            },
+            "type": "new",
+            "sourceFiles":[
+                { "displayName":"column-rearrangement.vue", "path":"src/kanban/column-rearrangement.vue" },
                 { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }
             ]
         },

@@ -74,7 +74,7 @@
     </p>
     <p>
         More information on the export can be found in this
-        <a target="_blank" href="http://ej2.syncfusion.com/documentation/chart/api-series.html#type-chartseriestype" aria-label="Navigate to the documentation for series in EJ2 TypeScript Chart component">documentation section</a>.
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/range-navigator/export-print" aria-label="Navigate to the documentation for series in EJ2 TypeScript Chart component">documentation section</a>.
     </p>
 </div>
 </div>

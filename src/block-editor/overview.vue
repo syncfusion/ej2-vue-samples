@@ -1,7 +1,7 @@
 <template>
     <div class='control-section'>
         <div class="overview-blockeditor">
-          <ejs-blockeditor id='block-editor' :blocks="blocks"></ejs-blockeditor>
+          <ejs-blockeditor id='block-editor' :blocks="blocks" :users="users"></ejs-blockeditor>
         </div>
 
         <div id="action-description">
@@ -15,12 +15,13 @@
                 The <code>Block Editor</code> is a modern, block-based content editing solution. It offers a powerful and intuitive interface for creating structured documents using discrete, interactive content blocks.
             </p>
             <p>Key features demonstrated in this sample:</p>
-            <ul>
-                <li>Multiple block types including <code>Heading1-4</code>, <code>Paragraph</code>, <code>BulletList</code>, <code>NumberedList</code>, <code>CheckList</code>, <code>Quote</code>, <code>Callout</code>, <code>Divider</code>, <code>Code</code>, <code>ToggleParagraph</code>, and more.</li>
+              <ul>
+                <li>Multiple block types including <code>Heading1-4</code>, <code>Paragraph</code>, <code>BulletList</code>, <code>NumberedList</code>, <code>Checklist</code>, <code>Quote</code>, <code>Callout</code>, <code>Divider</code>, <code>Code</code>, <code>ToggleParagraph</code>, and more.</li>
                 <li>Rich text formatting with styles like <code>Bold</code>, <code>Italic</code>, <code>Underline</code>, <code>Strikethrough</code>, <code>Uppercase</code>, and more.</li>
                 <li>Interactive <code>Slash ("/") commands</code> for quick block insertion and transformation.</li>
                 <li>Hierarchical organization with expandable <code>Toggle Blocks</code>.</li>
-                <li>Support for inline special content such as <code>Links</code> and <code>Labels</code>.</li>
+                <li>Support for inline special content such as <code>Links</code>, <code>Code</code>, <code>Mentions</code> and <code>Labels</code>.</li>
+                <li>Interactive <code>mention ("&#64;") options</code> for quickly tagging users</li>
                 <li>Interactive <code>label ("$") options</code> for quick insertion of the labels.</li>
                 <li>Block manipulation with <code>Action menu</code>, allowing move, delete, and duplicate operations.</li>
                 <li>Keyboard shortcuts for fast, accessible editing workflows.</li>
@@ -39,7 +40,8 @@ export default {
     },
     data: function() {
         return {
-            blocks: data['blockDataOverview']
+            blocks: data['blockDataOverview'],
+            users: data['users']
         }
     }
 }

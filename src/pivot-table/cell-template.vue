@@ -72,7 +72,7 @@ export default {
         expandAll: true,
         enableSorting: true,
         drilledMembers: [
-          { name: "Year", items: ["FY 2015", "FY 2017", "FY 2018"] }
+          { name: "Year", items: ["FY 2022", "FY 2023", "FY 2024"] }
         ],
         formatSettings: [
           { name: "ProCost", format: "C0" },

@@ -198,12 +198,10 @@ export default {
 
     .template-chatui .e-left .message-template { 
         flex-direction: row;
-        margin-top: 10px;
     }
 
     .template-chatui .e-right .message-template {
         flex-direction: column;
-        padding: 5px;
     }
 
     .template-chatui .message-text {

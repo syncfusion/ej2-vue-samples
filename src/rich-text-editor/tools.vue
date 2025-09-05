@@ -46,7 +46,7 @@
                 right-click on the desired element, utilizing the <code>showOnRightClick</code> property, and the quick
                 toolbar
                 will appear, providing an easy way for customization.</p>
-            <p>The editor’s toolbar contains commands to format the content. The toolbar consists of:</p>
+            <p>The editor's toolbar includes tools for formatting content. The toolbar consists of:</p>
             <ul>
                 <li><code>Lists</code> - NumberFormat list and BulletFormat list types.</li>
                 <li><code>Links</code> - A hyperlink can be inserted into the editor for quick access to related
@@ -58,7 +58,7 @@
                 <li><code>Undo/Redo</code> - Allows undo/redo operations.</li>
                 <li><code>Indent/ Outdent</code> - Increases/decreases the indent level of the content.</li>
                 <li><code>Lower / Upper case</code> – Changes the casing of the selected text.</li>
-                <li><code>SubScript / SuperScript</code> - Makes the selected text as subscript
+                <li><code>Subscript / Superscript</code> - Makes the selected text as subscript
                     (lower)/superscript(upper).</li>
                 <li><code>FullScreen</code> - Stretches the editor to the maximum width and height of the browser
                     window.</li>
@@ -80,9 +80,10 @@
               editor.</li>
                 <li><code>Import / Export</code> - The Import/Export feature enables users to import content from Word documents
               into the editor and export the editor's content into Word and PDF files.</li>
-                <li><code>InlineCode</code> - Formats selected text as inline code, highlighting code snippets within the text.</li>
+                <li><code>Inline Code</code> - Formats selected text as inline code, highlighting code snippets within the text.</li>
                 <li><code>Code Block</code> - The Code Block feature allows you to insert and display blocks of code with preserved formatting and syntax highlighting, making it ideal for sharing code snippets clearly and accurately.</li>
-                <li><code>HorizontalLine</code> - A horizontal line can be inserted into the editor to visually separate sections of content.</li>
+                <li><code>Horizontal Line</code> - A horizontal line can be inserted into the editor to visually separate sections of content.</li>
+                <li><code>Checklist</code> - Creates interactive lists with checkable items that users can mark as complete or incomplete.</li>
             </ul>
             <p><b>Injecting Module</b></p>
             <p>The above features built as modules have to be included in your application. For example, to use image
@@ -258,7 +259,7 @@ export default {
                 `
             },
             quickToolbarSettings: {
-                table: ['Tableheader', 'TableRemove', '|', 'TableRows', 'TableColumns', 'TableCell', '|' , 'Styles', 'BackgroundColor', 'Alignments', 'TableCellVerticalAlign'],
+                table: ['Tableheader', 'TableRemove', '|', 'TableRows', 'TableColumns', 'TableCell', '|' , 'TableEditProperties', 'Styles', 'BackgroundColor', 'Alignments', 'TableCellVerticalAlign'],
                 text: ['Formats', '|', 'Bold', 'Italic', 'Fontcolor', 'BackgroundColor', '|', 'CreateLink', 'Image', 'CreateTable', 'Blockquote', '|' , 'Unorderedlist', 'Orderedlist', 'Indent', 'Outdent'],
                 showOnRightClick: true,
             },
@@ -267,7 +268,7 @@ export default {
                 items: [
                 'Undo', 'Redo', '|', 'ImportWord', 'ExportWord', 'ExportPdf', '|',
                 'Bold', 'Italic', 'Underline', 'StrikeThrough', 'InlineCode', '|', 'CreateLink', 'Image', 'CreateTable', 'CodeBlock',
-                'HorizontalLine', 'Blockquote', '|', 'BulletFormatList', 'NumberFormatList', '|', 'Formats', 'Alignments', '|', 'Outdent', 'Indent', '|',
+                'HorizontalLine', 'Blockquote', '|', 'BulletFormatList', 'NumberFormatList', 'Checklist', '|', 'Formats', 'Alignments', '|', 'Outdent', 'Indent', '|',
                 'FontColor', 'BackgroundColor', 'FontName', 'FontSize', '|', 'LowerCase', 'UpperCase', '|', 'SuperScript', 'SubScript', '|',
                 'EmojiPicker', 'FileManager', 'Video', 'Audio', '|', 'FormatPainter', 'ClearFormat',
                 '|', 'Print', 'FullScreen', '|', 'SourceCode']
@@ -304,13 +305,14 @@ export default {
             } else {
                 rteContainer.classList.add('e-rte-code-mirror-enabled');
                 rteContainer.classList.remove('e-source-code-enabled');
+                let editorVlaue = rteInstance.element.querySelector('.e-rte-srctextarea').value;
                 if (!mirrorView) {
                     mirrorView = createElement('div', { className: 'rte-code-mirror', id: id, styles: 'display: none;' });
                     rteContainer.appendChild(mirrorView);
-                    this.renderCodeMirror(mirrorView, rteInstance.value === null ? '' : rteInstance.value);
+                    this.renderCodeMirror(mirrorView, editorVlaue === null ? '' : editorVlaue);
                 }
                 else {
-                    this.myCodeMirror.setValue(rteInstance.value === null ? '' : rteInstance.value);
+                    this.myCodeMirror.setValue(editorVlaue === null ? '' : editorVlaue);
                 }
                 this.myCodeMirror.focus();
             }

@@ -81,6 +81,8 @@ export default {
             let withHeader: boolean = args.item.id === 'copyHeader' ? true : false;
             ((this as any).$refs.grid).copy(withHeader);
             } else {
+                (this as any).alertContent = args.item.id === 'copyHeader' ? 'Atleast one row should be selected to copy with header' : 'Atleast one row should be selected to copy';
+                (this as any).alertHeader = args.item.id === 'copyHeader' ? 'Copy with Header' : 'Copy';
                 ((this as any).$refs.alertDialog).show();
             }
         }

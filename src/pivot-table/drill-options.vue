@@ -27,14 +27,14 @@
             <tr>
                 <td>
                     <div>
-                        <ejs-radiobutton id="fy15" label="FY 2015" name="DrillOperation" :change="onRadioChange"></ejs-radiobutton>
+                        <ejs-radiobutton id="fy22" label="FY 2022" name="DrillOperation" :change="onRadioChange"></ejs-radiobutton>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <div>
-                        <ejs-radiobutton id="fy15_q1" label="FY 2015 >> Q1" name="DrillOperation" :change="onRadioChange"></ejs-radiobutton>
+                        <ejs-radiobutton id="fy22_q1" label="FY 2022 >> Q1" name="DrillOperation" :change="onRadioChange"></ejs-radiobutton>
                     </div>
                 </td>
             </tr>
@@ -120,10 +120,10 @@ export default {
             pivotObj.dataSourceSettings.expandAll = false;
         } else if (id === 'expand') {
             pivotObj.dataSourceSettings.expandAll = true;
-        } else if (id === 'fy15') {
-            pivotObj.dataSourceSettings.drilledMembers = [{ name: 'Year', items: ['FY 2015'] }];
-        } else if (id === 'fy15_q1') {
-            pivotObj.dataSourceSettings.drilledMembers = [{ name: 'Year', items: ['FY 2015'] },
+        } else if (id === 'fy22') {
+            pivotObj.dataSourceSettings.drilledMembers = [{ name: 'Year', items: ['FY 2022'] }];
+        } else if (id === 'fy22_q1') {
+            pivotObj.dataSourceSettings.drilledMembers = [{ name: 'Year', items: ['FY 2022'] },
             { name: 'Quarter', items: ['Q1'] }];
         } else if (id === 'us') {
             pivotObj.dataSourceSettings.drilledMembers = [{ name: 'Country', items: ['United States'] }];

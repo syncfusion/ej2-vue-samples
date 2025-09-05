@@ -9,28 +9,50 @@
           :eventMarkers="eventMarkers" :height="height" :taskbarTemplate="'taskbarTemplate'"
           :milestoneTemplate="'milestoneTemplate'" :tooltipSettings="tooltipSettings" :labelSettings="labelSettings"
           :projectStartDate="projectStartDate" :projectEndDate="projectEndDate">
-          <template v-slot:taskbarTemplate="{data}">
+          <template v-slot:taskbarTemplate="{ data }">
             <div v-if="data.TaskName == 'Oscar moments'" style="height:100%">
               <div class="e-gantt-child-taskbar e-custom-moments" style="height:100%;border-radius:5px;">
                 <template v-if="data.ganttProperties.duration < 4">
-                  <img class="moments" src="./images/moments.svg" style="height: 32px; width: 32px;" alt="Oscar moments svg">
+                  <img class="moments" src="./images/moments.svg" style="height: 32px; width: 32px;"
+                    alt="Oscar moments svg">
                 </template>
                 <template v-else>
-                  <img class="moments" src="./images/moments.svg" style="height: 32px; width: 32px;" alt="Oscar moments svg">
-                  <span class="e-task-label"
-                    style="position:absolute;top:15px;font-size:12px;text-overflow:ellipsis;height:90%;overflow:hidden;">{{data.Performance}}</span>
+                  <img class="moments" src="./images/moments.svg" style="height: 32px; width: 32px;"
+                    alt="Oscar moments svg">
+                  <span class="e-task-label" style="position: absolute;
+                    top: 15px;
+                    left: 40px;
+                    right: 5px;
+                    font-size: 12px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    height: 90%;
+                    line-height: 1.2;
+                  ">{{ data.Performance }}</span>
                 </template>
               </div>
             </div>
             <div v-else-if="data.TaskName == 'Oscar performance'" style="height:100%">
               <div class="e-gantt-child-taskbar e-custom-performance" style="height:100%;border-radius:5px;">
                 <template v-if="data.ganttProperties.duration <= 5">
-                  <img class="face-mask" src="./images/face-mask.svg" style="height: 32px; width: 32px;" alt="Oscar performance svg">
+                  <img class="face-mask" src="./images/face-mask.svg" style="height: 32px; width: 32px;"
+                    alt="Oscar performance svg">
                 </template>
                 <template v-else>
-                  <img class="face-mask" src="./images/face-mask.svg" style="height: 32px; width: 32px;" alt="Oscar performance svg">
-                  <span class="e-task-label"
-                    style="position:absolute;top:5px;font-size:12px;text-overflow:ellipsis;height:90%;overflow:hidden;">{{data.Performance}}</span>
+                  <img class="face-mask" src="./images/face-mask.svg" style="height: 32px; width: 32px;"
+                    alt="Oscar performance svg">
+                  <span class="e-task-label" style="position: absolute;
+                    top: 15px;
+                    left: 40px;
+                    right: 5px;
+                    font-size: 12px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    height: 90%;
+                    line-height: 1.2;
+                  ">{{ data.Performance }}</span>
                 </template>
               </div>
             </div>
@@ -43,15 +65,36 @@
                 <template v-else>
                   <template v-if="data.taskData.Winner && data.taskData.Movie">
                     <img class="oscar" src="./images/oscar.svg" style="height: 32px; width: 32px;" alt="Oscar svg">
-                    <span class="e-task-label"
-                      style="position:absolute; top:13px;font-size:14px;">{{data.taskData.Winner}}</span>
-                    <span class="e-task-label"
-                      style="position:absolute;top:33px;font-size:10px;text-overflow:ellipsis;">{{data.taskData.Movie}}</span>
+                    <span class="e-task-label" style="position:absolute;
+                      top:8px;
+                      left:40px;
+                      right:5px;
+                      font-size:14px;
+                      white-space:nowrap;
+                      overflow:hidden;
+                      text-overflow:ellipsis;
+                    ">{{ data.taskData.Winner }}</span>
+                    <span class="e-task-label" style="position:absolute;
+                      top:28px;
+                      left:40px;
+                      right:5px;
+                      font-size:10px;
+                      white-space:nowrap;
+                      overflow:hidden;
+                      text-overflow:ellipsis;
+                    ">{{ data.taskData.Movie }}</span>
                   </template>
                   <template v-else-if="data.taskData.Movie">
                     <img class="oscar" src="./images/oscar.svg" style="height: 32px; width: 32px;" alt="Oscar svg">
-                    <span class="e-task-label"
-                      style="position:absolute; top:13px;font-size:12px;text-overflow:ellipsis;">{{data.taskData.Movie}}</span>
+                    <span class="e-task-label" style="position:absolute;
+                      top:15px;
+                      left:40px;
+                      right:5px;
+                      font-size:12px;
+                      white-space:nowrap;
+                      overflow:hidden;
+                      text-overflow:ellipsis;
+                    ">{{ data.taskData.Movie }}</span>
                   </template>
                   <template v-else>
                     <span class="e-task-label"></span>
@@ -60,59 +103,60 @@
               </div>
             </div>
           </template>
-          <template v-slot:milestoneTemplate="{data}">
+          <template v-slot:milestoneTemplate="{ data }">
             <div style="margin-top:-7px;">
               <div style="position:absolute; left: 3px;top: 4px">
-                <img class="moments" 
-                    height="24" 
-                    width="48" 
-                    style="z-index:1;left:-3px;top:22px" 
-                    role="presentation" 
-                    src="./images/moments.svg" 
-                    alt="Moments svg"/>
-                <div class="e-gantt-milestone" 
+                <img class="moments" height="24" width="48" style="z-index:1;left:-3px;top:22px" role="presentation"
+                  src="./images/moments.svg" alt="Moments svg" />
+                <div class="e-gantt-milestone"
                   style="width:41px; height:41px; transform: rotate(45deg); background-color: #7ab748 !important; border: 0;left:-3px;top:14px">
                 </div>
               </div>
             </div>
           </template>
-          <template v-slot:tooltipTemplate="{data}">
+          <template v-slot:tooltipTemplate="{ data }">
             <div>
-              <template v-if="data.Winner && data.Movie">{{data.Winner}} wins oscar award for {{data.Movie}}</template>
-              <template v-else-if="data.Movie">Oscar award for {{data.Movie}}</template>
-              <template v-else>{{data.Performance}}</template>
+              <template v-if="data.Winner && data.Movie">{{ data.Winner }} wins oscar award for {{ data.Movie }}</template>
+              <template v-else-if="data.Movie">Oscar award for {{ data.Movie }}</template>
+              <template v-else>{{ data.Performance }}</template>
             </div>
           </template>
         </ejs-gantt>
         <div style="float: right; margin: 10px;">
           Source:
-          <a
-            href="https://en.wikipedia.org/wiki/90th_Academy_Awards"
-            target="_blank"
-          >https://en.wikipedia.org/</a>
+          <a href="https://en.wikipedia.org/wiki/90th_Academy_Awards" target="_blank">https://en.wikipedia.org/</a>
         </div>
       </div>
     </div>
     <div id="action-description">
-       <p>This sample visualizes the complete event schedule of the 90th Academy awards.
-            Taskbars are customized using template support and timeline header is customized for a better view of the data.
-        </p>
+      <p>This sample visualizes the complete event schedule of the 90th Academy awards.
+        Taskbars are customized using template support and timeline header is customized for a better view of the data.
+      </p>
     </div>
 
     <div id="description">
       <p>
         The Gantt Chart provides support for customizing taskbar UI using taskbar template feature. The
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#taskbartemplate">taskbarTemplate</a>
+        <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/api/gantt#taskbartemplate">taskbarTemplate</a>
         property accepts either string or HTML element`s ID value, which will be used as the template for the taskbars.
-        The summary tasks and the milestone items can also customized using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#parenttaskbartemplate">parentTaskbarTemplate</a> and
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#milestonetemplate">milestoneTemplate</a> properties.
+        The summary tasks and the milestone items can also customized using the <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/api/gantt#parenttaskbartemplate">parentTaskbarTemplate</a>
+        and
+        <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/api/gantt#milestonetemplate">milestoneTemplate</a>
+        properties.
         In this demo, we have customized the taskbar UI to display the data from custom columns and the taskbarTemplate
         is assigned with the ID of a SCRIPT element whose content is used as the template.
-       </p>
-       <p>
+      </p>
+      <p>
         Gantt component features are segregated into individual feature-wise modules. To use markers, inject the
         <code>DayMarkers</code> module.
-       </p>
+      </p>
+      <br>
+      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/appearance-customization#taskbar-template">documentation
+          section</a>.</p>
     </div>
   </div>
 </template>
@@ -124,7 +168,7 @@ export default {
   components: {
     'ejs-gantt': GanttComponent
   },
-  data: function() {
+  data: function () {
     return {
       dataSource: customizedData,
       dateFormat: "hh:mm a",
@@ -136,7 +180,7 @@ export default {
         dependency: "Predecessor"
       },
       columns: [
-        { field: "TaskId", headerText: "Event Id" },
+        { field: "TaskId", headerText: "Event Id", width: 130 },
         {
           field: "TaskName",
           headerText: "Event Name",
@@ -147,7 +191,7 @@ export default {
         { field: "EndDate", headerText: "End Time" },
         { field: "Winner", headerText: "Winner" },
         { field: "Movie", headerText: "Movie" },
-        { field: "Performance", headerText: "Moments / Performance Details" }
+        { field: "Performance", headerText: "Moments / Performance Details", width: 250 }
       ],
       splitterSettings: {
         columnIndex: 1
@@ -158,7 +202,7 @@ export default {
       dayWorkingTime: [{ from: 0, to: 24 }],
       durationUnit: "Minute",
       timelineSettings: {
-        timelineUnitSize: 60,
+        timelineUnitSize: 70,
         topTier: {
           unit: "Hour",
           format: 'MMM dd, yyyy'
@@ -179,32 +223,32 @@ export default {
           label: "Moments"
         },
         {
-          day: new Date("03/05/2024 07:59:00 PM"),
+          day: new Date("03/05/2025 07:59:00 PM"),
           label: "Performance"
         },
         {
-          day: new Date("03/05/2024 08:08:00 PM"),
+          day: new Date("03/05/2025 08:08:00 PM"),
           label: "Moments"
         },
         {
-          day: new Date("03/05/2024 08:24:00 PM"),
+          day: new Date("03/05/2025 08:24:00 PM"),
           label: "Moments"
         },
         {
-          day: new Date("03/05/2024 08:31:00 PM"),
+          day: new Date("03/05/2025 08:31:00 PM"),
           label: "Performance"
         },
         {
-          day: new Date("03/05/2024 08:47:00 PM"),
+          day: new Date("03/05/2025 08:47:00 PM"),
           label: "Moments"
         }
       ],
-      height: "450px",
+      height: "650px",
       labelSettings: {
         leftLabel: "TaskName"
       },
-      projectStartDate: new Date("03/05/2024 06:00 PM"),
-      projectEndDate: new Date("03/05/2024 09:50 PM"),
+      projectStartDate: new Date('03/05/2025 06:00 PM'),
+      projectEndDate: new Date('03/05/2025 09:50 PM'),
       tooltipSettings: {
         taskbar: 'tooltipTemplate'
       }
@@ -217,36 +261,36 @@ export default {
 </script>
 
 <style scoped>
- .e-custom-parent {
+.e-custom-parent {
   background-color: #6d619b;
   border: 1px solid #3f51b5;
 }
 
- .e-custom-moments {
+.e-custom-moments {
   background-color: #7ab748;
   border: 1px solid #3f51b5;
 }
 
- .e-custom-performance {
+.e-custom-performance {
   background-color: #ad7a66;
   border: 1px solid #3f51b5;
 }
 
- .moments,
- .face-mask,
- .oscar {
+.moments,
+.face-mask,
+.oscar {
   position: relative;
   top: 14px;
   left: 5px;
   padding-right: 4px;
 }
 
- .e-milestone-top {
+.e-milestone-top {
   border-bottom-color: #7ab748 !important;
   border-bottom: 1px solid #3f51b5;
 }
 
- .e-milestone-bottom {
+.e-milestone-bottom {
   border-top-color: #7ab748 !important;
   border-top: 1px solid #3f51b5;
 }

@@ -4,7 +4,7 @@
         <ejs-treemap ref="treemap" id='container' align="center" :load='load' :titleSettings='titleSettings' :rangeColorValuePath='rangeColorValuePath' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :leafItemSettings='leafItemSettings' :legendSettings='legendSettings' :tooltipSettings='tooltipSettings' :weightValuePath='weightValuePath'></ejs-treemap>
     </div>
 
-    <div class="col-lg-3 property-section">
+    <div class="col-lg-3 property-section"> 
         <table role="none" id="property" title="Properties" style="width: 100%;">
          <colgroup>
             <col span="1" style="width: 50%;">

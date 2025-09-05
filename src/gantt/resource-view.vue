@@ -12,7 +12,10 @@
 	    :taskType = "taskType"
             :editSettings= "editSettings"
             :toolbar= "toolbar"
-            :height= "height"
+
+:height="height"
+:rowHeight="46"
+:taskbarHeight="25"
             :treeColumnIndex= "1"
             :resources= "resources"
             :highlightWeekends= "true"
@@ -55,7 +58,10 @@
         To edit,  inject the <code>Toolbar</code> module using the <code>Gantt.Inject(Toolbar)</code> method and <code>Edit</code> module
         using the <code>Gantt.Inject(Edit)</code> method.
     </p>   
-</div>
+    <br>
+      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started">documentation section</a>.</p>
+    </div>
 </div>
 </template>
 <script>
@@ -92,7 +98,7 @@ export default {
             },
            toolbar: ['Add', 'Edit', 'Update', 'Delete', 'Cancel', 'ExpandAll', 'CollapseAll',
            { text: 'Show/Hide Overallocation', tooltipText: 'Show/Hide Overallocation', id: 'showhidebar' }],
-            height: '420px',
+            height: '650px',
             columns: [
                 { field: 'TaskID', visible: false },
                 { field: 'TaskName', headerText: 'Name', width: 250 },
@@ -113,8 +119,8 @@ export default {
                 rightLabel: 'resources',
                 taskLabel: 'Progress'
             },
-            projectStartDate: new Date('03/28/2024'),
-            projectEndDate: new Date('05/18/2024'),
+            projectStartDate: new Date('03/26/2025'),
+            projectEndDate: new Date('05/18/2025'),
             splitterSettings: {
                 columnIndex: 3
             }

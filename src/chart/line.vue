@@ -33,7 +33,7 @@
         </p>
         <p>
             More information about the line series can be found in this
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/line#line" aria-label="Navigate to the documentation for Line Chart in Vue Chart component">documentation section</a>.
+            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/chart/chart-type/line" aria-label="Navigate to the documentation for Line Chart in Vue Chart component">documentation section</a>.
         </p> 
 </div>
 

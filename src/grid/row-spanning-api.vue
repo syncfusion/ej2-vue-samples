@@ -1,0 +1,79 @@
+<template>
+<div class="col-lg-12 control-section">
+<div id="action-description">
+    <p>This demo showcases how the Grid component can automatically merged cells that contain matching data across rows and columns. When program names and timings repeat, they are visually combined into a single cell for improved readability.
+    </p>
+</div>
+    <div>
+        <ejs-grid :dataSource="data" height=450 width='auto' gridLines='Both' :enableHover='false' :allowSelection= 'false' :allowTextWrap='true' :textWrapSettings='wrapSettings' :allowSorting='true' :enableRowSpan='true' :enableColumnSpan='true'>
+            <e-columns>
+                <e-column field="Channel" headerText="Channel" width="150" freeze="Left" isPrimaryKey="true"></e-column>
+                <e-column field="Genre" headerText="Genre" width="120" freeze="Left"></e-column>
+                <e-column field="Program12AM" headerText="12 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program1AM" headerText="1 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program2AM" headerText="2 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program3AM" headerText="3 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program4AM" headerText="4 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program5AM" headerText="5 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program6AM" headerText="6 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program7AM" headerText="7 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program8AM" headerText="8 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program9AM" headerText="9 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program10AM" headerText="10 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program11AM" headerText="11 AM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program12PM" headerText="12 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program1PM" headerText="1 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program2PM" headerText="2 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program3PM" headerText="3 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program4PM" headerText="4 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program5PM" headerText="5 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program6PM" headerText="6 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program7PM" headerText="7 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program8PM" headerText="8 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program9PM" headerText="9 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program10PM" headerText="10 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+                <e-column field="Program11PM" headerText="11 PM" width="110" textAlign="Center" :allowSorting="false"></e-column>
+            </e-columns>
+        </ejs-grid>
+    </div>
+
+    <div id="description">
+    <p>
+        In this sample, the channel program names, and their timings are merged using the Grid's <code>enableRowSpan</code> and <code>enableColumnSpan</code> properties. The <b>Channel</b> and <b>Genre</b> columns remains fixed on the left side, enabled by the Frozen column feature.
+    </p>
+    <p style="font-weight: 500">Injecting Module:</p>
+    <p>
+        Grid features are separated into feature-wise modules. 
+        To use the frozen rows and columns feature, we need to inject the <code>Freeze</code> module into the <code>provide</code> section.
+    </p>
+    <p>
+        More information on the row spanning can be found in this
+        <a target="_blank" 
+        href="https://ej2.syncfusion.com/vue/documentation/grid/row/row-spanning">
+        documentation section</a>.
+    </p>
+</div>
+
+</div>
+</template>
+<script lang="ts">
+import { GridComponent, ColumnDirective, ColumnsDirective, Freeze, Sort } from '@syncfusion/ej2-vue-grids';
+import { telecastData } from './data-source';
+
+export default {
+  components: {
+    'ejs-grid': GridComponent,
+    'e-column': ColumnDirective,
+    'e-columns': ColumnsDirective
+  },
+  data: () => {
+      return {
+        data: telecastData,
+        wrapSettings: { wrapMode: 'Content' }
+        }
+  },
+    provide: {
+      grid: [Freeze, Sort]
+    }
+  }
+</script>

@@ -1,11 +1,10 @@
 <template>
-<div class="col-lg-12 control-section">
+<div class="col-lg-12">
     <div id="action-description">
          <p>This sample demonstrates grouping feature of the Grid component. In this sample, the Grid data is grouped against
             ShipCountry  column. To group any other column simply drag the column header and drop on the group drop area.</p>
     </div>
-    <div>
-        <div class="control-section">
+    <div class="control-section">
         <ejs-grid ref="grid" :dataSource="data" :allowGrouping='true' :allowPaging='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :groupSettings='groupOptions' :editSettings='editSettings' :toolbar='toolbar' :pageSettings='pageOptions' :created='created' height=320>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
@@ -15,8 +14,7 @@
                 <e-column field='ShipCountry' headerText='Ship Country' width='150' editType='dropdownedit' :edit='editparams'></e-column>
             </e-columns>
         </ejs-grid>
-        </div>
-         <ejs-dialog :buttons='alertDlgButtons' ref="alertDialog" v-bind:visible="false" :header='alertHeader' :animationSettings='animationSettings' :content='alertContent' :showCloseIcon='showCloseIcon' :target='target'
+        <ejs-dialog :buttons='alertDlgButtons' ref="alertDialog" v-bind:visible="false" :header='alertHeader' :animationSettings='animationSettings' :content='alertContent' :showCloseIcon='showCloseIcon' :target='target'
             :width='alertWidth'>
         </ejs-dialog>
         <div style="margin-top: 10px; text-align: right">Source:

@@ -4,7 +4,7 @@
 <div>
     <div class="col-lg-8 control-section">
         <div class="content-wrapper">
-            <ejs-richtexteditor ref="eventObj" :toolbarSettings="toolbarSettings" :fileManagerSettings="fileManagerSettings" :created="create" :actionBegin="actionBegin" :actionComplete="actionComplete" :focus="focus" :blur="blur" :change="change" :toolbarClick="toolbarClick"><p>The Rich Text Editor component is a WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
+            <ejs-richtexteditor ref="eventObj" :toolbarSettings="toolbarSettings" :fileManagerSettings="fileManagerSettings" :created="create" :actionBegin="actionBegin" :actionComplete="actionComplete" :focus="focus" :blur="blur" :change="change" :toolbarClick="toolbarClick" :selectionChanged="selectionChanged"><p>The Rich Text Editor component is a WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
                 Users can format their content using standard toolbar commands.</p>
                 <p><b>Key features:</b></p>
                 <ul><li><p>Provides IFRAME and DIV modes</p></li>
@@ -69,6 +69,7 @@
         <li><code>resizing</code> – Triggers only when resizing the image</li>
         <li><code>resizeStart</code> –Triggers only when start resize the image</li>
         <li><code>resizeStop</code> – Triggers only when stop resize the image</li>
+        <li><code>selectionChanged</code> – Triggers only when the selection within the editor is modified.</li>
     </ul>
     <p><b>Injecting Module</b></p>
     <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, FileManager</code> into the <code>provide</code> section.</p>
@@ -321,7 +322,10 @@ export default {
     },
     actionCompleteHandler: function() {
         setTimeout(() => { this.$refs.eventObj.ej2Instances.toolbarModule.refreshToolbarOverflow(); }, 400);
-    }
+    },
+    selectionChanged: function() {
+        this.appendElement('Rich Text Editor <b>selectionChanged</b> event called<hr>');
+    },
     },
     provide:{
         richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, FileManager]

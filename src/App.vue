@@ -64,7 +64,7 @@
                     </div>
                     <div class='sb-header-item sb-table-cell'>
                         <div id='sb-header-text' class='e-sb-header-text'>
-                            <span class='sb-header-text-left'>Essential Studio<sup>®</sup> for </span>
+                            <span class='sb-header-text-left'>Essential Studio<sup>®</sup> UI Suite for </span>
                             <span class='sb-header-text-right' role="button" tabindex="0">Vue</span>
                         </div>
                     </div>
@@ -489,6 +489,9 @@ const sampleRegex: RegExp = /#\/(([^\/]+\/)+[^\/\.]+)/;
 const sbArray: string[] = ['angular', 'react', 'nextjs', 'javascript', 'aspnetcore', 'aspnetmvc', 'typescript', 'blazor'];
 //Regex for removing hidden
 const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
+let skipReload: boolean = false; // Flag to skip reload when switching themes
+let isReloadingTheme = false; // Flag to indicate if the theme is being reloaded
+let hasHandledInitialTheme = false; // Flag to check if the initial theme has been handled
 let selectedTheme: string = location.hash.split('/')[1] || 'tailwind3';
 const themeCollection: string[] = ['material3', 'bootstrap5', 'fluent2', 'tailwind3', 'fluent2-highcontrast', 'highcontrast', 'tailwind', 'fluent'];
 const themesToRedirect: string[] = ['material', 'material-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'fabric', 'fabric-dark'];
@@ -577,12 +580,26 @@ onBeforeMount(() => {
 });
 
 const urlChange = async () => {
+    
+    // Check if this is just a dark/light mode switch
+    const currentHash = location.hash;
+    const currentParts = currentHash.split('/');
+    const prevParts = prev.split('/');
+    // If only the theme part changed (index 1) but component and sample are the same, skip urlChange
+    const isThemeOnlyChange = prevParts.length >= 3 && currentParts.length >= 3 && 
+        currentParts[2] === prevParts[2] && // same component
+        currentParts[3] === prevParts[3] && // same sample
+        currentParts[1] !== prevParts[1];   // different theme
+    if (isThemeOnlyChange) {
+        prev = currentHash;
+        return;
+    }
     await router.isReady();
     sb.vars.contentTab.selectedItem = 0;
     updateBreadCrumb();
     updateDescription();
     updatesourceTab();
-};
+}
 
 onMounted(async () => {
     rootEle = homeEle.value as HTMLElement;
@@ -654,8 +671,11 @@ onMounted(async () => {
         sidebar.appendTo('#left-sidebar');
     }
     loadJSON();
+    const themeFromHash = location.hash.split("/")[1] || selectedTheme;
+    selectedTheme = themeFromHash;
+    loadTheme(selectedTheme, false); // full setup on initial load
+    hasHandledInitialTheme = true; // prevent hashchange duplication
     router.afterEach(urlChange);
-    updateBreadCrumb();
     updateDescription();
 });
 
@@ -1047,6 +1067,7 @@ const rendersbPopup = (): void => {
             else {
                 selectedTheme = selectedTheme.replace("-dark", "");
             }
+            skipReload = true;
             switchTheme(selectedTheme);
         },
     });
@@ -1260,6 +1281,8 @@ const eventBinding = (): void => {
 };
 const onSwitchMode = (arg: any): void => {
     selectedTheme = selectedTheme.endsWith("-dark") ? selectedTheme.replace("-dark", "") : selectedTheme + "-dark";
+    localStorage.setItem("selectedTheme", selectedTheme);
+    skipReload = true; // signal that we're toggling mode, not switching base theme
     switchTheme(selectedTheme);
 };
 const changeRtl = (args: any): void => {
@@ -1388,6 +1411,8 @@ const changeTheme = (e: MouseEvent): void => {
     if ((select("#sb-icon-text") as HTMLElement).textContent === "LIGHT" && !['highcontrast', 'fluent2-highcontrast'].includes(themeName)) {
         themeName += "-dark";
     }
+    skipReload = false; // Force full reload for dropdown
+    isReloadingTheme = true;     // flag reload to skip hashchange theme apply
     switchTheme(themeName);
     let imageEditorElem = document.querySelector(".e-image-editor") as HTMLElement;
     if (imageEditorElem != null) {
@@ -1396,15 +1421,20 @@ const changeTheme = (e: MouseEvent): void => {
     }
 };
 
-const switchTheme = (str: string): void => {
-    str = str.includes('_') ? str.replace('_', '.') : str;
-    let hash: string[] = location.hash.split('/');
-    if (hash[1] !== str) {
-        hash[1] = str;
-        location.hash = hash.join('/');
-        location.reload();
+const switchTheme = (themeName: string): void => {
+    themeName = themeName.includes("_") ? themeName.replace("_", ".") : themeName;
+    const hashParts = location.hash.split("/");
+    hashParts[1] = themeName;
+    location.hash = hashParts.join("/");
+    if (skipReload) {
+        loadTheme(themeName, true); // soft switch for toggle
+        skipReload = false; // Reset the flag after soft switch
+    } else {
+        localStorage.setItem("selectedTheme", themeName); // ensures theme survives reload
+        location.reload(); // hard reload for dropdown
     }
 };
+
 const setThemeModesButton = (): void => {
     let themeModeText = select("#sb-icon-text") as HTMLElement;
     let darkThemeIcon = select("#icon-dark") as HTMLElement;
@@ -1425,34 +1455,108 @@ const setThemeModesButton = (): void => {
         mobileDarkThemeIcon.classList.add("hide");
     }
 };
-const loadTheme = (theme: string): void => {
-    theme = themesToRedirect.indexOf(theme) !== -1 ? 'tailwind3': theme;
-    let body: HTMLElement = document.body;
-    if (body.classList.length > 0) {
-        for (let themeItem of themeCollection) {
-            body.classList.remove(themeItem);
-        }
-    }
-    body.classList.add(theme.includes('bootstrap5') ? theme.replace('bootstrap5', 'bootstrap5_3') : theme);
-    themeList.querySelector(".active").classList.remove("active");
-    if (theme.endsWith("-dark")) {
-        theme = theme.replace("-dark", "");
-    }
-    else if (["highcontrast", "fluent2-highcontrast"].includes(selectedTheme)) {
-        (select("#themeMode-switch-btn") as HTMLElement).classList.add("hide");
-        (select(".sb-setting-themeModes-section") as HTMLElement).classList.add("hide");
-    }
-    themeList.querySelector("#" + theme)?.classList.add("active");
-    setThemeModesButton();
-    renderLeftPaneComponents();
-    rendersbPopup();
-    eventBinding();
-    sampleArray();
-    updatesourceTab();
-    (elasticlunr as any).clearStopWords();
-    searchInstance = (elasticlunr as any).Index.load(searchJson);
-    setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 500);
+const loadTheme = (theme: string, softSwitch = false): void => {
+  selectedTheme = theme;
+  theme = themesToRedirect.includes(theme) ? "tailwind3" : theme;
+  // Theme class resolution
+  const resolvedClass = theme.includes("bootstrap5")
+    ? theme.replace("bootstrap5", "bootstrap5_3")
+    : theme;
+  const themeFile = theme.includes("bootstrap5")
+    ? theme.replace("bootstrap5", "bootstrap5.3")
+    : theme;
+  const body = document.body;
+  const themePrefixes = ["tailwind3", "fluent2", "bootstrap5_3", "material3", "highcontrast"];
+  // Remove previous theme classes
+  body.className = body.className
+    .split(" ")
+    .filter(cls => !themePrefixes.some(prefix =>
+      cls.startsWith(prefix) || cls.startsWith(prefix + "-dark")))
+    .join(" ");
+  body.classList.add(resolvedClass);
+  // Update dynamic theme stylesheet
+  const cssLink = document.getElementById("dynamic-theme") as HTMLLinkElement;
+  if (cssLink) {
+    cssLink.href = `./styles/${themeFile}.css`;
+  }
+  // Highlight selected theme in UI
+  themeList?.querySelector(".active")?.classList.remove("active");
+  const normalized = theme.endsWith("-dark") ? theme.replace("-dark", "") : theme;
+  themeList?.querySelector(`#${normalized}`)?.classList.add("active");
+  // Handle unsupported toggle modes
+  const unsupported = ["highcontrast", "fluent2-highcontrast"];
+  const toggleBtn = select("#themeMode-switch-btn");
+  const modeSection = select(".sb-setting-themeModes-section");
+  if (unsupported.includes(selectedTheme)) {
+    toggleBtn?.classList.add("hide");
+    modeSection?.classList.add("hide");
+  } else {
+    toggleBtn?.classList.remove("hide");
+    modeSection?.classList.remove("hide");
+  }
+  // Ripple effect and toggle button visuals
+  enableRipple(selectedTheme.indexOf("material") !== -1 || !selectedTheme);
+  setThemeModesButton();
+  // Re-bind UI components only on full load
+  if (!softSwitch) {
+    renderLeftPaneComponents();       // Sidebar and left pane
+    rendersbPopup();                  // Settings and popups
+    eventBinding();                   // Interaction and event listeners
+    refreshDynamicContent(); // Update content and search
+  }else {
+    // Soft switch: only update theme and refresh samples
+    refreshDynamicContent();
+    refreshSamples();
+  } 
+  // UI layout cleanup
+  setTimeout(() => {
+    select(".sb-loading-overlay")?.classList.add("hide");
+    window.dispatchEvent(new Event("resize"));
+  }, 500);
 };
+
+// data visualization components
+const doControls: string[] = [
+  "chart", "three-dimension-chart", "circular-3d-chart", "stock-chart", "arc-gauge", "circular-gauge",
+  "diagram", "heatmap", "linear-gauge", "maps", "range-navigator", "smith-chart",
+  "barcode", "sparkline", "treemap", "bullet-chart","kanban"
+];
+
+// components rerendering for every dark/light toggle
+const refreshSamples = () => {
+  const currentControl = location.hash.split('/')[2];
+  if (doControls.includes(currentControl)) {
+    const demo = document.querySelector('.sb-demo-section');
+    if (demo) {
+      const controls = demo.getElementsByClassName('e-control e-lib');
+      for (let i = 0; i < controls.length; i++) {
+        const instance = (controls[i] as any).ej2_instances;
+        if (instance?.[0]?.refresh instanceof Function) {
+          instance[0].refresh();
+        }
+      }
+    }
+  }
+};
+
+const refreshDynamicContent = () => {
+  updateBreadCrumb();
+  sampleArray();
+  updatesourceTab();
+  searchInstance = (elasticlunr as any).Index.load(searchJson);
+  (elasticlunr as any).clearStopWords();
+};
+
+window.addEventListener("hashchange", () => {
+  if (isReloadingTheme || !hasHandledInitialTheme) return;
+
+  const hashTheme = location.hash.split("/")[1];
+  if (hashTheme && hashTheme !== selectedTheme) {
+    selectedTheme = hashTheme;
+    localStorage.setItem("selectedTheme", selectedTheme);
+    loadTheme(selectedTheme, true); // soft switch
+  }
+});
 
 const setMouseOrTouch = (e: MouseEvent): void => {
     let ele: HTMLElement = <any>closest(<any>e.target, '.sb-responsive-items');
@@ -1936,9 +2040,8 @@ const loadJSON = (): void => {
     }
     overlay();
     changeMouseOrTouch(switchText);
-    localStorage.removeItem('ej2-switch');
+    //localStorage.removeItem('ej2-switch');
     enableRipple(selectedTheme.indexOf('material') !== -1 || !selectedTheme);
-    loadTheme(selectedTheme);
 };
 
 </script>

@@ -6,7 +6,6 @@
   "Smart AI Solutions": [
     "Data Grid",
     "Tree Grid",
-    "Spreadsheet",
     "Diagram",
     "Gantt Chart",
     "Query Builder",
@@ -16,14 +15,12 @@
     "Rich Text Editor",
     "Kanban",
     "Scheduler",
-    "Maps",
-    "Word Processor"
+    "Maps"
   ],
   "Grids": [
     "Data Grid",
     "Pivot Table",
-    "Tree Grid",
-    "Spreadsheet"
+    "Tree Grid"
   ],
   "Interactive Chat": [ "AI AssistView", "Chat UI" ],
   "Data Visualization": [
@@ -49,10 +46,8 @@
     "Query Builder"
   ],
   "File Viewers & Editors": [
-    "PDF Viewer",
     "Rich Text Editor",
     "Markdown Editor",
-    "Word Processor",
     "Image Editor",
     "Block Editor"
   ],

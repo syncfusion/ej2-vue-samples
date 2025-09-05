@@ -44,7 +44,7 @@
         More information on print can be found in this
         <a
           target="_blank"
-          href="https://ej2.syncfusion.com/documentation/maps/print/#print"
+          href="https://ej2.syncfusion.com/vue/documentation/maps/print#print"
         >documentation section</a>.
       </p> 
     </section>

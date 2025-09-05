@@ -160,6 +160,16 @@ export default {
                 codeView.appendChild(mirrorView);
             }
             mirrorView.style.display = 'block';
+            var cssAlreadyLoaded = Array.from(document.getElementsByTagName('link'))
+                .some(link => link.href.includes('codemirror.css'));
+
+            if (!cssAlreadyLoaded) {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css';
+                document.head.appendChild(link);
+            }
+
             if (this.$refs.rteInstance.ej2Instances.value !== null) {
                 CodeMirror(mirrorView, {
                     value: this.$refs.rteInstance.ej2Instances.value,

@@ -1,8 +1,8 @@
 <template>
     <div id="action-description">
-        <p>This sample shows an overview of the EJ2 Gantt Chart features that visualize the progress of each feature
-            of the product towards its release and make it easier to monitor the scheduling of the dependent items.
-        </p>
+        <p>This sample provides an overview of the Gantt Chart, showcasing its key features through an e-commerce platform redesign project 
+        timeline. It visualizes task hierarchies, dependencies, milestones, and resource allocations, enabling efficient project tracking from planning to deployment.
+    </p>
     </div>
     <div class="control-section">
         <div id="gantt-sidebar-parent">
@@ -76,7 +76,7 @@
                     <li class="list-field stack-container">
                         <label for="viewTypes" class="labels-style">View type:</label>
                         <div style="padding-left: 12px">
-                            <ejs-dropdownlist id="viewTypes" :dataSource="viewTypeData" :placeholder="viewType"
+                            <ejs-dropdownlist id="viewTypes" :dataSource="viewTypeData" :value="ViewTypeValue" 
                                 :fields="viewFileds" :change="typeChange"></ejs-dropdownlist>
                         </div>
                     </li>
@@ -99,44 +99,52 @@
             </div>
             <div id="sidebar-gantt">
                 <ejs-gantt ref="gantt" id="overviewSample" :dataSource="data" :height="height" :width="width"
-                    :resources="resources" :viewType="viewType" :highlightWeekends="true" :load="load" :pdfQueryCellInfo="pdfQueryCellInfo"
-                    :allowSelection="true" :treeColumnIndex="1" :allowSorting="true" :gridLines="gridLines"
-                    :renderBaseline="true" :taskFields="taskFields" :resourceFields="resourceFields"
-                    :splitterSettings="splitterSettings" :selectionSettings="selectionSettings"
-                    :tooltipSettings="tooltipSettings" :filterSettings="filterSettings" :allowFiltering="true"
-                    :showColumnMenu="true" :toolbar="toolbar" :timelineSettings="timelineSettings"
-                    :eventMarkers="eventMarkers" :holidays="holidays" :labelSettings="labelSettings"
-                    :allowResizing="true" :taskbarHeight="taskbarHeight" :rowHeight="rowHeight" :allowExcelExport="true"
-                    :allowPdfExport="true" :toolbarClick="toolbarClick" :projectStartDate="projectStartDate"
-                    :projectEndDate="projectEndDate">
+                    :resources="resources" :viewType="viewType" :highlightWeekends="true" :load="load"
+                    :pdfQueryCellInfo="pdfQueryCellInfo" :pdfQueryTaskbarInfo="pdfQueryTaskbarInfo" :allowSelection="true" :treeColumnIndex="1"
+                    :allowSorting="true" :gridLines="gridLines" :renderBaseline="true" :taskFields="taskFields"
+                    :resourceFields="resourceFields" :splitterSettings="splitterSettings"
+                    :selectionSettings="selectionSettings" :tooltipSettings="tooltipSettings" :enableHover="true"
+                    :enableAutoWbsUpdate="true" :enableWBS="true" :filterSettings="filterSettings"
+                    :allowFiltering="true" :showColumnMenu="true" :toolbar="toolbar"
+                    :timelineSettings="timelineSettings" :eventMarkers="eventMarkers" :holidays="holidays"
+                    :labelSettings="labelSettings" :allowResizing="true" :taskbarHeight="taskbarHeight"
+                    :rowHeight="rowHeight" :allowExcelExport="true" :allowPdfExport="true" :toolbarClick="toolbarClick"
+                    :projectStartDate="projectStartDate" :projectEndDate="projectEndDate">
                     <e-columns>
-                        <e-column field="TaskId" textAlign="Left" :visible="false"></e-column>
+                        <e-column field="WBSCode" headerText="WBS ID" width="120"></e-column>
                         <e-column field="TaskName" headerText="Product Release" width="200"></e-column>
+
                         <e-column field="Assignee" headerText="Assignee" :template="'columnTemplate'"
-                            :allowSorting="false" width="135">
+                            :allowSorting="false" width="195">
                         </e-column>
                         <e-column field="Status" minWidth="100" width="120" :template="'columnTemplate1'">
                         </e-column>
                         <e-column field="Priority" minWidth="80" width="100" :template="'columnTemplate2'">
                         </e-column>
-                        <e-column field="Work" headerText="Planned Hours" width="120"></e-column>
-                        <e-column field="TimeLog" headerText="Work Log" width="120"></e-column>
+
+                        <e-column field="WBSPredecessor" headerText="WBS Predecessor" width="200"></e-column>
+                        <e-column field="ConstraintType" headerText="Constraint Type" width="200"></e-column>
+                        <e-column field="ConstraintDate" headerText="Constraint Date" width="200"></e-column>
+                        <e-column field="Progress" headerText="Completion(%)" width="205"></e-column>
+                        <e-column field="TimeLog" headerText="Work Log" width="150"></e-column>
                     </e-columns>
 
                     <template v-slot:columnTemplate="{ data }">
                         <div class="columnTemplate" v-if="data.ganttProperties.resourceNames">
                             <img :src="'src/gantt/images/' +
-                    data.ganttProperties.resourceNames +
-                    '.png'
-                    " style="height: 25px; width: 25px" :alt="data.ganttProperties.resourceNames" />
-                            <div style="
-                  display: inline-block;
-                  width: 100%;
-                  position: relative;
-                  left: 5px;
-                ">
-                                {{ data.ganttProperties.resourceNames }}
-                            </div>
+                                data.ganttProperties.resourceNames +
+                                '.png'
+                                " style="height: 25px; width: 25px" :alt="data.ganttProperties.resourceNames" />
+                            <span>
+                                <div
+                                    style="display: inline-block;width: 100%;position: relative;font-size: 13px;left: 5px;">
+                                    {{ data.taskData.Assignee }}
+                                </div>
+                                <div style=" font-size: 9px; text-align:left; margin-left:31px">{{
+                                    data.taskData.Department }}
+                                </div>
+                            </span>
+
                         </div>
                     </template>
 
@@ -145,18 +153,35 @@
                             <div :style="Status(data.taskData.Status)">
                                 <span :style="StatusContent(data.taskData.Status)">{{
                                     data.taskData.Status
-                                    }}</span>
+                                }}</span>
                             </div>
                         </div>
                     </template>
 
                     <template v-slot:columnTemplate2="{ data }">
                         <div v-if="data.taskData.Priority">
-                            <div :style="Priority(data.taskData.Priority)">
-                                <span :style="PriorityContent(data.taskData.Priority)">{{
-                                    data.taskData.Priority
-                                    }}</span>
+                            <div style="display: flex;">
+                                 <div :class="PriorityIcon(data.taskData.Priority)"
+                                :style="PriorityIconStyle(data.taskData.Priority)">
                             </div>
+                            <span :style="PriorityContent(data.taskData.Priority)">{{
+                                data.taskData.Priority
+                            }}</span>
+                            </div>
+                           
+
+                        </div>
+                    </template>
+                    <template v-slot:rightLabelTemplate="{ data }">
+                        <div v-if="data.ganttProperties.resourceNames">
+                            <img :src="'src/gantt/images/' +
+                                data.ganttProperties.resourceNames +
+                                '.png'
+                                " style="height: 25px; width: 25px" :alt="data.ganttProperties.resourceNames" />
+                            <span style="margin-left:2px ;">
+                                {{ data.taskData.Assignee }}
+                            </span>
+
                         </div>
                     </template>
                 </ejs-gantt>
@@ -164,10 +189,13 @@
         </div>
 
         <div id="description">
-            <p>This example shows the three-quarter release planning of product features rendered in the EJ2 Gantt
-                chart. It tracks the quarterly release planning of product status, resources, and task scheduling.</p>
-            <p>EJ2 Gantt Chart features such as Sorting, Filtering, Column resizing, Column menu, column template and so
-                on are used in this demo.</p>
+             <p>This demo presents an e-commerce platform redesign project, demonstrating key features such as task organization, customizable timeline views, 
+        resource management, and interactive controls. Users can <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/sorting">sort</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/filtering/filtering">filter tasks</a>, <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-resizing"> resize</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-reordering">reorder columns</a>, track progress with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/baseline"> baselines</a>, 
+        and highlight key dates with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/event-markers">event markers</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/holidays"> holidays</a>. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/tool-bar"> toolbar </a> offers intuitive options to add, edit, delete, search, and expand or 
+        collapse tasks. Additionally, users can configure <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#workweek"> working days</a>, <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/scheduling-tasks#weekendnon-working-days"> highlight weekends</a>, set <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#projectstartdate"> project date ranges</a>.
+</p>
+<br>
+<p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started#adding-gantt-component">documentation section</a>.</p>
         </div>
     </div>
 </template>
@@ -184,12 +212,14 @@ import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
+import { PdfColor } from "@syncfusion/ej2-pdf-export";
 
 var theme;
 var style;
 var CurrentTheme;
 var statusStyleColor;
 var priorityStyle;
+var IconClass;
 var priorityContentStyle;
 var statusContentstyleColor;
 var sidebarToggle;
@@ -212,7 +242,7 @@ export default {
         return {
             data: overviewData,
             resources: editingResources,
-            height: '490px',
+            height: '650px',
             width: "100%",
             viewType: 'ProjectView',
             taskFields: {
@@ -223,8 +253,10 @@ export default {
                 duration: 'TimeLog',
                 progress: 'Progress',
                 dependency: 'Predecessor',
+                constraintType: 'ConstraintType',
+                constraintDate: 'ConstraintDate',
                 parentID: 'ParentId',
-                resourceInfo: 'Assignee',
+                resourceInfo: 'resource'
             },
             resourceFields: {
                 id: 'resourceId',
@@ -232,7 +264,7 @@ export default {
             },
             toolbar: ['ExpandAll', 'CollapseAll', 'ZoomIn', 'ZoomOut', 'ZoomToFit', 'ExcelExport', 'CsvExport', 'PdfExport'],
             splitterSettings: {
-                position: "50%",
+                columnIndex: 4,
             },
             selectionSettings: {
                 mode: 'Row',
@@ -245,7 +277,7 @@ export default {
             filterSettings: {
                 type: 'Menu'
             },
-            gridLines: "Vertical",
+            gridLines: "Both",
             timelineSettings: {
                 showTooltip: true,
                 topTier: {
@@ -260,41 +292,46 @@ export default {
             },
             eventMarkers: [
                 {
-                    day: new Date('04/04/2024'),
+                    day: new Date('2025-03-13'),
                     cssClass: 'e-custom-event-marker',
-                    label: 'Q-1 Release'
+                    label: 'Project Initiative'
                 },
                 {
-                    day: new Date('06/30/2024'),
+                    day: new Date('2025-04-18'),
                     cssClass: 'e-custom-event-marker',
-                    label: 'Q-2 Release'
+                    label: 'Requirement Gathering'
                 },
                 {
-                    day: new Date('09/29/2024'),
+                    day: new Date('2025-05-30'),
                     cssClass: 'e-custom-event-marker',
-                    label: 'Q-3 Release'
+                    label: 'Design Phase'
+                },
+                {
+                    day: new Date('2025-11-25'),
+                    cssClass: 'e-custom-event-marker',
+                    label: 'Deployment'
                 }
             ],
             holidays: [{
-                from: new Date("01/01/2024"),
-                to: new Date("01/01/2024"),
+                from: new Date("01/01/2025"),
+                to: new Date("01/01/2025"),
                 label: "New Year holiday",
                 cssClass: "e-custom-holiday"
             },
             {
-                from: new Date("12/25/2023"),
-                to: new Date("12/26/2023"),
+                from: new Date("12/25/2024"),
+                to: new Date("12/26/2024"),
                 label: "Christmas holidays",
                 cssClass: "e-custom-holiday"
             }],
             labelSettings: {
-                rightLabel: 'Assignee',
+                rightLabel: "rightLabelTemplate",
                 taskLabel: '${Progress}%'
             },
-            taskbarHeight: 24,
-            rowHeight: 36,
-            projectStartDate: new Date('12/17/2023'),
-            projectEndDate: new Date('10/26/2024'),
+            taskbarHeight: 25,
+            rowHeight: 46,
+            projectStartDate: new Date('01/25/2025'),
+            projectEndDate: new Date('01/30/2026'),
             isDependencyChecked: true,
 
             // slidebar
@@ -351,7 +388,7 @@ export default {
                 { id: "ProjectView", Text: "Project View" }
             ],
             viewFileds: { text: 'Text', value: 'id' },
-            typeHolder: 'View type',
+            ViewTypeValue: 'ProjectView',
 
             // View mode change
             viewModeData: [
@@ -415,7 +452,7 @@ export default {
                 ganttChart.labelSettings.rightLabel = this.tempLabels;
             } else {
                 this.tempLabels = ganttChart.labelSettings.rightLabel;
-                ganttChart.labelSettings.rightLabel = null;
+                ganttChart.labelSettings.rightLabel = " ";
             }
         },
         selectWeek: function (e) {
@@ -482,48 +519,48 @@ export default {
             this.sidebarToggle = !this.sidebarToggle;
         },
         load: function (args) {
-            var themeCollection = ['bootstrap5', 'bootstrap', 'bootstrap4', 'fluent', 'fabric', 'fusionnew', 'material3', 'material', 'highcontrast', 'tailwind', 'fluent2', 'tailwind3', 'bootstrap5.3'];
-            var cls = document.body.className.split(' ');
-            theme = cls.indexOf('bootstrap5') > 0 ? 'bootstrap5' : cls.indexOf('bootstrap') > 0 ? 'bootstrap' : cls.indexOf('tailwind') > 0 ? 'tailwind' :
-                cls.indexOf('fluent') > 0 ? 'fluent' : cls.indexOf('fabric') > 0 ? 'fabric' :
-                    cls.indexOf('material3') > 0 ? 'material3' : cls.indexOf('bootstrap4') > 0 ? 'bootstrap4' : cls.indexOf('material') > 0 ? 'material' :
-                        cls.indexOf('fusionnew') > 0 ? 'fusionnew' : cls.indexOf('highcontrast') > 0 ? 'highcontrast' : cls.indexOf('bootstrap5.3') > 0 ? 'bootstrap5.3' :
-                        cls.indexOf('fluent2') > 0 ? 'fluent2' : cls.indexOf('tailwind3') > 0 ? 'tailwind3' : ''
-            var check = themeCollection.indexOf(theme);
-            if (check >= 0) {
-                CurrentTheme = true;
-            }
-            else {
-                CurrentTheme = false;
-            }
+            let themeCollection = ['bootstrap5', 'bootstrap', 'bootstrap4', 'fluent', 'fabric', 'fusionnew', 'material3', 'material', 'highcontrast', 'tailwind', 'fluent2', 'tailwind3', 'bootstrap5.3'];
+             var theme = document.body.className.split(' ').find(function(cls) { return themeCollection.includes(cls); }) || '';
+            CurrentTheme = theme ? true : false;
         },
         pdfQueryCellInfo: function (args) {
             if (args.column.headerText === 'Assignee' && args.data.taskData.resourcesImage) {
-                {
-                    args.image = { height: 25, width: 25, base64: args.data.taskData.resourcesImage };
-                }
+                args.image = { height: 30, width: 30, base64: args.data.taskData.resourcesImage};
+                args.value = `${args.data.Assignee}\n${args.data.taskData.Department}`; 
+            }
+
+            // Set font color for Status or Priority columns
+            if (args.column.field === 'Status' || args.column.field === 'Priority') {
+                const style = args.column.field === 'Status' ? this.StatusContent(args.value) : this.PriorityContent(args.value);
+                const rgbMatch = style.match(/rgb\(\d+,\s*\d+,\s*\d+\)/);
+                if (rgbMatch) {
+                    const rgbValues = rgbMatch[0].slice(4, -1).split(', ').map(Number);
+                    args.style.fontColor = new PdfColor(rgbValues[0], rgbValues[1], rgbValues[2]);
+                }   
+            }
+        },
+        pdfQueryTaskbarInfo: function(args){
+            if(this.$refs.gantt.ej2Instances.labelSettings.rightLabel && args.data.taskData.resourcesImage){
+                args.labelSettings.rightLabel.image= [{base64: args.data.taskData.resourcesImage, height: 25, width: 25}];
+                args.labelSettings.rightLabel.value=args.data.ganttProperties.resourceNames;
             }
         },
         Status: function (status) {
             switch (status) {
                 case "In Progress":
-                    statusStyleColor = (CurrentTheme) ? "#DFECFF" : "#2D3E57";
-                    style = "display: flex; padding: 0px 12px; gap: 10px; width: 96px; height: 24px; border-radius: 24px; background:" + statusStyleColor;
+                    statusStyleColor = (CurrentTheme) ? "#006AA6" : "#34B6FF";
+                    style = "display: flex; padding: 2px 10px; gap: 10px; width: 96px; height: 24px; border: solid 1px" + statusStyleColor;
                     break;
                 case "Open":
-                    style = "background-color: red; color: white; border-radius: 15px; padding:6px";
+                    style = "display: flex; justify-content:center; gap: 10px; width: 96px; height: 24px; border: solid 1px red";
                     break;
                 case "On Hold":
-                    statusStyleColor = (CurrentTheme) ? "#E4E4E7" : "#3C3B43";
-                    style = "display: flex; border-radius: 24px; padding: 0px 12px; gap: 10px; width: 78px; height: 24px; background:" + statusStyleColor;
+                    statusStyleColor = (CurrentTheme) ? "#766B7C" : "#CDCBD7";
+                    style = "display: flex; justify-content:center; gap: 10px; width: 96px; height: 24px; border: solid 1px" + statusStyleColor;
                     break;
                 case "Completed":
-                    statusStyleColor = (CurrentTheme) ? "#DFFFE2" : "#16501C";
-                    style = "display: flex; padding: 0px 12px; gap: 10px; width: 98px; height: 24px; border-radius: 24px;background:" + statusStyleColor;
-                    break;
-                case "High":
-                    statusStyleColor = (CurrentTheme) ? "#FFEBE9" : "#48211D";
-                    style = "display: flex; padding: 0px 12px; gap: 10px; width: 55px; height: 24px; border-radius: 24px; background:" + statusStyleColor;
+                    statusStyleColor = (CurrentTheme) ? "#00A653" : "#92FFC8";
+                    style = "display: flex; padding: 2px 10px; gap: 10px; width: 96px; height: 24px; border: solid 1px" + statusStyleColor;
                     break;
             }
             return style;
@@ -532,44 +569,44 @@ export default {
         StatusContent: function (status) {
             switch (status) {
                 case "In Progress":
-                    statusContentstyleColor = (CurrentTheme) ? "#006AA6" : "#34B6FF";
-                    style = "width: 72px; height: 22px; font-style: normal; font-weight: 500; font-size: 14px; line-height: 20px; text-align: center; color: " + statusContentstyleColor;
+                    statusContentstyleColor = (CurrentTheme) ? "rgb(0, 106, 166)" : "rgb(52, 182, 255)";
+                    style = "width: 72px; height: 22px; font-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; text-align: center; color: " + statusContentstyleColor;
                     break;
                 case "Open":
-                    style = "background-color: red; color: white; border-radius: 15px; padding:6px";
+                    style = "width: 54px; height: 22px; font-style: normal;  font-weight: 400; font-size: 14px; line-height: 22px; text-align: center; color: rgb(255, 0, 0); ";
                     break;
                 case "On Hold":
-                    statusContentstyleColor = (CurrentTheme) ? "#766B7C" : "#CDCBD7";
-                    style = "width: 54px; height: 22px; font-style: normal; font-weight: 500; font-size: 14px; line-height: 20px; text-align: center; color: " + statusContentstyleColor;
+                    statusContentstyleColor = (CurrentTheme) ? "rgb(118, 107, 124)" : "rgb(205, 203, 215)";
+                    style = "width: 54px; height: 22px; font-style: normal;  font-weight: 400; font-size: 14px; line-height: 22px; text-align: center; color: " + statusContentstyleColor;
                     break;
                 case "Completed":
-                    statusContentstyleColor = (CurrentTheme) ? "#00A653" : "#92FFC8";
-                    style = "width: 74px; height: 22px; font-style: normal; font-weight: 500; font-size: 14px; line-height: 20px; text-align: center; color: " + statusContentstyleColor;
+                    statusContentstyleColor = (CurrentTheme) ? "rgb(0, 166, 83)" : "rgb(146, 255, 200)";
+                    style = "width: 74px; height: 22px; font-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; text-align: center; color: " + statusContentstyleColor;
                     break;
                 case "High":
-                    statusContentstyleColor = (CurrentTheme) ? "#FF3740" : "#FFB5B8";
-                    style = "width: 31px; height: 22px; font-style: normal; font-weight: 500; font-size: 14px; line-height: 20px; text-align: center; color: " + statusContentstyleColor;
+                    statusContentstyleColor = (CurrentTheme) ? "rgb(243, 86, 32)" : "rgb(255, 181, 184)";
+                    style = "width: 31px; height: 22px; font-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; text-align: center; color: " + statusContentstyleColor;
                     break;
             }
             return style;
         },
-        Priority: function (priority) {
+        PriorityIconStyle: function (priority) {
             switch (priority) {
                 case "Low":
-                    priorityStyle = (CurrentTheme) ? "#FFF6D1" : "#473F1E";
-                    style = "display: flex; padding: 0px 12px; gap: 10px; width: 52px; height: 24px; border-radius: 24px; background: " + priorityStyle;
+                    priorityStyle = (CurrentTheme) ? "#00A653" : "#FDFF88";
+                    style = " margin-top:2px; color: " + priorityStyle + "!important";
                     break;
                 case "Normal":
-                    priorityStyle = (CurrentTheme) ? "#F5DFFF" : "#4D2F5A";
-                    style = "display: flex; padding: 0px 12px; gap: 10px; width: 73px; height: 24px; border-radius: 24px; background: " + priorityStyle;
+                    priorityStyle = (CurrentTheme) ? "#7100A6" : "#E3A9FF";
+                    style = " margin-top:2px; !important; color: " + priorityStyle + "!important";
                     break;
                 case "Critical":
-                    priorityStyle = (CurrentTheme) ? "#FFEBE9" : "#48211D";
-                    style = "display: flex; padding: 0px 12px; gap: 10px; width: 72px; height: 24px; border-radius: 24px; background: " + priorityStyle;
+                    priorityStyle = (CurrentTheme) ? "#FF3740" : "#FFB5B8";
+                    style = "margin-top:2px; color: " + priorityStyle + "!important";
                     break;
                 case "High":
-                    priorityStyle = (CurrentTheme) ? "#FFEBE9" : "#48211D";
-                    style = "display: flex; padding: 0px 12px; gap: 10px; width: 55px; height: 24px; border-radius: 24px; background: " + priorityStyle;
+                    priorityStyle = (CurrentTheme) ? "#f35620" : "#FFB5B8";
+                    style = "margin-top:2px; color: " + priorityStyle + "!important";
                     break;
             }
             return style;
@@ -578,23 +615,40 @@ export default {
         PriorityContent: function (priority) {
             switch (priority) {
                 case "Low":
-                    priorityContentStyle = (CurrentTheme) ? "#70722B" : "#FDFF88";
-                    style = "width: 28px; height: 22px; font-style: normal; font-weight: 500; font-size: 14px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
+                    priorityContentStyle = (CurrentTheme) ? "rgb(0, 166, 83)" : "rgb(253, 255, 136)";
+                    style = "width: 28px; height: 22px; font-style: normal;  font-size: 14px; margin-left:3px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
                     break;
                 case "Normal":
-                    priorityContentStyle = (CurrentTheme) ? "#7100A6" : "#E3A9FF";
-                    style = "width: 49px; height: 22px; font-style: normal; font-weight: 500; font-size: 14px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
+                    priorityContentStyle = (CurrentTheme) ? "rgb(113, 0, 166)" : "#rgb(227, 169, 255)";
+                    style = "width: 28px; height: 22px; font-style: normal;  margin-left:3px; font-size: 14px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
                     break;
                 case "Critical":
-                    priorityContentStyle = (CurrentTheme) ? "#FF3740" : "#FFB5B8";
-                    style = "width: 48px; height: 22px; font-style: normal; font-weight: 500; font-size: 14px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
+                    priorityContentStyle = (CurrentTheme) ? "rgb(255, 55, 64)" : "rgb(255, 181, 184)";
+                    style = "width: 48px; height: 22px; font-style: normal;  font-size: 14px; margin-left:3px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
                     break;
                 case "High":
-                    priorityContentStyle = (CurrentTheme) ? "#FF3740" : "#FFB5B8";
-                    style = "width: 31px; height: 22px; font-style: normal; font-weight: 500; font-size: 14px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
+                    priorityContentStyle = (CurrentTheme) ? "rgb(235, 99, 67)" : "rgb(255, 181, 184)";
+                    style = "width: 31px; height: 22px; font-style: normal; font-size: 14px; margin-left:3px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
                     break;
             }
             return style;
+        },
+        PriorityIcon: function (priority) {
+            switch (priority) {
+                case "Low":
+                    IconClass = "e-icons e-arrow-down e-icon-style";
+                    break;
+                case "Normal":
+                    IconClass = "e-icons e-arrow-right e-icon-style";
+                    break;
+                case "Critical":
+                    IconClass = "e-icons e-arrow-up e-icon-style";
+                    break;
+                case "High":
+                    IconClass = "e-icons e-arrow-up e-icon-style";
+                    break;
+            }
+            return IconClass;
         }
     }
 }
@@ -730,6 +784,7 @@ export default {
     text-align: left;
     padding: 12px;
 }
+
 #overviewSample .e-tbar-btn-text {
     display: none;
 }

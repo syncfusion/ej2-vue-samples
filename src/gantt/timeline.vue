@@ -4,7 +4,10 @@
         <div class="content-wrapper">
         <ejs-gantt ref='gantt' id="GanttContainer" :dataSource = "data"
         :taskFields = "taskFields"
-        :height = "height"
+
+:height="height"
+:rowHeight="46"
+:taskbarHeight="25"
         :highlightWeekends = 'true'
         :projectStartDate = "projectStartDate"
         :projectEndDate = "projectEndDate"
@@ -183,6 +186,8 @@
         Gantt component features are segregated into individual feature-wise modules. To use a selection support, inject the
         <code>Selection</code> module. To use markers in Gantt, inject the <code>DayMarkers</code> module.
     </p>
+     <br>
+    <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/timeline/timeline">documentation section</a>.</p>
 </div>
 </div>
 </template>
@@ -203,7 +208,7 @@ export default {
   data: function() {
       return{
              data: projectData,
-             height: '503px', 
+             height: '650px', 
              taskFields: {
                 id: 'taskID',
                 name: 'taskName',
@@ -215,8 +220,8 @@ export default {
                 child: 'subtasks',
             },
             check:'true',
-            projectStartDate: new Date('02/03/2024'),
-            projectEndDate: new Date('03/23/2024'),
+            projectStartDate: new Date('02/05/2025'),
+            projectEndDate: new Date('03/23/2025'),
             timelineSettings: {
                 topTier: {
                     format: 'MMM dd, yyyy',

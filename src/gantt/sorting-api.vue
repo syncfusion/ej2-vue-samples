@@ -1,81 +1,92 @@
 <template>
-<div>
-      <div class="col-md-9 control-section">
-        <div class="content-wrapper">
-        <ejs-gantt ref='gantt' id="SortingAPI" 
-                :dataSource= "data"        
-                :height = "height"       
-                :highlightWeekends= 'true'  
-                :allowSelection = 'true'
-                :allowSorting = 'true'
-                :taskFields= "taskFields"
-                :labelSettings= "labelSettings"
-                :treeColumnIndex= "1"
-                :columns= "columns"
-                :splitterSettings= "splitterSettings"
-                :projectStartDate= "projectStartDate"
-                :projectEndDate= "projectEndDate">
+    <div>
+        <div class="col-md-9 control-section">
+            <div class="content-wrapper">
+                <ejs-gantt ref='gantt' id="SortingAPI" :dataSource="data" :height="height" :rowHeight="46"
+                    :taskbarHeight="25" :highlightWeekends='true' :allowSelection='true' :allowSorting='true'
+                    :taskFields="taskFields" :labelSettings="labelSettings" :treeColumnIndex="1" :columns="columns"
+                    :splitterSettings="splitterSettings" :projectStartDate="projectStartDate"
+                    :projectEndDate="projectEndDate">
                 </ejs-gantt>
-      </div>
-    </div>
-        <div class="col-md-3 property-section">
-        <table id="property" title="Properties">
-        <tr>
-            <td style="width: 100%">
-                <div style="font-size: 15px;">Column</div>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 100%">
-                <div>
-                     <ejs-dropdownlist ref='columns' id='columns' width='150px' :dataSource='columnsData' value='TaskID' :fields='columnsFields'></ejs-dropdownlist>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 100%">
-                <div style="font-size: 15px;">Direction</div>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 100%;">
-                <div>
-                    <ejs-dropdownlist ref='direction' width='150px' id='direction' :dataSource='directionData' value='Ascending' :fields='directionFields'></ejs-dropdownlist>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 100%">
-                <div>
-                    <ejs-button ref='sort' style="margin-right: 5px; width: 80px;" v-on:click="sort">Sort</ejs-button>
-                    <ejs-button ref='clear' style="width: 80px" v-on:click="clear">Clear</ejs-button>
-                </div>
-            </td>
-        </tr>
-    </table>
+            </div>
         </div>
-    <div id="action-description">
-    <p> The sorting feature enables you to order data in a particular direction. It can be enabled by setting
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowselection">allowSelection</a> to <code>true</code>.</p>
-</div>
+        <div class="col-md-3 property-section">
+            <table id="property" title="Properties">
+                <tr>
+                    <td style="width: 100%">
+                        <div style="font-size: 15px;">Column</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%">
+                        <div>
+                            <ejs-dropdownlist ref='columns' id='columns' width='150px' :dataSource='columnsData'
+                                value='TaskName' :fields='columnsFields'></ejs-dropdownlist>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%">
+                        <div style="font-size: 15px;">Direction</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;">
+                        <div>
+                            <ejs-dropdownlist ref='direction' width='150px' id='direction' :dataSource='directionData'
+                                value='Ascending' :fields='directionFields'></ejs-dropdownlist>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%">
+                        <div>
+                            <ejs-button ref='sort' style="margin-right: 5px; width: 80px;"
+                                v-on:click="sort">Sort</ejs-button>
+                            <ejs-button ref='clear' style="width: 80px" v-on:click="clear">Clear</ejs-button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="action-description">
+            <p> The sorting feature enables you to order data in a particular direction. It can be enabled by setting
+                <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowselection">allowSelection</a> to
+                <code>true</code>.
+            </p>
+        </div>
 
-<div id="description">
-    <p>
-        The sorting feature enables you to order data in a particular direction. It can be enabled by setting the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowselection">allowSelection</a> to true.
-    </p>
-    <p>To sort a Gantt column, click the column header. The icons (ascending) and (descending) specify the sort direction of a column.</p>
-    <p>By default, the multi-sorting feature is enabled in Gantt. To sort multiple columns, hold the <strong>CTRL</strong> key, and then click the column header. To clear sort for a column, hold the <strong>SHIFT</strong> key, and then click the column header.</p>
-    <p>In this demo, select the column and direction from the properties panel, and then click the Sort button. Use the Clear button to remove sort for the sorted column.
-    </p>
-    
-    <p>
-        Gantt control features are segregated into individual feature-wise modules. To use a selection, inject the
-        <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code> method.To use sort, inject the
-        <code>Sort</code> module using the <code>Gantt.Inject(Sort)</code> method.To use markers, inject the
-        <code>DayMarkers</code> module using the <code>Gantt.Inject(DayMarkers)</code> method.
-    </p>
-</div>
-</div>
+        <div id="description">
+            <p>
+                The sorting feature enables you to order data in a particular direction. It can be enabled by setting
+                the <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowselection">allowSelection</a> to
+                true.
+            </p>
+            <p>To sort a Gantt column, click the column header. The icons (ascending) and (descending) specify the sort
+                direction of a column.</p>
+            <p>By default, the multi-sorting feature is enabled in Gantt. To sort multiple columns, hold the
+                <strong>CTRL</strong> key, and then click the column header. To clear sort for a column, hold the
+                <strong>SHIFT</strong> key, and then click the column header.
+            </p>
+            <p>In this demo, select the column and direction from the properties panel, and then click the Sort button.
+                Use the Clear button to remove sort for the sorted column.
+            </p>
+
+            <p>
+                Gantt control features are segregated into individual feature-wise modules. To use a selection, inject
+                the
+                <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code> method.To use sort, inject
+                the
+                <code>Sort</code> module using the <code>Gantt.Inject(Sort)</code> method.To use markers, inject the
+                <code>DayMarkers</code> module using the <code>Gantt.Inject(DayMarkers)</code> method.
+            </p>
+            <br>
+            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/gantt/sorting">documentation section</a>.</p>
+        </div>
+    </div>
 </template>
 <script>
 import { GanttComponent, Selection, DayMarkers, Sort } from "@syncfusion/ej2-vue-gantt";
@@ -84,27 +95,27 @@ import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 export default {
-  components: {
-    'ejs-gantt': GanttComponent,
-    'ejs-dropdownlist': DropDownListComponent,
-    'ejs-button': ButtonComponent
-  },
-  data: function() {
-      return{
+    components: {
+        'ejs-gantt': GanttComponent,
+        'ejs-dropdownlist': DropDownListComponent,
+        'ejs-button': ButtonComponent
+    },
+    data: function () {
+        return {
             data: editingData,
-            height: '450px',             
+            height: '650px',
             taskFields: {
-               id: 'TaskID',
-               name: 'TaskName',
-               startDate: 'StartDate',
-               endDate: 'EndDate',
-               duration: 'Duration',
-               progress: 'Progress',
-               dependency: 'Predecessor',
-               child: 'subtasks'
+                id: 'TaskID',
+                name: 'TaskName',
+                startDate: 'StartDate',
+                endDate: 'EndDate',
+                duration: 'Duration',
+                progress: 'Progress',
+                dependency: 'Predecessor',
+                parentID: 'ParentId'
             },
             columns: [
-                { field: 'TaskID', headerText: 'ID', width: 85 },
+                { field: 'TaskID', visible: false, headerText: 'ID', width: 80 },
                 { field: 'TaskName', headerText: 'TaskName', width: 250 },
                 { field: 'StartDate', headerText: 'StartDate' },
                 { field: 'EndDate', headerText: 'EndDate' },
@@ -117,10 +128,9 @@ export default {
             splitterSettings: {
                 columnIndex: 2
             },
-            projectStartDate: new Date('03/25/2024'),
-            projectEndDate: new Date('07/28/2024'),
+            projectStartDate: new Date('03/26/2025'),
+            projectEndDate: new Date('09/01/2025'),
             columnsData: [
-                { id: 'TaskID', type: 'TaskID' },
                 { id: 'TaskName', type: 'TaskName' },
                 { id: 'StartDate', type: 'StartDate' },
                 { id: 'EndDate', type: 'EndDate' },
@@ -137,21 +147,21 @@ export default {
             directionFields: {
                 text: 'type', value: 'id'
             }
-      };
-  },
-  provide: {
-      gantt: [DayMarkers, Selection, Sort]
-  },
-  methods: {
-      
-      sort: function() {
-        let columnName = this.$refs.columns.ej2Instances.value;
-        let sortType = this.$refs.direction.ej2Instances.value;
-        this.$refs.gantt.sortColumn(columnName, sortType, false);
+        };
     },
-       clear: function() {
-        this.$refs.gantt.clearSorting();
+    provide: {
+        gantt: [DayMarkers, Selection, Sort]
+    },
+    methods: {
+
+        sort: function () {
+            let columnName = this.$refs.columns.ej2Instances.value;
+            let sortType = this.$refs.direction.ej2Instances.value;
+            this.$refs.gantt.sortColumn(columnName, sortType, false);
+        },
+        clear: function () {
+            this.$refs.gantt.clearSorting();
+        }
     }
-  }
 }
 </script>

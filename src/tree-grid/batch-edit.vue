@@ -13,9 +13,16 @@
         </ejs-treegrid>
       </div>
    <div id="action-description">
-        <p>This sample demonstrates copy to clipboard functionality of the Tree Grid component. Select rows and click Copy
-        button from toolbar to copy content. To copy with header click Copy with header button from toolbar.</p>
-        </div>
+      <p>
+        This sample demonstrates CRUD operations in Tree Grid. You can perform CRUD operations as follows,
+      </p>
+      <ul>
+          <li><code>Add </code> - To add new record, click Add toolbar button.</li>
+          <li><code>Edit</code> - To edit record, double click a cell.</li>
+          <li><code>Delete</code> - To delete record, click toolbar Delete button after selected a row.</li>
+          <li><code>Update, Cancel</code> - You can save or discard changes by click toolbar Update and Cancel button respectively.</li>
+      </ul>
+    </div>
     <div id='description'>
           <p>The Tree Grid supports CRUD operations. This CRUD operations can be configured in Tree Grid using editSettings. Also, it has
             different modes to manipulate the datasource.</p>

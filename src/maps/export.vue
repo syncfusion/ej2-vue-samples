@@ -82,7 +82,7 @@
         More information on export can be found in this
         <a
           target="_blank"
-          href="https://ej2.syncfusion.com/documentation/maps/print/#export"
+          href="https://ej2.syncfusion.com/vue/documentation/maps/print#export"
         >documentation section</a>.
       </p> 
 </section>

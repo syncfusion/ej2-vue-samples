@@ -91,7 +91,8 @@ export default {
       },
       tooltip: {
         enable: true ,
-         shared: true, 
+         enableHighlight: true,
+         showNearestTooltip: true,
          enableMarker:false
       },
       border: {

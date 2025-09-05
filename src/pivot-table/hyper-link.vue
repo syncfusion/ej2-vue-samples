@@ -335,7 +335,7 @@ export default {
       enableSelectionOrder: false,
       Input1PlaceHolder: '"Example: 400"',
       Input2PlaceHolder: "Example: 4000",
-      TextPlaceHolder: 'Example: "FY 2015.In Stock"',
+      TextPlaceHolder: 'Example: "FY 2022.In Stock"',
       eventWidth: "300px"
     };
   },

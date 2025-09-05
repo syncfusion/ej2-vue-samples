@@ -3,7 +3,7 @@
 <div class="control-section">
     <div class="sample-container">
         <div class="default-section">
-        <ejs-richtexteditor ref="rteInstance" :actionBegin="handleFullScreen" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings" :iframeSettings="iframeSettings" :height="height" :fileManagerSettings="fileManagerSettings" :exportWord="exportWord" :exportPdf="exportPdf" :importWord="importWord">
+        <ejs-richtexteditor ref="rteInstance" :actionBegin="actionBeginHandler" :actionComplete="actionCompleteHandler" :toolbarSettings="toolbarSettings" :iframeSettings="iframeSettings" :height="height" :fileManagerSettings="fileManagerSettings" :quickToolbarSettings='quickToolbarSettings' :exportWord="exportWord" :exportPdf="exportPdf" :importWord="importWord">
             <p>The Rich Text Editor component is a WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content. 
             Users can format their content using standard toolbar commands.</p>
             <p><b>Key features:</b></p>
@@ -60,7 +60,7 @@ export default {
             toolbarSettings: {
          items: ['Undo', 'Redo', '|', 'ImportWord', 'ExportWord', 'ExportPdf', '|',
                 'Bold', 'Italic', 'Underline', 'StrikeThrough', 'InlineCode', '|', 'CreateLink', 'Image', 'CreateTable', 'CodeBlock',
-                'HorizontalLine', 'Blockquote', '|', 'BulletFormatList', 'NumberFormatList', '|', 'Formats', 'Alignments', '|', 'Outdent', 'Indent', '|',
+                'HorizontalLine', 'Blockquote', '|', 'BulletFormatList', 'NumberFormatList', 'Checklist', '|', 'Formats', 'Alignments', '|', 'Outdent', 'Indent', '|',
                 'FontColor', 'BackgroundColor', 'FontName', 'FontSize', '|', 'LowerCase', 'UpperCase', '|', 'SuperScript', 'SubScript', '|',
                 'EmojiPicker', 'FileManager', 'Video', 'Audio', '|', 'FormatPainter', 'ClearFormat',
                 '|', 'Print', 'FullScreen', '|', 'SourceCode']
@@ -90,6 +90,11 @@ export default {
               margin: 0;
           }
           `
+        },
+        quickToolbarSettings: {
+            table: ['Tableheader', 'TableRemove', '|', 'TableRows', 'TableColumns', 'TableCell', '|' , 'TableEditProperties', 'Styles', 'BackgroundColor', 'Alignments', 'TableCellVerticalAlign'],
+            text: ['Formats', '|', 'Bold', 'Italic', 'Fontcolor', 'BackgroundColor', '|', 'CreateLink', 'Image', 'CreateTable', 'Blockquote', '|' , 'Unorderedlist', 'Orderedlist', 'Indent', 'Outdent'],
+            showOnRightClick: true,
         },
     height: 500,
     fileManagerSettings: {
@@ -138,6 +143,11 @@ export default {
             addClass([leftBar], ['e-open']);
             transformElement.style.marginLeft = leftBar.offsetWidth + 'px'; }
             transformElement.style.transform = 'translateX(0px)';
+        }
+    },
+    actionBeginHandler: function(e) {
+        if (e.requestType === 'Maximize' || e.requestType === 'Minimize') {
+            this.handleFullScreen(e);
         }
     },
     actionCompleteHandler: function() {

@@ -9,7 +9,10 @@
             :taskFields= "taskFields"
             :editSettings= "editSettings"
             :toolbar= "toolbar"
-            :height= "height"
+
+:height="height"
+:rowHeight="46"
+:taskbarHeight="25"
             :labelSettings= "labelSettings"
             :allowUnscheduledTasks= "allowUnscheduledTasks"
             :projectStartDate= "projectStartDate"
@@ -27,11 +30,13 @@
     <div id="description">
      <p>
         Unscheduled tasks are tasks in a project that are not scheduled with proper dates or duration at the commencement of the project. These tasks can be scheduled properly at any time during project implementation based on factors such as resource availability, dependent tasks, and more.
-        This example shows how to display the unscheduled tasks in Gantt by enabling the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowunscheduledtasks">allowUnscheuldedTasks</a> property. This also shows how to add an empty row in Gantt by using a custom toolbar button click action. By using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#toolbarclick">toolbarClick</a> event and <code>addRecord</code> method, an empty row can be added at the top of the rows with undefined task details.
+        This example shows how to display the unscheduled tasks in Gantt by enabling the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowunscheduledtasks">allowUnscheduledTasks</a> property. This also shows how to add an empty row in Gantt by using a custom toolbar button click action. By using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#toolbarclick">toolbarClick</a> event and <code>addRecord</code> method, an empty row can be added at the top of the rows with undefined task details.
     </p>
     <p>
         Gantt component features are segregated into individual feature-wise modules. To use a toolbar and add support, inject the <code>Toolbar</code> and <code>Edit</code> modules.
     </p>
+     <br>
+    <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/scheduling-tasks#unscheduled-tasks">documentation section</a>.</p>
     </div>
   </div>
 </template>
@@ -58,24 +63,24 @@ export default {
             allowEditing: true
         },
         toolbar: [{ text: 'Insert task', tooltipText: 'Insert task at top', id: 'toolbarAdd', prefixIcon: 'e-add-icon tb-icons' }],
-        height: '350px',
+        height: '650px',
         labelSettings: {
             leftLabel: 'TaskName',
             rightLabel: 'TaskType'
         },
         columns: [
           {field: 'TaskId', width: 90, },
-          {field: 'TaskName', width: 80 },
-          {field: 'StartDate', width: 120},
+          {field: 'TaskName', width: 100 },
+          {field: 'StartDate', width: 180},
           {field: 'EndDate', width: 120 },
-          {field: 'Duration', width: 90 }
+          {field: 'Duration', width: 150 }
         ],
         splitterSettings: {
           columnIndex: 4
         },
         allowUnscheduledTasks: true,
-        projectStartDate: new Date('01/01/2024'),
-        projectEndDate: new Date('01/20/2024')
+        projectStartDate: new Date('12/29/2024'),
+            projectEndDate: new Date('02/08/2025'),
     };
   },
   provide: {

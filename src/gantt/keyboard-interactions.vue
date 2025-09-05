@@ -4,7 +4,10 @@
         <div class="content-wrapper">
         <ejs-gantt ref='gantt' id="KeyboardNavigation" 
         :dataSource= "data"        
-        :height = "height"       
+
+:height="height"
+:rowHeight="46"
+:taskbarHeight="25"
         :highlightWeekends= 'true'
         :allowKeyboard= 'true'         
         :taskFields= "taskFields"
@@ -365,6 +368,8 @@
             <td>Redo Last Action</td>
         </tr>
         </table>
+        <br>
+    <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started">documentation section</a>.</p>
     </div>
 </div>
 </template>
@@ -379,7 +384,7 @@ export default {
   data: function() {
       return{
             data: projectNewData,
-            height: '450px',             
+            height: '650px',             
             taskFields: {
                id: 'TaskID',
                name: 'TaskName',
@@ -388,7 +393,7 @@ export default {
                duration: 'Duration',
                progress: 'Progress',
                dependency: 'Predecessor',
-               child: 'subtasks'
+                parentID: 'ParentId'
             },
             columns: [
                 { field: 'TaskID', width: 80 },
@@ -411,8 +416,8 @@ export default {
                 allowDeleting: true,
             },
             toolbar: ['Search'],
-            projectStartDate: new Date('03/24/2024'),
-            projectEndDate: new Date('07/06/2024'),
+            projectStartDate: new Date('03/26/2025'),
+            projectEndDate: new Date('07/20/2025')
       };
   },
   provide: {

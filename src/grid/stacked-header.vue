@@ -34,7 +34,7 @@
 
             <template v-slot:locationTemplate="{ data }">
               <div>
-                <img src="src/grid/images/Map.png" class="e-grid-location-image" alt="Location" />
+                <img :src="'src/grid/images/Map.png'" class="e-grid-location-image" alt="Location" />
                 <span>{{ data.ShipCountry }}</span>
               </div>
             </template>

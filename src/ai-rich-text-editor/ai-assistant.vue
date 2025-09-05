@@ -127,7 +127,7 @@
 <script>
 import { enableRipple } from '@syncfusion/ej2-base';
 import { OpenAiModel } from '../common/openai-model';
-import { Toolbar, Link, Image, QuickToolbar, HtmlEditor, ToolbarClickEventArgs, RichTextEditorComponent } from '@syncfusion/ej2-vue-richtexteditor';
+import { Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, ToolbarClickEventArgs, RichTextEditorComponent } from '@syncfusion/ej2-vue-richtexteditor';
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { SkeletonComponent, ToastComponent } from '@syncfusion/ej2-vue-notifications';
@@ -190,11 +190,13 @@ export default {
                 items: [
                     {
                         tooltipText: 'AI Assistant',
-                        template: this.aiAssistTemplate
+                        template: this.aiAssistTemplate,
+                        command: 'Custom'
                     },
                     {
                         tooltipText: 'Rephrase',
-                        template: this.rephraseTemplate
+                        template: this.rephraseTemplate,
+                        command: 'Custom'
                     },
                     'Bold',
                     'Italic',
@@ -433,7 +435,7 @@ export default {
         this.$refs.dialog.hide();
     },
     provide: {
-        richtexteditor: [Toolbar, Link, Image, QuickToolbar, HtmlEditor]
+        richtexteditor: [Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table]
     }
 }
 

@@ -23,7 +23,7 @@
                     <tbody>
                         <tr>
                             <td rowspan="4" style="text-align: center;">
-                                <img class='photo' :src="'source/grid/images/' + data.EmployeeID + '.png'" :alt="data.EmployeeID" />
+                                <img class='photo' :src="'src/grid/images/' + data.EmployeeID + '.png'" :alt="data.EmployeeID" />
                             </td>
                             <td>
                                 <span style="font-weight: 500;">First Name: </span> {{data.FirstName}}

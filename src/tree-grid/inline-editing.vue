@@ -1,7 +1,7 @@
 <template>
 <div class="control-section">
       <div class="col-md-9 control-section">
-           <ejs-treegrid :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :selectedRowIndex=2 height='380' :editSettings='editSettings' :toolbar='toolbar'>
+           <ejs-treegrid id='editTreegrid' :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' :selectedRowIndex=2 height='380' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
                <e-column field='taskID' headerText='Task ID' width='90' textAlign='Right' isPrimaryKey='true' :edit='editparams' :validationRules='taskidrules'></e-column>
                <e-column field='taskName' headerText='Task Name' width='190'  editType= 'stringedit' :validationRules='tasknamerules'></e-column>
@@ -116,13 +116,15 @@ export default {
     },
      methods:{
        onChange: function(e: ChangeEventArgs): void {
+         let treeGridObj = (document.getElementById('editTreegrid') as any)?.ej2_instances[0] as any;
            if(e.value === 'Row'){
                (this as any).editSettings = { allowDeleting: true, allowEditing: true, allowAdding: true, mode: <any>e.value };
                (this as any).toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Indent', 'Outdent'];
            } else {
                (this as any).editSettings = { allowDeleting: true, allowEditing: true, allowAdding: true, mode: <any>e.value };
                (this as any).toolbar = ['Add', 'Delete', 'Update', 'Cancel', 'Indent', 'Outdent'];
-           }       
+           }   
+          treeGridObj.refreshToolbarItems();     
      }
     }
 }
