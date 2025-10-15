@@ -14,15 +14,6 @@
                     :eventMarkers="eventMarkers" :labelSettings="labelSettings" :height="'650px'" :rowHeight="46"
                     :taskbarHeight="25" :allowSelection="true" :projectStartDate="projectStartDate"
                     :projectEndDate="projectEndDate" :highlightWeekends="true" :actionComplete="actionComplete">
-
-                    <template v-slot:columnTemplate="{ data }">
-                        <div class="columnTemplate" v-if="data.ganttProperties.resourceNames">
-                            <img :src="'src/gantt/images/' +
-                                data.ganttProperties.resourceNames +
-                                '.png'
-                                " style="height: 25px; width: 25px" :alt="data.ganttProperties.resourceNames" />
-                        </div>
-                    </template>
                 </ejs-gantt>
             </div>
         </div>
@@ -131,7 +122,10 @@ export default {
                         showColumnMenu: true,
                         columns: [
                             { field: 'resourceId', width: 70 },
-                            { field: 'resourceName', headerText: 'Resource Name', template: "'columnTemplate'", width: 204 },
+                            { 
+                                field: 'resourceName', headerText: 'Resource Name', width: 204,
+                                template: '<div class="image"><img src="src/gantt/images/${resourceName}.png" style="height:25px;width:25px" /><div style="display:inline-block;width:100%;position:relative;left:5px">${resourceName}</div></div>',
+                            },
                             { field: 'unit', width: 84 },
                             {
                                 field: 'role',
@@ -171,7 +165,10 @@ export default {
                         showColumnMenu: true,
                         columns: [
                             { field: 'resourceId', width: 70 },
-                            { field: 'resourceName', headerText: 'Resource Name', width: 204 },
+                            { 
+                                field: 'resourceName', headerText: 'Resource Name', width: 204,
+                                template: '<div class="image"><img src="src/gantt/images/${resourceName}.png" style="height:25px;width:25px" /><div style="display:inline-block;width:100%;position:relative;left:5px">${resourceName}</div></div>',
+                            },
                             { field: 'unit', width: 84 },
                             {
                                 field: 'role',

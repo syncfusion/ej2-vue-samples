@@ -5,7 +5,7 @@
         <ejs-gantt ref="criticalPath" id="criticalPath" enableCriticalPath="true" :editSettings="editSettings"
           :dataSource="dataSource" :taskFields="taskFields" :toolbar="toolbar" :height="height" :rowHeight="46"
           :taskbarHeight="25" :labelSettings="labelSettings" :projectStartDate="projectStartDate"
-          :projectEndDate="projectEndDate" :columns="columns" :splitterSettings="splitterSettings"></ejs-gantt>
+          :columns="columns" :splitterSettings="splitterSettings"></ejs-gantt>
       </div>
     </div>
     <div id="action-description">
@@ -84,8 +84,7 @@ export default {
       splitterSettings: {
         columnIndex: 3
       },
-      projectStartDate: new Date('03/26/2025'),
-      projectEndDate: new Date('06/01/2025')
+      projectStartDate: new Date('03/26/2025')
     };
   },
   provide: {

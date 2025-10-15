@@ -15,7 +15,7 @@
           :rowHeight="46" :taskbarHeight="25" :treeColumnIndex="1" :toolbarClick="toolbarClick"
           :resourceFields="resourceFields" :resources="resources" :highlightWeekends="true"
           :timelineSettings="timelineSettings" :labelSettings="labelSettings" :projectStartDate="projectStartDate"
-          :projectEndDate="projectEndDate" :columns="columns" :allowPdfExport="true"
+          :columns="columns" :allowPdfExport="true"
           :pdfQueryTaskbarInfo="pdfQueryTaskbarInfo" :holidays="holidays" :eventMarkers="eventMarkers"
           :splitterSettings="splitterSettings" :enableCriticalPath="true" :queryTaskbarInfo="queryTaskbarInfo">
           <template v-slot:leftLabelTemplate="{ data }">
@@ -178,7 +178,6 @@ export default {
         rightLabel: "rightLabelTemplate"
       },
       projectStartDate: new Date("03/25/2025"),
-      projectEndDate: new Date("06/25/2025"),
       columns: [
         { field: "TaskID" },
         { field: "TaskName", width: "250" },
