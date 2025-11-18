@@ -3,22 +3,22 @@
     <div class="control-section">
         <ejs-maps id='mapContainer' :loaded='loaded' :load='load' :resize='resize' :titleSettings='titleSettings' :zoomSettings='zoomSettings' :legendSettings='legendSettings'>
             <template v-slot:pieOneTemplate="{}">
-                <div id="pieChart1" style="height:70px;width:70px;"></div>
+                <div id="pieChart1" style="top:45px;left:65px;height:150px;width:200px;"></div>
             </template>
             <template v-slot:pieTwoTemplate="{}">
-                <div id="pieChart2" style="height:70px;width:70px;"></div>
+                <div id="pieChart2" style="top:35px;left:65px;height:150px;width:200px;"></div>
             </template>
             <template v-slot:pieThreeTemplate="{}">
-                <div id="pieChart3" style="top:10px;left:10px;height:70px;width:70px;"></div>
+                <div id="pieChart3" style="top:-5px;left:10px;height:150px;width:200px;"></div>
             </template>
             <template v-slot:pieFourTemplate="{}">
-                <div id="pieChart4" style="height:70px;width:70px;"></div>
+                <div id="pieChart4" style="top:-5px;left:55px;height:150px;width:200px;"></div>
             </template>
             <template v-slot:pieFiveTemplate="{}">
-                <div id="pieChart5" style="height:70px;width:70px;"></div>
+                <div id="pieChart5" style="top:-40px;left:85px;height:130px;width:200px;"></div>
             </template>
             <template v-slot:pieSixTemplate="{}">
-                <div id="pieChart6" style="height:70px;width:70px;"></div>
+                <div id="pieChart6" style="top:35px;left:65px;height:150px;width:200px;"></div>
             </template>
             <e-layers>
                 <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings'>
@@ -128,9 +128,9 @@ export default {
             },
             pieOneDataSource: [{ 'latitude': 61.938950426660604, 'longitude': 97.03125 }],
             pieTwoDataSource: [{ 'latitude': 57.70414723434193, 'longitude': -114.08203125 }],
-            pieThreeDataSource: [{ 'latitude': 39.90973623453719, 'longitude': -103.0078125 }],
-            pieFourDataSource: [{ 'latitude': 35.746512259918504, 'longitude': 102.216796875 }],
-            pieFiveDataSource: [{ 'latitude': -8.667918002363107, 'longitude': -52.55859375 }],
+            pieThreeDataSource: [{ 'latitude': 10.555037013237452, 'longitude': -64.1160548956648 }],
+            pieFourDataSource: [{ 'latitude': 9.774059122564566, 'longitude': 108.77498325892299 }],
+            pieFiveDataSource: [{ 'latitude': -52.313430655959614, 'longitude': -66.26827567737013 }],
             pieSixDataSource: [{ 'latitude': -23.725011735951796, 'longitude': 132.978515625 }]
         }
     },

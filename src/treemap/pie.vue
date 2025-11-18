@@ -126,7 +126,7 @@ methods:{
         
         background: 'transparent',
         tooltip: {
-            enable: true,
+            enable: false,
             format: '${point.x} : ${point.y}%'
         }
     });

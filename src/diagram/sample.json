@@ -139,8 +139,7 @@
       "name": "Symbol Palette",
       "order": 0,
       "description": "This example illustrates predefining shapes in a palette that can be easily dragged and dropped into the drawing area. Customizable options of the symbol palette are also illustrated in this example.",
-      "category": "Getting Started",
-      "type": "update"
+      "category": "Getting Started"
     },
     {
       "url": "zooming-and-panning",
@@ -337,22 +336,19 @@
       "name": "Shortest Path Visualizer",
       "order": 7,
       "description": "Visualize shortest paths using Dijkstra’s algorithm in Syncfusion EJ2 Diagram. Interactive graph with animated connectors and dynamic node styling.",
-      "category": "Use Case Diagram",
-      "type": "new"
+      "category": "Use Case Diagram"
     },
     {
       "url": "tournament-bracket",
       "name": "Tournament Bracket",
       "order": 7,
       "description": "Follow the UEFA Champions League journey with Syncfusion EJ2 Diagram. Interactive bracket with match details, animated progression, and champion highlights.",
-      "category": "Use Case Diagram",
-      "type": "new"
+      "category": "Use Case Diagram"
     },
     {
      "url": "seat-booking",
      "name": "Ticket Booking",
      "order": 7,
-     "type": "new",
      "description": "Book cinema seats interactively with Syncfusion EJ2 Diagram. Select seats by tier, view real-time pricing, and confirm bookings with dynamic updates and responsive design.",
      "category": "Use Case Diagram"
     },
@@ -361,30 +357,42 @@
       "name": "Spiral Diagram",
       "order": 7,
       "description": "Visualize the software development lifecycle with a spiral diagram in Syncfusion EJ2. Interactive nodes, custom icons, and tooltips illustrate iterative project stages from ideation to deployment.",
-      "category": "Use Case Diagram",
-      "type": "new"
+      "category": "Use Case Diagram"
     },
     {
       "url": "puzzle",
       "name": "Image Puzzle",
       "order": 7,
       "description": "Play a sliding image puzzle with Syncfusion EJ2 Diagram. Drag tiles, track moves and time, and enjoy multiple themes with pause and clue options.",
-      "category": "Use Case Diagram",
-      "type": "new"
+      "category": "Use Case Diagram"
     },      
     {
       "url": "periodic-table",
       "name": "Periodic Table",
       "order": 7,
       "description": "Explore the Periodic Table interactively with Syncfusion EJ2 Diagram. Color-coded elements, hover details, and dynamic highlighting by period and group make learning chemistry engaging.",
-      "category": "Use Case Diagram",
-      "type": "new"
+      "category": "Use Case Diagram"
     },
     {
       "url": "history-timeline",
       "name": "History Timeline",
       "order": 7,
       "description": "Explore Internet history with an interactive timeline built using Syncfusion EJ2 Diagram. Add, edit, and visualize key milestones with  color-coded segments.",
+      "category": "Use Case Diagram"
+    },
+    {
+      "url": "funnel-diagram",
+      "name": "Funnel Diagram",
+      "order": 7,
+      "description": "Infographic funnel diagram with customizable node shapes and colors, showing stage-wise conversion and cumulative rates to assess marketing performance.",
+      "category": "Use Case Diagram",
+      "type": "new"
+    },
+    {
+      "url": "angle-diagram",
+      "name": "Solar Panle Angle",
+      "order": 7,
+      "description": "Demonstrate a smart solar panel tilt system using Syncfusion® EJ2 Vue Diagram. Interactively adjust panel angles, track efficiency, and optimize based on sun position and location.",
       "category": "Use Case Diagram",
       "type": "new"
     },
@@ -393,23 +401,22 @@
       "name": "P&ID Diagram",
       "order": 8,
       "description": "Simulate a real-time chemical reactor P&ID using Syncfusion EJ2 Diagram. Control fluid flows, tank levels, and temperature with interactive elements and live animations.",
-      "category": "Real-time Diagrams",
-      "type": "new"
+      "category": "Real-time Diagrams"
     },
     {
       "url": "neural-network",
       "name": "Neural Network",
       "order": 8,
       "description": "Explore neural network architecture with Syncfusion EJ2 Diagram. Visualize layers, weights, and data flow with nodes and connections.",
-      "category": "Real-time Diagrams",
-      "type": "new"
+      "category": "Real-time Diagrams"
     },
     {
       "url": "venn-diagram",
       "name": "Venn Diagram",
       "order": 8,
-      "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visually represents the hotel booking reservation system. It is built with readymade BPMN shapes.",
-      "category": "Real-time Diagrams"
+      "description": "This Vue Venn Diagram shows set relationships and overlapping data visualization for statistical analysis and logical comparisons.",
+      "category": "Real-time Diagrams",
+      "type": "update"
     },
     
     {
