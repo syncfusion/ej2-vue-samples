@@ -2,15 +2,18 @@
     "name": "Markdown Editor",
     "directory": "mark-down-editor",
     "category": "File Viewers & Editors",
+    "type": "update",
     "samples": [{
         "url": "overview",
         "name": "Overview",
+        "type": "update",
         "category": "Markdown Editor",
-        "description": "This demo shows how to render a vue Markdown editor with LIVE preview for markdown content editing using a third-party library, 'marked js'."
+        "description": "This demo shows how to render a vue Markdown editor with LIVE preview for markdown content editing using Syncfusion’s Markdown converter."
         },
         {
             "url": "default-functionalities",
             "name": "Default Functionalities",
+            "type": "update",
             "category": "Markdown Editor",
             "description": "This demo covers all supported features and functionalities of the vue Markdown editor, which  is another mode of the vue Rich Text Editor."
         },

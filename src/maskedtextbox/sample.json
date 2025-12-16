@@ -3,6 +3,7 @@
     "directory": "maskedtextbox",
     "category": "Inputs",
     "ftName": "maskedtextbox", 
+    "type": "update",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -26,6 +27,13 @@
             "name": "Two-Way Binding",
             "category": "Input Mask",
             "description": "This sample demonstrates the two way bindig in masked textbox. when you change the value in one masked textbox component, it will update in the other masked textbox by using value property."
+        },
+        {
+            "url": "adornments",
+            "name": "Adornments",
+            "category": "Input Mask",
+            "type": "new",
+            "description": "The example exposes a Vue Masked TextBox with adornments support. It helps to render custom elements before or after the input element."
         }
 
     ]

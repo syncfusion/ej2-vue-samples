@@ -119,7 +119,7 @@
 </style>
 <script>
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, FileManager } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, FileManager, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 
 export default {
@@ -300,7 +300,7 @@ export default {
             leftBar = document.querySelector('#left-sidebar');
             transformElement = document.querySelector('#right-pane');
         }
-        if (e.targetItem === 'Maximize' && sbCntEle != null || sbHdrEle != null) {
+        if (e.targetItem === 'Maximize' && sbCntEle != null && sbHdrEle != null) {
             if (Browser.isDevice && Browser.isIos) {
                 addClass([sbCntEle, sbHdrEle], ['hide-header']);
             }
@@ -309,7 +309,7 @@ export default {
             if (!Browser.isDevice) { transformElement.style.marginLeft = '0px'; }
             transformElement.style.transform = 'inherit';
             sbHdrEle.style.cssText = 'z-index: 100 !important;';
-        } else if (e.targetItem === 'Minimize' && sbCntEle != null || sbHdrEle != null) {
+        } else if (e.targetItem === 'Minimize' && sbCntEle != null && sbHdrEle != null) {
             if (Browser.isDevice && Browser.isIos) {
                 removeClass([sbCntEle, sbHdrEle], ['hide-header']);
             }
@@ -328,7 +328,7 @@ export default {
     },
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, FileManager]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, FileManager, ClipBoardCleanup, AutoFormat]
     }
 }
 </script>

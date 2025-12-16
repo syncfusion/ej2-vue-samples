@@ -4,14 +4,7 @@
       <div class="sample-container">
         <div class="default-section">
           <div id="defaultRTE">
-            <ejs-richtexteditor id="MDdefault" ref="rteInstance" :toolbarSettings="toolbarSettings" :formatter="formatter" :created="created" :editorMode="editorMode" :height="height">
-The sample is added to showcase **markdown editing**.
-
-Type or edit the content and apply formatting to view markdown formatted content.
-
-We can add our own custom formation syntax for the Markdown formation, [sample link](https://ej2.syncfusion.com/home/).
-
-The third-party library <b>Marked</b> is used in this sample to convert markdown into HTML content.
+            <ejs-richtexteditor id="MDdefault" ref="rteInstance" :toolbarSettings="toolbarSettings" :formatter="formatter" :created="created" :editorMode="editorMode" :height="height" :value ="value">
             </ejs-richtexteditor>
           </div>
         </div>
@@ -39,7 +32,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
       <p><b>Injecting Module</b></p>
       <p>Rich Text Editor component features are segregated into individual feature-wise modules. To use Rich Text
         Editor feature, we need to inject <code>Toolbar, Link, Image, MarkdownEditor, Table</code> into the <code>provide</code> section.</p>
-      <p>The third-party library <code>Marked</code> is used in this sample to convert markdown into HTML content.</p>
+      <p>Syncfusion's <code>Markdown Converter</code> is used in this sample to convert markdown into HTML content.</p>
     </div>
   </div>
 </template>
@@ -102,7 +95,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
   import { RichTextEditorComponent, Toolbar, Link, Image, MarkdownEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";
   import { MarkdownFormatter } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from "@syncfusion/ej2-vue-base";  
-  import { marked } from 'marked';
+  import { MarkdownConverter } from "@syncfusion/ej2-markdown-converter";
 
   export default {
     components: {
@@ -115,7 +108,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
         htmlPreview: null,
         textArea: null,
         previewTextArea: null,
-        height: "250px",
+        height: "520px",
         editorMode: "Markdown",
         placeholder : "Enter your text here...",
         formatter: new MarkdownFormatter({ listTags: { 'OL': '1., 2., 3.'} }),
@@ -126,7 +119,26 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
               '<span class="e-btn-icon e-md-preview e-icons"></span></button>'
               }, "|", "Undo", "Redo"
           ]
-        }
+        },
+        value: `# 🚀 My Project
+A simple yet powerful project that does amazing things.  
+**Bold text** for emphasis, *italic* for subtlety, ~~strikethrough~~ for corrections, and <u>underline</u> for highlights.
+
+## ✨ Features
+- Fast and efficient  
+- Easy to use  
+- Fully customizable  
+
+## 🛠️ How to Use
+1. Download the file  
+2. Open it directly  
+3. Start using immediately  
+
+## 🤝 Contributing
+Check out our **Contributing Guide** for details.
+
+## 📄 License
+This project is licensed under the **MIT License** – see the LICENSE file for details.`
       };
     },
     methods: {
@@ -151,7 +163,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
       },
       markDownConversion: function() {
         if (this.mdsource.classList.contains("e-active")) {
-          this.htmlPreview.innerHTML = marked(this.textArea.value);
+          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
         }
       },
       fullPreview: function() {
@@ -174,7 +186,7 @@ The third-party library <b>Marked</b> is used in this sample to convert markdown
           }
           this.textArea.style.display = "none";
           this.htmlPreview.style.display = "block";
-          this.htmlPreview.innerHTML = marked(this.textArea.value);
+          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
           this.mdsource.parentElement.title = "Code View";
         }
       }

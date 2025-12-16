@@ -26,7 +26,7 @@
       "description": "This demo for Essential<sup>®</sup> JS 2 Tree Grid component shows the loading indicator when Tree Grid loading and refreshing."
      },
      {
-      "url": "empty-record-template", "name": "Empty Record Template", "category": "Tree Grid", "type": "new", "api": { "TreeGrid": ["columns", "dataSource", "allowFiltering", "toolbar", "editSettings"] },
+      "url": "empty-record-template", "name": "Empty Record Template", "category": "Tree Grid", "api": { "TreeGrid": ["columns", "dataSource", "allowFiltering", "toolbar", "editSettings"] },
       "description": "This demo demonstrates how to use Essential<sup>®</sup> JS 2 Tree Grid to display a custom template when the Tree Grid is rendered with an empty data source."
      },
      {
@@ -49,7 +49,7 @@
         "description": "This example illustrates binding self-referential flat data with parent ID to a Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
      },
      {  
-        "url":"custom-binding", "name": "Custom Binding", "type" : "new", "category":"Data Binding","api":{"TreeGrid":["dataSource","allowPaging", "columns","treeColumnIndex","idMapping","parentIdMapping","allowSorting"] },
+        "url":"custom-binding", "name": "Custom Binding", "category":"Data Binding","api":{"TreeGrid":["dataSource","allowPaging", "columns","treeColumnIndex","idMapping","parentIdMapping","allowSorting"] },
         "description": "This sample demonstrates the usage of the TreeGrid with the Fetch API. Paging and sorting can be performed in this sample."
      },
      {
@@ -80,7 +80,7 @@
     "description": "This demo explains how to resize the width of the Tree Grid columns in Syncfusion<sup>®</sup> Essential JS2 Tree Grid control." 
    },
    {
-      "url":"stackedheader", "name": "Stacked Header","type":"update", "category":"Columns","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","allowPaging","pageSettings","columns"] },
+      "url":"stackedheader", "name": "Stacked Header", "category":"Columns","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","allowPaging","pageSettings","columns"] },
       "description": "This demo explains how to provide a common header for the group of columns in Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
    },
    {  
@@ -88,7 +88,7 @@
       "description": "This demo explains the default functionalities of the Column Menu in Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
    },
    {
-      "url":"autowrap", "name": "AutoWrap Column Cells", "category":"Columns","api":{"TreeGrid":["dataSource", "childMapping", "treeColumnIndex","allowPaging","allowTextWrap","columns","pageSettings"] },
+      "url":"autowrap", "name": "AutoWrap Column Cells", "category":"Columns","type":"update","api":{"TreeGrid":["dataSource", "childMapping", "treeColumnIndex","allowPaging","allowTextWrap","columns","pageSettings"] },
       "description": "This demo explains how to wrap the content of columns within the specified width of Tree Grid columns in Syncfusion<sup>®</sup> Essential JS2 Tree Grid control." 
    },
       {  
@@ -124,7 +124,11 @@
         "url":"rowheight", "name": "Row Height", "category":"Rows","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","rowHeight","allowPaging","toolbarClick","columns","toolbar"] },
         "description": "This demo explains the way of customizing the row height of Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
      },
-	
+	   {  
+        "url":"row-spanning", "name": "Row Spanning (API)", "category":"Rows","type":"new","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","rowHeight"] },
+        "description": "This demo shows the customize of row span and col span of Treegrid of Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
+      },
+
    
      {
          "url":"inline-editing", "name": "Inline Editing", "category": "Editing","api":{"TreeGrid":["dataSource", "childMapping", "treeColumnIndex","height", "editSettings", "toolbar", "columns"] },
@@ -216,7 +220,7 @@
          "description": "This demo explains how to display the summary values such as average, minimum, etc., for the columns in Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
       },
       {
-         "url":"custom-aggregate", "name": "Custom Aggregate", "type":"update", "category": "Aggregates","api":{"TreeGrid":["dataSource","width","childMapping", "treeColumnIndex","height","columns","aggregates", "toolbar", "toolbarClick", "allowPdfExport", "allowExcelExport"] },
+         "url":"custom-aggregate", "name": "Custom Aggregate", "category": "Aggregates","api":{"TreeGrid":["dataSource","width","childMapping", "treeColumnIndex","height","columns","aggregates", "toolbar", "toolbarClick", "allowPdfExport", "allowExcelExport"] },
          "description": "This demo explains how to display the custom aggregate for the columns in Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
       },
      {

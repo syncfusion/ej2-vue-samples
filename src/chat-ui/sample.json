@@ -1,9 +1,9 @@
 {
     "name": "Chat UI",
+    "type": "update",
     "directory": "chat-ui",
     "category": "Interactive Chat",
     "ftName": "chat-ui",
-    "type": "preview",
     "dataSourcePath": "src/chat-ui/messageData.json",
     "samples": [
         {
@@ -28,6 +28,17 @@
             ]
         },
         {
+            "url": "attachments",
+            "name": "File Attachments",
+            "category": "Chat UI",
+            "type": "new",
+            "api":{ "ChatUI": ["user", "attachmentSettings", "enableAttachments", "headerText", "headerIconCss", "emptyChatTemplate", "headerToolbar", "messages"] },
+            "description": "Showcases the chat component integration with other Chat UI control",
+            "sourceFiles": [
+                { "displayName": "attachments.vue", "path":"src/chat-ui/attachments.vue" }
+            ]
+        },
+        {
             "url": "template",
             "name": "Template",
             "category": "Chat UI",
@@ -42,7 +53,6 @@
             "url": "api",
             "name": "API",
             "category": "Chat UI",
-            "type":"update",
             "api":{ "ChatUI": ["messages", "user", "timeStampFormat", "showTimeStamp", "headerText", "headerIconCss"] },
             "description": "Showcases the API combinations of the Chat UI control.",
             "sourceFiles": [

@@ -224,7 +224,7 @@
 
 <script>
 import { SplitterComponent, PanesDirective, PaneDirective } from "@syncfusion/ej2-vue-layouts";
-import { RichTextEditorComponent, Toolbar, Link, Image, Table, Count, HtmlEditor, QuickToolbar, PasteCleanup, EmojiPicker, Audio, Video, FormatPainter } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, Table, Count, HtmlEditor, QuickToolbar, PasteCleanup, EmojiPicker, Audio, Video, FormatPainter, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 import { Browser } from "@syncfusion/ej2-base";
 import CodeMirror from 'codemirror';
 
@@ -236,7 +236,7 @@ export default {
     "e-pane": PaneDirective,
   },
   provide: {
-    richtexteditor: [Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, PasteCleanup, EmojiPicker, Audio, Video, FormatPainter],
+    richtexteditor: [Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, Table, PasteCleanup, EmojiPicker, Audio, Video, FormatPainter, ClipBoardCleanup, AutoFormat],
   },
   data: function () {
     return {

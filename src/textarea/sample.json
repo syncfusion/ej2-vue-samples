@@ -3,6 +3,7 @@
     "directory": "textarea",
     "category": "Inputs",
     "ftName": "textbox",
+    "type": "update",
     "hideOnDevice": true,
     "samples": [{
             "url": "default",
@@ -27,6 +28,13 @@
             "name": "Two-way Binding",
             "category": "TextArea",
             "description":"The Vue TextArea component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve sync with data in the DOM."
+        },
+        {
+            "url": "adornments",
+            "name": "Adornments",
+            "category": "TextArea",
+            "type": "new",
+            "description":"The example exposes a Vue textarea with adornments support. It helps to render custom elements before or after the textarea element."
         },
         {
             "url": "api",

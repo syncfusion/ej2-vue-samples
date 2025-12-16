@@ -406,10 +406,6 @@ padding-left: 18px;">
   width: 200px;
 }
 
-#password-info {
-  position: absolute;
-  margin-top: 38px;
-}
 </style>
 
 <script>
@@ -544,6 +540,12 @@ export default {
   mounted: function() {
     barCodeInstance = this.$refs.barcodeControl.ej2Instances;
     formObject = new FormValidator("#form-element", options);
+    let input = document.getElementById("textbox");
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault()
+        }
+    });
   }
 };
 </script>

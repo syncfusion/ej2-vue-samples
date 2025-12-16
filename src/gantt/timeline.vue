@@ -331,7 +331,7 @@ export default {
     } else {
       this.$refs.topTierFormat.ej2Instances.dataSource = this.hourformat;
     }
-    this.$refs.topTierFormat.ej2Instances.refresh();
+    this.$refs.topTierFormat.ej2Instances.value = this.$refs.topTierFormat.ej2Instances.dataSource[0].id;
     this.updateUnitWidth(unit, 'top');
     this.$refs.gantt.ej2Instances.timelineSettings.topTier.unit = unit;
   },
@@ -349,7 +349,7 @@ export default {
     } else {
       this.$refs.bottomTierFormat.ej2Instances.dataSource = this.hourformat;
     }
-    this.$refs.bottomTierFormat.ej2Instances.refresh();
+    this.$refs.bottomTierFormat.ej2Instances.value = this.$refs.bottomTierFormat.ej2Instances.dataSource[0].id;
     this.updateUnitWidth(unit, 'bottom');
     this.$refs.gantt.ej2Instances.timelineSettings.bottomTier.unit = unit;
   },

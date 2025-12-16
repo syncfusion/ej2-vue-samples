@@ -239,15 +239,17 @@ export default {
       }
     },
     fieldOnChange: function(args: dropEventArgs) {
-      let valuesddl = ((this as any).$refs.values).ej2Instances;
-      let typeddl = ((this as any).$refs.type).ej2Instances;
-      valuesddl.dataSource = fieldCollections[args.value.toString()];
-      valuesddl.value = this.getSelectedMembers(args.value.toString());
-      if (filterCollections[args.value.toString()]) {
-        typeddl.value = filterCollections[args.value.toString()].type;
+      if (args.value) {
+        let valuesddl = ((this as any).$refs.values).ej2Instances;
+        let typeddl = ((this as any).$refs.type).ej2Instances;
+        valuesddl.dataSource = fieldCollections[args.value.toString()];
+        valuesddl.value = this.getSelectedMembers(args.value.toString());
+        if (filterCollections[args.value.toString()]) {
+          typeddl.value = filterCollections[args.value.toString()].type;
+        }
+        valuesddl.dataBind();
+        typeddl.dataBind();
       }
-      valuesddl.dataBind();
-      typeddl.dataBind();
     },
     memberOnSelect: function(args: SelectEventArgs) {
       let fieldsddl = ((this as any).$refs.fields).ej2Instances;

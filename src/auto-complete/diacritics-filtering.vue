@@ -2,7 +2,7 @@
 <div>
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
-            <ejs-autocomplete id='diacritics' :dataSource='data' :ignoreAccent='true' placeholder='e.g. gul'></ejs-autocomplete>
+            <ejs-autocomplete id='diacritics' :popupHeight='height' :dataSource='data' :ignoreAccent='true' placeholder='e.g. gul'></ejs-autocomplete>
         </div>
     </div>
     <div id="action-description">
@@ -27,7 +27,8 @@ export default {
     },
     data: function() {
         return {
-            data:data['data']
+            data:data['data'],
+            height: '200px',
         };
     }
 }

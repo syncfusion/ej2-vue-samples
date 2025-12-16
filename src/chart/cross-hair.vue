@@ -375,6 +375,7 @@ export default {
       tooltip: {
         enable: true,
             showNearestTooltip: true,
+            location: { x: 70, y: 52 },
             format: '<b>${point.x}</b> <br>Stock Price : <b>${point.y}</b>',
             header: '',
             enableMarker: false

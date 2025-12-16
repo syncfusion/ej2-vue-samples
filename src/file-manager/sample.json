@@ -3,6 +3,7 @@
     "directory": "file-manager",
     "category": "Navigation",
     "ftName" :"file-manager",
+    "type": "update",
     "samples": [{
         "url": "overview",
         "name": "Overview",
@@ -41,8 +42,17 @@
         "url": "directory-upload",
         "name": "Directory upload",
         "category": "File Manager",
+        "type": "update",
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates how to upload the folder (directory) by using custom toolbar item with in a Vue File Manager."
+    },
+    {
+        "url": "sequential-upload",
+        "name": "Sequential upload",
+        "category": "File Manager",
+        "type": "new",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates enabling sequential file uploads in which files are uploaded one at a time in the order they were added."
     },
     {
         "url": "virtualization",
@@ -50,6 +60,14 @@
         "category": "File Manager",
         "api": { "FileManager": ["ajaxSettings", "view"] },
         "description": "This example demonstrates the how to enable the virtual scrolling feature in a Vue File Manager."
+    },
+    {
+        "url": "template",
+        "name": "Template",
+        "category": "File Manager",
+        "type": "new",
+        "api": { "FileManager": ["ajaxSettings", "view"] },
+        "description": "This example demonstrates how to use the template property to customize the navigation pane, large icons, and details view in a React File Manager component."
     },
     {
         "url": "file-upload",
@@ -62,6 +80,7 @@
         "url": "access-control",
         "name": "Access Control",
         "category": "Use Case",
+        "type": "update",
         "api": { "FileManager": ["ajaxSettings"] },
         "description": "This example of FileManager demonstrates how to restrict the file operations in the File Manager component."
     },

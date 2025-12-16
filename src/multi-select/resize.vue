@@ -4,7 +4,7 @@
         <div class="content-wrapper">
             <div id='resize' class='col-lg-6' style="margin: 0px auto; width:64%; padding-top: 40px;margin-left: 165px;">
                 <label class="h4">Resize</label>
-                    <ejs-multiselect id='countries' :dataSource='countries' :placeholder='placeholder' :fields='fields' :allowResize='allowResize'></ejs-multiselect>
+                    <ejs-multiselect id='countries' popupHeight="200px" :dataSource='countries' :placeholder='placeholder' :fields='fields' :allowResize='allowResize'></ejs-multiselect>
             </div>
         </div>
     </div>

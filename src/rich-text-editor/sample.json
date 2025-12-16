@@ -18,6 +18,17 @@
             "description": "This demo shows how to render vue Rich Text Editor (WYSIWYG HTML editor) control with a minimum configuration setting."
         },
         {
+            "url": "ai-assistant",
+            "name": "AI Assistant",
+            "category":"Rich Text Editor",
+            "type": "new",
+            "description": "This demo showcases the Built in AI Assistant interface of the Vue Rich Text Editor component.",
+            "sourceFiles": [
+                { "displayName": "ai-assistant.vue", "path": "src/rich-text-editor/ai-assistant.vue" },
+                { "displayName": "service.ts", "path": "src/rich-text-editor/service.ts" }
+            ]
+        },
+        {
             "url": "image",
             "name": "Image",
             "category": "Rich Text Editor",
@@ -26,7 +37,6 @@
         {
             "url": "insert-media",
             "name": "Insert Media",
-            "type": "update",
             "category": "Rich Text Editor",
             "description": "This demo shows how to insert audio and video, Embed video, upload audio and video, and more in Insert Media."
         },
@@ -89,7 +99,6 @@
             "url": "events",
             "name": "Events",
             "category": "Rich Text Editor",
-            "type": "update",
             "description": "This demo explains client-side events of vue HTML Text Editor that is triggered on editing and formatting operations with an event tracer."
         },
         {

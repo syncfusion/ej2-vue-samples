@@ -59,7 +59,7 @@
 </template>
 
 <script lang="ts">
-import { PivotViewComponent, FieldList, IDataSet } from "@syncfusion/ej2-vue-pivotview";
+import { PivotViewComponent, FieldList, IDataSet, ExcelExport } from "@syncfusion/ej2-vue-pivotview";
 import {
   DropDownListComponent,
   ChangeEventArgs
@@ -122,7 +122,7 @@ export default {
     }
   },
   provide: {
-    pivotview: [FieldList]
+    pivotview: [FieldList, ExcelExport]
   }
 }
 </script>

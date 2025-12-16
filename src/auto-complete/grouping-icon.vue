@@ -5,14 +5,14 @@
             <div id='group' class='col-lg-6'>
                 <div class="content">
                     <label class="h4">Grouping</label>
-                    <ejs-autocomplete id='vegetables' :showPopupButton='true' :dataSource='vegetableData' :placeholder='groupWaterMark' :fields='groupFields'></ejs-autocomplete>
+                    <ejs-autocomplete id='vegetables' :popupHeight='height' :showPopupButton='true' :dataSource='vegetableData' :placeholder='groupWaterMark' :fields='groupFields'></ejs-autocomplete>
                 </div>
             </div>
             <div id='icon' class='col-lg-6'>
                 <div class="content">
                     <label class="h4"> Icons</label>
                     <ejs-autocomplete id='icons' :showPopupButton='true' 
-                    cssClass='autocomplete-icon-css'
+                    cssClass='autocomplete-icon-css' :popupHeight='height'
                     :dataSource='socialMediaData' :placeholder='iconWaterMark' :fields='iconFields'></ejs-autocomplete>
                 </div>
             </div>
@@ -146,7 +146,8 @@ export default {
             vegetableData: data['vegetableData'],
             iconFields: { iconCss: 'Class', value: 'SocialMedia' },
             iconWaterMark: 'e.g. Facebook',
-            socialMediaData: data['socialMedia']
+            socialMediaData: data['socialMedia'],
+            height: '200px',
         };
     }
 }

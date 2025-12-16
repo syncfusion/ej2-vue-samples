@@ -30,7 +30,7 @@
         <code>Toolbar, Link, Image, HtmlEditor</code> into the <code>provide</code> section.
       </p>
       <p>
-        The third-party library <code>Marked</code> is used in this sample to convert markdown into HTML content.
+        Syncfusion's <code>Markdown Converter</code> is used in this sample to convert markdown into HTML content.
       </p>
     </div>
   </div>
@@ -99,8 +99,7 @@
   import { RichTextEditorComponent, Toolbar, Link, Image, Table, MarkdownFormatter, MarkdownEditor } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from "@syncfusion/ej2-vue-base";
   import{Tooltip} from "@syncfusion/ej2-vue-popups";
-  import { marked } from 'marked';
-  
+  import { MarkdownConverter } from "@syncfusion/ej2-markdown-converter";
   export default {
     components: {
       'ejs-richtexteditor': RichTextEditorComponent,
@@ -162,7 +161,7 @@
       },
       markDownConversion: function() {
         if (this.mdsource.classList.contains("e-active")) {
-          this.htmlPreview.innerHTML = marked(this.textArea.value);
+          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
         }
       },
       fullPreview: function() {
@@ -187,7 +186,7 @@
           }
           this.textArea.style.display = "none";
           this.htmlPreview.style.display = "block";
-          this.htmlPreview.innerHTML = marked(this.textArea.value);
+          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
         }
       }
     },

@@ -133,7 +133,7 @@
 	
 </style>
 <script>
-import { RichTextEditorComponent, Toolbar, Image,  Link, HtmlEditor, QuickToolbar, NodeSelection, PasteCleanup, Table, Video, Audio} from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Image,  Link, HtmlEditor, QuickToolbar, NodeSelection, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import * as data from './data-source.json';
 import { CheckBoxComponent} from "@syncfusion/ej2-vue-buttons";
@@ -207,7 +207,7 @@ export default {
     },
         },
     provide:{
-        richtexteditor:[Toolbar, Image,  Link, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio]
+        richtexteditor:[Toolbar, Image,  Link, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat]
     }
 }
 </script>

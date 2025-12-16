@@ -132,7 +132,7 @@
 }
 </style>
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 import { TextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { isNullOrUndefined } from '@syncfusion/ej2-base';
@@ -191,7 +191,7 @@ export default {
       },
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio]
+        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat]
     }
 }
 </script>

@@ -2,7 +2,7 @@
 <div>
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:64%; padding-top: 40px;">
-            <ejs-multiselect id='diacritics' :allowFiltering='true' :dataSource='data' :ignoreAccent='true' placeholder='e.g. gul'></ejs-multiselect>
+            <ejs-multiselect id='diacritics' popupHeight="200px" :allowFiltering='true' :dataSource='data' :ignoreAccent='true' placeholder='e.g. gul'></ejs-multiselect>
         </div>
     </div>
     <div id="action-description">

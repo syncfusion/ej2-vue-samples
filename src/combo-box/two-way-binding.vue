@@ -4,7 +4,7 @@
     <div class="control-section">
       <div class="col-lg-12" style="height: 350px">
         <div id='content' style="margin: 0 auto; width:250px; padding-top: 30px">
-          <ejs-combobox id='first' :dataSource='sportsData' :placeholder='waterMark' v-model="value" ></ejs-combobox>
+          <ejs-combobox id='first' popupHeight="200px" :dataSource='sportsData' :placeholder='waterMark' v-model="value" ></ejs-combobox>
         </div>
         <div id='content' style="margin: 0 auto; width:250px; padding-top: 100px; padding-left:20px">
           <p id= 'display'><span class = 'selected'>Selected Value: </span><span class = 'display-value'>{{value}}</span></p>

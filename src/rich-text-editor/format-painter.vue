@@ -102,7 +102,7 @@
 }
 </style>
 <script>
-    import { RichTextEditorComponent, HtmlEditor, Toolbar, QuickToolbar, FormatPainter ,Table, Link, Image, Audio, Video, PasteCleanup} from "@syncfusion/ej2-vue-richtexteditor";
+    import { RichTextEditorComponent, HtmlEditor, Toolbar, QuickToolbar, FormatPainter ,Table, Link, Image, Audio, Video, PasteCleanup, ClipBoardCleanup, AutoFormat} from "@syncfusion/ej2-vue-richtexteditor";
     import { TextBoxComponent } from "@syncfusion/ej2-vue-inputs";
     import * as data from './data-source.json';
 
@@ -136,7 +136,7 @@
             }
         },
         provide : {
-            richtexteditor: [HtmlEditor, Toolbar, QuickToolbar, FormatPainter ,Table, Link, Image, Audio, Video, PasteCleanup]
+            richtexteditor: [HtmlEditor, Toolbar, QuickToolbar, FormatPainter ,Table, Link, Image, Audio, Video, PasteCleanup, ClipBoardCleanup, AutoFormat]
         }
     }
 

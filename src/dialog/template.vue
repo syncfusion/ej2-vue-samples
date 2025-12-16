@@ -40,7 +40,7 @@
 <script>
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
-import { detach, isNullOrUndefined } from '@syncfusion/ej2-base';
+import { detach, isNullOrUndefined, SanitizeHtmlHelper } from '@syncfusion/ej2-base';
 
 export default {
     components: {
@@ -90,7 +90,7 @@ export default {
                 detach(document.getElementsByClassName('contentText')[0]);
             }
             if (enteredVal.value !== '') {
-                dialogTextElement.innerHTML = enteredVal.value;
+                dialogTextElement.innerHTML = SanitizeHtmlHelper.sanitize(enteredVal.value);
             }
             enteredVal.value = '';
         }

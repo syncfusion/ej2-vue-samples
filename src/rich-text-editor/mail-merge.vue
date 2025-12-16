@@ -116,6 +116,7 @@ import {
   NodeSelection,
   Audio,
   PasteCleanup,
+  ClipBoardCleanup, AutoFormat
 } from '@syncfusion/ej2-vue-richtexteditor';
 import { MentionComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { DropDownButtonComponent } from '@syncfusion/ej2-vue-splitbuttons';
@@ -227,6 +228,7 @@ export default {
         Video,
         Audio,
         PasteCleanup,
+        ClipBoardCleanup, AutoFormat
       ],
     };
   },

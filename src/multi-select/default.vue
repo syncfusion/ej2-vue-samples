@@ -5,18 +5,18 @@
            <div id='content'>
             <div class="control-styles">
                 <label class="h4"> Default Mode</label>
-            <ejs-multiselect id='sample-list1' :dataSource='sportsData' :mode='defaultMode' :placeholder='waterMark'></ejs-multiselect>
+            <ejs-multiselect id='sample-list1' popupHeight="200px" :dataSource='sportsData' :mode='defaultMode' :placeholder='waterMark'></ejs-multiselect>
             </div>
         </div>
         
         <div class="control-styles" style="padding-top: 30px">
             <label class="h4">Box Mode</label>
-            <ejs-multiselect id='sample-list2' :dataSource='sportsData' :mode='boxMode' :placeholder='waterMark'></ejs-multiselect>
+            <ejs-multiselect id='sample-list2' popupHeight="200px" :dataSource='sportsData' :mode='boxMode' :placeholder='waterMark'></ejs-multiselect>
         </div>
         
         <div class="control-styles" style="padding-top: 30px">
             <label class="h4">Delimiter Mode</label>
-            <ejs-multiselect id='sample-list3' :dataSource='sportsData' :mode='delimiterMode' :placeholder='waterMark'></ejs-multiselect>
+            <ejs-multiselect id='sample-list3' popupHeight="200px" :dataSource='sportsData' :mode='delimiterMode' :placeholder='waterMark'></ejs-multiselect>
         </div>
         </div>
     <div id="action-description">

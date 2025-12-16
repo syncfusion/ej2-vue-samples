@@ -230,7 +230,7 @@ export default {
       this.primaryXAxis = primaryXAxis;
     },
     widthChange: function (e) {
-      let width = document.getElementById('labelWidth').value;
+      let width = e.value;
       let primaryXAxis = extend({}, this.primaryXAxis);
       primaryXAxis.maximumLabelWidth = width;
       this.primaryXAxis = primaryXAxis;

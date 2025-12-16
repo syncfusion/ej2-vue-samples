@@ -88,7 +88,7 @@ export default {
         return {
             checkFields: { text: 'Name', value: 'Code' },
             checkWaterMark: 'Select countries',
-            popHeight: '350px',
+            popHeight: '200px',
             multiMode: 'CheckBox',
             filterPlaceholder: 'Search countries',
             showSelectAll: true,

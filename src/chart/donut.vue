@@ -86,7 +86,7 @@ export default {
                 size: Browser.isDevice ? '8px' : '15px'
             },
         },
-        tooltip: {enable: true ,format:"<b>${point.x}</b><br>Browser Share: <b>${point.y}%</b>" , enablehighlight: true, header:"" },
+        tooltip: {enable: true ,format:"<b>${point.x}</b><br>Browser Share: <b>${point.y}%</b>" , enableHighlight: true, header:"" },
         radius: Browser.isDevice ? '40%' : '70%',
         border: { width: 1, color: '#ffffff' },
         legendSettings: {

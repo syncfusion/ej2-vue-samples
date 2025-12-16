@@ -7,7 +7,7 @@
                     <td>
                         <label class="default-size">Comments</label>
                         <div id="commentsMention" placeholder = "Type @ and tag user"></div>
-                        <ejs-mention :target='commenttarget' :dataSource='commentsData' :fields='commentsfields'></ejs-mention>
+                        <ejs-mention :target='commenttarget' popupHeight="200px" :dataSource='commentsData' :fields='commentsfields'></ejs-mention>
                     </td>
                 </tr>
             </table>

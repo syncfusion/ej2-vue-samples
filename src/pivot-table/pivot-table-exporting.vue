@@ -66,7 +66,7 @@ export default {
   data: () => {
     return {
       dataSourceSettings: {
-        url: 'https://ej2services.syncfusion.com/vue/development/api/pivot/post',
+        url: 'https://services.syncfusion.com/vue/production/api/pivot/post',
         mode: 'Server',
         expandAll: true,
         enableSorting: true,

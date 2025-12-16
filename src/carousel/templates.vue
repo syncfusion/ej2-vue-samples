@@ -162,6 +162,13 @@
   .templateCarousel .img-container {
       margin: 12px;
     }
+
+  .templateCarousel .e-carousel-indicators .e-indicator-bars .e-indicator-bar .indicator {
+    height: 2.25rem;
+    width: 3.25rem;
+    margin: 0.375rem;
+  }
+
 }
 </style>
 

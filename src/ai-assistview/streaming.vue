@@ -18,19 +18,18 @@
         </p>
     </div>
     <div id="description">
-        <p> 
-            In this example, the <code>AI AssistView</code> component dynamically updates responses in a streaming manner using the <code>addPromptResponse</code> method, while the <code>scrollToBottom</code> method ensures automatic scrolling. The <code>bannerTemplate</code> allows customization of the banner content, and <code>toolbarSettings</code> enables custom toolbar items, including a right-aligned Refresh button. Additionally, <code>promptSuggestions</code> offers AI-generated prompt suggestions, while <code>promptRequest</code> processes prompt requests when triggered.   
+        <p> In this example, the <code>AI AssistView</code> component dynamically updates responses in a streaming manner using the  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#addpromptresponse">addPromptResponse</a> method, while the  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#scrolltobottom">scrollToBottom</a> method ensures automatic scrolling. The  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#bannertemplate">bannerTemplate</a> allows customization of the banner content, and  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#toolbarsettings">toolbarSettings</a> enables custom toolbar items, including a right-aligned Refresh button. Additionally,  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#promptsuggestions">promptSuggestions</a> offers AI-generated prompt suggestions, while  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#promptrequest">promptRequest</a> processes prompt requests when triggered.   
         </p> 
         <p>   
-            This implementation provides an interactive AI chat experience with real-time streaming updates, enhanced by Markdown-to-HTML conversion using the <code>Marked</code> plugin.   
-        </p>
+        This implementation provides an interactive AI chat experience with real-time streaming updates, enhanced by Markdown-to-HTML conversion using the <code>MarkdownConverter</code>.   
+    </p>
     </div>
 </template>
 
 <script>
 import { AIAssistViewComponent } from "@syncfusion/ej2-vue-interactive-chat";
 import * as data from './promptResponseData.json';
-import { marked } from 'marked';
+import { MarkdownConverter } from '@syncfusion/ej2-markdown-converter';
 
 export default {
     components: {
@@ -63,7 +62,7 @@ export default {
                     lastResponse += response[i];
                     i++;
                     if (i % responseUpdateRate === 0 || i === responseLength) {
-                        const htmlResponse = marked(lastResponse);
+                        const htmlResponse = MarkdownConverter.toHtml(lastResponse);
                         this.$refs.streamingAIAssistView.ej2Instances.addPromptResponse(htmlResponse, i === responseLength);
                         this.$refs.streamingAIAssistView.ej2Instances.scrollToBottom();
                     }

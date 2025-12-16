@@ -1,10 +1,11 @@
 {
   "name": "ej2-vue-samples",
-  "version": "31.2.12",
+  "version": "32.1.19",
   "description": "Examples of Vue UI Components",
   "keywords": [],
   "dependencies": {
     "@syncfusion/ej2": "*",
+    "@syncfusion/ej2-markdown-converter": "*",
     "@syncfusion/ej2-vue-barcode-generator": "*",
     "@syncfusion/ej2-vue-base": "*",
     "@syncfusion/ej2-vue-buttons": "*",

@@ -47,7 +47,7 @@
 </template>
 <script>
 import Vue from "vue";
-import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, Table, NodeSelection, QuickToolbar, PasteCleanup, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, Table, NodeSelection, QuickToolbar, PasteCleanup, Video, Audio, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 import { DialogComponent } from "@syncfusion/ej2-vue-popups";
 import { ImageEditorComponent } from "@syncfusion/ej2-vue-image-editor";
 import{ getComponent }from'@syncfusion/ej2-base';
@@ -204,7 +204,7 @@ export default {
         },
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio]
+        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat]
     }
 };
 </script>

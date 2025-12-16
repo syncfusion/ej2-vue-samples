@@ -24,14 +24,14 @@
 </div>
 </template>
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, Video, Audio, PasteCleanup } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, Video, Audio, PasteCleanup, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 
 export default {
     components: {
       'ejs-richtexteditor': RichTextEditorComponent
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, Video, Audio, PasteCleanup]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Table, Video, Audio, PasteCleanup, ClipBoardCleanup, AutoFormat]
     }
 }
 </script>

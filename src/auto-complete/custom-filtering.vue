@@ -3,7 +3,7 @@
     <div>
         <div class="col-lg-8  control-section" style="height: 350px">
             <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
-                <ejs-autocomplete id='books' :dataSource='booksData' :fields='fields' :filtering='onFiltering' :placeholder='watermark' :debounceDelay='debounceDelay'></ejs-autocomplete>
+                <ejs-autocomplete id='books' :dataSource='booksData' :popupHeight='height' :fields='fields' :filtering='onFiltering' :placeholder='watermark' :debounceDelay='debounceDelay'></ejs-autocomplete>
             </div>
         </div>
         <div class="col-lg-4 property-section">
@@ -66,6 +66,7 @@ export default {
             watermark: 'e.g. Node.js Succinctly',
             booksData: data['booksData'],
             debounceDelay: 300,
+            height: '200px',
             min: 1,
             value: '300'
         };

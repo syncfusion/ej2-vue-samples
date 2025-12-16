@@ -165,7 +165,7 @@ import {
 import { MarkdownFormatter } from '@syncfusion/ej2-vue-richtexteditor';
 import { MentionComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { createElement, KeyboardEventArgs } from '@syncfusion/ej2-vue-base';
-import { marked } from 'marked';
+import { MarkdownConverter } from "@syncfusion/ej2-markdown-converter";
 
 export default {
   components: {
@@ -235,7 +235,7 @@ export default {
     },
     markDownConversion: function () {
       if (this.mdsource.classList.contains('e-active')) {
-        this.htmlPreview.innerHTML = marked(this.textArea.value);
+        this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
       }
     },
     fullPreview: function () {
@@ -258,7 +258,7 @@ export default {
         }
         this.textArea.style.display = 'none';
         this.htmlPreview.style.display = 'block';
-        this.htmlPreview.innerHTML = marked(this.textArea.value);
+        this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
         this.mdsource.parentElement.title = 'Code View';
       }
     },

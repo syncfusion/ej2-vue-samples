@@ -3,7 +3,7 @@
     <div>
         <div class="col-lg-8  control-section" style="height: 350px">
             <div id='content' style="margin: 0 auto; width:250px; padding-top: 30px">
-                <ejs-autocomplete id='sample-list' :dataSource='countriesData' :filterType='filterType' :highlight='true' :fields='fields' placeholder='e.g. Australia'></ejs-autocomplete>
+                <ejs-autocomplete id='sample-list' :popupHeight='height' :dataSource='countriesData' :filterType='filterType' :highlight='true' :fields='fields' placeholder='e.g. Australia'></ejs-autocomplete>
             </div>
         </div>
         <div class="col-lg-4 property-section">
@@ -11,7 +11,7 @@
                 <tr>
                     <td style="width:50%">FilterType :</td>
                     <td style="padding-top: 10px">
-                        <ejs-dropdownlist id='filter' :dataSource='filterData' :change='onChange' :width='width' text='Contains' placeholder='Find a type'></ejs-dropdownlist>
+                        <ejs-dropdownlist id='filter' :popupHeight='height' :dataSource='filterData' :change='onChange' :width='width' text='Contains' placeholder='Find a type'></ejs-dropdownlist>
                     </td>
                 </tr>
             </table>
@@ -51,7 +51,8 @@ export default {
             filterType: 'Contains',
             countriesData: data['countries'],
             width: '150px',
-            filterData: ['Contains', 'StartsWith', 'EndsWith']
+            filterData: ['Contains', 'StartsWith', 'EndsWith'],
+            height: '200px',
         };
     },
     methods: {

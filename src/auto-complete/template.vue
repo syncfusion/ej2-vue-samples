@@ -3,7 +3,7 @@
         <div class="control-section">
             <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
                 <ejs-autocomplete id='employees' :dataSource='data' :fields='fields' :placeholder='watermark'
-                 :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" popupHeight="450px" cssClass='autocomplete-template'>
+                 :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" popupHeight="200px" cssClass='autocomplete-template'>
                   <template v-slot:hTemplate="{data}">
                     <div class="header"> <span>Photo</span> <span class="info">Employee Info</span></div>
                   </template>

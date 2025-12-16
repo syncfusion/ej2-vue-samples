@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor ,Video ,Audio, PasteCleanup, Table } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, QuickToolbar, HtmlEditor ,Video ,Audio, PasteCleanup, Table, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 
 let hostUrl = 'https://services.syncfusion.com/vue/production/';
 export default {
@@ -72,7 +72,7 @@ export default {
         };
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Video, Audio, PasteCleanup, Table]
+        richtexteditor:[Toolbar, Link, Image, QuickToolbar, HtmlEditor, Video, Audio, PasteCleanup, Table, ClipBoardCleanup, AutoFormat]
     }
 }
 </script>

@@ -13,14 +13,14 @@
      </div>
  </div>
    <div  v-else-if="data.id == 'node2Template'" class="diagram_border_complex diagram-template-chart">
-      <ejs-chart id="linechart" :chartArea={lchartArea} :titleStyle="title"  :height='lineheight' :primaryXAxis='lprimaryXAxis' :primaryYAxis='lprimaryYAxis' :margin='margin' :useGroupingSeperator='sepert' :annotations='lannotations'  >
+      <ejs-chart id="linechart" :chartArea={lchartArea} :titleStyle="title" :tooltip='tooltip' :height='lineheight' :primaryXAxis='lprimaryXAxis' :primaryYAxis='lprimaryYAxis' :margin='margin' :useGroupingSeperator='sepert' :annotations='lannotations'  >
         <e-series-collection>
                 <e-series  :dataSource="lineChartData" :animation="lanimation" :marker="marker" :border="lBorder" :width="lwidth" type='Area' xName='DateTime' yName='Amount' fill='rgba(4, 112, 216, 0.3)' name='Amount'></e-series>
             </e-series-collection>
        </ejs-chart>
   </div> 
    <div  v-else-if="data.id == 'node3Template'" class="diagram_border_complex diagram-template-chart">
-      <ejs-chart id="columnchart" :primaryXAxis='primaryXAxis'  :primaryYAxis='primaryYAxis' :height='lineheight'  :margin='margin' useGroupingSeperator='true' :annotations='annotations' :legendSettings='legendSettings' :titleStyle='titleStyle'>
+      <ejs-chart id="columnchart" :primaryXAxis='primaryXAxis'  :primaryYAxis='primaryYAxis' :height='lineheight' :tooltip='tooltip' :margin='margin' useGroupingSeperator='true' :annotations='annotations' :legendSettings='legendSettings' :titleStyle='titleStyle'>
         <e-series-collection>
                 <e-series  :dataSource="colChartIncomeData" :animation="animation" legendShape='Circle' :marker="marker" :border="cBorder" :width="lwidth" type='Column' xName='DateTime' yName='Amount' fill='#A16EE5' name='Income' > </e-series>
             <e-series  :dataSource="colChartExpenseData" :animation="animation" legendShape='Circle' :marker="marker" :border="cBorder" :width="lwidth" type='Column' xName='DateTime' yName='Amount' fill='#4472C4' name='Expense' > </e-series>

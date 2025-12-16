@@ -3,6 +3,7 @@
     "directory": "textboxes",
     "category": "Inputs",
     "ftName": "textbox",
+    "type": "update",
     "hideOnDevice": true,
     "samples": [{
             "url": "default",
@@ -21,6 +22,13 @@
             "name": "Two-way Binding",
             "category": "TextBox",
             "description":"The Vue TextBox component supports two-way data binding using the v-model attribute of Vue directive. It helps to achieve sync with data in the DOM."
+        },
+        {
+            "url": "adornments",
+            "name": "Adornments",
+            "category": "TextBox",
+            "type": "new",
+            "description":"The example exposes a Vue TextBox with adornments support. It helps to render custom elements before or after the input element."
         }
     ]
 }

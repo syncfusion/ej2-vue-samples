@@ -17,7 +17,91 @@
             <li><p>Handles images, hyperlinks, video, hyperlinks, uploads, etc.</p></li>
             <li><p>Contains undo/redo manager.</p></li>
             <li><p>Creates bulleted and numbered lists.</p></li>
-            </ul></ejs-richtexteditor>
+            </ul>
+            <h3>Auto Formatting – Write Faster, Format Smarter</h3>            
+            <p>
+                Boost your productivity with Auto Formatting, a powerful feature
+                that lets you style content instantly using simple, familiar
+                Markdown-style shortcuts. No need to reach for the toolbar —
+                just type and watch your content transform in real time.
+            </p>
+                        
+            <h4>Effortless Formatting Shortcuts</h4>
+                        
+            <table>
+            <thead>
+            <tr>
+                <th>Action</th>
+                <th>Shortcut</th>
+            </tr>
+            </thead>
+            <tbody>
+                                <tr>
+                                    <td>Bulleted List</td>
+                                    <td>
+                                        Start a line with <code>*</code> or
+                                        <code>-</code> followed by a space
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Numbered List</td>
+                                    <td>
+                                        Start a line with <code>1.</code> or
+                                        <code>i.</code> followed by a space
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Checklist / To-do</td>
+                                    <td>
+                                        Start a line with <code>[ ]</code> or
+                                        <code>[x]</code> followed by a space
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Headings (H1 to H6)</td>
+                                    <td>
+                                        Use <code>#</code>, <code>##</code>, <code>###</code>,
+                                        <code>####</code>, <code>#####</code>, or
+                                        <code>######</code> followed by a space
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Block Quote</td>
+                                    <td>
+                                        Start a line with <code>&gt;</code> followed by a space
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Code Block</td>
+                                    <td>
+                                        Start a line with <code>```</code> followed by a space
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Horizontal Line</td>
+                                    <td>
+                                        Start a line with <code>---</code> followed by a space
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Bold Text</td>
+                                    <td>Type <code>**text**</code> or <code>__text__</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Italic Text</td>
+                                    <td>Type <code>*text*</code> or <code>_text_</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Inline Code</td>
+                                    <td>Type <code>`text`</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Strikethrough</td>
+                                    <td>Type <code>~~text~~</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+            </ejs-richtexteditor>
         </div>
     </div>
 </div>
@@ -47,7 +131,7 @@
 </style>
 <script>
 import { Browser, addClass, removeClass } from "@syncfusion/ej2-base";
-import { RichTextEditorComponent, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager, Audio, Video, FormatPainter, EmojiPicker, PasteCleanup, CodeBlock, ImportExport } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Table, Link, Image, QuickToolbar, HtmlEditor, FileManager, Audio, Video, FormatPainter, EmojiPicker, PasteCleanup, CodeBlock, ImportExport, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 
 let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
 
@@ -60,7 +144,7 @@ export default {
             toolbarSettings: {
          items: ['Undo', 'Redo', '|', 'ImportWord', 'ExportWord', 'ExportPdf', '|',
                 'Bold', 'Italic', 'Underline', 'StrikeThrough', 'InlineCode', '|', 'CreateLink', 'Image', 'CreateTable', 'CodeBlock',
-                'HorizontalLine', 'Blockquote', '|', 'BulletFormatList', 'NumberFormatList', 'Checklist', '|', 'Formats', 'Alignments', '|', 'Outdent', 'Indent', '|',
+                'HorizontalLine', 'Blockquote', '|', 'LineHeight', 'Formats', 'Alignments', '|', 'BulletFormatList', 'NumberFormatList', 'Checklist', '|', 'Outdent', 'Indent', '|',
                 'FontColor', 'BackgroundColor', 'FontName', 'FontSize', '|', 'LowerCase', 'UpperCase', '|', 'SuperScript', 'SubScript', '|',
                 'EmojiPicker', 'FileManager', 'Video', 'Audio', '|', 'FormatPainter', 'ClearFormat',
                 '|', 'Print', 'FullScreen', '|', 'SourceCode']
@@ -125,7 +209,7 @@ export default {
             leftBar = document.querySelector('#left-sidebar');
             transformElement = document.querySelector('#right-pane');
         }
-        if (e.targetItem === 'Maximize' && sbCntEle != null || sbHdrEle != null) {
+        if (e.targetItem === 'Maximize' && sbCntEle != null && sbHdrEle != null) {
             if (Browser.isDevice && Browser.isIos) {
                 addClass([sbCntEle, sbHdrEle], ['hide-header']);
             }
@@ -134,7 +218,7 @@ export default {
             if (!Browser.isDevice) { transformElement.style.marginLeft = '0px'; }
             transformElement.style.transform = 'inherit';
             sbHdrEle.style.cssText = 'z-index: 100 !important;';
-        } else if (e.targetItem === 'Minimize' && sbCntEle != null || sbHdrEle != null) {
+        } else if (e.targetItem === 'Minimize' && sbCntEle != null && sbHdrEle != null) {
             if (Browser.isDevice && Browser.isIos) {
                 removeClass([sbCntEle, sbHdrEle], ['hide-header']);
             }
@@ -155,7 +239,7 @@ export default {
     }
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Table, Image, QuickToolbar, HtmlEditor, FileManager,Audio, Video, EmojiPicker, PasteCleanup, CodeBlock, ImportExport]
+        richtexteditor:[Toolbar, Link, Table, Image, QuickToolbar, HtmlEditor, FileManager,Audio, Video, EmojiPicker, PasteCleanup, CodeBlock, ImportExport, ClipBoardCleanup, AutoFormat]
     }
 }
 </script>

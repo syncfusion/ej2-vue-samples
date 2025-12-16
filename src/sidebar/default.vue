@@ -148,6 +148,10 @@ export default {
         z-index: 20 !important;
     }
 
+    .defaultToolbar .image-container img {
+        height: 20px;
+    }
+
     #sidebar-wrapper .e-content-animation {
         width: auto;
     }

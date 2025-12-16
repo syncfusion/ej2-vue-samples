@@ -63,7 +63,7 @@
           <div class="employee-cell">
             <div class="employee-content">
               <img
-                :src="`${data?.Image}.png`"
+                :src="getImageUrl(data?.FullName)"
                 :alt="data?.Employee"
                 class="employee-img"
               />
@@ -333,7 +333,7 @@ export default defineComponent({
       }
     },
     getImageUrl(fullName) {
-      return `//ej2.syncfusion.com/javascript/demos/src/tree-grid/images/${fullName}.png`;
+      return `source/tree-grid/images/${fullName}.png`;      
     },
     getLeaveWidth(value) {
       return `${(value / 12) * 100}%`;

@@ -3,7 +3,7 @@
     <div class="control-section">
         <div class="col-lg-12" style="height: 350px">
             <div id='content' style="margin: 0 auto; width:250px; padding-top: 30px">
-                <ejs-autocomplete id='games' :dataSource='sportsData' :placeholder='waterMark'></ejs-autocomplete>
+                <ejs-autocomplete id='games' :dataSource='sportsData' :popupHeight='height' :placeholder='waterMark'></ejs-autocomplete>
             </div>
         </div>
     </div>
@@ -33,7 +33,8 @@ export default {
     data: function() {
         return {
             waterMark: 'e.g. Basketball',
-            sportsData: data['sportsData']
+            sportsData: data['sportsData'],
+             height: '200px',
         };
     }
 }

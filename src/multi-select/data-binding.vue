@@ -3,12 +3,12 @@
     <div class="control-section multiselect-databinding">
             <div id='local' class="control-styles" style="margin: 0px auto; width:64%; padding-top: 40px;">
                 <label class="h4"> Local Data</label>
-                    <ejs-multiselect id='localData' :dataSource='countries' :fields='localFields'
+                    <ejs-multiselect id='localData' popupHeight="200px" :dataSource='countries' :fields='localFields'
                         :placeholder='localWaterMark'></ejs-multiselect>
             </div>
             <div id='remote' class="control-styles" style="margin: 0px auto; width:64%; padding-top: 20px;">
                 <label class="h4">Remote Data</label>
-                    <ejs-multiselect id='remoteData' :dataSource='data' :fields='remoteFields'
+                    <ejs-multiselect id='remoteData' popupHeight="200px" :dataSource='data' :fields='remoteFields'
                         :query='query' :placeholder='remoteWaterMark' sortOrder='Ascending'></ejs-multiselect>
             </div>
     </div>

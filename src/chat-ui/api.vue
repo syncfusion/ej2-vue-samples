@@ -20,7 +20,7 @@
                 </tr>
                 <tr>
                     <td >
-                        <div>Show timestamp</div>
+                        <div>Show timeStamp</div>
                     </td>
                     <td style="padding-right: 10px">
                         <div style="padding-left: 0;padding-top: 0">
@@ -30,7 +30,7 @@
                 </tr>
                 <tr>
                     <td >
-                        <div>Show timebreak</div>
+                        <div>Show timeBreak</div>
                     </td>
                     <td style="padding-right: 10px">
                         <div style="padding-left: 0;padding-top: 0">
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td >
-                        <div>Compact Mode</div>
+                        <div>Compact mode</div>
                     </td>
                     <td style="padding-right: 10px">
                         <div style="padding-left: 0;padding-top: 0">
@@ -92,21 +92,21 @@
         </table>
     </div>
     <div id="action-description">
-        <p>This sample demonstrates the properties available in the Chat UI component, showcasing how various features can be customized through the property pane. It highlights the flexibility of the component, allowing users to adjust timestamps, headers, footers, time breaks, and more.</p>
+        <p>This sample demonstrates the properties available in the Chat UI component, showcasing how various features can be customized through the property pane. It highlights the flexibility of the control, allowing users to adjust timestamps, headers, footers, time breaks, and more.</p>
     </div>
     <div id="description">
         <p>In this sample, the following APIs and properties are demonstrated for customization:</p>
         <ul>
-            <li><code>timeStampFormat</code>: Allows users to change the timestamp format by selecting an option from the property pane.</li>
-            <li><code>showTimeStamp</code>: Controls whether the timestamp is displayed in the chat, toggled via the property pane <code>showTimeStamp</code> property.</li>
-            <li><code>showTimeBreak</code>: Enables or disables the display of time breaks in the chat interface.</li>
-            <li><code>showHeader</code>: Lets users toggle the visibility of the chat header.</li>
-            <li><code>showFooter</code>: Toggles the visibility of the chat footer.</li>
-            <li><code>enableCompactMode</code>: Reduces spacing and left-aligns all messages to display more content within the visible chat area. </li>
-            <li><code>typingUsers</code>: Allows users to manage the list of users who are typing, updated through the multi-select options in the property pane.</li>
-            <li><code>mentionUsers</code>: Configurable list of users that can be tagged using '@' in chat messages.</li>
-            <li><code>statusIconCss</code>: Defines a CSS class for the status bar icon, with built-in styles for Online, Offline, Away, and Busy statuses, while allowing further customization.</li>
-            <li><code>messageToolbarSettings</code>: Configures the toolbar that appears on individual messages, allowing customization such as copy, forward, reply, pin and delete. Supports adding, removing, or reordering toolbar items based on application needs.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#timestampformat">timeStampFormat</a>: Allows users to change the timestamp format by selecting an option from the property pane.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#showtimestamp">showTimeStamp</a>: Controls whether the timestamp is displayed in the chat, toggled via the property pane <code>showTimeStamp</code> property.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#showtimebreak">showTimeBreak</a>: Enables or disables the display of time breaks in the chat interface.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#showheader">showHeader</a>: Lets users toggle the visibility of the chat header.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#showfooter">showFooter</a>: Toggles the visibility of the chat footer.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#enablecompactmode">enableCompactMode</a>: Reduces spacing and left-aligns all messages to display more content within the visible chat area. </li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#typingusers">typingUsers</a>: Allows users to manage the list of users who are typing, updated through the multi-select options in the property pane.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#mentionusers">mentionUsers</a>: Configurable list of users that can be tagged using '@' in chat messages.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#statusiconcss">statusIconCss</a>: Defines a CSS class for the status bar icon, with built-in styles for Online, Offline, Away, and Busy statuses, while allowing further customization.</li>
+            <li><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#messagetoolbarsettings">messageToolbarSettings</a>: Configures the toolbar that appears on individual messages, allowing customization such as copy, forward, reply, pin and delete. Supports adding, removing, or reordering toolbar items based on application needs.</li>
         </ul>
         <p>
             These properties can be adjusted via the property pane for a highly flexible and customizable chat experience.

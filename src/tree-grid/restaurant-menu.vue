@@ -112,7 +112,7 @@
                   <div class="resmenu-image-wrap">
                     <img
                             class="resmenu-image"
-                            :src="`${data.Image}.png`"
+                            :src="getImageUrl(data?.ImageName)"
                             :alt="data.FoodName"
                     />
                     <div class="resmenu-count">
@@ -540,6 +540,9 @@ export default {
     };
   },
   methods: {
+    getImageUrl(imageName: any) {
+      return `source/tree-grid/images/${imageName}.png`;      
+    },    
     rowDataBound(args: any) {
       const { CategoryId, FoodName } = args.data;
       if (CategoryId) {

@@ -6,8 +6,9 @@
     </div>
     <div class="control-section timeline-section">
       <ejs-diagram ref="diagramObject" id="timeline-diagram" width="100%" height="600px" :nodes="nodes"
-        :connectors="connectors" :commandManager="commandManager" :tool="tool" :snapSettings="snapSettings" :selectedItems="selectedItems" :constraints="constraints"
-        @selectionChange="selectionChange" @userHandleMouseDown="onUserHandleMouseDown" @click="click"></ejs-diagram>
+        :connectors="connectors" :commandManager="commandManager" :tool="tool" :snapSettings="snapSettings"
+        :selectedItems="selectedItems" :constraints="constraints" @selectionChange="selectionChange"
+        @userHandleMouseDown="onUserHandleMouseDown" @click="click" @load="load"></ejs-diagram>
 
       <!-- Dialog Component -->
       <ejs-dialog ref="dialogObject" :visible="false" width="300px" :isModal="true" :target="dialogTarget"
@@ -17,24 +18,20 @@
           <form id="form-element" class="form-horizontal">
             <div class="form-group">
               <label for="yearInput">Year:</label>
-              <ejs-textbox id="yearInput" :floatLabelType="'Never'" placeholder="e.g., 2025" cssClass="e-outline"
-                v-model="yearValue"></ejs-textbox>
+              <ejs-textbox ref="yearTextBox" id="yearInput" :floatLabelType="'Never'" placeholder="e.g., 2025" cssClass="e-outline"></ejs-textbox>
             </div>
             <div class="form-group">
               <label for="titleInput">Title:</label>
-              <ejs-textbox id="titleInput" :floatLabelType="'Never'" placeholder="Event Title" cssClass="e-outline"
-                v-model="titleValue"></ejs-textbox>
+              <ejs-textbox ref="titleTextBox" id="titleInput" :floatLabelType="'Never'" placeholder="Event Title" cssClass="e-outline"></ejs-textbox>
             </div>
             <div class="form-group">
               <label for="descriptionInput">Description:</label>
-              <ejs-textarea id="descriptionInput" :floatLabelType="'Never'" cssClass="e-outline"
-                :resizeMode="'Vertical'" placeholder="Brief description of the event" :rows="2"
-                v-model="descriptionValue"></ejs-textarea>
+              <ejs-textarea ref="descriptionTextBox" id="descriptionInput" :floatLabelType="'Never'" cssClass="e-outline" 
+                :resizeMode="'Vertical'" placeholder="Brief description of the event" :rows="2"></ejs-textarea>
             </div>
             <div class="form-group">
               <label for="imageUrl">Image Url:</label>
-              <ejs-textbox id="imageUrl" :floatLabelType="'Never'" placeholder="https://example.com/image.jpg"
-                cssClass="e-outline" v-model="imageUrlValue"></ejs-textbox>
+              <ejs-textbox ref="imageTextBox" id="imageUrl" :floatLabelType="'Never'" placeholder="https://example.com/image.jpg" cssClass="e-outline"></ejs-textbox>
             </div>
           </form>
         </div>
@@ -194,41 +191,29 @@ import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { TextBoxComponent, TextAreaComponent } from '@syncfusion/ej2-vue-inputs';
 import { FormValidator } from '@syncfusion/ej2-inputs';
 
-// Timeline Event Index Table
-const indexTable = [];
-// Timeline Events
-const timelineEvents = [
-  { year: '1969', title: 'ARPANET', description: 'ARPANET, the precursor to the Internet, is created by the U.S. Department of Defense\'s Advanced Research Projects Agency (ARPA).', icon: 'sf-icon-arpanet' },
-  { year: '1983', title: 'Birth of the Internet', description: 'ARPANET switches to TCP/IP, marking the official birth of the Internet.', icon: 'sf-icon-birth-internet' },
-  { year: '1991', title: 'Internet Goes Public', description: 'The World Wide Web is released to the public, making the Internet accessible to a broader audience.', icon: 'sf-icon-internet-public' },
-  { year: '1993', title: 'First Web Browser', description: 'The first web browser, Mosaic, is released, making it easier for people to access the World Wide Web.', icon: 'sf-icon-first-web-browser' },
-  { year: '1995', title: 'Commercialization of the Internet', description: 'The U.S. government lifts restrictions on commercial use of the Internet, leading to the rise of commercial websites and e-commerce.', icon: 'sf-icon-commercialization' },
-  { year: '1998', title: 'Google Founded', description: 'Google is founded by Larry Page and Sergey Brin, revolutionizing how people search for information online.', icon: 'sf-icon-google-found' },
-  { year: '2004', title: 'Social Media Boom', description: 'Facebook is launched, marking the beginning of the social media era.', icon: 'sf-icon-social-media' },
-  { year: '2005', title: 'YouTube Launched', description: 'YouTube is launched, becoming a major platform for sharing and viewing video content.', icon: 'sf-icon-youtube' },
-  { year: '2007', title: 'iPhone Released', description: 'Apple releases the first iPhone, transforming mobile internet usage and leading to the proliferation of mobile apps.', icon: 'sf-icon-i-phone' },
-  { year: '2010', title: 'Cloud Computing', description: 'Cloud computing becomes mainstream, allowing for more flexible and scalable internet services.', icon: 'sf-icon-cloud-computing' },
-  { year: '2014', title: 'Internet of Things (IoT)', description: 'The Internet of Things (IoT) gains significant traction, connecting everyday devices to the internet.', icon: 'sf-icon-internet-of-things' },
-  { year: '2020', title: 'Remote Work', description: 'The COVID-19 pandemic accelerates the adoption of remote work, online education, and digital communication.', icon: 'sf-icon-remote-work' },
-  { year: '2021', title: '5G Rollout', description: 'The global rollout of 5G networks begins, promising significantly faster internet speeds and lower latency.', icon: 'sf-icon-5g-network' },
-  { year: '2022', title: 'Metaverse Development', description: 'Major technology companies begin to invest heavily in the development of the metaverse, virtual and augmented reality spaces.', icon: 'sf-icon-metaverse' },
-  { year: '2023', title: 'Quantum Internet', description: 'Continued research and development in quantum computing and quantum internet technology aim to revolutionize data security and processing speeds.', icon: 'sf-icon-quantum-internet' },
-  { year: '2025', title: 'IoT Pervasiveness', description: 'The Internet of Things becomes more pervasive, with smart devices deeply integrated into daily life and industry.', icon: 'sf-icon-iot-pervasiveness' },
-  { year: '2030', title: 'Autonomous Vehicles', description: 'The widespread adoption of autonomous vehicles becomes more common, relying heavily on the internet for communication, navigation, and updates.', icon: 'sf-icon-autonomous-vehicle' },
-  { year: '2035', title: 'Advanced AI Integration', description: 'Advanced AI systems are fully integrated into internet services, offering more personalized and efficient user experiences.', icon: 'sf-icon-advance-ai' },
-];
+function getTimelineEvents() {
+  return [
+    { year: '1969', title: 'ARPANET', description: 'ARPANET, the precursor to the Internet, is created by the U.S. Department of Defense\'s Advanced Research Projects Agency (ARPA).', icon: 'sf-icon-arpanet' },
+    { year: '1983', title: 'Birth of the Internet', description: 'ARPANET switches to TCP/IP, marking the official birth of the Internet.', icon: 'sf-icon-birth-internet' },
+    { year: '1991', title: 'Internet Goes Public', description: 'The World Wide Web is released to the public, making the Internet accessible to a broader audience.', icon: 'sf-icon-internet-public' },
+    { year: '1993', title: 'First Web Browser', description: 'The first web browser, Mosaic, is released, making it easier for people to access the World Wide Web.', icon: 'sf-icon-first-web-browser' },
+    { year: '1995', title: 'Commercialization of the Internet', description: 'The U.S. government lifts restrictions on commercial use of the Internet, leading to the rise of commercial websites and e-commerce.', icon: 'sf-icon-commercialization' },
+    { year: '1998', title: 'Google Founded', description: 'Google is founded by Larry Page and Sergey Brin, revolutionizing how people search for information online.', icon: 'sf-icon-google-found' },
+    { year: '2004', title: 'Social Media Boom', description: 'Facebook is launched, marking the beginning of the social media era.', icon: 'sf-icon-social-media' },
+    { year: '2005', title: 'YouTube Launched', description: 'YouTube is launched, becoming a major platform for sharing and viewing video content.', icon: 'sf-icon-youtube' },
+    { year: '2007', title: 'iPhone Released', description: 'Apple releases the first iPhone, transforming mobile internet usage and leading to the proliferation of mobile apps.', icon: 'sf-icon-i-phone' },
+    { year: '2010', title: 'Cloud Computing', description: 'Cloud computing becomes mainstream, allowing for more flexible and scalable internet services.', icon: 'sf-icon-cloud-computing' },
+    { year: '2014', title: 'Internet of Things (IoT)', description: 'The Internet of Things (IoT) gains significant traction, connecting everyday devices to the internet.', icon: 'sf-icon-internet-of-things' },
+    { year: '2020', title: 'Remote Work', description: 'The COVID-19 pandemic accelerates the adoption of remote work, online education, and digital communication.', icon: 'sf-icon-remote-work' },
+    { year: '2021', title: '5G Rollout', description: 'The global rollout of 5G networks begins, promising significantly faster internet speeds and lower latency.', icon: 'sf-icon-5g-network' },
+    { year: '2022', title: 'Metaverse Development', description: 'Major technology companies begin to invest heavily in the development of the metaverse, virtual and augmented reality spaces.', icon: 'sf-icon-metaverse' },
+    { year: '2023', title: 'Quantum Internet', description: 'Continued research and development in quantum computing and quantum internet technology aim to revolutionize data security and processing speeds.', icon: 'sf-icon-quantum-internet' },
+    { year: '2025', title: 'IoT Pervasiveness', description: 'The Internet of Things becomes more pervasive, with smart devices deeply integrated into daily life and industry.', icon: 'sf-icon-iot-pervasiveness' },
+    { year: '2030', title: 'Autonomous Vehicles', description: 'The widespread adoption of autonomous vehicles becomes more common, relying heavily on the internet for communication, navigation, and updates.', icon: 'sf-icon-autonomous-vehicle' },
+    { year: '2035', title: 'Advanced AI Integration', description: 'Advanced AI systems are fully integrated into internet services, offering more personalized and efficient user experiences.', icon: 'sf-icon-advance-ai' },
+  ];
+}
 
-// Components
-var diagram;
-var dialog;
-var formValidator;
-var diagramCreated = false;
-var nodes = [];
-var connectors = [];
-// Represent current selected event index in index table
-var editTimeLineIndex;
-var selectedNode;
-var selectedUserHandle;
 const eventColors = [
   '#FEC200', '#43C94C', '#3D95F6', '#FF3343', '#CDDE1F', '#00897B',
   '#7F38CD', '#FF2667', '#00BCD7', '#F47B10', '#576ADE', '#91521B'
@@ -240,20 +225,21 @@ const nodeSpacing = 200;
 const alternateOffset = 200;
 const baseLine = 300;
 
-function createTimelineNodes() {
+function createTimelineNodes(events, indexTable) {
+  const nodes = [];
   // Create main timeline line
   const timelineLine = {
     id: 'timeline_line',
-    offsetX: (timelineEvents.length * nodeSpacing) / 2,
+    offsetX: (events.length * nodeSpacing) / 2,
     offsetY: baseLine,
-    width: (timelineEvents.length) * nodeSpacing,
+    width: (events.length) * nodeSpacing,
     height: 10,
     constraints: NodeConstraints.None,
     shape: {
       type: 'HTML',
       content: `
 <div style="display: flex; width: 100%; height: 100%;">
-  ${timelineEvents.map((_event, index) => {
+  ${events.map((_event, index) => {
         const colorIndex = index % eventColors.length;
         const nodeColor = eventColors[colorIndex];
         return `<div style="flex: 1; background-color: ${nodeColor}; height: 100%;"></div>`;
@@ -264,7 +250,7 @@ function createTimelineNodes() {
   };
   nodes.push(timelineLine);
 
-  timelineEvents.forEach((event, index) => {
+  events.forEach((event, index) => {
     const colorIndex = index % eventColors.length;
     const nodeColor = eventColors[colorIndex];
 
@@ -312,10 +298,12 @@ function createTimelineNodes() {
     // Push node to index table to maintain event order
     indexTable.push(index.toString());
   });
+  return nodes;
 }
 
-function createTimelineConnectors() {
-  timelineEvents.forEach((_event, index) => {
+function createTimelineConnectors(events) {
+  const connectors = [];
+  events.forEach((_event, index) => {
     const colorIndex = index % eventColors.length;
     const strokeColor = eventColors[colorIndex];
     const connector = {
@@ -338,149 +326,9 @@ function createTimelineConnectors() {
 
     connectors.push(connector);
   });
+  return connectors;
 }
 
-// Function to Edit current selected event node
-function editTimelineNode(editTimeLineIndex, timeLine) {
-  // Update the timeline node content
-  const timelineNode = diagram.getObject(`timeline_${indexTable[editTimeLineIndex]}`);
-  if (timelineNode) {
-    const colorIndex = editTimeLineIndex % eventColors.length;
-    const nodeColor = eventColors[colorIndex];
-
-    (timelineNode.shape).content = getEventNodeTemplate(nodeColor, timeLine);
-
-    // Update tooltip
-    if (timelineNode.tooltip) {
-      timelineNode.tooltip.content = `${timeLine.year}: ${timeLine.description}`;
-    }
-  }
-
-  // Update the year marker content
-  const markerNode = diagram.getObject(`marker_${indexTable[editTimeLineIndex]}`);
-  if (markerNode) {
-    (markerNode.shape).content = getYearNodeTemplate(timeLine.year);
-  }
-}
-
-// Function to update node positions after inserting a new event
-function updateNodePositions(fromIndex) {
-  // Update positions for all nodes from the insertion point onwards
-  for (var i = fromIndex; i < indexTable.length; i++) {
-    const isOdd = (i + 1) % 2 !== 0;
-    const x = startX + (i * nodeSpacing);
-    const y = isOdd ? startY : baseLine + alternateOffset;
-    const colorIndex = i % eventColors.length;
-    const nodeColor = eventColors[colorIndex];
-    // Update timeline node position
-    const timelineNode = diagram.getObject(`timeline_${indexTable[i]}`);
-    if (timelineNode) {
-      timelineNode.offsetX = x;
-      timelineNode.offsetY = y;
-      // Updating time line node color to match time line event segment color
-      (timelineNode.shape).content = getEventNodeTemplate(nodeColor, timelineEvents[i]);
-      timelineNode.tooltip.position = isOdd ? 'TopCenter' : 'BottomCenter';
-    }
-
-    // Update marker node position
-    const markerNode = diagram.getObject(`marker_${indexTable[i]}`);
-    if (markerNode) {
-      markerNode.offsetX = x;
-      (markerNode.addInfo).eventIndex = i;
-    }
-
-    // Update connector color
-    const connector = diagram.getObject(`connector_${indexTable[i]}`);
-    if (connector) {
-      connector.style.strokeColor = nodeColor;
-    }
-  }
-
-  // Update timeline line width
-  const timelineLine = diagram.getObject('timeline_line');
-  if (timelineLine) {
-    timelineLine.offsetX = (timelineEvents.length * nodeSpacing) / 2;
-    timelineLine.width = (timelineEvents.length) * nodeSpacing;
-
-    // Update timeline line content with new colors
-    (timelineLine.shape).content = `
-<div style="display: flex; width: 100%; height: 100%;">
-  ${timelineEvents.map((_event, index) => {
-      const colorIndex = index % eventColors.length;
-      const nodeColor = eventColors[colorIndex];
-      return `<div style="flex: 1; background-color: ${nodeColor}; height: 100%;"></div>`;
-    }).join('')}
-</div>
-`;
-  }
-}
-
-// Function to add a new timeline event node
-function addNewTimelineEvent(insertIndex, newEvent) {
-  const colorIndex = insertIndex % eventColors.length;
-  const nodeColor = eventColors[colorIndex];
-  const isOdd = (insertIndex + 1) % 2 !== 0;
-  const x = startX + (insertIndex * nodeSpacing);
-  const y = isOdd ? startY : baseLine + alternateOffset;
-  const id = randomId();
-  // Create new timeline node
-  const timelineNode = {
-    id: `timeline_${id}`,
-    offsetX: x,
-    offsetY: y,
-    width: 130,
-    height: 100,
-    constraints: (NodeConstraints.Default | NodeConstraints.Tooltip | NodeConstraints.ReadOnly) & ~NodeConstraints.Select,
-    style: { fill: 'none' },
-    tooltip: {
-      content: `${newEvent.year}: ${newEvent.description}`,
-      position: isOdd ? 'TopCenter' : 'BottomCenter',
-      relativeMode: 'Object',
-      animation: { open: { delay: 1000 } }
-    },
-    shape: {
-      type: 'HTML',
-      content: getEventNodeTemplate(nodeColor, newEvent),
-    }
-  };
-
-  // Create new year marker node
-  const yearMarker = {
-    id: `marker_${id}`,
-    offsetX: x,
-    offsetY: baseLine,
-    width: 170,
-    height: 50,
-    constraints: (NodeConstraints.Default | NodeConstraints.ReadOnly) & ~(NodeConstraints.Drag),
-    addInfo: { eventIndex: insertIndex },
-    shape: {
-      type: 'HTML',
-      content: getYearNodeTemplate(newEvent.year)
-    }
-  };
-
-  // Create new connector
-  const connector = {
-    id: `connector_${id}`,
-    sourceID: `timeline_${id}`,
-    targetID: `marker_${id}`,
-    constraints: ConnectorConstraints.None,
-    style: {
-      strokeColor: nodeColor,
-      strokeWidth: 2
-    },
-    type: 'Straight',
-    targetDecorator: { shape: 'None' },
-    sourceDecorator: { shape: 'None' },
-  };
-
-  // Push node to index table to maintain event order
-  indexTable.splice(insertIndex, 0, id);
-  // Add new nodes and connector to diagram
-  diagram.add(timelineNode);
-  diagram.add(yearMarker);
-  diagram.add(connector);
-}
 // functions to return HTML Templates
 function getEventNodeTemplate(nodeColor, event) {
   if (event.imageUrl) {
@@ -511,36 +359,7 @@ function getYearNodeTemplate(year) {
       </div>`
 }
 
-function checkYearValidity(args) {
-  const previousYearIndex = selectedUserHandle === 'Edit Event' ? editTimeLineIndex - 1 : editTimeLineIndex;
-  const currentYear = Number(args.value);
 
-  // Validate the current year against the previous event's year, if applicable
-  const hasPreviousEvent = previousYearIndex >= 0;
-  if (hasPreviousEvent && Number(timelineEvents[previousYearIndex].year) >= currentYear) {
-    return false;
-  }
-
-  // Validate the current year against the next event's year, if applicable
-  const nextYearIndex = editTimeLineIndex + 1;
-  const hasNextEvent = nextYearIndex < timelineEvents.length;
-  if (hasNextEvent && Number(timelineEvents[nextYearIndex].year) <= currentYear) {
-    return false;
-  }
-
-  return true;
-}
-
-// Check whether next year is immediate year
-function checkImmediateEventYear(currentYear) {
-  // Ensure no Immediate next year event before adding new event
-  const nextYearIndex = currentYear + 1;
-  const hasNextEvent = nextYearIndex < timelineEvents.length;
-  // Toggle off the new event handle for immediate next year event
-  const isImmediateNext = hasNextEvent &&
-    Number(timelineEvents[nextYearIndex].year) - Number(timelineEvents[editTimeLineIndex].year) === 1;
-  return isImmediateNext;
-}
 
 // User handles to create/edit timeline node
 const userHandles = [
@@ -560,8 +379,6 @@ const userHandles = [
   },
 ];
 
-createTimelineNodes();
-createTimelineConnectors();
 export default {
   components: {
     'ejs-diagram': DiagramComponent,
@@ -570,6 +387,12 @@ export default {
     'ejs-textarea': TextAreaComponent
   },
   data: function () {
+
+    const timelineEvents = getTimelineEvents();
+    const indexTable = [];
+    const nodes = createTimelineNodes(timelineEvents, indexTable);
+    const connectors = createTimelineConnectors(timelineEvents, indexTable);
+
     return {
       nodes: nodes,
       connectors: connectors,
@@ -602,130 +425,301 @@ export default {
         },
         {
           buttonModel: { content: 'Cancel' },
-          click: () => { dialog.hide(); }
+          click: () => { this.dialog.hide(); }
         }
       ],
-      // Form values
-      yearValue: '',
-      titleValue: '',
-      descriptionValue: '',
-      imageUrlValue: '',
 
-      // Form validator
-      formValidator: null
+      timelineEvents: timelineEvents,
+      indexTable: indexTable,
     };
   },
   mounted: function () {
     // Controls
-    diagram = this.$refs.diagramObject.ej2Instances;
-    dialog = this.$refs.dialogObject.ej2Instances;
+    this.diagram = this.$refs.diagramObject.ej2Instances;
+    this.dialog = this.$refs.dialogObject.ej2Instances;
+    this.yearTextBox = this.$refs.yearTextBox.ej2Instances;
+    this.titleTextBox = this.$refs.titleTextBox.ej2Instances;
+    this.descriptionTextBox = this.$refs.descriptionTextBox.ej2Instances;
+    this.imageTextBox = this.$refs.imageTextBox.ej2Instances;
+
     // Form Validator
-    formValidator = new FormValidator('#form-element', {
+    this.formValidator = new FormValidator('#form-element', {
       rules: {
         yearInput: {
           required: true,
           digits: true,
           min: 0,
           maxLength: 4,
-          custom: [checkYearValidity, 'Year must be within valid range compared to adjacent events']
+          custom: [this.checkYearValidity, 'Year must be within valid range compared to adjacent events']
         },
         titleInput: { required: true },
         descriptionInput: { required: true }
       }
     });
+    this.diagramCreated = true;
+    this.diagram.fitToPage({ mode: 'Height' });
   },
   methods: {
     selectionChange(args) {
-      if (args.state === 'Changed' && diagram.selectedItems.nodes.length === 1) {
-        selectedNode = diagram.selectedItems.nodes[0];
+      if (args.state === 'Changed' && this.diagram.selectedItems.nodes.length === 1) {
+        this.selectedNode = this.diagram.selectedItems.nodes[0];
         // Fetch the eventIndex from node's info
-        const nodeInfo = (selectedNode).addInfo;
+        const nodeInfo = (this.selectedNode).addInfo;
         if (nodeInfo && nodeInfo.eventIndex !== undefined) {
-          editTimeLineIndex = nodeInfo.eventIndex;
-          const isImmediateNext = checkImmediateEventYear(editTimeLineIndex);
-          diagram.selectedItems.userHandles[0].visible = !isImmediateNext;
-          diagram.selectedItems.userHandles[1].visible = true;
+          this.editTimeLineIndex = nodeInfo.eventIndex;
+          const isImmediateNext = this.checkImmediateEventYear(this.editTimeLineIndex);
+          this.diagram.selectedItems.userHandles[0].visible = !isImmediateNext;
+          this.diagram.selectedItems.userHandles[1].visible = true;
         } else {
-          editTimeLineIndex = -1;
-          diagram.selectedItems.userHandles[0].visible = false;
-          diagram.selectedItems.userHandles[1].visible = false;
+          this.editTimeLineIndex = -1;
+          this.diagram.selectedItems.userHandles[0].visible = false;
+          this.diagram.selectedItems.userHandles[1].visible = false;
         }
-        diagram.dataBind();
+        this.diagram.dataBind();
       }
     },
     onUserHandleMouseDown(args) {
-      formValidator.reset();
+      this.formValidator.reset();
       if (args.element.name === 'New Event') {
-        this.dialogHeader = selectedUserHandle = 'New Event';
-        this.yearValue = '';
-        this.titleValue = '';
-        this.descriptionValue = '';
-        this.imageUrlValue = '';
+        this.dialogHeader = this.selectedUserHandle = 'New Event';
+        this.yearTextBox.value = '';
+        this.titleTextBox.value = '';
+        this.descriptionTextBox.value = '';
+        this.imageTextBox.value = '';
       } else if (args.element.name === 'Edit Event') {
-        this.dialogHeader = selectedUserHandle = 'Edit Event';
-        const timeLine = timelineEvents[editTimeLineIndex];
-        this.yearValue = timeLine.year;
-        this.titleValue = timeLine.title;
-        this.descriptionValue = timeLine.description;
-        this.imageUrlValue = timeLine.imageUrl ?  timeLine.imageUrl : '';
+        this.dialogHeader = this.selectedUserHandle = 'Edit Event';
+        const timeLine = this.timelineEvents[this.editTimeLineIndex];
+        this.yearTextBox.value = timeLine.year;
+        this.titleTextBox.value = timeLine.title;
+        this.descriptionTextBox.value = timeLine.description;
+        this.imageTextBox.value = timeLine.imageUrl ? timeLine.imageUrl : '';
       }
 
-      dialog.show();
+      this.dialog.show();
     },
     click(args) {
-      if ((args.element instanceof Diagram) && diagram.selectedItems.nodes?.length > 0) {
-        diagram.clearSelection();
+      if ((args.element instanceof Diagram) && this.diagram.selectedItems.nodes?.length > 0) {
+        this.diagram.clearSelection();
       }
     },
-    created(args) {
-      diagramCreated = true;
-      diagram.fitToPage({ mode: 'Height' });
-    },
-    load(){
-        setTimeout(()=>{
-            if (diagramCreated){
-                diagram.fitToPage({ mode: 'Height' });
-            }
-        },10);
+    load() {
+      setTimeout(() => {
+        if (this.diagramCreated) {
+          this.diagram.fitToPage({ mode: 'Height' });
+        }
+      }, 10);
     },
     // Dialog Submit Button Clicked
     onSubmitClicked() {
       // Validate Dialog form
-      if (!formValidator.validate()) {
+      if (!this.formValidator.validate()) {
         return;
       }
-      const year = this.yearValue;
-      const title = this.titleValue;
-      const description = this.descriptionValue;
-      const imageUrl = this.imageUrlValue;
+      const year = this.yearTextBox.value;
+      const title = this.titleTextBox.value;
+      const description = this.descriptionTextBox.value;
+      const imageUrl = this.imageTextBox.value;
       const icon = 'sf-icon-internet-public';
       const timeLine = { year, title, description, icon: icon, imageUrl: imageUrl };
 
-      if (selectedUserHandle === 'New Event') {
+      if (this.selectedUserHandle === 'New Event') {
         // Insert new event after the selected node
-        const insertIndex = editTimeLineIndex + 1;
+        const insertIndex = this.editTimeLineIndex + 1;
         // Insert the new event in Event collection
-        timelineEvents.splice(insertIndex, 0, timeLine);
+        this.timelineEvents.splice(insertIndex, 0, timeLine);
         // Add the new event node after selected node
-        addNewTimelineEvent(insertIndex, timeLine);
+        this.addNewTimelineEvent(insertIndex, timeLine);
         // Update positions of all nodes after insertion point
-        updateNodePositions(insertIndex + 1);
+        this.updateNodePositions(insertIndex + 1);
       }
-      else if (selectedUserHandle === 'Edit Event') {
-        timeLine.icon = timelineEvents[editTimeLineIndex].icon;
+      else if (this.selectedUserHandle === 'Edit Event') {
+        timeLine.icon = this.timelineEvents[this.editTimeLineIndex].icon;
         // Update the timeline event data
-        timelineEvents[editTimeLineIndex] = timeLine;
+        this.timelineEvents[this.editTimeLineIndex] = timeLine;
         // Edit the selected event node
-        editTimelineNode(editTimeLineIndex, timeLine);
+        this.editTimelineNode(this.editTimeLineIndex, timeLine);
       }
-      const isImmediateNext = checkImmediateEventYear(editTimeLineIndex);
-      diagram.selectedItems.userHandles[0].visible = !isImmediateNext;
-      // Refresh the diagram to show updated changes
-      diagram.dataBind();
-      dialog.hide();
+      const isImmediateNext = this.checkImmediateEventYear(this.editTimeLineIndex);
+      this.diagram.selectedItems.userHandles[0].visible = !isImmediateNext;
+      // Refresh the this.diagram to show updated changes
+      this.diagram.dataBind();
+      this.dialog.hide();
     },
     onDialogOverlayClick() {
-      dialog.hide();
+      this.dialog.hide();
+    },
+
+    // Function to Edit current selected event node
+    editTimelineNode(editTimeLineIndex, timeLine) {
+      // Update the timeline node content
+      const timelineNode = this.diagram.getObject(`timeline_${this.indexTable[this.editTimeLineIndex]}`);
+      if (timelineNode) {
+        const colorIndex = this.editTimeLineIndex % eventColors.length;
+        const nodeColor = eventColors[colorIndex];
+
+        (timelineNode.shape).content = getEventNodeTemplate(nodeColor, timeLine);
+
+        // Update tooltip
+        if (timelineNode.tooltip) {
+          timelineNode.tooltip.content = `${timeLine.year}: ${timeLine.description}`;
+        }
+      }
+
+      // Update the year marker content
+      const markerNode = this.diagram.getObject(`marker_${this.indexTable[this.editTimeLineIndex]}`);
+      if (markerNode) {
+        (markerNode.shape).content = getYearNodeTemplate(timeLine.year);
+      }
+    },
+
+    // Function to update node positions after inserting a new event
+    updateNodePositions(fromIndex) {
+      // Update positions for all nodes from the insertion point onwards
+      for (var i = fromIndex; i < this.indexTable.length; i++) {
+        const isOdd = (i + 1) % 2 !== 0;
+        const x = startX + (i * nodeSpacing);
+        const y = isOdd ? startY : baseLine + alternateOffset;
+        const colorIndex = i % eventColors.length;
+        const nodeColor = eventColors[colorIndex];
+        // Update timeline node position
+        const timelineNode = this.diagram.getObject(`timeline_${this.indexTable[i]}`);
+        if (timelineNode) {
+          timelineNode.offsetX = x;
+          timelineNode.offsetY = y;
+          // Updating time line node color to match time line event segment color
+          (timelineNode.shape).content = getEventNodeTemplate(nodeColor, this.timelineEvents[i]);
+          timelineNode.tooltip.position = isOdd ? 'TopCenter' : 'BottomCenter';
+        }
+
+        // Update marker node position
+        const markerNode = this.diagram.getObject(`marker_${this.indexTable[i]}`);
+        if (markerNode) {
+          markerNode.offsetX = x;
+          (markerNode.addInfo).eventIndex = i;
+        }
+
+        // Update connector color
+        const connector = this.diagram.getObject(`connector_${this.indexTable[i]}`);
+        if (connector) {
+          connector.style.strokeColor = nodeColor;
+        }
+      }
+
+      // Update timeline line width
+      const timelineLine = this.diagram.getObject('timeline_line');
+      if (timelineLine) {
+        timelineLine.offsetX = (this.timelineEvents.length * nodeSpacing) / 2;
+        timelineLine.width = (this.timelineEvents.length) * nodeSpacing;
+
+        // Update timeline line content with new colors
+        (timelineLine.shape).content = `
+<div style="display: flex; width: 100%; height: 100%;">
+  ${this.timelineEvents.map((_event, index) => {
+          const colorIndex = index % eventColors.length;
+          const nodeColor = eventColors[colorIndex];
+          return `<div style="flex: 1; background-color: ${nodeColor}; height: 100%;"></div>`;
+        }).join('')}
+</div>
+`;
+      }
+    },
+
+    // Function to add a new timeline event node
+    addNewTimelineEvent(insertIndex, newEvent) {
+      const colorIndex = insertIndex % eventColors.length;
+      const nodeColor = eventColors[colorIndex];
+      const isOdd = (insertIndex + 1) % 2 !== 0;
+      const x = startX + (insertIndex * nodeSpacing);
+      const y = isOdd ? startY : baseLine + alternateOffset;
+      const id = randomId();
+      // Create new timeline node
+      const timelineNode = {
+        id: `timeline_${id}`,
+        offsetX: x,
+        offsetY: y,
+        width: 130,
+        height: 100,
+        constraints: (NodeConstraints.Default | NodeConstraints.Tooltip | NodeConstraints.ReadOnly) & ~NodeConstraints.Select,
+        style: { fill: 'none' },
+        tooltip: {
+          content: `${newEvent.year}: ${newEvent.description}`,
+          position: isOdd ? 'TopCenter' : 'BottomCenter',
+          relativeMode: 'Object',
+          animation: { open: { delay: 1000 } }
+        },
+        shape: {
+          type: 'HTML',
+          content: getEventNodeTemplate(nodeColor, newEvent),
+        }
+      };
+
+      // Create new year marker node
+      const yearMarker = {
+        id: `marker_${id}`,
+        offsetX: x,
+        offsetY: baseLine,
+        width: 170,
+        height: 50,
+        constraints: (NodeConstraints.Default | NodeConstraints.ReadOnly) & ~(NodeConstraints.Drag),
+        addInfo: { eventIndex: insertIndex },
+        shape: {
+          type: 'HTML',
+          content: getYearNodeTemplate(newEvent.year)
+        }
+      };
+
+      // Create new connector
+      const connector = {
+        id: `connector_${id}`,
+        sourceID: `timeline_${id}`,
+        targetID: `marker_${id}`,
+        constraints: ConnectorConstraints.None,
+        style: {
+          strokeColor: nodeColor,
+          strokeWidth: 2
+        },
+        type: 'Straight',
+        targetDecorator: { shape: 'None' },
+        sourceDecorator: { shape: 'None' },
+      };
+
+      // Push node to index table to maintain event order
+      this.indexTable.splice(insertIndex, 0, id);
+      // Add new nodes and connector to this.diagram
+      this.diagram.add(timelineNode);
+      this.diagram.add(yearMarker);
+      this.diagram.add(connector);
+    },
+
+    checkYearValidity(args) {
+      const previousYearIndex = this.selectedUserHandle === 'Edit Event' ? this.editTimeLineIndex - 1 : this.editTimeLineIndex;
+      const currentYear = Number(args.value);
+
+      // Validate the current year against the previous event's year, if applicable
+      const hasPreviousEvent = previousYearIndex >= 0;
+      if (hasPreviousEvent && Number(this.timelineEvents[previousYearIndex].year) >= currentYear) {
+        return false;
+      }
+
+      // Validate the current year against the next event's year, if applicable
+      const nextYearIndex = this.editTimeLineIndex + 1;
+      const hasNextEvent = nextYearIndex < this.timelineEvents.length;
+      if (hasNextEvent && Number(this.timelineEvents[nextYearIndex].year) <= currentYear) {
+        return false;
+      }
+
+      return true;
+    },
+
+    // Check whether next year is immediate year
+    checkImmediateEventYear(currentYear) {
+      // Ensure no Immediate next year event before adding new event
+      const nextYearIndex = currentYear + 1;
+      const hasNextEvent = nextYearIndex < this.timelineEvents.length;
+      // Toggle off the new event handle for immediate next year event
+      const isImmediateNext = hasNextEvent &&
+        Number(this.timelineEvents[nextYearIndex].year) - Number(this.timelineEvents[this.editTimeLineIndex].year) === 1;
+      return isImmediateNext;
     },
   }
 };

@@ -26,7 +26,7 @@
   </div>
 </template>
   <script>
-  import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, QuickToolbar, Table, PasteCleanup, ImportExport } from "@syncfusion/ej2-vue-richtexteditor";
+  import { RichTextEditorComponent, Toolbar, Link, Image, HtmlEditor, QuickToolbar, Table, PasteCleanup, ImportExport, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
   let hostUrl = 'https://services.syncfusion.com/vue/production/';
   export default {
     components: {
@@ -74,7 +74,7 @@
       };
     },
     provide: {
-      richtexteditor: [Toolbar, Image, Link, HtmlEditor, QuickToolbar, Table, PasteCleanup, ImportExport]
+      richtexteditor: [Toolbar, Image, Link, HtmlEditor, QuickToolbar, Table, PasteCleanup, ImportExport, ClipBoardCleanup, AutoFormat]
     }
   };
   </script>

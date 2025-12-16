@@ -4,7 +4,7 @@
         <div class="content-wrapper">
             <div id='group' class='col-lg-6' style="margin: 0px auto; width:64%; padding-top: 40px;    margin-left: 165px;">
                 <label class="h4">Grouping</label>
-                    <ejs-multiselect id='vegetables' :dataSource='vegetableData' :placeholder='groupWaterMark' :fields='groupFields'></ejs-multiselect>
+                    <ejs-multiselect id='vegetables' popupHeight="200px" :dataSource='vegetableData' :placeholder='groupWaterMark' :fields='groupFields'></ejs-multiselect>
             </div>
         </div>
     </div>

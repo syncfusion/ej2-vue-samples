@@ -473,7 +473,7 @@
 </style>
 <script>
 import { isNullOrUndefined as isNOU } from "@syncfusion/ej2-base";
-import { RichTextEditorComponent, Link, Image, QuickToolbar, HtmlEditor, Toolbar, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Link, Image, QuickToolbar, HtmlEditor, Toolbar, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 
 export default {
@@ -557,7 +557,7 @@ export default {
     }
     },
     provide:{
-        richtexteditor:[Link, Image, QuickToolbar, HtmlEditor, Toolbar, PasteCleanup, Table, Video, Audio]
+        richtexteditor:[Link, Image, QuickToolbar, HtmlEditor, Toolbar, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat]
     }
 }
 </script>

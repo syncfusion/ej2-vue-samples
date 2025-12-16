@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, NodeSelection, HtmlEditor, QuickToolbar, EmojiPicker, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, NodeSelection, HtmlEditor, QuickToolbar, EmojiPicker, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 import { TabComponent } from "@syncfusion/ej2-vue-navigations";
 
@@ -42,7 +42,7 @@ export default {
         };
     },
     provide:{
-        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar, EmojiPicker, PasteCleanup, Table, Video, Audio]
+        richtexteditor:[Toolbar, Link, Image, HtmlEditor, QuickToolbar, EmojiPicker, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat]
     }
 }
 </script>

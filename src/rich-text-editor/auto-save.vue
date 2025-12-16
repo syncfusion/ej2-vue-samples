@@ -151,7 +151,7 @@
     }
 </style>
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
 export default {
   components: {
@@ -191,7 +191,7 @@ export default {
     }
   },
   provide: {
-    richtexteditor: [Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio]
+    richtexteditor: [Toolbar, Link, Image, Count, HtmlEditor, QuickToolbar, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat]
   }
 }
 </script>

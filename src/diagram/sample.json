@@ -389,11 +389,27 @@
       "type": "new"
     },
     {
-      "url": "angle-diagram",
-      "name": "Solar Panle Angle",
+      "url": "family-tree",
+      "name": "Family Tree Diagram",
       "order": 7,
-      "description": "Demonstrate a smart solar panel tilt system using Syncfusion® EJ2 Vue Diagram. Interactively adjust panel angles, track efficiency, and optimize based on sun position and location.",
+      "description": "Visualize family relationships with Syncfusion® EJ2 Vue Diagram. Arrange members in a complex hierarchical layout, showing names, tenure, and clear connections between spouses and children.",
       "category": "Use Case Diagram",
+      "type": "new"
+    },
+    {
+      "url": "serpentine-diagram",
+      "name": "Serpentine Diagram",
+      "order": 7,
+      "description": "Visualizes a custom serpentine layout with the Diagram component, featuring 20 key medical breakthroughs that revolutionized healthcare (1796–1996).",
+      "category": "Use Case Diagram",
+      "type": "new"
+    },
+    {
+      "url": "angle-diagram",
+      "name": "Solar Panel Angle",
+      "order": 8,
+      "description": "Demonstrate a smart solar panel tilt system using Syncfusion® EJ2 Vue Diagram. Interactively adjust panel angles, track efficiency, and optimize based on sun position and location.",
+      "category": "Real-time Diagrams",
       "type": "new"
     },
     {

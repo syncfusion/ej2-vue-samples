@@ -3,7 +3,7 @@ import { ChartTheme, ILoadedEventArgs, IRangeLoadedEventArgs } from "@syncfusion
 
 export let loadRangeNavigatorTheme = (args?: ILoadedEventArgs | IRangeLoadedEventArgs, isGradient?: boolean): ChartTheme | string => {
     let selectedTheme: string = location.hash.split('/')[1];
-    selectedTheme = selectedTheme ? selectedTheme : 'Tailwind3';
+    selectedTheme = selectedTheme ? selectedTheme : 'tailwind3';
 
     const formattedTheme: string = (selectedTheme.charAt(0).toUpperCase() +
         selectedTheme.slice(1)).replace(/-dark/i, 'Dark').replace(/contrast/i, 'Contrast').replace(/-highContrast/i, 'HighContrast');

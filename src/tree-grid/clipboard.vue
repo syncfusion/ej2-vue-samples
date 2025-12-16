@@ -125,7 +125,7 @@ export default {
         (((this as any)).$refs.alertDialog as any).ej2Instances.hide();
   },
       onChange: function(e: ChangeEventArgs): void {
-                let mode:any = e.value.toString();
+                let mode:any = e.value?.toString() ?? 'Parent';
                 ((this as any).$refs.treegrid).ej2Instances.copyHierarchyMode = mode;
             }
   },

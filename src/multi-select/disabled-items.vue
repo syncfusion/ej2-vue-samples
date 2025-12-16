@@ -5,13 +5,13 @@
             <div id='tag' class='col-lg-6'>
                 <div class="content">
                     <label class="h4">Tags</label>
-                    <ejs-multiselect id='tag' :dataSource='tagData' :placeholder='tagText' :fields='tagFields' :allowFiltering='true' :showDropDownIcon='true'></ejs-multiselect>
+                    <ejs-multiselect id='tag' popupHeight="200px" :dataSource='tagData' :placeholder='tagText' :fields='tagFields' :allowFiltering='true' :showDropDownIcon='true'></ejs-multiselect>
                 </div>
             </div>
             <div id='#disabled-vegetable' class='col-lg-6'>
                 <div class="content">
                     <label class="h4">Vegetables</label>
-                    <ejs-multiselect id='vegetable' :dataSource='vegetableData' :placeholder='vegetableText' :fields='vegetableFields' :mode='multiMode' :showDropDownIcon='true'></ejs-multiselect>
+                    <ejs-multiselect id='vegetable' popupHeight="200px" :dataSource='vegetableData' :placeholder='vegetableText' :fields='vegetableFields' :mode='multiMode' :showDropDownIcon='true'></ejs-multiselect>
                 </div>
             </div>
         </div>

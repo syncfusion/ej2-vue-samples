@@ -53,7 +53,7 @@
     <ejs-sidebar ref="sidebarInstance" :closeOnDocumentClick="closeOnDocumentClick" :type="type" :position="position" :showBackdrop="showBackdrop" width="220px" target=".apimaincontent" id="apiSidebar" class="default-sidebar">
         <div class="title-header">
             <div style="display:inline-block"> Sidebar </div>
-            <span id="close" class="e-icons" v-on:click="sidebarClose"></span>
+            <span id="sidebarclose" class="e-icons" v-on:click="sidebarClose"></span>
         </div>
         <div class="sub-title">
             The Vue Sidebar is an expandable and collapsible component that typically acts as a side container to place primary or secondary content alongside the main content. It provides flexible options that can be shown and hidden based on user interactions.
@@ -197,7 +197,7 @@ export default {
     .sub-title {
         font-size: 16px;
     }
-    .e-sidebar .title-header #close {
+    .e-sidebar .title-header #sidebarclose {
         cursor: pointer;
         line-height: 25px;
         font-size: 14px;
@@ -213,7 +213,7 @@ export default {
         float: left;
         margin-right: 10px
     }
-    #wrapper #close:before {
+    #wrapper #sidebarclose:before {
         content: "\e109";
         font-family: "e-sidebar-icons";
     }

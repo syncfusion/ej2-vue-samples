@@ -5,14 +5,14 @@
             <div id='local' class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
                 <div class='drop-down-list-content'>
                 <label class="h4"> Local Data</label>
-                    <ejs-autocomplete id='country' :dataSource='countries' :autofill='autofill' :fields='localFields' filterType='StartsWith'
+                    <ejs-autocomplete id='country' :dataSource='countries' :popupHeight='height' :autofill='autofill' :fields='localFields' filterType='StartsWith'
                         :placeholder='localWaterMark'></ejs-autocomplete>
                 </div>
             </div>
             <div id='remote' class='col-lg-6' style="margin: 0 auto;padding-top: 15px;">
                 <div class='drop-down-list-content'>
                 <label class="h4">Remote Data</label>
-                    <ejs-autocomplete id='products' :dataSource='data' :suggestionCount='suggestionCount' filterType='StartsWith' :fields='remoteFields'
+                    <ejs-autocomplete id='products' :dataSource='data' :popupHeight='height' :suggestionCount='suggestionCount' filterType='StartsWith' :fields='remoteFields'
                         :autofill='autofill' :query='query' :placeholder='remoteWaterMark' sortOrder='Ascending'></ejs-autocomplete>
                 </div>
             </div>
@@ -109,6 +109,7 @@ export default {
             countries: data['countries'],
             data: remoteData,
             suggestionCount: 5,
+            height: '200px',
             remoteFields: { value:'FirstName' },
             query: new Query().select(['FirstName', 'EmployeeID']).take(10).requiresCount(),
             remoteWaterMark: 'e.g. Andrew Fuller',

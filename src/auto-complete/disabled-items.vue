@@ -5,13 +5,13 @@
             <div id='disabled-status' class='col-lg-6'>
                 <div class="content">
                     <label class="h4">Status</label>
-                    <ejs-autocomplete id='status' :dataSource='statusData' :placeholder='statusText' :fields='statusFields'></ejs-autocomplete>
+                    <ejs-autocomplete id='status' :popupHeight='height' :dataSource='statusData' :placeholder='statusText' :fields='statusFields'></ejs-autocomplete>
                 </div>
             </div>
             <div id='disabled-vegetable' class='col-lg-6'>
                 <div class="content">
                     <label class="h4">Vegetable</label>
-                    <ejs-autocomplete id='vegetable' :dataSource='vegetableData' :placeholder='vegetableText' :fields='vegetableFields'></ejs-autocomplete>
+                    <ejs-autocomplete id='vegetable' :popupHeight='height' :dataSource='vegetableData' :placeholder='vegetableText' :fields='vegetableFields'></ejs-autocomplete>
                 </div>
             </div>
         </div>
@@ -59,7 +59,8 @@ export default {
             statusData: data['statusData'],
             vegetableFields: { groupBy: 'Category', value: 'Vegetable', disabled: 'State' },
             vegetableText: 'Select Vegetable',
-            vegetableData: data['vegetables']
+            vegetableData: data['vegetables'],
+            height: '200px',
         };
     }
 }

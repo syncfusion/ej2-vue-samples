@@ -1,7 +1,7 @@
 <template>
     <div class="col-lg-12 control-section">
         <div id="action-description">
-            <p>This sample visualizes how to notify the important dates in the project timeline.</p>
+            <p>This sample demonstrates how to highlight and notify important dates within a project timeline using the Gantt Chart component.</p>
         </div>
         <div>
             <ejs-gantt ref='gantt' id="EventMarkers" :dataSource="data" :height="height" :rowHeight="46"
@@ -14,25 +14,26 @@
 
         <div id="description">
             <p>
-                In this example, the <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#eventmarkers">eventMarkers</a> are
-                used like a bookmark to show the different stages of the project life cycle. You can show the desired
-                text on the date. The Event Markers model has the below properties to customize the marker:
+                In this example, <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#eventmarkers">eventMarkers</a> act as visual bookmarks to indicate key milestones or stages in the project life cycle. Each marker can display descriptive text on the corresponding date, making it easier to track progress and deadlines.</p> 
+            <p>The <strong>Event Markers</strong> provides several properties to customize the appearance and behavior of markers:
             <ul>
-                <li><code>cssClass</code>: Used to assign external CSS styles to that particular marker.</li>
-                <li><code>day</code>: Used to set date of the event marker.</li>
-                <li><code>label</code>: The desired text can be shown on the vertical line using this property.</li>
+                <li><code>cssClass</code>: Apply custom CSS styles to a specific marker.</li>
+                <li><code>day</code>: Define the exact date for the event marker.</li>
+                <li><code>label</code>: Display text along the vertical line to describe the event.</li>
+                <li><code>top</code>: Adjust the vertical position of the marker from the chart pane's content top to avoid overlap when multiple markers share the same date.</li>
             </ul>
             </p>
+            <p>The Gantt Chart component is modular, with features separated into individual modules. To enable selection support and event markers, inject the <code>Selection</code> and <code>DayMarkers</code> modules.</p>
             <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/event-markers">documentation section</a>.
+                    href="https://ej2.syncfusion.com/vue/documentation/gantt/eventmarkers">documentation section</a>.
             </p>
         </div>
     </div>
 </template>
 <script>
-import { GanttComponent, Selection, DayMarkers, TimelineSettings } from "@syncfusion/ej2-vue-gantt";
-import { projectNewData } from './data-source';
+import { GanttComponent, Selection, DayMarkers} from "@syncfusion/ej2-vue-gantt";
+import { EventmarkerData } from './data-source';
 
 export default {
     components: {
@@ -40,7 +41,7 @@ export default {
     },
     data: function () {
         return {
-            data: projectNewData,
+            data: EventmarkerData,
             height: '650px',
             taskFields: {
                 id: 'TaskID',
@@ -66,7 +67,7 @@ export default {
             splitterSettings: {
                 columnIndex: 2
             },
-            projectStartDate: new Date('03/23/2025'),
+            projectStartDate: new Date('03/26/2025'),
             projectEndDate: new Date('07/20/2025'),
             timelineSettings: {
                 topTier: {
@@ -80,17 +81,40 @@ export default {
             },
             eventMarkers: [
                 {
-                    day: new Date('04/07/2025'),
-                    label: 'Research phase'
-                }, {
-                    day: new Date('04/17/2025'),
-                    label: 'Design phase'
-                }, {
-                    day: new Date('05/23/2025'),
-                    label: 'Production phase'
-                }, {
-                    day: new Date('06/27/2025'),
-                    label: 'Sales and marketing phase'
+                    day: new Date("04/01/2025"),
+                    label: "Product Concept Analysis"
+                },
+                {
+                    day: new Date("04/07/2025"),
+                    label: "Research Phase" 
+                },
+                {
+                    day: new Date("04/07/2025"),
+                    label: "Demand Analysis",
+                    top: '150px'
+                },
+                {
+                    day: new Date("04/17/2025"),
+                    label: "Design Phase",
+                    top: '200px'
+                },
+                {
+                    day: new Date("04/17/2025"),
+                    label: "Competitor Analysis",
+                    top: '422px'
+                },
+                {
+                    day: new Date("05/23/2025"),
+                    label: "Prototype Testing Phase" 
+                },
+                {
+                    day: new Date("05/29/2025"),
+                    label: "Production Launch" ,
+                    top: '5px'
+                },
+                {
+                    day: new Date("06/26/2025"),
+                    label: "Market Deployment"
                 }
             ],
         };

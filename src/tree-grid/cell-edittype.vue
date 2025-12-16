@@ -3,7 +3,7 @@
     <div>
         <ejs-treegrid :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' height='380' :editSettings='editSettings' :toolbar='toolbar'>
             <e-columns>
-               <e-column field='taskID' headerText='Task ID' width='70' textAlign='Right' isPrimaryKey='true' :edit='editparams' :validationRules='taskidrules'></e-column>
+               <e-column field='taskID' headerText='Task ID' width='100' textAlign='Right' isPrimaryKey='true' :edit='editparams' :validationRules='taskidrules'></e-column>
                <e-column field='taskName' headerText='Task Name' width='180'  editType= 'stringedit' :validationRules='tasknamerules'></e-column>
                <e-column field='startDate' headerText='Start Date' width='180' :format="format" :edit='dateparams'  editType='datetimepickeredit' textAlign='Right' :validationRules='startdaterules'></e-column>
                <e-column field='duration' headerText='Duration' width='150' textAlign='Right' :edit='editparams' editType='numericedit' :validationRules='durationrules'></e-column>

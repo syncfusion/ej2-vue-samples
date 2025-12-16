@@ -4,7 +4,7 @@
             <div class="drag-sample-wrapper">
             <div class="schedule-container">
                 <div class="title-container">
-                    <h1 class="title-text">Doctor's Appointments</h1>
+                    <div class="title-text">Doctor's Appointments</div>
                 </div>
                 <ejs-schedule id='Schedule' ref="ScheduleObj" height="650px" :cssClass='cssClass' :selectedDate='selectedDate' :eventSettings='eventSettings'
                     :group='group' :currentView='currentView' :resourceHeaderTemplate="'resourceHeaderTemplate'" :actionBegin="onActionBegin">
@@ -34,7 +34,7 @@
             </div>
             <div class="treeview-container">
                 <div class="title-container">
-                    <h1 class="title-text">Waiting List</h1>
+                    <div class="title-text">Waiting List</div>
                 </div>
                 <ejs-treeview id='Tree' cssClass="treeview-external-drag" dragArea=".drag-sample-wrapper" :nodeTemplate="treeTemplate" :fields='treeViewFields' :nodeDragging="onTreeDrag" :nodeDragStart="onTreeDragStart" :allowDragAndDrop=true :nodeDragStop="onTreeDragStop" :nodeSelecting="onItemSelecting" ></ejs-treeview>
             </div>
@@ -95,6 +95,7 @@
     margin: 0px;
     font-weight: bold;
     text-align: center;
+    line-height: 1.1;
 }
 
 

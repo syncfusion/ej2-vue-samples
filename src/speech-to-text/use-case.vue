@@ -146,7 +146,7 @@ export default {
         gap: 40px;
     }
 
-    .usecase-speechToText-section .e-speech-to-text.usecase-stt-btn {
+    .usecase-speechToText-section #speechToText.usecase-stt-btn {
         width: 100px;
         height: 100px;
         position: relative;

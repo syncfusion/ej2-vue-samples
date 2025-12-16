@@ -3,6 +3,7 @@
     "directory": "numerictextbox",
     "category": "Inputs",
     "ftName": "numerictextbox",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -33,6 +34,13 @@
             "name": "Two-Way Binding",
             "category": "Numeric Textbox",
             "description": "This sample demonstrates the two way bindig in numeric textbox. when you change the value in one numeric textbox component, it will update in the other numeric textbox by using value property."
+        },
+        {
+            "url": "adornments",
+            "name": "Adornments",
+            "category": "Numeric Textbox",
+            "type": "new",
+            "description": "The example exposes a Vue Numeric TextBox with adornments support. It helps to render custom elements before or after the input element."
         }
 
     ]

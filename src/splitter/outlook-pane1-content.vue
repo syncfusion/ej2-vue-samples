@@ -33,8 +33,8 @@ var mailBox = [
 ];
 
 var treeTemplate = createApp({}).component("demo", {
-  template: '<div><div class="treeviewdiv"><div style="float:left"><span class="treeName">{{data.name}}</span></div>' +
-        '<div v-if="data.count" style="margin-right: 5px; float:right"><span class="treeCount e-badge e-badge-primary">{{data.count}}</span></div></div></div>',
+  template: '<div><div class="treeviewdiv"><div><span class="treeName">{{data.name}}</span></div>' +
+        '<div v-if="data.count"><span class="treeCount e-badge e-badge-primary">{{data.count}}</span></div></div></div>',
   data() {
     return {
       data: {}

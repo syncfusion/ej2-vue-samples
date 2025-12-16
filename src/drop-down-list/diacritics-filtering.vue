@@ -2,7 +2,7 @@
 <div>
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
-            <ejs-dropdownlist id='diacritics' :allowFiltering='true' :dataSource='data' :ignoreAccent='true' placeholder='Select a value' filterBarPlaceholder='e.g: gul'></ejs-dropdownlist>
+            <ejs-dropdownlist id='diacritics' popupHeight="200px" :allowFiltering='true' :dataSource='data' :ignoreAccent='true' placeholder='Select a value' filterBarPlaceholder='e.g: gul'></ejs-dropdownlist>
         </div>
     </div>
     <div id="action-description">

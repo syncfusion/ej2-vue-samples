@@ -3,7 +3,7 @@
         <div class="control-section">
             <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
                 <ejs-dropdownlist id='multi-template' :dataSource='data' :fields='fields' cssClass='ddl-template' :placeholder='watermark'
-                 :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :valueTemplate="'vTemplate'" popupHeight="450px">
+                 :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :valueTemplate="'vTemplate'" popupHeight="200px">
                   <template v-slot:hTemplate="{data}">
                     <div class="header"> <span>Photo</span> <span class="info">Employee Info</span></div>
                   </template>

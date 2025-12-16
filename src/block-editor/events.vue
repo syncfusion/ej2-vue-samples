@@ -1,8 +1,8 @@
 <template>
     <div className='control-section'>
         <div className="col-lg-8 control-section sb-property-border">
-            <div className="content-wrapper">
-                <ejs-blockeditor id='events-blockeditor' :blocks="blocks" :created="logEvent('created')" :contentChanged="logEvent('contentChanged')" :blockAdded="logEvent('blockAdded')" :blockRemoved="logEvent('blockRemoved')" :blockMoved="logEvent('blockMoved')" :blockDrag="logEvent('blockDrag')" :blockDragStart="logEvent('blockDragStart')" :blockDrop="logEvent('blockDrop')" :focus="logEvent('focus')" :blur="logEvent('blur')" :selectionChanged="logEvent('selectionChanged')" :beforePaste="logEvent('beforePaste')" :afterPaste="logEvent('afterPaste')" :undoRedoPerformed="undoRedoPerformedEvent"  :keyActionExecuted="keyActionExecutedEvent" :inlineToolbar="inlineToolbar"></ejs-blockeditor>
+            <div className="blockeditor-events">
+                <ejs-blockeditor id='events-blockeditor' height= "600px" :blocks="blocks" :created="logEvent('created')" :blockChanged="blockChangeEvent" :blockDragging="logEvent('blockDragging')" :blockDragStart="logEvent('blockDragStart')" :blockDropped="logEvent('blockDropped')" :focus="logEvent('focus')" :blur="logEvent('blur')" :selectionChanged="logEvent('selectionChanged')" :afterPasteCleanup="logEvent('afterPasteCleanup')" :beforePasteCleanup="logEvent('beforePasteCleanup')" :inlineToolbarSettings="inlineToolbarSettings"></ejs-blockeditor>
             </div>
         </div>
         <div className="col-lg-4 property-section">
@@ -34,20 +34,15 @@
             <p>The Block Editor triggers events based on its actions. These events can be used as extension points to perform custom operations.</p>
             <ul>
                 <li><code>created</code> - Triggers after the Block Editor is rendered completely.</li>
-                <li><code>contentChanged</code> - Triggers when the content of the block editor is changed.</li>
+                <li><code>blockChanged</code> - Triggers when the editor blocks are changed. This event provides details about the changes made to the blocks, including insertions, deletions, movements, and updates.</li>
                 <li><code>selectionChanged</code> - Triggers when the selection in the block editor changes.</li>
-                <li><code>blockAdded</code> - Triggers when a new block is added to the editor.</li>
-                <li><code>blockRemoved</code> - Triggers when a block is removed from the editor.</li>
-                <li><code>blockMoved</code> - Triggers when a block is moved within the editor.</li>
-                <li><code>blockDrag</code> - Triggers during the dragging operation of a block.</li>
+                <li><code>blockDragging</code> - Triggers during the dragging operation of a block.</li>
                 <li><code>blockDragStart</code> - Triggers when the drag operation for a block starts.</li>
-                <li><code>blockDrop</code> - Triggers when a block is dropped after a drag operation.</li>
+                <li><code>blockDropped</code> - Triggers when a block is dropped after a drag operation.</li>
                 <li><code>focus</code> - Triggers when the block editor gains focus.</li>
                 <li><code>blur</code> - Triggers when the block editor loses focus.</li>
-                <li><code>beforePaste</code> - Triggers before pasting the content in the block editor.</li>
-                <li><code>afterPaste</code> - Triggers after pasting the content in the block editor.</li>
-                <li><code>undoRedoPerformed</code> - Triggers when the undo/redo actions are performed in the block editor.</li>
-                <li><code>keyActionExecuted</code> - Triggers when the keyboard actions are performed in the block editor.</li>
+                <li><code>beforePasteCleanup</code> - Triggers before pasting the content in the block editor.</li>
+                <li><code>afterPasteCleanup</code> - Triggers after pasting the content in the block editor.</li>
             </ul>
         </div>
     </div>
@@ -66,15 +61,9 @@ export default {
    data() {
     return {
       blocks: data['blockDataEvents'] || [], // Fallback to empty array if data is missing
-      inlineToolbar: {
-        open: (args) => {
-          this.appendElement('BlockEditor inline toolbar <b>opened</b><hr>');
-        },
-        close: (args) => {
-          this.appendElement('BlockEditor inline toolbar <b>closed</b><hr>');
-        },
-        itemClicked: (args) => {
-          this.appendElement(`BlockEditor inline toolbar <b>${args.item?.item || 'Unknown'}</b> clicked<hr>`);
+      inlineToolbarSettings: {
+        itemClick: (args) => {
+          this.appendElement(`BlockEditor inline toolbar <b>${args.item?.command || 'Unknown'}</b> clicked<hr>`);
         }
       }
     };
@@ -91,35 +80,37 @@ export default {
                 this.appendElement(`BlockEditor <b>${eventName}</b> event called<hr>`);
             };
         },
-        undoRedoPerformedEvent(args){
-        this.appendElement(`BlockEditor <b>${args.isUndo ? 'Undo' : 'Redo'}</b> action performed<hr>`);
-    },
-    keyActionExecutedEvent(args) {
-        if (args.action === 'bold') {
-            this.appendElement('BlockEditor <b>Bold</b> keyAction clicked<hr>');
-        } else if (args.action === 'italic') {
-            this.appendElement('BlockEditor <b>Italic</b> keyAction clicked<hr>');
-        } else if (args.action === 'underline') {
-            this.appendElement('BlockEditor <b>Underline</b> keyAction clicked<hr>');
-        } else if (args.action === 'strikethrough') {
-            this.appendElement('BlockEditor <b>Strikethrough</b> keyAction clicked<hr>');
-        } else if (args.action === 'link') {
-            this.appendElement('BlockEditor <b>Insert Link</b> keyAction clicked<hr>');
-        } else if (args.action === 'cut') {
-            this.appendElement('BlockEditor <b>Cut</b> keyAction clicked<hr>');
-        } else if (args.action === 'copy') {
-            this.appendElement('BlockEditor <b>Copy</b> keyAction clicked<hr>');
-        } else if (args.action === 'paste') {
-            this.appendElement('BlockEditor <b>Paste</b> keyAction clicked<hr>');
+        blockChangeEvent(args) {
+            const changes = args?.changes || [];
+            if (!changes.length) return;
+
+            const counts = {};
+            changes.forEach((change) => {
+                const action = change.action; // 'Insertion' | 'Deletion' | 'Moved' | 'Update'
+                counts[action] = (counts[action] || 0) + 1;
+            });
+
+            const plural = (count, noun) => (count === 1 ? `${count} ${noun}` : `${count} ${noun}s`);
+            const messages = [];
+            if (counts.Insertion) messages.push(`${plural(counts.Insertion, 'block')} inserted`);
+            if (counts.Deletion) messages.push(`${plural(counts.Deletion, 'block')} deleted`);
+            if (counts.Moved) messages.push(`${plural(counts.Moved, 'block')} moved`);
+            if (counts.Update) messages.push(`${plural(counts.Update, 'block')} updated`);
+
+            this.appendElement(`BlockEditor <b>blockChange</b> event called: ${messages.join(', ')}<hr>`);
+            }
+        },
+          mounted() {
+            const clear = document.getElementById('clear');
+            if (clear) {
+                clear.onclick = () => {
+                    const el = document.getElementById('eventLog');
+                    if (el) el.innerHTML = '';
+                };
+            }
         }
     }
-    },
-    mounted() {
-        document.getElementById('clear').onclick = function() {
-            document.getElementById('eventLog').innerHTML = '';
-        }
-    }
-}
+
 </script>
 
 <style>
@@ -136,7 +127,8 @@ export default {
         margin: 1px 10px 1px 0px;
         border-top: 1px solid #eee;
     }
-    .control-wrapper {
-        margin: 0 auto;
+    .blockeditor-events {
+    width: 100%;
+    margin: 0 auto;
     }
 </style>

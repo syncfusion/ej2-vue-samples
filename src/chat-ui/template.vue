@@ -37,12 +37,12 @@
             </ejs-chatui>
         </div>
     </div>
-    <div id="action-description">
+      <div id="action-description">
         <p>This sample demonstrates the template functionality of the Chat UI component, showing how you can customize various elements of the chat interface. It highlights the ability to adjust the appearance of message items, time breaks, and empty chat screens using templates.</p>
     </div>
     <div id="description">
         <p>
-            In this example, a bot provides order tracking updates by customizing each message using the templates. The <code>messageTemplate</code> property controls the layout of messages, including the avatar, message content, and suggestions. The <code>timeBreakTemplate</code> adjusts the display of time breaks, showing either "Today" or the specific date.
+            In this example, a bot provides order tracking updates by customizing each message using the templates. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#messagetemplate">messageTemplate</a> property controls the layout of messages, including the avatar, message content, and suggestions. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/chat-ui/#timebreaktemplate">timeBreakTemplate</a> adjusts the display of time breaks, showing either "Today" or the specific date.
         </p>
         <p>
             The bot sends a default response when a message is sent, and suggestions appear below the message. When a suggestion is clicked, the bot replies with a new message or set of suggestions, demonstrating how templates enhance the interaction flow within the Chat UI component.

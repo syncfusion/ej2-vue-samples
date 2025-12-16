@@ -1,7 +1,7 @@
 <template>
     <div class='control-section'>
         <div class="overview-blockeditor">
-          <ejs-blockeditor id='block-editor' :blocks="blocks" :users="users"></ejs-blockeditor>
+          <ejs-blockeditor id='block-editor' :blocks="blocks" :users="users" :inlineToolbarSettings="inlineToolbarSettings"></ejs-blockeditor>
         </div>
 
         <div id="action-description">
@@ -16,7 +16,7 @@
             </p>
             <p>Key features demonstrated in this sample:</p>
               <ul>
-                <li>Multiple block types including <code>Heading1-4</code>, <code>Paragraph</code>, <code>BulletList</code>, <code>NumberedList</code>, <code>Checklist</code>, <code>Quote</code>, <code>Callout</code>, <code>Divider</code>, <code>Code</code>, <code>ToggleParagraph</code>, and more.</li>
+                <li>Multiple block types including <code>Heading1-4</code>, <code>Paragraph</code>, <code>Table</code>, <code>BulletList</code>, <code>NumberedList</code>, <code>Checklist</code>, <code>Quote</code>, <code>Callout</code>, <code>Divider</code>, <code>Code</code>, <code>ToggleParagraph</code>, and more.</li>
                 <li>Rich text formatting with styles like <code>Bold</code>, <code>Italic</code>, <code>Underline</code>, <code>Strikethrough</code>, <code>Uppercase</code>, and more.</li>
                 <li>Interactive <code>Slash ("/") commands</code> for quick block insertion and transformation.</li>
                 <li>Hierarchical organization with expandable <code>Toggle Blocks</code>.</li>
@@ -41,7 +41,10 @@ export default {
     data: function() {
         return {
             blocks: data['blockDataOverview'],
-            users: data['users']
+            users: data['users'],
+            inlineToolbarSettings: {
+                items: [ 'Bold', 'Italic', 'Underline', 'Strikethrough', 'Uppercase', 'Lowercase', 'Subscript', 'Superscript', 'Color', 'Backgroundcolor' ]
+            }
         }
     }
 }
@@ -49,14 +52,8 @@ export default {
 
 <style>
     .overview-blockeditor {
-        height: 600px;
-        width: 60vw;
+        width: 100%;
         margin: 0 auto;
     }
 
-    @media only screen and (max-width: 750px) {
-        .overview-blockeditor {
-            width: 100%;
-        }
-    }
 </style>

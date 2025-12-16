@@ -1,7 +1,7 @@
 <template>
 <div class="col-lg-12 control-section">
     <div>
-        <ejs-treegrid :dataSource='data' childMapping='subtasks'   :treeColumnIndex='1' height=335>
+        <ejs-treegrid :dataSource='data' childMapping='subtasks' clipMode='EllipsisWithTooltip'   :treeColumnIndex='1' height=335>
             <e-columns>
                <e-column field='taskID' headerText='Task ID' width='70' textAlign='Right'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='200'></e-column>

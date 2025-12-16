@@ -97,7 +97,8 @@ import {
   QuickToolbar,
   EmojiPicker,
   PasteCleanup,
-  Audio, Video, FormatPainter, Table
+  Audio, Video, FormatPainter, Table,
+  ClipBoardCleanup, AutoFormat
 } from "@syncfusion/ej2-vue-richtexteditor";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
@@ -161,7 +162,7 @@ export default {
         leftBar = document.querySelector("#left-sidebar");
         transformElement = document.querySelector("#right-pane");
       }
-      if (e.targetItem === "Maximize" && sbCntEle != null || sbHdrEle != null) {
+      if (e.targetItem === "Maximize" && sbCntEle != null && sbHdrEle != null) {
         if (Browser.isDevice && Browser.isIos) {
           addClass([sbCntEle, sbHdrEle], ['hide-header']);
         }
@@ -172,7 +173,7 @@ export default {
         }
         transformElement.style.transform = "inherit";
         sbHdrEle.style.cssText = 'z-index: 100 !important;';
-      } else if (e.targetItem === "Minimize" && sbCntEle != null || sbHdrEle != null) {
+      } else if (e.targetItem === "Minimize" && sbCntEle != null && sbHdrEle != null) {
         if (Browser.isDevice && Browser.isIos) {
           removeClass([sbCntEle, sbHdrEle], ['hide-header']);
         }
@@ -192,7 +193,7 @@ export default {
     }
   },
   provide: {
-    richtexteditor: [Toolbar, Link, Image, HtmlEditor, QuickToolbar, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, Table]
+    richtexteditor: [Toolbar, Link, Image, HtmlEditor, QuickToolbar, EmojiPicker, PasteCleanup, Audio, Video, FormatPainter, Table, ClipBoardCleanup, AutoFormat]
   }
 }
 </script>

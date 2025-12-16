@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, Table, Audio, Video, QuickToolbar, HtmlEditor, EmojiPicker, PasteCleanup, FormatPainter, SlashMenu, CodeBlock } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, Table, Audio, Video, QuickToolbar, HtmlEditor, EmojiPicker, PasteCleanup, FormatPainter, SlashMenu, CodeBlock, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 
 export default {
     components: {
@@ -95,7 +95,7 @@ export default {
         };
     },
     provide:{
-        richtexteditor:[SlashMenu, Toolbar, Link, Image, Audio, Table, Video, QuickToolbar, HtmlEditor, EmojiPicker, PasteCleanup, FormatPainter, CodeBlock]
+        richtexteditor:[SlashMenu, Toolbar, Link, Image, Audio, Table, Video, QuickToolbar, HtmlEditor, EmojiPicker, PasteCleanup, FormatPainter, CodeBlock, ClipBoardCleanup, AutoFormat]
     },
 
     methods: {

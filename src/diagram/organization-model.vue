@@ -90,6 +90,12 @@
                       :change='verticalSpacingChange' />
             </div>
         </div>
+         <div class="row" style="padding-top: 8px">
+            <ejs-checkbox ref="checkedObj" id="checked" style="width: 90px" 
+                :label='checkedlabel'
+                :checked='checkedchecked'
+                :change='checkedchange'/>
+        </div>
     </div>
 </div>
 <div id="action-description">
@@ -174,7 +180,7 @@ import {
   Diagram,
   LayoutAnimation,
 } from "@syncfusion/ej2-vue-diagrams";
-import { CheckBox } from "@syncfusion/ej2-vue-buttons";
+import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { DiagramTools } from "@syncfusion/ej2-vue-diagrams";
 import {
@@ -193,11 +199,13 @@ let horizontalSpacing;
 let verticalSpacing;
 let orientationObj;
 let patternObj;
+let checkBoxObj;
 
 export default {
   components: {
     'ejs-diagram': DiagramComponent,
-    'ejs-numerictextbox': NumericTextBoxComponent
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-checkbox': CheckBoxComponent
   },
   data: function() {
     return {
@@ -264,6 +272,22 @@ export default {
       verticalSpacingChange: () => {
         diagramInstance.layout.verticalSpacing = Number(verticalSpacing.value);
         diagramInstance.dataBind();
+      },
+
+      checkedlabel: "Expandable",
+      checkedchecked: false,
+      checkedchange: () => {
+        for (let node of diagramInstance.nodes) {
+          if (checkBoxObj.checked) {
+            node.expandIcon.shape = "Minus";
+            node.collapseIcon.shape = "Plus";
+          } else {
+            node.expandIcon.shape = "None";
+            node.collapseIcon.shape = "None";
+          }
+        }
+        diagramInstance.dataBind();
+        diagramInstance.doLayout();
       }
     };
   },
@@ -277,6 +301,7 @@ export default {
     horizontalSpacing = this.$refs.horizontalSpacingObj.ej2Instances;
     //let verticalSpacingObj: any = document.getElementById("verticalSpacing");
     verticalSpacing = this.$refs.verticalSpacingObj.ej2Instances;
+    checkBoxObj = this.$refs.checkedObj.ej2Instances;
     //let orientationObj = document.getElementById("orientation");
     orientationObj = this.$refs.orientation;
     //let patternObj = document.getElementById("pattern");

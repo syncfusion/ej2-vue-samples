@@ -11,15 +11,15 @@
                         <ejs-mention id='employees' mentionChar='@' :target='target' :dataSource='data' :fields='remoteFields' 
                         :query='query' popupWidth='250px' popupHeight='215px' allowSpaces='true' suggestionCount='15'></ejs-mention>
 
-                        <ejs-mention id='project' :requireLeadingSpace='false' mentionChar='#' :target='target' :dataSource='projectsData' :fields='projectfields' allowSpaces='true' :displayTemplate="'dTemplate'">
+                        <ejs-mention id='project' popupHeight="200px" :requireLeadingSpace='false' mentionChar='#' :target='target' :dataSource='projectsData' :fields='projectfields' allowSpaces='true' :displayTemplate="'dTemplate'">
                             <template v-slot:dTemplate="{data}"><span class="e-success">{{data.Value}}</span></template>
                         </ejs-mention>
 
-                        <ejs-mention id='cost' mentionChar='$' :target='target' :dataSource='costData' :fields='costfields' allowSpaces='true' :displayTemplate="'dTemplate'">
+                        <ejs-mention id='cost' popupHeight="200px" mentionChar='$' :target='target' :dataSource='costData' :fields='costfields' allowSpaces='true' :displayTemplate="'dTemplate'">
                             <template v-slot:dTemplate="{data}"><span class="e-error">{{data.Value}}</span></template>
                         </ejs-mention>
 
-                        <ejs-mention id='status' mentionChar='%' :target='target' :dataSource='statusData' :fields='statusfields' allowSpaces='true' :displayTemplate="'dTemplate'">
+                        <ejs-mention id='status' popupHeight="200px" mentionChar='%' :target='target' :dataSource='statusData' :fields='statusfields' allowSpaces='true' :displayTemplate="'dTemplate'">
                             <template v-slot:dTemplate="{data}"><span class="e-warning">{{data.Value}}</span></template>
                         </ejs-mention>
                     </td>

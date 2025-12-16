@@ -119,7 +119,8 @@ export default {
                 enableHighlight: true
             },
             tooltip: {
-                enable: true
+                enable: true,
+                enableHighlight: true
             },
 
             title: "Annual Growth of GDP in France"

@@ -2,8 +2,8 @@
     <div>
         <div class="control-section">
             <div id='content' style="margin: 0px auto; width:64%; padding-top: 40px;">
-                <ejs-multiselect id='multi-template' :dataSource='data' :fields='fields' cssClass='multiselect-template' :placeholder='watermark'
-                 :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :valueTemplate="'vTemplate'" mode='Box' popupHeight="450px">
+                <ejs-multiselect id='multi-template' popupHeight="200px" :dataSource='data' :fields='fields' cssClass='multiselect-template' :placeholder='watermark'
+                 :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :valueTemplate="'vTemplate'" mode='Box' >
                   <template v-slot:hTemplate="{data}">
                     <div class="header"> <span>Photo</span> <span class="info">Employee Info</span></div>
                   </template>

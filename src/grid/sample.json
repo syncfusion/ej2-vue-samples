@@ -160,6 +160,7 @@
             "url": "auto-wrap",
             "name": "AutoWrap Column cells",
             "category": "Columns",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows how the grid cell content is autowrapped to show large cell content.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
@@ -250,7 +251,6 @@
         {
             "url": "row-spanning-api",
             "name": "Row Spanning API",
-            "type": "new",
             "category": "Rows",
             "description": "This demo for Essential JS 2 grid control demonstrates the row and column spanning feature. In this sample, we have spanned row cells together.",
             "api": { "Grid": ["dataSource","allowTextWrap","columns","gridLines","width","height","allowFiltering","filterSettings","allowSorting", "enableRowSpan", "enableColumnSpan"] }
@@ -408,6 +408,15 @@
             "api": { "Grid": ["columns", "dataSource", "allowSelection", "selectionSettings"] }
         },
         {
+            "url": "conditional-row-selection",
+            "name": "Conditional Row Selection",
+            "category": "Selection",
+            "type": "new",
+            "description": "This demo for Essential JS 2 grid component shows how the conditional row selection feature can be used to select grid rows.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowSelection", "selectionSettings"] }
+        },
+        {
             "url": "hierarchy-grid",
             "name": "Hierarchy Grid",
             "category": "Relational Binding",
@@ -452,6 +461,15 @@
             "name": "Frozen API",
             "category": "Scrolling",
             "description": "This demo for Essential JS 2 grid component shows how the frozen rows and columns at both sides of the Grid.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "pinned-rows",
+            "name": "Pinned Rows",
+            "category": "Scrolling",
+            "type": "new",
+            "description": "This demo for Essential JS 2 grid component shows how the pinned rows and columns at both sides of the Grid.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
         },

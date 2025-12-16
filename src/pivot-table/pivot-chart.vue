@@ -188,7 +188,7 @@ export default {
   methods: {
     ddlOnChange: function(args: ChangeEventArgs) {
       let pivotObj = ((this as any).$refs.pivotview_chart).ej2Instances;
-      pivotObj.chartSettings.chartSeries.type = args.value.toString();
+      pivotObj.chartSettings.chartSeries.type = args.value?.toString();
     }
   },
   provide: {

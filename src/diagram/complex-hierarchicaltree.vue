@@ -179,12 +179,12 @@ export default {
       ],
       patterns: [
         [
-          { id: "topToBottom", url: "https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/toptobottom.png", margin: "0 3px 0 0", selected: true },
-          { id: "bottomToTop", url: "https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/bottomtotop.png", margin: "0 3px" }
+          { id: "topToBottom", url: "./src/diagram/Images/common-orientation/toptobottom.png", margin: "0 3px 0 0", selected: true },
+          { id: "bottomToTop", url: "./src/diagram/Images/common-orientation/bottomtotop.png", margin: "0 3px" }
         ],
         [
-        { id: "leftToRight", url: "https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/lefttoright.png", margin: "0 3px 0 0" },
-        { id: "rightToLeft", url: "https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/righttoleft.png", margin: "0 3px" }
+        { id: "leftToRight", url: "./src/diagram/Images/common-orientation/lefttoright.png", margin: "0 3px 0 0" },
+        { id: "rightToLeft", url: "./src/diagram/Images/common-orientation/righttoleft.png", margin: "0 3px" }
         ]
       ]
     };

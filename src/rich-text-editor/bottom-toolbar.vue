@@ -54,6 +54,7 @@ import {
   HtmlEditor,
   Table,
   EmojiPicker,
+  ClipBoardCleanup, AutoFormat
 } from '@syncfusion/ej2-vue-richtexteditor';
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 
@@ -151,7 +152,7 @@ export default {
     },
   },
   provide: {
-    richtexteditor: [Toolbar, Link, Image, HtmlEditor, Table, EmojiPicker],
+    richtexteditor: [Toolbar, Link, Image, HtmlEditor, Table, EmojiPicker, ClipBoardCleanup, AutoFormat],
   },
 };
 </script>

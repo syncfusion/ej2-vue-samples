@@ -3,6 +3,7 @@
     "directory": "ai-assistview",
     "category": "Interactive Chat",
     "ftName": "ai-assistview",
+    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -62,12 +63,48 @@
         {
             "url": "dialog",
             "name": "Notes Assistant",
-            "category": "Integration",
+            "category": "Use Cases",
             "api":{ "AIAssitView": ["promptSuggestions", "prompts", "promptRequest", "toolbarSettings", "bannerTemplate", "responseToolbarSettings", "cssClass"] },
             "description": "Showcases the AiAssistView control with other component integration",
             "sourceFiles": [
                 { "displayName": "dialog.vue", "path":"src/ai-assistview/dialog.vue" },
                 { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "ai-model",
+            "name": "Multiple AI Models",
+            "category": "Use Cases",
+            "type": "new",
+            "api":{ "AIAssitView": ["bannerTemplate", "promptSuggestions", "promptRequest", "showHeader", "stopRespondingClick", "closeOnDocumentClick", "showBackdrop", "enableDock"] },
+            "description": "Showcases the AiAssistView control to integrate with Gemini, OpenAI Sample.",
+            "sourceFiles": [
+                { "displayName": "ai-integrations.vue", "path":"src/ai-assistview/ai-model.vue" },
+                { "displayName": "ai-services.js", "path":"src/ai-assistview/service.js" }
+            ]
+        },
+        {
+            "url": "ai-speech-To-Text",
+            "name": "Speech to Text",
+            "category": "Speech",
+            "type": "new",
+            "api":{ "AIAssitView": ["promptRequest", "toolbarSettings", "bannerTemplate", "footerTemplate", "promptToolbarSettings", "stopRespondingClick"] },
+            "description": "Demonstrates the AI AssistView component integrated with Speech-to-Text functionality, enabling users to interact using voice input transcribed into text.",
+            "sourceFiles": [
+                { "displayName": "ai-speech-To-Text.vue", "path":"src/ai-assistview/ai-speech-To-Text.vue" },
+                { "displayName": "ai-services.js", "path":"src/ai-assistview/services.js" }
+            ]
+        },
+        {
+            "url": "ai-text-To-Speech",
+            "name": "Text to Speech",
+            "category": "Speech",
+            "type": "new",
+            "api":{ "AIAssitView":["promptRequest", "toolbarSettings", "bannerTemplate", "responseToolbarSettings", "stopRespondingClick"] },
+            "description": "Demonstrates the AiAssistView component integrated with Text-to-Speech functionality, allowing AI-generated responses to be vocalized for voice-based interaction.",
+            "sourceFiles": [
+                { "displayName": "ai-text-To-Speech.vue", "path":"src/ai-assistview/ai-text-To-Speech.vue" },
+                { "displayName": "ai-services.js", "path":"src/ai-assistview/services.js" }
             ]
         }
     ]

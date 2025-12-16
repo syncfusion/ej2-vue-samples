@@ -4,12 +4,12 @@
         <ejs-treegrid ref='treegrid' :treeColumnIndex='1' :dataSource="data" childMapping='subtasks' :height='350' :allowPaging='true' :pageSettings='pageSettings' :toolbar='toolbar' :toolbarClick='toolbarClick'
                 :allowExcelExport='true' :allowPdfExport='true'>
             <e-columns>
-                <e-column field='taskID' headerText='Task ID' width='70' textAlign='Right'></e-column>
+                <e-column field='taskID' headerText='Task ID' width='100' textAlign='Right'></e-column>
                 <e-column field='taskName' headerText='Task Name' width='200'></e-column>
-                <e-column field='startDate' headerText='Start Date' width='90' format="yMd" textAlign='Right'></e-column>
+                <e-column field='startDate' headerText='Start Date' width='120' format="yMd" textAlign='Right'></e-column>
                 <e-column field='endDate' headerText='End Date' width='90' format="yMd" textAlign='Right'></e-column>
-                <e-column field='duration' headerText='Duration' width='80' textAlign='Right'></e-column>
-                <e-column field='progress' headerText='Progress' width='80' textAlign='Right'></e-column>
+                <e-column field='duration' headerText='Duration' width='100' textAlign='Right'></e-column>
+                <e-column field='progress' headerText='Progress' width='100' textAlign='Right'></e-column>
                 <e-column field='priority' headerText='Priority' width='90'></e-column>
             </e-columns>
         </ejs-treegrid>

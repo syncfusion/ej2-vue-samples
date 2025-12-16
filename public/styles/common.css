@@ -264,6 +264,73 @@ span.e-input-group.e-control-wrapper.e-ddl {
     cursor: pointer;
 }
 
+.sb-token-header {
+  height: 48px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  text-align: center;
+  z-index: 1002;
+  display: flex;
+  align-items: center;
+}
+
+.close-button {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0px 10px;
+}
+
+.banner-message {
+  flex-grow: 1;
+}
+
+.ai-toast-container {
+    display : flex;
+    justify-content : space-between;
+    align-items : flex-start;
+    padding : 12px 16px;
+    color : #333;
+    font-size : 14px;
+    line-height : 1.5;
+    width : 400px;
+}
+
+.ai-content-text {
+    flex: 1;
+    padding-right: 8px;
+}
+
+.ai-content-title {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.ai-content-message {
+    font-size: 14px;
+}
+
+.toast-close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    margin-top: 2px;
+    color: #666;
+}
+
+#ai-toast .e-toast {
+    background-color: #e8f4fd;
+    border-radius: 6px;
+    padding: 5px;
+}
+
 .sb-header {
     height: 48px;
     background: #FFFFFF;
@@ -2685,4 +2752,9 @@ aside#left-sidebar {
 
 .fluent2-dark .e-tab .e-tab-header .e-toolbar-items .e-toolbar-item.e-active::before {
     background: #479EF5;
+}
+
+.bootstrap5_3.e-bigger #ai-toast .e-toast .e-toast-message .e-toast-content {
+    padding-left: 12px !important;
+    padding-bottom: 12px !important;
 }

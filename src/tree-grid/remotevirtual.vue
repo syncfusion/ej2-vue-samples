@@ -23,6 +23,7 @@
             headerText="Task ID"
             width="80"
             textAlign="Right"
+            isPrimaryKey='true'
           ></e-column>
           <e-column
             field="TaskName"

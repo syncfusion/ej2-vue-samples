@@ -87,8 +87,8 @@ var productVue = app.component("product", {
   template:
     '<div class="card">' +
     '<img class="card-img-top" :src="getImage" :alt="getAlt" style="height:210px;width:100%;" />' +
-    '<div class="card-body" style="padding:1rem;">' +
-    "<h1>{{data.Title}}</h1>" +
+    '<div class="card-body" style="padding:10px;">' +
+    '<h5 class="card-title">{{data.Title}}</h5>' +
     '<p class="card-text">{{data.Content}}</p>' +
     "</div>" +
     "</div>",

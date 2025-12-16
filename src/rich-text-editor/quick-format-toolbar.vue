@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { RichTextEditorComponent, Toolbar, Link, Image, FormatPainter, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio } from "@syncfusion/ej2-vue-richtexteditor";
+import { RichTextEditorComponent, Toolbar, Link, Image, FormatPainter, QuickToolbar, HtmlEditor, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 
 export default {
     components: {
@@ -90,7 +90,7 @@ export default {
         };
     },
     provide : {
-        richtexteditor: [HtmlEditor, Toolbar, QuickToolbar, FormatPainter, Link, Image, PasteCleanup, Table, Video, Audio]
+        richtexteditor: [HtmlEditor, Toolbar, QuickToolbar, FormatPainter, Link, Image, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat]
     }
 }
 </script>

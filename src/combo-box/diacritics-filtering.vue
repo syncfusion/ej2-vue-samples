@@ -2,7 +2,7 @@
 <div>
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
-            <ejs-combobox id='diacritics' :allowFiltering='true' :dataSource='data' :ignoreAccent='true' placeholder='e.g. gul'></ejs-combobox>
+            <ejs-combobox id='diacritics' popupHeight="200px" :allowFiltering='true' :dataSource='data' :ignoreAccent='true' placeholder='e.g. gul'></ejs-combobox>
         </div>
     </div>
     <div id="action-description">

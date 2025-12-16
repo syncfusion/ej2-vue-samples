@@ -5,7 +5,7 @@
             <div id='chipcustomization'>
                 <div class="chipcontent">
                     <label class="h4">Chip Customization</label>
-                    <ejs-multiselect id='countries' :dataSource='colorsData' :placeholder='chipPlaceholder' :fields='chipFields' cssClass='multiselect-chip-custom' :mode='chipMode' :value='chipValue' :tagging='onTagging'></ejs-multiselect>
+                    <ejs-multiselect id='countries' popupHeight="200px" :dataSource='colorsData' :placeholder='chipPlaceholder' :fields='chipFields' cssClass='multiselect-chip-custom' :mode='chipMode' :value='chipValue' :tagging='onTagging'></ejs-multiselect>
                 </div>
             </div>
         </div>

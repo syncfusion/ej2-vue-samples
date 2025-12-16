@@ -55,6 +55,11 @@
         </aside>
         <div class="sample-browser e-view" rol>
             <div class="sb-mobile-overlay sb-hide"></div>
+            <div id="ai-toast"></div>
+            <div class="sb-token-header sb-hide" role="banner">
+                <div class="banner-message"></div>
+                <div class="close-button" role="button" @click="hideBanner">×</div>
+            </div>
             <div id='sample-header' class="sb-header e-view" role="banner">
                 <div class='sb-header-left sb-left sb-table'>
                     <div class='sb-header-item sb-table-cell'>
@@ -505,6 +510,8 @@ const matchedCurrency: { [key: string]: string } = {
 };
 
 let rootEle: HTMLElement;
+let toastObj1: Toast | null = null;
+let isToastVisible = false;
 let route: RouteLocationNormalized;
 let router: Router;
 let sb: any = { vars: {} };
@@ -667,6 +674,8 @@ onMounted(async () => {
             showBackdrop: false,
             closeOnDocumentClick: false,
             enableGestures: false,
+            change:resizeFunction,
+            created: resizeFunction
         });
         sidebar.appendTo('#left-sidebar');
     }
@@ -678,6 +687,24 @@ onMounted(async () => {
     router.afterEach(urlChange);
     updateDescription();
 });
+
+const resizeFunction = () => {
+    if (!isMobile && !isTablet) {
+        resizeManualTrigger = true;
+        setTimeout(cusResize(), 400);
+    }
+};
+
+const cusResize = () => {
+    let event: Event;
+    if (typeof (Event) === 'function') {
+        event = new Event('resize');
+    } else {
+        event = document.createEvent('Event');
+        event.initEvent('resize', true, true);
+    }
+    window.dispatchEvent(event);
+};
 
 const preventTabSwipe = (e: any): void => {
     if (e.isSwiped) {
@@ -2043,5 +2070,92 @@ const loadJSON = (): void => {
     //localStorage.removeItem('ej2-switch');
     enableRipple(selectedTheme.indexOf('material') !== -1 || !selectedTheme);
 };
+
+const hideBanner = () => {
+    let banner = document.querySelector('.sb-token-header');
+    if (banner) {
+        banner.classList.add('sb-hide');
+    }
+};
+
+function contentTemplate(): HTMLElement {
+    const container = document.createElement('div');
+    container.className = 'ai-toast-container';
+
+    const textDiv = document.createElement('div');
+    textDiv.className = 'ai-content-text'
+
+    const title = document.createElement('div');
+    title.className = 'ai-content-title';
+    title.innerText = 'Explore AI Demos';
+
+    const message = document.createElement('div');
+    message.className = 'ai-content-message';
+    message.innerHTML = `
+        You can now explore our <strong>Smart AI demos</strong> with limited AI token usage.
+        Additionally, you can try out our <strong>
+        <a href="https://github.com/syncfusion/smart-ai-samples/tree/master/vue" target="_blank" style="color: #007bff;">Syncfusion Smart AI Samples</a></strong> locally by using your own API key.
+    `;
+
+    textDiv.appendChild(title);
+    textDiv.appendChild(message);
+
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'toast-close-button';
+    closeBtn.innerText = '✕';
+    closeBtn.setAttribute('aria-label', 'Close');
+
+    container.appendChild(textDiv);
+    container.appendChild(closeBtn);
+
+    return container;
+}
+
+function attachCloseHandler() {
+    const closeBtn = toastObj1?.element.querySelector('.toast-close-button');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            toastObj1?.hide();
+            isToastVisible = false;
+        });
+    }
+}
+
+function showToast() {
+    if (!toastObj1) {
+        toastObj1 = new Toast({
+            width: 420,
+            content: contentTemplate(),
+            position: { X: 'Right', Y: 'Top' },
+            timeOut: 0,
+            newestOnTop: true,
+            created: () => {
+                toastObj1?.show();
+                isToastVisible = true;
+                attachCloseHandler();
+            }
+        });
+        toastObj1.appendTo('#ai-toast');
+    } else if (!isToastVisible) {
+        toastObj1.show();
+        isToastVisible = true;
+        attachCloseHandler();
+    }
+}
+
+function hideToast() {
+    if (toastObj1 && isToastVisible) {
+        toastObj1.hide();
+        isToastVisible = false;
+    }
+}
+
+window.addEventListener('hashchange', () => {
+    if (location.hash.includes('ai-')) {
+        showToast();
+    } else {
+        hideToast();
+    }
+});
 
 </script>

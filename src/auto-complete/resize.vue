@@ -2,7 +2,7 @@
 <div>
     <div class="control-section">
         <div id='content' style="margin: 0px auto; width:300px; padding-top: 40px;">
-            <ejs-autocomplete id='books' :dataSource='booksData' :fields='fields' :allowResize='allowResize' :placeholder='watermark'></ejs-autocomplete>
+            <ejs-autocomplete id='books' :dataSource='booksData' popupHeight="200px" :fields='fields' :allowResize='allowResize' :placeholder='watermark'></ejs-autocomplete>
         </div>
     </div>
     <div id="action-description">

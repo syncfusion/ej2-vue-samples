@@ -10,7 +10,7 @@
         </div>
   
         <div class="sb-mobile-diagram" style="width:59%;float:left">
-            <ejs-diagram style='display:block' id="diagram" ref="diagramObject" :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :rulerSettings='rulerSettings' :scrollSettings='scrollSettings' :created='created' :dragEnter='dragEnter'></ejs-diagram>
+            <ejs-diagram style='display:block' id="diagram" ref="diagramObject" :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :rulerSettings='rulerSettings' :scrollSettings='scrollSettings' :pageSettings="pageSettings" :created='created' :dragEnter='dragEnter'></ejs-diagram>
         </div>
         <div id="properties" style="width:20%;float:right">
               <div class="property-panel-header">
@@ -446,6 +446,7 @@ export default {
         autoScrollBorder: { left: 30, right: 30, top: 30, bottom: 30 },
         scrollableArea: { x: 0, y: 0, width: 1500, height: 1500 }
       },
+      pageSettings: { width: 1500, height: 1500 },
       waterMark : "Infinity",
       scrollLimitDatasource : [{ text: 'Infinity', value: 'Infinity' }, { text: 'Diagram', value: 'Diagram' },
        { text: 'Limited', value: 'Limited' }
@@ -524,7 +525,7 @@ export default {
         },
         {
           id: "flow",
-          expanded: true,
+          expanded: false,
           symbols: flowshapes,
           iconCss: "shapes",
           title: "Flow Shapes"
