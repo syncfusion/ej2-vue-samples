@@ -3551,7 +3551,7 @@ export default {
       let keys = Object.keys(obj);
       for (let i = 0; i < Object.keys(obj).length; i++) {
           sparkline = new Sparkline({
-              height: '30px',
+              height: '55px',
               lineWidth: 1,
               type: chartType as any,
               valueType: 'Category',
@@ -3583,14 +3583,6 @@ export default {
 </script>
 
 <style scoped>
-/deep/ .sb-sample-content-area {
-    min-height: 255px !important;
-}
-
-/deep/ .control-section {
-    min-height: 255px !important;
-}
-
 /deep/ .e-columnsheader .e-input-group {
     margin-top: 20px;
 }

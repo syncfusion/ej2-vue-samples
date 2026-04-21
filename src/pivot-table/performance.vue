@@ -189,14 +189,6 @@ export default {
   width: 100%;
 }
 
-/deep/ .sb-sample-content-area {
-  min-height: 255px !important;
-}
-
-/deep/ .control-section {
-  min-height: 255px !important;
-}
-
 /deep/ #performanceTime {
   float: right;
   margin-top: 3px;

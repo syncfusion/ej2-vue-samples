@@ -2,8 +2,7 @@
     "name": "Input Mask",
     "directory": "maskedtextbox",
     "category": "Inputs",
-    "ftName": "maskedtextbox", 
-    "type": "update",
+    "ftName": "maskedtextbox",
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",
@@ -32,7 +31,6 @@
             "url": "adornments",
             "name": "Adornments",
             "category": "Input Mask",
-            "type": "new",
             "description": "The example exposes a Vue Masked TextBox with adornments support. It helps to render custom elements before or after the input element."
         }
 

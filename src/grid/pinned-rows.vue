@@ -6,7 +6,7 @@
         </p>
     </div>
     <div>
-        <ejs-grid id="PinnedRows" :dataSource="data" :height="300" :pageSettings='pageSettings' :enableVirtualization="true" :contextMenuItems="contextMenuItems" :isRowPinned='isRowPinned' :allowSorting='true' :allowKeyboard='false' :allowFiltering='true' :filterSettings='filterSettings'>
+        <ejs-grid id="PinnedRows" :dataSource="data" :height="300" :enableVirtualization="true" :pageSettings='pageSettings' :contextMenuItems="contextMenuItems" :isRowPinned='isRowPinned' :allowSorting='true' :allowKeyboard='false' :allowFiltering='true' :filterSettings='filterSettings'>
             <e-columns>
                 <e-column field="TicketID" headerText="Ticket ID" width="140" :isPrimaryKey="true"
                     freeze="Left"></e-column>

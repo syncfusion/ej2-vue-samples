@@ -3,7 +3,7 @@
     <div class="col-lg-8 control-section uploader chunk">
         <div class="control_wrapper">
             <ejs-uploader id='chunkupload' name="UploadFiles" :autoUpload= "isAuto" :asyncSettings= "path" ref="uploadObj" :dropArea= "dropElement" maxFileSize=104857600
-            :removing= "onFileRemove" :pausing= 'onPausing' :resuming= 'onResuming' :chunkFailure= "onBeforeFailure">
+            :removing= "onFileRemove" :pausing= 'onPausing' :resuming= 'onResuming' :chunkFailure= "onBeforeFailure" :failure="onFailure">
             </ejs-uploader>
         </div>
     </div>
@@ -112,6 +112,11 @@ export default {
                 this.isInteraction = true;
             } else {
                 this.isInteraction = false;
+            }
+        },
+        onFailure: function(args) {
+            if (args.response && args.response.statusText !== '') {
+                args.statusText = args.response.statusText;
             }
         },
         onFileRemove: function (args) {

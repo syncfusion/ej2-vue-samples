@@ -3,6 +3,7 @@
         <div class="control-section">
             <img src="src/ai-image-editor/images/smart-imageeditor.gif" width="100%" height="100%" />
         </div>
+        <AIToast />
         <div id="action-description">
             <p>
         This demo highlights the advanced features of the Syncfusion EJ2 Image Editor, including:

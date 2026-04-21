@@ -213,9 +213,9 @@ function createNodes(solarData) {
     // Ground line
     createRectNode('groundLine', 500, 5, 489, 657, '#2E485F', '#2E485F', 2, NodeConstraints.None),
     // Support structure
-    createImageNode('supportPost', 215, 185, 465, 565, './src/diagram/Images/angle/panelSupport.png', undefined, NodeConstraints.None),
+    createImageNode('supportPost', 215, 185, 465, 565, 'https://ej2.syncfusion.com/vue/demos/src/diagram/Images/angle/panelSupport.png', undefined, NodeConstraints.None),
     // Solar panel (interactive)
-    createImageNode('solarPanelFrame', 260, 50, 478.25, 485, './src/diagram/Images/angle/solarPanel.png', solarData.currentAngle, (NodeConstraints.Default | NodeConstraints.ReadOnly) & ~NodeConstraints.Drag, 0.5, 0.8),
+    createImageNode('solarPanelFrame', 260, 50, 478.25, 485, 'https://ej2.syncfusion.com/vue/demos/src/diagram/Images/angle/solarPanel.png', solarData.currentAngle, (NodeConstraints.Default | NodeConstraints.ReadOnly) & ~NodeConstraints.Drag, 0.5, 0.8),
     // Pivot point
     createEllipseNode('pivotPoint', 16, 16, 478.5, 488, '#FF5F1F', '#2E485F', 1, NodeConstraints.None),
     // Location selector
@@ -266,7 +266,7 @@ export default {
       pageSettings: {
         width: 1300,
         height: 820,
-        background: { source: './src/diagram/Images/angle/background.png', scale: 'Meet' }
+        background: { source: 'https://ej2.syncfusion.com/vue/demos/src/diagram/Images/angle/background.png', scale: 'Meet' }
       },
       diagramCreated: false,
       diagram: null,

@@ -265,13 +265,6 @@ export default {
 /deep/ #pivotview {
   width: 100%;
 }
-
-/deep/ .sb-sample-content-area {
-  min-height: 255px !important;
-}
-/deep/ .control-section {
-  min-height: 255px !important;
-}
 /deep/ .e-bigger .e-float-input.e-control-wrapper {
         width: 100% !important;
 }

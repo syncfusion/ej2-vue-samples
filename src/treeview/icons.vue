@@ -28,6 +28,11 @@
         width: 25px;
         height: 25px;
     }
+
+    #treeview.e-treeview .e-text-content {
+        -webkit-transform: translateZ(0);
+    }
+
     /* Loading sprite image for TreeView */
     .tree-icon .e-treeview .e-list-icon {
         background-repeat: no-repeat;

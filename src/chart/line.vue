@@ -2,13 +2,13 @@
   <div class="control-section">
     <div align='center'>
         <ejs-chart style='display:block' :theme='theme' align='center' id='chartcontainer' :title='title' :subTitle='subTitle' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
-            :tooltip='tooltip' :chartArea='chartArea' :width='width' :legendSettings='legend'>
+            :tooltip='tooltip' :chartArea='chartArea' :width='width' :legendSettings='legend' :load="load">
             <e-series-collection>
-                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Viet_Growth' name='Vietnam' opacity=1 width=2 :marker='circleMarker'> </e-series>
-                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Can_Growth' name='Indonesia' opacity=1 width=2 :marker='triangleMarker'> </e-series>
-                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Mal_Growth' name='France' opacity=1 width=2 :marker='diamondMarker'> </e-series>
-                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Egy_Growth' name='Poland' opacity=1 width=2 :marker='rectangleMarker'> </e-series>
-                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Ind_Growth' name='Mexico' opacity=1 width=2 :marker='pentagonMarker'> </e-series>
+                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Viet_Growth' name='Vietnam' opacity=1 width=2 :marker='circleMarker' :labelSettings='labelSettings'> </e-series>
+                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Can_Growth' name='Indonesia' opacity=1 width=2 :marker='triangleMarker' :labelSettings='labelSettings'> </e-series>
+                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Mal_Growth' name='France' opacity=1 width=2 :marker='diamondMarker' :labelSettings='labelSettings'> </e-series>
+                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Egy_Growth' name='Poland' opacity=1 width=2 :marker='rectangleMarker' :labelSettings='labelSettings'> </e-series>
+                <e-series :dataSource='seriesData' type='Line' xName='Period' yName='Ind_Growth' name='Mexico' opacity=1 width=2 :marker='pentagonMarker' :labelSettings='labelSettings'> </e-series>
             </e-series-collection>
         </ejs-chart>
     </div>
@@ -26,6 +26,9 @@
     <p>
       <code>Tooltips</code> are enabled in this example. To see a tooltip in action, hover over or tap on the chart.
     </p>
+     <p>
+        <code>SeriesLabel</code> is enabled in this example to display the name of each line series.
+      </p>
         <p style="font-weight: 500"><b>Injecting Module</b></p>
         <p>
             Chart component features are segregated into individual feature-wise modules. To use line series, we need to inject
@@ -44,7 +47,7 @@
 </style>
 <script>
 import { Browser } from '@syncfusion/ej2-base';
-import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Legend, Tooltip,DateTime, Category, Highlight } from "@syncfusion/ej2-vue-charts";
+import { ChartComponent, SeriesDirective, SeriesCollectionDirective, LineSeries, Legend, Tooltip,DateTime, Category, Highlight, SeriesLabel } from "@syncfusion/ej2-vue-charts";
 
 import { loadChartTheme } from "./theme-color";
 let theme = loadChartTheme();
@@ -99,6 +102,7 @@ export default {
       diamondMarker: {  visible: true, height: 7, width: 7 , shape: 'Diamond' , isFilled: true  },
       rectangleMarker: { visible: true, height: 5, width: 5 , shape: 'Rectangle' , isFilled: true },
       pentagonMarker: { visible: true, height: 7, width: 7 , shape: 'Pentagon' , isFilled: true },
+      labelSettings: {visible: true},
       tooltip: {
         enable: true,
         enableHighlight: true,
@@ -109,9 +113,12 @@ export default {
     };
   },
   provide: {
-    chart: [LineSeries, Legend, Tooltip, Category, DateTime, Highlight]
+    chart: [LineSeries, Legend, Tooltip, Category, DateTime, Highlight, SeriesLabel]
   },
   methods: {
+    load(args) {
+      loadChartTheme(args);
+    },
   }
    
 };

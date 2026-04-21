@@ -58,6 +58,7 @@
     <li><code>Display</code> - display the image as inline or with break.</li>
     <li><code>Alternate text</code> – provide the alternative text for the image if the image is not present in the location.</li>
     <li><code>Resize</code> – can resize the image dimension with resize options.</li>
+    <li><code>WrapText</code> – Controls text flow around an image, with left and right options.</li>
     </ul> 
     <p><b>Injecting Module:</b></p>
     <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar, PasteCleanup</code> into the <code>provide</code> section.</p>
@@ -157,7 +158,7 @@ export default {
             },
     quickToolbarSettings: {
             image: [
-                'Replace', 'Align', 'Caption', 'Remove', 'InsertLink', 'OpenImageLink', '|',
+                'Replace', 'Align', 'Caption', 'WrapText', 'Remove', 'InsertLink', 'OpenImageLink', '|',
                 'EditImageLink', 'RemoveImageLink', 'Display', 'AltText', 'Dimension',
                 {
                     tooltipText: 'Rotate Left',

@@ -3,6 +3,7 @@
         <div class="control-section">
             <img src="src/ai-grid/images/anomaly-detection.gif" width="100%" height="100%" />
         </div>
+        <AIToast />
         <div id="action-description">
             <p>
                 This example demonstrates how to use the <code>Grid</code> control to perform anomaly detection on a

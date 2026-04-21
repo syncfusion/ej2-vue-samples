@@ -3,7 +3,7 @@
     <div class="col-lg-8 control-section default-sample">
         <div class="control_wrapper">
             <ejs-uploader ref="uploadObj" id='defaultfileupload' cssClass="specific" name="UploadFiles" :asyncSettings= "path"
-            :dropArea = "dropElement" :removing= "onFileRemove" :sequentialUpload='isSequential' :autoUpload='isAuto' ></ejs-uploader>
+            :dropArea = "dropElement" :removing= "onFileRemove" :sequentialUpload='isSequential' :autoUpload='isAuto' :failure="onFailure"></ejs-uploader>
         </div>
     </div>
     <div class="col-lg-4 property-section">
@@ -85,7 +85,12 @@ export default {
     methods:{
         onFileRemove: function (args) {
             args.postRawFile = false;
-        }
+        },
+        onFailure: function(args) {
+            if (args.response && args.response.statusText !== '') {
+                args.statusText = args.response.statusText;
+            }
+        },
     }
 };
 </script>

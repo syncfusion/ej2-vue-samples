@@ -1,6 +1,6 @@
 <template>
   <div id="container" >
-      <ejs-chart class="chart-content" ref="splineInstance" :theme='theme' style='height:100%, width:100%;' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
+      <ejs-chart class="chart-content" ref="splineInstance" :theme='theme' :load="load" style='height:100%, width:100%;' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis'
             :chartArea='chartArea' :legendSettings='legend' :tooltip='tooltip' >
             <e-series-collection>
                 <e-series :dataSource='seriesData' type='SplineArea' xName='Period' yName='Percentage' name='Online' width=2.5 opacity=0.3 :fill="fill0" :border='border'></e-series>
@@ -110,6 +110,11 @@ export default {
   },
   provide: {
     chart: [SplineAreaSeries, Legend, DateTime, Category, Tooltip, Highlight]
+  },
+  methods: {
+    load(args) {
+      loadChartTheme(args);
+    },
   },
   mounted(){
     this.$refs.splineInstance.ej2Instances.height ="100%";

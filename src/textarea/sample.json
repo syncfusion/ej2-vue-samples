@@ -3,7 +3,6 @@
     "directory": "textarea",
     "category": "Inputs",
     "ftName": "textbox",
-    "type": "update",
     "hideOnDevice": true,
     "samples": [{
             "url": "default",
@@ -33,7 +32,6 @@
             "url": "adornments",
             "name": "Adornments",
             "category": "TextArea",
-            "type": "new",
             "description":"The example exposes a Vue textarea with adornments support. It helps to render custom elements before or after the textarea element."
         },
         {

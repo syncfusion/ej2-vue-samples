@@ -63,10 +63,10 @@ export default {
   data() {
     return {
         contents: [
-            'Ordered \n 9:15 AM, January 1, 2024',
-            'Shipped \n 12:20 PM, January 4, 2024',
-            'Out for delivery \n 07:00 AM, January 8, 2024',
-            'Delivered \n Estimated delivery by 09:20 AM'
+            'Ordered <br> 9:15 AM, January 1, 2024',
+            'Shipped <br> 12:20 PM, January 4, 2024',
+            'Out for delivery <br> 07:00 AM, January 8, 2024',
+            'Delivered <br> Estimated delivery by 09:20 AM'
         ]
     }
   }

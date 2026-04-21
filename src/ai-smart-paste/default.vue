@@ -73,6 +73,7 @@
         <p>In this example, clicking the Smart Paste button retrieves data from the clipboard and automatically fills in the form fields. This streamlines the data entry process by removing the need for manual input.</p>
       </div>
     </div>
+    <AIToast />
   </div>
 </template>
 

@@ -756,6 +756,7 @@ export default {
           break;
         case 'Pan':
           diagramInstance.tool = DiagramTools.ZoomPan;
+          diagramInstance.clearSelection();
           break;
       }
     },

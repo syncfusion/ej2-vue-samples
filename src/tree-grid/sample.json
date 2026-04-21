@@ -88,7 +88,7 @@
       "description": "This demo explains the default functionalities of the Column Menu in Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
    },
    {
-      "url":"autowrap", "name": "AutoWrap Column Cells", "category":"Columns","type":"update","api":{"TreeGrid":["dataSource", "childMapping", "treeColumnIndex","allowPaging","allowTextWrap","columns","pageSettings"] },
+      "url":"autowrap", "name": "AutoWrap Column Cells", "category":"Columns","api":{"TreeGrid":["dataSource", "childMapping", "treeColumnIndex","allowPaging","allowTextWrap","columns","pageSettings"] },
       "description": "This demo explains how to wrap the content of columns within the specified width of Tree Grid columns in Syncfusion<sup>®</sup> Essential JS2 Tree Grid control." 
    },
       {  
@@ -125,7 +125,7 @@
         "description": "This demo explains the way of customizing the row height of Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
      },
 	   {  
-        "url":"row-spanning", "name": "Row Spanning (API)", "category":"Rows","type":"new","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","rowHeight"] },
+        "url":"row-spanning", "name": "Row Spanning (API)", "category":"Rows","api":{"TreeGrid":["dataSource","childMapping", "treeColumnIndex","height","rowHeight"] },
         "description": "This demo shows the customize of row span and col span of Treegrid of Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
       },
 
@@ -204,7 +204,7 @@
          "description": "This demo for Essential<sup>®</sup> JS 2 Tree Grid control shows frozen columns feature of Tree Grid with Freeze direction Left/Right."
         }, 
        {
-        "url": "virtual-scrolling", "name": "Virtual Scrolling", "category":"Scrolling","api":{"TreeGrid":["dataSource","enableVirtualization","height","dataBound"] },
+        "url": "virtual-scrolling", "name": "Virtual Scrolling", "category":"Scrolling","type":"update","api":{"TreeGrid":["dataSource","enableVirtualization","height","dataBound"] },
         "description": "This demo for Essential<sup>®</sup> JS 2 Tree Grid control shows the usage of the horizontal and vertical scrollbars to view Tree Grid content that exceeds the Tree Grid area."
       },
       {

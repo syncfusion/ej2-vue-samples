@@ -453,7 +453,6 @@
       "url": "event-markers",
       "name": "Event Markers",
       "category": "Scheduling Concepts",
-      "type": "update",
       "api": {
         "Gantt": [
           "dataSource",
@@ -488,6 +487,7 @@
       "url": "timeline",
       "name": "Timeline API",
       "category": "Timeline",
+      "type": "update",
       "api": {
         "Gantt": [
           "dataSource",
@@ -686,7 +686,6 @@
        "url":"frozen-column",
        "name": "Frozen Columns",
        "category":"Columns",
-       "type": "new",
        "api":{
           "Gantt":[
              "dataSource",

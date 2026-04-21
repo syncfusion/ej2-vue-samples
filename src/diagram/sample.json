@@ -276,169 +276,172 @@
       "category": "Data Binding"
     },
     {
+      "url": "visio-import-export",
+      "name": "Visio",
+      "order": 4,
+      "description": "Syncfusion® EJ2 Diagram: Import and export Visio (VSDX), then edit with drag‑drop, group/ungroup, cut/copy/paste, text, and undo/redo.",
+      "category": "File Format",
+      "type": "preview"
+    },
+    {
       "url": "virtualization",
       "name": "Virtualization",
-      "order": 4,
+      "order": 5,
       "description": "This sample demonstrates the default UI virtualization functionality. Scroll the diagram for UI virtualization experience.",
       "category": "Performance"
     },
     {
       "url": "serialization",
       "name": "Save and Load",
-      "order": 5,
+      "order": 6,
       "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes building diagrams interactively and editing the saved diagrams. Symbol Palette is used to easily build diagrams.",
       "category": "Save and Restore"
     },
     {
       "url": "print-export",
       "name": "Print and Export",
-      "order": 6,
+      "order": 7,
       "description": "This demo for Essential<sup>®</sup> JS2 Diagram component demonstrates printing and exporting the diagram as images.",
       "category": "Export and Print"
     },
     {
       "url": "bpmn-editor",
       "name": "BPMN Editor",
-      "order": 7,
+      "order": 8,
       "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the hotel booking reservation system and its built with readymade BPMN shapes.",
       "category": "Use Case Diagram"
     },
     {
       "url": "logical-circuit",
       "name": "Logic Circuit Diagram",
-      "order": 7,
+      "order": 8,
       "description": "This sample visualizes implementation of three input Boolean functions using universal logic gates, and it is designed with diagram `custom` nodes.",
       "category": "Use Case Diagram"
     },
     {
       "url": "uml-activity",
       "name": "UML Activity Diagram",
-      "order": 7,
+      "order": 8,
       "description": "This sample visualizes graphical representation of message flow from one activity to another in customer service with built-in `UML activity` shapes.",
       "category": "Use Case Diagram"
     },
     {
       "url": "uml-sequence-diagram",
       "name": "UML Sequence Diagram",
-      "order": 7,
+      "order": 8,
       "description": "This sample presents a UML sequence diagram to depict interactions in a secure transaction process involving a user, transaction system, and fraud detection using diagram model.",
       "category": "Use Case Diagram"
     },
     {
       "url": "uml-class-diagram",
       "name": "UML Class Diagram",
-      "order": 7,
+      "order": 8,
       "description": "This sample visualizes the class diagram shapes.",
       "category": "Use Case Diagram"
     },
     {
       "url": "shortest-path",
       "name": "Shortest Path Visualizer",
-      "order": 7,
+      "order": 8,
       "description": "Visualize shortest paths using Dijkstra’s algorithm in Syncfusion EJ2 Diagram. Interactive graph with animated connectors and dynamic node styling.",
       "category": "Use Case Diagram"
     },
     {
       "url": "tournament-bracket",
       "name": "Tournament Bracket",
-      "order": 7,
+      "order": 8,
       "description": "Follow the UEFA Champions League journey with Syncfusion EJ2 Diagram. Interactive bracket with match details, animated progression, and champion highlights.",
       "category": "Use Case Diagram"
     },
     {
      "url": "seat-booking",
      "name": "Ticket Booking",
-     "order": 7,
+     "order": 8,
      "description": "Book cinema seats interactively with Syncfusion EJ2 Diagram. Select seats by tier, view real-time pricing, and confirm bookings with dynamic updates and responsive design.",
      "category": "Use Case Diagram"
     },
     {
       "url": "spiral-diagram",
       "name": "Spiral Diagram",
-      "order": 7,
+      "order": 8,
       "description": "Visualize the software development lifecycle with a spiral diagram in Syncfusion EJ2. Interactive nodes, custom icons, and tooltips illustrate iterative project stages from ideation to deployment.",
       "category": "Use Case Diagram"
     },
     {
       "url": "puzzle",
       "name": "Image Puzzle",
-      "order": 7,
+      "order": 8,
       "description": "Play a sliding image puzzle with Syncfusion EJ2 Diagram. Drag tiles, track moves and time, and enjoy multiple themes with pause and clue options.",
       "category": "Use Case Diagram"
     },      
     {
       "url": "periodic-table",
       "name": "Periodic Table",
-      "order": 7,
+      "order": 8,
       "description": "Explore the Periodic Table interactively with Syncfusion EJ2 Diagram. Color-coded elements, hover details, and dynamic highlighting by period and group make learning chemistry engaging.",
       "category": "Use Case Diagram"
     },
     {
       "url": "history-timeline",
       "name": "History Timeline",
-      "order": 7,
+      "order": 8,
       "description": "Explore Internet history with an interactive timeline built using Syncfusion EJ2 Diagram. Add, edit, and visualize key milestones with  color-coded segments.",
       "category": "Use Case Diagram"
     },
     {
       "url": "funnel-diagram",
       "name": "Funnel Diagram",
-      "order": 7,
+      "order": 8,
       "description": "Infographic funnel diagram with customizable node shapes and colors, showing stage-wise conversion and cumulative rates to assess marketing performance.",
-      "category": "Use Case Diagram",
-      "type": "new"
+      "category": "Use Case Diagram"
     },
     {
       "url": "family-tree",
       "name": "Family Tree Diagram",
-      "order": 7,
+      "order": 8,
       "description": "Visualize family relationships with Syncfusion® EJ2 Vue Diagram. Arrange members in a complex hierarchical layout, showing names, tenure, and clear connections between spouses and children.",
-      "category": "Use Case Diagram",
-      "type": "new"
+      "category": "Use Case Diagram"
     },
     {
       "url": "serpentine-diagram",
       "name": "Serpentine Diagram",
-      "order": 7,
+      "order": 8,
       "description": "Visualizes a custom serpentine layout with the Diagram component, featuring 20 key medical breakthroughs that revolutionized healthcare (1796–1996).",
-      "category": "Use Case Diagram",
-      "type": "new"
+      "category": "Use Case Diagram"
     },
     {
       "url": "angle-diagram",
       "name": "Solar Panel Angle",
-      "order": 8,
+      "order": 9,
       "description": "Demonstrate a smart solar panel tilt system using Syncfusion® EJ2 Vue Diagram. Interactively adjust panel angles, track efficiency, and optimize based on sun position and location.",
-      "category": "Real-time Diagrams",
-      "type": "new"
+      "category": "Real-time Diagrams"
     },
     {
       "url": "pipeline-instrumentation-diagram",
       "name": "P&ID Diagram",
-      "order": 8,
+      "order": 9,
       "description": "Simulate a real-time chemical reactor P&ID using Syncfusion EJ2 Diagram. Control fluid flows, tank levels, and temperature with interactive elements and live animations.",
       "category": "Real-time Diagrams"
     },
     {
       "url": "neural-network",
       "name": "Neural Network",
-      "order": 8,
+      "order": 9,
       "description": "Explore neural network architecture with Syncfusion EJ2 Diagram. Visualize layers, weights, and data flow with nodes and connections.",
       "category": "Real-time Diagrams"
     },
     {
       "url": "venn-diagram",
       "name": "Venn Diagram",
-      "order": 8,
+      "order": 9,
       "description": "This Vue Venn Diagram shows set relationships and overlapping data visualization for statistical analysis and logical comparisons.",
-      "category": "Real-time Diagrams",
-      "type": "update"
+      "category": "Real-time Diagrams"
     },
     
     {
       "url": "network-diagram",
       "name": "Network Diagram",
-      "order": 8,
+      "order": 9,
       "description": "This sample visualizes graphical layout of a network diagram using diagram `Native (SVG)` shapes.",
       "category": "Real-time Diagrams"
     },
@@ -446,7 +449,7 @@
     {
       "url": "fishbone-diagram",
       "name": "Fishbone Diagram",
-      "order": 8,
+      "order": 9,
       "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visually represents a simple fishbone diagram (Ishikawa). Diagram nodes and annotations are used to define fishbone diagrams. Read-only mode is enabled here.",
       "category": "Real-time Diagrams"
     },
@@ -454,20 +457,20 @@
       "url": "workflow-editor",
       "name": "Workflow Editor",
       "description": "This sample visualizes the Workflow of processes and tasks related to travel requests, approvals, and bookings within an organization",
-      "order": 8,
+      "order": 9,
       "category": "Real-time Diagrams"
     },
     {
       "url": "databinding-with-treeview",
       "name": "DataBinding with treeview",
-      "order": 8,
+      "order": 9,
       "description": "This sample demonstrates how to create a tree view and a diagram with a datasource.",
       "category": "Real-time Diagrams"
     },
     {
       "url": "flow-execution",
       "name": "Flow Execution",
-      "order": 8,
+      "order": 9,
       "description": "This sample  Different types of connectors and decorators are used to customize the appearance, path, and direction of the data flow.",
       "category": "Real-time Diagrams"
     }

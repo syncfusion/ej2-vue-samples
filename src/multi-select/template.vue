@@ -2,18 +2,21 @@
     <div>
         <div class="control-section">
             <div id='content' style="margin: 0px auto; width:64%; padding-top: 40px;">
-                <ejs-multiselect id='multi-template' popupHeight="200px" :dataSource='data' :fields='fields' cssClass='multiselect-template' :placeholder='watermark'
-                 :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :valueTemplate="'vTemplate'" mode='Box' >
-                  <template v-slot:hTemplate="{data}">
-                    <div class="header"> <span>Photo</span> <span class="info">Employee Info</span></div>
-                  </template>
-                  <template v-slot:iTemplate="{data}">
-                    <div><img class="empImage" :src="data.Eimg" alt="employee"/><div class="ename"> {{data.Name}} </div><div class="job"> {{data.Designation}} </div></div>
-                  </template>
-                  <template v-slot:vTemplate="{data}">
-                    <div style="width:100%;height:100%;"><img class="value" :src="data.Eimg" height="26px" width="26px" alt="employee"/><div class="name"> {{data.Name}} </div></div>
-                  </template>
-                 </ejs-multiselect>
+                <div class="control-styles">
+                    <label class="h4">Template</label>
+                    <ejs-multiselect id="multi-template" popupHeight="200px" :dataSource="data" :fields="fields" cssClass="multiselect-template" :placeholder="watermark"
+                        :headerTemplate="'hTemplate'" :itemTemplate="'iTemplate'" :valueTemplate="'vTemplate'" mode="Box">
+                        <template v-slot:hTemplate="{data}">
+                            <div class="header"> <span>Photo</span> <span class="info">Employee Info</span></div>
+                        </template>
+                        <template v-slot:iTemplate="{data}">
+                            <div><img class="empImage" :src="data.Eimg" alt="employee"/><div class="ename"> {{data.Name}} </div><div class="job"> {{data.Designation}} </div></div>
+                        </template>
+                        <template v-slot:vTemplate="{data}">
+                            <div style="width:100%;height:100%;"><img class="value" :src="data.Eimg" height="26px" width="26px" alt="employee"/><div class="name"> {{data.Name}} </div></div>
+                        </template>
+                    </ejs-multiselect>
+                </div>
             </div>
         </div>
         <div id="action-description">    
@@ -434,6 +437,11 @@
         }
         .fabric .e-multi-select-wrapper .e-chips.e-mob-chip.e-chip-selected .e-chips-close.e-icon {
             left: 0px;
+        }
+        .control-styles .h4 {
+            font-size: 16px;
+            margin: 0 0 10px;
+            font-weight: bold;
         }
     </style>
     <script>

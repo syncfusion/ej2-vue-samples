@@ -38,6 +38,7 @@
         gap: 8px;
         width: 100%;
         min-width: 0;
+        -webkit-transform: translateZ(0);
     }
 
     .treeName {
@@ -58,6 +59,7 @@
             display: flex;
         }
     }
+
     /* custom code start */
     .outlook-style #target {
         margin: 20px auto;

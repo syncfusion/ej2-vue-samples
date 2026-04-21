@@ -533,14 +533,6 @@ export default {
   padding-left: unset;
 }
 
-/deep/ .sb-sample-content-area {
-  min-height: 255px !important;
-}
-
-/deep/ .control-section {
-  min-height: 255px !important;
-}
-
 /deep/ .property-panel-table div {
   padding: 0 0 10px 10px;
 }

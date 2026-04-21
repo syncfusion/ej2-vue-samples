@@ -50,8 +50,10 @@
         height: 200px;
     }
 
-    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-timeline-month-view .e-content-wrap table col,
-    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-timeline-view .e-content-wrap table col {
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-timeline-view .e-date-header-wrap table col,
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-timeline-view .e-content-wrap table col,
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-timeline-month-view .e-date-header-wrap table col,
+    .schedule-vue-sample .schedule-cell-dimension.e-schedule .e-timeline-month-view .e-content-wrap table col {
         width: 100px;
     }
 

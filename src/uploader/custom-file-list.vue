@@ -460,6 +460,9 @@ export default {
             if (args.operation === 'upload') {
                 detach(li.querySelector('.progress-bar-container')); 
             }
+            if (args.response && args.response.statusText !== '') {
+                args.statusText = args.response.statusText;
+            }
         },
 
         removeFiles: function(args) {

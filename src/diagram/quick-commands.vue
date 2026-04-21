@@ -22,11 +22,11 @@
                 Alignment
             </div>
             <div class="row" style="padding-top: 8px">
-                <div class="image-pattern-style e-selected-style" id="left" style="background-image: url(./src/diagram/Images/user-handle/bottoml.png); margin-right: 4px">
+                <div class="image-pattern-style e-selected-style" id="left" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/user-handle/bottoml.png); margin-right: 4px">
                 </div>
-                <div class="image-pattern-style" id="right" style="background-image: url(./src/diagram/Images/user-handle/bottomr.png); margin: 0px 4px">
+                <div class="image-pattern-style" id="right" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/user-handle/bottomr.png); margin: 0px 4px">
                 </div>
-                <div class="image-pattern-style" id="topr" style="background-image: url(./src/diagram/Images/user-handle/topr.png);">
+                <div class="image-pattern-style" id="topr" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/user-handle/topr.png);">
                 </div>
             </div>
         </div>
@@ -37,11 +37,11 @@
                     pattern
                 </div>
                 <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style" id="pattern1" style="background-image: url(./src/diagram/Images/user-handle/pattern1.png); margin-right: 4px">
+                    <div class="image-pattern-style" id="pattern1" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/user-handle/pattern1.png); margin-right: 4px">
                     </div>
-                    <div class="image-pattern-style" id="pattern2" style="background-image: url(./src/diagram/Images/user-handle/pattern2.png); margin: 0px 4px">
+                    <div class="image-pattern-style" id="pattern2" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/user-handle/pattern2.png); margin: 0px 4px">
                     </div>
-                    <div class="image-pattern-style" id="pattern3" style="background-image: url(./src/diagram/Images/user-handle/pattern3.png);">
+                    <div class="image-pattern-style" id="pattern3" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/user-handle/pattern3.png);">
                     </div>
                 </div>
             </div>
@@ -270,7 +270,7 @@ let handles= [
 
 let itemVue = createApp({}).component("fixedUserHandleTemplate", {
   template: `<div style="width:100%;height:100%">
-        <button style="background-color:black; border-radius:50%; width:25px; height:25px; border:none; cursor:context-menu; padding:0; display:flex; align-items:center; justify-content:center; background-image:url(./src/diagram/Images/user-handle/delete.png); background-size:cover; background-position:center;">
+        <button style="background-color:black; border-radius:50%; width:25px; height:25px; border:none; cursor:context-menu; padding:0; display:flex; align-items:center; justify-content:center; background-image:url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/user-handle/delete.png); background-size:cover; background-position:center;">
         </button>
     </div> `,
   data() {

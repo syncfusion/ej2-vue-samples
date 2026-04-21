@@ -14,35 +14,35 @@
             <b>Connector types</b>
         </div>
         <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="straightConnector" style="background-image: url(./src/diagram/Images/connector/Connectors_1.png); margin-right: 3px">
+            <div class="image-pattern-style" id="straightConnector" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_1.png); margin-right: 3px">
             </div>
-            <div class="image-pattern-style" id="orthogonalConnector" style="background-image: url(./src/diagram/Images/connector/Connectors_2.png); margin: 0px 3px">
+            <div class="image-pattern-style" id="orthogonalConnector" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_2.png); margin: 0px 3px">
             </div>
-            <div class="image-pattern-style" id="bezierConnector" style="background-image: url(./src/diagram/Images/connector/Connectors_3.png); margin-left: 3px">
-            </div>
-        </div>
-        <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="straightConnectorWithStroke" style="background-image: url(./src/diagram/Images/connector/Connectors_4.png); margin-right: 3px">
-            </div>
-            <div class="image-pattern-style" id="orthogonalConnectorWithStroke" style="background-image: url(./src/diagram/Images/connector/Connectors_5.png); margin: 0px 3px">
-            </div>
-            <div class="image-pattern-style" id="bezierConnectorWithStroke" style="background-image: url(./src/diagram/Images/connector/Connectors_6.png); margin-left: 3px">
+            <div class="image-pattern-style" id="bezierConnector" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_3.png); margin-left: 3px">
             </div>
         </div>
         <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="straightConnectorWithDasharray" style="background-image: url(./src/diagram/Images/connector/Connectors_7.png); margin-right: 3px">
+            <div class="image-pattern-style" id="straightConnectorWithStroke" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_4.png); margin-right: 3px">
             </div>
-            <div class="image-pattern-style" id="orthogonalConnectorWithDasharray" style="background-image: url(./src/diagram/Images/connector/Connectors_8.png); margin: 0px 3px">
+            <div class="image-pattern-style" id="orthogonalConnectorWithStroke" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_5.png); margin: 0px 3px">
             </div>
-            <div class="image-pattern-style" id="bezierConnectorWithDasharray" style="background-image: url(./src/diagram/Images/connector/Connectors_9.png); margin-left: 3px">
+            <div class="image-pattern-style" id="bezierConnectorWithStroke" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_6.png); margin-left: 3px">
             </div>
         </div>
         <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="cornerRadius" style="background-image: url(./src/diagram/Images/connector/Connectors_10.png); margin-right: 3px">
+            <div class="image-pattern-style" id="straightConnectorWithDasharray" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_7.png); margin-right: 3px">
             </div>
-            <div class="image-pattern-style" id="sourceDecorators" style="background-image: url(./src/diagram/Images/connector/Connectors_11.png); margin: 0px 3px">
+            <div class="image-pattern-style" id="orthogonalConnectorWithDasharray" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_8.png); margin: 0px 3px">
             </div>
-            <div class="image-pattern-style" id="sourceDecoratorWithDasharray" style="background-image: url(./src/diagram/Images/connector/Connectors_12.png); margin-left: 3px">
+            <div class="image-pattern-style" id="bezierConnectorWithDasharray" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_9.png); margin-left: 3px">
+            </div>
+        </div>
+        <div class="row" style="padding-top: 8px">
+            <div class="image-pattern-style" id="cornerRadius" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_10.png); margin-right: 3px">
+            </div>
+            <div class="image-pattern-style" id="sourceDecorators" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_11.png); margin: 0px 3px">
+            </div>
+            <div class="image-pattern-style" id="sourceDecoratorWithDasharray" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_12.png); margin-left: 3px">
             </div>
         </div>
     </div>

@@ -370,11 +370,4 @@ export default {
   margin: auto !important;
   color: #ff2222;
 }
-
-/deep/ .sb-sample-content-area {
-  min-height: 255px !important;
-}
-/deep/ .control-section {
-  min-height: 255px !important;
-}
 </style>

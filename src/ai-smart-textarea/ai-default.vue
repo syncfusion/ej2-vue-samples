@@ -1,14 +1,13 @@
 <template>
   <div class="control-pane">
     <div class="control-section">
-      <div class="content-wrapper">
-        <div class="example-label">Select a role</div>
+      <div class="ai-content-wrapper">
+        <div class="ai-example-label">Select a role</div>
         <ejs-dropdownlist id="user-role" :dataSource="rolesData" :placeholder="'Select a role'" :popupHeight="'200px'"
           :width="'75%'" :value="selectedRole" @change="onChange"></ejs-dropdownlist>
-        <br />
-        <ejs-textarea id="smart-textarea" ref="textareaObj" placeholder="Enter your queries here"
-          :floatLabelType="'Auto'" :rows="5" :userRole="userRole" :userPhrases="phrasesData"
-          :aiSuggestionHandler="serverAIRequest"></ejs-textarea>
+        <ejs-smarttextarea id="smart-textarea" :width="'75%'" ref="textareaObj" placeholder="Enter your queries here"
+          :floatLabelType="'Auto'" :rows="5" :cols="100" :userRole="userRole" :userPhrases="phrasesData"
+          :aiSuggestionHandler="smartPasteHandler"></ejs-smarttextarea>
       </div>
       <div id="action-description">
         <p>
@@ -37,17 +36,16 @@
 
 <script>
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
-import { TextAreaComponent } from '@syncfusion/ej2-vue-inputs';
-import { getAzureChatAIRequest } from '../common/openai';
+import { SmartTextAreaComponent } from '@syncfusion/ej2-vue-inputs';
+import { serverAIRequest } from '../common/ai-service';
 
 export default {
   components: {
     'ejs-dropdownlist': DropDownListComponent,
-    'ejs-textarea': TextAreaComponent,
+    'ejs-smarttextarea': SmartTextAreaComponent,
   },
   data() {
     return {
-      textareaObj: null,
       phrasesData: [
         'Please find the attached report.',
         "Let's schedule a meeting to discuss this further.",
@@ -109,57 +107,42 @@ export default {
     };
   },
   methods: {
-    async serverAIRequest(settings) {
+      smartPasteHandler: async function (settings) {
       let output = '';
       try {
-        const response = await getAzureChatAIRequest(settings);
+        const response = await serverAIRequest(settings);
         output = response;
       } catch (error) {
         console.error('Error:', error);
       }
       return output;
     },
-    onChange(args) {
+    onChange: function (args) {
       this.selectedRole = args.value;
       const selectedPreset = this.presets.find(
         (preset) => preset.userRole === this.selectedRole
       );
-      this.userRole = selectedPreset.userRole;
-      if (this.$refs.textareaObj) {
-        this.$refs.textareaObj.userRole = this.userRole;
-        this.$refs.textareaObj.userPhrases = selectedPreset.userPhrases;
-      }
+      this.$refs.textareaObj.selectedRole = this.selectedRole;
+      this.$refs.textareaObj.userPhrases = selectedPreset.userPhrases;
     },
   },
 };
 </script>
 
 <style>
-.content-wrapper div.row {
-  padding: 7px 0px;
-}
 
-
-.content-wrapper {
+.ai-content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   padding: 50px 0px;
-  background: rgb(229 231 235);
   border-radius: 10px;
 }
 
-.content-wrapper div.row {
-  padding: 7px 0px;
-}
-
-.example-label {
+.ai-example-label {
   width: 75%;
   font-weight: 700;
 }
 
-.e-multi-line-input {
-  min-width: 75%;
-}
 </style>

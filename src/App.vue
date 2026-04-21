@@ -55,7 +55,6 @@
         </aside>
         <div class="sample-browser e-view" rol>
             <div class="sb-mobile-overlay sb-hide"></div>
-            <div id="ai-toast"></div>
             <div class="sb-token-header sb-hide" role="banner">
                 <div class="banner-message"></div>
                 <div class="close-button" role="button" @click="hideBanner">×</div>
@@ -497,6 +496,7 @@ const reg: RegExp = /.*custom code start([\S\s]*?)custom code end.*/g;
 let skipReload: boolean = false; // Flag to skip reload when switching themes
 let isReloadingTheme = false; // Flag to indicate if the theme is being reloaded
 let hasHandledInitialTheme = false; // Flag to check if the initial theme has been handled
+let isInitialLoad = true; // Flag to trigger heavy refresh only on direct load/refresh
 let selectedTheme: string = location.hash.split('/')[1] || 'tailwind3';
 const themeCollection: string[] = ['material3', 'bootstrap5', 'fluent2', 'tailwind3', 'fluent2-highcontrast', 'highcontrast', 'tailwind', 'fluent'];
 const themesToRedirect: string[] = ['material', 'material-dark', 'bootstrap4', 'bootstrap', 'bootstrap-dark', 'fabric', 'fabric-dark'];
@@ -510,8 +510,6 @@ const matchedCurrency: { [key: string]: string } = {
 };
 
 let rootEle: HTMLElement;
-let toastObj1: Toast | null = null;
-let isToastVisible = false;
 let route: RouteLocationNormalized;
 let router: Router;
 let sb: any = { vars: {} };
@@ -1546,7 +1544,7 @@ const loadTheme = (theme: string, softSwitch = false): void => {
 const doControls: string[] = [
   "chart", "three-dimension-chart", "circular-3d-chart", "stock-chart", "arc-gauge", "circular-gauge",
   "diagram", "heatmap", "linear-gauge", "maps", "range-navigator", "smith-chart",
-  "barcode", "sparkline", "treemap", "bullet-chart","kanban"
+  "barcode", "sparkline", "treemap", "bullet-chart","kanban", "sankey"
 ];
 
 // components rerendering for every dark/light toggle
@@ -1969,6 +1967,26 @@ const updatesourceTab = (): void => {
         select('.sb-mobile-prop-pane', rootEle).innerHTML = '';
         setPropertySectionHeight();
         removeOverlay();
+        if (isInitialLoad) {
+            setTimeout(() => {
+                window.dispatchEvent(new Event('resize'));
+                const demoSection = document.querySelector('.sb-demo-section');
+                if (demoSection) {
+                    const heavyComponents = ['pivotview'];
+                    const controls = demoSection.querySelectorAll('.e-control.e-lib');
+                    controls.forEach((control: any) => {
+                        const instance = control.ej2_instances?.[0];
+                        if (instance && typeof instance.refresh === 'function') {
+                            const moduleName = instance.getModuleName ? instance.getModuleName() : '';
+                            if (heavyComponents.indexOf(moduleName.toLowerCase()) !== -1) {
+                                instance.refresh();
+                            }
+                        }
+                    });
+                }
+                isInitialLoad = false;
+            }, 200);
+        }
         let propPanel: Element = select('#control-content .property-section');
         if (isMobile) {
             if (propPanel) {
@@ -2078,84 +2096,5 @@ const hideBanner = () => {
     }
 };
 
-function contentTemplate(): HTMLElement {
-    const container = document.createElement('div');
-    container.className = 'ai-toast-container';
-
-    const textDiv = document.createElement('div');
-    textDiv.className = 'ai-content-text'
-
-    const title = document.createElement('div');
-    title.className = 'ai-content-title';
-    title.innerText = 'Explore AI Demos';
-
-    const message = document.createElement('div');
-    message.className = 'ai-content-message';
-    message.innerHTML = `
-        You can now explore our <strong>Smart AI demos</strong> with limited AI token usage.
-        Additionally, you can try out our <strong>
-        <a href="https://github.com/syncfusion/smart-ai-samples/tree/master/vue" target="_blank" style="color: #007bff;">Syncfusion Smart AI Samples</a></strong> locally by using your own API key.
-    `;
-
-    textDiv.appendChild(title);
-    textDiv.appendChild(message);
-
-    const closeBtn = document.createElement('button');
-    closeBtn.className = 'toast-close-button';
-    closeBtn.innerText = '✕';
-    closeBtn.setAttribute('aria-label', 'Close');
-
-    container.appendChild(textDiv);
-    container.appendChild(closeBtn);
-
-    return container;
-}
-
-function attachCloseHandler() {
-    const closeBtn = toastObj1?.element.querySelector('.toast-close-button');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            toastObj1?.hide();
-            isToastVisible = false;
-        });
-    }
-}
-
-function showToast() {
-    if (!toastObj1) {
-        toastObj1 = new Toast({
-            width: 420,
-            content: contentTemplate(),
-            position: { X: 'Right', Y: 'Top' },
-            timeOut: 0,
-            newestOnTop: true,
-            created: () => {
-                toastObj1?.show();
-                isToastVisible = true;
-                attachCloseHandler();
-            }
-        });
-        toastObj1.appendTo('#ai-toast');
-    } else if (!isToastVisible) {
-        toastObj1.show();
-        isToastVisible = true;
-        attachCloseHandler();
-    }
-}
-
-function hideToast() {
-    if (toastObj1 && isToastVisible) {
-        toastObj1.hide();
-        isToastVisible = false;
-    }
-}
-
-window.addEventListener('hashchange', () => {
-    if (location.hash.includes('ai-')) {
-        showToast();
-    } else {
-        hideToast();
-    }
-});
 
 </script>

@@ -22,7 +22,7 @@
       <div id="diagram-space" ref="diagram_space" class="sb-mobile-diagram">
         <ejs-diagram style='display:block' id="diagram" ref="diagramObject" :width='width' :height='height' :nodes='nodes'
           :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
-          :snapSettings='snapSettings' :created='created'></ejs-diagram>
+          :snapSettings='snapSettings'></ejs-diagram>
       </div>
     </div>
 
@@ -163,18 +163,18 @@ function getDefaultNode(id, height, width, offsetX, offsetY, type, shapeType, an
 
 //Initializes the nodes for the diagram.
 let nodes = [
-  getDefaultNode("Start", 40, 40, 300, 20, "UmlActivity", "InitialNode", []),
-  getDefaultNode("ReceiveCall", 40, 105, 300, 100, "UmlActivity", "Action", [{ content: "Receive Customer Call" }]),
-  getDefaultNode("ForkNode", 10, 70, 300, 170, "UmlActivity", "ForkNode"),
-  getDefaultNode("Determine", 40, 105, 190, 250, "UmlActivity", "Action", [{ content: "Determine Type of Call" }]),
-  getDefaultNode("Log", 40, 105, 410, 250, "UmlActivity", "Action", [{ content: "Customer Logging a Call" }]),
-  getDefaultNode("Decision", 50, 50, 190, 350, "UmlActivity", "Decision"),
-  getDefaultNode("transfer_sales", 40, 105, 100, 450, "UmlActivity", "Action", [{ content: "Transfer the Call to Sales" }]),
-  getDefaultNode("transfer_desk", 40, 105, 280, 450, "UmlActivity", "Action", [{ content: "Transfer the Call to Help Desk" }]),
-  getDefaultNode("MergeNode", 50, 50, 190, 540, "UmlActivity", "MergeNode"),
-  getDefaultNode("JoinNode", 10, 70, 300, 630, "UmlActivity", "JoinNode"),
-  getDefaultNode("CloseCall", 40, 105, 300, 710, "UmlActivity", "Action", [{ content: "Close Call", margin: { left: 25, right: 25 } }]),
-  getDefaultNode("FinalNode", 40, 40, 300, 800, "UmlActivity", "FinalNode")
+  getDefaultNode("Start", 40, 40, 550, 20, "UmlActivity", "InitialNode", []),
+  getDefaultNode("ReceiveCall", 40, 105, 550, 100, "UmlActivity", "Action", [{ content: "Receive Customer Call" }]),
+  getDefaultNode("ForkNode", 10, 70, 550, 170, "UmlActivity", "ForkNode"),
+  getDefaultNode("Determine", 40, 105, 440, 250, "UmlActivity", "Action", [{ content: "Determine Type of Call" }]),
+  getDefaultNode("Log", 40, 105, 660, 250, "UmlActivity", "Action", [{ content: "Customer Logging a Call" }]),
+  getDefaultNode("Decision", 50, 50, 440, 350, "UmlActivity", "Decision"),
+  getDefaultNode("transfer_sales", 40, 105, 350, 450, "UmlActivity", "Action", [{ content: "Transfer the Call to Sales" }]),
+  getDefaultNode("transfer_desk", 40, 105, 530, 450, "UmlActivity", "Action", [{ content: "Transfer the Call to Help Desk" }]),
+  getDefaultNode("MergeNode", 50, 50, 440, 540, "UmlActivity", "MergeNode"),
+  getDefaultNode("JoinNode", 10, 70, 550, 630, "UmlActivity", "JoinNode"),
+  getDefaultNode("CloseCall", 40, 105, 550, 710, "UmlActivity", "Action", [{ content: "Close Call", margin: { left: 25, right: 25 } }]),
+  getDefaultNode("FinalNode", 40, 40, 550, 800, "UmlActivity", "FinalNode")
 ];
 
 // Function to create a Connector with default settings
@@ -285,9 +285,6 @@ export default {
       snapSettings: {
         constraints: SnapConstraints.None
       },
-      created: (args) => {
-        addEvents();
-      },
       //Sets the default values of a node
       getNodeDefaults: (node) => {
         let style = node.style;
@@ -357,9 +354,7 @@ export default {
     paletteSpaceInstance = this.$refs.palette_space;
     diagramSpaceInstance = this.$refs.diagram_space;
     diagramInstance = this.$refs.diagramObject.ej2Instances;
-    let rect = diagramSpaceInstance.getBoundingClientRect();
-    let panX = (rect.width - rect.x) / 2;
-    diagramInstance.pan(panX, 0);
+    addEvents()
   }
 }
 

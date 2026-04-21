@@ -75,6 +75,11 @@
 		height: 354px;
         overflow: auto;
 	}
+
+    #tree1 .e-text-content, #tree2 .e-text-content {
+        -webkit-transform: translateZ(0);
+    }
+
     .custom-tree {
         overflow: auto;
     }

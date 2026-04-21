@@ -5,9 +5,11 @@
   <!-- Diagram and Symbol Palette sections -->
   <div class="control-section diagram-bpmn">
     <div style="width:100%;height:445px">
-
+      <div class="sb-mobile-palette-bar">
+        <div id="palette-icon-default" ref="paletteIcon" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
+      </div>
       <!-- Symbol Palette component -->
-      <div id="palette-space" style="width:240px;height:445px; float:left">
+      <div id="palette-space" class="sb-mobile-palette" style="width:240px;height:445px; float:left" ref="paletteSpace">
         <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth'
           :height='paletteheight' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin'
           :symbolHeight='symbolHeight' :symbolWidth='symbolWidth'
@@ -15,7 +17,7 @@
       </div>
 
       <!-- Diagram component -->
-      <div id="diagram-space" style="width:calc(100% - 242px);height:445px; float:left;border-color: rgba(0, 0, 0, 0.12);border-width: 1px 1px 0px 0px;
+      <div id="diagram-space" class="sb-mobile-diagram" style="height:445px;border-color: rgba(0, 0, 0, 0.12);border-width: 1px 1px 0px 0px;
             border-style: solid; border-left: none;">
         <ejs-diagram style='display:block' ref="diagramObject" id="diagram" :mode='mode' :width='width' :height='height'
           :nodes='nodes' :connectors='connectors' :dragEnter='dragEnter' :snapSettings='snapSettings'
@@ -423,7 +425,60 @@
 .e-InstantiatingReceive:before {
   content: "\e72c";
 }
+/*To align palette */
+.diagram-bpmn .sb-mobile-palette {
+  width: 240px;
+  height: 100%;
+  float: left;
+}
 
+.diagram-bpmn .sb-mobile-palette-bar {
+  display: none;
+}
+
+/*To align diagram */
+.diagram-bpmn .sb-mobile-diagram {
+  width: calc(100% - 242px);
+  height: 100%;
+  float: left;
+}
+
+@media (max-width: 550px) {
+  .diagram-bpmn .sb-mobile-palette {
+    z-index: 19;
+    position: absolute;
+    display: none;
+    transition: transform 300ms linear, visibility 0s linear 300ms;
+    width: 39%;
+    height: 100%;
+  }
+
+  .diagram-bpmn .sb-mobile-palette-bar {
+    display: block;
+    width: 100%;
+    background: #fafafa;
+    padding: 10px 10px;
+    border: 0.5px solid #e0e0e0;
+    min-height: 40px;
+  }
+
+  .diagram-bpmn .sb-mobile-diagram {
+    width: 100%;
+    height: 100%;
+    float: left;
+    left: 0px;
+  }
+
+  .diagram-bpmn #palette-icon-default {
+    font-size: 20px;
+  }
+}
+
+.diagram-bpmn .sb-mobile-palette-open {
+  position: absolute;
+  display: block;
+  right: 15px;
+}
 </style>
 
 <script>
@@ -441,7 +496,8 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagram;
-
+let paletteSpace;
+let paletteIcon;
 // Function to initialize a node
 function createNode(id, width, height, offsetX, offsetY,
   shape, annotations = [], margin = {}, style = {}, constraints = NodeConstraints.Default) {
@@ -877,7 +933,10 @@ export default {
 
   }, mounted: function () {
     diagram = this.$refs.diagramObject.ej2Instances;
+    paletteIcon = this.$refs.paletteIcon;
+    paletteSpace = this.$refs.paletteSpace;
     diagram.fitToPage();
+    addEvents();
   }
 }
 //Functon to Initializes the Connector shapes for the symbol pallete.
@@ -908,48 +967,86 @@ function getConnectors() {
 function contextMenuClick(args) {
   if (diagram && diagram.selectedItems && diagram.selectedItems.nodes && diagram.selectedItems.nodes.length > 0) {
     let bpmnShape = diagram.selectedItems.nodes[0].shape;
-    if (args.item.iconCss.indexOf('e-adhocs') > -1 && bpmnShape.activity && bpmnShape.activity.subProcess) {
-      bpmnShape.activity.subProcess.adhoc = args.item.id === 'AdhocNone' ? false : true;
-    }
-    if (args.item.iconCss.indexOf('e-event') > -1 && bpmnShape.event) {
-      bpmnShape.event.event = (args.item.id);
-    }
-
-    if (args.item.iconCss.indexOf('e-trigger') > -1) {
-
-      let trigger = args.item.id;
-      trigger = (args.item.id === 'TriggerNone') ? 'None' :
-        (args.item.id === 'triggerCompensation') ? 'Compensation' : args.item.id;
-      if (bpmnShape.event) {
-        bpmnShape.event.trigger = (args.item.text);
-      }
-    }
-    if (bpmnShape.activity) {
-      if (args.item.iconCss.indexOf('e-loop') > -1) {
-        let loop = (args.item.id === 'LoopNone') ? 'None' : args.item.id;
-
-        if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
-          bpmnShape.activity.task.loop = loop;
+    if (args.item.iconCss) {
+        if (args.item.iconCss.indexOf('e-adhocs') > -1 && bpmnShape.activity && bpmnShape.activity.subProcess) {
+          bpmnShape.activity.subProcess.adhoc = args.item.id === 'AdhocNone' ? false : true;
         }
-        if (bpmnShape.activity.activity === 'SubProcess' && bpmnShape.activity.subProcess) {
-          bpmnShape.activity.subProcess.loop = loop;
+        if (args.item.iconCss.indexOf('e-event') > -1 && bpmnShape.event) {
+          bpmnShape.event.event = (args.item.id);
         }
 
-      }
-      if (args.item.iconCss.indexOf('e-compensation') > -1) {
-        let compensation = (args.item.id === 'CompensationNone') ? false : true;
-        if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
-          bpmnShape.activity.task.compensation = compensation;
-        }
-        if (bpmnShape.activity.activity === 'SubProcess' && bpmnShape.activity.subProcess) {
-          bpmnShape.activity.subProcess.compensation = compensation;
+        if (args.item.iconCss.indexOf('e-trigger') > -1) {
 
+          let trigger = args.item.id;
+          trigger = (args.item.id === 'TriggerNone') ? 'None' :
+            (args.item.id === 'triggerCompensation') ? 'Compensation' : args.item.id;
+          if (bpmnShape.event) {
+            bpmnShape.event.trigger = (args.item.text);
+          }
         }
-      }
-      if (args.item.iconCss.indexOf('e-call') > -1) {
-        let compensation = (args.item.id === 'CallNone') ? false : true;
-        if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
-          bpmnShape.activity.task.call = compensation;
+        if (bpmnShape.activity) {
+          if (args.item.iconCss.indexOf('e-loop') > -1) {
+            let loop = (args.item.id === 'LoopNone') ? 'None' : args.item.id;
+
+            if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
+              bpmnShape.activity.task.loop = loop;
+            }
+            if (bpmnShape.activity.activity === 'SubProcess' && bpmnShape.activity.subProcess) {
+              bpmnShape.activity.subProcess.loop = loop;
+            }
+
+          }
+          if (args.item.iconCss.indexOf('e-compensation') > -1) {
+            let compensation = (args.item.id === 'CompensationNone') ? false : true;
+            if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
+              bpmnShape.activity.task.compensation = compensation;
+            }
+            if (bpmnShape.activity.activity === 'SubProcess' && bpmnShape.activity.subProcess) {
+              bpmnShape.activity.subProcess.compensation = compensation;
+
+            }
+          }
+          if (args.item.iconCss.indexOf('e-call') > -1) {
+            let compensation = (args.item.id === 'CallNone') ? false : true;
+            if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
+              bpmnShape.activity.task.call = compensation;
+            }
+          }
+
+          if (args.item.iconCss.indexOf('e-boundry') > -1 && bpmnShape.activity.subProcess) {
+            let call = args.item.id;
+            if (args.item.id !== 'Default') {
+              call = (args.item.id === 'BoundryEvent') ? 'Event' : 'Call';
+            }
+            bpmnShape.activity.subProcess.boundary = call;
+          }
+          if (args.item.iconCss.indexOf('e-task') > -1) {
+            let task = args.item.id;
+            if (task === 'TaskNone') { task = 'None'; }
+            if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
+              bpmnShape.activity.task.type = task;
+            }
+          }
+        }
+        if (args.item.iconCss.indexOf('e-data') > -1 && bpmnShape.dataObject) {
+          let call = args.item.id;
+          if (args.item.id === 'DataObjectNone') {
+            call = 'None';
+          }
+          bpmnShape.dataObject.type = call;
+        }
+        if (args.item.iconCss.indexOf('e-collection') > -1 && bpmnShape.dataObject) {
+          let call = (args.item.id === 'Collectioncollection') ? true : false;
+          bpmnShape.dataObject.collection = call;
+        }
+
+        if (args.item.iconCss.indexOf('e-gate') > -1 && bpmnShape.gateway) {
+          let task = args.item.id;
+          if (task === 'GateWayNone') { task = 'None'; }
+          if (task === 'GatewayParallel') { task = 'Parallel'; }
+          if (bpmnShape.shape === 'Gateway') {
+            bpmnShape.gateway.type = task;
+          }
         }
       }
       if ((args.item.id === 'CollapsedSubProcess' || args.item.id === 'ExpandedSubProcess') && bpmnShape.activity.subProcess) {
@@ -961,41 +1058,6 @@ function contextMenuClick(args) {
           bpmnShape.activity.subProcess.collapsed = true;
         }
       }
-      if (args.item.iconCss.indexOf('e-boundry') > -1 && bpmnShape.activity.subProcess) {
-        let call = args.item.id;
-        if (args.item.id !== 'Default') {
-          call = (args.item.id === 'BoundryEvent') ? 'Event' : 'Call';
-        }
-        bpmnShape.activity.subProcess.boundary = call;
-      }
-      if (args.item.iconCss.indexOf('e-task') > -1) {
-        let task = args.item.id;
-        if (task === 'TaskNone') { task = 'None'; }
-        if (bpmnShape.activity.activity === 'Task' && bpmnShape.activity.task) {
-          bpmnShape.activity.task.type = task;
-        }
-      }
-    }
-    if (args.item.iconCss.indexOf('e-data') > -1 && bpmnShape.dataObject) {
-      let call = args.item.id;
-      if (args.item.id === 'DataObjectNone') {
-        call = 'None';
-      }
-      bpmnShape.dataObject.type = call;
-    }
-    if (args.item.iconCss.indexOf('e-collection') > -1 && bpmnShape.dataObject) {
-      let call = (args.item.id === 'Collectioncollection') ? true : false;
-      bpmnShape.dataObject.collection = call;
-    }
-
-    if (args.item.iconCss.indexOf('e-gate') > -1 && bpmnShape.gateway) {
-      let task = args.item.id;
-      if (task === 'GateWayNone') { task = 'None'; }
-      if (task === 'GatewayParallel') { task = 'Parallel'; }
-      if (bpmnShape.shape === 'Gateway') {
-        bpmnShape.gateway.type = task;
-      }
-    }
     diagram.dataBind();
   }
 }
@@ -1009,7 +1071,7 @@ function contextMenuOpen(args) {
     ];
   }
   for (let item of args.items) {
-    if (item && item.id && diagram && diagram.selectedItems && diagram.selectedItems.nodes && diagram.selectedItems.nodes) {
+    if (item && item.id && diagram && diagram.selectedItems && diagram.selectedItems.nodes && diagram.selectedItems.nodes.length > 0) {
       let node = diagram.selectedItems.nodes[0].shape;
       if (node.shape !== "DataObject" && node.shape !== "Gateway") {
         if (item.text === "Ad-Hoc") {
@@ -1114,5 +1176,25 @@ function contextMenuOpen(args) {
   }
   args.hiddenItems = hiddenId;
 }
+//Adds EventListener based on device's viewport width.
+function addEvents() {
+  var isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    if (paletteIcon) {
+      paletteIcon.addEventListener("click", openPalette, false);
+    }
+  }
+}
 
+//Toggles the visibility of the palette space on mobile devices when the palette icon is clicked.
+function openPalette() {
+  var isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    if (!paletteSpace.classList.contains("sb-mobile-palette-open")) {
+      paletteSpace.classList.add("sb-mobile-palette-open");
+    } else {
+      paletteSpace.classList.remove("sb-mobile-palette-open");
+    }
+  }
+}
 </script>

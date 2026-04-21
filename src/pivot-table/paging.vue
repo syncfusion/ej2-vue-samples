@@ -314,13 +314,6 @@ export default {
 </script>
 
 <style scoped>
-/deep/ .sb-sample-content-area {
-  min-height: 255px !important;
-}
-
-/deep/ .control-section {
-  min-height: 255px !important;
-}
 
 /deep/ #PivotViewcontainerwrapper {
   height: auto !important;

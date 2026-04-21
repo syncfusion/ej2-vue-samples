@@ -1,7 +1,7 @@
 <template>
     <div class="col-lg-12 control-section">
         <div class="stream-aiassistview">
-            <ejs-aiassistview id="streamAssistView" ref="streamingAIAssistView" :promptSuggestions="suggestion" :promptRequest="onPromptRequest" :toolbarSettings="assistToolbars" :stopRespondingClick="handleStopResponse" bannerTemplate="bannerTemplate">
+            <ejs-aiassistview id="streamAssistView" ref="streamingAIAssistView" :enableStreaming="true" :promptSuggestions="suggestion" :promptRequest="onPromptRequest" :toolbarSettings="assistToolbars" bannerTemplate="bannerTemplate">
                 <template v-slot:bannerTemplate="{data}">
                     <div class="banner-content">
                         <div class="e-icons e-assistview-icon"></div>
@@ -21,7 +21,7 @@
         <p> In this example, the <code>AI AssistView</code> component dynamically updates responses in a streaming manner using the  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#addpromptresponse">addPromptResponse</a> method, while the  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#scrolltobottom">scrollToBottom</a> method ensures automatic scrolling. The  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#bannertemplate">bannerTemplate</a> allows customization of the banner content, and  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#toolbarsettings">toolbarSettings</a> enables custom toolbar items, including a right-aligned Refresh button. Additionally,  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#promptsuggestions">promptSuggestions</a> offers AI-generated prompt suggestions, while  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#promptrequest">promptRequest</a> processes prompt requests when triggered.   
         </p> 
         <p>   
-        This implementation provides an interactive AI chat experience with real-time streaming updates, enhanced by Markdown-to-HTML conversion using the <code>MarkdownConverter</code>.   
+        This implementation provides an interactive AI chat experience with real-time streaming updates, enhanced by built-in Markdown-to-HTML conversion using the syncfusion <code>MarkdownConverter</code>.
     </p>
     </div>
 </template>
@@ -29,52 +29,30 @@
 <script>
 import { AIAssistViewComponent } from "@syncfusion/ej2-vue-interactive-chat";
 import * as data from './promptResponseData.json';
-import { MarkdownConverter } from '@syncfusion/ej2-markdown-converter';
 
 export default {
     components: {
         'ejs-aiassistview': AIAssistViewComponent
     },
-        data: function () {
+    data: function () {
         return {
             suggestion: data['streamingSuggestions'],
             prompts: data['streamingPromptResponseData'],
             assistToolbars: {
                 items: [ { iconCss: 'e-icons e-refresh', align: 'Right' } ],
                 itemClicked:  (args) => { this.toolbarItemClicked(args); }
-            },
-            stopStreaming:  false,
+            }
         };
     },
     methods: {
-        handleStopResponse: function () {
-            this.stopStreaming = true;
-        },
         onPromptRequest: function (args) {
-            let lastResponse = "";
-            let streamingResponse = this.prompts.find((data) => data.prompt === args.prompt);
+            let streamingResponse = this.prompts.find((d) => d.prompt === args.prompt);
             const defaultResponse = "For real-time prompt processing, connect the AI AssistView control to your preferred AI service, such as OpenAI or Azure Cognitive Services. Ensure you obtain the necessary API credentials to authenticate and enable seamless integration.";
-            const responseUpdateRate = 10;
-            const streamResponse = async(response) => {
-                let i = 0;
-                const responseLength = response.length;
-                while (i < responseLength && !this.stopStreaming) {
-                    lastResponse += response[i];
-                    i++;
-                    if (i % responseUpdateRate === 0 || i === responseLength) {
-                        const htmlResponse = MarkdownConverter.toHtml(lastResponse);
-                        this.$refs.streamingAIAssistView.ej2Instances.addPromptResponse(htmlResponse, i === responseLength);
-                        this.$refs.streamingAIAssistView.ej2Instances.scrollToBottom();
-                    }
-                    await new Promise(resolve => setTimeout(resolve, 15)); // Delay before the next chunk
-                }
-                this.$refs.streamingAIAssistView.ej2Instances.promptSuggestions = streamingResponse?.suggestions || this.suggestion;
-            }
             if (streamingResponse) {
-                this.stopStreaming = false;
-                streamResponse(streamingResponse.response);
+                this.$refs.streamingAIAssistView.ej2Instances.addPromptResponse(streamingResponse.response);
+                this.$refs.streamingAIAssistView.ej2Instances.promptSuggestions = streamingResponse?.suggestions || this.suggestion;
             } else {
-                this.$refs.streamingAIAssistView.ej2Instances.addPromptResponse(defaultResponse, true);
+                this.$refs.streamingAIAssistView.ej2Instances.addPromptResponse(defaultResponse);
                 this.$refs.streamingAIAssistView.ej2Instances.promptSuggestions = this.suggestion;
             }
         },

@@ -104,14 +104,11 @@
             </div>
           </template>
           <template v-slot:milestoneTemplate="{ data }">
-            <div style="margin-top:-7px;">
-              <div style="position:absolute; left: 3px;top: 4px">
-                <img class="moments" height="24" width="48" style="z-index:1;left:-3px;top:22px" role="presentation"
-                  src="./images/moments.svg" alt="Moments svg" />
-                <div class="e-gantt-milestone"
-                  style="width:41px; height:41px; transform: rotate(45deg); background-color: #7ab748 !important; border: 0;left:-3px;top:14px">
+            <div class="e-gantt-milestone" style= "margin-top: 3px; width: 41px; height: 41px; background-color: #7ab748; 
+                border: 0;position: absolute;left: -2px; top: 14.5px;">
+                <div style="position:absolute;top: 4px">
+                  <img class="moments" src="./images/moments.svg" height="24" width="48" style= "z-index: 1; top: 1.5px; left: -2px ; transform: rotate(-45deg); position: absolute" alt="Moments svg"/>
                 </div>
-              </div>
             </div>
           </template>
           <template v-slot:tooltipTemplate="{ data }">

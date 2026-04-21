@@ -3,6 +3,7 @@
         <div class="control-section">
             <img src="src/ai-gantt/images/resource-manager.gif" width="100%" height="100%" />
         </div>
+        <AIToast />
         <div id="action-description">
             <p>This sample demonstrates how to efficiently manage resource overallocation by reallocating available resources to
         tasks. It visually updates the Gantt Chart by changing the color of the taskbars to reflect the reallocated

@@ -290,7 +290,7 @@ export default {
     /* Specifies the sample level font icons for the ListView icons*/
     @font-face {
         font-family: 'sb-icons';
-        src: url('./fonts/controls.ttf?gcjn6a') format('truetype'), url('./fonts/controls.woff?gcjn6a') format('woff'), url('./fonts/controls.svg?gcjn6a#sbicons') format('svg');
+        src: url('https://ej2.syncfusion.com/demos/src/sidebar/fonts/controls.ttf?gcjn6a') format('truetype'), url('https://ej2.syncfusion.com/demos/src/sidebar/fonts/controls.woff?gcjn6a') format('woff'), url('https://ej2.syncfusion.com/demos/src/sidebar/fonts/controls.svg?gcjn6a#sbicons') format('svg');
         font-weight: normal;
         font-style: normal;
     }

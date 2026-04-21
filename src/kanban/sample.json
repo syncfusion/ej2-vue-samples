@@ -3,7 +3,6 @@
     "directory": "kanban",
     "category": "Data Visualization",
     "ftName": "kanban",
-    "type": "update",
     "samples": [
         {
             "url": "overview",
@@ -345,7 +344,6 @@
                     "allowColumnDragAndDrop"
                 ]
             },
-            "type": "new",
             "sourceFiles":[
                 { "displayName":"column-rearrangement.vue", "path":"src/kanban/column-rearrangement.vue" },
                 { "displayName":"datasource.ts", "path":"src/kanban/datasource.ts" }

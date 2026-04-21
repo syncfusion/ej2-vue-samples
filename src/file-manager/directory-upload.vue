@@ -7,7 +7,7 @@
                     <e-toolbaritem name="NewFolder"></e-toolbaritem>
                     <e-toolbaritem :template="'uploadTemplate'" name="Upload">
                         <template v-slot:uploadTemplate>
-                            <div><ejs-dropdownbutton id="dropButton" ref="dropButtonInstance" cssClass="e-tbar-btn e-tbtn-txt" iconCss="e-icons e-fe-upload" :items='items' :select="onSelect" :onClick="uploadClick"> <span className="e-tbar-btn-text">Upload</span></ejs-dropdownbutton></div>
+                            <div><ejs-dropdownbutton id="dropButton" ref="dropButtonInstance" cssClass="e-tbar-btn e-tbtn-txt" iconCss="e-icons e-fe-upload" :items='getItems()' :select="onSelect" :onClick="uploadClick"> <span className="e-tbar-btn-text">Upload</span></ejs-dropdownbutton></div>
                         </template>
                     </e-toolbaritem>
                     <e-toolbaritem name="SortBy"></e-toolbaritem>
@@ -73,7 +73,13 @@ export default {
                 uploadUrl: hostUrl + 'api/FileManager/Upload',
                 downloadUrl: hostUrl + 'api/FileManager/Download'
             },
-            items: [{ text: "Folder" }, { text: "Files" }],
+            getItems() {
+                const fileObj = this.$refs.filemanagerInstance?.ej2Instances;
+                return [
+                { text: fileObj?.localeObj.getConstant('Folder') },
+                { text: fileObj?.localeObj.getConstant('File') },
+                ];
+            },            
             contextMenuSettings: {
 				file: ["Cut", "Copy", "|", "Delete", "Download", "Rename", "|", "Details"],
                 visible: true
@@ -86,7 +92,8 @@ export default {
     methods: {
         onSelect: function (args) {
             var fileObj = this.$refs.filemanagerInstance;
-            if (args.item.text === "Folder") {
+            const fileObject = this.$refs.filemanagerInstance?.ej2Instances;
+            if (args.item.text === fileObject?.localeObj.getConstant('Folder')) {
                 fileObj.ej2Instances.uploadSettings.directoryUpload = true;
             } else {
                 fileObj.ej2Instances.uploadSettings.directoryUpload = false;

@@ -266,4 +266,19 @@ export default {
   content: '\e21c';
   font-family: 'e-icons';
 }
+
+.bootstrap5 .ganttsidebar-header .e-close::before,
+.bootstrap5_3 .ganttsidebar-header .e-close::before {
+  color: #000 !important;
+}
+
+.bootstrap4 .ganttsidebar-header .e-close::before {
+  content: '\e745';
+  color: #000 !important;
+}
+
+.bootstrap .ganttsidebar-header .e-close::before,
+.bootstrap-dark .ganttsidebar-header .e-close::before { 
+  content: '\e7fc';
+}
 </style>

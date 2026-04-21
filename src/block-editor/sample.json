@@ -3,13 +3,14 @@
     "directory": "block-editor",
     "category": "File Viewers & Editors",
     "ftName": "block-editor",
-    "type": "preview",
+    "type": "update",
     "dataSourcePath": "src/block-editor/blockData.json",
     "samples": [
         {
             "url": "overview",
             "name": "Overview",
             "category": "Block Editor",
+            "type": "update",
             "api":{ "BlockEditor": ["blocks"] },
             "description": "This demo describes basic and advanced features of the Block Editor control with all its tools and functionalities.",
             "sourceFiles": [
@@ -21,7 +22,6 @@
             "url": "pasteSettings",
             "name": "Paste Cleanup",
             "category": "Block Editor",
-            "type": "new",
             "api":{ "BlockEditor": ["blocks","pasteSettings"] },
             "description": "This demo showcases how to handle and interact pasteSettings actions provided by the Block Editor component.",
             "sourceFiles": [
@@ -55,7 +55,6 @@
             "url": "templateGallery",
             "name": "Template Gallery",
             "category": "Use Cases",
-            "type": "new",
             "api":{ "BlockEditor": ["blocks"] },
             "description": "This demo showcases how to render Template gallery blocks and  actions provided by the Block Editor component.",
             "sourceFiles": [
@@ -67,7 +66,6 @@
             "url": "markdown",
             "name": "Markdown Blocks",
             "category": "Use Cases",
-            "type": "new",
             "api":{ "BlockEditor": ["blocks"] },
             "description": "This demo showcases Markdown-driven documentation viewer with sidebar navigation, breadcrumb, and export to Markdown.",
             "sourceFiles": [

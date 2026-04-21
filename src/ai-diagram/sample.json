@@ -2,10 +2,12 @@
     "name": "Diagram",
     "directory": "ai-diagram",
     "category": "Smart AI Solutions",
+    "type": "update",
     "samples": [
         {
             "url": "text-to-flowchart",
             "name": "Text to Flowchart",
+            "type": "update",
             "category": "Diagram",
             "sourceFiles": [
                 { "displayName": "text-to-flowchart.vue", "path": "src/ai-diagram/ai-text-to-flowchart.vue" }
@@ -15,9 +17,20 @@
         {
             "url": "text-to-mindmap",
             "name": "Text to MindMap",
+            "type": "update",
             "category": "Diagram",
             "sourceFiles": [
                 { "displayName": "text-to-mindmap.vue", "path": "src/ai-diagram/ai-text-to-mindmap.vue" }
+            ],
+            "description": "This demo showcases the Diagram AI feature."
+        },
+        {
+            "url": "text-to-umlSequenceDiagram",
+            "name": "Text to UML Sequence Diagram",
+            "type": "new",
+            "category": "Diagram",
+            "sourceFiles": [
+                { "displayName": "text-to-umlSequenceDiagram.vue", "path": "src/ai-diagram/ai-text-to-umlSequenceDiagram.vue" }
             ],
             "description": "This demo showcases the Diagram AI feature."
         }

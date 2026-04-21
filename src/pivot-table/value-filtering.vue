@@ -76,12 +76,7 @@
               </td>
             </tr>
         </tbody>
-    </table><br />
-    <p>
-        More information on the value filtering can be found in this <a target="_blank"
-            href="https://ej2.syncfusion.com/vue/documentation/pivotview/filtering#value-filtering">
-        documentation section</a>.
-    </p>
+    </table>
 </div>
 
 <div id="action-description">
@@ -143,6 +138,12 @@
     <b> "User Interaction > Field List"</b> sample and open the filter dialog.
         For API details, refer to the
     <b> "Field List"</b> sample description.
+    </p>
+    <br />
+    <p>
+        More information on the value filtering can be found in this <a target="_blank"
+            href="https://ej2.syncfusion.com/vue/documentation/pivotview/filtering#value-filtering">
+        documentation section</a>.
     </p>
 </div>
 
@@ -353,12 +354,5 @@ export default {
 
 /deep/ .pivottable-property-section {
   overflow: auto;
-}
-
-/deep/ .sb-sample-content-area {
-  min-height: 255px !important;
-}
-/deep/ .control-section {
-  min-height: 255px !important;
 }
 </style>

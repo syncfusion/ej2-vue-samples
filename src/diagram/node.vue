@@ -18,17 +18,17 @@
         </div>
          <!-- Image previews for node styles -->
         <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="preview0" style="background-image: url(./src/diagram/Images/node/Nodes_1.png); margin-right: 3px">
+            <div class="image-pattern-style" id="preview0" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/node/Nodes_1.png); margin-right: 3px">
             </div>
-            <div class="image-pattern-style" id="preview1" style="background-image: url(./src/diagram/Images/node/Nodes_2.png); margin-right: 0px 3px">
+            <div class="image-pattern-style" id="preview1" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/node/Nodes_2.png); margin-right: 0px 3px">
             </div>
-            <div class="image-pattern-style" id="preview2" style="background-image: url(./src/diagram/Images/node/Nodes_3.png); margin: 0px 3px">
+            <div class="image-pattern-style" id="preview2" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/node/Nodes_3.png); margin: 0px 3px">
             </div>
         </div>
         <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="preview3" style="background-image: url(./src/diagram/Images/node/Nodes_4.png); margin-right: 3px">
+            <div class="image-pattern-style" id="preview3" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/node/Nodes_4.png); margin-right: 3px">
             </div>
-            <div class="image-pattern-style" id="preview4" style="background-image: url(./src/diagram/Images/node/Nodes_5.png); margin-right: 0px 3px">
+            <div class="image-pattern-style" id="preview4" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/node/Nodes_5.png); margin-right: 0px 3px">
             </div>
         </div>
     </div>
@@ -133,7 +133,7 @@ let nodes =  [
   {id: 'support', offsetX: 150, offsetY: 250, width:100, height:100, annotations: [{content: 'Support'}]},
   {id: 'analysis', offsetX: 300, offsetY: 150, width:100, height:100, annotations: [{content: 'Analysis'}]},
   {id: 'design', offsetX: 450, offsetY: 250, width:100, height:100, annotations: [{content: 'Design'}]},
-  {id: 'implement', offsetX: 400, offsetY: 400, width:100, height:100, annotations: [{content: 'implement'}]},
+  {id: 'implement', offsetX: 400, offsetY: 400, width:100, height:100, annotations: [{content: 'Implement'}]},
   {id: 'deploy', offsetX: 200, offsetY: 400, width:100, height:100, annotations: [{content: 'Deploy'}]}
 ];
 

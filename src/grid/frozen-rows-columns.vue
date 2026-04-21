@@ -1,9 +1,9 @@
 <template>
-<div class="col-lg-12 control-section">
+<div>
     <div id="action-description">
         <p>This sample demonstrates the default rendering of the Grid with minimum configuration.</p>
     </div>  
-    <div class="col-lg-8">
+    <div class="col-lg-8 control-section">
         <ejs-grid :dataSource="data" height='350' :frozenRows='rows' :frozenColumns='columns' :allowSelection='false' :enableHover='false' :allowResizing='true' :allowFiltering='true' :filterSettings='filterSettings' :allowSorting='true' :allowMultiSorting='false' :allowPaging='true'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true'></e-column>
@@ -19,7 +19,60 @@
             </e-columns>
         </ejs-grid>
     </div>
-
+    <div class="col-lg-4 property-section">
+      <table
+        id="property"
+        title="Properties"
+        style="width: 100%; margin-left: -10px"
+      >
+        <colgroup>
+          <col span="1" style="width: 40%" />
+          <col span="1" style="width: 60%" />
+        </colgroup>
+        <tbody>
+          <tr>
+            <td>
+              <div>Frozen Rows</div>
+            </td>
+            <td>
+              <div id="frozeninput">
+                <ejs-numerictextbox
+                  ref="row"
+                  :min="0"
+                  :max="5"
+                  format="n"
+                  :value="2"
+                ></ejs-numerictextbox>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>Frozen Columns</div>
+            </td>
+            <td>
+              <div id="frozeninput">
+                <ejs-numerictextbox
+                  ref="column"
+                  :min="0"
+                  :max="columnValue"
+                  format="n"
+                  :value="1"
+                ></ejs-numerictextbox>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <div id="buttonSet">
+                <ejs-button @click="btnClick">Set</ejs-button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
      <div id="description">
        <p>
            The freezing feature enables the user to freeze certain rows/columns to scroll remaining movable content. This can be achieved by setting <b>frozenRows</b> and <b>frozenColumns</b> property.
@@ -60,7 +113,9 @@ export default {
   components: {
     'ejs-grid': GridComponent,
     'e-columns': ColumnsDirective,
-    'e-column': ColumnDirective
+    'e-column': ColumnDirective,
+    'ejs-numerictextbox': NumericTextBoxComponent,
+    'ejs-button': ButtonComponent,
   },
   data: () => {
     return {
@@ -74,7 +129,7 @@ export default {
   methods: {
       btnClick: function (){
         (this as any).rows = parseInt(((this as any).$refs.row).getText(), 10);
-        (this as any).columns = parseInt(((this as any).$refs.col).getText(), 10);
+        (this as any).columns = parseInt(((this as any).$refs.column).getText(), 10);
     }
   },
   provide: {

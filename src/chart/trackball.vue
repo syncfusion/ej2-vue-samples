@@ -91,7 +91,7 @@ export default {
             legendSettings: { visible: true, enableHighlight : true },
             marker: { visible: true, height: 7, width: 7, isFilled: true },
             tooltip: { enable: true, shared: true },
-            crosshair: { enable: true, lineType: 'Vertical' },
+            crosshair: { enable: true, lineType: 'Vertical', snapToData: true },
             width: Browser.isDevice ? '100%' : '75%',
             title: "Average Sales per Person"
         };

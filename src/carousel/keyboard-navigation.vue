@@ -49,6 +49,19 @@
 </template>
 
 <style>
+.kb-carousel .col-sm-5 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  @media (min-width: 768px) {
+    .kb-carousel .col-sm-5 {
+      float: left;
+      width: 41.66666667%;
+    }
+  }
   .keyboard-carousel-section .carousel-sample {
     background-color: #f5f9fd;
     border-radius: 1.5em;

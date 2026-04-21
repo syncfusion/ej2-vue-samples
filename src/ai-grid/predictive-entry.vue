@@ -3,6 +3,7 @@
         <div class="control-section">
             <img src="src/ai-grid/images/predictive-dataentry.gif" width="100%" height="100%" />
         </div>
+        <AIToast />
         <div id="action-description">
             <p>This sample demonstrates how the syncfusion Vue DataGrid, integrated with AI, can predict data based on
                 the grid's existing entries

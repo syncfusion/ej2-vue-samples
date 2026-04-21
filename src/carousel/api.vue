@@ -139,6 +139,11 @@
   padding-top: 0;
 }
 
+.api-carousel-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .api-carousel .e-carousel-items .e-carousel-item .img-container {
   height: 100%;
 }

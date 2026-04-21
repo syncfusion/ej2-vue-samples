@@ -488,6 +488,9 @@ export default {
                 this.fileList.splice(this.fileList.indexOf(li), 1);
                 detach(li);
             }
+            if (args.response && args.response.statusText !== '') {
+                args.statusText = args.response.statusText;
+            }
         },
 
         readURL: function(li, args) {

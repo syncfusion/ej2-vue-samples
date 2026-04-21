@@ -239,6 +239,12 @@
 .e-flexible-grid-panel .prop-name {
     padding-right: 10px !important;
 }
+.fluent2 td #addParams.e-textarea.e-input:focus:not(.e-success):not(.e-warning):not(.e-error),
+.fluent2 td #hdvalue.e-textarea.e-input:focus:not(.e-success):not(.e-warning):not(.e-error),
+.fluent2-highcontrast td #addParams.e-textarea.e-input:focus:not(.e-success):not(.e-warning):not(.e-error),
+.fluent2-highcontrast td #hdvalue.e-textarea.e-input:focus:not(.e-success):not(.e-warning):not(.e-error) {
+    border-bottom-width: 2px;
+}
 </style>
 
 <script >

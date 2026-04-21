@@ -3,6 +3,7 @@
         <div class="control-section">
             <img src="src/ai-querybuilder/images/natural-languagequery.gif" width="100%" height="100%" />
         </div>
+        <AIToast />
         <div id="action-description">
             <p>
         Natural Language Querying in the Query Builder allows users to construct complex queries using plain, everyday

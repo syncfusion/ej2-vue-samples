@@ -1,10 +1,10 @@
 <template>
-    <div class="control-section">
-        <div class='control-wrapper'>
+    <div class="control-pane" id="diagram-functionalities">
+        <div class="control-section">
             <link href="https://ej2.syncfusion.com/javascript/demos/src/diagram/styles/diagram-common.css"
                 rel="stylesheet" />
 
-            <div class="main">
+            <div class="main diagramFlowChart">
                 <div class="diagram-upload-file">
                     <ejs-uploader :asyncSettings="{
                         saveUrl: 'https://services.syncfusion.com/js/production/api/FileUploader/Save',
@@ -13,27 +13,44 @@
                 </div>
                 <div class="db-toolbar-editor">
                     <div class="db-toolbar-container">
-                        <ejs-toolbar ref="toolbarObj" :clicked="function (args: any) { toolbarClick(args); }"
-                            :created="toolbarCreated" :items='toolbarItems()' overflowMode='Scrollable' width='100%'
-                            :height="40"></ejs-toolbar>
+                        <ejs-toolbar id="toolbar" ref="toolbarObj" overflowMode="Scrollable"
+                            style="width: 100%; height: 40;" :clicked="toolbarClick">
+                            <e-items>
+                                <e-item prefixIcon="e-icons e-circle-add" tooltipText="New Diagram"
+                                    id="New_Diagram"></e-item>
+                                <e-item prefixIcon="e-icons e-folder-open" tooltipText="Open Diagram"
+                                    id="Open_diagram"></e-item>
+                                <e-item prefixIcon="e-icons e-save" tooltipText="Save Diagram" id="Save"></e-item>
+                                <e-item type="Separator"></e-item>
+                                <e-item prefixIcon="e-print e-icons" tooltipText="Print Diagram" id="Print"></e-item>
+                                <e-item type="Input" tooltipText="Export Diagram" id="Export"
+                                    :template="exportImage"></e-item>
+                                <e-item type="Separator"></e-item>
+                                <e-item prefixIcon="e-pan e-icons" tooltipText="Pan Tool" id="Pan_tool"
+                                    cssClass="tb-item-start pan-item"></e-item>
+                                <e-item prefixIcon="e-mouse-pointer e-icons" tooltipText="Select Tool" id="Select_tool"
+                                    cssClass="tb-item-middle tb-item-selected"></e-item>
+                                <e-item type="Separator"></e-item>
+                                <e-item :template="zoomDiagram" id="zoomDiagram"
+                                    cssClass="tb-item-end tb-zoom-dropdown-btn" align="right"> </e-item>
+                            </e-items>
+                        </ejs-toolbar>
                     </div>
                 </div>
-                <div class="sb-mobile-palette-bar">
+                <div class="sb-mobile-palette-bar" ref="paletteIcon">
                     <div id="palette-icon" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
                 </div>
-                <div id="palette-space" class="sb-mobile-palette">
+                <div id="ai-palette-space" class="sb-mobile-palette" ref="paletteSpace">
                     <ejs-symbolpalette expandMode='Multiple' :palettes="palettes" width='100%' height='900px'
                         :symbolHeight='60' :symbolWidth='60' :symbolMargin="{
                             left: 15, right: 15,
                             top: 15, bottom: 15
                         }" :getNodeDefaults='getSymbolDefaults' :getSymbolInfo='getSymbolInfo'></ejs-symbolpalette>
                 </div>
-                <div id="diagram-space" class="sb-mobile-diagram">
-                    <ejs-diagram ref="diagram" width='100%' height='900px' :drawingObject='{}'
-                        :selectionChange='selectionChange' :historyChange='historyChange' :tool='diagramTool'
-                        :snapSettings='{ horizontalGridlines: gridlines, verticalGridlines: gridlines }'
-                        :scrollSettings="{ scrollLimit: 'Infinity' }" :layout="diagramLayout"
-                        :dataSourceSettings="dataSourceSettings" :scrollChange="diagramScrollChange"
+                <div id="flow-diagram-space" class="sb-mobile-diagram">
+                    <ejs-diagram ref="diagramObj" width='100%' height='900px' :drawingObject='{}' :tool='diagramTool'
+                        :scrollSettings="{ scrollLimit: 'Diagram' }" :layout="diagramLayout"
+                        :dataSourceSettings="dataSourceSettings" :scrollChange="diagramScrollChange" :rulerSettings="{ showRulers: true }"
                         :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
                         :dragEnter='dragEnter'></ejs-diagram>
                 </div>
@@ -42,41 +59,42 @@
                 <ejs-dialog ref="dialog" header='headerTemplate' :showCloseIcon='true' :isModal='true'
                     content='contentTemplate' target='.control-section' width='540px' :visible='false' height='310px'>
                     <template #headerTemplate>
-                        <span class="e-icons e-aiassist-chat" style="color: black;width:20px; font-size: 16px;">
+                        <span class="e-icons e-assistview-icon" style="color: black;width:20px; font-size: 16px;">
                         </span>
                         AI Assist
                     </template>
                     <template #contentTemplate>
                         <p style="margin-bottom: 10px;font-weight:bold;">Suggested Prompts</p>
-                        <ejs-button id="btn2"
-                            style="flex: 1; overflow: visible; border-radius: 8px;margin-bottom: 10px;"
-                            @click='(e) => { $refs.dialog.hide(); convertTextToFlowChart(e.target.value); }'>
-                            Flowchart for online shopping
-                        </ejs-button>
                         <ejs-button id="btn1"
                             style="flex: 1; overflow: visible; border-radius: 8px;margin-bottom: 10px;"
-                            @click='(e) => { $refs.dialog.hide(); convertTextToFlowChart(e.target.value); }'>
+                            @click="btnClick">
+                            Flowchart for online shopping
+                        </ejs-button>
+                        <ejs-button id="btn2"
+                            style="flex: 1; overflow: visible; border-radius: 8px;margin-bottom: 10px;"
+                            @click="btnClick">
                             Flowchart for Mobile banking registration
                         </ejs-button>
                         <ejs-button id="btn3"
                             style="flex: 1; overflow: visible; border-radius: 8px;margin-bottom: 10px;"
-                            @click='(e) => { $refs.dialog.hide(); convertTextToFlowChart(e.target.value); }'>
+                            @click="btnClick">
                             Flowchart for Bus ticket booking
                         </ejs-button>
                         <div style="display: flex; align-items: center; margin-top: 20px;">
-                            <ejs-textbox ref='textbox' id="textBox" class="db-openai-textbox" style="flex: 1;"
+                            <ejs-textbox ref='textBox' id="textBox" class="db-openai-textbox" style="flex: 1;"
                                 placeholder='Please enter your prompt here...' width='450' :input='onTextBoxChange' />
-                            <ejs-button id="db-send" iconCss='e-icons e-send' :isPrimary='true' :disabled='true'
+                            <ejs-button id="diagram-db-send" iconCss='e-icons e-send' :isPrimary='true' :disabled='true'
                                 style="margin-left: 2px; height: 32px; width: 32px;"
-                                @click='() => { $refs.dialog.hide(); convertTextToFlowChart($refs.textbox.value); }'></ejs-button>
+                                @click="dbSend"></ejs-button>
                         </div>
                     </template>
                 </ejs-dialog>
             </div>
-            <ejs-fab :isPrimary='true' iconCss='e-icons e-aiassist-chat'>AI Assist</ejs-fab>
+            <ejs-fab :isPrimary='true' iconCss='e-icons e-assistview-icon' target="#flow-diagram-space"
+                @click='() => { $refs.dialog.show(); }'>AI Assist</ejs-fab>
 
             <!-- Loading indicator container -->
-            <div ref="loadingContainer" id="loadingContainer" class="loading-container">
+            <div ref="loadingContainer" id="loadingContainer" class="diagram-loading-container">
                 <div class="loading-indicator"></div>
                 <div class="loading-text">Generating Flowchart...</div>
             </div>
@@ -88,38 +106,21 @@
 /**
 * Default FlowShape sample
 */
-
-import {
-    NodeModel, UndoRedo, ConnectorModel, SymbolPalette, SymbolInfo, IDragEnterEventArgs,
-    FlowShapes, Node, FlowchartLayout
-} from '@syncfusion/ej2-diagrams';
+import { createApp } from "vue";
+import { UndoRedo, Node, FlowchartLayout, DataBinding, DiagramTools, PrintAndExport } from '@syncfusion/ej2-diagrams';
 import { DataManager } from '@syncfusion/ej2-data';
-import {
-    Connector, ConnectorConstraints, DataBinding, DiagramTools, FileFormats, FlowShapeModel, IExportOptions,
-    IScrollChangeEventArgs, ISelectionChangeEventArgs, NodeConstraints, PrintAndExport, Rect, SelectorModel
-} from '@syncfusion/ej2-diagrams';
-import { InputEventArgs, TextBox, TextBoxComponent, UploaderComponent } from '@syncfusion/ej2-vue-inputs';
-import { ClickEventArgs, ItemModel } from '@syncfusion/ej2-navigations';
-import { DropDownButton, MenuEventArgs } from '@syncfusion/ej2-splitbuttons';
-import { DataSourceModel, DiagramComponent, SymbolPaletteComponent } from '@syncfusion/ej2-vue-diagrams';
+import { TextBoxComponent, UploaderComponent } from '@syncfusion/ej2-vue-inputs';
+import { DiagramComponent, SymbolPaletteComponent } from '@syncfusion/ej2-vue-diagrams';
 import { ButtonComponent, FabComponent } from '@syncfusion/ej2-vue-buttons';
-import { ToolbarComponent } from '@syncfusion/ej2-vue-navigations';
+import { ToolbarComponent, ItemsDirective, ItemDirective } from '@syncfusion/ej2-vue-navigations';
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { SplitButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
+import { serverAIRequest } from '../common/ai-service';
 
-
-type FlowChartNode = {
-    id: string;
-    name: string;
-    shape: string;
-    color: string;
-    parentId: string[] | null;
-    arrowType?: string;
-    label?: string | string[];
-    stroke: string;
-    strokeWidth: number;
-};
-
-const flowChartData: FlowChartNode[] = [
+let diagramInstance;
+let paletteSpace;
+let paletteIcon;
+const flowChartData = [
     { id: "A", name: "Start", shape: "Terminator", color: "#90EE90", parentId: null, stroke: "#333", strokeWidth: 2 },
     {
         id: "B", name: "Open the browser and go to Amazon site", shape: "Rectangle", color: "#1759B7", parentId: ["A"],
@@ -138,7 +139,7 @@ const flowChartData: FlowChartNode[] = [
         arrowType: "single-line-arrow", stroke: "#333", strokeWidth: 2
     },
     {
-        id: "F", name: "Search for the book in the search bar", shape: "Predefined Process", color: "#1759B7", parentId: ["E",
+        id: "F", name: "Search for the book in the search bar", shape: "Rectangle", color: "#1759B7", parentId: ["E",
             "D"], arrowType: "single-line-arrow", label: ["", ""], stroke: "#333", strokeWidth: 2
     },
     {
@@ -178,20 +179,84 @@ const flowChartData: FlowChartNode[] = [
             "#333", strokeWidth: 2
     }
 ];
-let bounds = {
-    x: 240,
-    y: 122,
-    width: 719,
-    height: 700,
-    top: 122,
-    right: 959,
-    bottom: 822,
-    left: 240
-};
-let interval = [
-    1, 9, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75
-];
 
+let flowShapes = [
+    { id: "Terminator", shape: { type: "Flow", shape: "Terminator" } },
+    { id: "Process", shape: { type: "Flow", shape: "Process" } },
+    { id: "Decision", shape: { type: "Flow", shape: "Decision" } },
+    { id: "Document", shape: { type: "Flow", shape: "Document" } },
+    { id: "PreDefinedProcess", shape: { type: "Flow", shape: "PreDefinedProcess" } },
+    { id: "PaperTap", shape: { type: "Flow", shape: "PaperTap" } },
+    { id: "DirectData", shape: { type: "Flow", shape: "DirectData" } },
+    { id: "SequentialData", shape: { type: "Flow", shape: "SequentialData" } },
+    { id: "Sort", shape: { type: "Flow", shape: "Sort" } },
+    { id: "MultiDocument", shape: { type: "Flow", shape: "MultiDocument" } },
+    { id: "Collate", shape: { type: "Flow", shape: "Collate" } },
+    { id: "SummingJunction", shape: { type: "Flow", shape: "SummingJunction" } },
+    { id: "Or", shape: { type: "Flow", shape: "Or" } },
+    { id: "InternalStorage", shape: { type: "Flow", shape: "InternalStorage" } },
+    { id: "Extract", shape: { type: "Flow", shape: "Extract" } },
+    { id: "ManualOperation", shape: { type: "Flow", shape: "ManualOperation" } },
+    { id: "Merge", shape: { type: "Flow", shape: "Merge" } },
+    { id: "OffPageReference", shape: { type: "Flow", shape: "OffPageReference" } },
+    { id: "SequentialAccessStorage", shape: { type: "Flow", shape: "SequentialAccessStorage" } },
+    { id: "Annotation", shape: { type: "Flow", shape: "Annotation" } },
+    { id: "Annotation2", shape: { type: "Flow", shape: "Annotation2" } },
+    { id: "Data", shape: { type: "Flow", shape: "Data" } },
+    { id: "Card", shape: { type: "Flow", shape: "Card" } },
+    { id: "Delay", shape: { type: "Flow", shape: "Delay" } },
+];
+let connectorSymbols = [{
+    id: 'Link1', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
+    targetDecorator: { shape: 'Arrow', style: { strokeColor: '#757575', fill: '#757575' } }, style: {
+        strokeWidth: 1,
+        strokeColor: '#757575'
+    }
+}, {
+    id: 'link2', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: {
+        x: 60,
+        y: 60
+    }, style: { strokeWidth: 2, strokeColor: '#757575' }, targetDecorator: { shape: 'Arrow' }
+}, {
+    id: 'Link3',
+    type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 }, targetDecorator: {
+        shape: 'Arrow',
+        style: { strokeColor: '#757575', fill: '#757575' }
+    }, style: {
+        strokeWidth: 1, strokeDashArray: '5,2',
+        strokeColor: '#757575'
+    }
+}, {
+    id: 'Link4', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: {
+        x: 60,
+        y: 60
+    }, targetDecorator: { shape: 'None', style: { strokeColor: '#757575', fill: '#757575' } }, style: {
+        strokeWidth: 1, strokeDashArray: '5,2', strokeColor: '#757575'
+    }
+}];
+
+//To get default values for nodes in symbol palette
+function palettegetNodeDefaults(symbol) {
+    symbol.style = { strokeColor: "#757575" };
+    if (symbol.id === "Terminator" || symbol.id === "Process") {
+        symbol.width = 80;
+        symbol.height = 40;
+    } else if (
+        symbol.id === "Decision" ||
+        symbol.id === "Document" ||
+        symbol.id === "PreDefinedProcess" ||
+        symbol.id === "PaperTap" ||
+        symbol.id === "DirectData" ||
+        symbol.id === "MultiDocument" ||
+        symbol.id === "Data"
+    ) {
+        symbol.width = 50;
+        symbol.height = 40;
+    } else {
+        symbol.width = 50;
+        symbol.height = 50;
+    }
+}
 export default {
     components: {
         'ejs-button': ButtonComponent,
@@ -201,150 +266,158 @@ export default {
         'ejs-uploader': UploaderComponent,
         'ejs-symbolpalette': SymbolPaletteComponent,
         'ejs-dialog': DialogComponent,
-        'ejs-textbox': TextBoxComponent
+        'ejs-textbox': TextBoxComponent,
+        "ejs-splitbutton": SplitButtonComponent,
+        "e-items": ItemsDirective,
+        "e-item": ItemDirective,
     },
     data() {
         return {
             diagramTool: DiagramTools.Default,
-            centerX: bounds.width / 2,
-            gridlines: { lineColor: '#e0e0e0', lineIntervals: interval },
             dataSourceSettings: {
                 id: 'id',
                 parentId: 'parentId',
-                dataManager: new DataManager(flowChartData)
-            } as any,
+                dataSource: new DataManager(flowChartData)
+            },
             diagramLayout: {
                 type: 'Flowchart',
                 orientation: 'TopToBottom',
-                flowChartSettings: {
+                flowchartLayoutSettings: {
                     yesBranchDirection: 'LeftInFlow',
                     noBranchDirection: 'RightInFlow',
                     yesBranchValues: ['Yes', 'True'],
                     noBranchValues: ['No', 'False']
-                } as any,
+                },
                 verticalSpacing: 50,
                 horizontalSpacing: 50
-            } as any,
-            rotateItems: [
-                { iconCss: 'e-icons e-transform-right', text: 'Rotate Clockwise' },
-                { iconCss: 'e-icons e-transform-left', text: 'Rotate Counter-Clockwise' }
-            ],
-            flipItems: [
-                { iconCss: 'e-icons e-flip-horizontal', text: 'Flip Horizontal' },
-                { iconCss: 'e-icons e-flip-vertical', text: 'Flip Vertical' }
-            ],
-            alignItems: [
-                {
-                    iconCss: 'sf-icon-align-left-1', text: 'Align Left',
-                },
-                {
-                    iconCss: 'sf-icon-align-center-1', text: 'Align Center',
-                },
-                {
-                    iconCss: 'sf-icon-align-right-1', text: 'Align Right',
-                },
-                {
-                    iconCss: 'sf-icon-align-top-1', text: 'Align Top',
-                },
-                {
-                    iconCss: 'sf-icon-align-middle-1', text: 'Align Middle',
-                },
-                {
-                    iconCss: 'sf-icon-align-bottom-1', text: 'Align Bottom',
-                },
-            ],
-            distributeItems: [
-                { iconCss: 'sf-icon-distribute-vertical', text: 'Distribute Objects Vertically', },
-                { iconCss: 'sf-icon-distribute-horizontal', text: 'Distribute Objects Horizontally', },
-            ],
-            orderItems: [
-                { iconCss: 'e-icons e-bring-forward', text: 'Bring Forward' },
-                { iconCss: 'e-icons e-bring-to-front', text: 'Bring To Front' },
-                { iconCss: 'e-icons e-send-backward', text: 'Send Backward' },
-                { iconCss: 'e-icons e-send-to-back', text: 'Send To Back' }
-            ],
-            zoomMenuItems: [
-                { text: 'Zoom In' }, { text: 'Zoom Out' }, { text: 'Zoom to Fit' }, { text: 'Zoom to 50%' },
-                { text: 'Zoom to 100%' }, { text: 'Zoom to 200%' },
-            ],
-            conTypeItems: [
-                { text: 'Straight', iconCss: 'e-icons e-line' },
-                { text: 'Orthogonal', iconCss: 'sf-icon-orthogonal' },
-                { text: 'Bezier', iconCss: 'sf-icon-bezier' }
-            ],
-            shapesItems: [
-                { text: 'Rectangle', iconCss: 'e-rectangle e-icons' },
-                { text: 'Ellipse', iconCss: ' e-circle e-icons' },
-                { text: 'Polygon', iconCss: 'e-line e-icons' }
-            ],
-            exportItems: [
-                { text: 'JPG' }, { text: 'PNG' }, { text: 'SVG' }
-            ],
-            groupItems: [
-                { text: 'Group', iconCss: 'e-icons e-group-1' }, { text: 'Ungroup', iconCss: 'e-icons e-ungroup-1' }
-            ],
-            flowShapes: [
-                this.getFlowShape('Terminator', 'Terminator'),
-                this.getFlowShape('Process', 'Process'), this.getFlowShape('Decision', 'Decision'), this.getFlowShape('Document', 'Document'),
-                this.getFlowShape('PreDefinedProcess', 'PreDefinedProcess'), this.getFlowShape('PaperTap', 'PaperTap'),
-                this.getFlowShape('DirectData', 'DirectData'), this.getFlowShape('SequentialData', 'SequentialData'),
-                this.getFlowShape('Sort', 'Sort'), this.getFlowShape('MultiDocument', 'MultiDocument'), this.getFlowShape('Collate', 'Collate'),
-                this.getFlowShape('Or', 'Or'), this.getFlowShape('Extract', 'Extract'), this.getFlowShape('Merge', 'Merge'),
-                this.getFlowShape('OffPageReference', 'OffPageReference'),
-                this.getFlowShape('SequentialAccessStorage', 'SequentialAccessStorage'), this.getFlowShape('Annotation', 'Annotation'),
-                this.getFlowShape('Annotation2', 'Annotation2'), this.getFlowShape('Data', 'Data'), this.getFlowShape('Card', 'Card'),
-                this.getFlowShape('Delay', 'Delay')
-            ],
-            connectorSymbols: [{
-                id: 'Link1', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 },
-                targetDecorator: { shape: 'Arrow', style: { strokeColor: '#757575', fill: '#757575' } }, style: {
-                    strokeWidth: 1,
-                    strokeColor: '#757575'
-                }
-            }, {
-                id: 'link2', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: {
-                    x: 60,
-                    y: 60
-                }, style: { strokeWidth: 2, strokeColor: '#757575' }, targetDecorator: { shape: 'Arrow' }
-            }, {
-                id: 'Link3',
-                type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: { x: 60, y: 60 }, targetDecorator: {
-                    shape: 'Arrow',
-                    style: { strokeColor: '#757575', fill: '#757575' }
-                }, style: {
-                    strokeWidth: 1, strokeDashArray: '5,2',
-                    strokeColor: '#757575'
-                }
-            }, {
-                id: 'Link4', type: 'Orthogonal', sourcePoint: { x: 0, y: 0 }, targetPoint: {
-                    x: 60,
-                    y: 60
-                }, targetDecorator: { shape: 'None', style: { strokeColor: '#757575', fill: '#757575' } }, style: {
-                    strokeWidth: 1, strokeDashArray: '5,2', strokeColor: '#757575'
-                }
-            }],
+            },
+            getSymbolDefaults: (symbol) => {
+                return palettegetNodeDefaults(symbol);
+            },
+            //To provide zoom options
+            zoomDiagram: function () {
+                return {
+                    template: createApp({}).component("zoomDiagram", {
+                        template:
+                            '<ejs-splitbutton id="btnZoom" :items="zoomMenuItems" content="100%" :select="zoomChange"></ejs-splitbutton>',
+                        components: {
+                            "ejs-splitbutton": SplitButtonComponent,
+                        },
+                        data() {
+                            return {
+                                zoomMenuItems: [
+                                    { text: "Zoom In" },
+                                    { text: "Zoom Out" },
+                                    { text: "Zoom to Fit" },
+                                    { text: "Zoom to 50%" },
+                                    { text: "Zoom to 100%" },
+                                    { text: "Zoom to 200%" },
+                                ],
+                                zoomChange: function (args) {
+                                    var zoomCurrentValue = document.getElementById("btnZoom").ej2_instances[0];
+                                    if (!zoomCurrentValue) {
+                                        return;
+                                    }
+                                    var currentZoom = diagramInstance.scrollSettings.currentZoom;
+                                    var zoom = {};
+                                    switch (args.item.text) {
+                                        case "Zoom In":
+                                            diagramInstance.zoomTo({ type: "ZoomIn", zoomFactor: 0.2 });
+                                            zoomCurrentValue.content = (diagramInstance.scrollSettings.currentZoom * 100).toFixed() + "%";
+                                            break;
+                                        case "Zoom Out":
+                                            diagramInstance.zoomTo({ type: "ZoomOut", zoomFactor: 0.2 });
+                                            zoomCurrentValue.content = (diagramInstance.scrollSettings.currentZoom * 100).toFixed() + "%";
+                                            break;
+                                        case "Zoom to Fit":
+                                            diagramInstance.fitToPage();
+                                            break;
+                                        case "Zoom to 50%":
+                                            if (currentZoom === 0.5) {
+                                                currentZoom = 0;
+                                                zoom.zoomFactor = 0.5 / (currentZoom - 1);
+                                                diagramInstance.zoomTo(zoom);
+                                            } else {
+                                                zoom.zoomFactor = 0.5 / (currentZoom - 1);
+                                                diagramInstance.zoomTo(zoom);
+                                            }
+                                            break;
+                                        case "Zoom to 100%":
+                                            if (currentZoom === 1) {
+                                                currentZoom = 0;
+                                                zoom.zoomFactor = 1 / (currentZoom - 1);
+                                                diagramInstance.zoomTo(zoom);
+                                            } else {
+                                                zoom.zoomFactor = 1 / (currentZoom - 1);
+                                                diagramInstance.zoomTo(zoom);
+                                            }
+                                            break;
+                                        case "Zoom to 200%":
+                                            if (currentZoom === 2) {
+                                                currentZoom = 0;
+                                                zoom.zoomFactor = 2 / (currentZoom - 1);
+                                                diagramInstance.zoomTo(zoom);
+                                            } else {
+                                                zoom.zoomFactor = 2 / (currentZoom - 1);
+                                                diagramInstance.zoomTo(zoom);
+                                            }
+                                            break;
+                                    }
+                                    zoomCurrentValue.content = Math.round(diagramInstance.scrollSettings.currentZoom * 100) + " %";
+                                },
+                            };
+                        },
+                    }),
+                };
+            },
+            //To export diagram
+            exportImage: function () {
+                return {
+                    template: createApp({}).component("export", {
+                        template:
+                            ' <ejs-splitbutton :items="items" iconCss="e-export e-icons" :select="exportOptions"></ejs-splitbutton>',
+                        components: {
+                            "ejs-splitbutton": SplitButtonComponent,
+                        },
+                        data() {
+                            return {
+                                items: [{ text: "JPG" }, { text: "PNG" }, { text: "SVG" }],
+                                exportOptions: function (args) {
+                                    let exportOptions = {};
+                                    exportOptions.format = args.item.text;
+                                    exportOptions.mode = 'Download';
+                                    exportOptions.region = 'PageSettings';
+                                    exportOptions.fileName = 'Export';
+                                    exportOptions.margin = { left: 0, top: 0, bottom: 0, right: 0 };
+                                    diagramInstance.exportDiagram(exportOptions);
+                                },
+                            };
+                        },
+                    }),
+                };
+            },
             palettes: [{
                 id: 'flow',
-                expanded: true, symbols: this.flowShapes, iconCss: 'e-ddb-icons e-flow', title: 'Flow Shapes'
+                expanded: true, symbols: flowShapes, iconCss: 'e-ddb-icons e-flow', title: 'Flow Shapes'
             }, {
                 id: 'connectors',
-                expanded: true, symbols: this.connectorSymbols, iconCss: 'e-ddb-icons e-connector', title: 'Connectors'
-            }] as any
+                expanded: true, symbols: connectorSymbols, iconCss: 'e-ddb-icons e-connector', title: 'Connectors'
+            }]
         }
     },
     methods: {
         //Sets the default values of a connector
-        getConnectorDefaults: function (obj: Connector): ConnectorModel {
-            obj.type = 'Orthogonal';
-            return obj;
+        getConnectorDefaults: function (connector) {
+            connector.type = 'Orthogonal';
+            return connector;
         },
         //Sets the Node style for DragEnter element.
-        dragEnter: function (args: IDragEnterEventArgs): void {
-            let obj: NodeModel = args.element as NodeModel;
+        dragEnter: function (args) {
+            let obj = args.element;
             if (obj instanceof Node) {
-                let oWidth: number = obj.width;
-                let oHeight: number = obj.height;
-                let ratio: number = 100 / obj.width;
+                let oWidth = obj.width;
+                let oHeight = obj.height;
+                let ratio = 100 / obj.width;
                 obj.width = 100;
                 obj.height *= ratio;
                 obj.offsetX += (obj.width - oWidth) / 2;
@@ -352,459 +425,85 @@ export default {
                 obj.style = { fill: '#357BD2', strokeColor: 'white' };
             }
         },
-        getFlowShape: function (id: string, shapeType: FlowShapes): NodeModel {
-            let flowshape: NodeModel = { id: id, shape: { type: 'Flow', shape: shapeType } };
-            return flowshape;
-        },
-        getSymbolDefaults: function (symbol: NodeModel): void {
-            symbol.style = { strokeColor: '#757575' };
-            if (symbol.id === 'Terminator' || symbol.id === 'Process' || symbol.id === 'Delay') {
-                symbol.width = 80;
-                symbol.height = 40;
-            } else if (symbol.id === 'Decision' || symbol.id === 'Document' || symbol.id === 'PreDefinedProcess' ||
-                symbol.id === 'PaperTap' || symbol.id === 'DirectData' || symbol.id === 'MultiDocument' || symbol.id === 'Data') {
-                symbol.width = 50;
-                symbol.height = 40;
-            } else {
-                symbol.width = 50;
-                symbol.height = 50;
-            }
-        },
-        getSymbolInfo: function (symbol: NodeModel): SymbolInfo {
+
+        getSymbolInfo: function (symbol) {
             return { fit: true };
         },
-        toolbarCreated: function () {
-            const diagram = this.$refs.diagram;
-            if (diagram !== undefined) {
-                let conTypeBtn: DropDownButton = new DropDownButton({
-                    items: this.conTypeItems, iconCss: 'e-ddb-icons e-connector e-icons',
-                    select: function (args) { this.onConnectorSelect(args); }
-                });
-                conTypeBtn.appendTo('#conTypeBtn');
-                let btnZoomIncrement: DropDownButton = new DropDownButton({
-                    items: this.zoomMenuItems, content: Math.round(diagram.scrollSettings.currentZoom * 100) + ' %', select: this.zoomChange,
-                });
-                btnZoomIncrement.appendTo('#btnZoomIncrement');
-                let shapesBtn: DropDownButton = new DropDownButton({
-                    items: this.shapesItems, iconCss: 'e-shapes e-icons',
-                    select: function (args) { this.onShapesSelect(args); }
-                });
-                shapesBtn.appendTo('#shapesBtn');
-                let exportBtn: DropDownButton = new DropDownButton({
-                    items: this.exportItems, iconCss: 'e-ddb-icons e-export', select: function (args) { this.onselectExport(args); },
-                });
-                exportBtn.appendTo('#exportBtn');
 
-                let groupBtn: DropDownButton = new DropDownButton({
-                    items: this.groupItems, iconCss: 'e-icons e-group-1', select: function (args) { this.onSelectGroup(args); }
-                });
-                groupBtn.appendTo('#groupBtn');
-                let alignBtn: DropDownButton = new DropDownButton({
-                    items: this.alignItems, iconCss: 'sf-icon-align-center-1', select: function (args) { this.onSelectAlignObjects(args); }
-                });
-                alignBtn.appendTo('#alignBtn');
-
-                let distributeBtn: DropDownButton = new DropDownButton({
-                    items: this.distributeItems, iconCss: 'sf-icon-distribute-vertical', select: function (args) {
-                        this.onSelectDistributeObjects(args);
-                    }
-                });
-                distributeBtn.appendTo('#distributeBtn');
-                let orderBtn: DropDownButton = new DropDownButton({
-                    items: this.orderItems, iconCss: 'e-icons e-order', select: function (args) { this.onSelectOrder(args); }
-                });
-                orderBtn.appendTo('#orderBtn');
-                let rotateBtn: DropDownButton = new DropDownButton({
-                    items: this.rotateItems, iconCss: 'e-icons e-repeat', select: function (args) { this.onSelectRotate(args); }
-                });
-                rotateBtn.appendTo('#rotateBtn');
-                let flipBtn: DropDownButton = new DropDownButton({
-                    items: this.flipItems, iconCss: 'e-icons e-flip-horizontal', select: function (args) { this.onSelectFlip(args); }
-                });
-                flipBtn.appendTo('#flipBtn');
-            }
-            this.refreshOverflow();
-        },
-        toolbarItems: function () {
-            let items: ItemModel[] = [
-                { prefixIcon: 'e-icons e-circle-add', tooltipText: 'New Diagram' },
-                { prefixIcon: 'e-icons e-folder-open', tooltipText: 'Open Diagram', },
-                { prefixIcon: 'e-icons e-save', tooltipText: 'Save Diagram' },
-                { prefixIcon: 'e-print e-icons', tooltipText: 'Print Diagram' },
-                { type: 'Input', tooltipText: 'Export Diagram', template: '<button id="exportBtn" style="width:100%;"></button>' },
-                { type: 'Separator' },
-                { disabled: true, prefixIcon: 'e-cut e-icons', tooltipText: 'Cut', cssClass: 'tb-item-middle tb-item-lock-category' },
-                { disabled: true, prefixIcon: 'e-copy e-icons', tooltipText: 'Copy', cssClass: 'tb-item-middle tb-item-lock-category' },
-                { prefixIcon: 'e-icons e-paste', tooltipText: 'Paste', disabled: true },
-                { type: 'Separator' },
-                { disabled: true, prefixIcon: 'e-icons e-undo tb-icons', tooltipText: 'Undo', cssClass: 'tb-item-start tb-item-undo' },
-                { disabled: true, prefixIcon: 'e-icons e-redo tb-icons', tooltipText: 'Redo', cssClass: 'tb-item-end tb-item-redo' },
-                { type: 'Separator', },
-                { prefixIcon: 'e-pan e-icons', tooltipText: 'Pan Tool', cssClass: 'tb-item-start pan-item' },
-                { prefixIcon: 'e-mouse-pointer e-icons', tooltipText: 'Select Tool', cssClass: 'tb-item-middle tb-item-selected' },
-                {
-                    tooltipText: 'Draw Connectors', template: '<button id="conTypeBtn" style="width:100%;"></button>', cssClass:
-                        'tb-item-middle'
-                },
-                {
-                    tooltipText: 'Draw Shapes', template: '<button id="shapesBtn" style="width:100%;"></button>', cssClass:
-                        'tb-item-middle'
-                },
-                { prefixIcon: 'e-caption e-icons', tooltipText: 'Text Tool', cssClass: 'tb-item-end' },
-                { type: 'Separator', },
-                { disabled: true, prefixIcon: 'e-icons e-lock', tooltipText: 'Lock', cssClass: 'tb-item-middle tb-item-lock-category' },
-                {
-                    disabled: true, prefixIcon: 'e-trash e-icons', tooltipText: 'Delete', cssClass: 'tb-item-middle tb-item-lock-category'
-                },
-                { type: 'Separator', align: 'Center' },
-
-                {
-                    disabled: true, type: 'Input', tooltipText: 'Align Objects', template: '<button id="alignBtn" style="width:100%;" > </button> ', cssClass: 'tb - item - middle tb - item - align - category'
-                },
-                {
-                    disabled: true, type: 'Input', tooltipText: 'Distribute Objects', template: '<button id="distributeBtn" style="width:100%;" > </button> ', cssClass: 'tb - item - middle tb - item - space - category'
-                },
-                { type: 'Separator', },
-                {
-                    disabled: true, type: 'Input', tooltipText: 'Order Commands', template: '<button id="orderBtn" style="width:100%;" > </button> ', cssClass: 'tb - item - middle tb - item - lock - category'
-                },
-                { type: 'Separator' },
-                {
-                    disabled: true, type: 'Input', tooltipText: 'Group/Ungroup', template: '<button id="groupBtn" style="width:100%;" > </button> ', cssClass: 'tb - item - middle tb - item - align - category'
-                },
-                { type: 'Separator' },
-                {
-                    disabled: true, type: 'Input', tooltipText: 'Rotate', template: '<button id="rotateBtn" style="width:100%;" > </button> ', cssClass: 'tb - item - middle tb - item - lock - category'
-                },
-                { type: 'Separator' },
-                {
-                    disabled: true, type: 'Input', tooltipText: 'Flip', template: '<button id="flipBtn" style="width:100%;"></button>',
-                    cssClass: 'tb-item-middle tb-item-lock-category'
-                },
-                { type: 'Separator' },
-                {
-                    cssClass: 'tb-item-end tb-zoom-dropdown-btn', template: '<button id="btnZoomIncrement"></button>',
-                },
-            ];
-            return items;
-        },
-        refreshOverflow: function () {
-            const toolbarObj = this.$refs.toolbarObj;
-            setTimeout(() => {
-                toolbarObj.refreshOverflow();
-            }, 100);
-        },
-        selectionChange: function (args: ISelectionChangeEventArgs) {
-            const diagram = this.$refs.diagram;
-            const toolbarObj = this.$refs.toolbarObj;
-            if (args.state === 'Changed') {
-                let selectedItems: NodeModel[] = diagram.selectedItems.nodes;
-                selectedItems = selectedItems.concat(
-                    (diagram.selectedItems as any).connectors
-                );
-                if (selectedItems.length === 0) {
-                    toolbarObj.items[6].disabled = true;
-                    toolbarObj.items[7].disabled = true;
-                    toolbarObj.items[19].disabled = true;
-                    toolbarObj.items[20].disabled = true;
-                    toolbarObj.items[25].disabled = true;
-                    toolbarObj.items[29].disabled = true;
-                    toolbarObj.items[31].disabled = true;
-                    this.disableMultiselectedItems();
-                }
-                if (selectedItems.length === 1) {
-                    this.enableItems();
-                    this.disableMultiselectedItems();
-
-                    if (
-                        selectedItems[0].children !== undefined &&
-                        selectedItems[0].children.length > 0
-                    ) {
-                        toolbarObj.items[27].disabled = false;
-                    } else {
-                        toolbarObj.items[27].disabled = true;
-                    }
-                }
-
-                if (selectedItems.length > 1) {
-                    this.enableItems();
-                    toolbarObj.items[22].disabled = false;
-                    toolbarObj.items[23].disabled = false;
-                    toolbarObj.items[27].disabled = false;
-                    if (selectedItems.length > 2) {
-                        toolbarObj.items[23].disabled = false;
-                    } else {
-                        toolbarObj.items[23].disabled = true;
-                    }
-                }
-            }
-        },
-        historyChange: function () {
-            const diagram = this.$refs.diagram;
-            const toolbarObj = this.$refs.toolbarObj;
-            if (diagram.historyManager.undoStack.length > 0) {
-                toolbarObj.items[10].disabled = false;
-            } else {
-                toolbarObj.items[10].disabled = true;
-            }
-            if (diagram.historyManager.redoStack.length > 0) {
-                toolbarObj.items[11].disabled = false;
-            } else {
-                toolbarObj.items[11].disabled = true;
-            }
-        },
-        getNodeDefaults: function (node: NodeModel): NodeModel {
+        getNodeDefaults: function (node) {
             if (node.width === undefined) {
                 node.width = 145;
-            } if ((node.shape as FlowShapeModel).type === 'Flow' && (node.shape as FlowShapeModel).shape === 'Decision') {
+            } if ((node.shape).type === 'Flow' && (node.shape).shape === 'Decision') {
                 node.height = 80;
             }
             return node;
         },
         printDiagram: function () {
-            const diagram = this.$refs.diagram;
-            let options: IExportOptions = {};
+            let options = {};
             options.mode = 'Download';
             options.region = 'Content';
-            options.multiplePage = diagram.pageSettings.multiplePage;
-            options.pageHeight = diagram.pageSettings.height;
-            options.pageWidth = diagram.pageSettings.width;
-            diagram.print(options);
+            options.multiplePage = diagramInstance.pageSettings.multiplePage;
+            options.pageHeight = diagramInstance.pageSettings.height;
+            options.pageWidth = diagramInstance.pageSettings.width;
+            diagramInstance.print(options);
         },
-        enableItems: function () {
-            const toolbarObj = this.$refs.toolbarObj;
-            toolbarObj.items[6].disabled = false;
-            toolbarObj.items[7].disabled = false;
-            toolbarObj.items[19].disabled = false;
-            toolbarObj.items[20].disabled = false;
-            toolbarObj.items[25].disabled = false;
-            toolbarObj.items[29].disabled = false;
-            toolbarObj.items[31].disabled = false;
+        changeToolbarSelection: function (tool) {
+            const toolbarObj = this.$refs.toolbarObj.ej2Instances;
+            let items = toolbarObj.items;
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].tooltipText === tool) {
+                    items[i].cssClass = 'tb-item-selected';
+                } else {
+                    items[i].cssClass = '';
+                }
+            }
         },
-        disableMultiselectedItems: function () {
-            const toolbarObj = this.$refs.toolbarObj;
-            toolbarObj.items[22].disabled = true;
-            toolbarObj.items[23].disabled = true;
-            toolbarObj.items[27].disabled = true;
-        },
-        toolbarClick: function (args: ClickEventArgs) {
-            const diagram = this.$refs.diagram;
-            const toolbarObj = this.$refs.toolbarObj;
+
+        toolbarClick: function (args) {
             let item = args.item.tooltipText;
             switch (item) {
-                case 'Undo':
-                    diagram.undo();
-                    break;
-                case 'Redo':
-                    diagram.redo();
-                    break;
-                case 'Lock':
-                    this.lockObject();
-                    break;
-                case 'Cut':
-                    diagram.cut();
-                    toolbarObj.items[8].disabled = false;
-                    break;
-                case 'Copy':
-                    diagram.copy();
-                    toolbarObj.items[8].disabled = false;
-                    break;
-                case 'Paste':
-                    diagram.paste();
-                    break;
-                case 'Delete':
-                    diagram.remove();
-                    break;
                 case 'Select Tool':
-                    diagram.clearSelection();
-                    diagram.tool = DiagramTools.Default;
-                    break;
-                case 'Text Tool':
-                    diagram.clearSelection();
-                    diagram.selectedItems.userHandles = [];
-                    diagram.drawingObject = { shape: { type: 'Text' } };
-                    diagram.tool = DiagramTools.ContinuousDraw;
+                    diagramInstance.clearSelection();
+                    diagramInstance.tool = DiagramTools.Default;
+                    this.changeToolbarSelection('Select Tool');
                     break;
                 case 'Pan Tool':
-                    diagram.clearSelection();
-                    diagram.tool = DiagramTools.ZoomPan;
+                    diagramInstance.clearSelection();
+                    diagramInstance.tool = DiagramTools.ZoomPan;
+                    this.changeToolbarSelection('Pan Tool');
                     break;
                 case 'New Diagram':
-                    diagram.clear();
-                    this.historyChange();
+                    diagramInstance.clear();
                     break;
                 case 'Print Diagram':
                     this.printDiagram();
                     break;
                 case 'Save Diagram':
-                    this.download(diagram.saveDiagram());
+                    this.download(diagramInstance.saveDiagram());
                     break;
                 case 'Open Diagram':
-                    (document.getElementsByClassName('e-file-select-wrap') as any)[0]
+                    (document.getElementsByClassName('e-file-select-wrap'))[0]
                         .querySelector('button')
                         .click();
                     break;
             }
-            diagram.dataBind();
+            diagramInstance.dataBind();
         },
-        zoomChange: function (args: MenuEventArgs) {
-            const diagram = this.$refs.diagram;
-            let zoomCurrentValue: DropDownButton = (document.getElementById("btnZoomIncrement") as any).ej2_instances[0];
-            let currentZoom: number = diagram.scrollSettings.currentZoom;
-            let zoom: any = {};
-            switch (args.item.text) {
-                case 'Zoom In':
-                    diagram.zoomTo({ type: 'ZoomIn', zoomFactor: 0.2 });
-                    zoomCurrentValue.content = (diagram.scrollSettings.currentZoom * 100).toFixed() + '%';
-                    break;
-                case 'Zoom Out':
-                    diagram.zoomTo({ type: 'ZoomOut', zoomFactor: 0.2 });
-                    zoomCurrentValue.content = (diagram.scrollSettings.currentZoom * 100).toFixed() + '%';
-                    break;
-                case 'Zoom to Fit':
-                    zoom.zoomFactor = 1 / currentZoom - 1;
-                    diagram.zoomTo(zoom);
-                    zoomCurrentValue.content = diagram.scrollSettings.currentZoom;
-                    break;
-                case 'Zoom to 50%':
-                    if (currentZoom === 0.5) {
-                        currentZoom = 0;
-                        zoom.zoomFactor = (0.5 / currentZoom) - 1;
-                        diagram.zoomTo(zoom);
-                    }
-                    else {
-                        zoom.zoomFactor = (0.5 / currentZoom) - 1;
-                        diagram.zoomTo(zoom);
-                    }
-                    break;
-                case 'Zoom to 100%':
-                    if (currentZoom === 1) {
-                        currentZoom = 0;
-                        zoom.zoomFactor = (1 / currentZoom) - 1;
-                        diagram.zoomTo(zoom);
-                    }
-                    else {
-                        zoom.zoomFactor = (1 / currentZoom) - 1;
-                        diagram.zoomTo(zoom);
-                    }
-                    break;
-                case 'Zoom to 200%':
-                    if (currentZoom === 2) {
-                        currentZoom = 0;
-                        zoom.zoomFactor = (2 / currentZoom) - 1;
-                        diagram.zoomTo(zoom);
-                    }
-                    else {
-                        zoom.zoomFactor = (2 / currentZoom) - 1;
-                        diagram.zoomTo(zoom);
-                    }
-                    break;
-            }
-            zoomCurrentValue.content = Math.round(diagram.scrollSettings.currentZoom * 100) + ' %';
-        },
-        onConnectorSelect: function (args: MenuEventArgs) {
-            const diagram = this.$refs.diagram;
-            diagram.clearSelection();
-            diagram.drawingObject = { type: args.item.text };
-            diagram.tool = DiagramTools.ContinuousDraw;
-            diagram.selectedItems.userHandles = [];
-            diagram.dataBind();
-        },
-        onShapesSelect: function (args: MenuEventArgs) {
-            const diagram = this.$refs.diagram;
-            diagram.clearSelection();
-            diagram.drawingObject = { shape: { shape: args.item.text } };
-            diagram.tool = DiagramTools.ContinuousDraw;
-            diagram.selectedItems.userHandles = [];
-            diagram.dataBind();
-        },
-        onselectExport: function (args: MenuEventArgs) {
-            const diagram = this.$refs.diagram;
-            let exportOptions: IExportOptions = {};
-            exportOptions.format = args.item.text as FileFormats;
-            exportOptions.mode = 'Download';
-            exportOptions.region = 'PageSettings';
-            exportOptions.fileName = 'Export';
-            exportOptions.margin = { left: 0, top: 0, bottom: 0, right: 0 };
-            diagram.exportDiagram(exportOptions);
-        },
-        onSelectGroup: function (args: MenuEventArgs) {
-            const diagram = this.$refs.diagram;
-            if (args.item.text === 'Group') {
-                diagram.group();
-            }
-            else if (args.item.text === 'Ungroup') {
-                diagram.unGroup();
-            }
-        },
-        onSelectAlignObjects: function (args: MenuEventArgs) {
-            const diagram = this.$refs.diagram;
-            let item: string = args.item.text as string;
-            let alignType = item.replace('Align', '');
-            let alignType1 = alignType.charAt(0).toUpperCase() + alignType.slice(1);
-            diagram.align(alignType1.trim());
-        },
-        onSelectDistributeObjects: function (args: MenuEventArgs) {
-            const diagram = this.$refs.diagram;
-            if (args.item.text === 'Distribute Objects Vertically') {
-                diagram.distribute('BottomToTop');
-            }
-            else {
-                diagram.distribute('RightToLeft');
-            }
-        },
-        onSelectOrder: function (args: MenuEventArgs) {
-            const diagram = this.$refs.diagram;
-            switch (args.item.text) {
-                case 'Bring Forward':
-                    diagram.moveForward();
-                    break;
-                case 'Bring To Front':
-                    diagram.bringToFront();
-                    break;
-                case 'Send Backward':
-                    diagram.sendBackward();
-                    break;
-                case 'Send To Back':
-                    diagram.sendToBack();
-                    break;
-            }
-        },
-        onSelectRotate: function (args: MenuEventArgs) {
-            const diagram = this.$refs.diagram;
-            if (args.item.text === 'Rotate Clockwise') {
-                diagram.rotate(diagram.selectedItems, 90);
-            }
-            else {
-                diagram.rotate(diagram.selectedItems, -90);
-            }
-        },
-        onSelectFlip: function (args: MenuEventArgs) {
-            this.flipObjects(args.item.text as string);
-        },
-        flipObjects: function (flipType: string) {
-            const diagram = this.$refs.diagram;
-            let selectedObjects = diagram.selectedItems.nodes.concat((diagram.selectedItems as any).connectors);
-            for (let i: number = 0; i < selectedObjects.length; i++) {
-                selectedObjects[i].flip = flipType === 'Flip Horizontal'
-                    ? 'Horizontal' : 'Vertical';
-            } diagram.dataBind();
-        },
-        onUploadSuccess: function (args: any) {
+
+        onUploadSuccess: function (args) {
             let file = args.file;
             let rawFile = file.rawFile;
             let reader = new FileReader();
             reader.readAsText(rawFile);
             reader.onloadend = this.loadDiagram;
         },
-        loadDiagram: function (event: any) {
-            const diagram = this.$refs.diagram;
-            diagram.loadDiagram(event.target.result);
+        loadDiagram: function (event) {
+            diagramInstance.loadDiagram(event.target.result);
         },
-        download: function (data: string) {
-            if ((window.navigator as any).msSaveBlob) {
-                let blob: Blob = new Blob([data], { type: 'data:text/json;charset=utf-8,' });
-                (window.navigator as any).msSaveOrOpenBlob(blob, 'Diagram.json');
+        download: function (data) {
+            if ((window.navigator).msSaveBlob) {
+                let blob = new Blob([data], { type: 'data:text/json;charset=utf-8,' });
+                (window.navigator).msSaveOrOpenBlob(blob, 'Diagram.json');
             } else {
                 let dataString = 'data:text/json;charset=utf-8,' + encodeURIComponent(data);
                 let ele = document.createElement('a');
@@ -814,32 +513,16 @@ export default {
                 ele.remove();
             }
         },
-        lockObject: function () {
-            const diagram = this.$refs.diagram;
-            for (let i: number = 0; i < diagram.selectedItems.nodes.length; i++) {
-                let node = diagram.selectedItems.nodes[i]; if (node.constraints & NodeConstraints.Drag) {
-                    node.constraints = NodeConstraints.PointerEvents | NodeConstraints.Select;
-                } else {
-                    node.constraints = NodeConstraints.Default;
-                }
-            } for (let j: number = 0; j < diagram.selectedItems.connectors.length;
-                j++) {
-                let connector = diagram.selectedItems.connectors[j]; if (connector.constraints & ConnectorConstraints.Drag) {
-                    connector.constraints = ConnectorConstraints.PointerEvents | ConnectorConstraints.Select;
-                } else {
-                    connector.constraints = ConnectorConstraints.Default;
-                }
-            } diagram.dataBind();
-        },
-        onTextBoxChange: function (args: InputEventArgs) {
+
+        onTextBoxChange: function (args) {
+            let sendButton = (document.getElementById('diagram-db-send'));
             if (args.value !== '') {
                 sendButton.disabled = false;
             } else {
                 sendButton.disabled = true;
             }
         },
-        convertTextToFlowChart: async function (inputText: string) {
-            const diagram = this.$refs.diagram;
+        convertTextToFlowChart: async function (inputText) {
             this.showLoading();
             const options = {
                 messages: [
@@ -850,47 +533,47 @@ export default {
                     {
                         role: 'user',
                         content: `
-    Generate only the Mermaid flowchart code for the process titled "${inputText}".
-    Use the format provided in the example below, but adjust the steps, conditions, and styles according to the new
-    title:
+                        Generate only the Mermaid flowchart code for the process titled "${inputText}".
+                        Use the format provided in the example below, but adjust the steps, conditions, and styles according to the new
+                        title:
 
-    **Example Title:** Bus Ticket Booking
+                        **Example Title:** Bus Ticket Booking
 
-    **Example Steps and Mermaid Code:**
+                        **Example Steps and Mermaid Code:**
 
-    graph TD
-    A([Start]) --> B[Choose Destination]
-    B --> C{Already Registered?}
-    C -->|No| D[Sign Up]
-    D --> E[Enter Details]
-    E --> F[Search Buses]
-    C --> |Yes| F
-    F --> G{Buses Available?}
-    G -->|Yes| H[Select Bus]
-    H --> I[Enter Passenger Details]
-    I --> J[Make Payment]
-    J --> K[Booking Confirmed]
-    G -->|No| L[Set Reminder]
-    K --> M([End])
-    L --> M
-    style A fill:#90EE90,stroke:#333,stroke-width:2px;
-    style B fill:#4682B4,stroke:#333,stroke-width:2px;
-    style C fill:#32CD32,stroke:#333,stroke-width:2px;
-    style D fill:#FFD700,stroke:#333,stroke-width:2px;
-    style E fill:#4682B4,stroke:#333,stroke-width:2px;
-    style F fill:#4682B4,stroke:#333,stroke-width:2px;
-    style G fill:#32CD32,stroke:#333,stroke-width:2px;
-    style H fill:#4682B4,stroke:#333,stroke-width:2px;
-    style I fill:#4682B4,stroke:#333,stroke-width:2px;
-    style J fill:#4682B4,stroke:#333,stroke-width:2px;
-    style K fill:#FF6347,stroke:#333,stroke-width:2px;
-    style L fill:#FFD700,stroke:#333,stroke-width:2px;
-    style M fill:#FF6347,stroke:#333,stroke-width:2px;
+                        graph TD
+                        A([Start]) --> B[Choose Destination]
+                        B --> C{Already Registered?}
+                        C -->|No| D[Sign Up]
+                        D --> E[Enter Details]
+                        E --> F[Search Buses]
+                        C --> |Yes| F
+                        F --> G{Buses Available?}
+                        G -->|Yes| H[Select Bus]
+                        H --> I[Enter Passenger Details]
+                        I --> J[Make Payment]
+                        J --> K[Booking Confirmed]
+                        G -->|No| L[Set Reminder]
+                        K --> M([End])
+                        L --> M
+                        style A fill:#90EE90,stroke:#333,stroke-width:2px;
+                        style B fill:#4682B4,stroke:#333,stroke-width:2px;
+                        style C fill:#32CD32,stroke:#333,stroke-width:2px;
+                        style D fill:#FFD700,stroke:#333,stroke-width:2px;
+                        style E fill:#4682B4,stroke:#333,stroke-width:2px;
+                        style F fill:#4682B4,stroke:#333,stroke-width:2px;
+                        style G fill:#32CD32,stroke:#333,stroke-width:2px;
+                        style H fill:#4682B4,stroke:#333,stroke-width:2px;
+                        style I fill:#4682B4,stroke:#333,stroke-width:2px;
+                        style J fill:#4682B4,stroke:#333,stroke-width:2px;
+                        style K fill:#FF6347,stroke:#333,stroke-width:2px;
+                        style L fill:#FFD700,stroke:#333,stroke-width:2px;
+                        style M fill:#FF6347,stroke:#333,stroke-width:2px;
 
 
-    Note: Please ensure the generated code matches the title "${inputText}" and follows the format given above. Provide
-    only the Mermaid flowchart code, without any additional explanations, comments, or text.
-    `
+                        Note: Please ensure the generated code matches the title "${inputText}" and follows the format given above. Provide
+                        only the Mermaid flowchart code, without any additional explanations, comments, or text.
+                        `
 
 
                     }
@@ -898,8 +581,11 @@ export default {
             }
 
             try {
-                const jsonResponse = await (window as any).getAzureChatAIRequest(options);
-                diagram.loadDiagramFromMermaid(jsonResponse);
+                let jsonResponse = await serverAIRequest(options);
+                if (jsonResponse) {
+                    jsonResponse = jsonResponse.replace('```mermaid', '').replace('```', '');
+                    diagramInstance.loadDiagramFromMermaid(jsonResponse);
+                }
                 this.hideLoading();
 
             } catch (error) {
@@ -909,39 +595,70 @@ export default {
         },
         // Function to show loading indicator
         showLoading: function () {
-            (this.$refs.loadingContainer as HTMLInputElement).style.display = 'block';
+            (this.$refs.loadingContainer).style.display = 'block';
         },
         // Function to hide loading indicator
         hideLoading: function () {
-            (this.$refs.loadingContainer as HTMLInputElement).style.display = 'none';
+            (this.$refs.loadingContainer).style.display = 'none';
         },
-        diagramScrollChange: function (args: IScrollChangeEventArgs) {
-            const diagram = this.$refs.diagram;
+        diagramScrollChange: function (args) {
             if (args.panState !== 'Start') {
-                let zoomCurrentValue: any = (document.getElementById(" btnZoomIncrement") as
-                    any).ej2_instances[0]; zoomCurrentValue.content = Math.round(diagram.scrollSettings.currentZoom *
-                        100) + ' %';
+                let zoomCurrentValue = document.getElementById("btnZoom").ej2_instances[0];
+                if (zoomCurrentValue) {
+                    zoomCurrentValue.content = Math.round(diagramInstance.scrollSettings.currentZoom * 100) + ' %';
+                }
             }
+        },      
+        keyPressHandler: function (event) {
+            if (event.key === 'Enter' && document.activeElement === this.$refs.textBox.ej2Instances.element) {
+                if (this.$refs.textBox.ej2Instances.value) {
+                    this.$refs.dialog.ej2Instances.hide();
+                    this.convertTextToFlowChart(this.$refs.textBox.ej2Instances.value);
+                }
+            }
+        },
+        dbSend: function () {
+            this.$refs.dialog.ej2Instances.hide();
+            this.convertTextToFlowChart(this.$refs.textBox.ej2Instances.value);
+        },
+        btnClick: function (e) {
+            let element = e.target;
+            this.$refs.dialog.ej2Instances.hide();
+            this.convertTextToFlowChart(element.innerText);
         }
     },
     mounted() {
-        const textbox = this.$refs.textbox;
-        const dialog = this.$refs.dialog;
-        const convertTextToFlowChart = this.convertTextToFlowChart;
-
-        // Add keypress event listener to the document
-        document.addEventListener('keypress', function (event) {
-            if (event.key === 'Enter' && document.activeElement === textbox.element) {
-                if (textbox.value !== '') {
-                    dialog.hide();
-                    convertTextToFlowChart(textbox.value);
-                }
-            }
-        });
+        diagramInstance = this.$refs.diagramObj.ej2Instances;
+        document.addEventListener('keypress', this.keyPressHandler);
+        paletteIcon = this.$refs.paletteIcon;
+        paletteSpace = this.$refs.paletteSpace;
+        addEvents();
     },
     provide: {
         diagram: [UndoRedo, DataBinding, PrintAndExport, FlowchartLayout],
     }
+}
+
+//Adds EventListener based on device's viewport width.
+function addEvents() {
+  isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    if (paletteIcon) {
+      paletteIcon.addEventListener("click", openPalette, false);
+    }
+  }
+}
+
+//Toggles the visibility of the palette space on mobile devices when the palette icon is clicked.
+function openPalette() {
+  isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    if (!paletteSpace.classList.contains("sb-mobile-palette-open")) {
+      paletteSpace.classList.add("sb-mobile-palette-open");
+    } else {
+      paletteSpace.classList.remove("sb-mobile-palette-open");
+    }
+  }
 }
 
 </script>
@@ -1058,7 +775,7 @@ export default {
 }
 
 
-.e-connector::before {
+#diagram-functionalities .e-connector::before {
     content: '\e725';
 }
 
@@ -1074,22 +791,13 @@ export default {
     content: '\e71e';
 }
 
-.e-file-select-wrap {
-    display: none;
-}
-
 /* Toolbar width */
 .db-toolbar-editor {
     width: 100%;
 }
 
-/* symbolpalette width */
-#symbolpalette {
-    width: 90%;
-}
-
 /* Overall div width */
-.main {
+.main .diagramFlowChart{
     width: 100%;
 }
 
@@ -1098,7 +806,7 @@ export default {
 }
 
 /* Center the loading indicator and text */
-.loading-container {
+.diagram-loading-container {
     display: none;
     position: fixed;
     top: 50%;
@@ -1121,13 +829,13 @@ export default {
 }
 
 /* Default style for the send button */
-.send-button {
+#diagram-db-send .send-button {
     cursor: pointer;
     transition: fill 0.2s ease;
 }
 
 /* Hover style for the send button */
-.send-button:hover {
+#diagram-db-send .send-button:hover {
     fill: #0345fc;
     /* Change this to your desired hover color */
 }
@@ -1149,5 +857,24 @@ export default {
     font-family: Arial, sans-serif;
     font-size: 14px;
     color: #000;
+}
+
+#ai-palette-space {
+    width: 20%;
+    float: left;
+}
+
+#flow-diagram-space {
+    width: 78%;
+    float: left;
+}
+.db-toolbar-container .e-toolbar .e-toolbar-items .e-toolbar-item.tb-item-selected .e-tbar-btn.e-btn,
+.db-toolbar-container .e-toolbar .e-toolbar-items .e-toolbar-item .e-dropdown-btn.tb-item-selected {
+    background: #0078D4;
+}
+
+.db-toolbar-container .e-toolbar .e-toolbar-items .e-toolbar-item.tb-item-selected .e-tbar-btn .e-icons.e-btn-icon,
+.db-toolbar-container .e-toolbar .e-toolbar-items .e-toolbar-item .e-dropdown-btn.tb-item-selected .e-btn-icon {
+    color: #ffffff;
 }
 </style>

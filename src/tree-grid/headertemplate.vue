@@ -96,7 +96,7 @@ export default {
               return ["material","material3","fabric","bootstrap","bootstrap4","bootstrap5","bootstrap5.3","tailwind","tailwind3","fluent","fluent2" ].includes(themeName);
         },
         checkUrl() {
-            return location.href.includes('syncfusion.com') && !location.href.includes('#');
+            return location.href.includes('syncfusion.com') && !location.href.includes('#') || location.href.includes('stackblitz');
         },
         image1() {
             return (this.getTheme() || this.checkUrl() ? "source/tree-grid/images/taskname.png": "source/tree-grid/images/darkTaskname.png");

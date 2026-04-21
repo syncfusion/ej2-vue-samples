@@ -31,6 +31,7 @@
         </p>
       </div>
     </div>
+    <AIToast />
   </div>
 </template>
 

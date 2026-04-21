@@ -1,6 +1,6 @@
 <template>
   <div id="container" style='display:block;'>
-       <ejs-chart class="chart-content" :theme='theme' ref="columnInstance" style='display:block;height:100%, width:100%;' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :chartArea='chartArea' :legendSettings='legend'>
+       <ejs-chart class="chart-content" :theme='theme' ref="columnInstance" style='display:block;height:100%, width:100%;' :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :chartArea='chartArea' :legendSettings='legend' :load="load">
           <e-series-collection>
               <e-series :dataSource='seriesData' type='Column' xName='Period' yName='Percentage' name='Online' width=2 :marker='marker' :cornerRadius='cornerRadius' fill="#2485fa"> </e-series>
               <e-series :dataSource='seriesData1' type='Column' xName='Period' yName='Percentage' name='Retail' width=2 :marker='marker' :cornerRadius='cornerRadius' fill="#FEC200"> </e-series>
@@ -76,6 +76,11 @@ data() {
 provide: {
   chart: [ColumnSeries, Category, DataLabel, Tooltip, Legend, Highlight]
 },
+methods: {
+    load(args) {
+      loadChartTheme(args);
+    },
+  },
 mounted(){
   this.$refs.columnInstance.ej2Instances.height ="100%";
   this.$refs.columnInstance.ej2Instances.width ="100%";

@@ -13,40 +13,40 @@
         Shapes
       </div>
       <div class="row" style="padding-top: 8px">
-        <div title="Retangle" class="image-pattern-style e-selected-style" id="shape1" style="background-image: url(./src/diagram/Images/drawingTool/basicshape/DrawingTool_1.png); margin-right: 3px">
+        <div title="Retangle" class="image-pattern-style e-selected-style" id="shape1" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/basicshape/DrawingTool_1.png); margin-right: 3px">
         </div>
-        <div title="Ellipse" class="image-pattern-style" id="shape2" style="background-image: url(./src/diagram/Images/drawingTool/basicshape/DrawingTool_2.png); margin: 0px 3px">
+        <div title="Ellipse" class="image-pattern-style" id="shape2" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/basicshape/DrawingTool_2.png); margin: 0px 3px">
         </div>
-        <div title="Hexagon" class="image-pattern-style" id="shape3" style="background-image: url(./src/diagram/Images/drawingTool/basicshape/DrawingTool_3.png);">
-        </div>
-      </div>
-      <div class="row" style="padding-top: 8px">
-        <div title="Pentagon" class="image-pattern-style" id="shape4" style="background-image: url(./src/diagram/Images/drawingTool/basicshape/DrawingTool_4.png); margin-right: 3px">
-        </div>
-        <div title="Triangle" class="image-pattern-style" id="shape5" style="background-image: url(./src/diagram/Images/drawingTool/basicshape/DrawingTool_5.png); margin: 0px 3px">
-        </div>
-        <div title="Path" class="image-pattern-style" id="path" style="background-image: url(./src/diagram/Images/drawingTool/DrawingTool_6.png);">
+        <div title="Hexagon" class="image-pattern-style" id="shape3" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/basicshape/DrawingTool_3.png);">
         </div>
       </div>
       <div class="row" style="padding-top: 8px">
-        <div title="Image" class="image-pattern-style" id="image" style="background-image: url(./src/diagram/Images/drawingTool/DrawingTool_7.png); margin-right: 3px">
+        <div title="Pentagon" class="image-pattern-style" id="shape4" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/basicshape/DrawingTool_4.png); margin-right: 3px">
         </div>
-        <div title="SVG" class="image-pattern-style" id="svg" style="background-image: url(./src/diagram/Images/drawingTool/DrawingTool_8.png); margin-right: 3px">
+        <div title="Triangle" class="image-pattern-style" id="shape5" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/basicshape/DrawingTool_5.png); margin: 0px 3px">
         </div>
-        <div title="Text" class="image-pattern-style" id="text" style="background-image: url(./src/diagram/Images/drawingTool/DrawingTool_9.png); margin-right: 3px">
+        <div title="Path" class="image-pattern-style" id="path" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/DrawingTool_6.png);">
+        </div>
+      </div>
+      <div class="row" style="padding-top: 8px">
+        <div title="Image" class="image-pattern-style" id="image" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/DrawingTool_7.png); margin-right: 3px">
+        </div>
+        <div title="SVG" class="image-pattern-style" id="svg" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/DrawingTool_8.png); margin-right: 3px">
+        </div>
+        <div title="Text" class="image-pattern-style" id="text" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/DrawingTool_9.png); margin-right: 3px">
         </div>
       </div>
       <div class="row row-header" style="padding-top: 10px">
         Connector
       </div>
       <div class="row" style="padding-top: 8px">
-        <div class="image-pattern-style" id="straight" style="background-image: url(./src/diagram/Images/drawingTool/connector/Connectors_1.png); margin-right: 3px">
+        <div class="image-pattern-style" id="straight" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/connector/Connectors_1.png); margin-right: 3px">
         </div>
-        <div class="image-pattern-style" id="ortho" style="background-image: url(./src/diagram/Images/drawingTool/connector/Connectors_2.png); margin: 0px 3px">
+        <div class="image-pattern-style" id="ortho" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/connector/Connectors_2.png); margin: 0px 3px">
         </div>
-        <div class="image-pattern-style" id="cubic" style="background-image: url(./src/diagram/Images/drawingTool/connector/Connectors_3.png); ">
+        <div class="image-pattern-style" id="cubic" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/connector/Connectors_3.png); ">
         </div>
-        <div class="image-pattern-style" id="freehand" style="background-image: url(./src/diagram/Images/drawingTool/connector/FreeHand_4.png);margin-top: 5px ">
+        <div class="image-pattern-style" id="freehand" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/drawingTool/connector/FreeHand_4.png);margin-top: 5px ">
         </div>
       </div>
       <div class="row" style="padding-top: 10px">
@@ -263,6 +263,11 @@ function onChange(args) {
 function setDrawObject(node, connector) {
   diagramInstance.tool = checkedInstance.checked ? DiagramTools.ContinuousDraw : DiagramTools.DrawOnce;
   diagramInstance.drawingObject = connector ? connector : node;
+  if(connector && connector.type == "freehand") {
+      diagramInstance.snapSettings.constraints = SnapConstraints.ShowLines;
+  } else {
+      diagramInstance.snapSettings.constraints = (SnapConstraints.SnapToObject | SnapConstraints.SnapToLines) | SnapConstraints.ShowLines;
+  }
   diagramInstance.dataBind();
 }
 //Enable drawing Tool.
@@ -315,7 +320,7 @@ function getPath() {
   return str;
 }
 function getImageNode() {
-  node = { shape: { type: "Image", source: "./src/diagram/employee.png" } };
+  node = { shape: { type: "Image", source: "https://ej2.syncfusion.com/vue/demos/src/diagram/employee.png" } };
   setDrawObject(node, null);
 }
 function getPathShape() {

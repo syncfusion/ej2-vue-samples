@@ -167,6 +167,11 @@
         font-size: 12px;
     }
 
+    .schedule-vue-sample .schedule-resources.e-schedule.e-rtl .best-price:not(.e-work-cells) {
+        float: left;
+        margin-left: 3px;
+    }
+
     .fluent-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
     .bootstrap5-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),
     .bootstrap5_3-dark .schedule-vue-sample .e-schedule .best-price:not(.e-work-cells),

@@ -4,9 +4,9 @@
   <link href="https://ej2.syncfusion.com/javascript/demos/src/diagram/styles/diagram-common.css" rel="stylesheet">
   <div id="umlclass-Diagram" style="width: 100%;">
     <div class="sb-mobile-palette-bar">
-        <div id="palette-icon" style="float: right;" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
+        <div id="palette-icon" ref="paletteIcon" style="float: right;" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
     </div>
-    <div id="palette-space" class="sb-mobile-palette">
+    <div id="palette-space" class="sb-mobile-palette"  ref="paletteSpace" >
        <!-- Configures the symbolpalette with dynamic properties and settings -->
         <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight' :symbolMargin='symbolMargin' :getNodeDefaults='palettegetNodeDefaults' :symbolHeight='symbolHeight' :getSymbolInfo='getSymbolInfo' :symbolWidth='symbolWidth'></ejs-symbolpalette>
     </div>
@@ -53,7 +53,7 @@
  }
 /*To align diagram */
  .diagram-uml-class .sb-mobile-diagram {
-    width: 74%;
+     width: 74%;
      height: 559px;
      float: left;
      border: 1px solid rgba(0, 0, 0, 0.12);
@@ -70,10 +70,10 @@
          height: 100%;
      }
      .diagram-uml-class .sb-mobile-diagram {
-         width: 60%;
-         height: 100%;
+         width: 100%;
+         /* height: 100%;
          float: left;
-         left: 0px;
+         left: 0px; */
      }
      .diagram-uml-class .sb-mobile-palette-bar {
          display: block;
@@ -88,6 +88,11 @@
      }
  }
 
+.diagram-uml-class .sb-mobile-palette-open {
+  position: absolute;
+  display: block;
+  right: 15px;
+}
 </style>
 <script>
 import {
@@ -99,6 +104,8 @@ import {
 } from "@syncfusion/ej2-vue-diagrams";
 
 let diagramInstance;
+let paletteSpace;
+let paletteIcon;
 //Initialize nodes for the diagram.
 let nodes = [
     {
@@ -572,7 +579,10 @@ export default {
   },
   mounted: function() {
        let diagram = this.$refs.diagramObj.ej2Instances;
-        diagram.fitToPage();
+       paletteIcon = this.$refs.paletteIcon;
+       paletteSpace = this.$refs.paletteSpace;
+       diagram.fitToPage();
+       addEvents();
   }
 }
 
@@ -610,4 +620,26 @@ export default {
   function createMethods(name, type) {
     return { name: name, type: type };
   }
+  
+//Adds EventListener based on device's viewport width.
+function addEvents() {
+  var isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    if (paletteIcon) {
+      paletteIcon.addEventListener("click", openPalette, false);
+    }
+  }
+}
+
+//Toggles the visibility of the palette space on mobile devices when the palette icon is clicked.
+function openPalette() {
+  var isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    if (!paletteSpace.classList.contains("sb-mobile-palette-open")) {
+      paletteSpace.classList.add("sb-mobile-palette-open");
+    } else {
+      paletteSpace.classList.remove("sb-mobile-palette-open");
+    }
+  }
+}
 </script>

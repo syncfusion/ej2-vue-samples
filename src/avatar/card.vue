@@ -79,6 +79,8 @@
         position: absolute;
         top: calc(0% - 1.5em);
         left: calc(50% - 1.5em);
+        height: 3em;
+        width: 3em;
         box-shadow: 0 16px 28px -8px rgba(0, 0, 0, .36), 0 4px 15px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
     }
 

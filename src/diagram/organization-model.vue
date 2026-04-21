@@ -16,15 +16,15 @@
             </div>
             <div id="orientation" ref="orientation">
                 <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style e-selected-orientation-style" id="topToBottom" style="background-image: url(./src/diagram/Images/common-orientation/toptobottom.png); margin-right: 3px">
+                    <div class="image-pattern-style e-selected-orientation-style" id="topToBottom" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/toptobottom.png); margin-right: 3px">
                     </div>
-                    <div class="image-pattern-style" id="bottomToTop" style="background-image: url(./src/diagram/Images/common-orientation/bottomtotop.png); margin: 0px 3px">
+                    <div class="image-pattern-style" id="bottomToTop" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/bottomtotop.png); margin: 0px 3px">
                     </div>
-                    <div class="image-pattern-style" id="leftToRight" style="background-image: url(./src/diagram/Images/common-orientation/lefttoright.png); margin: 0px 3px">
+                    <div class="image-pattern-style" id="leftToRight" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/lefttoright.png); margin: 0px 3px">
                     </div>
                 </div>
                 <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style" id="rightToLeft" style="background-image: url(./src/diagram/Images/common-orientation/righttoleft.png); margin: 0px 3px">
+                    <div class="image-pattern-style" id="rightToLeft" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/righttoleft.png); margin: 0px 3px">
                     </div>
                 </div>
             </div>
@@ -33,27 +33,27 @@
             </div>
             <div id="pattern" ref="pattern">
                 <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style" id="pattern1" style="background-image: url(./src/diagram/patternimages/Pattern_1.png); margin-right: 3px">
+                    <div class="image-pattern-style" id="pattern1" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/patternimages/Pattern_1.png); margin-right: 3px">
                     </div>
-                    <div class="image-pattern-style e-selected-pattern-style" id="pattern2" style="background-image: url(./src/diagram/patternimages/Pattern_2.png); margin: 0px 3px">
+                    <div class="image-pattern-style e-selected-pattern-style" id="pattern2" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/patternimages/Pattern_2.png); margin: 0px 3px">
                     </div>
-                    <div class="image-pattern-style" id="pattern3" style="background-image: url(./src/diagram/patternimages/Pattern_3.png); margin: 0px 3px">
-                    </div>
-                </div>
-                <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style" id="pattern4" style="background-image: url(./src/diagram/patternimages/Pattern_4.png); margin-right: 3px">
-                    </div>
-                    <div class="image-pattern-style" id="pattern5" style="background-image: url(./src/diagram/patternimages/Pattern_5.png); margin: 0px 3px">
-                    </div>
-                    <div class="image-pattern-style" id="pattern6" style="background-image: url(./src/diagram/patternimages/Pattern_6.png); margin: 0px 3px">
+                    <div class="image-pattern-style" id="pattern3" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/patternimages/Pattern_3.png); margin: 0px 3px">
                     </div>
                 </div>
                 <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style" id="pattern7" style="background-image: url(./src/diagram/patternimages/Pattern_7.png); margin-right: 3px">
+                    <div class="image-pattern-style" id="pattern4" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/patternimages/Pattern_4.png); margin-right: 3px">
                     </div>
-                    <div class="image-pattern-style" id="pattern8" style="background-image: url(./src/diagram/patternimages/Pattern_8.png); margin: 0px 3px">
+                    <div class="image-pattern-style" id="pattern5" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/patternimages/Pattern_5.png); margin: 0px 3px">
                     </div>
-                    <div class="image-pattern-style" id="pattern9" style="background-image: url(./src/diagram/patternimages/Pattern_9.png); margin: 0px 3px">
+                    <div class="image-pattern-style" id="pattern6" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/patternimages/Pattern_6.png); margin: 0px 3px">
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 8px">
+                    <div class="image-pattern-style" id="pattern7" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/patternimages/Pattern_7.png); margin-right: 3px">
+                    </div>
+                    <div class="image-pattern-style" id="pattern8" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/patternimages/Pattern_8.png); margin: 0px 3px">
+                    </div>
+                    <div class="image-pattern-style" id="pattern9" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/patternimages/Pattern_9.png); margin: 0px 3px">
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                       :change='verticalSpacingChange' />
             </div>
         </div>
-         <div class="row" style="padding-top: 8px">
+         <div class="row" style="padding-top: 8px; display: none;">
             <ejs-checkbox ref="checkedObj" id="checked" style="width: 90px" 
                 :label='checkedlabel'
                 :checked='checkedchecked'

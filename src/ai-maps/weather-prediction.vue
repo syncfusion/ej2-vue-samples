@@ -3,6 +3,7 @@
         <div class="control-section">
             <img src="src/ai-maps/images/weather-prediction.gif" width="100%" height="100%" />
         </div>
+        <AIToast />
         <div id="action-description">
             <p>This sample demonstrates the integration of AI for automatically forecasting weather conditions in the
                 United

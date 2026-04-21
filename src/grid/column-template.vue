@@ -47,7 +47,7 @@
                 </div>
               </template>
               <template v-slot:assetTemplate="{data}">
-                <div><ejs-chiplist id="chip" :chips='splitAssetKit(data.AssetKit)'></ejs-chiplist></div>
+                <div><ejs-chiplist id="chip" class="grid-asset-kit" :chips='splitAssetKit(data.AssetKit)'></ejs-chiplist></div>
               </template>
             </ejs-grid>
       </div>
@@ -126,6 +126,14 @@
   .fluent2-highcontrast #column-template-grid .e-row:hover:not(.e-editedrow) .e-location.e-icons,
   .fluent2-highcontrast #column-template-grid td.e-rowcell.e-selectionbackground.e-active .e-location.e-icons {
     color: black;
+  }
+  .fluent2-highcontrast .e-grid td.e-rowcell:hover .grid-asset-kit.e-chip-list .e-chip:hover,
+  .fluent2-highcontrast .e-grid td.e-rowcell.e-selectionbackground.e-active .grid-asset-kit.e-chip-list .e-chip:hover, 
+  .fluent2-highcontrast .e-grid .grid-asset-kit.e-chip-list .e-chip:active,
+  .fluent2-highcontrast .e-grid .grid-asset-kit.e-chip-list .e-chip.e-focused {
+      background: #000;
+      border-color: #fff;
+      color: #fff;
   }
   </style>
   

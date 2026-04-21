@@ -400,6 +400,7 @@ export default {
     autoScrollDivInstance = this.$refs.autoScrollDiv;
     paletteIconInstance = this.$refs.paletteIcon;
     paletteSpaceInstance = this.$refs.paletteSpace;
+    addEvents();
   },
   data: function() {
     return {
@@ -408,10 +409,7 @@ export default {
       snapSettings: {
         horizontalGridlines: gridlines,
         verticalGridlines: gridlines
-      },  
-      created: (args) => {
-        addEvents();
-      },    
+      },
       created: (args) => {
         var scrollElement = this.$refs.scrollableArea;
         scrollElement.className = "disabledbutton";

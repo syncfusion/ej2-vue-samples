@@ -3,7 +3,7 @@
     <div class="col-lg-8 control-section uploader-preload preloadfiles">
         <div class="control_wrapper">
             <ejs-uploader id='preloadFiles' ref="uploadObj" name="UploadFiles" :asyncSettings= "path"
-            :dropArea = "dropElement" :removing= "onFileRemove" >
+            :dropArea = "dropElement" :removing= "onFileRemove" :failure="onFailure">
                  <e-files>
                     <e-uploadedfiles name='Nature' size=11000 type='.png'></e-uploadedfiles>
                     <e-uploadedfiles name='TypeScript Succinctly' size=20000 type='.pdf'></e-uploadedfiles>
@@ -78,7 +78,12 @@ export default {
     methods:{
         onFileRemove: function (args) {
             args.postRawFile = false;
-        }
+        },
+        onFailure: function(args) {
+            if (args.response && args.response.statusText !== '') {
+                args.statusText = args.response.statusText;
+            }
+        },
     }
 };
 </script>

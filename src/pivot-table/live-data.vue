@@ -420,14 +420,6 @@ export default {
   margin-top: 15px;
 }
 
-/deep/ .sb-sample-content-area {
-  min-height: 255px !important;
-}
-
-/deep/ .control-section {
-  min-height: 255px !important;
-}
-
 /deep/ .bg-fade {
   background-color: #FFEBE9 !important;
   color: #FF3740 !important;

@@ -173,7 +173,7 @@ export default {
   margin: 0 auto;
 }
 @media only screen and (max-width: 750px) {
-    .integration-text-to-speech-assist-section {
+    .integration-texttospeech-section {
         width: 100%;
     }
 }

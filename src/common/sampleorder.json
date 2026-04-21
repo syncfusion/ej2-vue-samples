@@ -22,7 +22,7 @@
     "Pivot Table",
     "Tree Grid"
   ],
-  "Interactive Chat": [ "AI AssistView", "Chat UI" ],
+  "Interactive Chat": [ "AI AssistView", "Chat UI", "Inline AI Assist" ],
   "Data Visualization": [
     "Chart",
     "Chart 3D",
@@ -40,7 +40,8 @@
     "Sparkline Charts",
     "TreeMap",
     "Bullet Chart",
-    "Kanban"
+    "Kanban",
+    "Sankey"
   ],
   "Forms": [
     "Query Builder"

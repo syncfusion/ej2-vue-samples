@@ -226,7 +226,7 @@ export default {
             AreaSeriesTitle: "US to SGD",
             splineSeriesTitle: "US to Yen",
             splinelineAreaSeriesTitle: "US to INR",
-            crosshair: { enable: true, lineType: 'Vertical', dashArray: '2,2' },
+            crosshair: { enable: true, lineType: 'Vertical', dashArray: '2,2', snapToData: true },
             charts: []
         };
     },

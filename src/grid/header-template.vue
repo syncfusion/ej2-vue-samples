@@ -48,7 +48,7 @@
                 </div>
               </template>
               <template v-slot:assetTemplate="{data}">
-                <div><ejs-chiplist id="chip" :chips='splitAssetKit(data.AssetKit)'></ejs-chiplist></div>
+                <div><ejs-chiplist id="chip" class="grid-asset-kit" :chips='splitAssetKit(data.AssetKit)'></ejs-chiplist></div>
               </template>
           </ejs-grid>
     </div>

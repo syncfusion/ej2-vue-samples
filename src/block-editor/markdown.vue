@@ -117,6 +117,7 @@ import { SidebarComponent, TreeViewComponent, BreadcrumbComponent } from '@syncf
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { MarkdownConverter } from '@syncfusion/ej2-markdown-converter';
 import TurndownService from 'turndown';
+import { gfm } from 'turndown-plugin-gfm';
 
 export default {
   components: {
@@ -256,7 +257,7 @@ export default {
       },
 
       // Markdown conversion
-      turndownService: new TurndownService(),
+      turndownService: null,
 
       // Tree data (pointing to your existing repo paths)
       data: [
@@ -284,11 +285,25 @@ export default {
   created() {
     // Bind data to tree view fields
     this.treeFields.dataSource = this.data;
+
+    // Initialize TurndownService (Vue equivalent of React.useMemo setup)
+    const service = new TurndownService({
+      codeBlockStyle: 'fenced',
+      emDelimiter: '_',
+      bulletListMarker: '-',
+      headingStyle: 'atx'
+    });
+    service.use(gfm);
+    this.turndownService = service;
   },
   mounted() {
     setTimeout(() => {
       this.loadContent('src/block-editor/mdfiles/Team Sessions.md');
       this.breadcrumbItems = [{ text: 'Team' }, { text: 'Team Sessions' }];
+      if (this.$refs.closeBtn?.ej2Instances?.element && window.innerWidth < 600) {
+        this.$refs.closeBtn.ej2Instances.element.style.left = '18px';
+        this.$refs.closeBtn.ej2Instances.element.classList.add('expand-mode');
+      }
     }, 100);
   },
   methods: {
@@ -459,6 +474,7 @@ export default {
   margin-top: 20px;
   border: 1px solid #dee2e6;
   height: 95%;
+  z-index: 20 !important;
 }
 .blockeditor-marked {
   height: 680px;
@@ -564,5 +580,12 @@ body[class*="high"] .blockeditor-marked .sidebar-content .sidebar-header {
   padding: 6px 10px;
   background: #fff;
   border-bottom: 1px solid #eee;
+}
+.e-bigger.material3 .e-treeview .e-list-item .e-text-content,
+.e-bigger.fluent2 .e-treeview .e-list-item .e-ul,
+.e-bigger.fluent2 .e-treeview .e-list-item .e-text-content,
+.e-bigger.fluent2-highcontrast .e-treeview .e-list-item .e-ul,
+.e-bigger.fluent2-highcontrast .e-treeview .e-list-item .e-text-content{
+  padding-left: 20px;
 }
 </style>

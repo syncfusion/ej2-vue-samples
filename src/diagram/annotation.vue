@@ -19,19 +19,19 @@
             </div>
             <div class="row">
                 <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style" id="left" style="background-image: url(./src/diagram/Images/annotation/Annotation_1.png); margin-right: 4px">
+                    <div class="image-pattern-style" id="left" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_1.png); margin-right: 4px">
                     </div>
-                    <div class="image-pattern-style" id="right" style="background-image: url(./src/diagram/Images/annotation/Annotation_2.png); margin: 0px 4px">
+                    <div class="image-pattern-style" id="right" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_2.png); margin: 0px 4px">
                     </div>
-                    <div class="image-pattern-style" id="bottomLeft" style="background-image: url(./src/diagram/Images/annotation/Annotation_3.png);margin-left: 4px">
+                    <div class="image-pattern-style" id="bottomLeft" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_3.png);margin-left: 4px">
                     </div>
                 </div>
                 <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style" id="bottomRight" style="background-image: url(./src/diagram/Images/annotation/Annotation_4.png); margin-right: 4px">
+                    <div class="image-pattern-style" id="bottomRight" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_4.png); margin-right: 4px">
                     </div>
-                    <div class="image-pattern-style" id="center" style="background-image: url(./src/diagram/Images/annotation/Annotation_5.png); margin: 0px 4px">
+                    <div class="image-pattern-style" id="center" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_5.png); margin: 0px 4px">
                     </div>
-                    <div class="image-pattern-style" id="bottomCenter" style="background-image: url(./src/diagram/Images/annotation/Annotation_6.png);margin-left: 4px">
+                    <div class="image-pattern-style" id="bottomCenter" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_6.png);margin-left: 4px">
                     </div>
                 </div>
             </div>
@@ -548,7 +548,7 @@ function changed(value) {
             node.annotations[0].width = 25;
             node.annotations[0].height = 25;
             node.annotations[0].template =
-              '<img src="src/diagram/Images/annotation/' + templateData.value.toString() + '.svg" style="width:100%;height:100%" />';
+              '<img src="https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/' + templateData.value.toString() + '.svg" style="width:100%;height:100%" />';
           }
         } else if (value === 'interaction') {
           // Toggle interaction constraints of the annotation

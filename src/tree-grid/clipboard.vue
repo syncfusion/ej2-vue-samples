@@ -1,12 +1,11 @@
 <template>
-<div class="col-lg-12 control-section">
     <div id="action-description">
         <p>This sample demonstrates copy to clipboard functionality of the Grid component. Select rows and click Copy button from
         toolbar to copy content. To copy with header click Copy with header button from toolbar.
         </p>
     </div>
-    <div>
-       <div class="col-md-9 control-section">
+    <div  class="col-md-9 control-section">
+       <div>
            <ejs-treegrid ref='treegrid' id='treegrid' :dataSource='data' :height='350' childMapping='subtasks' :allowSelection='true' :treeColumnIndex='1' :allowPaging= 'true' :pageSettings='pageSettings' :selectionSettings="selectOptions"
          :toolbar='toolbar' :toolbarClick='clickHandler'>
             <e-columns>
@@ -18,7 +17,7 @@
         </ejs-treegrid>
       </div>
      <ejs-dialog :buttons='alertDlgButtons' ref="alertDialog" v-bind:visible="false" :header='alertHeader' :animationSettings='animationSettings' :content='alertContent' :showCloseIcon='showCloseIcon' :target='target'
-            :width='alertWidth'>
+            :width='alertWidth' :position='position'>
         </ejs-dialog>
     </div>
      <div class="col-md-3 property-section">
@@ -70,14 +69,14 @@
     </p>
     </div>
 
-</div>
+
 </template>
 <script lang="ts">
 import { TreeGridComponent, ColumnDirective, ColumnsDirective, Page, Toolbar } from "@syncfusion/ej2-vue-treegrid";
 import { DropDownListComponent, ChangeEventArgs, DropDownList} from "@syncfusion/ej2-vue-dropdowns";
 import { sampleData } from "./data-source";
 import { ClickEventArgs } from "@syncfusion/ej2-vue-navigations";
-import { DialogComponent } from '@syncfusion/ej2-vue-popups';
+import { DialogComponent, PositionDataModel } from '@syncfusion/ej2-vue-popups';
 
 export default {
   components: {
@@ -95,6 +94,7 @@ export default {
       target: '.control-section',
       alertWidth: '300px',
       animationSettings: { effect: 'None' },
+      position: { X: 'center', Y: 'center' } as PositionDataModel,      
       alertDlgButtons: [{ click: (((this as any)).alertDlgBtnClick as any), buttonModel: { content: 'OK', isPrimary: true } }],
       data: sampleData,
       selectOptions: { type: 'Multiple' },

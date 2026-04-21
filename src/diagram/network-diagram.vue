@@ -2,7 +2,7 @@
 <div class="control-section diagram-network">
   <div id="networkDiagram" style="width: 100%; height: 600px">
     <div class="sb-mobile-palette-bar">
-      <div id="palette-icon" role="button"  class="e-ddb-icons1 e-toggle-palette"></div>
+      <div id="palette-icon"  ref="paletteIcon" role="button"  class="e-ddb-icons1 e-toggle-palette"></div>
     </div>
     <div id="palette-space" ref="paletteSpace" class="sb-mobile-palette">
         <ejs-symbolpalette ref="paletteObj" id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'

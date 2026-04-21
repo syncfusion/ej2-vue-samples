@@ -1,12 +1,12 @@
 <template>
     <div class='control-section'>
         <div class="overview-blockeditor">
-          <ejs-blockeditor id='block-editor' :blocks="blocks" :users="users" :inlineToolbarSettings="inlineToolbarSettings"></ejs-blockeditor>
+          <ejs-blockeditor id='block-editor' :blocks="blocks" :users="users" :inlineToolbarSettings="inlineToolbarSettings" :imageBlockSettings="imageBlockSettings"></ejs-blockeditor>
         </div>
 
         <div id="action-description">
             <p>
-                This sample demonstrates the features of the <code>Block Editor</code> control. 
+                This sample demonstrates the features of the <code>Block Editor</code> component. 
                 It showcases various block types, content formatting options, and interactive editing capabilities.
             </p>
         </div>
@@ -42,8 +42,12 @@ export default {
         return {
             blocks: data['blockDataOverview'],
             users: data['users'],
+            imageBlockSettings: {
+                saveUrl: 'https://services.syncfusion.com/vue/production/api/RichTextEditor/SaveFile',
+                path: 'https://services.syncfusion.com/vue/production/RichTextEditor/'
+            },
             inlineToolbarSettings: {
-                items: [ 'Bold', 'Italic', 'Underline', 'Strikethrough', 'Uppercase', 'Lowercase', 'Subscript', 'Superscript', 'Color', 'Backgroundcolor' ]
+                items: [ 'Transform' ,'Bold', 'Italic', 'Underline', 'Strikethrough', 'Uppercase', 'Lowercase', 'Subscript', 'Superscript', 'InlineCode', 'Link', 'Color', 'Backgroundcolor' ]
             }
         }
     }
@@ -54,6 +58,18 @@ export default {
     .overview-blockeditor {
         width: 100%;
         margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+        .overview-blockeditor table {
+            width: 100%;
+            table-layout: fixed;
+            overflow-x: auto;
+        }
+   }
+
+   .overview-blockeditor .e-blockeditor {
+        min-height: 400px;
     }
 
 </style>

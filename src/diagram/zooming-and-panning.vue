@@ -176,6 +176,7 @@ export default {
            // Pan tool action
            case 'Pan Tool':
            diagramInstance.tool = DiagramTools.ZoomPan;
+           diagramInstance.clearSelection();
              break;
            // Select action
            case 'Select':

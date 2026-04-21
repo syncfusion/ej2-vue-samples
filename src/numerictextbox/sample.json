@@ -3,7 +3,6 @@
     "directory": "numerictextbox",
     "category": "Inputs",
     "ftName": "numerictextbox",
-    "type": "update",
     "samples": [
         {
             "url": "default",
@@ -39,7 +38,6 @@
             "url": "adornments",
             "name": "Adornments",
             "category": "Numeric Textbox",
-            "type": "new",
             "description": "The example exposes a Vue Numeric TextBox with adornments support. It helps to render custom elements before or after the input element."
         }
 

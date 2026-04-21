@@ -32,7 +32,7 @@
                     <div class="form-group" style="padding-top: 11px;">
                             <div class="e-float-input upload-area">
                                 <input type="text" id="upload" name="upload" readonly="" data-required-message="* Select any file" required="" data-msg-containerid="uploadError"> 
-                                <ejs-uploader id='fileupload' name="UploadFiles" :autoUpload= "isAuto" :selected= "onFileSelect"
+                                <ejs-uploader id='fileupload' name="UploadFiles" :autoUpload= "isAuto" :selected= "onFileSelect" :failure="onFailure"
                                  allowedExtensions= "image/*" :dropArea = "dropElement" :multiple= 'false' cssClass='uploader-form-support' ></ejs-uploader>
                                 <button id="browse" class="e-control e-btn e-info">Browse...</button>
                                 <span class="e-float-line"></span>
@@ -288,6 +288,11 @@ export default {
         onFileSelect: function(args) {
             let inputElement = document.getElementById('upload');
             inputElement.value = args.filesData[0].name;
+        },
+        onFailure: function(args) {
+            if (args.response && args.response.statusText !== '') {
+                args.statusText = args.response.statusText;
+            }
         },
     }
 };

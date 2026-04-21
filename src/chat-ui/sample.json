@@ -1,6 +1,5 @@
 {
     "name": "Chat UI",
-    "type": "update",
     "directory": "chat-ui",
     "category": "Interactive Chat",
     "ftName": "chat-ui",
@@ -31,7 +30,6 @@
             "url": "attachments",
             "name": "File Attachments",
             "category": "Chat UI",
-            "type": "new",
             "api":{ "ChatUI": ["user", "attachmentSettings", "enableAttachments", "headerText", "headerIconCss", "emptyChatTemplate", "headerToolbar", "messages"] },
             "description": "Showcases the chat component integration with other Chat UI control",
             "sourceFiles": [

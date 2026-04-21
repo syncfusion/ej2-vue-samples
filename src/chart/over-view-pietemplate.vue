@@ -1,6 +1,6 @@
 <template>
     <div id="app" style='height:100%; width:100%;'>
-         <ejs-accumulationchart class="chart-content" :theme='theme' ref="accumulationInstance" :textRender='onTextRender' style='height:100%; width:100%;' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableBorderOnMouseMove='false' enableSmartLables='false' :pointRender="onPointRender"> 
+         <ejs-accumulationchart class="chart-content" :theme='theme' :load="load" ref="accumulationInstance" :textRender='onTextRender' style='height:100%; width:100%;' :legendSettings="legendSettings" :tooltip="tooltip" :enableAnimation='enableAnimation' :enableBorderOnMouseMove='false' enableSmartLables='false' :pointRender="onPointRender"> 
             <e-accumulation-series-collection>
                 <e-accumulation-series startAngle=270 endAngle=270 :palettes='palettes' :dataSource='seriesData' xName='Product' yName='Percentage' innerRadius="40%" radius="75%" :dataLabel="dataLabel" :border='border' > </e-accumulation-series>
             </e-accumulation-series-collection>
@@ -49,6 +49,9 @@ export default {
      accumulationchart: [PieSeries, AccumulationDataLabel, AccumulationTooltip]
   },
   methods: {
+    load(args) {
+      loadAccumulationChartTheme(args);
+    },
     onTextRender: function (args) {
       let selectedTheme = location.hash.split('/')[1];
       selectedTheme = selectedTheme ? selectedTheme : 'Fluent2';

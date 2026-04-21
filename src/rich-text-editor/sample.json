@@ -21,7 +21,6 @@
             "url": "ai-assistant",
             "name": "AI Assistant",
             "category":"Rich Text Editor",
-            "type": "new",
             "description": "This demo showcases the Built in AI Assistant interface of the Vue Rich Text Editor component.",
             "sourceFiles": [
                 { "displayName": "ai-assistant.vue", "path": "src/rich-text-editor/ai-assistant.vue" },
@@ -32,6 +31,7 @@
             "url": "image",
             "name": "Image",
             "category": "Rich Text Editor",
+            "type": "update",
             "description": "This demo explains how to insert images with a blob or base64 format, link to the images, image upload, rotate left/right, and more in vue WYSIWYG HTML Editor."
         },
         {

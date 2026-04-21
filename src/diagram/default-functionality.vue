@@ -59,10 +59,9 @@
           class="e-ddb-icons1 e-toggle-palette"
         ></div>
       </div>
-      <div id="palette-space" class="sb-mobile-palette">
+      <div id="palette-space" class="sb-mobile-palette" ref="paletteSpace">
         <ejs-symbolpalette
           id="symbolpalette"
-          ref="paletteSpace"
           :expandMode="expandMode"
           :palettes="palettes"
           :width="palettewidth"
@@ -92,7 +91,6 @@
           :selectionChange="selectionChange"
           :historyChange="historyChange"
           :snapSettings="snapSettings"
-          :created="created"
           :drawingObject="drawingObject"
         ></ejs-diagram>
       </div>
@@ -569,9 +567,6 @@ export default {
         horizontalGridlines: gridlines,
         verticalGridlines: gridlines,
       },
-      created: (args) => {
-        addEvents();
-      },
       getNodeDefaults: (node) => {
         return getNodeDefaults(node);
       },
@@ -681,18 +676,18 @@ export default {
           var obj = selectedItems[0];
           if (obj instanceof Node) {
               if (obj.constraints === (NodeConstraints.PointerEvents | NodeConstraints.Select | NodeConstraints.ReadOnly)) {
-                updateToolbarItems(["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects"], true);
+                updateToolbarItems(["Cut","Copy","Delete","orderCommands","rotateObjects","flipObjects"], true);
               }
               else {
-                enableItems();
+                updateToolbarItems( ["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects",],false);
               }
           }
           else if (obj instanceof Connector) {
               if (obj.constraints === (ConnectorConstraints.PointerEvents | ConnectorConstraints.Select | ConnectorConstraints.ReadOnly)) {
-              updateToolbarItems(["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects"], true);
+              updateToolbarItems(["Cut","Copy","Delete","orderCommands","rotateObjects","flipObjects"], true);
               }
               else {
-                enableItems();
+                updateToolbarItems( ["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects",],false);
               }
           }
         }
@@ -1080,9 +1075,10 @@ export default {
   mounted: function () {
     diagram = this.$refs.diagramObject.ej2Instances;
     toolbarEditor = this.$refs.toolbar_diagram.ej2Instances;
-    paletteIcon = this.$refs.paletteIcon.ej2Instances;
-    paletteSpace = this.$refs.paletteSpace.ej2Instances;
+    paletteIcon = this.$refs.paletteIcon;
+    paletteSpace = this.$refs.paletteSpace;
     diagram.fitToPage();
+    addEvents();
   },
 };
 
@@ -1126,7 +1122,34 @@ function disableMultiselectedItems() {
 
 //To enable toolbar Items
 function enableItems(){
-  updateToolbarItems( ["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects",],false);
+  var selectedItems = diagram.selectedItems.nodes;
+  selectedItems = selectedItems.concat(diagram.selectedItems.connectors);
+  let isSelectedItemLocked;
+  if (selectedItems) {
+    var obj = selectedItems[0];
+    if (obj instanceof Node) {
+        if (obj.constraints === (NodeConstraints.PointerEvents | NodeConstraints.Select | NodeConstraints.ReadOnly)) {
+          isSelectedItemLocked = true;
+        }
+        else {
+          isSelectedItemLocked = false;
+        }
+    }
+    else if (obj instanceof Connector) {
+        if (obj.constraints === (ConnectorConstraints.PointerEvents | ConnectorConstraints.Select | ConnectorConstraints.ReadOnly)) {
+          isSelectedItemLocked = true;
+        }
+        else {
+          isSelectedItemLocked = false;
+        }
+    }
+    if (!isSelectedItemLocked) {
+      updateToolbarItems(["Cut","Copy","Lock","Delete","orderCommands","rotateObjects","flipObjects"], false);
+    }
+    else{
+      updateToolbarItems(["Lock"], false);
+    }
+  }
 }
 
 //To Print diagram

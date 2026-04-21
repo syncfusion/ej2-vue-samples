@@ -3,6 +3,7 @@
         <div class="control-section">
             <img src="src/ai-kanban/images/sentiment-analysis.gif" width="100%" height="100%" />
         </div>
+        <AIToast />
         <div id="action-description">
             <p>This sample demonstrates the integration of AI to automatically generate emoticon expressions based on
                 customer

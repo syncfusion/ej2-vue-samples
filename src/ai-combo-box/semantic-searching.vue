@@ -7,6 +7,7 @@
         height="100%"
       />
     </div>
+    <AIToast />
     <div id="action-description">
       <p>
         This demo highlights the advanced capabilities of the Syncfusion

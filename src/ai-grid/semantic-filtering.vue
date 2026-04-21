@@ -7,6 +7,7 @@
         height="100%"
       />
     </div>
+    <AIToast />
     <div id="action-description">
       <p>This sample demonstrates how the syncfusion Vue DataGrid, integrated with AI, supports Semantic Search.
     </p>

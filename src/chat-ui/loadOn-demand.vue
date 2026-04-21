@@ -14,36 +14,49 @@
     </div>   
 </template>
 
+<script>
 
-<script setup>
-import { ChatUIComponent as EjsChatui } from "@syncfusion/ej2-vue-interactive-chat";
+import { ChatUIComponent } from '@syncfusion/ej2-vue-interactive-chat';
 
-const currentUser = {
-  id: "user1",
-  user: "Albert"
-};
+export default {
+    components: {
+        "ejs-chatui": ChatUIComponent
+    },
+    data: function() {
+        return {
+            currentUser: {
+                id: "user1",
+                user: "Albert"
+            },
+            michaleUser: {
+                id: "user2",
+                user: "Michale Suyama",
+                avatarUrl: "src/chat-ui/images/andrew.png"
+            },
+            chatMessages: []
+        }
+    },
+    created() {
+        let baseDate = new Date();
+        baseDate.setDate(baseDate.getDate() - 3);
+        const dayIncrement = 24 * 60 * 60 * 1000;
+        const authorNames = ["Albert", "Michale"];
 
-const michaleUser = {
-  id: "user2",
-  user: "Michale Suyama",
-  avatarUrl: "src/chat-ui/images/andrew.png"
-};
+        for (let i = 1; i <= 200; i++) {
+            if (i % 50 === 1 && i !== 1) {
+                baseDate = new Date(baseDate.getTime() + dayIncrement);
+            }
 
-let chatMessages = [];
-let baseDate = new Date();
-baseDate.setDate(baseDate.getDate() - 3);
-let dayIncrement = 24 * 60 * 60 * 1000;
-let authorNames = ["Albert", "Michale"];
-for (let i = 1; i <= 200; i++) {
-    if (i % 50 === 1 && i !== 1) {
-        baseDate = new Date(baseDate.getTime() + dayIncrement);
+            const authorIndex = i % 2;
+            this.chatMessages.push({
+                text: `Message ${i} from ${authorNames[authorIndex]}`,
+                author: authorIndex === 0 ? this.currentUser : this.michaleUser,
+                timeStamp: new Date(
+                baseDate.getTime() - (200 * 60 * 1000) + (i * 60 * 1000)
+                )
+            });
+        }
     }
-    let authorIndex = i % 2;
-  chatMessages.push({
-    text: 'Message ' + i + ' from ' + authorNames[authorIndex],
-    author: authorIndex === 0 ? currentUser: michaleUser,
-    timeStamp: new Date((baseDate.getTime() - ((200 * 60 * 1000)) + ((60 * 1000) * i)))
-  });
 }
 </script>
 

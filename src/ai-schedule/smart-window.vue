@@ -3,6 +3,7 @@
         <div class="control-section">
             <img src="src/ai-schedule/images/schedule.gif" width="100%" height="100%" />
         </div>
+        <AIToast />
         <div id="action-description">
             <p>
         This demo demonstrates how AI can be utilized to convert natural language context into scheduler events. It allows for seamless conversion of casual text into structured meeting appointments, enhancing user experience and efficiency.

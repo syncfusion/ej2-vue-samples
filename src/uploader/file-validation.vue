@@ -3,7 +3,7 @@
     <div class="col-lg-12 control-section uploader-preload validation">
         <div class="control_wrapper">
             <ejs-uploader id='validation' name="UploadFiles" :autoUpload= "autoUpload" :asyncSettings= "path" ref="uploadObj" :allowedExtensions = "extensions" :dropArea= "dropElement"  minFileSize=10000 maxFileSize=4000000
-            :selected= "onFileSelect" :removing= "onFileRemove"> 
+            :selected= "onFileSelect" :removing= "onFileRemove" :failure="onFailure"> 
             </ejs-uploader>
         </div>
     </div>
@@ -78,7 +78,12 @@ export default {
 
         onFileRemove: function (args) {
             args.postRawFile = false;
-        }
+        },
+        onFailure: function(args) {
+            if (args.response && args.response.statusText !== '') {
+                args.statusText = args.response.statusText;
+            }
+        },
     }
 };
 </script>

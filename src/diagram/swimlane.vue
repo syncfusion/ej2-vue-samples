@@ -2,10 +2,10 @@
   <div class="control-section diagram-swimlane">
     <link href="https://ej2.syncfusion.com/javascript/demos/src/diagram/styles/diagram-common.css" rel="stylesheet">
     <div id="swimlaneDiagram" style="width: 100%;">
-      <div class="sb-mobile-palette-bar">
+      <div class="sb-mobile-palette-bar" ref="paletteIcon">
         <div id="palette-icon" style="float: right;" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
       </div>
-      <div id="palette-space" class="sb-mobile-palette">
+      <div id="palette-space" class="sb-mobile-palette" ref="paletteSpace">
         <!-- Configures the symbolpalette with dynamic properties and settings -->
         <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight' :symbolWidth='symbolWidth' :getConnectorDefaults='getConnectorDefaults' :getNodeDefaults='getNodeDefaults'></ejs-symbolpalette>
       </div>
@@ -62,9 +62,9 @@
             }
             .diagram-swimlane .sb-mobile-diagram {
                 width: 100%;
-                height: 100%;
+                /* height: 100%;
                 float: left;
-                left: 0px;
+                left: 0px; */
             }
             .diagram-swimlane .sb-mobile-palette-bar {
                 display: block;
@@ -77,6 +77,11 @@
             .diagram-swimlane #palette-icon {
                 font-size: 20px;
             }
+        }
+        .diagram-swimlane .sb-mobile-palette-open {
+          position: absolute;
+          display: block;
+          right: 15px;
         }
     </style>
 <script>
@@ -93,7 +98,8 @@ import {
    randomId,
   cloneObject,
 } from "@syncfusion/ej2-vue-diagrams";
-
+let paletteSpace;
+let paletteIcon;
 let pathData = 'M 120 24.9999 C 120 38.8072 109.642 50 96.8653 50 L 23.135' +
   ' 50 C 10.3578 50 0 38.8072 0 24.9999 L 0 24.9999 C' +
   '0 11.1928 10.3578 0 23.135 0 L 96.8653 0 C 109.642 0 120 11.1928 120 24.9999 Z';
@@ -419,7 +425,7 @@ let palettes = [
         id: 'verticalPhase', addInfo: { tooltip: 'Vertical phase' },
         shape: {
           type: 'SwimLane',
-          phases: [{ style: { strokeWidth: 1, strokeDashArray: '3,3' }, }],
+          phases: [{ style: { strokeWidth: 1 } }],
           annotations: [{ text: '' }],
           orientation: 'Vertical', isPhase: true
         },
@@ -430,7 +436,7 @@ let palettes = [
         id: 'horizontalPhase', addInfo: { tooltip: 'Horizontal phase' },
         shape: {
           type: 'SwimLane',
-          phases: [{ style: { strokeWidth: 1, strokeDashArray: '3,3' }, }],
+          phases: [{ style: { strokeWidth: 1 } }],
           annotations: [{ text: '' }],
           orientation: 'Horizontal', isPhase: true
         },
@@ -525,7 +531,7 @@ export default {
       contextMenuClick: contextMenuClick,
       getSymbolInfo:getSymbolInfo,
       dragEnter:dragEnter,
-      selectedItems, selectedItems,
+      selectedItems: selectedItems,
       expandMode: "Multiple",
       palettes: palettes,
       palettewidth: "100%",
@@ -535,7 +541,31 @@ export default {
     };
   }, mounted: function() {
     diagram = this.$refs.diagramObject.ej2Instances;
+    paletteIcon = this.$refs.paletteIcon;
+    paletteSpace = this.$refs.paletteSpace;
     diagram.fitToPage();
+    addEvents();
+  }
+}
+//Adds EventListener based on device's viewport width.
+function addEvents() {
+  var isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    if (paletteIcon) {
+      paletteIcon.addEventListener("click", openPalette, false);
+    }
+  }
+}
+
+//Toggles the visibility of the palette space on mobile devices when the palette icon is clicked.
+function openPalette() {
+  var isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    if (!paletteSpace.classList.contains("sb-mobile-palette-open")) {
+      paletteSpace.classList.add("sb-mobile-palette-open");
+    } else {
+      paletteSpace.classList.remove("sb-mobile-palette-open");
+    }
   }
 }
 </script>

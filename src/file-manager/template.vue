@@ -531,6 +531,14 @@ export default {
   display: contents;
 }
 
+.tailwind3 .e-filemanager.e-fm-template-sample .e-treeview .e-text-content,
+.tailwind3-dark .e-filemanager.e-fm-template-sample .e-treeview .e-text-content {
+    top: 0;
+}
+.e-filemanager.e-fm-template-sample .e-treeview .e-list-text {
+    display: inline-flex;
+}
+
 /* Background images: adjust paths to your project if needed */
 .background-folder { background-image: url('../../styles/images/folders.svg'); }
 .background-png { background-image: url('../../styles/images/image-png.svg'); }

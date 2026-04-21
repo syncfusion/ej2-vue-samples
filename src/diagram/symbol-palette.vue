@@ -2,11 +2,10 @@
     <div class="diagram-palette">
         <div class="control-section">
             <div style="width: 100%;" class="diagram-symbolpalette">
-                <div class="palette-column">
-                    <div class="sb-mobile-palette-bar">
-                        <div id="palette-icon" ref="paletteIcon" role="button" class="e-ddb-icons1 e-toggle-palette">
-                        </div>
-                    </div>
+                <div class="sb-mobile-palette-bar">
+                    <div id="palette-icon" ref="paletteIcon" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
+                </div>
+                <div class="palette-column sb-mobile-palette" ref="paletteSpace">
                     <ejs-symbolpalette id="symbolpalette" ref="paletteObj" :palettes="palettes" :expandMode="expandMode"
                         :width="width" :height="height" :getConnectorDefaults="getConnectorDefaults"
                         :getNodeDefaults="getSymbolDefaults" :enableAnimation='enableAnimation'
@@ -130,7 +129,7 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
   /* These styles are used for toolbar icons*/
   @font-face {
     font-family: 'e-ddb-icons';
@@ -173,7 +172,20 @@
     overflow: auto;
     min-width: 22%
   }
+  .diagram-symbolpalette .sb-mobile-palette {
+        width:240px;
+        height:100%;
+        float:left;
+  }
+  .diagram-symbolpalette .sb-mobile-palette-bar {
+        display: none;
+  }
 
+  .diagram-symbolpalette .sb-mobile-diagram {
+    width: calc(100% - 242px);
+    height: 100%;
+    float: left;
+  }
   .palette-property-panel-content table tr td div {
      padding-top: 18px;
      padding-bottom: 15px;
@@ -215,9 +227,42 @@
     padding-left: 10px;
     padding-top: 0px;
   }
-  .sb-mobile-diagram {
-  border: 1px solid #d9dedd;
-}
+
+  @media (max-width: 550px) {
+    .diagram-symbolpalette .sb-mobile-palette-bar {
+      display: block;
+      width: 100%;
+      background:#fafafa;
+      padding: 10px 10px;
+      border:0.5px solid #e0e0e0;
+      min-height: 40px;
+    }
+    .diagram-symbolpalette .sb-mobile-palette {
+        z-index: 19;
+        position: absolute;
+        display: none;
+        transition: transform 300ms linear, visibility 0s linear 300ms;
+        width:39%;
+        height:100%;
+    }
+    .diagram-symbolpalette .sb-mobile-diagram {
+        width: 100%;
+        height: 100%;
+        float: left;
+        left: 0px;
+    }
+    .diagram-symbolpalette #palette-icon {
+      font-size: 20px;
+    }
+    .diagram-symbolpalette .sb-mobile-palette-open {
+      position: absolute;
+      display: block;
+      right: 15px;
+    }
+    .diagram-column {
+      width: 100% !important;
+    }
+  }
 </style>
 <script>
   import { createApp } from "vue";
@@ -302,6 +347,8 @@
   let symbolSize = 50;
   let htmlSymbolWidth = 91;
   let htmlSymbolHeight = 100;
+  let paletteIconInstance;
+  let paletteSpaceInstance;
   export default {
     components: {
       "ejs-diagram": DiagramComponent,
@@ -502,6 +549,10 @@
       size = this.$refs.sizeObj.ej2Instances;
       expand = this.$refs.expandObj.ej2Instances;
       palette.dataBind();
+
+      paletteIconInstance = this.$refs.paletteIcon;
+      paletteSpaceInstance = this.$refs.paletteSpace;
+      addEvents();
     },
   };
 
@@ -614,6 +665,23 @@
           <div style="font-size:10px;margin-left:5px;">Puducherry</div>
           <div style="font-size:8px; color:#666;margin-left:5px;">Humidity: 60%</div>
       </div>`
+    }
+  }
+  // Mobile palette toggle event binding
+  function addEvents() {
+    const isMobile = window.matchMedia('(max-width:550px)').matches;
+    if (isMobile && paletteIconInstance) {
+      paletteIconInstance.addEventListener('click', openPalette, false);
+    }
+  }
+
+  function openPalette() {
+    const isMobile = window.matchMedia('(max-width:550px)').matches;
+    if (!isMobile || !paletteSpaceInstance) { return; }
+    if (!paletteSpaceInstance.classList.contains('sb-mobile-palette-open')) {
+      paletteSpaceInstance.classList.add('sb-mobile-palette-open');
+    } else {
+      paletteSpaceInstance.classList.remove('sb-mobile-palette-open');
     }
   }
 </script>

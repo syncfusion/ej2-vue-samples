@@ -3,14 +3,14 @@
   <div class="control-section" id="pivot-table-section" style="overflow: initial">
     <input ref="connectFile" type="file" id="connectFile" style="display:none" />
 
-    <ejs-dialog :visible="isDialogOpen && dialogType !== 'OLAP'" :isModal="true"
+    <ejs-dialog :visible="isDialogOpen && dialogLabel !== 'OLAP'" :isModal="true"
       :showCloseIcon="true" width="480px"
-      :header="dialogType === 'JSON Report' ? 'Load Pivot Report' : ('Connect to ' + dialogType)"
+      :header="dialogLabel === 'JSON Report' ? 'Load Pivot Report' : ('Connect to ' + (dialogLabel || dialogType))"
       target="body" :closeOnEscape="true"
       :position="{ X: 'center', Y: 'center' }" :animationSettings="{ effect: 'Zoom', duration: 150 }"
       @overlayClick="onCloseDialog" @close="onCloseDialog">
       <div style="display:flex;flex-direction:column;gap:12px">
-        <input type="text" class="e-input" :placeholder="'Enter ' + dialogType + ' URL'" v-model="remoteUrl"
+        <input type="text" class="e-input" :placeholder="'Enter ' + (dialogLabel || dialogType) + ' URL'" v-model="remoteUrl"
           @keydown.enter.prevent="handleOpenRemote" autofocus />
         <div style="display:flex;justify-content:flex-end;gap:8px">
           <ejs-button cssClass="e-primary" @click="handleOpenRemote">Open</ejs-button>
@@ -22,16 +22,16 @@
     <ejs-dialog :visible="isErrorDialogOpen" :isModal="true" :showCloseIcon="true"
       width="420px" header="Error" target="body" :closeOnEscape="true"
       :position="{ X: 'center', Y: 'center' }"
-      :animationSettings="{ effect: 'Fade', duration: 120 }" @overlayClick="() => (isErrorDialogOpen = false)" @close="() => (isErrorDialogOpen = false)">
+      :animationSettings="{ effect: 'Fade', duration: 120 }" @overlayClick="closeErrorDialog" @close="closeErrorDialog">
       <div style="display:flex;flex-direction:column;gap:12px">
         <p class="error-message">{{ errorMessage }}</p>
         <div style="display:flex;justify-content:flex-end">
-          <ejs-button cssClass="e-primary" @click="() => (isErrorDialogOpen = false)">OK</ejs-button>
+          <ejs-button cssClass="e-primary" @click="closeErrorDialog">OK</ejs-button>
         </div>
       </div>
     </ejs-dialog>
 
-    <ejs-dialog :visible="isDialogOpen && dialogType === 'OLAP'" :isModal="true"
+    <ejs-dialog :visible="isDialogOpen && dialogLabel === 'OLAP'" :isModal="true"
       :showCloseIcon="true" width="620px" header="Connect to OLAP(XMLA)" target="body"
       :closeOnEscape="true" :position="{ X: 'center', Y: 'center' }"
       :animationSettings="{ effect: 'Zoom', duration: 150 }" @overlayClick="onCloseDialog" @close="onCloseDialog">
@@ -83,7 +83,7 @@
     </ejs-pivotview>
   </div>
 
-  <div id="action-description">
+<div id="action-description">
     <p>This sample showcases how to dynamically load data from multiple data sources in the Pivot Table, including
       local and remote JSON/CSV files, as well as an OLAP(XMLA) data source via customized toolbar menu options.
       Additionally, you can save and reload Pivot Table report(s) as JSON files for future analysis.</p>
@@ -222,9 +222,9 @@ data() {
       ]
     } as IDataOptions,
     toolbarOptions: ['Grid', 'Chart', 'Export', 'SubTotal', 'GrandTotal', 'Formatting', 'FieldList'] as any,
-    // dialog state
     isDialogOpen: false,
-    dialogType: '', // 'CSV' | 'JSON' | 'report' | 'olap'
+    dialogType: '', // internal: 'CSV' | 'JSON'
+    dialogLabel: '', // presentation label: can be 'JSON Report' or 'CSV' or 'OLAP'
     olapDialogKey: 0,
     remoteUrl: '',
     isErrorDialogOpen: false,
@@ -253,7 +253,8 @@ data() {
   };
 },
 methods: {
-  onCloseDialog() { (this as any).isDialogOpen = false; (this as any).dialogType = ''; },
+  onCloseDialog() { (this as any).isDialogOpen = false; (this as any).dialogType = ''; (this as any).dialogLabel = ''; },
+  closeErrorDialog() { (this as any).isErrorDialogOpen = false; (this as any).errorMessage = ''; },
   // CSV util
   parseCSV(csvString: string): string[][] {
     const lines = csvString.split(/\r?\n|\r/).filter(l => l.trim());
@@ -333,8 +334,15 @@ methods: {
           (reportSettings as any).type = pivot.dataSourceSettings.type || 'JSON';
         }
       }
-      entireReportSettings.dataSourceSettings.dataSource = dataSource;
-      pivot.loadPersistData(JSON.stringify(entireReportSettings));
+      try {
+        if (entireReportSettings && entireReportSettings.dataSourceSettings) {
+          pivot.loadPersistData(JSON.stringify(entireReportSettings));
+        } else {
+          pivot.dataSourceSettings = { ...reportSettings };
+        }
+      } catch {
+        pivot.dataSourceSettings = reportSettings;
+      }
       pivot.refresh();
       (this as any).shouldAutoConfig = false;
     }
@@ -363,12 +371,29 @@ methods: {
         } else {
           const raw = String(evt.target?.result ?? '');
           const parsed = JSON.parse(raw);
-          const unwrappedData = (parsed && typeof parsed === 'object' && 'record' in parsed) ? (parsed as any).record : parsed;
-          const looksLikeReport = !Array.isArray(unwrappedData) && (unwrappedData?.dataSourceSettings || unwrappedData?.rows || unwrappedData?.columns || unwrappedData?.values || unwrappedData?.url || unwrappedData?.providerType);
-          const pivotRef: any = (this.$refs as any).pivot?.ej2Instances;
+          const unwrap = (obj: any) => {
+            if (!obj || typeof obj !== 'object') return obj;
+            if ('record' in obj) return obj.record;
+            if ('data' in obj) return obj.data;
+            if ('result' in obj) return obj.result;
+            if ('content' in obj) return obj.content;
+            if ('rows' in obj && Array.isArray(obj.rows)) return obj.rows;
+            return obj;
+          };
+          const unwrappedData = unwrap(parsed);
+          const looksLikeReport =
+            !Array.isArray(unwrappedData) &&
+            (unwrappedData?.dataSourceSettings ||
+              unwrappedData?.rows ||
+              unwrappedData?.columns ||
+              unwrappedData?.values ||
+              unwrappedData?.url ||
+              unwrappedData?.providerType);
+
           if (looksLikeReport) {
             const reportSettings = (unwrappedData as any).dataSourceSettings ?? unwrappedData;
             const isOlapReport = (reportSettings as any)?.providerType === 'SSAS';
+            const pivotRef: any = (this.$refs as any).pivot?.ej2Instances;
             if (pivotRef) this.resetPivot();
             if (pivotRef) await this.applyReportSettings(pivotRef, reportSettings, isOlapReport, parsed);
             return;
@@ -449,7 +474,6 @@ methods: {
     };
     try {
       const persisted = pivot.getPersistData();
-      let dataSourceSettingsOnly: any = {};
       let parsed: any;
       try {
         parsed = JSON.parse(persisted);
@@ -459,9 +483,8 @@ methods: {
           parsed.dataSourceSettings.dataSource = []; 
         }
         parsed.pivotValues = [] as any;
-        dataSourceSettingsOnly = parsed?.dataSourceSettings ?? pivot.dataSourceSettings ?? {};
       } catch {
-        dataSourceSettingsOnly = pivot.dataSourceSettings ?? {};
+        parsed = pivot.dataSourceSettings ?? {};
       }
       const json = JSON.stringify(parsed, null, 2);
       download(json, 'application/json', 'pivot.json');
@@ -485,7 +508,8 @@ methods: {
       return;
     }
     if (itemId === 'remote_report') {
-      (this as any).dialogType = 'JSON Report';
+      (this as any).dialogType = 'JSON';
+      (this as any).dialogLabel = 'JSON Report';
       (this as any).remoteUrl = 'https://api.jsonbin.io/v3/b/6912d9ecd0ea881f40e12335';
       (this as any).isDialogOpen = true;
       return;
@@ -510,6 +534,7 @@ methods: {
     if (itemId === 'remote_csv' || itemId === 'remote_json') {
       const type = itemId === 'remote_csv' ? 'CSV' : 'JSON';
       (this as any).dialogType = type;
+      (this as any).dialogLabel = type;
       (this as any).remoteUrl = (this as any).defaultUrls[type as 'CSV' | 'JSON'] || '';
       (this as any).isDialogOpen = true;
       return;
@@ -517,6 +542,7 @@ methods: {
     if (itemId === 'olap') {
       (this as any).olapDialogKey++;
       (this as any).dialogType = 'OLAP';
+      (this as any).dialogLabel = 'OLAP';
       (this as any).isDialogOpen = true;
       (this as any).olapConnected = false;
       (this as any).olapUiMessage = '';
@@ -649,16 +675,32 @@ methods: {
       const res = await fetch(cleanUrl, { cache: 'no-store' });
       if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
       const jsonData: any = await res.json();
-      const unwrapped = (jsonData && typeof jsonData === 'object' && 'record' in jsonData) ? jsonData.record : jsonData;
-      const looksLikeReport = !Array.isArray(unwrapped) && (unwrapped?.dataSourceSettings || unwrapped?.rows || unwrapped?.columns || unwrapped?.values || unwrapped?.url || unwrapped?.providerType);
-      const pivot: any = (this.$refs as any).pivot?.ej2Instances;
+      const unwrap = (obj: any) => {
+        if (!obj || typeof obj !== 'object') return obj;
+        if ('record' in obj) return obj.record;
+        if ('data' in obj) return obj.data;
+        if ('result' in obj) return obj.result;
+        if ('content' in obj) return obj.content;
+        if ('rows' in obj && Array.isArray(obj.rows)) return obj.rows;
+        return obj;
+      };
+      const unwrappedData = unwrap(jsonData);
+      const looksLikeReport =
+        !Array.isArray(unwrappedData) &&
+        (unwrappedData?.dataSourceSettings ||
+          unwrappedData?.rows ||
+          unwrappedData?.columns ||
+          unwrappedData?.values ||
+          unwrappedData?.url ||
+          unwrappedData?.providerType);
       if (looksLikeReport) {
-        const reportSettings = (unwrapped as any).dataSourceSettings ?? unwrapped;
+        const reportSettings = (unwrappedData as any).dataSourceSettings ?? unwrappedData;
         const isOlapReport = (reportSettings as any)?.providerType === 'SSAS';
         this.resetPivot();
-        if (pivot) { await this.applyReportSettings(pivot, reportSettings, isOlapReport, unwrapped); return; }
+        const pivot = (this.$refs as any).pivot?.ej2Instances;
+        if (pivot) { await this.applyReportSettings(pivot, reportSettings, isOlapReport, unwrappedData); return; }
       }
-      const arr = Array.isArray(unwrapped) ? unwrapped : (unwrapped?.data ?? unwrapped);
+      const arr = Array.isArray(unwrappedData) ? unwrappedData : (unwrappedData?.data ?? unwrappedData);
       if (!Array.isArray(arr) || arr.length === 0 || typeof arr[0] !== 'object') {
         throw new Error('Invalid JSON: Provide a saved report or a non-empty array of objects (or under "data").');
       }
@@ -673,10 +715,11 @@ methods: {
       return;
     }
     try {
-      await this.loadRemoteAndBind(this.dialogType as 'CSV' | 'JSON', this.remoteUrl);
+      const kind = (this as any).dialogType as 'CSV' | 'JSON';
+      await this.loadRemoteAndBind(kind, this.remoteUrl);
       (this as any).isDialogOpen = false;
     } catch (err: any) {
-      (this as any).errorMessage = `Failed to load remote ${this.dialogType}: ${err.message}\n\nTip: Ensure the URL is accessible and allows CORS for your origin.`;
+      (this as any).errorMessage = `Failed to load remote ${(this as any).dialogLabel || (this as any).dialogType}: ${err.message}\n\nTip: Ensure the URL is accessible and allows CORS for your origin.`;
       (this as any).isDialogOpen = false;
       (this as any).isErrorDialogOpen = true;
     }
@@ -739,11 +782,6 @@ provide: {
 .e-pivotview {
 width: 100%;
 height: 100%;
-}
-
-.sb-sample-content-area,
-.control-section {
-min-height: 255px !important;
 }
 
 .e-connect-report::before,

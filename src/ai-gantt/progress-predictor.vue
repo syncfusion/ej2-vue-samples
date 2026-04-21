@@ -3,6 +3,7 @@
         <div class="control-section">
             <img src="src/ai-gantt/images/progress-predictor.gif" width="100%" height="100%" />
         </div>
+        <AIToast />
         <div id="action-description">
             <p>This sample showcases how to predict milestone task completion and project end dates using AI-driven
                 analysis

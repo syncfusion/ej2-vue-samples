@@ -23,34 +23,39 @@
         <div class="col-md-4 property-section">
         <table id="property" title="Properties" style="width: 100%">
         <colgroup>
-            <col style="width:30%" />
-            <col style="width:70%" />
+            <col style="width:35%" />
+            <col style="width:65%" />
         </colgroup>
         <tr>
-            <td style="width: 30%">
+            <td style="width: 35%">
+                <div>Timeline Range</div>
+            </td>
+            <td style="width: 65%;">
+                <div>
+                    <ejs-daterangepicker ref = timelineDateRange id="timelineDateRange" :startDate='startDateValue' :endDate='endDateValue' :change='changeDateRange'></ejs-daterangepicker>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 35%">
                 <div>Timeline Unit Size</div>
             </td>
-            <td style="width: 70%;">
+            <td style="width: 65%;">
                 <div>
                     <ejs-numerictextbox ref='unitWidth' id="unitWidth" :min='10' format='##' :value='33' :change='unitWidthChange'></ejs-numerictextbox>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
-                <div><b>Top tier</b></div>
-            </td>
-            <td style="width: 70%">
-                <div>
-                    <ejs-checkbox ref='topTierCheckbox' class='checkbox' id='topTierCheck' :checked="true" :change="topTierCick"></ejs-checkbox>
-                </div>
+            <td colspan="2" style="width: 35%">
+                <div><b>Top Tier</b></div>
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
+            <td style="width: 35%">
                 <div>Count</div>
             </td>
-            <td style="width: 70%;">
+            <td style="width: 65%;">
                 <div id='numericbox'>
                     <ejs-numerictextbox ref='topTierCount' id="count" :min='1' :max='50' format='##' :value='1' :change='topTierCountchange' ></ejs-numerictextbox>
                 </div>
@@ -58,12 +63,12 @@
         </tr>
 
         <tr>
-            <td style="width: 30%">
+            <td style="width: 35%">
                 <div>
                     Unit
                 </div>
             </td>
-            <td style="width: 70%">
+            <td style="width: 65%">
                 <div>
                    <ejs-dropdownlist ref='topTierUnit' id="unit" index = "0" value="Week"
                    :dataSource="unit"
@@ -76,12 +81,12 @@
         </tr>
 
         <tr>
-            <td style="width: 30%">
+            <td style="width: 35%">
                 <div>
                     Format
                 </div>
             </td>
-            <td style="width: 70%">
+            <td style="width: 65%">
                 <div>
                     <ejs-dropdownlist ref='topTierFormat' id="format" index = "1" value="MMM dd, yyyy"
                     :dataSource = "weekformat"
@@ -94,35 +99,27 @@
         </tr>
 
         <tr>
-            <td style="width: 30%">
-                <div><b>Bottom tier</b></div>
-            </td>
-            <td style="width: 70%">
-                <div>
-                   <ejs-checkbox ref='bottomTierCheckbox' id="bottomTierCheck" 
-                    :checked = "check" :change = "bottomTierCick"
-                    >
-                    </ejs-checkbox>
-                </div>
+            <td colspan="2" style="width: 35%">
+                <div><b>Bottom Tier</b></div>
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
+            <td style="width: 35%">
                 <div>Count</div>
             </td>
-            <td style="width: 70%;">
+            <td style="width: 65%;">
                 <div id='numericbox'>
                     <ejs-numerictextbox ref='bottomTierCount' id="btcount" :min='1' :max='50' format='##' :value='1' :change='bottomTierCountchange' ></ejs-numerictextbox>
                 </div>
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
+            <td style="width: 35%">
                 <div>
                     Unit
                 </div>
             </td>
-            <td style="width: 70%">
+            <td style="width: 65%">
                 <div>
                    <ejs-dropdownlist ref='bottomTierUnit' id="btUnit" index = "1" value="Day"
                    :dataSource="unit"
@@ -132,12 +129,12 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 30%">
+            <td style="width: 35%">
                 <div>
                     Format
                 </div>
             </td>
-            <td style="width: 70%">
+            <td style="width: 65%">
                 <div>
                    <ejs-dropdownlist ref='bottomTierFormat' id="btFormat" index = "0"
                    :dataSource = "dayformat"
@@ -148,11 +145,11 @@
             </td>
         </tr>
               <tr>
-          <td style="width: 30%">
-            <div><strong>Enable multiTaskbar</strong></div>
+          <td style="width: 35%">
+            <div>Multiple Taskbars</div>
           </td>
-          <td style="width: 70%">
-            <div style="padding-top: 0px">
+          <td style="width: 65%">
+            <div style="padding-top: 0px; padding-left: 0px;">
               <ejs-checkbox ref="mutiTaskbarCheck" class="checkbox" id="mutiTaskbar" :checked="false" :change="mutiTaskbarCheckbox">
               </ejs-checkbox>
             </div>
@@ -166,27 +163,20 @@
 </div>
 
 <div id="description">
-    <p>
-        This example demonstrates how to effectively customize the timeline settings of a Gantt Chart.
-        You can customize the timeline width by adjusting the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelineSettingsModel/#timelineunitsize">timelineunitsize</a> property
-        in <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelineSettingsModel/">timelineSettings</a>.
-        The Gantt Chart supports various timeline units such as <code>minutes</code>, <code>hours</code>, <code>days</code>, <code>weeks</code>, <code>months</code>, and <code>years</code>.
-        You can easily customize these units by changing the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelineTierSettings/#unit">unit</a> for both top tier and bottom tier in <code>timelineSettings</code>.
-        The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelineTierSettings/#format">format</a> of the timeline can be customized by modifying the format value for both the top and bottom tiers.
-        You can combine timeline cells in the top and bottom tiers using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelineTierSettings/#count">count</a> property in <code>timelineSettings</code>.
-      </p>
-      <p>
-        Tooltips are visible by default in the Gantt Chart timeline, You can customize the tooltip visiblity by using the  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelineSettings/#showtooltip">showtooltip</a> property in the timeline settings.
-      </p>
-      <p>
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#enablemultitaskbar">enablemultitaskbar</a> allows you to display multiple taskbars within a parent row, ensuring a clear overview even in collapsed states.
-      </p>
-        
+    <p>This demo illustrates how to customize the timeline settings in a Gantt Chart. It covers:</p>
+    <ul>
+        <li><b>Timeline Date Range:</b> Define the timeline view's start and end dates using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelinesettings#viewstartdate">viewStartDate</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelinesettings#viewenddate">viewEndDate</a>.</li>
+        <li><b>Timeline Cell Width:</b> Adjusted using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelineSettingsModel/#timelineunitsize">timelineUnitSize</a> property.</li>
+        <li><b>Cell Combination:</b> Merge multiple timeline cells using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelineTierSettings/#count">count</a> property.</li>
+        <li><b>Timeline Units:</b> Supports minutes, hours, days, weeks, months, and years. Units can be configured for both top and bottom tiers.</li>
+        <li><b>Timeline Format:</b> Customizable by modifying the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelineTierSettings/#format">format</a> value for each tier.</li>
+        <li><b>Multiple Taskbars:</b> Enabled with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#enablemultitaskbar">enableMultiTaskbar</a> to display multiple taskbars within a collapsed parent row.</li>
+    </ul>
+    <p>These settings highlight how the timeline can be customized to support different tiers, unit sizes, and ranges, while also enabling multiple task visualization within the same view.</p>
     <p>
         Gantt component features are segregated into individual feature-wise modules. To use a selection support, inject the
         <code>Selection</code> module. To use markers in Gantt, inject the <code>DayMarkers</code> module.
     </p>
-     <br>
     <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/timeline/timeline">documentation section</a>.</p>
 </div>
 </div>
@@ -197,13 +187,16 @@ import { projectData } from './data-source';
 import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
+import { DateRangePickerComponent } from '@syncfusion/ej2-vue-calendars';
+import { isNullOrUndefined } from '@syncfusion/ej2-base';
 
 export default {
   components: {
     'ejs-gantt': GanttComponent,
     'ejs-numerictextbox': NumericTextBoxComponent,
     'ejs-dropdownlist': DropDownListComponent,
-    'ejs-checkbox': CheckBoxComponent
+    'ejs-checkbox': CheckBoxComponent,
+    'ejs-daterangepicker': DateRangePickerComponent
   },
   data: function() {
       return{
@@ -279,37 +272,13 @@ export default {
         { id: 'Hour', unit: 'Hour' }
             ],
             fields: { text: 'unit', value: 'id' },
-            formatFields: { text: 'format', value: 'id' }
+            formatFields: { text: 'format', value: 'id' },
+            startDateValue: new Date('02/05/2025'),
+            endDateValue: new Date('03/23/2025')
         };
 
   },
   methods: {
- topTierCick: function() {
-    if (this.$refs.topTierCheckbox.ej2Instances.checked) {
-      this.$refs.gantt.ej2Instances.timelineSettings.topTier.unit = 'Week';
-        this.$refs.topTierCount.ej2Instances.enabled = true;
-        this.$refs.topTierFormat.ej2Instances.enabled = true;
-        this.$refs.topTierUnit.ej2Instances.enabled = true;
-    } else {
-      this.$refs.gantt.ej2Instances.timelineSettings.topTier.unit = 'None';
-        this.$refs.topTierCount.ej2Instances.enabled = false;
-        this.$refs.topTierFormat.ej2Instances.enabled = false;
-        this.$refs.topTierUnit.ej2Instances.enabled = false;
-    }
-  },
-   bottomTierCick: function() {
-    if (this.$refs.bottomTierCheckbox.ej2Instances.checked) {
-      this.$refs.gantt.ej2Instances.timelineSettings.bottomTier.unit = 'Day';
-        this.$refs.bottomTierCount.ej2Instances.enabled = true;
-        this.$refs.bottomTierFormat.ej2Instances.enabled = true;
-        this.$refs.bottomTierUnit.ej2Instances.enabled = true;
-    } else {
-      this.$refs.gantt.ej2Instances.timelineSettings.bottomTier.unit = 'None';
-        this.$refs.bottomTierCount.ej2Instances.enabled = false;
-        this.$refs.bottomTierFormat.ej2Instances.enabled = false;
-        this.$refs.bottomTierUnit.ej2Instances.enabled = false;
-    }
-  },
    topTierCountchange: function(e) {
     let count = e.value;
     this.$refs.gantt.ej2Instances.timelineSettings.topTier.count = count;
@@ -402,6 +371,11 @@ export default {
         this.$refs.gantt.ej2Instances.enableMultiTaskbar = false;
       }
     },
+
+    changeDateRange: function (args) {
+        this.$refs.gantt.ej2Instances.timelineSettings.viewStartDate = isNullOrUndefined(args.startDate) ? 'auto' : args.startDate;
+        this.$refs.gantt.ej2Instances.timelineSettings.viewEndDate = isNullOrUndefined(args.endDate) ? 'auto' : args.endDate;
+    }
   },
   
   provide: {

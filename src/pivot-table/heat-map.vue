@@ -139,14 +139,6 @@ export default {
   height: 100%;
 }
 
-/deep/ .sb-sample-content-area {
-  min-height: 255px !important;
-}
-
-/deep/ .control-section {
-  min-height: 255px !important;
-}
-
 /deep/ #PivotView-Heatmap .e-collapse {
   display: none;
 }

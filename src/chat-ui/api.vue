@@ -193,7 +193,7 @@ export default {
             const user = { user: args.itemData, avatarBgColor: '#87cefa'};
             if (['Laura', 'Charlie'].includes(args.itemData)) {
                 user.avatarBgColor = args.itemData === 'Charlie' ? '#e6cdde' : '#dec287';
-                user.avatarUrl = `src/chat-ui/images/${args.itemData.toLowerCase()}.png`;
+                user.avatarUrl = `https://ej2.syncfusion.com/vue/demos/src/chat-ui/images/${args.itemData.toLowerCase()}.png`;
             }
             chatUiInst.typingUsers = [...chatUiInst.typingUsers, user];
         },

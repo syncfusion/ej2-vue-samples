@@ -1,9 +1,12 @@
 <template>
   <div>
      <!-- Left section: Symbol Palette -->
+     <div class="sb-mobile-palette-bar">
+       <div id="palette-icon" ref="paletteIcon" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
+     </div>
     <div class="col-lg-8 control-section">
       <div id="diagramEventsControlSection" class="content-wrapper diagramEvents-ControlSection" style="width:100%;background: white">
-        <div id="palette-space" class="sb-mobile-palette">
+        <div id="palette-space" class="sb-mobile-palette" ref="paletteSpace">
           <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth' :height='paletteheight'  :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight' :symbolWidth='symbolWidth' :getNodeDefaults='palettegetNodeDefaults' :getConnectorDefaults='getConnectorDefaults'></ejs-symbolpalette>
         </div>
          <!-- Diagram Component -->
@@ -62,12 +65,12 @@
   float: left;
 }
 
-#diagramEventsControlSection .sb-mobile-palette-bar {
+.sb-mobile-palette-bar {
   display: none;
 }
 /* Diagram alignment CSS */
 #diagramEventsControlSection .sb-mobile-diagram {
-  width: calc(100% - 200px);
+  width: calc(100% - 202px);
   height: 100%;
   float: left;
   border: 1px solid #d9dedd;
@@ -83,13 +86,12 @@
     height: 100%;
   }
 
-  #diagramEventsControlSection .sb-mobile-palette-bar {
+  .sb-mobile-palette-bar {
     display: block;
     width: 100%;
     background: #fafafa;
     padding: 10px 10px;
     border: 0.5px solid #e0e0e0;
-    min-height: 40px;
   }
 
   #diagramEventsControlSection .sb-mobile-diagram {
@@ -99,7 +101,7 @@
     left: 0px;
   }
 
-  #diagramEventsControlSection #palette-icon {
+  #palette-icon {
     font-size: 20px;
   }
 }
@@ -184,6 +186,8 @@ let diagramInstance;
 let  listviewInstance;
 let eventlogInstance;
 let clearButtonInstance;
+let paletteSpace;
+let paletteIconInstance;
 // Symbol palette items: Basic shapes and connectors
 let basicShapes = [
   { id: 'Rectangle', shape: { type: 'Basic', shape: 'Rectangle' } },
@@ -405,7 +409,10 @@ export default {
     clearEventLog();
     clearButtonInstance.onclick = (args) => {
       clearEventLog();
-    }
+    };
+    paletteIconInstance = this.$refs.paletteIcon;
+    paletteSpace = this.$refs.paletteSpace;
+    addEvents();
   }
 }
 // Function to clear the event log
@@ -443,5 +450,26 @@ function eventInformation(args) {
   let log = eventlogInstance;
   log.insertBefore(span, log.firstChild);
 }
+//Adds EventListener based on device's viewport width.
+function addEvents() {
+  var isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    let paletteIcon = paletteIconInstance;
+    if (paletteIcon) {
+      paletteIcon.addEventListener("click", openPalette, false);
+    }
+  }
+}
 
+//Toggles the visibility of the palette space on mobile devices when the palette icon is clicked.
+function openPalette() {
+  var isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    if (!paletteSpace.classList.contains("sb-mobile-palette-open")) {
+      paletteSpace.classList.add("sb-mobile-palette-open");
+    } else {
+      paletteSpace.classList.remove("sb-mobile-palette-open");
+    }
+  }
+}
 </script>

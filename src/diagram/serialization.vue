@@ -8,6 +8,9 @@
 </div>
 <div class="control-section">
     <div style="width:100%;height: 80%">
+      <div class="sb-mobile-palette-bar">
+          <div id="palette-icon-default" ref="paletteIcon" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
+        </div>
         <div id="palette-space" ref="paletteSpaceInstance" class="sb-mobile-palette">
             <ejs-symbolpalette id="symbolpalette" :expandMode='paletteexpandMode'
                               :palettes='palettes'
@@ -178,6 +181,7 @@ import { isNullOrUndefined } from "@syncfusion/ej2-base";
 // Global variables to hold instances of Diagram and Palette components.
 let diagramInstance;
 let paletteSpaceInstance;
+let paletteIcon;
 
 // Predefined styles for different types of nodes in the diagram.
 const nodeStyles = {
@@ -331,8 +335,6 @@ export default {
             "button"
           );
           htmlButtonElement.click();
-        } else if (args.item.id === 'palette-icon') {
-          openPalette();
         } else {
           download(diagramInstance.saveDiagram());
         }
@@ -370,7 +372,9 @@ export default {
   mounted: function() {
     diagramInstance = this.$refs.diagramObj.ej2Instances;
     paletteSpaceInstance=this.$refs.paletteSpaceInstance;
+    paletteIcon = this.$refs.paletteIcon;
     diagramInstance.fitToPage();
+    addEvents();
   }
 }
 
@@ -447,16 +451,24 @@ let connectorSymbols = [
   createConnectorSymbol("link5", "Bezier")
 ];
 
-// Toggle the visibility of the palette on mobile devices.
-function openPalette() {
-  // Checks if the current viewport width is less than or equal to 550 pixels.
-  let isMobile = window.matchMedia('(max-width:550px)').matches;
+//Adds EventListener based on device's viewport width.
+function addEvents() {
+  var isMobile = window.matchMedia("(max-width:550px)").matches;
   if (isMobile) {
-    // Toggles the class to show or hide the palette.
-    if (!paletteSpaceInstance.classList.contains('sb-mobile-palette-open')) {
-      paletteSpaceInstance.classList.add('sb-mobile-palette-open');
+    if (paletteIcon) {
+      paletteIcon.addEventListener("click", openPalette, false);
+    }
+  }
+}
+
+//Toggles the visibility of the palette space on mobile devices when the palette icon is clicked.
+function openPalette() {
+  var isMobile = window.matchMedia("(max-width:550px)").matches;
+  if (isMobile) {
+    if (!paletteSpaceInstance.classList.contains("sb-mobile-palette-open")) {
+      paletteSpaceInstance.classList.add("sb-mobile-palette-open");
     } else {
-      paletteSpaceInstance.classList.remove('sb-mobile-palette-open');
+      paletteSpaceInstance.classList.remove("sb-mobile-palette-open");
     }
   }
 }

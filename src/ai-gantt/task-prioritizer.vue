@@ -3,6 +3,7 @@
         <div class="control-section">
             <img src="src/ai-gantt/images/task-prioritizer.gif" width="100%" height="100%" />
         </div>
+        <AIToast />
         <div id="action-description">
             <p>This sample demonstrates how AI can prioritize tasks within a task collection. The AI evaluates baseline dates
         and scheduled taskbar dates to identify critical tasks, which are crucial for meeting project deadlines. It then

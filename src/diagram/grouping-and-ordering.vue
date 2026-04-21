@@ -258,11 +258,7 @@ export default {
     return {
       width: "100%",
       height: "700px",
-      nodes: nodes,
-      created: (args) => {
-        addEvents();
-      },
-      
+      nodes: nodes,      
       selectedItems: {
         userHandles: handles
       },
@@ -507,9 +503,9 @@ export default {
   mounted: function () {
     diagramInstance = this.$refs.diagramObject.ej2Instances;
     toolbarInstance = this.$refs.toolbar_diagram.ej2Instances;
-    paletteIconInstance = this.$refs.palette_icon.ej2Instances;
-    paletteSpaceInstance = this.$refs.palette_space.ej2Instances;
-
+    paletteIconInstance = this.$refs.palette_icon;
+    paletteSpaceInstance = this.$refs.palette_space;
+    addEvents();
   },
 
 };

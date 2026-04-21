@@ -303,7 +303,7 @@ export default {
           node.visible = false;
         } else {
           // Build image URL (adjust path as needed)
-          raw.ImageUrl = `./src/diagram/Images/family-tree/${raw.Name}.png`;
+          raw.ImageUrl = `https://ej2.syncfusion.com/vue/demos/src/diagram/Images/family-tree/${raw.Name}.png`;
           node.shape = { type: 'HTML' }; // content provided by setNodeTemplate
           node.width = this.NODE_WIDTH;
           node.height = this.NODE_HEIGHT;

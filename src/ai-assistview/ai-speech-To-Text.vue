@@ -6,9 +6,11 @@
       ref="aiAssist"
       bannerTemplate="bannerTemplate"
       :prompt-request="onPromptRequest"
-      footerTemplate="footerTemplate"
+      :footer-toolbar-settings="footerToolbarSettings"
+      :enable-attachments="true"
+      :attachment-settings="attachmentSettings"
+      :speech-to-text-settings="speechToTextSettings"
       :toolbarSettings="toolbarSettings"
-      :promptToolbarSettings="promptToolbarSettings"
       :stop-responding-click="stopRespondingClick"
     >
       <template v-slot:bannerTemplate>
@@ -16,37 +18,6 @@
           <div class="e-icons e-listen-icon"></div>
           <h3>Speech To Text</h3>
           <i>Click the below mic-button to convert your voice to text.</i>
-        </div>
-      </template>
-      <template v-slot:footerTemplate>
-        <div class="e-footer-wrapper">
-          <div
-            id="assistview-footer"
-            ref="assistviewFooter"
-            class="content-editor"
-            @input="toggleButtons"
-            @keydown="handleEvent"
-            contenteditable="true"
-            placeholder="Click to speak or start typing..."
-          ></div>
-          <div class="option-container">
-            <ejs-speechtotext
-              id="speechToText"
-              cssClass="e-flat"
-              ref="speechToTextObj"
-              @transcriptChanged="onTranscriptChange"
-              @onStop="onListeningStop"
-              @created="created"
-              @onError="onErrorHandler"
-            ></ejs-speechtotext>
-            <ejs-button
-              id="assistview-sendButton"
-              ref="assistviewSendButton"
-              @click="sendIconClicked"
-              class="e-assist-send e-icons"
-              role="button"
-            ></ejs-button>
-          </div>
         </div>
       </template>
     </ejs-aiassistview>
@@ -59,17 +30,20 @@
   </div>
   <div id="description">
     <p>
-      In this example, the AI AssistView component is integrated with the <code>SpeechToText</code> component to enable voice-based interaction.
+      In this example, the AI AssistView component is integrated with the built-in <code>SpeechToText</code> component to enable voice-based interaction.
     </p>
     <p>
       The sample demonstrates the following features:
     </p>
     <ul>
       <li>
-        The <code>SpeechToText</code> component captures voice input and transcribes it into text, which is then passed to the AI AssistView for generating contextual responses.
+        The <code>footerToolbarSettings</code> to customize the footer options with speech to text, attachments and a send icon.
       </li>
       <li>
-        The <code>footerTemplate</code> includes a content-editable area and a microphone button for initiating voice input.
+        The <code>speechToTextSettings</code> adds the speech to text button at the footer to captures voice input and transcribes it into text.
+      </li>
+      <li>
+        The <code>attachmentSettings</code> to allow file uploads for the attached files.
       </li>
       <li>
         The <code>toolbarSettings</code> adds a right-aligned <code>Refresh</code> button to clear previous prompts.
@@ -87,7 +61,6 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue';
 import { AIAssistViewComponent as EjsAiassistview } from '@syncfusion/ej2-vue-interactive-chat';
-import { SpeechToTextComponent as EjsSpeechtotext } from '@syncfusion/ej2-vue-inputs';
 import { ButtonComponent as EjsButton } from '@syncfusion/ej2-vue-buttons';
 import { marked } from 'marked';
 import { getAzureOpenAIAssist } from './services.js';
@@ -100,8 +73,25 @@ const azureDeploymentName = ''; // YOUR_AZURE_DEPLOYMENT_NAME
 const stopStreaming = ref(false);
 const aiAssist = ref(null);
 const assistviewFooter = ref(null);
-const speechToTextObj = ref(null);
 const assistviewSendButton = ref(null);
+
+const footerToolbarSettings = {
+  toolbarPosition: 'Bottom',
+  items: [
+    { iconCss: 'e-icons e-assist-send', align: 'Right' },
+    { iconCss: 'e-icons e-assist-attachment-icon', align: 'Left', tooltip: 'Attach File' },
+    { iconCss: 'e-icons e-assist-speech-to-text', align: 'Left' }
+  ]
+};
+
+const attachmentSettings = {
+  saveUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Save',
+  removeUrl: 'https://services.syncfusion.com/vue/production/api/FileUploader/Remove'
+};
+
+const speechToTextSettings = {
+  enable: true
+};
 
 const toolbarSettings = {
   items: [
@@ -114,15 +104,6 @@ const toolbarSettings = {
   itemClicked: () => {
     aiAssist.value.ej2Instances.prompts = [];
     stopStreaming.value = true;
-  },
-};
-
-const promptToolbarSettings = {
-  itemClicked: (args) => {
-    if (args.item.iconCss === 'e-icons e-assist-edit') {
-      assistviewFooter.value.innerHTML = aiAssist.value.ej2Instances.prompts[args.dataIndex].prompt;
-      toggleButtons();
-    }
   },
 };
 
@@ -141,7 +122,6 @@ const streamResponse = async (response) => {
     }
     await new Promise((resolve) => setTimeout(resolve, 15));
   }
-  toggleButtons();
 };
 
 const onPromptRequest = async (args) => {
@@ -163,67 +143,13 @@ const onPromptRequest = async (args) => {
       true
     );
     stopStreaming.value = true;
-    toggleButtons();
   }
 };
 
 const stopRespondingClick = () => {
   stopStreaming.value = true;
-  toggleButtons();
 };
 
-const onTranscriptChange = (args) => {
-  assistviewFooter.value.innerText = args.transcript;
-};
-
-const onListeningStop = () => {
-  toggleButtons();
-};
-
-const created = () => {
-  toggleButtons();
-};
-
-const onErrorHandler = () => {
-  aiAssist.value.ej2Instances.addPromptResponse(
-    '⚠️ An error occurred during speech recognition. Please check your microphone and try again.',
-    true
-  );
-};
-
-const handleEvent = (e) => {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    sendIconClicked();
-    e.preventDefault();
-  }
-};
-
-const toggleButtons = () => {
-  const assistviewFooterEl = assistviewFooter.value;
-  const sendButtonEl = assistviewSendButton.value?.$el;
-  const speechButtonEl = speechToTextObj.value?.$el;
-  
-  if (!assistviewFooterEl || !sendButtonEl || !speechButtonEl) return;
-  
-  const hasText = assistviewFooterEl.innerText.trim() !== '';
-  sendButtonEl.classList.toggle('visible', hasText);
-  speechButtonEl.classList.toggle('visible', !hasText);
-  
-  if (!hasText && (assistviewFooterEl.innerHTML === '<br>' || assistviewFooterEl.innerHTML.trim() === '')) {
-    assistviewFooterEl.innerHTML = '';
-  }
-};
-
-const sendIconClicked = () => {
-  aiAssist.value.ej2Instances.executePrompt(assistviewFooter.value.innerText);
-  assistviewFooter.value.innerText = '';
-};
-
-onMounted(() => {
-  nextTick(() => {
-    toggleButtons();
-  });
-});
 </script>
 
 <style>
@@ -253,90 +179,9 @@ onMounted(() => {
   text-align: center;
 }
 
-.integration-speechtotext-section #assistview-sendButton:not(.e-assist-stop) {
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.e-bigger .integration-speechtotext-section #assistview-sendButton:not(.e-assist-stop) {
-  width: 52px;
-  height: 52px;
-  font-size: 24px;
-}
-
-.integration-speechtotext-section #assistview-sendButton.e-assist-stop {
-  width: 32px;
-  height: 32px;
-  margin: 4px;
-  border: none;
-  cursor: pointer;
-}
-
-.e-bigger .integration-speechtotext-section #assistview-sendButton.e-assist-stop {
-  width: 40px;
-  height: 40px;
-  margin: 6px;
-}
-
-.integration-speechtotext-section #assistview-sendButton {
-  box-shadow: none;
-  color: inherit;
-}
-
-.integration-speechtotext-section #speechToText.visible,
-.integration-speechtotext-section #assistview-sendButton.visible {
-  display: inline-block;
-}
-
-.integration-speechtotext-section #speechToText,
-.integration-speechtotext-section #assistview-sendButton {
-  display: none;
-}
-
-.integration-speechtotext-section #speechToText {
-    box-shadow: unset;
-    background: unset;
-    border: none;
-    color: #555555;
-  }
-  body[class*="dark"] .integration-speechtotext-section #speechToText,
-  body[class*="high"] .integration-speechtotext-section #speechToText {
-    color: #fff;
-  }
-
 @media only screen and (max-width: 750px) {
   .integration-speechtotext-section {
     width: 100%;
   }
-}
-
-.integration-speechtotext-section .e-footer-wrapper {
-  display: flex;
-  border: 1px solid #c1c1c1;
-  margin: 5px 5px 0 5px;
-  border-radius: 10px;
-}
-
-.integration-speechtotext-section .content-editor {
-  width: 100%;
-  overflow-y: auto;
-  font-size: 14px;
-  min-height: 25px;
-  max-height: 200px;
-  padding: 10px;
-}
-
-.integration-speechtotext-section .content-editor[contentEditable='true']:empty:before {
-  content: attr(placeholder);
-  font-style: italic;
-  font-weight: 200;
-}
-
-.integration-speechtotext-section .option-container {
-  align-self: flex-end;
 }
 </style>

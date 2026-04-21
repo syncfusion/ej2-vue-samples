@@ -160,7 +160,6 @@
             "url": "auto-wrap",
             "name": "AutoWrap Column cells",
             "category": "Columns",
-            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows how the grid cell content is autowrapped to show large cell content.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
@@ -411,7 +410,6 @@
             "url": "conditional-row-selection",
             "name": "Conditional Row Selection",
             "category": "Selection",
-            "type": "new",
             "description": "This demo for Essential JS 2 grid component shows how the conditional row selection feature can be used to select grid rows.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowSelection", "selectionSettings"] }
@@ -468,7 +466,6 @@
             "url": "pinned-rows",
             "name": "Pinned Rows",
             "category": "Scrolling",
-            "type": "new",
             "description": "This demo for Essential JS 2 grid component shows how the pinned rows and columns at both sides of the Grid.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
@@ -477,6 +474,7 @@
             "url": "virtual-scrolling",
             "name": "Virtual Scrolling",
             "category": "Scrolling",
+            "type": "update",
             "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows and columns.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "enableVirtualization", "enableColumnVirtualization"] },

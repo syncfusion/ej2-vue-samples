@@ -3,6 +3,7 @@
         <div class="control-section">
             <img src="src/ai-pivot-table/images/smart-pivot.gif" width="100%" height="100%" />
         </div>
+        <AIToast />
         <div id="action-description">
             <p>This demo showcases the integration of AI with the Syncfusion Vue Pivot Table, designed to dynamically
         visualize

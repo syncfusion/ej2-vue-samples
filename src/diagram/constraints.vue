@@ -485,7 +485,12 @@ export default {
         for (let i = 0; i < diagram.nodes.length; i++) {
             let node = diagram.nodes[i];
                 if (args.checked) {
-                    node.constraints  = node.constraints | NodeConstraints.Select;
+                    if(node.id ==="rectangle"){
+                        node.constraints = NodeConstraints.Default & ~ NodeConstraints.Select;
+                    }
+                    else{
+                        node.constraints  = node.constraints | NodeConstraints.Select;
+                    }
                 } 
                 else 
                 {
@@ -546,6 +551,9 @@ for (let j  = 0; j < diagram.connectors.length; j++) {
 }
     }
   }
+  },
+  provide: {
+    diagram: [DiagramContextMenu]
   },
   mounted: function() {
        let diagram = this.$refs.diagramObj.ej2Instances;

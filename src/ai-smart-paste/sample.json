@@ -8,7 +8,7 @@
             "name": "Default Functionalities",
             "category": "Smart Paste",
             "sourceFiles":[
-                { "displayName": "default.vue", "path":"src/ai-smart-paste/default.vue" }
+                { "displayName": "default.vue", "path":"src/ai-smart-paste/ai-default.vue" }
             ],
             "description": "This example demonstrates the usage of the SmartPasteButton component. It is designed to integrate seamlessly with text input fields, offering enhanced clipboard functionality."
         }

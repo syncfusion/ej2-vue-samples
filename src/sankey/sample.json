@@ -1,0 +1,30 @@
+{
+  "name": "Sankey",
+  "directory": "sankey",
+  "category": "Data Visualization",
+  "ftName": "sankey",
+  "type": "preview",
+  "samples": [
+    {
+      "url": "default",
+      "name": "Default",
+      "description": "This demo for Essential<sup>®</sup> JS2 Sankey Chart control shows the default rendering of the Sankey chart with different customized values.",
+      "category": "Sankey",
+      "api": {}
+    },
+    {
+      "url": "orientation",
+      "name": "Vertical Mode",
+      "description": "This demo for Essential<sup>®</sup> JS2 Sankey Chart control shows the orientation sample. Sankey chart supports vertical and horizontal modes.",
+      "category": "Sankey",
+      "api": {}
+    },
+    {
+      "url": "print-export",
+      "name": "Print and Export",
+      "description": "This demo for Essential<sup>®</sup> JS2 Sankey Chart control shows printing and exporting the chart with file name customization.",
+      "category": "Sankey",
+      "api": {}
+    }
+  ]
+}

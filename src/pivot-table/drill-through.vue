@@ -101,11 +101,4 @@ export default {
 /deep/ #pivotview {
   width: 100%;
 }
-
-/deep/ .sb-sample-content-area {
-  min-height: 255px !important;
-}
-/deep/ .control-section {
-  min-height: 255px !important;
-}
 </style>

@@ -11,7 +11,7 @@
 
     <div id="diagram-space" class="sb-mobile-diagram">
       <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults'
-                    :snapSettings='snapSettings' :created='created'></ejs-diagram>
+                    :snapSettings='snapSettings'></ejs-diagram>
     </div>
   </div>
   <div id="action-description">
@@ -335,14 +335,6 @@ let items = [
       snapSettings: {
           constraints: SnapConstraints.All & ~SnapConstraints.ShowLines
       },
-      created: (args) => {
-        //let diagramObj = document.getElementById("diagram");
-        diagramInstance = this.$refs.diagramObj.ej2Instances;
-        paletteiconInsatnce=this.$refs.paletteiconInsatnce;
-        palletteSpaceInstance=this.$refs.palletteSpaceInstance;
-        diagramInstance.fitToPage();
-        addEvents();
-      },
       //Sets the default values of a node
       getNodeDefaults: (node) => {
           if(node.style) {
@@ -382,7 +374,14 @@ let items = [
           symbol.style = { fill: 'white', strokeWidth: 1, strokeColor: '#757575' };
        }
     };
-  }
+  },
+    mounted: function () {
+        diagramInstance = this.$refs.diagramObj.ej2Instances;
+        paletteiconInsatnce = this.$refs.paletteiconInsatnce;
+        palletteSpaceInstance = this.$refs.palletteSpaceInstance;
+        diagramInstance.fitToPage();
+        addEvents();
+    }
 }
 
 

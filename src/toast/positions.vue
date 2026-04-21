@@ -112,8 +112,8 @@
 
     .bootstrap5 #toast_pos.e-toast-container .e-toast .e-toast-icon,
     .bootstrap5-dark #toast_pos.e-toast-container .e-toast .e-toast-icon,
-    .bootstrap5.3 #toast_pos.e-toast-container .e-toast .e-toast-icon,
-    .bootstrap5.3-dark #toast_pos.e-toast-container .e-toast .e-toast-icon {
+    .bootstrap5_3 #toast_pos.e-toast-container .e-toast .e-toast-icon,
+    .bootstrap5_3-dark #toast_pos.e-toast-container .e-toast .e-toast-icon {
         position: relative;
     }
 

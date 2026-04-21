@@ -140,9 +140,9 @@
   background-color: #ececec;
   border-radius: 0.25rem;
   cursor: pointer;
-  height: 3.5rem;
-  margin: 0.5rem;
-  width: 5rem;
+  height: 35px;
+  margin: 5px;
+  width: 50px;
 }
 
 .templateCarousel
@@ -162,12 +162,6 @@
   .templateCarousel .img-container {
       margin: 12px;
     }
-
-  .templateCarousel .e-carousel-indicators .e-indicator-bars .e-indicator-bar .indicator {
-    height: 2.25rem;
-    width: 3.25rem;
-    margin: 0.375rem;
-  }
 
 }
 </style>

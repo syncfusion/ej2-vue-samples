@@ -126,8 +126,8 @@
         display: inline-flex;
 	flex: 1;
     }
-    .bootstrap5\.3 #toast_custom .e-toast-icon.e-toast-image,
-    .bootstrap5\.3-dark #toast_custom .e-toast-icon.e-toast-image {
+    .bootstrap5_3 #toast_custom .e-toast-icon.e-toast-image,
+    .bootstrap5_3-dark #toast_custom .e-toast-icon.e-toast-image {
         position: relative;
     }
     #toast_custom .e-toast-icon.e-toast-image {

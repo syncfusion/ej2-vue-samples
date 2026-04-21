@@ -1,233 +1,78 @@
 <template>
-    <div class="control-section">
-        <div class='control-wrapper'>
-            <div class="main">
-                <div class="db-toolbar-editor">
-                    <div class="menu-control">
-                        <ejs-menu ref="menu" :items="menuItems" :select="menuSelect"></ejs-menu>
-                    </div>
-                    <div class="db-toolbar-container">
-                        <ejs-toolbar ref="toolbar" :clicked='function (args: any) { toolbarClick(args); }'
-                            :created='toolbarCreated' :items='toolbarItems()' overflowMode='Scrollable' width='100%'
-                            :height='40'>
-                            <template #btnZoomIncrement>
-                                <ejs-dropdownbutton id="btnZoomIncrement" ref='btnZoomIncrement' :items='zoomMenuItems'
-                                    :select='zoomChange'>{{ ddbContent
-                                    }}</ejs-dropdownbutton>
-                            </template>
-                        </ejs-toolbar>
-                    </div>
-                </div>
-                <div class="diagram-upload-file">
-                    <ejs-uploader name="UploadFiles" :asyncSettings="{
-                        saveUrl: 'https://services.syncfusion.com/js/production/api/FileUploader/Save',
-                        removeUrl: 'https://services.syncfusion.com/js/production/api/FileUploader/Remove'
-                    }" :success='onUploadSuccess' :showFileList='false'></ejs-uploader>
-                </div>
-                <div id="shortcutDiv" style="
-                    width: 400px;
-                    height: 480px;
-                    padding: 10px;
-                    background-color: #fff7b5;
-                    border: 1px solid #fff7b5;
-                    position: absolute;
-                    margin: 27px;
-                    visibility: hidden;
-                    z-index: 1000;
-                ">
-                    <div id="closeIconDiv" style="
-                    float: right;
-                    width: 22px;
-                    height: 22px;
-                    border: 1px solid #fff7b5;
-                    " @click="onHideNodeClick">
-                        <span class="sf-icon-close" style="font-size: 14px; cursor: pointer"></span>
-                    </div>
-                    <div><span class="db-html-font-medium">Quick shortcuts</span></div>
-                    <div style="padding-top: 10px">
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">Tab : </span><span class="db-html-font-normal">Add a
-                                    subtopic to the
-                                    left</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">Shift + Tab : </span><span
-                                    class="db-html-font-normal">Add
-                                    a subtopic
-                                    to the right</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">Enter : </span><span class="db-html-font-normal">Add a
-                                    new
-                                    sibling
-                                    child</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">Delete / Backspace : </span><span
-                                    class="db-html-font-normal">Delete a
-                                    topic</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">Arrow(Up, Down, Left, Right) : </span><span
-                                    class="db-html-font-normal">Navigate between topics</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">F2 : </span><span class="db-html-font-normal">Edit a
-                                    topic</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">Esc : </span><span class="db-html-font-normal">End
-                                    text
-                                    editing</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">Ctrl + B : </span><span class="db-html-font-normal">To
-                                    make text
-                                    bold</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">Ctrl + I : </span><span class="db-html-font-normal">To
-                                    make text
-                                    Italic </span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">Ctrl + U : </span><span
-                                    class="db-html-font-normal">Underline
-                                    the
-                                    text</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">Space : </span><span
-                                    class="db-html-font-normal">Expand /
-                                    Collapse the
-                                    selected node</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">Ctrl + E :</span><span
-                                    class="db-html-font-normal">Expand
-                                    / Collapse
-                                    the whole diagram</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">F8 : </span><span class="db-html-font-normal">To Fit
-                                    the
-                                    diagram into
-                                    the viewport</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <span class="db-html-font-medium">F1 : </span><span
-                                    class="db-html-font-normal">Show/Hide
-                                    shortcut
-                                    Key</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="margin-top: 5px;margin-left: 5px;margin-right: 5px; border: 1px solid #b0b0b0;">
-                    <ejs-diagram ref="diagram" width='100%' height='900px' :selectionChange='selectionChange'
-                        :historyChange='historyChange' :onUserHandleMouseDown='onUserHandleMouseDown'
-                        :tool='diagramTool'
-                        :snapSettings='{ horizontalGridlines: gridlines, verticalGridlines: gridlines }'
-                        :scrollSettings="{ scrollLimit: 'Infinity' }" :layout="diagramLayout"
-                        :selectedItems='selectedItems' :dataSourceSettings="{
-                            id: 'id',
-                            parentId: 'parentId',
-                            dataSource: items,
-                            root: String(1),
-                        }" :rulerSettings="{ showRulers: true }" :scrollChange="scrollChange"
-                        :getNodeDefaults="getNodeDefaults" :getConnectorDefaults="getConnectorDefaults"
-                        :dragEnter="dragEnter"></ejs-diagram>
-                </div>
-            </div>
-
-            <div id='container'>
-                <ejs-dialog ref='dialog' header='header' :showCloseIcon='true' :isModal='true' content='content'
-                    target='.control-section' width='540px' :visible='false' height='310px'>
-                    <template #header>
-                        <span class="e-icons e-aiassist-chat" style="color: black;width:20px; font-size: 16px;"></span>
-                        AI
-                        Assist
-                    </template>
-                    <template #content>
-                        <p style="margin-bottom: 10px;font-weight:bold;">Suggested Prompts</p>
-                        <ejs-button id="btn1" @click="btnClick"
-                            style="flex: 1; overflow: visible; border-radius: 8px;margin-bottom: 10px;">Mindmap for top
-                            tourist places in the world</ejs-button>
-                        <ejs-button id="btn2" @click="btnClick"
-                            style="flex: 1; overflow: visible; border-radius: 8px;margin-bottom: 10px;">Mindmap for
-                            categories of topics in science</ejs-button>
-                        <ejs-button id="btn3" @click="btnClick"
-                            style="flex: 1; overflow: visible; border-radius: 8px;margin-bottom: 10px;">Mindmap for
-                            different components in syncfusion</ejs-button>
-                        <div style="display: flex; align-items: center; margin-top: 20px;">
-                            <ejs-textbox type="text" ref="textBox" id="textBox" class="db-openai-textbox"
-                                style="flex: 1;" />
-                            <ejs-button ref="sendButton" iconCss='e-icons e-send' :isPrimary='true' :disabled='true'
-                                id="db-send" style="margin-left: 5px; height: 32px; width: 32px;"
-                                @click='dbSend'></ejs-button>
+    <div class="control-pane" id="diagram-functionalities">
+        <div class="control-section">
+            <div class='control-wrapper'>
+                <div class="main diagramMindmap">
+                    <div class="db-toolbar-editor">
+                        <div class="db-toolbar-container">
+                            <ejs-toolbar ref="toolbar" :clicked='function (args) { toolbarClick(args); }'
+                                :created='toolbarCreated' :items='toolbarItems()' overflowMode='Scrollable' width='100%'
+                                :height='40'>
+                                <template #btnZoomIncrement>
+                                    <ejs-dropdownbutton id="btnZoomIncrement" ref='btnZoomIncrement'
+                                        :items='zoomMenuItems' :select='zoomChange'>{{ ddbContent
+                                        }}</ejs-dropdownbutton>
+                                </template>
+                            </ejs-toolbar>
                         </div>
-                    </template>
-                </ejs-dialog>
-            </div>
-            <ejs-fab :isPrimary='true' iconCss='e-icons e-aiassist-chat' @click='aiOnClick'>AI Assist</ejs-fab>
+                    </div>
 
-            <!-- Loading indicator container -->
-            <div id="loadingContainer" class="loading-container">
-                <div class="loading-indicator"></div>
-                <div class="loading-text">Generating Mindmap...</div>
+                    <div style="margin-top: 5px;margin-left: 5px;margin-right: 5px; border: 1px solid #b0b0b0;"
+                        id="mindmap-diagram-space">
+                        <ejs-diagram ref="diagram" width='100%' height='900px' :selectionChange='selectionChange'
+                            :scrollSettings="{ scrollLimit: 'Diagram' }" :layout="diagramLayout" :onUserHandleMouseDown='onUserHandleMouseDown'
+                            :selectedItems='selectedItems' :dataSourceSettings="{
+                                id: 'id',
+                                parentId: 'parentId',
+                                dataSource: items,
+                                root: String(1),
+                            }" :rulerSettings="{ showRulers: true }" :scrollChange="scrollChange"
+                            :getNodeDefaults="getNodeDefaults" :historyChange='historyChange'
+                            :getConnectorDefaults="getConnectorDefaults"></ejs-diagram>
+                    </div>
+                </div>
+
+                <div id='container'>
+                    <ejs-dialog ref='dialog' header='header' :showCloseIcon='true' :isModal='true' content='content'
+                        target='.control-section' width='540px' :visible='false' height='310px'>
+                        <template #header>
+                            <span class="e-icons e-assistview-icon"
+                                style="color: black;width:20px; font-size: 16px;"></span>
+                            AI
+                            Assist
+                        </template>
+                        <template #content>
+                            <p style="margin-bottom: 10px;font-weight:bold;">Suggested Prompts</p>
+                            <ejs-button id="btn1" @click="btnClick"
+                                style="flex: 1; overflow: visible; border-radius: 8px;margin-bottom: 10px;">Mindmap for
+                                top
+                                tourist places in the world</ejs-button>
+                            <ejs-button id="btn2" @click="btnClick"
+                                style="flex: 1; overflow: visible; border-radius: 8px;margin-bottom: 10px;">Mindmap for
+                                categories of topics in science</ejs-button>
+                            <ejs-button id="btn3" @click="btnClick"
+                                style="flex: 1; overflow: visible; border-radius: 8px;margin-bottom: 10px;">Mindmap for
+                                different components in syncfusion</ejs-button>
+                            <div style="display: flex; align-items: center; margin-top: 20px;">
+                                <ejs-textbox type="text" ref="textBox" id="textBox" class="db-openai-textbox"
+                                    style="flex: 1;" placeholder='Please enter your prompt here...'
+                                    :input='onTextBoxChange' />
+                                <ejs-button ref="sendButton" iconCss='e-icons e-send' :isPrimary='true' :disabled='true'
+                                    id="diagram-db-send" style="margin-left: 5px; height: 32px; width: 32px;"
+                                    @click='dbSend'></ejs-button>
+                            </div>
+                        </template>
+                    </ejs-dialog>
+                </div>
+                <ejs-fab :isPrimary='true' iconCss='e-icons e-assistview-icon' @click='aiOnClick'
+                    target="#mindmap-diagram-space">AI
+                    Assist</ejs-fab>
+
+                <!-- Loading indicator container -->
+                <div id="loadingContainer" class="diagram-loading-container">
+                    <div class="loading-indicator"></div>
+                    <div class="loading-text">Generating Mindmap...</div>
+                </div>
             </div>
         </div>
     </div>
@@ -235,28 +80,42 @@
 
 <script>
 /**
- * Default MindMap sample
- */
-import { Diagram, NodeModel, UndoRedo, ConnectorModel, SymbolInfo, IDragEnterEventArgs, FlowShapes, Node, DiagramComponent } from '@syncfusion/ej2-vue-diagrams';
+* Default MindMap sample
+*/
+import { UndoRedo, Node, DiagramComponent } from '@syncfusion/ej2-vue-diagrams';
 import { ButtonComponent, FabComponent } from '@syncfusion/ej2-vue-buttons';
 import { DataManager, Query } from '@syncfusion/ej2-data';
-import { BasicShapeModel, Connector, ConnectorConstraints, DataBinding, DiagramTools, FileFormats, HorizontalAlignment, IExportOptions, IScrollChangeEventArgs, ISelectionChangeEventArgs, MarginModel, MindMap, NodeConstraints, PointPort, PortVisibility, PrintAndExport, randomId, SelectorConstraints, Side, SnapConstraints, UserHandleEventsArgs, UserHandleModel, VerticalAlignment } from '@syncfusion/ej2-vue-diagrams';
-import { InputEventArgs, TextBoxComponent, UploaderComponent } from '@syncfusion/ej2-vue-inputs';
-import { ClickEventArgs, ItemModel, MenuComponent, ToolbarComponent } from '@syncfusion/ej2-vue-navigations';
+import { ConnectorConstraints, DataBinding, DiagramTools, MindMap, NodeConstraints, PointPort, PortVisibility, PrintAndExport, randomId, SelectorConstraints } from '@syncfusion/ej2-vue-diagrams';
+import { TextBoxComponent, UploaderComponent } from '@syncfusion/ej2-vue-inputs';
+import { ToolbarComponent } from '@syncfusion/ej2-vue-navigations';
 import { DialogComponent } from '@syncfusion/ej2-vue-popups';
-import { DropDownButton, DropDownButtonComponent, MenuEventArgs } from '@syncfusion/ej2-vue-splitbuttons';
-import { getAzureChatAIRequest } from '../common/openai';
+import { DropDownButtonComponent } from '@syncfusion/ej2-vue-splitbuttons';
+import { serverAIRequest } from '../common/ai-service';
 
-interface MindMapData {
-    id: string;
-    parentId: string;
-    Label: string;
-    branch: string;
-    fill: string;
-    strokeColor: string;
-    orientation: string;
-    level: number;
-}
+let leftarrow = 'M11.924,6.202 L4.633,6.202 L4.633,9.266 L0,4.633 L4.632,0 L4.632,3.551 L11.923,3.551 L11.923,6.202Z';
+let rightarrow = 'M0,3.063 L7.292,3.063 L7.292,0 L11.924,4.633 L7.292,9.266 L7.292,5.714 L0.001,5.714 L0.001,3.063Z';
+let devareicon = 'M 7.04 22.13 L 92.95 22.13 L 92.95 88.8 C 92.95 91.92 91.55 94.58 88.76' +
+    '96.74 C 85.97 98.91 82.55 100 78.52 100 L 21.48 100 C 17.45 100 14.03 98.91 11.24 96.74 C 8.45 94.58 7.04' +
+    '91.92 7.04 88.8 z M 32.22 0 L 67.78 0 L 75.17 5.47 L 100 5.47 L 100 16.67 L 0 16.67 L 0 5.47 L 24.83 5.47 z';
+let leftuserhandle = setUserHandle('leftHandle', leftarrow, 'Left', 0.5, { top: 10, bottom: 0, left: 0, right: 10 }, 'Left', 'Top');
+let rightuserhandle = setUserHandle('rightHandle', rightarrow, 'Right', 0.5, { top: 10, bottom: 0, left: 10, right: 0 }, 'Right', 'Top');
+let devareuserhandle = setUserHandle('devare', devareicon, 'Top', 0.5, { top: 0, bottom: 0, left: 0, right: 0 }, 'Center', 'Center');
+let handle = [leftuserhandle, rightuserhandle, devareuserhandle];
+
+function setUserHandle(name, pathData, side, offset, margin, halignment, valignment) {
+    var userhandle = {
+        name: name,
+        pathData: pathData,
+        backgroundColor: 'black',
+        pathColor: 'white',
+        side: side,
+        offset: offset,
+        margin: margin,
+        horizontalAlignment: halignment,
+        verticalAlignment: valignment,
+    };
+    return userhandle;
+};
 
 export default {
     components: {
@@ -267,7 +126,6 @@ export default {
         'ejs-uploader': UploaderComponent,
         'ejs-dialog': DialogComponent,
         'ejs-button': ButtonComponent,
-        'ejs-menu': MenuComponent,
         'ejs-textbox': TextBoxComponent
     },
     data() {
@@ -322,148 +180,32 @@ export default {
             lastFillIndex: 0,
             fillColorCode: ['#C4F2E8', '#F7E0B3', '#E5FEE4', '#E9D4F1', '#D4EFED', '#DEE2FF'],
             borderColorCode: ['#8BC1B7', '#E2C180', '#ACCBAA', '#D1AFDF', '#90C8C2', '#BBBFD6'],
-            bounds: {
-                x: 240,
-                y: 122,
-                width: 719,
-                height: 700,
-                top: 122,
-                right: 959,
-                bottom: 822,
-                left: 240
-            },
+
             diagramTool: DiagramTools.Default,
-            selectedItems: { constraints: SelectorConstraints.UserHandle, userHandles: this.handle } as any,
+            selectedItems: { constraints: SelectorConstraints.UserHandle, userHandles: handle },
             diagramLayout: {
                 type: 'MindMap', horizontalSpacing: 80,
                 verticalSpacing: 50,
-                getBranch: function (node: Node) {
+                getBranch: function (node) {
                     if (node.addInfo) {
                         var addInfo = node.addInfo;
-                        return (addInfo as any).orientation.toString();
+                        return (addInfo).orientation.toString();
                     }
                     return 'Left';
                 }
-            } as any,
-            centerX: 0,
-            interval: [
-                1, 9, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75
-            ],
-            gridlines: {},
-            rotateItems: [
-                { iconCss: 'e-icons e-transform-right', text: 'Rotate Clockwise' },
-                { iconCss: 'e-icons e-transform-left', text: 'Rotate Counter-Clockwise' }
-            ],
-            flipItems: [
-                { iconCss: 'e-icons e-flip-horizontal', text: 'Flip Horizontal' },
-                { iconCss: 'e-icons e-flip-vertical', text: 'Flip Vertical' }
-            ],
-            alignItems: [
-                {
-                    iconCss: 'sf-icon-align-left-1', text: 'Align Left',
-                },
-                {
-                    iconCss: 'sf-icon-align-center-1', text: 'Align Center',
-                },
-                {
-                    iconCss: 'sf-icon-align-right-1', text: 'Align Right',
-                },
-                {
-                    iconCss: 'sf-icon-align-top-1', text: 'Align Top',
-                },
-                {
-                    iconCss: 'sf-icon-align-middle-1', text: 'Align Middle',
-                },
-                {
-                    iconCss: 'sf-icon-align-bottom-1', text: 'Align Bottom',
-                },
-            ],
-            distributeItems: [
-                { iconCss: 'sf-icon-distribute-vertical', text: 'Distribute Objects Vertically', },
-                { iconCss: 'sf-icon-distribute-horizontal', text: 'Distribute Objects Horizontally', },
-            ],
-            orderItems: [
-                { iconCss: 'e-icons e-bring-forward', text: 'Bring Forward' },
-                { iconCss: 'e-icons e-bring-to-front', text: 'Bring To Front' },
-                { iconCss: 'e-icons e-send-backward', text: 'Send Backward' },
-                { iconCss: 'e-icons e-send-to-back', text: 'Send To Back' }
-            ],
+            },
+
+            items: undefined,
+            ddbContent: '',
+            index: 1,
             zoomMenuItems: [
                 { text: 'Zoom In' }, { text: 'Zoom Out' }, { text: 'Zoom to Fit' }, { text: 'Zoom to 50%' },
                 { text: 'Zoom to 100%' }, { text: 'Zoom to 200%' },
             ],
-            conTypeItems: [
-                { text: 'Straight', iconCss: 'e-icons e-line' },
-                { text: 'Orthogonal', iconCss: 'sf-icon-orthogonal' },
-                { text: 'Bezier', iconCss: 'sf-icon-bezier' }
-            ],
-            shapesItems: [
-                { text: 'Rectangle', iconCss: 'e-rectangle e-icons' },
-                { text: 'Ellipse', iconCss: ' e-circle e-icons' },
-                { text: 'Polygon', iconCss: 'e-line e-icons' }
-            ],
-            exportItems: [
-                { text: 'JPG' }, { text: 'PNG' }, { text: 'SVG' }
-            ],
-            groupItems: [
-                { text: 'Group', iconCss: 'e-icons e-group-1' }, { text: 'Ungroup', iconCss: 'e-icons e-ungroup-1' }
-            ],
-            items: undefined as any,
-            leftarrow: 'M11.924,6.202 L4.633,6.202 L4.633,9.266 L0,4.633 L4.632,0 L4.632,3.551 L11.923,3.551 L11.923,6.202Z',
-            rightarrow: 'M0,3.063 L7.292,3.063 L7.292,0 L11.924,4.633 L7.292,9.266 L7.292,5.714 L0.001,5.714 L0.001,3.063Z',
-            devareicon: 'M 7.04 22.13 L 92.95 22.13 L 92.95 88.8 C 92.95 91.92 91.55 94.58 88.76' +
-                '96.74 C 85.97 98.91 82.55 100 78.52 100 L 21.48 100 C 17.45 100 14.03 98.91 11.24 96.74 C 8.45 94.58 7.04' +
-                '91.92 7.04 88.8 z M 32.22 0 L 67.78 0 L 75.17 5.47 L 100 5.47 L 100 16.67 L 0 16.67 L 0 5.47 L 24.83 5.47 z',
-            leftuserhandle: {},
-            rightuserhandle: {},
-            devareuserhandle: {},
-            handle: [],
-            ddbContent: '',
-            index: 1,
-            menuItems: [
-                {
-                    text: 'File',
-                    items: [
-                        { text: 'New', iconCss: 'e-icons e-circle-add' }, { separator: true }, { text: 'Open', iconCss: 'e-icons e-folder-open' },
-                        { text: 'Save', iconCss: 'e-icons e-save' },
-                        {
-                            text: 'Export', iconCss: 'e-export e-icons', items: [
-                                { text: 'JPG' }, { text: 'PNG' }, { text: 'SVG' }
-                            ]
-                        },
-                        { text: 'Print', iconCss: 'e-print e-icons' }
-                    ]
-                },
-                {
-                    text: 'Edit',
-                    items: [
-                        { text: 'Undo', iconCss: 'e-icons e-undo' }, { text: 'Redo', iconCss: 'e-icons e-redo' }, { separator: true },
-                        { text: 'Cut', iconCss: 'e-cut e-icons' }, { text: 'Copy', iconCss: 'e-copy e-icons' },
-                        { text: 'Paste', iconCss: 'e-icons e-paste' }, { text: 'Delete', iconCss: 'e-trash e-icons' }, { separator: true },
-                        { text: 'Select All', iconCss: 'e-icons e-select-all' },
-                    ]
-                },
-                {
-                    text: 'View',
-                    items: [
-                        { text: 'Zoom In', iconCss: 'e-zoom-in e-icons' }, { text: 'Zoom Out', iconCss: 'e-zoom-out e-icons' }, { separator: true },
-                        { text: 'Fit To Screen', iconCss: 'e-icons e-zoom-to-fit' }, { separator: true },
-                        { text: 'Show Rulers', iconCss: 'e-icons e-check' },
-                        { text: 'Show Lines', iconCss: 'e-icons e-check' },
-                    ]
-                },
-                {
-                    text: 'Window',
-                    items: [
-                        { text: 'Show Toolbar', iconCss: 'e-icons e-check' },
-                        { text: 'Show Shortcuts', iconCss: '' },
-                    ]
-                },
-            ]
         }
     },
     methods: {
-        getConnectorDefaults: function (connector: Connector): ConnectorModel {
+        getConnectorDefaults: function (connector) {
             const diagram = this.$refs.diagram.ej2Instances;
             connector.type = 'Bezier';
             connector.targetDecorator = { shape: 'None' };
@@ -479,9 +221,9 @@ export default {
                 sourceNode.data.orientation = 'Root';
                 sourceNode.data.level = 0;
                 sourceNode.data.parentId = '';
-                sourceNode.data.Label = sourceNode.annotations[0].content;
+                sourceNode.data.Label = sourceNode.annotations[0] ? sourceNode.annotations[0].content : "Node";
                 sourceNode.addInfo = sourceNode.data;
-                let nodeData: any = this.getMindMapShape(sourceNode);
+                let nodeData = this.getMindMapShape(sourceNode);
                 sourceNode.data.fill = nodeData.node.style.fill;
                 sourceNode.data.strokeColor = nodeData.node.style.strokeColor;
                 sourceNode.addInfo = sourceNode.data;
@@ -498,9 +240,9 @@ export default {
                 targetNode.data.orientation = targetNode.data.branch === 'Left' || targetNode.data.branch === 'subLeft' ? 'Left' : 'Right';
                 targetNode.data.level = sourceNode.data.level + 1;
                 targetNode.data.parentId = sourceNode.data.id;
-                targetNode.data.Label = targetNode.annotations[0].content;
+                targetNode.data.Label = targetNode.annotations[0] ? targetNode.annotations[0].content : "Node";
                 targetNode.addInfo = targetNode.data;
-                let nodeData: any = this.getMindMapShape(sourceNode);
+                let nodeData = this.getMindMapShape(sourceNode);
                 targetNode.data.fill = nodeData.node.style.fill;
                 targetNode.data.strokeColor = nodeData.node.style.strokeColor;
                 targetNode.addInfo = targetNode.data;
@@ -521,22 +263,22 @@ export default {
             connector.constraints &= ~ConnectorConstraints.Select;
             return connector;
         },
-        getMindMapShape: function (parentNode: NodeModel) {
+        getMindMapShape: function (parentNode) {
             var sss = {};
             var node = {};
-            var connector: ConnectorModel = {};
+            var connector = {};
             var addInfo = parentNode.addInfo;
             node = {
                 minWidth: 100, maxWidth: 100, shape: { type: 'Basic', shape: 'Rectangle' },
                 annotations: [{ content: '' }],
                 style: { fill: '#000000', strokeColor: '#000000' },
-                addInfo: { level: (addInfo as any).level + 1 },
+                addInfo: { level: (addInfo).level + 1 },
                 offsetX: 200, offsetY: 200
             };
             connector = { type: 'Bezier', style: { strokeColor: '#000000' } };
-            if ((addInfo as any).level < 1) {
-                (node as Node).style.fill = this.fillColorCode[this.lastFillIndex];
-                (node as Node).style.strokeColor = this.borderColorCode[this.lastFillIndex];
+            if ((addInfo).level < 1) {
+                (node).style.fill = this.fillColorCode[this.lastFillIndex];
+                (node).style.strokeColor = this.borderColorCode[this.lastFillIndex];
                 ;
                 if (this.lastFillIndex + 1 >= this.fillColorCode.length) {
                     this.lastFillIndex = 0;
@@ -546,59 +288,24 @@ export default {
                 }
             }
             else {
-                (node as Node).style.strokeColor = (node as Node).style.fill = (parentNode as Node).style.fill;
+                (node).style.strokeColor = (node).style.fill = (parentNode).style.fill;
             }
             connector.type = 'Bezier';
-            (connector as Connector).style.strokeColor = (node as Node).style.fill;
+            (connector).style.strokeColor = (node).style.fill;
             connector.targetDecorator = { shape: 'None' };
             //connector.constraints = ConnectorConstraints.PointerEvents | ConnectorConstraints.Select | ConnectorConstraints.Delete;
-            (node as Node).constraints = NodeConstraints.Default & ~NodeConstraints.Drag;
-            (node as Node).ports = [
+            (node).constraints = NodeConstraints.Default & ~NodeConstraints.Drag;
+            (node).ports = [
                 { id: 'leftPort', offset: { x: 0, y: 0.5 } },
                 { id: 'rightPort', offset: { x: 1, y: 0.5 } },
                 { id: 'topPort', offset: { x: 0.5, y: 0 } },
                 { id: 'bottomPort', offset: { x: 0.5, y: 1 } }];
-            (sss as any).node = node;
-            (sss as any).connector = connector;
+            (sss).node = node;
+            (sss).connector = connector;
             return sss;
         },
-        //Sets the Node style for DragEnter element.
-        dragEnter: function (args: IDragEnterEventArgs): void {
-            let obj: NodeModel = args.element as NodeModel;
-            if (obj instanceof Node) {
-                let oWidth: number = obj.width;
-                let oHeight: number = obj.height;
-                let ratio: number = 100 / obj.width;
-                obj.width = 100;
-                obj.height *= ratio;
-                obj.offsetX += (obj.width - oWidth) / 2;
-                obj.offsetY += (obj.height - oHeight) / 2;
-                obj.style = { fill: '#357BD2', strokeColor: 'white' };
-            }
-        },
-        getFlowShape: function (id: string, shapeType: FlowShapes): NodeModel {
-            let flowshape: NodeModel = { id: id, shape: { type: 'Flow', shape: shapeType } };
-            return flowshape;
-        },
-        getSymbolDefaults: function (symbol: NodeModel): void {
-            symbol.style = { strokeColor: '#757575' };
-            if (symbol.id === 'Terminator' || symbol.id === 'Process' || symbol.id === 'Delay') {
-                symbol.width = 80;
-                symbol.height = 40;
-            } else if (symbol.id === 'Decision' || symbol.id === 'Document' || symbol.id === 'PreDefinedProcess' ||
-                symbol.id === 'PaperTap' || symbol.id === 'DirectData' || symbol.id === 'MultiDocument' || symbol.id === 'Data') {
-                symbol.width = 50;
-                symbol.height = 40;
-            } else {
-                symbol.width = 50;
-                symbol.height = 50;
-            }
-        },
-        getSymbolInfo: function (symbol: NodeModel): SymbolInfo {
-            return { fit: true };
-        },
-        setUserHandle: function (name: string, pathData: string, side: Side, offset: number, margin: MarginModel, halignment: HorizontalAlignment, valignment: VerticalAlignment) {
-            var userhandle: UserHandleModel = {
+        setUserHandle: function (name, pathData, side, offset, margin, halignment, valignment) {
+            var userhandle = {
                 name: name,
                 pathData: pathData,
                 backgroundColor: 'black',
@@ -611,14 +318,18 @@ export default {
             };
             return userhandle;
         },
-        scrollChange: function (args: IScrollChangeEventArgs) {
+        scrollChange: function (args) {
             const diagram = this.$refs.diagram.ej2Instances;
             if (args.panState !== 'Start') {
                 this.ddbContent = Math.round(diagram.scrollSettings.currentZoom * 100) + ' %';
+                let zoomCurrentValue = document.getElementById("btnZoomIncrement").ej2_instances[0];
+                if (zoomCurrentValue) {
+                    zoomCurrentValue.content = this.ddbContent;
+                }
             }
         },
 
-        onUserHandleMouseDown: function (args: UserHandleEventsArgs) {
+        onUserHandleMouseDown: function (args) {
             const diagram = this.$refs.diagram.ej2Instances;
             if (args.element.name === 'leftHandle') {
                 this.addNode('Right');
@@ -635,18 +346,18 @@ export default {
                 }
             }
         },
-        removeSubChild: function (node: Node) {
+        removeSubChild: function (node) {
             const diagram = this.$refs.diagram.ej2Instances;
             // Process outgoing edges
             for (let i = node.outEdges.length - 1; i >= 0; i--) {
-                const connector: ConnectorModel = this.getConnector(diagram.connectors, node.outEdges[i]) as ConnectorModel;
-                const childNode: Node = this.getNode(diagram.nodes, connector.targetID as string) as Node;
+                const connector = this.getConnector(diagram.connectors, node.outEdges[i]);
+                const childNode = this.getNode(diagram.nodes, connector.targetID);
 
                 if (childNode && childNode.outEdges.length > 0) {
                     this.removeSubChild(childNode);
                 } else {
                     for (let x = this.workingData.length - 1; x >= 0; x--) {
-                        if (this.workingData[x].id === (childNode?.data as MindMapData).id) {
+                        if (this.workingData[x].id === (childNode.data).id) {
                             this.workingData.splice(x, 1);
                         }
                     }
@@ -656,9 +367,9 @@ export default {
 
             // Process incoming edges
             for (let j = node.inEdges.length - 1; j >= 0; j--) {
-                const connector: ConnectorModel = this.getConnector(diagram.connectors, node.inEdges[j]) as ConnectorModel;
-                const childNode: Node = this.getNode(diagram.nodes, connector.sourceID as string) as Node;
-                let index = childNode.outEdges.indexOf(connector.id as string);
+                const connector = this.getConnector(diagram.connectors, node.inEdges[j]);
+                const childNode = this.getNode(diagram.nodes, connector.sourceID);
+                let index = childNode.outEdges.indexOf(connector.id);
 
                 if (childNode.outEdges.length > 1 && index === 0) {
                     index = childNode.outEdges.length;
@@ -676,7 +387,7 @@ export default {
 
             // Remove the node from workingData
             for (let x = this.workingData.length - 1; x >= 0; x--) {
-                if (this.workingData[x].id === (node.data as MindMapData).id) {
+                if (this.workingData[x].id === (node.data).id) {
                     this.workingData.splice(x, 1);
                 }
             }
@@ -697,9 +408,9 @@ export default {
             if (selectedNode.data.branch !== 'Root') {
                 var selectedNodeOrientation = selectedNode.addInfo.orientation.toString();
                 var orientation_3 = selectedNodeOrientation;
-                var connector1: ConnectorModel = this.getConnector(diagram.connectors, selectedNode.inEdges[0]) as ConnectorModel;
+                var connector1 = this.getConnector(diagram.connectors, selectedNode.inEdges[0]);
                 diagram.startGroupAction();
-                var mindmapData: any = this.getMindMapShape(this.getNode(diagram.nodes as NodeModel[], connector1.sourceID as string) as NodeModel);
+                var mindmapData = this.getMindMapShape(this.getNode(diagram.nodes, connector1.sourceID));
                 var node = mindmapData.node;
                 this.index = this.index + 1;
                 node.id = this.index.toString();
@@ -737,7 +448,7 @@ export default {
                 tempData[0].hasChild = true;
                 this.workingData.push(nodeData);
                 diagram.add(node);
-                var connector = this.setConnectorDefault(diagram, orientation_3, mindmapData.connector, connector1.sourceID as string, node.id);
+                var connector = this.setConnectorDefault(diagram, orientation_3, mindmapData.connector, connector1.sourceID, node.id);
                 diagram.add(connector);
                 var node1 = this.getNode(diagram.nodes, node.id);
                 diagram.doLayout();
@@ -745,7 +456,7 @@ export default {
                 diagram.select([node1]);
             }
         },
-        addNode: function (orientation: string, label?: string, canSelect?: boolean) {
+        addNode: function (orientation, label, canSelect) {
             const diagram = this.$refs.diagram.ej2Instances;
             var selectedNode = diagram.selectedItems.nodes[0];
             if (selectedNode.data.branch !== 'Root') {
@@ -753,7 +464,7 @@ export default {
                 orientation = selectedNodeOrientation;
             }
             diagram.startGroupAction();
-            var mindmapData: any = this.getMindMapShape(selectedNode);
+            var mindmapData = this.getMindMapShape(selectedNode);
             var node = mindmapData.node;
             // addMindMapLevels('Level' + node.addInfo.level);
             this.index = this.index + 1;
@@ -803,7 +514,7 @@ export default {
                 diagram.select([node1]);
             }
         },
-        getConnector: function (connectors: ConnectorModel[], name: string) {
+        getConnector: function (connectors, name) {
             for (var i = 0; i < connectors.length; i++) {
                 if (connectors[i].id === name) {
                     return connectors[i];
@@ -811,7 +522,7 @@ export default {
             }
             return null;
         },
-        getNode: function (nodes: NodeModel[], name: string) {
+        getNode: function (nodes, name) {
             for (var i = 0; i < nodes.length; i++) {
                 if (nodes[i].id === name) {
                     return nodes[i];
@@ -819,7 +530,7 @@ export default {
             }
             return null;
         },
-        setConnectorDefault: function (diagram: Diagram, orientation: string, connector: Connector, sourceID: string, targetID: string) {
+        setConnectorDefault: function (diagram, orientation, connector, sourceID, targetID) {
             connector.id = 'connector' + randomId();
             connector.sourceID = sourceID;
             connector.targetID = targetID;
@@ -833,22 +544,22 @@ export default {
             return connector;
         },
         toolbarItems: function () {
-            let items: ItemModel[] = [
-                { prefixIcon: 'sf-icon-undo', tooltipText: 'Undo', disabled: true },
-                { prefixIcon: 'sf-icon-redo', tooltipText: 'Redo', disabled: true },
+            let items = [
+                { prefixIcon: 'e-icons e-undo e-icons', tooltipText: 'Undo', disabled: true },
+                { prefixIcon: 'e-icons e-redo e-icons', tooltipText: 'Redo', disabled: true },
                 {
                     type: 'Separator'
                 },
-                { prefixIcon: 'sf-icon-pointer tb-icons', tooltipText: 'Select Tool', cssClass: 'tb-item-selected' },
-                { prefixIcon: 'sf-icon-Pan tb-icons', tooltipText: 'Pan Tool', cssClass: '' },
+                { prefixIcon: 'e-mouse-pointer e-icons', tooltipText: 'Select Tool', cssClass: 'tb-item-selected' },
+                { prefixIcon: 'e-pan e-icons', tooltipText: 'Pan Tool', cssClass: '' },
                 {
                     type: 'Separator'
                 },
                 {
-                    prefixIcon: 'sf-icon-add-child', tooltipText: 'Add Child', disabled: true
+                    prefixIcon: 'ai-sf-icon-add-child', tooltipText: 'Add Child', disabled: true
                 },
                 {
-                    prefixIcon: 'sf-icon-add-sibling', tooltipText: 'Add Sibling', disabled: true
+                    prefixIcon: 'ai-sf-icon-add-sibling', tooltipText: 'Add Sibling', disabled: true
                 },
                 {
                     type: 'Separator'
@@ -860,7 +571,7 @@ export default {
             ];
             return items;
         },
-        selectionChange: function (args: ISelectionChangeEventArgs) {
+        selectionChange: function (args) {
             const diagram = this.$refs.diagram.ej2Instances;
             if (args.state === 'Changing') {
                 if (args.type === "Addition") {
@@ -869,22 +580,22 @@ export default {
                             var handle_1 = _a[_i];
                             handle_1.visible = true;
                         }
-                        if ((args.newValue[0].addInfo as any).orientation === 'Left' ||
-                            (args.newValue[0].addInfo as any).orientation === 'subLeft' ||
-                            (args.newValue[0].addInfo as any).orientation === 'SubLeft') {
+                        if ((args.newValue[0].addInfo).orientation === 'Left' ||
+                            (args.newValue[0].addInfo).orientation === 'subLeft' ||
+                            (args.newValue[0].addInfo).orientation === 'SubLeft') {
                             this.hideUserHandle('leftHandle');
                             this.changeUserHandlePosition('leftHandle');
                             this.changeUserHandlePosition('devare');
                         }
-                        else if ((args.newValue[0].addInfo as any).orientation === 'Right' ||
-                            (args.newValue[0].addInfo as any).orientation === 'subRight' ||
-                            (args.newValue[0].addInfo as any).orientation === 'SubRight') {
+                        else if ((args.newValue[0].addInfo).orientation === 'Right' ||
+                            (args.newValue[0].addInfo).orientation === 'subRight' ||
+                            (args.newValue[0].addInfo).orientation === 'SubRight') {
                             this.hideUserHandle('rightHandle');
                             this.changeUserHandlePosition('rightHandle');
                             this.changeUserHandlePosition('devare');
 
                         }
-                        else if ((args.newValue[0].data as MindMapData).branch === 'Root') {
+                        else if ((args.newValue[0].data).branch === 'Root') {
                             this.hideUserHandle('devare');
                         }
                         this.onClickDisable(false, args.newValue[0]);
@@ -893,7 +604,7 @@ export default {
                         this.hideUserHandle('leftHandle');
                         this.hideUserHandle('rightHandle');
                         this.hideUserHandle('devare');
-                        this.onClickDisable(true, args.newValue[0] as Node);
+                        this.onClickDisable(true, args.newValue[0]);
                     }
                 }
             }
@@ -901,16 +612,32 @@ export default {
                 this.onClickDisable(true);
             }
         },
-        hideUserHandle: function (name: string) {
+        onClickDisable: function (args, node) {
+            const toolbarObj = this.$refs.toolbar.ej2Instances;
+            if (args === false) {
+                toolbarObj.items[6].disabled = false;
+                toolbarObj.items[7].disabled = false;
+                if (((node).addInfo).level !== 0) {
+                    toolbarObj.items[7].disabled = false;
+                } else {
+                    toolbarObj.items[7].disabled = true;
+                }
+            }
+            else if (args === true) {
+                toolbarObj.items[6].disabled = true;
+                toolbarObj.items[7].disabled = true;
+            }
+        },
+        hideUserHandle: function (name) {
             const diagram = this.$refs.diagram.ej2Instances;
-            for (let i: number = 0; i < diagram.selectedItems.userHandles.length; i++) {
+            for (let i = 0; i < diagram.selectedItems.userHandles.length; i++) {
                 var handle = diagram.selectedItems.userHandles[i];
                 if (handle.name === name) {
                     handle.visible = false;
                 }
             }
         },
-        applyHandle: function (handle: UserHandleModel, side: Side, offset: number, margin: MarginModel, halignment: HorizontalAlignment, valignment: VerticalAlignment) {
+        applyHandle: function (handle, side, offset, margin, halignment, valignment) {
             handle.side = side;
             handle.offset = offset;
             handle.margin = margin;
@@ -918,9 +645,9 @@ export default {
             handle.verticalAlignment = valignment;
         },
         //Change the Position of the UserHandle.
-        changeUserHandlePosition: function (change: string) {
+        changeUserHandlePosition: function (change) {
             const diagram = this.$refs.diagram.ej2Instances;
-            for (var i: number = 0; i < diagram.selectedItems.userHandles.length; i++) {
+            for (var i = 0; i < diagram.selectedItems.userHandles.length; i++) {
                 var handle = diagram.selectedItems.userHandles[i];
                 if (handle.name === 'devare' && change === 'leftHandle') {
                     this.applyHandle(handle, 'Left', 1, { top: 0, bottom: 0, left: 0, right: 10 }, 'Left', 'Top');
@@ -945,31 +672,31 @@ export default {
             }
         },
         //Sets the default values of a node
-        getNodeDefaults: function (obj: NodeModel): NodeModel {
+        getNodeDefaults: function (obj) {
             if (obj.id !== 'textNode' && obj.data) {
                 obj.constraints = NodeConstraints.Default & ~NodeConstraints.Drag;
-                var empInfo = obj.data as MindMapData;
+                var empInfo = obj.data;
                 obj.style = {
-                    fill: (obj.data as MindMapData).fill, strokeColor: (obj.data as MindMapData).strokeColor,
+                    fill: (obj.data).fill, strokeColor: (obj.data).strokeColor,
                     strokeWidth: 1
                 };
                 if (empInfo.branch === 'Root') {
                     obj.addInfo = { level: 0 };
-                    (obj.data as MindMapData).level = (obj.addInfo as any).level;
-                    (obj.data as MindMapData).orientation = empInfo.branch;
+                    (obj.data).level = (obj.addInfo).level;
+                    (obj.data).orientation = empInfo.branch;
                 }
-                obj.addInfo = { level: (obj.data as MindMapData).level, orientation: (obj.data as MindMapData).orientation };
-                // if ((obj.data as MindMapData).orientation === "Left") {
+                obj.addInfo = { level: (obj.data).level, orientation: (obj.data).orientation };
+                // if ((obj.data).orientation === "Left") {
                 //     obj.expandIcon = { shape: isExpanded ? 'Minus' : 'None', height: 10, width: 10, fill: 'white', borderColor: 'black'};
                 //     obj.collapseIcon = { shape: isExpanded ? 'Plus' : 'None', height: 10, width: 10, fill: 'white', borderColor: 'black'};
-                // } else if ((obj.data as MindMapData).orientation === "Root") {
+                // } else if ((obj.data).orientation === "Root") {
                 //     obj.expandIcon = { shape: isExpanded ? 'Minus' : 'None', height: 10, width: 10, fill: 'white', borderColor: 'black'};
                 //     obj.collapseIcon = { shape: isExpanded ? 'Plus' : 'None', height: 10, width: 10, fill: 'white', borderColor: 'black'};
                 // } else {
                 //     obj.expandIcon = { shape: isExpanded ? 'Minus' : 'None', height: 10, width: 10, fill: 'white', borderColor: 'black'};
                 //     obj.collapseIcon = { shape: isExpanded ? 'Plus' : 'None', height: 10, width: 10, fill: 'white', borderColor: 'black'};
                 // }
-                (obj.shape as BasicShapeModel).cornerRadius = empInfo.branch === 'Root' ? 5 : 0;
+                (obj.shape).cornerRadius = empInfo.branch === 'Root' ? 5 : 0;
                 obj.shape = { type: 'Basic', shape: 'Ellipse' };
                 obj.width = empInfo.branch === 'Root' ? 150 : 100;
                 obj.height = empInfo.branch === 'Root' ? 75 : 50;
@@ -979,9 +706,9 @@ export default {
                 }];
             }
             var port = this.getPort();
-            if (!(obj as Node).ports.length) {
+            if (!(obj).ports.length) {
                 for (var i = 0; i < port.length; i++) {
-                    (obj as Node).ports.push(new PointPort(obj, 'ports', port[i], true));
+                    (obj).ports.push(new PointPort(obj, 'ports', port[i], true));
                 }
             }
 
@@ -1009,34 +736,8 @@ export default {
                 ];
             return port;
         },
-        printDiagram: function () {
-            const diagram = this.$refs.diagram.ej2Instances;
-            let options: IExportOptions = {};
-            options.mode = 'Download';
-            options.region = 'Content';
-            options.multiplePage = diagram.pageSettings.multiplePage;
-            options.pageHeight = diagram.pageSettings.height;
-            options.pageWidth = diagram.pageSettings.width;
-            diagram.print(options);
-        },
-        onClickDisable: function (args: boolean, node?: Node) {
-            const toolbarObj = this.$refs.toolbar.ej2Instances;
-            if (args === false) {
-                toolbarObj.items[6].disabled = false;
-                toolbarObj.items[8].disabled = false;
-                if (((node as NodeModel).addInfo as any).level !== 0) {
-                    toolbarObj.items[7].disabled = false;
-                } else {
-                    toolbarObj.items[7].disabled = true;
-                }
-            }
-            else if (args === true) {
-                toolbarObj.items[6].disabled = true;
-                toolbarObj.items[7].disabled = true;
-                toolbarObj.items[8].disabled = true;
-            }
-        },
-        toolbarClick: function (args: ClickEventArgs) {
+
+        toolbarClick: function (args) {
             const diagram = this.$refs.diagram.ej2Instances;
             let item = args.item.tooltipText;
             switch (item) {
@@ -1089,7 +790,7 @@ export default {
             return orientation;
 
         },
-        changeToolbarSelection: function (tool: string) {
+        changeToolbarSelection: function (tool) {
             const diagram = this.$refs.diagram.ej2Instances;
             const toolbarObj = this.$refs.toolbar.ej2Instances;
             let items = toolbarObj.items;
@@ -1105,137 +806,68 @@ export default {
             }, 10);
 
         },
-        zoomChange: function (args: MenuEventArgs) {
+        zoomChange: function (args) {
             const diagram = this.$refs.diagram.ej2Instances;
-            let zoomCurrentValue: DropDownButton = (document.getElementById("btnZoomIncrement") as any).ej2_instances[0];
-            let currentZoom: number = diagram.scrollSettings.currentZoom;
-            let zoom: any = {};
+            let zoomCurrentValue = (document.getElementById("btnZoomIncrement")).ej2_instances[0];
+            let currentZoom = diagram.scrollSettings.currentZoom;
+            let zoom = {};
             switch (args.item.text) {
                 case 'Zoom In':
                     diagram.zoomTo({ type: 'ZoomIn', zoomFactor: 0.2 });
-                    zoomCurrentValue.content = (diagram.scrollSettings.currentZoom * 100).toFixed() + '%';
+                    if (zoomCurrentValue) {
+                        zoomCurrentValue.content = (diagram.scrollSettings.currentZoom * 100).toFixed() + '%';
+                    }
                     break;
                 case 'Zoom Out':
                     diagram.zoomTo({ type: 'ZoomOut', zoomFactor: 0.2 });
-                    zoomCurrentValue.content = (diagram.scrollSettings.currentZoom * 100).toFixed() + '%';
+                    if (zoomCurrentValue) {
+                        zoomCurrentValue.content = (diagram.scrollSettings.currentZoom * 100).toFixed() + '%';
+                    }
                     break;
                 case 'Zoom to Fit':
-                    zoom.zoomFactor = 1 / currentZoom - 1;
-                    diagram.zoomTo(zoom);
-                    zoomCurrentValue.content = diagram.scrollSettings.currentZoom;
+                    diagram.fitToPage();
                     break;
                 case 'Zoom to 50%':
                     if (currentZoom === 0.5) {
                         currentZoom = 0;
-                        zoom.zoomFactor = (0.5 / currentZoom) - 1;
+                        zoom.zoomFactor = (0.5 / currentZoom - 1);
                         diagram.zoomTo(zoom);
                     }
                     else {
-                        zoom.zoomFactor = (0.5 / currentZoom) - 1;
+                        zoom.zoomFactor = (0.5 / currentZoom - 1);
                         diagram.zoomTo(zoom);
                     }
                     break;
                 case 'Zoom to 100%':
                     if (currentZoom === 1) {
                         currentZoom = 0;
-                        zoom.zoomFactor = (1 / currentZoom) - 1;
+                        zoom.zoomFactor = (1 / currentZoom - 1);
                         diagram.zoomTo(zoom);
                     }
                     else {
-                        zoom.zoomFactor = (1 / currentZoom) - 1;
+                        zoom.zoomFactor = (1 / currentZoom - 1);
                         diagram.zoomTo(zoom);
                     }
                     break;
                 case 'Zoom to 200%':
                     if (currentZoom === 2) {
                         currentZoom = 0;
-                        zoom.zoomFactor = (2 / currentZoom) - 1;
+                        zoom.zoomFactor = (2 / currentZoom - 1);
                         diagram.zoomTo(zoom);
                     }
                     else {
-                        zoom.zoomFactor = (2 / currentZoom) - 1;
+                        zoom.zoomFactor = (2 / currentZoom - 1);
                         diagram.zoomTo(zoom);
                     }
                     break;
             }
+            if (zoomCurrentValue) {
+                zoomCurrentValue.content = Math.round(diagram.scrollSettings.currentZoom * 100) + ' %';
+            }
 
-            zoomCurrentValue.content = Math.round(diagram.scrollSettings.currentZoom * 100) + ' %';
-
-        },
-        //Export the diagraming object based on the format.
-        onselectExport: function (option: string) {
-            const diagram = this.$refs.diagram.ej2Instances;
-            let exportOptions: IExportOptions = {};
-            exportOptions.format = option.toUpperCase() as FileFormats;
-            exportOptions.mode = 'Download';
-            exportOptions.region = 'Content';
-            exportOptions.fileName = 'Export';
-            exportOptions.margin = { left: 0, top: 0, bottom: 0, right: 0 };
-            diagram.exportDiagram(exportOptions);
         },
 
-        onUploadSuccess: function (args: any) {
-            let file = args.file;
-            let rawFile = file.rawFile;
-            let reader = new FileReader();
-            reader.readAsText(rawFile);
-            reader.onloadend = this.loadDiagram;
-        },
-        loadDiagram: function (event: any) {
-            const diagram = this.$refs.diagram.ej2Instances;
-            diagram.loadDiagram(event.target.result);
-            diagram.fitToPage({ mode: 'Page' });
-            this.updateOrientation(diagram)
-            this.workingData = [];
-            if (diagram.dataSourceSettings.dataSource && diagram.dataSourceSettings.dataSource.dataSource.json && diagram.dataSourceSettings.dataSource.dataSource.json.length > 0) {
-                for (let i = 0; i < diagram.dataSourceSettings.dataSource.dataSource.json.length; i++) {
-                    let treeData = diagram.dataSourceSettings.dataSource.dataSource.json[i];
-                    this.workingData.push(treeData);
-                }
-            }
-            this.pushWorkingData();
-        },
-        //To update the layout based on the orientation
-        updateOrientation: function (diagram: any) {
-            for (var i = 0; i < diagram.connectors.length; i++) {
-                var connector = diagram.connectors[i];
-                if (diagram.layout.orientation === "Vertical") {
-                    if (connector.sourcePortID === "rightPort" && connector.targetPortID === "leftPort") {
-                        connector.sourcePortID = 'bottomPort';
-                        connector.targetPortID = "topPort";
-                    }
-                    if (connector.sourcePortID === "leftPort" && connector.targetPortID === "rightPort") {
-                        connector.sourcePortID = 'topPort';
-                        connector.targetPortID = 'bottomPort';
-                    }
-                } else if (diagram.layout.orientation === "Horizontal") {
-                    if (connector.sourcePortID === "bottomPort" && connector.targetPortID === "topPort") {
-                        connector.sourcePortID = 'rightPort';
-                        connector.targetPortID = "leftPort";
-                    }
-                    if (connector.sourcePortID === "topPort" && connector.targetPortID === "bottomPort") {
-                        connector.sourcePortID = 'leftPort';
-                        connector.targetPortID = 'rightPort';
-                    }
-                }
-            }
-        },
-        download: function (data: string) {
-            if ((window.navigator as any).msSaveBlob) {
-                let blob: Blob = new Blob([data], { type: 'data:text/json;charset=utf-8,' });
-                (window.navigator as any).msSaveOrOpenBlob(blob, 'Diagram.json');
-            }
-            else {
-                let dataString = 'data:text/json;charset=utf-8,' + encodeURIComponent(data);
-                let ele = document.createElement('a');
-                ele.href = dataString;
-                ele.download = 'Diagram.json';
-                document.body.appendChild(ele);
-                ele.click();
-                ele.remove();
-            }
-        },
-        convertTextToFlowChart: async function (inputText: string) {
+        convertTextToMindmap: async function (inputText) {
             const diagram = this.$refs.diagram.ej2Instances;
             const toolbarObj = this.$refs.toolbar.ej2Instances;
             this.showLoading();
@@ -1248,46 +880,46 @@ export default {
                     {
                         role: 'user',
                         content: `Generate only the Mermaid mindmap code for the subject titled "${inputText}".
-                Use the format provided in the example below, but adjust the steps, shapes, and indentation according to the new title:
-                
-                **Example Title:** Organizational Research
-                
-                **Example Steps and Mermaid Code:**
-    
-                    mindmap
-                    root(Mobile Banking Registration)
-                        User(User)
-                        PersonalInfo(Personal Information)
-                            Name(Name)
-                            DOB(Date of Birth)
-                            Address(Address)
-                        ContactInfo))Contact Information((
-                            Email(Email)
-                            Phone(Phone Number)
-                        Account[Account]
-                            AccountType[Account Type]
-                                Savings[Savings]
-                                Checking[Checking]
-                            AccountDetails(Account Details)
-                                AccountNumber(Account Number)
-                                SortCode(Sort Code)
-                        Security{{Security}}
-                            Authentication(Authentication)
-                                Password(Password)
-                                Biometrics(Biometrics)
-                                Fingerprint(Fingerprint)
-                                FaceID(Face ID)
-                            Verification)Verification(
-                                OTP)OTP(
-                                SecurityQuestions)Security Questions(
-                        Terms(Terms & Conditions)
-                            AcceptTerms(Accept Terms)
-                            PrivacyPolicy(Privacy Policy)
-    
-                
-                
-                Note: Please ensure the generated code matches the title "${inputText}" and follows the format given above. Provide only the Mermaid mindmap code, without any additional explanations, comments, or text.
-                `
+                    Use the format provided in the example below, but adjust the steps, shapes, and indentation according to the new title:
+                    
+                    **Example Title:** Organizational Research
+                    
+                    **Example Steps and Mermaid Code:**
+
+                        mindmap
+                        root(Mobile Banking Registration)
+                            User(User)
+                            PersonalInfo(Personal Information)
+                                Name(Name)
+                                DOB(Date of Birth)
+                                Address(Address)
+                            ContactInfo))Contact Information((
+                                Email(Email)
+                                Phone(Phone Number)
+                            Account[Account]
+                                AccountType[Account Type]
+                                    Savings[Savings]
+                                    Checking[Checking]
+                                AccountDetails(Account Details)
+                                    AccountNumber(Account Number)
+                                    SortCode(Sort Code)
+                            Security{{Security}}
+                                Authentication(Authentication)
+                                    Password(Password)
+                                    Biometrics(Biometrics)
+                                    Fingerprint(Fingerprint)
+                                    FaceID(Face ID)
+                                Verification)Verification(
+                                    OTP)OTP(
+                                    SecurityQuestions)Security Questions(
+                            Terms(Terms & Conditions)
+                                AcceptTerms(Accept Terms)
+                                PrivacyPolicy(Privacy Policy)
+
+                    
+                    
+                    Note: Please ensure the generated code matches the title "${inputText}" and follows the format given above. Provide only the Mermaid mindmap code, without any additional explanations, comments, or text.
+                    `
 
 
                     }
@@ -1295,19 +927,23 @@ export default {
             }
 
             try {
-                const jsonResponse = await getAzureChatAIRequest(options);
-                diagram.loadDiagramFromMermaid(jsonResponse);
-                diagram.clearHistory();
-                this.pushWorkingData();
-                toolbarObj.items[0].disabled = true;
+                let jsonResponse = await serverAIRequest(options);
+                if (jsonResponse) {
+                    jsonResponse = jsonResponse.replace('```mermaid', '').replace('```', '');
+                    diagram.loadDiagramFromMermaid(jsonResponse);
+                    diagram.clearHistory();
+                    this.pushWorkingData();
+                    toolbarObj.items[0].disabled = true;
+                    toolbarObj.items[1].disabled = true;
+                }
                 this.hideLoading();
-
             } catch (error) {
                 console.error('Error:', error);
-                this.convertTextToFlowChart(inputText);
+                this.convertTextToMindmap(inputText);
 
             }
         },
+
         pushWorkingData: function () {
             const diagram = this.$refs.diagram.ej2Instances;
             this.workingData = [];
@@ -1338,125 +974,39 @@ export default {
         },
         // Function to show loading indicator
         showLoading: function () {
-            (document.getElementById('loadingContainer') as HTMLInputElement).style.display = 'block';
+            (document.getElementById('loadingContainer')).style.display = 'block';
         },
         // Function to hide loading indicator
         hideLoading: function () {
-            (document.getElementById('loadingContainer') as HTMLInputElement).style.display = 'none';
+            (document.getElementById('loadingContainer')).style.display = 'none';
         },
-        menuSelect: function (args: MenuEventArgs) {
-            const diagram = this.$refs.diagram.ej2Instances;
-            let option = args.item.text?.toLowerCase().replace(/\s+/g, '');
-            switch (option) {
-                case 'new':
-                    diagram.clear();
-                    diagram.loadDiagram('{"width":"100%","height":"100%","snapSettings":{"constraints":0,"gridType":"Lines","verticalGridlines":{"lineIntervals":[1.25,18.75,0.25,19.75,0.25,19.75,0.25,19.75,0.25,19.75]},"horizontalGridlines":{"lineIntervals":[1.25,18.75,0.25,19.75,0.25,19.75,0.25,19.75,0.25,19.75]}},"tool":1,"layout":{"type":"MindMap","horizontalSpacing":50,"verticalSpacing":50,"getBranch":{},"enableAnimation":true,"connectionPointOrigin":"SamePoint","arrangement":"Nonlinear","enableRouting":false,"fixedNode":"sZIN0"},"selectedItems":{"constraints":4096,"userHandles":[{"name":"leftHandle","pathData":"M11.924,6.202 L4.633,6.202 L4.633,9.266 L0,4.633 L4.632,0 L4.632,3.551 L11.923,3.551 L11.923,6.202Z","backgroundColor":"black","pathColor":"white","side":"Left","offset":0.5,"margin":{"top":10,"bottom":0,"left":0,"right":10},"horizontalAlignment":"Left","verticalAlignment":"Top"},{"name":"rightHandle","pathData":"M0,3.063 L7.292,3.063 L7.292,0 L11.924,4.633 L7.292,9.266 L7.292,5.714 L0.001,5.714 L0.001,3.063Z","backgroundColor":"black","pathColor":"white","side":"Right","offset":0.5,"margin":{"top":10,"bottom":0,"left":10,"right":0},"horizontalAlignment":"Right","verticalAlignment":"Top"},{"name":"devare","pathData":"M 7.04 22.13 L 92.95 22.13 L 92.95 88.8 C 92.95 91.92 91.55 94.58 88.7696.74 C 85.97 98.91 82.55 100 78.52 100 L 21.48 100 C 17.45 100 14.03 98.91 11.24 96.74 C 8.45 94.58 7.0491.92 7.04 88.8 z M 32.22 0 L 67.78 0 L 75.17 5.47 L 100 5.47 L 100 16.67 L 0 16.67 L 0 5.47 L 24.83 5.47 z","backgroundColor":"black","pathColor":"white","side":"Top","offset":0.5,"margin":{"top":0,"bottom":0,"left":0,"right":0},"horizontalAlignment":"Center","verticalAlignment":"Center"}],"nodes":[],"connectors":[],"wrapper":null,"selectedObjects":[]},"dataSourceSettings":{"id":"id","parentId":"parentId","dataSource":{"dateParse":true,"timeZoneHandling":true,"requests":[],"dataSource":{"json":[{"id":"1","Label":"Root","fill":"#D0ECFF","branch":"Root","hasChild":true,"level":0,"strokeColor":"#80BFEA","orientation":"Root"}],"offline":true,"dataType":"json"},"defaultQuery":{"subQuery":null,"isChild":false,"distincts":[],"queries":[{"fn":"onTake","e":{"nos":7}}],"key":"","fKey":"","expands":[],"sortedColumns":[],"groupedColumns":[],"params":[],"lazyLoad":[]},"adaptor":{"options":{"from":"table","requestType":"json","sortBy":"sorted","select":"select","skip":"skip","group":"group","take":"take","search":"search","count":"requiresCounts","where":"where","aggregates":"aggregates","expand":"expand"},"type":{},"pvt":{}}},"root":"1","dataManager":null,"crudAction":{"read":""},"connectionDataSource":{"dataManager":null},"dataMapSettings":[]},"getNodeDefaults":{},"getConnectorDefaults":{},"getCustomTool":{},"selectionChange":{},"rulerSettings":{"showRulers":true,"dynamicGrid":true,"horizontalRuler":{"orientation":"Horizontal","interval":10,"segmentWidth":100,"thickness":25,"tickAlignment":"RightOrBottom","arrangeTick":null},"verticalRuler":{"orientation":"Vertical","interval":10,"segmentWidth":100,"thickness":25,"tickAlignment":"RightOrBottom","arrangeTick":null}},"created":{},"keyDown":{},"historyChange":{},"textEdit":{},"drop":{},"scrollChange":{},"enableRtl":false,"locale":"en-US","scrollSettings":{"currentZoom":1,"viewPortWidth":1330,"viewPortHeight":629.6614379882812,"horizontalOffset":0,"verticalOffset":-0.33,"padding":{"left":0,"right":0,"top":0,"bottom":0},"scrollLimit":"Diagram","minZoom":0.2,"maxZoom":30},"enablePersistence":false,"backgroundColor":"transparent","constraints":500,"contextMenuSettings":{},"mode":"SVG","layers":[{"id":"default_layer","visible":true,"lock":false,"objects":["sZIN0"],"zIndex":0,"objectZIndex":0}],"nodes":[{"id":"sZIN0","data":{"id":"1","Label":"Root","fill":"#D0ECFF","branch":"Root","hasChild":true,"level":0,"strokeColor":"#80BFEA","orientation":"Root"},"shape":{"type":"Basic","cornerRadius":5,"shape":"Ellipse"},"ports":[{"id":"leftPort","offset":{"x":0,"y":0.5},"visibility":2,"style":{"fill":"black","strokeColor":"black","opacity":1,"strokeDashArray":"","strokeWidth":1},"inEdges":[],"outEdges":[],"height":12,"width":12,"shape":"Square","margin":{"right":0,"bottom":0,"left":0,"top":0},"horizontalAlignment":"Center","verticalAlignment":"Center"},{"id":"rightPort","offset":{"x":1,"y":0.5},"visibility":2,"style":{"fill":"black","strokeColor":"black","opacity":1,"strokeDashArray":"","strokeWidth":1},"inEdges":[],"outEdges":[],"height":12,"width":12,"shape":"Square","margin":{"right":0,"bottom":0,"left":0,"top":0},"horizontalAlignment":"Center","verticalAlignment":"Center"}],"zIndex":0,"constraints":5240810,"style":{"fill":"#D0ECFF","strokeColor":"#80BFEA","strokeWidth":1,"gradient":{"type":"None"},"strokeDashArray":"","opacity":1},"addInfo":{"level":0,"orientation":"Root"},"expandIcon":{"shape":"None","height":10,"width":10,"fill":"white","borderColor":"black","offset":{"x":0.5,"y":1}},"collapseIcon":{"shape":"None","height":10,"width":10,"fill":"white","borderColor":"black","offset":{"x":0.5,"y":1}},"width":150,"height":75,"annotations":[{"id":"VgDkd","content":"Root","annotationType":"String","style":{"strokeWidth":0,"strokeColor":"transparent","fill":"transparent","bold":false,"textWrapping":"WrapWithOverflow","color":"black","whiteSpace":"CollapseSpace","fontFamily":"Arial","fontSize":12,"italic":false,"opacity":1,"strokeDashArray":"","textAlign":"Center","textOverflow":"Wrap","textDecoration":"None"},"hyperlink":{"link":"","hyperlinkOpenState":"NewTab","content":"","textDecoration":"None"},"constraints":4,"visibility":true,"rotateAngle":0,"margin":{"right":0,"bottom":0,"left":0,"top":0},"horizontalAlignment":"Center","verticalAlignment":"Center","offset":{"x":0.5,"y":0.5}}],"container":null,"offsetX":665,"offsetY":314.8307189941406,"visible":true,"horizontalAlignment":"Left","verticalAlignment":"Top","backgroundColor":"transparent","borderColor":"none","borderWidth":0,"rotateAngle":0,"pivot":{"x":0.5,"y":0.5},"margin":{},"flip":"None","wrapper":{"actualSize":{"width":150,"height":75},"offsetX":665,"offsetY":314.8307189941406},"flipMode":"All","isExpanded":true,"fixedUserHandles":[],"excludeFromLayout":false,"inEdges":[],"outEdges":[],"parentId":"","processId":"","umlIndex":-1,"isPhase":false,"isLane":false}],"connectors":[],"diagramSettings":{"inversedAlignment":true},"pageSettings":{"boundaryConstraints":"Infinity","width":null,"orientation":"Landscape","height":null,"background":{"source":"","color":"transparent"},"showPageBreaks":false,"fitOptions":{"canFit":false}},"basicElements":[],"tooltip":{"content":""},"commandManager":{"commands":[{"name":"leftChild","canExecute":{},"execute":{},"gesture":{"key":9},"parameter":""},{"name":"rightChild","canExecute":{},"execute":{},"gesture":{"key":9,"keyModifiers":4},"parameter":""},{"name":"showShortCut","canExecute":{},"execute":{},"gesture":{"key":112},"parameter":""},{"name":"FitToPage","canExecute":{},"execute":{},"gesture":{"key":119},"parameter":""},{"name":"boldLabel","canExecute":{},"execute":{},"gesture":{"key":66,"keyModifiers":1},"parameter":""},{"name":"italicLabel","canExecute":{},"execute":{},"gesture":{"key":73,"keyModifiers":1},"parameter":""},{"name":"underlineLabel","canExecute":{},"execute":{},"gesture":{"key":85,"keyModifiers":1},"parameter":""},{"name":"deleteNode","canExecute":{},"execute":{},"gesture":{"key":8},"parameter":""},{"name":"removeNode","canExecute":{},"execute":{},"gesture":{"key":46},"parameter":""},{"name":"expandCollapse","canExecute":{},"execute":{},"gesture":{"key":32},"parameter":""},{"name":"expandCollapseParent","canExecute":{},"execute":{},"gesture":{"key":69,"keyModifiers":1},"parameter":""},{"gesture":{"key":13},"canExecute":{},"execute":{},"name":"sibilingChildTop","parameter":""},{"name":"newDiagram","canExecute":{},"execute":{},"gesture":{"key":78,"keyModifiers":1},"parameter":""},{"name":"saveDiagram","canExecute":{},"execute":{},"gesture":{"key":83,"keyModifiers":1},"parameter":""},{"name":"openDiagram","canExecute":{},"execute":{},"gesture":{"key":79,"keyModifiers":1},"parameter":""},{"name":"navigationDown","canExecute":{},"execute":{},"gesture":{"key":40},"parameter":""},{"name":"navigationUp","canExecute":{},"execute":{},"gesture":{"key":38},"parameter":""},{"name":"navigationLeft","canExecute":{},"execute":{},"gesture":{"key":37},"parameter":""},{"name":"navigationRight","canExecute":{},"execute":{},"gesture":{"key":39},"parameter":""}]},"version":17.1}');
-                    this.workingData = [{ id: '1', Label: 'Root', branch: 'Root', hasChild: true, level: 0, fill: "#D0ECFF", strokeColor: "#80BFEA", orientation: 'Root', parentId: '' },];
-                    break;
-                case 'open':
-                    (document.getElementsByClassName('e-file-select-wrap') as any)[0].querySelector('button').click();
-                    break;
-                case 'save':
-                    this.download(diagram.saveDiagram());
-                    break;
-                case 'print':
-                    let printOptions: IExportOptions = {};
-                    printOptions.multiplePage = false;
-                    diagram.print(printOptions);
-                    break;
-                case 'jpg':
-                case 'png':
-                case 'svg':
-                    this.onselectExport(option)
-                    break;
-                case 'undo':
-                    diagram.undo();
-                    break;
-                case 'redo':
-                    diagram.redo();
-                    break;
-                case 'cut':
-                    diagram.cut();
-                    break;
-                case 'copy':
-                    diagram.copy();
-                    break;
-                case 'paste':
-                    diagram.paste();
-                    break;
-                case 'delete':
-                    diagram.remove();
-                    break;
-                case 'selectall':
-                    diagram.selectAll();
-                    break;
-                case 'fittoscreen':
-                    diagram.fitToPage({ mode: 'Page', region: 'Content', margin: { left: 0, top: 0, right: 0, bottom: 0 } });
-                    break;
-                case 'showrulers':
-                    diagram.rulerSettings.showRulers = !diagram.rulerSettings.showRulers;
-                    args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-check-tick';
-                    break;
-                case 'zoomin':
-                    diagram.zoomTo({ type: 'ZoomIn', zoomFactor: 0.2 });
-                    this.ddbContent = Math.round(diagram.scrollSettings.currentZoom * 100) + ' %';
-                    break;
-                case 'zoomout':
-                    diagram.zoomTo({ type: 'ZoomOut', zoomFactor: 0.2 });
-                    this.ddbContent = Math.round(diagram.scrollSettings.currentZoom * 100) + ' %';
-                    break;
-                case 'showtoolbar':
-                    let toolbar = document.getElementById('toolbarEditor') as HTMLElement;
-                    toolbar.style.display = toolbar.style.display === 'none' ? 'block' : 'none';
-                    args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-check-tick';
-                    break;
-                case 'showlines':
-                    diagram.snapSettings.constraints = diagram.snapSettings.constraints ^ SnapConstraints.ShowLines;
-                    args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-check-tick';
-                    break;
-                case 'showshortcuts':
-                    var node1 = document.getElementById('shortcutDiv') as HTMLElement;
-                    node1.style.visibility = node1.style.visibility === "hidden" ? node1.style.visibility = "visible" : node1.style.visibility = "hidden";
-                    args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-check-tick';
-                    break;
-                case 'showpagebreaks':
-                    args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-check-tick';
-                    diagram.pageSettings.showPageBreaks = !diagram.pageSettings.showPageBreaks;
-                    break;
-            }
-        },
+
         aiOnClick: function () {
             this.$refs.dialog.ej2Instances.show();
         },
         dbSend: function () {
             this.$refs.dialog.ej2Instances.hide();
-            this.convertTextToFlowChart(this.$refs.textBox.value);
+            this.convertTextToMindmap(this.$refs.textBox.ej2Instances.value);
         },
         keyPressHandler: function (event) {
-            if (event.key === 'Enter' && document.activeElement === this.$refs.textBox.element) {
-                if (this.$refs.textBox.value) {
+            if (event.key === 'Enter' && document.activeElement === this.$refs.textBox.ej2Instances.element) {
+                if (this.$refs.textBox.ej2Instances.value) {
                     this.$refs.dialog.ej2Instances.hide();
-                    this.convertTextToFlowChart(this.$refs.textBox.value);
+                    this.convertTextToMindmap(this.$refs.textBox.ej2Instances.value);
                 }
             }
         },
-        onHideNodeClick: function () {
-            var node1 = document.getElementById('shortcutDiv') as HTMLElement;
-            node1.style.visibility = node1.style.visibility === "hidden" ? node1.style.visibility = "visible" : node1.style.visibility = "hidden";
-            (this.$refs.menu.ej2Instances.items[3] as any).items[1].iconCss = node1.style.visibility === "hidden" ? '' : 'sf-icon-check-tick';
-            this.$refs.diagram.ej2Instances.dataBind();
-        },
-        onTextBoxChange: function (args: InputEventArgs) {
+        onTextBoxChange: function (args) {
             if (args.value !== '') {
                 this.$refs.sendButton.ej2Instances.disabled = false;
             } else {
                 this.$refs.sendButton.ej2Instances.disabled = true;
             }
         },
-        btnClick: function (e: Event) {
-            let element = e.target as HTMLButtonElement;
+        btnClick: function (e) {
+            let element = e.target;
             this.$refs.dialog.ej2Instances.hide();
-            this.convertTextToFlowChart(element.innerText);
+            this.convertTextToMindmap(element.innerText);
         }
     },
     created() {
@@ -1465,8 +1015,7 @@ export default {
         this.rightuserhandle = this.setUserHandle('rightHandle', this.rightarrow, 'Right', 0.5, { top: 10, bottom: 0, left: 10, right: 0 }, 'Right', 'Top');
         this.devareuserhandle = this.setUserHandle('devare', this.devareicon, 'Top', 0.5, { top: 0, bottom: 0, left: 0, right: 0 }, 'Center', 'Center');
         this.handle = [this.leftuserhandle, this.rightuserhandle, this.devareuserhandle];
-        this.centerX = this.bounds.width / 2;
-        this.gridlines = { lineColor: '#e0e0e0', lineIntervals: this.interval }
+
     },
     mounted() {
         this.ddbContent = Math.round(this.$refs.diagram.ej2Instances.scrollSettings.currentZoom * 100) + ' %';
@@ -1591,7 +1140,7 @@ export default {
 }
 
 
-.e-connector::before {
+#diagram-functionalities .e-connector::before {
     content: '\e725';
 }
 
@@ -1607,17 +1156,13 @@ export default {
     content: '\e71e';
 }
 
-.e-file-select-wrap {
-    display: none;
-}
-
 /* Toolbar width */
 .db-toolbar-editor {
     width: 100%;
 }
 
 /* Overall div width */
-.main {
+.main .diagramMindmap{
     width: 100%;
 }
 
@@ -1626,7 +1171,7 @@ export default {
 }
 
 /* Center the loading indicator and text */
-.loading-container {
+.diagram-loading-container {
     display: none;
     position: fixed;
     top: 50%;
@@ -1649,13 +1194,13 @@ export default {
 }
 
 /* Default style for the send button */
-.send-button {
+#diagram-db-send .send-button {
     cursor: pointer;
     transition: fill 0.2s ease;
 }
 
 /* Hover style for the send button */
-.send-button:hover {
+#diagram-db-send .send-button:hover {
     fill: #0345fc;
     /* Change this to your desired hover color */
 }
@@ -1679,39 +1224,27 @@ export default {
     color: #000;
 }
 
-.menu-control {
-    background: #0078D4;
-}
-
-/* .e-icons.e-caret{
-                display: none !important;
-              } */
-.e-menu-caret-icon .e-caret {
-    display: none !important;
-}
-
-.e-lib.e-menu.e-control.e-menu-parent {
-    color: white !important;
-}
-
-.e-menu-item:hover {
-    color: #000 !important;
-}
-
 /* Toolbar Selected State - Start */
 
-.e-toolbar .e-toolbar-items .e-toolbar-item.tb-item-selected .e-tbar-btn.e-btn,
-.e-toolbar .e-toolbar-items .e-toolbar-item .e-dropdown-btn.tb-item-selected {
+.db-toolbar-container .e-toolbar .e-toolbar-items .e-toolbar-item.tb-item-selected .e-tbar-btn.e-btn,
+.db-toolbar-container .e-toolbar .e-toolbar-items .e-toolbar-item .e-dropdown-btn.tb-item-selected {
     background: #0078D4;
 }
 
-.e-toolbar .e-toolbar-items .e-toolbar-item.tb-item-selected .e-tbar-btn .e-icons.e-btn-icon,
-.e-toolbar .e-toolbar-items .e-toolbar-item .e-dropdown-btn.tb-item-selected .e-btn-icon {
+.db-toolbar-container .e-toolbar .e-toolbar-items .e-toolbar-item.tb-item-selected .e-tbar-btn .e-icons.e-btn-icon,
+.db-toolbar-container .e-toolbar .e-toolbar-items .e-toolbar-item .e-dropdown-btn.tb-item-selected .e-btn-icon {
     color: #ffffff;
 }
 
 
 /* Toolbar Selected State - End */
+
+.db-toolbar-container.e-toolbar-left,
+.db-toolbar-container .e-toolbar-right {
+    padding-top: 3px !important;
+}
+
+
 @font-face {
     font-family: 'Diagram_Builder_Icon';
     src:
@@ -1720,8 +1253,8 @@ export default {
     font-style: normal;
 }
 
-[class^="sf-icon-"],
-[class*=" sf-icon-"] {
+[class^="ai-sf-icon-"],
+[class*="ai-sf-icon-"] {
     font-family: 'Diagram_Builder_Icon' !important;
     speak: none;
     font-size: 55px;
@@ -1734,376 +1267,11 @@ export default {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.sf-icon-new:before {
-    content: "\e700";
-}
-
-.sf-icon-open:before {
-    content: "\e701";
-}
-
-.sf-icon-save:before {
-    content: "\e702";
-}
-
-.sf-icon-save-as:before {
-    content: "\e703";
-}
-
-.sf-icon-export:before {
-    content: "\e704";
-}
-
-.sf-icon-print:before {
-    content: "\e705";
-}
-
-.sf-icon-undo:before {
-    content: "\e706";
-}
-
-.sf-icon-redo:before {
-    content: "\e707";
-}
-
-.sf-icon-cut:before {
-    content: "\e708";
-}
-
-.sf-icon-copy:before {
-    content: "\e709";
-}
-
-.sf-icon-paste:before {
-    content: "\e70a";
-}
-
-.sf-icon-delete:before {
-    content: "\e70b";
-}
-
-.sf-icon-zoom-in:before {
-    content: "\e70c";
-}
-
-.sf-icon-zoom-out:before {
-    content: "\e70d";
-}
-
-.sf-icon-layers:before {
-    content: "\e70e";
-}
-
-.sf-icon-send-to-back:before {
-    content: "\e70f";
-}
-
-.sf-icon-bring-to-front:before {
-    content: "\e710";
-}
-
-.sf-icon-send-backward:before {
-    content: "\e711";
-}
-
-.sf-icon-bring-forward:before {
-    content: "\e712";
-}
-
-.sf-icon-pan:before {
-    content: "\e713";
-}
-
-.sf-icon-pointer:before {
-    content: "\e714";
-}
-
-.sf-icon-draw_shapes:before {
-    content: "\e715";
-}
-
-.sf-icon-rectangle:before {
-    content: "\e716";
-}
-
-.sf-icon-elipse:before {
-    content: "\e717";
-}
-
-.sf-icon-polygon:before {
-    content: "\e718";
-}
-
-.sf-icon-straight_line:before {
-    content: "\e719";
-}
-
-.sf-icon-orthogonal_line:before {
-    content: "\e71a";
-}
-
-.sf-icon-bezier:before {
-    content: "\e71b";
-}
-
-.sf-icon-free_hand:before {
-    content: "\e71c";
-}
-
-.sf-icon-fil_colour:before {
-    content: "\e71d";
-}
-
-.sf-icon-border_colour:before {
-    content: "\e71e";
-}
-
-.sf-icon-group:before {
-    content: "\e71f";
-}
-
-.sf-icon-ungroup:before {
-    content: "\e720";
-}
-
-.sf-icon-rotate:before {
-    content: "\e721";
-}
-
-.sf-icon-insert_link:before {
-    content: "\e722";
-}
-
-.sf-icon-insert_image:before {
-    content: "\e723";
-}
-
-.sf-icon-align_left:before {
-    content: "\e724";
-}
-
-.sf-icon-align_center:before {
-    content: "\e725";
-}
-
-.sf-icon-align_right:before {
-    content: "\e726";
-}
-
-.sf-icon-align_top:before {
-    content: "\e727";
-}
-
-.sf-icon-align_middle:before {
-    content: "\e728";
-}
-
-.sf-icon-align_bottom:before {
-    content: "\e729";
-}
-
-.sf-icon-distribute_vertical:before {
-    content: "\e72a";
-}
-
-.sf-icon-distribute_horizontal:before {
-    content: "\e72b";
-}
-
-.sf-icon-lock:before {
-    content: "\e72c";
-}
-
-.sf-icon-unlock:before {
-    content: "\e72d";
-}
-
-.sf-icon-text:before {
-    content: "\e72e";
-}
-
-.sf-icon-globe:before {
-    content: "\e72f";
-}
-
-.sf-icon-visible:before {
-    content: "\e730";
-}
-
-.sf-icon-underline:before {
-    content: "\e731";
-}
-
-.sf-icon-bold:before {
-    content: "\e732";
-}
-
-.sf-icon-chevron-down-fill:before {
-    content: "\e733";
-}
-
-.sf-icon-chevron-up-fill:before {
-    content: "\e734";
-}
-
-.sf-icon-chevron-down:before {
-    content: "\e735";
-}
-
-.sf-icon-chevron-up:before {
-    content: "\e736";
-}
-
-.sf-icon-flip-vertical:before {
-    content: "\e737";
-}
-
-.sf-icon-flip-horizontal:before {
-    content: "\e738";
-}
-
-.sf-icon-rotate-counter-clockwise:before {
-    content: "\e739";
-}
-
-.sf-icon-rotate-clockwise:before {
-    content: "\e73a";
-}
-
-.sf-icon-align-left:before {
-    content: "\e73f";
-}
-
-.sf-icon-align-center:before {
-    content: "\e740";
-}
-
-.sf-icon-align-right:before {
-    content: "\e741";
-}
-
-.sf-icon-italic:before {
-    content: "\e742";
-}
-
-.sf-icon-check-tick:before {
-    content: "\e743";
-}
-
-.sf-icon-order:before {
-    content: "\e744";
-}
-
-.sf-icon-page_orientation:before {
-    content: "\e745";
-}
-
-.sf-icon-add-child:before {
+.ai-sf-icon-add-child:before {
     content: "\e746";
 }
 
-.sf-icon-add-sibling:before {
+.ai-sf-icon-add-sibling:before {
     content: "\e747";
-}
-
-.sf-icon-font-color:before {
-    content: "\e748";
-}
-
-.sf-icon-multiple-child:before {
-    content: "\e749";
-}
-
-.sf-icon-landscape:before {
-    content: "\e74a";
-}
-
-.sf-icon-portrait:before {
-    content: "\e74b";
-}
-
-.sf-icon-light:before {
-    content: "\e74c";
-}
-
-.sf-icon-dark:before {
-    content: "\e74d";
-}
-
-.sf-icon-properties:before {
-    content: "\e74e";
-}
-
-.sf-icon-hide:before {
-    content: "\e74f";
-}
-
-.sf-icon-left-right:before {
-    content: "\e750";
-}
-
-.sf-icon-right-left:before {
-    content: "\e751";
-}
-
-.sf-icon-bottom-top:before {
-    content: "\e752";
-}
-
-.sf-icon-top-bottom:before {
-    content: "\e753";
-}
-
-.sf-icon-graphic_view:before {
-    content: "\e754";
-}
-
-.sf-icon-text-view:before {
-    content: "\e755";
-}
-
-.sf-icon-page-break:before {
-    content: "\e756";
-}
-
-.sf-icon-align-text-left:before {
-    content: "\e757";
-}
-
-.sf-icon-align-text-rignt:before {
-    content: "\e758";
-}
-
-.sf-icon-align-text-top:before {
-    content: "\e759";
-}
-
-.sf-icon-align-text-bottom:before {
-    content: "\e75a";
-}
-
-.sf-icon-align-text-horizontal-center:before {
-    content: "\e75b";
-}
-
-.sf-icon-align-text-vertical-center:before {
-    content: "\e75c";
-}
-
-.sf-icon-close:before {
-    content: "\e75d";
-}
-
-.sf-icon-gradient-alignment:before {
-    content: "\e75e";
-}
-
-.e-toolbar-left,
-.e-toolbar-right {
-    padding-top: 3px !important;
-}
-
-.e-menu-wrapper ul .e-menu-item.e-menu-caret-icon {
-    padding-right: 10px !important;
 }
 </style>
