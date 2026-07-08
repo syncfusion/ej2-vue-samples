@@ -278,7 +278,7 @@ export default {
         border: { width: 0.5, color: borderColor[themes.indexOf(theme.toLowerCase())] },
         title: "Chart with 100k points",
         series: seriesData, 
-        fill: "url(#" + selectedTheme + "-gradient-chart)",
+        fill: "url(#" + selectedTheme.toLowerCase() + "-gradient-chart)",
         marker: {
             visible: false
         },

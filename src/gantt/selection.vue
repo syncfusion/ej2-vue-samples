@@ -6,7 +6,7 @@
                     :allowSelection='true' :enableHover='true' :taskFields="taskFields" :labelSettings="labelSettings"
                     :treeColumnIndex="1" :selectionSettings="selectionSettings" :splitterSettings="splitterSettings"
                     :rowHeight="46" :taskbarHeight="25" :projectStartDate="projectStartDate"
-                    :projectEndDate="projectEndDate">
+                    :projectEndDate="projectEndDate" :columns="columns">
                 </ejs-gantt>
             </div>
         </div>
@@ -76,7 +76,8 @@
             </table>
         </div>
         <div id="action-description">
-            <p> This sample showcases the selection feature in the Gantt Chart. It allows highlighting rows or cells.
+            <p>
+                This sample showcases the selection feature in the Gantt Chart. It allows highlighting rows or cells.
             </p>
         </div>
 
@@ -111,6 +112,11 @@
                 the current row, header cell, and timeline cell on mouse hover, improving visual feedback during
                 interaction.
             </p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection feature,
+                inject the <code>Selection</code> module using the <code>provide</code> section.
+            </p>
             <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/gantt/selection">documentation section</a>.</p>
         </div>
@@ -141,16 +147,16 @@ export default {
                 duration: 'Duration',
                 progress: 'Progress',
                 dependency: 'Predecessor',
-                parentID: 'ParentId',
+                parentID: 'ParentId'
             },
             columns: [
                 { field: 'TaskID', width: 70 },
-                { field: 'TaskName', width: 250 },
+                { field: 'TaskName', width: 280 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },
                 { field: 'Predecessor' },
-                { field: 'Progress' },
+                { field: 'Progress' }
             ],
             labelSettings: {
                 leftLabel: 'TaskName'
@@ -207,7 +213,7 @@ export default {
             } else {
                 this.$refs.gantt.ej2Instances.enableHover = false;
             }
-        },
+        }
     }
 }
 </script>

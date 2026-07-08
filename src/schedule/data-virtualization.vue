@@ -30,6 +30,7 @@
                using the instance of <code><a aria-label="Data Manager" target="_blank" class="code" href="http://ej2.syncfusion.com/documentation/data/api-dataManager.html">DataManager</a></code>.
                To enable the on-demand loading of events in the Scheduler, set the <code>enableLazyLoading</code> property to <code>true</code> within the view-specific settings.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
 
     </div>

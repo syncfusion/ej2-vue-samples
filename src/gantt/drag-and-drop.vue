@@ -20,17 +20,18 @@
 
         <div id="description">
             <p>Row drag and drop feature can be enabled by settting <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#allowrowdraganddrop">
-                    allowRowDragAndDrop</a> property as true property as true. In this demo, taskbar drag and drop
+                href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#allowrowdraganddrop">
+                allowRowDragAndDrop</a> property as true property as true. In this demo, taskbar drag and drop
                 between rows can be enabled by setting <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#allowtaskbardraganddrop">
-                    allowTaskbarDragAndDrop</a> property as true as true.</p>
+                href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#allowtaskbardraganddrop">
+                allowTaskbarDragAndDrop</a> property as true as true.</p>
+            <p style="font-weight: 500">Injecting Module:</p>
             <p>
-                Gantt component features are segregated into individual feature-wise modules. To use row, drag and drop
-                feature we need to inject <code>RowDD</code> and <code>Edit</code> modules.
+                Gantt component features are segregated into individual feature-wise modules. To use row, drag and drop,
+                selection features, inject the <code>RowDD</code>, <code>Edit</code> and <code>Selection</code> modules using the
+                <code>provide</code> section.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/gantt/drag-and-drop">documentation section</a>.
             </p>
         </div>
@@ -60,7 +61,7 @@ export default {
             height: '450px',
             columns: [
                 { field: 'TaskID', headerText: 'ID', width: 80 },
-                { field: 'TaskName', headerText: 'Name', width: 250 },
+                { field: 'TaskName', headerText: 'Name', width: 280 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },

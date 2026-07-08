@@ -134,6 +134,7 @@
         },
         {
             "url": "data-sample",
+            "ignoreOnBuild": true,
             "name": "Data Sample",
             "category": "Use Cases",
             "api":{"CircularGauge": ["axes"]}

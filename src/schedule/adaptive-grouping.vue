@@ -29,6 +29,7 @@
                 In this demo, we have showcased the Schedule views and resource grouping in the compact view mode with the help of the <code>enableAdaptiveUI</code> property.
                 In Scheduler view, only one resource has been shown to enhance the view experience of resource events details clearly.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

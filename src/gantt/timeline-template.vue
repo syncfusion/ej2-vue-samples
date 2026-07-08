@@ -2,7 +2,7 @@
   <div class="col-lg-12 control-section">
     <div id="action-description">
       <p>This sample explains the way of rendering timeline template by mapping template elements to the<a
-          target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#timelineTemplate">
+          target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/index-default#timelinetemplate">
           timelineTemplate</a> property.</p>
     </div>
     <div>
@@ -13,7 +13,7 @@
         :timelineTemplate="'timelineTemplates'">
         <template v-slot:timelineTemplates="{ data }">
           <div v-if="data.tier === 'topTier'" class="e-header-cell-label e-gantt-top-cell-text"
-            style="width:100%; font-weight: bold;height: 100%;display: flex; justify-content: center ; align-items: center;   "
+            style="width:100%; font-weight: bold;height: 100%;display: flex; justify-content: center ; align-items: center;"
             title=${data.date}>
             <div
               style="width:100%; height: 100%; display: flex; justify-content: center ; align-items: center;flex-direction: column; ">
@@ -31,16 +31,23 @@
     <div id="description">
       <p>
         In this demo, the <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#timelineTemplate">
+          href="https://ej2.syncfusion.com/vue/documentation/api/gantt/index-default#timelinetemplate">
           timelineTemplate</a> property enables the customization of timeline cells with any HTML content,
         allowing for enhanced visual appeal and personalized functionality.
-      <p>The template contains these context properties to design the timeline cells.</p>
-      <li><code>date</code>: Defines the date of timeline date.</li>
-      <li><code>value</code>: Defines the date value to display in the timeline.</li>
-      <li><code>tier</code>: Defines the tier of timeline.</li>
       </p>
-      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/gantt/timeline/timeline#timeline-template">documentation
+      <p>The template contains these context properties to design the timeline cells.</p>
+      <ul>
+        <li><code>date</code>: Defines the date of timeline date.</li>
+        <li><code>value</code>: Defines the date value to display in the timeline.</li>
+        <li><code>tier</code>: Defines the tier of timeline.</li>
+      </ul>
+      <p style="font-weight: 500">Injecting Module:</p>
+      <p>
+        Gantt component features are segregated into individual feature-wise modules. To use selection and markers features,
+        inject the <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> section.
+      </p>
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/time-line/time-line#timeline-template">documentation
           section</a>.</p>
     </div>
   </div>
@@ -72,18 +79,17 @@ export default {
         { field: 'TaskName', headerText: 'Task Name', width: 300 },
         { field: 'StartDate', headerText: 'Start Date' },
         { field: 'Duration', headerText: 'Duration' },
-        { field: 'Progress', headerText: 'Progress' },
+        { field: 'Progress', headerText: 'Progress' }
       ],
       labelSettings: {
-        leftLabel: "TaskName",
+        leftLabel: "TaskName"
 
       },
       timelineSettings: {
-
         topTier: {
-          unit: 'Day',
+          unit: 'Day'
         },
-        timelineUnitSize: 200,
+        timelineUnitSize: 200
       },
       treeColumnIndex: 1,
       splitterSettings: {
@@ -92,7 +98,7 @@ export default {
       projectStartDate: new Date('03/29/2025 01:00:00 PM'),
       projectEndDate: new Date('04/23/2025'),
       // Create an Internationalization instance
-      intlObj: new Internationalization(),
+      intlObj: new Internationalization()
     };
   },
   provide: {
@@ -143,16 +149,12 @@ export default {
 }
 </script>
 <style>
-#timelinetemplate .e-header-cell-label.e-gantt-top-cell-text {
-  background-color: #fff
-}
-
-.fluent2-highcontrast .e-header-cell-label.e-gantt-top-cell-text,
-.fluent-dark .e-header-cell-label.e-gantt-top-cell-text,
-.fluent2-dark .e-header-cell-label.e-gantt-top-cell-text,
-.bootstrap5_3-dark .e-header-cell-label.e-gantt-top-cell-text,
-.tailwind3-dark .e-header-cell-label.e-gantt-top-cell-text,
-.material3-dark .e-header-cell-label.e-gantt-top-cell-text {
+#TimelineTemplate .fluent2-highcontrast .e-header-cell-label.e-gantt-top-cell-text,
+#TimelineTemplate .fluent-dark .e-header-cell-label.e-gantt-top-cell-text,
+#TimelineTemplate .fluent2-dark .e-header-cell-label.e-gantt-top-cell-text,
+#TimelineTemplate .bootstrap5_3-dark .e-header-cell-label.e-gantt-top-cell-text,
+#TimelineTemplate .tailwind3-dark .e-header-cell-label.e-gantt-top-cell-text,
+#TimelineTemplate .material3-dark .e-header-cell-label.e-gantt-top-cell-text {
   background-color: #000;
 }
 

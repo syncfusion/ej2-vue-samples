@@ -1,58 +1,71 @@
 <template>
-<div class="col-lg-12 control-section">
-    <div id="action-description">
-        <p>This sample demonstrates the right-to-Left(RTL) alignment in grid component.
-        </p>
-    </div>
-    <div>
-        <ejs-grid :dataSource="data" id="gridcomp" :allowPaging='true' :enableRtl='true'  :allowSorting='true' :allowGrouping='true' 
-        :editSettings  ='editing' :allowFiltering='true' :filterSettings='filterOptions' :allowReordering='true'>
-            <e-columns>
-                <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' isPrimaryKey='true'></e-column>
-                <e-column field='CustomerName' headerText='Customer Name'  width='150' textAlign='Left'></e-column>
-                <e-column field='Freight' headerText='Freight' format='C2' textAlign='Right' editType='numericedit' width='120'></e-column>
-                 <e-column field='OrderDate' headerText='Order Date' type= 'date' format= 'yMd'  editType= 'datepickeredit' width=150 textAlign='Right' :allowGrouping='false'></e-column>
-                <e-column field='ShipCountry' textAlign='Left' headerText='Ship Country' width='150' editType='dropdownedit'></e-column>
-            </e-columns>
-        </ejs-grid>
-    </div>
+    <div class="col-lg-12 control-section">
+        <div id="action-description">
+            <p>This sample demonstrates the right-to-Left(RTL) alignment in grid component.
+            </p>
+        </div>
+        <div>
+            <ejs-grid :dataSource="data" id="gridcomp" :allowPaging='true' :enableRtl='true' :allowSorting='true'
+                :allowGrouping='true' :editSettings='editing' :allowFiltering='true' :filterSettings='filterOptions'
+                :allowReordering='true'>
+                <e-columns>
+                    <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right'
+                        isPrimaryKey='true'></e-column>
+                    <e-column field='CustomerName' headerText='Customer Name' width='150' textAlign='Left'></e-column>
+                    <e-column field='Freight' headerText='Freight' format='C2' textAlign='Right' editType='numericedit'
+                        width='120'></e-column>
+                    <e-column field='OrderDate' headerText='Order Date' type='date' format='yMd'
+                        editType='datepickeredit' width=150 textAlign='Right' :allowGrouping='false'></e-column>
+                    <e-column field='ShipCountry' textAlign='Left' headerText='Ship Country' width='150'
+                        editType='dropdownedit'></e-column>
+                </e-columns>
+            </ejs-grid>
+        </div>
 
-     <div id="description">
-        <p>
-            Right-to-left(RTL) is used to render the component from right to left direction and it can be
-        enabled by setting <code> <a target="_blank" class="code"
+        <div id="description">
+            <p>
+                Right-to-left(RTL) is used to render the component from right to left direction and it can be
+                enabled by setting <code> <a target="_blank" class="code"
             href="https://ej2.syncfusion.com/vue/documentation/api/grid/#enablertl">enableRtl
             </a></code> property as true.
-        In this demo, you can able to see Group drop area, header, content, pager, filter dialog, etc ... are aligned right to left direction.
-        </p>
-        <p>
-            More information on the RTL can be found in this 
-            <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/global-local#right-to-left---rtl">documentation section</a>.
-        </p>
+                In this demo, you can able to see Group drop area, header, content, pager, filter dialog, etc ... are
+                aligned right to left direction.
+            </p>
+            <p>
+                More information on the RTL can be found in this
+                <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/grid/global-local#right-to-left---rtl">documentation
+                    section</a>.
+            </p>
+            <p>
+                Looking for the full Vue Data Grid component overview, features, pricing, and documentation? Visit our
+                <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-data-grid">
+                    Vue Data Grid component</a> page.
+            </p>
+        </div>
     </div>
-</div>
 </template>
 <script lang="ts">
 import { GridComponent, ColumnDirective, ColumnsDirective, Sort, Edit, Page, Group, Filter, Reorder } from "@syncfusion/ej2-vue-grids";
 import { orderDetails } from "./data-source";
 
 export default {
-  components: {
-    'ejs-grid': GridComponent,
-    'e-column': ColumnDirective,
-    'e-columns': ColumnsDirective
-  },
-  data: () => {
-    return {
-    data: orderDetails,
-    filterOptions: {
-           type: 'Menu'
-        },
-    editing: { allowDeleting: false, allowEditing: true }
-    };
-  },
-  provide: {
-      grid: [Sort, Edit, Page, Group, Filter, Reorder]
+    components: {
+        'ejs-grid': GridComponent,
+        'e-column': ColumnDirective,
+        'e-columns': ColumnsDirective
+    },
+    data: () => {
+        return {
+            data: orderDetails,
+            filterOptions: {
+                type: 'Menu'
+            },
+            editing: { allowDeleting: false, allowEditing: true }
+        };
+    },
+    provide: {
+        grid: [Sort, Edit, Page, Group, Filter, Reorder]
     }
 }
 </script>

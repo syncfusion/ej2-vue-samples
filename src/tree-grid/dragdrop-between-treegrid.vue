@@ -55,7 +55,10 @@
             More information on the row drag and drop can be found in this
             <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/row/row-drag-and-drop#drag-and-drop-to-another-tree-grid">
             documentation </a>section.
-        </p>   
+        </p>  
+        <p>
+          Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+        </p> 
     </div>
 </div>
 </template>

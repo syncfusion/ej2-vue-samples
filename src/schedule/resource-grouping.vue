@@ -50,6 +50,7 @@
                 <code>group</code> property is not defined, then the default Scheduler will be rendered with no grouping on
                 layout, but the appointments of all the resources will be displayed on a single schedule.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
 
 

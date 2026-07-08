@@ -80,6 +80,18 @@
                 </div>
                 <div class='sb-header-right sb-right sb-table'>
                     <div class="sb-header-item sb-table-cell">
+                        <div id="header-products-switcher" role="button" tabindex="0" class="products-wrapper"
+                            title='Choose other products'>
+                            <div id="sb-products-text" class="sb-products-text">
+                                <span class="sb-header-text-left">OTHER PRODUCTS</span>
+                            </div>
+                            <div class="sb-products-switcher-wrapper">
+                                <span id="sb-products-switcher" class="sb-products-switch sb-icons sb-icon-Dropdown"
+                                    role="presentation" aria-label="Products selection"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sb-header-item sb-table-cell">
                         <div id="header-theme-switcher" role="button" tabindex="0" class="theme-wrapper"
                             title='Change theme of sample browser'>
                             <div id="sb-theme-text" class="sb-theme-text">
@@ -114,7 +126,7 @@
                     <div class="sb-header-item sb-table-cell  sb-header-settings sb-icons"></div>
                     <div class="sb-header-splitter sb-download-splitter"></div>
                     <div v-if="showTrialButton" class='sb-header-item sb-table-cell sb-download-wrapper'>
-                        <a href='https://www.syncfusion.com/downloads?tag=es-seo-ej2-vue-demo-menu-trail' target="_blank"
+                        <a href='https://www.syncfusion.com/downloads/vue?tag=es-seo-vue-download-trial' target="_blank"
                             aria-label="Free Trail (Opens in a new window)">
                             <button id='download-now' type="button" class='sb-download-btn'>
                                 <span class='sb-download-text'>FREE TRIAL</span>
@@ -126,6 +138,19 @@
 
 
             <div id='sb-popup-section' class='sb-popups'>
+                <div id='products-switcher-popup' class='sb-products-popup'>
+                    <ul id="productslist" class="options" role="list">
+                        <li class='active' id="pdf-editor" role="listitem">
+                            <span class="switch-text">PDF Viewer</span>
+                        </li>
+                        <li class="e-list" id="spreadsheet-editor" role="listitem">
+                            <span class="switch-text">Spreadsheet Editor</span>
+                        </li>
+                        <li class="e-list" id="docx-editor" role="listitem">
+                            <span class="switch-text">Docx Editor</span>
+                        </li>
+                    </ul>
+                </div>
                 <div id='sb-switcher-popup' role='navigation' class='sb-switch-popup'>
                     <ul id='switch-sb' role="list">
                         <li class='sb-current' role="listiem">Vue</li>
@@ -200,6 +225,19 @@
                         </span>
                     </div>
                     <div class='sb-setting-content'>
+                        <div class='sb-setting-item sb-setting-products-section'>
+                            <div class='setting-label'>
+                                <div class='sb-icons sb-setting-icons sb-icon-Products'></div>
+                                <div class='sb-setting-text'>Other Products</div>
+                            </div>
+                            <div class='setting-content setting-products-change'>
+                                <select id='sb-setting-products' class='sb-setting-products-select'>
+                                    <option value="pdf-editor">PDF Viewer</option>
+                                    <option value="spreadsheet-editor">Spreadsheet Editor</option>
+                                    <option value="docx-editor">Docx Editor</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class='sb-setting-item sb-setting-theme-section'>
                             <div class='setting-label'>
                                 <div class='sb-icons sb-setting-icons sb-icon-Palette'></div>
@@ -374,7 +412,7 @@
                                                 </div>
                                             </div>
                                             <a style="color:#ffff;text-decoration:none;"
-                                                href="https://www.syncfusion.com/downloads?tag=es-seo-ej2-vue-demo-ads-trail"
+                                                href="https://www.syncfusion.com/downloads/vue?tag=es-seo-vue-download-trial"
                                                 aria-label="TRY IT FOR FREE (Opens in a new window)">
                                                 <div class="free-trial">TRY IT FOR FREE</div>
                                             </a>
@@ -517,6 +555,7 @@ let controlSampleData: any = {};
 let preventToggle: boolean;
 let samplesTreeList: any = [];
 let themeSwitcherPopup: Popup;
+let productsSwitcherPopup: Popup;
 let cultureDropDown: DropDownList;
 let searchInstance: any;
 let searchPopup: AutoComplete;
@@ -527,6 +566,7 @@ let switcherPopup: Popup;
 let themeDropDown: DropDownList;
 let themeModeDropDown: DropDownList;
 let currencyDropDown: DropDownList;
+let productsDropDown: DropDownList;
 let settingPopup: Popup;
 let sidebar: Sidebar;
 let sourceTabItems: object[] = [];
@@ -836,16 +876,26 @@ const getTreeviewList = (list: any[]): Controls[] | { [key: string]: Object }[] 
                     'control-name': list[i].directory,
                 }
             });
-        controlSampleData[list[i].directory] = getSamples(list[i].samples);
+        controlSampleData[list[i].directory] = getSamples(list[i].samples, list[i].directory);
     }
     return tempList;
 };
 
-const getSamples = (samples: any): any => {
+
+const getSamples = (samples: any, groupPath?: string): any => {
     let tempSamples: any = [];
+    let groupName: string = '';
+    let sampleNameAttr: string = '';
+    let isAISample: boolean = !!groupPath && groupPath.startsWith('ai-') && ['ai-assistview', 'ai-smart-paste', 'ai-smart-textarea'].indexOf(groupPath) === -1;
     for (let i: number = 0; i < samples.length; i++) {
         tempSamples[i] = samples[i];
+        groupName = samples[i].dir;
+        sampleNameAttr = samples[i].name.toLowerCase().replace(/ /g, '-');
         tempSamples[i].data = { 'sample-name': samples[i].url, 'data-path': '/' + samples[i].dir + '/' + samples[i].url + '.html' };
+        if (isAISample) {
+            tempSamples[i].data['group-name'] = groupName;
+            tempSamples[i].data['ai-sample-name'] = sampleNameAttr;
+        }
     }
     return tempSamples;
 };
@@ -915,15 +965,45 @@ const sampleOverlay = (): void => {
     sbContentOverlay.classList.remove('sb-hide');
 };
 
+const updateGroupItemAttributes = (): void => {
+    const groupItems: NodeListOf<Element> = document.querySelectorAll('#controlList .e-list-group-item.e-level-1');
+    groupItems.forEach((groupItem: Element) => {
+        let sibling: Element = groupItem.nextElementSibling;
+        while (sibling && !sibling.classList.contains('e-list-group-item')) {
+            if (!groupItem.hasAttribute('group-name')) {
+                const groupName: string = sibling.getAttribute('group-name');
+                if (groupName) {
+                    groupItem.setAttribute('group-name', groupName);
+                }
+            }
+            sibling.removeAttribute('group-name');
+            sibling = sibling.nextElementSibling;
+        }
+    });
+};
+
 const setSelectList = (): void => {
     const eles = document.querySelectorAll('#controlList .e-list-item.e-level-1');
     for (const ele of eles as any) {
         ele.tabIndex = 0;
     }
+    updateGroupItemAttributes();
     let hString: string = window.hashString || location.hash;
     let hash: string[] = hString.split('/');
     let list: ListView = (select('#controlList', rootEle) as any).ej2_instances[0];
-    let control: Element = select('[control-name="' + hash[2] + '"]');
+    let urlDir: string = hash[2];
+    let control: Element = select('[control-name="' + urlDir + '"]');
+    // Fallback: for unified AI entries (e.g. ai-diagram samples under ai-powered/ai-grid),
+    // find the parent control whose samples contain this dir
+    if (!control) {
+        for (let node of <any[]>samplesList) {
+            let hasSampleInDir = node.samples && node.samples.some((s: any) => (s.dir || node.directory) === urlDir);
+            if (hasSampleInDir) {
+                control = select('[control-name="' + node.directory + '"]');
+                break;
+            }
+        }
+    }
     if (control) {
         let data: any = list.dataSource;
         let samples: any = controlSampleData[<string>control.getAttribute('control-name')];
@@ -1001,6 +1081,13 @@ const rendersbPopup = (): void => {
         zIndex: 1001
     });
     switcherPopup.hide();
+    productsSwitcherPopup = new Popup(select('#products-switcher-popup', rootEle), {
+        offsetY: 2,
+        zIndex: 10012,
+        relateTo: <HTMLElement>select('.products-wrapper', rootEle), position: { X: 'left', Y: 'bottom' },
+        collision: { X: 'flip', Y: 'flip' }
+    });
+    productsSwitcherPopup.hide();
     themeSwitcherPopup = new Popup(sb.vars.themePoppup, {
         offsetY: 2,
         zIndex: 10012,
@@ -1063,7 +1150,7 @@ const rendersbPopup = (): void => {
         position: { X: 'right', Y: 'bottom' }
         , collision: { X: 'flip', Y: 'flip' }
     });
-    settingSidebar = new Sidebar({ position: 'Right', zIndex: '1003', width: '282', closeOnDocumentClick: true, close: closeRightSidebar, showBackdrop: true, type: 'Over' });
+    settingSidebar = new Sidebar({ position: 'Right', zIndex: '1001', width: '282', closeOnDocumentClick: true, close: closeRightSidebar, showBackdrop: true, type: 'Over' });
     settingSidebar.appendTo('#right-sidebar');
     themeDropDown = new DropDownList({
         index: themeCollection.indexOf(selectedTheme.replace("-dark", "")),
@@ -1112,6 +1199,11 @@ const rendersbPopup = (): void => {
     });
     cultureDropDown.appendTo('#sb-setting-culture');
     currencyDropDown.appendTo('#sb-setting-currency');
+    productsDropDown = new DropDownList({
+        index: 0,
+        change: (e: any) => { changeProductMobile(e.value); }
+    });
+    productsDropDown.appendTo('#sb-setting-products');
     sb.vars.sourceTab = new Tab({
         items: [],
         cssClass: 'sb-source-code-section',
@@ -1236,6 +1328,14 @@ const eventBinding = (): void => {
     }
     sb.vars.switcher.addEventListener('click', fn)
     sb.vars.switch.addEventListener('click', fn)
+    let headerProductsSwitch = select('#header-products-switcher', rootEle) as HTMLElement;
+    if (headerProductsSwitch) {
+        headerProductsSwitch.addEventListener('click', (e: MouseEvent) => {
+            e.preventDefault();
+            e.stopPropagation();
+            headerAction('changeProducts');
+        });
+    }
     sb.vars.headerThemeSwitch.addEventListener('click', (e: MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
@@ -1263,6 +1363,10 @@ const eventBinding = (): void => {
     });
     inputele.addEventListener('keyup', onsearchInputChange);
     themeList.addEventListener('click', changeTheme);
+    let productsList: HTMLElement = select('#productslist', rootEle) as HTMLElement;
+    if (productsList) {
+        productsList.addEventListener('click', changeProduct);
+    }
     sb.vars.setResponsiveElement.addEventListener('click', setMouseOrTouch);
     sb.vars.sblink.addEventListener('click', (e: MouseEvent) => {
         let target: Element = closest(<any>e.target, 'li');
@@ -1335,6 +1439,14 @@ const headerAction = (action: string, preventSearch?: boolean): void => {
         case 'changeSampleBrowser':
             curPopup = switcherPopup;
             break;
+        case 'changeProducts':
+            let headerProductsSwitch = select('#header-products-switcher', rootEle) as HTMLElement;
+            if (headerProductsSwitch) {
+                headerProductsSwitch.classList.toggle('active');
+                setPressedAttribute(headerProductsSwitch);
+            }
+            curPopup = productsSwitcherPopup;
+            break;
         case 'changeTheme':
             sb.vars.headerThemeSwitch.classList.toggle('active');
             setPressedAttribute(sb.vars.headerThemeSwitch);
@@ -1352,6 +1464,11 @@ const headerAction = (action: string, preventSearch?: boolean): void => {
         sb.vars.headerThemeSwitch.classList.remove('active');
         sb.vars.switcher.classList.remove('active');
         settingElement.classList.remove('active');
+        let headerProductsSwitch = select('#header-products-switcher', rootEle) as HTMLElement;
+        if (headerProductsSwitch) {
+            headerProductsSwitch.classList.remove('active');
+            setPressedAttribute(headerProductsSwitch);
+        }
         setPressedAttribute(sb.vars.headerThemeSwitch);
         setPressedAttribute(settingElement);
     }
@@ -1426,6 +1543,33 @@ const SbLink = (): void => {
             ele.href = ((link) ? ('http://' + link[1] + '/' + (link[3] ? (link[3] + '/') : '')) : ('https://ej2.syncfusion.com/')) +
                 (sb === 'typescript' ? '' : (sb + '/')) + 'demos/#/' + sample + (sb === ('javascript' || 'typescript') ? '.html' : ''); 
         }
+    }
+};
+
+const changeProduct = (e: MouseEvent): void => {
+    let target: Element = <HTMLElement>e.target;
+    target = closest(target, 'li');
+    let productId: string = target.id;
+    openProductUrl(productId);
+};
+
+const changeProductMobile = (productId: string): void => {
+    openProductUrl(productId);
+};
+
+const openProductUrl = (productId: string): void => {
+    let productUrl: string = '';
+    
+    if (productId === 'pdf-editor') {
+        productUrl = 'https://document.syncfusion.com/demos/pdf-viewer/vue/#/tailwind3/pdfviewer/default.html';
+    } else if (productId === 'spreadsheet-editor') {
+        productUrl = 'https://document.syncfusion.com/demos/spreadsheet-editor/vue/#/tailwind3/spreadsheet/default.html';
+    } else if (productId === 'docx-editor') {
+        productUrl = 'https://document.syncfusion.com/demos/docx-editor/vue/#/tailwind3/document-editor/default.html';
+    }
+    
+    if (productUrl) {
+        window.open(productUrl, '_blank');
     }
 };
 
@@ -1791,6 +1935,9 @@ const processResize = (e: any): void => {
     if (switcherPopup) {
         switcherPopup.refreshPosition();
     }
+    if (productsSwitcherPopup) {
+        productsSwitcherPopup.refreshPosition();
+    }
 };
 
 const processDeviceDependables = (): void => {
@@ -1875,7 +2022,8 @@ const sampleArray = (): void => {
             dataManager.executeLocal(new Query().sortBy('order', 'ascending'));
         for (let sample of samples) {
             let selectedTheme: string = location.hash.split('/')[1] ? location.hash.split('/')[1] : 'tailwind3';
-            let control: string = node.directory;
+            // Use per-sample 'dir' if present (e.g. ai-diagram samples inside ai-powered), else parent directory
+            let control: string = (sample as any).dir || node.directory;
             let sampleUrl: string = sample.url;
             let loc: string = '/' + selectedTheme + '/' + control + '/' + sampleUrl + '.html';
             samplesAr.push('#' + loc);
@@ -1985,7 +2133,7 @@ const updatesourceTab = (): void => {
                     });
                 }
                 isInitialLoad = false;
-            }, 200);
+            }, 900);
         }
         let propPanel: Element = select('#control-content .property-section');
         if (isMobile) {

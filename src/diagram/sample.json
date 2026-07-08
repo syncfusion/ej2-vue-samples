@@ -10,6 +10,7 @@
       "name": "Flow Chart",
       "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the processing of an order placed using credit card with built-in flow shapes.",
       "category": "Getting Started",
+      "type":"update",
       "order": 0
     },
     {
@@ -30,6 +31,7 @@
       "url": "html-node",
       "name": "HTML Shapes",
       "order": 0,
+      "ignoreOnBuild": true,
       "description": "This demo for Essential<sup>®</sup> JS2 Diagram component demonstrates how to host a HTML element inside a node. In this example, a Gauge control is hosted inside a HTML Node.",
       "category": "Getting Started",
       "sourceFiles": [
@@ -271,6 +273,7 @@
     {
       "url": "remote-data",
       "name": "Remote Data",
+      "ignoreOnBuild": true,
       "order": 3,
       "description": "This demo for Essential<sup>®</sup> JS2 Diagram component demonstrates binding remote data with the diagram using the Data Manager support.",
       "category": "Data Binding"
@@ -319,6 +322,14 @@
       "category": "Use Case Diagram"
     },
     {
+      "url": "entity-relationship-diagram",
+      "name": "Entity Relationship Diagram",
+      "order": 8,
+      "description": "This sample demonstrates a healthcare appointment management ER diagram created using the Syncfusion® EJ2 Vue Diagram.",
+      "category": "Use Case Diagram",
+      "type": "new"
+    },
+    {
       "url": "uml-activity",
       "name": "UML Activity Diagram",
       "order": 8,
@@ -329,8 +340,9 @@
       "url": "uml-sequence-diagram",
       "name": "UML Sequence Diagram",
       "order": 8,
-      "description": "This sample presents a UML sequence diagram to depict interactions in a secure transaction process involving a user, transaction system, and fraud detection using diagram model.",
-      "category": "Use Case Diagram"
+      "description": "This sample presents a UML sequence diagram created with the Syncfusion® EJ2 Diagram component to visualize interactions in a secure transaction process involving a user, transaction system, and fraud detection system.",
+      "category": "Use Case Diagram",
+      "type": "update"
     },
     {
       "url": "uml-class-diagram",

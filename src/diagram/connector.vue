@@ -5,7 +5,7 @@
         <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :nodes='nodes' :connectors='connectors' :selectionChange="selectionChange"  :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :snapSettings='snapSettings' :setNodeTemplate='setNodeTemplate'></ejs-diagram>
     </div>
 </div>
-<div class="col-lg-4 property-section">
+<div class="col-lg-4 property-section diagram-connector">
     <div class="property-panel-header">
         Properties
     </div>
@@ -14,35 +14,35 @@
             <b>Connector types</b>
         </div>
         <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="straightConnector" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_1.png); margin-right: 3px">
+            <div class="image-pattern-style" id="straightConnector" style="background-image: url(src/diagram/Images/connector/Connectors_1.png); margin-right: 3px">
             </div>
-            <div class="image-pattern-style" id="orthogonalConnector" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_2.png); margin: 0px 3px">
+            <div class="image-pattern-style" id="orthogonalConnector" style="background-image: url(src/diagram/Images/connector/Connectors_2.png); margin: 0px 3px">
             </div>
-            <div class="image-pattern-style" id="bezierConnector" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_3.png); margin-left: 3px">
-            </div>
-        </div>
-        <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="straightConnectorWithStroke" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_4.png); margin-right: 3px">
-            </div>
-            <div class="image-pattern-style" id="orthogonalConnectorWithStroke" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_5.png); margin: 0px 3px">
-            </div>
-            <div class="image-pattern-style" id="bezierConnectorWithStroke" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_6.png); margin-left: 3px">
+            <div class="image-pattern-style" id="bezierConnector" style="background-image: url(src/diagram/Images/connector/Connectors_3.png); margin-left: 3px">
             </div>
         </div>
         <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="straightConnectorWithDasharray" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_7.png); margin-right: 3px">
+            <div class="image-pattern-style" id="straightConnectorWithStroke" style="background-image: url(src/diagram/Images/connector/Connectors_4.png); margin-right: 3px">
             </div>
-            <div class="image-pattern-style" id="orthogonalConnectorWithDasharray" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_8.png); margin: 0px 3px">
+            <div class="image-pattern-style" id="orthogonalConnectorWithStroke" style="background-image: url(src/diagram/Images/connector/Connectors_5.png); margin: 0px 3px">
             </div>
-            <div class="image-pattern-style" id="bezierConnectorWithDasharray" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_9.png); margin-left: 3px">
+            <div class="image-pattern-style" id="bezierConnectorWithStroke" style="background-image: url(src/diagram/Images/connector/Connectors_6.png); margin-left: 3px">
             </div>
         </div>
         <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="cornerRadius" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_10.png); margin-right: 3px">
+            <div class="image-pattern-style" id="straightConnectorWithDasharray" style="background-image: url(src/diagram/Images/connector/Connectors_7.png); margin-right: 3px">
             </div>
-            <div class="image-pattern-style" id="sourceDecorators" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_11.png); margin: 0px 3px">
+            <div class="image-pattern-style" id="orthogonalConnectorWithDasharray" style="background-image: url(src/diagram/Images/connector/Connectors_8.png); margin: 0px 3px">
             </div>
-            <div class="image-pattern-style" id="sourceDecoratorWithDasharray" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/connector/Connectors_12.png); margin-left: 3px">
+            <div class="image-pattern-style" id="bezierConnectorWithDasharray" style="background-image: url(src/diagram/Images/connector/Connectors_9.png); margin-left: 3px">
+            </div>
+        </div>
+        <div class="row" style="padding-top: 8px">
+            <div class="image-pattern-style" id="cornerRadius" style="background-image: url(src/diagram/Images/connector/Connectors_10.png); margin-right: 3px">
+            </div>
+            <div class="image-pattern-style" id="sourceDecorators" style="background-image: url(src/diagram/Images/connector/Connectors_11.png); margin: 0px 3px">
+            </div>
+            <div class="image-pattern-style" id="sourceDecoratorWithDasharray" style="background-image: url(src/diagram/Images/connector/Connectors_12.png); margin-left: 3px">
             </div>
         </div>
     </div>
@@ -120,7 +120,7 @@
     <p>
         To change the appearance, click on different styles in the property panel to modify the connector type, decorator shapes, and decorator sizes.
         The <code>type</code> property of the connector defines its segment type. The <code>shape</code> property specifies the shapes for the source, target, and segment decorators. You can adjust the size of the source and target decorators by setting their
-        <code>width</code>and <code>height</code>. Additionally, the<code>segmentThumbSize</code>property allows you to modify the size of the segment decorator when the connector is selected.
+        <code>width</code>and <code>height</code>. Additionally, the <code>segmentThumbSize</code> property allows you to modify the size of the segment decorator when the connector is selected.
     </p>
 
     <p>
@@ -133,6 +133,8 @@
         Diagram component's features are segregated into individual feature-wise modules. To automatically arrange the shapes, we need to Inject <code>HierarchicalTree</code> module using <code>provide: { diagram: [HierarchicalTree] }</code> method.
     </p>
     <br>
+
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>

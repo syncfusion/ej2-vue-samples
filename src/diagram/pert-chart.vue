@@ -22,6 +22,8 @@
         <code>ComplexHierarchicalTree</code> module using <code>provide: { diagram: [ComplexHierarchicalTree] }</code> method.
     </p>
     <br>
+
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 

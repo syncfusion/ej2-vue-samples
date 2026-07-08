@@ -15,53 +15,53 @@
         </div>
 
         <div id="action-description">
-            <p>This sample visualizes the various phases involved in constructing a residential house, from testing the
-                soil to
-                handing over the fully constructed property to the owner. This sample also demonstrates CRUD operations
-                in Gantt
-                chart. You can perform CRUD operations as follows,
+            <p>This sample visualizes the various phases involved in constructing a residential house, from testing the soil to
+                handing over the fully constructed property to the owner. This sample also demonstrates CRUD operations in Gantt chart.
+                You can perform CRUD operations as follows,
+            </p>
             <ul>
                 <li><code>Add</code> - To add new task, click Add toolbar button</li>
                 <li><code>Edit </code>- To edit a task, double click a row or double click a taskbar or click toolbar
-                    Edit
-                    button after selected a row</li>
+                    Edit button after selected a row</li>
                 <li><code>Indent</code> - To indent a task, click toolbar indent button after selecting a row</li>
                 <li><code>Outdent</code> - To outdent a task, click toolbar outdent button after selecting a row</li>
                 <li><code>Delete</code> - To delete a task, click toolbar Delete button after selected a row</li>
-                <li><code>Update,Cancel</code> - You can save or discard changes by click toolbar Update and Cancel
-                    button
-                    respectively</li>
+                <li><code>Update, Cancel</code> - You can save or discard changes by click toolbar Update and Cancel
+                    button respectively</li>
             </ul>
-            </p>
         </div>
 
         <div id="description">
             <p>
                 This CRUD operations can be configured in Gantt Chart using <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#allowtaskbardraganddrop">allowTaskbarEditing</a>
-                in <a target="_blank"
-                    href="https://ej2.syncfusion.com/documentation/api/gantt/#editsettings">editSettings</a>. Gantt
+                href="https://ej2.syncfusion.com/vue/documentation/api/gantt/editsettingsmodel#allowtaskbarediting">
+                allowTaskbarEditing</a> in <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/index-default#editsettings">editSettings</a>. Gantt
                 Chart has two modes to manipulate the datasource:
+            </p>
+            <ul>
                 <li><code>Auto</code></li>
                 <li><code>Dialog</code></li>
-            </p>
-            <br>
+            </ul>
             <p>In this demo, <code>Auto</code> mode is enabled for editing. On the TreeGrid side, you can start editing
-                any row by double clicking on it or clicking on toolbar’s Edit button, then the currently selected row
+                any row by double clicking on it or clicking on toolbar's Edit button, then the currently selected row
                 will be changed to edited state.
                 On the chart side, you can edit the tasks using edit dialog by double clicking on the taskbars and you
                 can edit the dependency connector lines using drag and drop action with connector line points available
                 on the either side of taskbar.
-                <br>
                 In this sample <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#validationrules">column.validation</a>
                 has been enabled for the columns.It uses the Form Validator control and the column validation property
                 to define validation rules, displaying error messages for invalid fields.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/managing-tasks/editing-tasks">documentation
-                    section</a>.</p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use a edit, selection, toolbar,
+                markers features, inject the <code>Edit</code>, <code>Selection</code>, <code>Toolbar</code>, <code>DayMarkers</code>
+                modules into the <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/managing-tasks/editing-tasks">documentation section</a>.</p>
         </div>
     </div>
 </template>
@@ -90,7 +90,6 @@ export default {
         'ejs-gantt': GanttComponent
     },
     data: function () {
-
         return {
             data: editingData,
             dateFormat: 'MMM dd, y',
@@ -124,15 +123,15 @@ export default {
             timelineSettings: {
                 topTier: {
                     unit: 'Week',
-                    format: 'MMM dd, y',
+                    format: 'MMM dd, y'
                 },
                 bottomTier: {
-                    unit: 'Day',
-                },
+                    unit: 'Day'
+                }
             },
             columns: [
                 { field: 'TaskID', width: 80 },
-                { field: 'TaskName', headerText: 'Job Name', width: '250', clipMode: 'EllipsisWithTooltip', validationRules: { required: true, minLength: [5, 'Task name should have a minimum length of 5 characters'], } },
+                { field: 'TaskName', headerText: 'Job Name', width: '260', clipMode: 'EllipsisWithTooltip', validationRules: { required: true, minLength: [5, 'Task name should have a minimum length of 5 characters'] } },
                 { field: 'StartDate' },
                 { field: 'EndDate', validationRules: endDateValidation },
                 { field: 'Duration', validationRules: { required: true } },
@@ -167,8 +166,7 @@ export default {
             if (args.requestType === "taskbarediting" && args.taskBarEditAction === "ChildDrag") {
                 startDate = args.data.ganttProperties.startDate;
             }
-        },
-
+        }
     }
 }
 </script>

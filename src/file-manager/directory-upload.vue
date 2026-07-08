@@ -2,12 +2,12 @@
 <div>
     <div class="control-section folder-upload">
          <div class="sample-container">
-            <ejs-filemanager id="filemanager" ref="filemanagerInstance" :ajaxSettings='ajaxSettings' :contextMenuSettings="contextMenuSettings" >
+            <ejs-filemanager id="filemanager" ref="filemanagerInstance" :ajaxSettings='ajaxSettings' :contextMenuSettings="contextMenuSettings"  @success="onSuccess">
                 <e-toolbaritems>
                     <e-toolbaritem name="NewFolder"></e-toolbaritem>
                     <e-toolbaritem :template="'uploadTemplate'" name="Upload">
                         <template v-slot:uploadTemplate>
-                            <div><ejs-dropdownbutton id="dropButton" ref="dropButtonInstance" cssClass="e-tbar-btn e-tbtn-txt" iconCss="e-icons e-fe-upload" :items='getItems()' :select="onSelect" :onClick="uploadClick"> <span className="e-tbar-btn-text">Upload</span></ejs-dropdownbutton></div>
+                            <div><ejs-dropdownbutton id="dropButton" ref="dropButtonInstance" cssClass="e-tbar-btn e-tbtn-txt" iconCss="e-icons e-fe-upload" :items='getItems()' :content="uploadContent" :select="onSelect" :onClick="uploadClick"></ejs-dropdownbutton></div>
                         </template>
                     </e-toolbaritem>
                     <e-toolbaritem name="SortBy"></e-toolbaritem>
@@ -42,6 +42,7 @@
             <b>Note: </b>File Manager's upload functionality is restricted in the online demos for security reasons. If you need to test upload functionality, please install
             <a target="_blank" href="https://www.syncfusion.com/downloads"> Syncfusion Essential Studio </a>on your machine and run the demo.
         </p>
+        <p>Looking for the full Vue File Manager component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-file-manager">Vue File Manager</a> page.</p>
     </div>
 </div>
 </template>
@@ -56,7 +57,7 @@ import { DropDownButtonComponent, ItemModel } from "@syncfusion/ej2-vue-splitbut
 /**
  * File Manager directory upload feature sample
  */
-let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
+let hostUrl = 'https://physical-service.syncfusion.com/';
 export default {
     components: {
         'ejs-filemanager': FileManagerComponent,
@@ -79,17 +80,25 @@ export default {
                 { text: fileObj?.localeObj.getConstant('Folder') },
                 { text: fileObj?.localeObj.getConstant('File') },
                 ];
-            },            
+            },                       
             contextMenuSettings: {
 				file: ["Cut", "Copy", "|", "Delete", "Download", "Rename", "|", "Details"],
                 visible: true
-            }
+            },
+            uploadLabel: "Upload",
+            uploadContent: '<span class="e-tbar-btn-text">Upload</span>'
         };
     },
     provide: {
             filemanager: [NavigationPane, DetailsView, Toolbar]
     },
     methods: {
+        onSuccess() {
+            const fm = this.$refs.filemanagerInstance.ej2Instances;
+            const label = fm.localeObj.getConstant("Upload");
+            this.uploadLabel = label;
+            this.uploadContent = `<span class="e-tbar-btn-text">${label}</span>`;
+        },
         onSelect: function (args) {
             var fileObj = this.$refs.filemanagerInstance;
             const fileObject = this.$refs.filemanagerInstance?.ej2Instances;

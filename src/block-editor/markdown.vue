@@ -130,7 +130,7 @@ export default {
   data() {
     return {
       // Sidebar settings
-      width: '220px',
+      width: '240px',
       enableDock: true,
       dockSize: '33px',
       mediaQuery: '(min-width: 600px)',
@@ -264,13 +264,13 @@ export default {
         {
           id: 'Team_Sessions',
           name: 'Team Sessions',
-          mdFile: 'src/block-editor/mdfiles/Team Sessions.md',
+          mdFile: 'https://ej2.syncfusion.com/vue/demos/src/block-editor/mdfiles/Team%20Sessions.md',
           selected: true,
           expanded: true,
           children: [
-            { id: '1', name: 'Meeting minutes.md', mdFile: 'src/block-editor/mdfiles/Meeting minutes.md' },
-            { id: '2', name: 'Brain storming.md', mdFile: 'src/block-editor/mdfiles/Brain storming.md' },
-            { id: '3', name: 'Retrospective.md', mdFile: 'src/block-editor/mdfiles/Retrospective.md' }
+            { id: '1', name: 'Meeting minutes.md', mdFile: 'https://ej2.syncfusion.com/vue/demos/src/block-editor/mdfiles/Meeting%20minutes.md' },
+            { id: '2', name: 'Brain storming.md', mdFile: 'https://ej2.syncfusion.com/vue/demos/src/block-editor/mdfiles/Brain%20storming.md' },
+            { id: '3', name: 'Retrospective.md', mdFile: 'https://ej2.syncfusion.com/vue/demos/src/block-editor/mdfiles/Retrospective.md' }
           ]
         }
       ],
@@ -298,7 +298,7 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      this.loadContent('src/block-editor/mdfiles/Team Sessions.md');
+      this.loadContent('https://ej2.syncfusion.com/vue/demos/src/block-editor/mdfiles/Team%20Sessions.md');
       this.breadcrumbItems = [{ text: 'Team' }, { text: 'Team Sessions' }];
       if (this.$refs.closeBtn?.ej2Instances?.element && window.innerWidth < 600) {
         this.$refs.closeBtn.ej2Instances.element.style.left = '18px';
@@ -359,7 +359,7 @@ export default {
     onOpen() {
       const closeBtn = this.$refs.closeBtn?.ej2Instances?.element;
       if (closeBtn) {
-        closeBtn.style.left = '202px';
+        closeBtn.style.left = '225px';
         closeBtn.classList.remove('expand-mode');
       }
       const tv = this.$refs.treeview?.ej2Instances;
@@ -390,7 +390,7 @@ export default {
 
       if (selectedId === 'Team_Sessions') {
         this.breadcrumbItems = [{ text: 'Team' }, { text: 'Team Sessions' }];
-        this.loadContent('src/block-editor/mdfiles/Team Sessions.md');
+        this.loadContent('https://ej2.syncfusion.com/vue/demos/src/block-editor/mdfiles/Team%20Sessions.md');
         return;
       }
 

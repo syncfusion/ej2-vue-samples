@@ -33,6 +33,9 @@
         <p>
         <br/> More information on the command column configuration can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/editing/command-column-editing">documentation section</a>.
         </p>
+        <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+        </p>
     </div>
     <div>
         <ejs-treegrid :dataSource='data' childMapping='subtasks' :treeColumnIndex='1' height='380' :editSettings='editSettings'>

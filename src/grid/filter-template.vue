@@ -91,15 +91,18 @@
                 property for each column. The Unit Stock column uses the default filter bar cell with
                 operator functionality.
             </p>
-            <p style="font-weight: 500">
-                Injecting Module:
-            </p>
+            <p><strong>Injecting Module:</strong></p>
             <p>
                 Grid features are divided into individual modules. To use filtering feature, inject the
                 <code>Filter</code> using the <code>provide</code> section. For more details on configuring filters,
                 refer to the relevant <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/grid/filtering/filter-bar#filter-bar-template-with-custom-component">
                     documentation section</a>.
+            </p>
+            <p>
+                Looking for the full Vue Data Grid component overview, features, pricing, and documentation? Visit our
+                <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-data-grid">
+                    Vue Data Grid component</a> page.
             </p>
         </div>
 

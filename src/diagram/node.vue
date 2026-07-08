@@ -18,17 +18,17 @@
         </div>
          <!-- Image previews for node styles -->
         <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="preview0" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/node/Nodes_1.png); margin-right: 3px">
+            <div class="image-pattern-style" id="preview0" style="background-image: url(src/diagram/Images/node/Nodes_1.png); margin-right: 3px">
             </div>
-            <div class="image-pattern-style" id="preview1" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/node/Nodes_2.png); margin-right: 0px 3px">
+            <div class="image-pattern-style" id="preview1" style="background-image: url(src/diagram/Images/node/Nodes_2.png); margin-right: 0px 3px">
             </div>
-            <div class="image-pattern-style" id="preview2" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/node/Nodes_3.png); margin: 0px 3px">
+            <div class="image-pattern-style" id="preview2" style="background-image: url(src/diagram/Images/node/Nodes_3.png); margin: 0px 3px">
             </div>
         </div>
         <div class="row" style="padding-top: 8px">
-            <div class="image-pattern-style" id="preview3" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/node/Nodes_4.png); margin-right: 3px">
+            <div class="image-pattern-style" id="preview3" style="background-image: url(src/diagram/Images/node/Nodes_4.png); margin-right: 3px">
             </div>
-            <div class="image-pattern-style" id="preview4" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/node/Nodes_5.png); margin-right: 0px 3px">
+            <div class="image-pattern-style" id="preview4" style="background-image: url(src/diagram/Images/node/Nodes_5.png); margin-right: 0px 3px">
             </div>
         </div>
     </div>
@@ -73,6 +73,8 @@
         <code>constraints</code> property of the node allows you to enable/disable editing and proportional resizing.
     </p>
     <br>
+
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </template>
 

@@ -14,7 +14,8 @@
           :saveReport="saveReport" :loadReport="loadReport" :fetchReport="fetchReport" :renameReport="renameReport"
           :removeReport="removeReport" :newReport="newReport" :toolbarRender="beforeToolbarRender"
           :chartSeriesCreated="chartSeriesCreated" :load="load" :displayOption="displayOption" :chartSettings="chartSettings"
-          :cellTemplate="'myTemplate'" :enableFieldSearching="enableFieldSearching">
+          :cellTemplate="'myTemplate'" :enableFieldSearching="enableFieldSearching"
+          :dataBound="dataBound">
           <template v-slot:myTemplate="{ data }">
             <span class="template-wrap" v-html="getCellContent(data)"></span>
           </template>
@@ -93,6 +94,7 @@ declare let require: any;
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let isInitial = true;
 
 export default {
   components: {
@@ -222,7 +224,7 @@ export default {
         columnWidth: 120, allowSelection: true, rowHeight: 36,
         selectionSettings: { mode: 'Cell', type: 'Single', cellSelectionMode: 'Box' },
         excelQueryCellInfo: (args: ExcelQueryCellInfoEventArgs) => {
-          if (!isNullOrUndefined(args) && (args.cell as IAxisSet).axis === 'value' && (args.cell as IAxisSet).value === undefined) {
+          if (!isNullOrUndefined(args) && (args.cell as IAxisSet).axis === 'value' && args.value === undefined) {
             (args as any).style.numberFormat = undefined;
           }
         }
@@ -397,8 +399,16 @@ export default {
       });
     },
     load: function (args: any) {
+      isInitial = true;
       if (Browser.isDevice) {
         args.dataSourceSettings.rows = [{ name: 'rank_display', caption: 'Rank', expandAll: true, allowDragAndDrop: false }];
+      }
+    },
+    dataBound: function () {
+      if (isInitial) {
+        isInitial = false;
+        let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+        pivotObj.isModified = false;
       }
     }
   },

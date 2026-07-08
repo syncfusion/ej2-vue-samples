@@ -46,6 +46,10 @@
   width: 10%;
 }
 
+.e-kanban .header-icon {
+  font-size: 0px;
+}
+
 .kanban-overview.e-kanban .header-template-wrap .header-text {
   margin-left: 15px;
 }

@@ -1,0 +1,177 @@
+{
+    "name": "AI-Powered Samples",
+    "directory": "ai-grid",
+    "category": "Smart AI Solutions",
+    "samples": [
+        {
+            "url": "predictive-entry",
+            "name": "Predictive Data Entry",
+            "category": "Data Grid",
+            "dir": "ai-grid",
+            "sourceFiles": [
+                { "displayName": "predictive-entry.vue", "path": "src/ai-grid/ai-predictive-entry.vue" }
+            ],
+            "description": "This demo shows the predictive data entry AI feature in Data Grid."
+        },
+        {
+            "url": "anomaly-detection",
+            "name": "Anomaly Detection",
+            "category": "Data Grid",
+            "dir": "ai-grid",
+            "sourceFiles": [
+                { "displayName": "anomaly-detection.vue", "path": "src/ai-grid/ai-anomaly-detection.vue" }
+            ],
+            "description": "This demo shows the anomaly detection AI feature in Data Grid."
+        },
+        {
+            "url": "semantic-filtering",
+            "name": "Semantic Filtering (Embedding)",
+            "category": "Data Grid",
+            "dir": "ai-grid",
+            "sourceFiles": [
+                { "displayName": "semantic-filtering.vue", "path": "src/ai-grid/ai-semantic-filtering.vue" }
+            ],
+            "description": "This demo shows the semantic filtering AI feature in Data Grid."
+        },
+        {
+            "url": "text-to-flowchart",
+            "name": "Text to Flowchart",
+            "category": "Diagram",
+            "dir": "ai-diagram",
+            "sourceFiles": [
+                { "displayName": "text-to-flowchart.vue", "path": "src/ai-diagram/ai-text-to-flowchart.vue" }
+            ],
+            "description": "This demo showcases the Diagram AI feature."
+        },
+        {
+            "url": "text-to-mindmap",
+            "name": "Text to MindMap",
+            "category": "Diagram",
+            "dir": "ai-diagram",
+            "sourceFiles": [
+                { "displayName": "text-to-mindmap.vue", "path": "src/ai-diagram/ai-text-to-mindmap.vue" }
+            ],
+            "description": "This demo showcases the Diagram AI feature."
+        },
+        {
+            "url": "text-to-umlSequenceDiagram",
+            "name": "Text to UML Sequence Diagram",
+            "category": "Diagram",
+            "dir": "ai-diagram",
+            "sourceFiles": [
+                { "displayName": "text-to-umlSequenceDiagram.vue", "path": "src/ai-diagram/ai-text-to-umlSequenceDiagram.vue" }
+            ],
+            "description": "This demo showcases the Diagram AI feature."
+        },
+        {
+            "url": "semantic-searching",
+            "name": "Semantic Searching (Embedding)",
+            "category": "Combo Box",
+            "dir": "ai-combo-box",
+            "sourceFiles": [
+                { "displayName": "semantic-searching.vue", "path": "src/ai-combo-box/ai-semantic-searching.vue" }
+            ],
+            "description": "This demo shows the semantic search AI feature in Combo Box."
+        },
+        {
+            "url": "task-prioritizer",
+            "name": "Smart Task Prioritizer",
+            "category": "Gantt Chart",
+            "dir": "ai-gantt",
+            "sourceFiles": [
+                { "displayName": "task-prioritizer.vue", "path": "src/ai-gantt/ai-task-prioritizer.vue" }
+            ],
+            "description": "This demo showcases the Pivot Table AI feature."
+        },
+        {
+            "url": "progress-predictor",
+            "name": "Smart Progress Predictor",
+            "category": "Gantt Chart",
+            "dir": "ai-gantt",
+            "sourceFiles": [
+                { "displayName": "progress-predictor.vue", "path": "src/ai-gantt/ai-progress-predictor.vue" }
+            ],
+            "description": "This demo showcases the Pivot Table AI feature."
+        },
+        {
+            "url": "resource-manager",
+            "name": "Smart Resource Allocation",
+            "category": "Gantt Chart",
+            "dir": "ai-gantt",
+            "sourceFiles": [
+                { "displayName": "resource-manager.vue", "path": "src/ai-gantt/ai-resource-manager.vue" }
+            ],
+            "description": "This demo showcases the Pivot Table AI feature."
+        },
+        {
+            "url": "smart-image-editor",
+            "name": "Smart Image Editor",
+            "category": "Image Editor",
+            "dir": "ai-image-editor",
+            "sourceFiles": [
+                { "displayName": "smart-image-editor.vue", "path": "src/ai-image-editor/ai-smart-image-editor.vue" }
+            ],
+            "description": "This demo highlights the advanced features of the Syncfusion EJ2 Image Editor."
+        },
+        {
+            "url": "sentiment-analysis",
+            "name": "Sentiment Analysis",
+            "category": "Kanban",
+            "dir": "ai-kanban",
+            "sourceFiles": [
+                { "displayName": "sentiment-analysis.vue", "path": "src/ai-kanban/ai-sentiment-analysis.vue" }
+            ],
+            "description": "This demo shows the anomaly detection AI feature in kanban"
+        },
+        {
+            "url": "weather-prediction",
+            "name": "Weather Prediction",
+            "category": "Maps",
+            "dir": "ai-maps",
+            "sourceFiles": [
+                { "displayName": "weather-prediction.vue", "path": "src/ai-maps/ai-weather-prediction.vue" }
+            ],
+            "description": "This demo showcases the Maps AI feature."
+        },
+        {
+            "url": "smart-pivot",
+            "name": "Smart Pivot",
+            "category": "Pivot Table",
+            "dir": "ai-pivot-table",
+            "sourceFiles": [
+                { "displayName": "smart-pivot.vue", "path": "src/ai-pivot-table/ai-smart-pivot.vue" }
+            ],
+            "description": "This demo showcases the Pivot Table AI feature."
+        },
+        {
+            "url": "natural-language-query",
+            "name": "Natural Language Query",
+            "category": "Query Builder",
+            "dir": "ai-querybuilder",
+            "sourceFiles": [
+                { "displayName": "natural-language-query.vue", "path": "src/ai-querybuilder/ai-natural-language-query.vue" }
+            ],
+            "description": "This demo shows the natural language query AI feature in query builder."
+        },
+        {
+            "url": "smart-window",
+            "name": "Smart Event Window",
+            "category": "Scheduler",
+            "dir": "ai-schedule",
+            "sourceFiles": [
+                { "displayName": "smart-event-window.vue", "path": "src/ai-schedule/ai-smart-window.vue" }
+            ],
+            "description": "This demo demonstrates how AI can be utilized to convert natural language context into scheduler events."
+        },
+        {
+            "url": "adaptive-datastructuring",
+            "name": "Adaptive Data Structuring",
+            "category": "Tree Grid",
+            "dir": "ai-treegrid",
+            "sourceFiles": [
+                { "displayName": "adaptive-datastructuring.vue", "path": "src/ai-treegrid/ai-adaptive-datastructuring.vue" }
+            ],
+            "description": "This demo shows the adaptive data structuring AI feature in Tree Grid."
+        }
+    ]
+}

@@ -2,7 +2,7 @@
     <div class="control-section">
         <div align='center'>
             <ejs-accumulationchart style='display:block' :theme='theme' id='pie-border-container' :chartArea='chartArea'
-                :pointRender='pointRender' :annotations='annotations' :tooltip='tooltip' :subTitle='subtitle'
+                :pointRender='pointRender' :tooltip='tooltip' :subTitle='subtitle'
                 :enableBorderOnMouseMove='false' :enableAnimation='enableAnimation' :width='width' :title='title' :legendSettings='legend'>
                 <e-accumulation-series-collection>
                     <e-accumulation-series type='Pie' :dataSource='seriesData' xName='x' yName='y' name="Project" :radius='radius' startAngle='120' innerRadius='50%'

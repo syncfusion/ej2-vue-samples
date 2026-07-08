@@ -6,12 +6,12 @@
 </div>
 <div id="action-description">
   <p>
-      This sample presents a UML sequence diagram created with the Syncfusion<sup>®</sup> EJ2 Diagram component to visualize interactions in a secure transaction process involving a user, transaction system, and fraud detection system.
+    This sample presents a UML sequence diagram created with the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> to visualize interactions in a secure transaction process involving a user, transaction system, and fraud detection system.
   </p>
 </div>
 <div id="description">
- <p>This sample demonstrates how to build a UML sequence diagram using the diagram's <code>model</code> property. The <code>UmlSequenceDiagramModel</code> type provides a structured approach to defining key elements such as participants, messages, activation boxes, and interaction fragments. This approach enables the clear visualization of sequential interactions within complex systems, such as secure transaction workflows.
-    </p>
+    <p>This sample demonstrates how to build a UML sequence diagram using the diagram's <code>model</code> property. The <code>UmlSequenceDiagramModel</code> type provides a structured approach to defining key elements such as participants, messages, activation boxes, and interaction fragments. 
+        The diagram highlights interactions between key participants such as the User, Transaction and Fraud Detection System. Each participant is represented using <code>stereotype</code> such as <strong>Actor</strong>, <strong>Control</strong> and <strong>Entity</strong> to clearly convey its role within the system.</p>
   <br />
 </div>
 </div>
@@ -26,7 +26,8 @@ import {
   UmlSequenceMessageType,
   UmlSequenceFragmentType,
   UmlSequenceParticipant,
-  UmlSequenceActivationBox
+  UmlSequenceActivationBox,
+  UmlSequenceParticipantStereotype
 } from "@syncfusion/ej2-vue-diagrams";
 
 // Define the sequence diagram model with participants, messages, and fragments
@@ -39,12 +40,13 @@ import {
                 id: "User",
                 content: "User",
                 // Indicates that User is an actor
-                isActor: true
+                stereotype: UmlSequenceParticipantStereotype.Actor
             },
             {
                 id: "Transaction",
                 content: "Transaction",
                 // Activation periods for the Transaction participant
+                stereotype: UmlSequenceParticipantStereotype.Control,
                 activationBoxes: [
                     { id: "act1", startMessageID: 'msg1', endMessageID: 'msg4' }
                 ]
@@ -53,6 +55,7 @@ import {
                 id: "FraudDetectionSystem",
                 content: "Fraud Detection System",
                 // Activation periods for the Fraud Detection System participant
+                stereotype: UmlSequenceParticipantStereotype.Entity,
                 activationBoxes: [
                     { id: "act2", startMessageID: 'msg2', endMessageID: 'msg3' },
                     { id: "act3", startMessageID: 'msg5', endMessageID: 'msg6' }
@@ -107,14 +110,8 @@ export default {
                 constraints: SnapConstraints.None
             },
       getNodeDefaults: (node) => {
-        // participant node
-        if (node.data instanceof UmlSequenceParticipant) {
-            if (!node.data.isActor) {
-                node.annotations[0].style.color = 'white';
-            }
-        }
         // activation node
-        else if (node.data instanceof UmlSequenceActivationBox) {
+        if (node.data instanceof UmlSequenceActivationBox) {
             node.style = { fill: 'orange', strokeColor: 'orange' };
         }
       },

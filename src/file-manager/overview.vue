@@ -20,6 +20,7 @@
             <b>Note: </b>File Manager's upload functionality is restricted in the online demos for security reasons. If you need to test upload functionality, please install 
             <a target="_blank" href="https://www.syncfusion.com/downloads"> Syncfusion Essential Studio </a>on your machine and run the demo.
         </p>
+        <p>Looking for the full Vue File Manager component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-file-manager">Vue File Manager</a> page.</p>
     </div>
 </div>
 </template>
@@ -35,7 +36,7 @@ import { FileManagerComponent, NavigationPane, Toolbar, DetailsView } from "@syn
  * File Manager full functionalities sample
  */
 
-let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
+let hostUrl = 'https://physical-service.syncfusion.com/';
 export default {
      components: {
       'ejs-filemanager': FileManagerComponent

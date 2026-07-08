@@ -52,6 +52,7 @@
                 when it is being dragged and dropped onto the scheduler. When the item is being dropped onto the scheduler, the event editor is
                 explicitly made to open with the target details by invoking the <code>openEditor</code> method of scheduler within the <code>nodeDragStop</code> event of TreeView.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

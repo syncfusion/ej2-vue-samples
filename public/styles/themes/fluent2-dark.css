@@ -71,6 +71,7 @@ body.fluent2-dark,
 .fluent2-dark .sb-plnr-section,
 .fluent2-dark .sb-switch-popup li:first-child,
 .fluent2-dark .sb-theme-popup li.active .sb-theme-select,
+.fluent2-dark .sb-products-popup li.active .sb-products-select,
 .fluent2-dark .e-content .e-list-parent .e-list-group-item,
 .fluent2-dark .sb-source-section .e-tab .e-tab-header .e-toolbar-item.e-active .e-tab-text,
 .fluent2-dark .sb-source-section .e-tab .e-tab-header .e-toolbar-item:hover .e-tab-text,
@@ -124,7 +125,7 @@ body.fluent2-dark,
     background: #2B2831;
 }
 .fluent2-dark .sb-theme-popup,
-.fluent2-dark .sb-switch-popup {
+.fluent2-dark .sb-products-popup,.fluent2-dark .sb-products-popup,.fluent2-dark .sb-switch-popup {
     color: #fff;
     background: #1f1f1f;
 }
@@ -134,8 +135,11 @@ body.fluent2-dark,
 .fluent2-dark .sb-setting-btn.active,
 .fluent2-dark .sb-switch-popup li:hover,
 .fluent2-dark .theme-wrapper:hover,
+.fluent2-dark .products-wrapper:hover,
 .fluent2-dark .theme-wrapper.active,
+.fluent2-dark .products-wrapper.active,
 .fluent2-dark .sb-theme-popup li:hover,
+.fluent2-dark .sb-products-popup li:hover,
 .fluent2-dark .sb-search-result .e-list-item:hover,
 .fluent2-dark .sb-left-pane .e-listview .e-list-item:hover {
     background-color: rgba(255, 255, 255, 0.12);
@@ -218,6 +222,14 @@ body.fluent2-dark,
 }
 
 .fluent2-dark .sb-theme-popup li .sb-theme-select {
+    color:transparent;
+}
+
+.fluent2-dark .sb-products-popup li .sb-products-select {
+    color:transparent;
+}
+
+.fluent2-dark .sb-products-popup li .sb-products-select {
     color:transparent;
 }
 

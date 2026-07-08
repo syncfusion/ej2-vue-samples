@@ -93,6 +93,18 @@
           :snapSettings="snapSettings"
           :drawingObject="drawingObject"
         ></ejs-diagram>
+        <!-- Confirmation Dialog for unsaved diagram -->
+       <ejs-dialog
+          style="display: none"
+          ref='unsavedDialog'
+          id='diagram-unsaved-dialog'
+          :width='unsavedWidth'
+          :target='target'
+          :content='content'
+          :header='header'
+          :isModal='isModal'
+          :buttons='dlgButtons'
+        ></ejs-dialog>
       </div>
       <div style="display: none">
         <ejs-uploader
@@ -104,37 +116,41 @@
         />
       </div>
     </div>
-    <div id="action-description">
+   <div id="action-description">
       <p>
-        This sample visualizes the processing of an order placed using credit
-        card with built-in flow shapes.
+        This sample demonstrates a credit card order-processing workflow created using built-in flow shapes in the
+        <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a>.
       </p>
     </div>
     <div id="description">
       <p>
-        This example shows how to create a simple flow chart using the diagram
-        control. The <code>nodes</code> property can be used to define different
-        stages of a process. To define the flow between different stages, the
-        <code>connectors</code> property can be used. The
-        <code>getNodeDefaults</code> and
-        <code>getConnectorDefaults</code> properties define the default behavior
-        of shapes and connectors.
+        This sample demonstrates how to create, edit, and manage a credit card order-processing workflow using the
+        <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a>. The workflow is designed with nodes and connectors, where
+        each node represents a specific stage in the order process and each connector defines the flow between stages.
+      </p>
+      <p>
+        The <code>nodes</code> property is used to define the workflow stages, and the <code>connectors</code> property
+        is used to establish the relationships between these stages. The <code>getNodeDefaults</code> and
+        <code>getConnectorDefaults</code> properties are configured to apply common appearance and behavior settings to
+        nodes and connectors.
       </p>
 
       <p>
-        To easily build flow diagrams, few shapes are predefined and added to
-        symbol palette. You can drag-and-drop predefined shapes into the drawing
-        area. The <code>symbols</code> property allows you to add predefined
-        symbols to the palette.
+        A symbol palette with predefined flowchart shapes and connectors is provided to help users build diagrams
+        through drag-and-drop interactions. The symbols displayed in the palette are configured using the
+        <code>symbols</code> property.
       </p>
-
-      <p>In this example, undo and redo support is enabled.</p>
-      <p style="font-weight: 500">Injecting Module</p>
       <p>
-        The diagram component’s features are segregated into individual
-        feature-wise modules. To enable undo and redo support, inject
-        <code>UndoRedo</code> module using
-        <code>provide: { diagram: [UndoRedo] }</code> method.
+        The sample includes a toolbar with common diagram-editing actions, such as <strong>New</strong>,
+        <strong>Open</strong>, <strong>Save</strong>, <strong>Export</strong>, <strong>Print</strong>,
+        <strong>Cut</strong>, <strong>Copy</strong>, <strong>Paste</strong>, <strong>Undo</strong>, and
+        <strong>Redo</strong>. It also provides options for drawing shapes and connectors, panning, zooming, rotating,
+        flipping, grouping, aligning, and distributing diagram elements.
+      </p>
+      <p>
+        The read-only <code>isModified</code> property is used to track unsaved changes in the diagram. When users
+        attempt to click the <strong>New</strong> or <strong>Open</strong> button in the toolbar, or try to close the
+        browser tab without saving the current changes, a confirmation dialog is displayed.
       </p>
       <br />
     </div>
@@ -312,6 +328,16 @@
 .e-diagram-connector::before {
   content: "\e725";
 }
+
+</style>
+
+<style>
+
+#diagram-unsaved-dialog .e-footer-content {
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+}
+
 </style>
 
 <script>
@@ -341,13 +367,16 @@ import {
   Toolbar,
 } from "@syncfusion/ej2-vue-navigations";
 import { SplitButtonComponent } from "@syncfusion/ej2-vue-splitbuttons";
+import { DialogComponent } from '@syncfusion/ej2-vue-popups';
 
 let isMobile;
 let interval;
 let diagram;
+let unsavedDialog;
 let toolbarEditor;
 let paletteSpace;
 let paletteIcon;
+let pendingAction = null;
 //intervals for grid lines
 interval = [
   1, 9, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75,
@@ -556,6 +585,7 @@ export default {
     "e-items": ItemsDirective,
     "e-item": ItemDirective,
     "ejs-splitbutton": SplitButtonComponent,
+    "ejs-dialog": DialogComponent,
   },
   data: function () {
     return {
@@ -578,10 +608,12 @@ export default {
       },
      textEdit: (args) => {
         var obj = args.element;
-        obj.annotations[0].style = {
-            color: 'white',
-            fill: 'transparent',
-        };
+        if (obj.propName === 'nodes') {
+          obj.annotations[0].style = {
+              color: 'white',
+              fill: 'transparent',
+          };
+        }
       },
       expandMode: "Multiple",
       palettes: [
@@ -654,7 +686,11 @@ export default {
             diagram.tool = DiagramTools.ZoomPan;
             break;
           case "New Diagram":
-            diagram.clear();
+            if (diagram.isModified) {
+              showConfirm(() => diagram.clear());
+            } else {
+              diagram.clear();
+            }
             historyChange(args);
             break;
           case "Print Diagram":
@@ -1061,12 +1097,27 @@ export default {
       },
       fileuploadsuccess: onUploadSuccess,
       showFile: true,
-
-      // To enable and disable undo/redo button
-      historyChange: (args) => {
-        updateToolbarItems(["Undo"],diagram.historyManager.undoStack.length === 0);
-        updateToolbarItems(["Redo"],diagram.historyManager.redoStack.length === 0);
-      },
+      historyChange: historyChange,
+      unsavedWidth: '300px',
+      target: "#diagram",
+      content: 'Do you want to save your changes?',
+      header: 'Unsaved Changes',
+      isModal: false,
+      dlgButtons: [
+        {
+          click: saveButtonClick,
+          // Accessing button component properties by buttonModel property
+          buttonModel: { content: 'Save', isPrimary: true }
+        },
+        {
+          click: dontSaveButtonClick,
+          buttonModel: { content: "Don't Save" }
+        },
+        {
+          click: cancelButtonClick,
+          buttonModel: { content: 'Cancel' }
+        }
+      ]
     };
   },
   provide: {
@@ -1074,13 +1125,59 @@ export default {
   },
   mounted: function () {
     diagram = this.$refs.diagramObject.ej2Instances;
+    unsavedDialog = this.$refs.unsavedDialog.ej2Instances;
     toolbarEditor = this.$refs.toolbar_diagram.ej2Instances;
     paletteIcon = this.$refs.paletteIcon;
     paletteSpace = this.$refs.paletteSpace;
     diagram.fitToPage();
     addEvents();
+
+    // Browser / tab close protection
+    window.addEventListener('beforeunload', (e) => {
+      if (diagram.isModified) {
+        e.preventDefault();
+        e.returnValue = 'You have unsaved changes.\n\nDo you want to continue without saving?';
+      }
+    });
   },
 };
+
+function saveButtonClick() {
+  download(diagram.saveDiagram());
+  hideConfirm();
+  if (pendingAction) {
+    pendingAction();
+  }
+}
+function dontSaveButtonClick() {
+  hideConfirm();
+  if (pendingAction) {
+    pendingAction();
+  }
+}
+function cancelButtonClick() {
+  hideConfirm();
+}
+
+// Show confirmation dialog for unsaved diagram
+function showConfirm(action) {
+  pendingAction = action;
+  unsavedDialog.isModal = true;
+  unsavedDialog.show();
+  let dialog = document.getElementById('diagram-unsaved-dialog');
+  if (dialog) {
+    dialog.style.display = 'flex';
+  }
+}
+
+// Hide confirmation dialog
+function hideConfirm() {
+  unsavedDialog.hide();
+  let dialog = document.getElementById('diagram-unsaved-dialog');
+  if (dialog) {
+    dialog.style.display = 'none';
+  }
+}
 
 //Create and add ports for node.
 function getPorts() {
@@ -1152,6 +1249,12 @@ function enableItems(){
   }
 }
 
+// To enable and disable undo/redo button
+function historyChange(args) {
+  updateToolbarItems(["Undo"], diagram.historyManager.undoStack.length === 0);
+  updateToolbarItems(["Redo"], diagram.historyManager.redoStack.length === 0);
+}
+
 //To Print diagram
 function printDiagram(args) {
   var options = {};
@@ -1183,7 +1286,11 @@ function onUploadSuccess(args) {
 
 //Load the diagraming object.
 function loadDiagram(event) {
-  diagram.loadDiagram(event.target.result);
+  if (diagram.isModified) {
+    showConfirm(() => diagram.loadDiagram(event.target.result));
+  } else {
+    diagram.loadDiagram(event.target.result);
+  }
 }
 
 //To save diagram objects

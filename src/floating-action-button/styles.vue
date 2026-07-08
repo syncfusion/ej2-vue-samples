@@ -135,8 +135,8 @@
         content: "\e70c";
     }
 
-    .e-fab.e-btn .e-btn-icon {
-        margin-top: 5px !important;
+    .fab-appearence-container .e-fab.e-btn .e-btn-icon {
+    	margin-top: 5px !important;
     }
 </style>
 <script>

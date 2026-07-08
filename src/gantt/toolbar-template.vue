@@ -27,21 +27,14 @@
                 <code>Task Name</code>column.Filtered column can be cleared using <code>Clear Filter</code> toolbar
                 item.
             </p>
-
+            <p style="font-weight: 500">Injecting Module:</p>
             <p>
-                Gantt component features are segregated into individual feature-wise modules.To use a selection, inject
-                the
-                <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code> method.To use a filter,
-                inject the
-                <code>Filter</code> module using the <code>Gantt.Inject(Filter)</code> method.To use a toolbar, inject
-                the
-                <code>Toolbar</code> module using the <code>Gantt.Inject(Toolbar)</code> method.To use markers, inject
-                the
-                <code>DayMarkers</code> module using the <code>Gantt.Inject(DayMarkers)</code> method.
+                Gantt component features are segregated into individual feature-wise modules. To use selection, filter, toolbar and
+                markers features, inject the <code>Selection</code>, <code>Filter</code>, <code>Toolbar</code> and
+                <code>DayMarkers</code> modules using the <code>provide</code> section.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/tool-bar">documentation section</a>.</p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/toolbar">documentation section</a>.</p>
         </div>
     </div>
 </template>
@@ -70,7 +63,7 @@ export default {
             height: '650px',
             columns: [
                 { field: 'TaskID', width: 100 },
-                { field: 'TaskName', width: 250 },
+                { field: 'TaskName', width: 280 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },
@@ -110,43 +103,43 @@ export default {
     font-family: "e-icons"
 }
 
-.fabric #ToolbarTemplate /deep/ .e-quickfilter::before,
-.highcontrast #ToolbarTemplate /deep/ .e-quickfilter::before {
+.fabric #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.highcontrast #ToolbarTemplate ::v-deep .e-quickfilter::before {
     content: '\e21c';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.bootstrap #ToolbarTemplate /deep/ .e-quickfilter::before {
+.bootstrap #ToolbarTemplate ::v-deep .e-quickfilter::before {
     content: '\e946';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.bootstrap4 #ToolbarTemplate /deep/ .e-quickfilter::before {
+.bootstrap4 #ToolbarTemplate ::v-deep .e-quickfilter::before {
     content: '\e714';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.tailwind #ToolbarTemplate /deep/ .e-quickfilter::before,
-.tailwind3 #ToolbarTemplate /deep/ .e-quickfilter::before,
-.tailwind3-dark #ToolbarTemplate /deep/ .e-quickfilter::before {
+.tailwind #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.tailwind3 #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.tailwind3-dark #ToolbarTemplate ::v-deep .e-quickfilter::before {
     content: '\e7f7';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.fluent #ToolbarTemplate /deep/ .e-quickfilter::before,
-.fluent2 #ToolbarTemplate /deep/ .e-quickfilter::before,
-.fluent2-dark #ToolbarTemplate /deep/ .e-quickfilter::before,
-.fluent2-highcontrast #ToolbarTemplate /deep/ .e-quickfilter::before,
-.bootstrap5_3 #ToolbarTemplate /deep/ .e-quickfilter::before,
-.bootstrap5_3-dark-lite #ToolbarTemplate /deep/ .e-quickfilter::before,
-.bootstrap5_3-dark #ToolbarTemplate /deep/ .e-quickfilter::before,
-.bootstrap5_3-lite #ToolbarTemplate /deep/ .e-quickfilter::before,
-.material3-dark #ToolbarTemplate /deep/ .e-quickfilter::before,
-.material3 #ToolbarTemplate /deep/ .e-quickfilter::before {
+.fluent #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.fluent2 #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.fluent2-dark #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.fluent2-highcontrast #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.bootstrap5_3 #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.bootstrap5_3-dark-lite #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.bootstrap5_3-dark #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.bootstrap5_3-lite #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.material3-dark #ToolbarTemplate ::v-deep .e-quickfilter::before,
+.material3 #ToolbarTemplate ::v-deep .e-quickfilter::before {
     content: '\e7f7';
     font-size: 16px;
     font-family: "e-icons"

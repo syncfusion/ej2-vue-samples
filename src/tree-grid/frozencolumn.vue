@@ -34,6 +34,9 @@
          Tree Grid component features are segregated into individual feature-wise modules. To use frozen columns feature, we need to inject
          <code>Freeze</code> into the <code>provide</code> section.
     </p>
+    <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p>
 </div>
 
 </div>

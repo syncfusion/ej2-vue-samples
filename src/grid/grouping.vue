@@ -5,7 +5,7 @@
             ShipCountry  column. To group any other column simply drag the column header and drop on the group drop area.</p>
     </div>
     <div class="control-section">
-        <ejs-grid ref="grid" :dataSource="data" :allowGrouping='true' :allowPaging='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :groupSettings='groupOptions' :editSettings='editSettings' :toolbar='toolbar' :pageSettings='pageOptions' :created='created' height=320>
+        <ejs-grid ref="grid" :dataSource="data" id='GridGrouping' :allowGrouping='true' :allowPaging='true' :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :groupSettings='groupOptions' :editSettings='editSettings' :toolbar='toolbar' :pageSettings='pageOptions' :created='created' height=320>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                 <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
@@ -45,6 +45,11 @@
             More information on the grouping feature configuration can be found in this
             <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#groupsettings">documentation section</a>.
         </p>
+        <p>
+            Looking for the full Vue Data Grid component overview, features, pricing, and documentation? Visit our
+            <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-data-grid">
+                Vue Data Grid component</a> page.
+        </p>
     </div>
 
 </div>
@@ -66,7 +71,7 @@ export default {
       alertHeader: 'Grouping',
       alertContent: 'Grouping is disabled for this column',
       showCloseIcon: false,
-      target: '.control-section',  
+      target: '#GridGrouping',  
       alertWidth: '300px',
       animationSettings: { effect: 'None' },
       alertDlgButtons: [{ click: ((<any>this).alertDlgBtnClick as any), buttonModel: { content: 'OK', isPrimary: true } }],

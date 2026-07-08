@@ -1,24 +1,41 @@
-.select-wrap {
+#GridFilterMenuContainer .filter-container {
+    display: flex;
+    gap: 20px;
+}
+
+#GridFilterMenuContainer .sidebar {
+    width: 250px;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+#GridFilterMenuContainer .main-content {
+    flex: 1;
+}
+
+#GridFilterMenuContainer .select-wrap {
     padding: 0 0 10px 0;
     font-family: Roboto;
     padding: 1em;
-    display: inline-block;
+    display: block;
 }
 
-.select-wrap select {
+#GridFilterMenuContainer .select-wrap select {
     height: 28px;
     width: 100%;
     border-width: 0 0 2px 0;
     background: transparent;
 }
 
-.select-wrap select:focus {
+#GridFilterMenuContainer .select-wrap select:focus {
     border-bottom-style: solid;
     border-color: #ff4081;
 }
 
-.select-wrap select, 
-.select-wrap select option {
+#GridFilterMenuContainer .select-wrap select, 
+#GridFilterMenuContainer .select-wrap select option {
     outline: none;
     font-size: 14px;
     padding: .2em;
@@ -26,13 +43,16 @@
 }
 
 @media (min-width: 480px) and (max-width:639px) {
-    .select-wrap {
-        width: 40%
+    #GridFilterMenuContainer .filter-container {
+        flex-direction: column;
+    }
+    #GridFilterMenuContainer .sidebar {
+        width: 100%;
     }
 }
 
 @media (min-width:640px) {
-    .select-wrap {
-        width: 25%
+    #GridFilterMenuContainer .select-wrap {
+        width: 100%
     }
 }

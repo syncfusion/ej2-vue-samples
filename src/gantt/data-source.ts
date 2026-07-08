@@ -14,7 +14,7 @@ export let projectNewData: Object[] = [
     { TaskID: 9, TaskName: "Market opportunity analysis", StartDate: new Date("04/09/2025"), EndDate: new Date("04/12/2025"), Duration: 4, ParentId: 7, Predecessor: "5" },
     { TaskID: 10, TaskName: "Competitor analysis", StartDate: new Date("04/15/2025"), EndDate: new Date("04/18/2025"), Duration: 4, Progress: 30, ParentId: 6, Predecessor: "7,8" },
     { TaskID: 11, TaskName: "Product strength analysis", StartDate: new Date("04/15/2025"), EndDate: new Date("04/18/2025"), Duration: 4, Progress: 40, ParentId: 6, Predecessor: "9" },
-    { TaskID: 12, TaskName: "Research completed", StartDate: new Date("04/18/2025"), EndDate: new Date("04/18/2025"), Duration: 0, Progress: 30, ParentId: 6, Predecessor: "10", Indicators: [{ date: new Date("04/27/2025"), name: "Research completed", tooltip: "Research completed", iconClass: "description e-icons" }] },
+    { TaskID: 12, TaskName: "Research completed", StartDate: new Date("04/18/2025"), EndDate: new Date("04/18/2025"), Duration: 0, Progress: 30, ParentId: 6, Predecessor: "10", Indicators: [{ date: new Date("04/20/2025"), name: "Research completed", tooltip: "Research completed", iconClass: "description e-icons" }] },
     { TaskID: 13, TaskName: "Product design and development", StartDate: new Date("04/19/2025"), EndDate: new Date("05/16/2025") },
     { TaskID: 14, TaskName: "Functionality design", StartDate: new Date("04/19/2025"), EndDate: new Date("04/23/2025"), Duration: 4, Progress: 30, ParentId: 13, Predecessor: "12" },
     { TaskID: 15, TaskName: "Quality design", StartDate: new Date("04/19/2025"), EndDate: new Date("04/23/2025"), Duration: 3, Progress: 40, ParentId: 13, Predecessor: "12" },
@@ -27,8 +27,8 @@ export let projectNewData: Object[] = [
     { TaskID: 22, TaskName: "Develop dimensions and design", StartDate: new Date("04/30/2025"), EndDate: new Date("05/01/2025"), Duration: 4, Progress: 30, ParentId: 21, Predecessor: "19,20" },
     { TaskID: 23, TaskName: "Develop designs to meet industry", StartDate: new Date("05/02/2025"), EndDate: new Date("05/03/2025"), Duration: 3, Progress: 40, ParentId: 21, Predecessor: "22" },
     { TaskID: 24, TaskName: "Include all the details", StartDate: new Date("05/06/2025"), EndDate: new Date("05/08/2025"), Duration: 4, Progress: 30, ParentId: 21, Predecessor: "23" },
-    { TaskID: 25, TaskName: "CAD - Computer Aided Design", StartDate: new Date("05/09/2025"), EndDate: new Date("05/13/2025"), Duration: 3, Predecessor: "24" },
-    { TaskID: 26, TaskName: "CAM - Computer Aided Manufacturing", StartDate: new Date("05/14/2025"), EndDate: new Date("05/16/2025"), Duration: 4, Progress: 30, Predecessor: "25" },
+    { TaskID: 25, TaskName: "CAD - Computer aided design", StartDate: new Date("05/09/2025"), EndDate: new Date("05/13/2025"), Duration: 3, Predecessor: "24" },
+    { TaskID: 26, TaskName: "CAM - Computer aided manufacturing", StartDate: new Date("05/14/2025"), EndDate: new Date("05/16/2025"), Duration: 4, Progress: 30, Predecessor: "25" },
     { TaskID: 27, TaskName: "Finalize the design", StartDate: new Date("04/16/2025"), EndDate: new Date("04/16/2025"), Duration: 0, Progress: 40, Predecessor: "26" },
     { TaskID: 28, TaskName: "Prototype testing", StartDate: new Date("05/17/2025"), EndDate: new Date("05/22/2025"), Duration: 4, Progress: 30, Predecessor: "27" },
     { TaskID: 29, TaskName: "Include feedback", StartDate: new Date("05/17/2025"), EndDate: new Date("05/22/2025"), Duration: 4, Predecessor: "28ss", Indicators: [{ date: new Date("05/30/2025"), name: "Production phase", tooltip: "Production phase completed", iconClass: "okIcon e-icons" }] },
@@ -286,46 +286,46 @@ export let editingResources: Object[] = [
 ];
 
 export let editingData: Object[] = [
-    { TaskID: 1, TaskName: "Planning and Permits", StartDate: new Date("04/02/2025"), EndDate: new Date("04/10/2025"), Duration: 7, Progress: 100, resources: [1, 2, 3] },
-    { TaskID: 2, TaskName: "Site Evaluation", StartDate: new Date("04/02/2025"), EndDate: new Date("04/04/2025"), Duration: 2, Progress: 100, ParentId: 1, resources: [1] },
-    { TaskID: 3, TaskName: "Obtain Permits", StartDate: new Date("04/07/2025"), EndDate: new Date("04/09/2025"), Duration: 3, Progress: 100, ParentId: 1, Predecessor: "2", resources: [2, 4] },
-    { TaskID: 4, TaskName: "Finalize Planning", StartDate: new Date("04/10/2025"), EndDate: new Date("04/11/2025"), Duration: 2, Progress: 100, ParentId: 1, Predecessor: "3", resources: [3] },
-    { TaskID: 5, TaskName: "Site Preparation", StartDate: new Date("04/14/2025"), EndDate: new Date("04/18/2025"), Duration: 5, Progress: 100, resources: [5, 6, 12] },
-    { TaskID: 6, TaskName: "Site Clearing", StartDate: new Date("04/14/2025"), Duration: 0, Progress: 100, ParentId: 5, Predecessor: "4", resources: [5] },
-    { TaskID: 7, TaskName: "Grading and Excavation", StartDate: new Date("04/15/2025"), EndDate: new Date("04/17/2025"), Duration: 3, Progress: 100, ParentId: 5, Predecessor: "6", resources: [6, 7] },
-    { TaskID: 8, TaskName: "Foundation Work", StartDate: new Date("04/18/2025"), EndDate: new Date("04/21/2025"), Duration: 4, Progress: 100, ParentId: 5, Predecessor: "7", resources: [12] },
-    { TaskID: 9, TaskName: "Foundation and Basement", StartDate: new Date("04/22/2025"), EndDate: new Date("04/28/2025"), Duration: 5, Progress: 100, ParentId: 5, resources: [8, 9, 10] },
-    { TaskID: 10, TaskName: "Pour Foundation", StartDate: new Date("04/22/2025"), EndDate: new Date("04/23/2025"), Duration: 2, Progress: 100, ParentId: 9, Predecessor: "8", resources: [8] },
-    { TaskID: 11, TaskName: "Cure Foundation", StartDate: new Date("04/24/2025"), EndDate: new Date("04/25/2025"), Duration: 2, Progress: 100, ParentId: 9, Predecessor: "10", resources: [9] },
-    { TaskID: 12, TaskName: "Basement Walls", StartDate: new Date("04/28/2025"), EndDate: new Date("04/30/2025"), Duration: 3, Progress: 100, ParentId: 9, Predecessor: "11", resources: [10, 11] },
+    { TaskID: 1, TaskName: "Planning and permits", StartDate: new Date("04/02/2025"), EndDate: new Date("04/10/2025"), Duration: 7, Progress: 100, resources: [1, 2, 3] },
+    { TaskID: 2, TaskName: "Site evaluation", StartDate: new Date("04/02/2025"), EndDate: new Date("04/04/2025"), Duration: 2, Progress: 100, ParentId: 1, resources: [1] },
+    { TaskID: 3, TaskName: "Obtain permits", StartDate: new Date("04/07/2025"), EndDate: new Date("04/09/2025"), Duration: 3, Progress: 100, ParentId: 1, Predecessor: "2", resources: [2, 4] },
+    { TaskID: 4, TaskName: "Finalize planning", StartDate: new Date("04/10/2025"), EndDate: new Date("04/11/2025"), Duration: 2, Progress: 100, ParentId: 1, Predecessor: "3", resources: [3] },
+    { TaskID: 5, TaskName: "Site preparation", StartDate: new Date("04/14/2025"), EndDate: new Date("04/18/2025"), Duration: 5, Progress: 100, resources: [5, 6, 12] },
+    { TaskID: 6, TaskName: "Site clearing", StartDate: new Date("04/14/2025"), Duration: 0, Progress: 100, ParentId: 5, Predecessor: "4", resources: [5] },
+    { TaskID: 7, TaskName: "Grading and excavation", StartDate: new Date("04/15/2025"), EndDate: new Date("04/17/2025"), Duration: 3, Progress: 100, ParentId: 5, Predecessor: "6", resources: [6, 7] },
+    { TaskID: 8, TaskName: "Foundation work", StartDate: new Date("04/18/2025"), EndDate: new Date("04/21/2025"), Duration: 4, Progress: 100, ParentId: 5, Predecessor: "7", resources: [12] },
+    { TaskID: 9, TaskName: "Foundation and basement", StartDate: new Date("04/22/2025"), EndDate: new Date("04/28/2025"), Duration: 5, Progress: 100, ParentId: 5, resources: [8, 9, 10] },
+    { TaskID: 10, TaskName: "Pour foundation", StartDate: new Date("04/22/2025"), EndDate: new Date("04/23/2025"), Duration: 2, Progress: 100, ParentId: 9, Predecessor: "8", resources: [8] },
+    { TaskID: 11, TaskName: "Cure foundation", StartDate: new Date("04/24/2025"), EndDate: new Date("04/25/2025"), Duration: 2, Progress: 100, ParentId: 9, Predecessor: "10", resources: [9] },
+    { TaskID: 12, TaskName: "Basement walls", StartDate: new Date("04/28/2025"), EndDate: new Date("04/30/2025"), Duration: 3, Progress: 100, ParentId: 9, Predecessor: "11", resources: [10, 11] },
     { TaskID: 13, TaskName: "Framing", StartDate: new Date("05/01/2025"), EndDate: new Date("05/07/2025"), Duration: 5, Progress: 100, resources: [11, 12, 1] },
-    { TaskID: 14, TaskName: "Frame Floors", StartDate: new Date("05/01/2025"), EndDate: new Date("05/02/2025"), Duration: 2, Progress: 100, ParentId: 13, Predecessor: "12", resources: [11] },
-    { TaskID: 15, TaskName: "Frame Walls", StartDate: new Date("05/05/2025"), EndDate: new Date("05/06/2025"), Duration: 2, Progress: 100, ParentId: 13, Predecessor: "14", resources: [12] },
-    { TaskID: 16, TaskName: "Install Trusses", StartDate: new Date("05/07/2025"), EndDate: new Date("05/08/2025"), Duration: 2, Progress: 100, ParentId: 13, Predecessor: "15", resources: [1, 2] },
+    { TaskID: 14, TaskName: "Frame floors", StartDate: new Date("05/01/2025"), EndDate: new Date("05/02/2025"), Duration: 2, Progress: 100, ParentId: 13, Predecessor: "12", resources: [11] },
+    { TaskID: 15, TaskName: "Frame walls", StartDate: new Date("05/05/2025"), EndDate: new Date("05/06/2025"), Duration: 2, Progress: 100, ParentId: 13, Predecessor: "14", resources: [12] },
+    { TaskID: 16, TaskName: "Install trusses", StartDate: new Date("05/07/2025"), EndDate: new Date("05/08/2025"), Duration: 2, Progress: 100, ParentId: 13, Predecessor: "15", resources: [1, 2] },
     { TaskID: 17, TaskName: "Roofing", StartDate: new Date("05/09/2025"), EndDate: new Date("05/13/2025"), Duration: 3, Progress: 100, Predecessor: "16", resources: [3, 4] },
-    { TaskID: 18, TaskName: "Mechanical, Electrical, Plumbing", StartDate: new Date("05/14/2025"), EndDate: new Date("05/24/2025"), Duration: 9, Progress: 50, resources: [5, 6, 7] },
-    { TaskID: 19, TaskName: "HVAC Installation", StartDate: new Date("05/14/2025"), EndDate: new Date("05/16/2025"), Duration: 3, Progress: 100, ParentId: 18, Predecessor: "17", resources: [5] },
-    { TaskID: 20, TaskName: "Plumbing Installation", StartDate: new Date("05/19/2025"), EndDate: new Date("05/21/2025"), Duration: 3, Progress: 50, ParentId: 18, Predecessor: "19", resources: [6] },
-    { TaskID: 21, TaskName: "Electrical Installation", StartDate: new Date("05/22/2025"), EndDate: new Date("05/24/2025"), Duration: 3, Progress: 0, ParentId: 18, Predecessor: "20", resources: [7, 8] },
-    { TaskID: 22, TaskName: "Interior Finishing", StartDate: new Date("05/26/2025"), EndDate: new Date("06/17/2025"), Duration: 15, Progress: 0, Predecessor: "21", resources: [9, 10, 11] },
-    { TaskID: 23, TaskName: "Insulation and Drywall", StartDate: new Date("05/26/2025"), EndDate: new Date("05/30/2025"), Duration: 5, Progress: 0, ParentId: 22, Predecessor: "21", resources: [9] },
-    { TaskID: 24, TaskName: "Interior Painting", StartDate: new Date("06/02/2025"), EndDate: new Date("06/05/2025"), Duration: 4, Progress: 0, ParentId: 22, Predecessor: "23", resources: [10] },
-    { TaskID: 25, TaskName: "Flooring Installation", StartDate: new Date("06/06/2025"), EndDate: new Date("06/09/2025"), Duration: 4, Progress: 0, ParentId: 22, Predecessor: "24", resources: [11] },
-    { TaskID: 26, TaskName: "Cabinet and Fixture Setup", StartDate: new Date("06/10/2025"), EndDate: new Date("06/12/2025"), Duration: 3, Progress: 0, ParentId: 22, Predecessor: "25", resources: [12] },
-    { TaskID: 27, TaskName: "Final Fixture Installation", StartDate: new Date("06/13/2025"), EndDate: new Date("06/15/2025"), Duration: 3, Progress: 0, ParentId: 22, Predecessor: "26", resources: [1] },
-    { TaskID: 28, TaskName: "Exterior Finishing", StartDate: new Date("06/16/2025"), EndDate: new Date("06/19/2025"), Duration: 4, Progress: 0, Predecessor: "27", resources: [2, 3] },
+    { TaskID: 18, TaskName: "Mechanical, electrical, plumbing", StartDate: new Date("05/14/2025"), EndDate: new Date("05/24/2025"), Duration: 9, Progress: 50, resources: [5, 6, 7] },
+    { TaskID: 19, TaskName: "HVAC installation", StartDate: new Date("05/14/2025"), EndDate: new Date("05/16/2025"), Duration: 3, Progress: 100, ParentId: 18, Predecessor: "17", resources: [5] },
+    { TaskID: 20, TaskName: "Plumbing installation", StartDate: new Date("05/19/2025"), EndDate: new Date("05/21/2025"), Duration: 3, Progress: 50, ParentId: 18, Predecessor: "19", resources: [6] },
+    { TaskID: 21, TaskName: "Electrical installation", StartDate: new Date("05/22/2025"), EndDate: new Date("05/24/2025"), Duration: 3, Progress: 0, ParentId: 18, Predecessor: "20", resources: [7, 8] },
+    { TaskID: 22, TaskName: "Interior finishing", StartDate: new Date("05/26/2025"), EndDate: new Date("06/17/2025"), Duration: 15, Progress: 0, Predecessor: "21", resources: [9, 10, 11] },
+    { TaskID: 23, TaskName: "Insulation and drywall", StartDate: new Date("05/26/2025"), EndDate: new Date("05/30/2025"), Duration: 5, Progress: 0, ParentId: 22, Predecessor: "21", resources: [9] },
+    { TaskID: 24, TaskName: "Interior painting", StartDate: new Date("06/02/2025"), EndDate: new Date("06/05/2025"), Duration: 4, Progress: 0, ParentId: 22, Predecessor: "23", resources: [10] },
+    { TaskID: 25, TaskName: "Flooring installation", StartDate: new Date("06/06/2025"), EndDate: new Date("06/09/2025"), Duration: 4, Progress: 0, ParentId: 22, Predecessor: "24", resources: [11] },
+    { TaskID: 26, TaskName: "Cabinet and fixture setup", StartDate: new Date("06/10/2025"), EndDate: new Date("06/12/2025"), Duration: 3, Progress: 0, ParentId: 22, Predecessor: "25", resources: [12] },
+    { TaskID: 27, TaskName: "Final fixture installation", StartDate: new Date("06/13/2025"), EndDate: new Date("06/15/2025"), Duration: 3, Progress: 0, ParentId: 22, Predecessor: "26", resources: [1] },
+    { TaskID: 28, TaskName: "Exterior finishing", StartDate: new Date("06/16/2025"), EndDate: new Date("06/19/2025"), Duration: 4, Progress: 0, Predecessor: "27", resources: [2, 3] },
     { TaskID: 29, TaskName: "Landscaping", StartDate: new Date("06/20/2025"), EndDate: new Date("06/25/2025"), Duration: 5, Progress: 0, Predecessor: "28", resources: [4, 5] },
-    { TaskID: 30, TaskName: "Final Inspection", StartDate: new Date("06/26/2025"), EndDate: new Date("06/30/2025"), Duration: 3, Progress: 0, Predecessor: "29", resources: [6] },
+    { TaskID: 30, TaskName: "Final inspection", StartDate: new Date("06/26/2025"), EndDate: new Date("06/30/2025"), Duration: 3, Progress: 0, Predecessor: "29", resources: [6] },
     { TaskID: 31, TaskName: "Correction of Issues", StartDate: new Date("07/01/2025"), EndDate: new Date("07/03/2025"), Duration: 3, Progress: 0, Predecessor: "30", resources: [7, 8] },
-    { TaskID: 32, TaskName: "Final Walkthrough", StartDate: new Date("07/04/2025"), EndDate: new Date("07/07/2025"), Duration: 2, Progress: 0, Predecessor: "31", resources: [9] },
-    { TaskID: 33, TaskName: "Handover Preparation", StartDate: new Date("07/08/2025"), EndDate: new Date("07/10/2025"), Duration: 3, Progress: 0, Predecessor: "32", resources: [10] },
-    { TaskID: 34, TaskName: "Client Handover", StartDate: new Date("07/11/2025"), EndDate: new Date("07/12/2025"), Duration: 2, Progress: 0, Predecessor: "33", resources: [11] },
-    { TaskID: 35, TaskName: "Warranty Period Begins", StartDate: new Date("07/14/2025"), EndDate: new Date("07/15/2025"), Duration: 2, Progress: 0, Predecessor: "34", resources: [12] },
-    { TaskID: 36, TaskName: "Routine Maintenance Visits", StartDate: new Date("07/16/2025"), EndDate: new Date("07/25/2025"), Duration: 10, Progress: 0, Predecessor: "35", resources: [1, 2] },
-    { TaskID: 37, TaskName: "First Year Warranty Review", StartDate: new Date("07/28/2025"), EndDate: new Date("08/01/2025"), Duration: 5, Progress: 0, Predecessor: "36", resources: [3, 4] },
-    { TaskID: 38, TaskName: "Final Project Documentation", StartDate: new Date("08/04/2025"), EndDate: new Date("08/06/2025"), Duration: 3, Progress: 0, Predecessor: "37", resources: [5] },
-    { TaskID: 39, TaskName: "Celebrate Project Completion", StartDate: new Date("08/07/2025"), EndDate: new Date("08/09/2025"), Duration: 3, Progress: 0, Predecessor: "38", resources: [6, 7] },
-    { TaskID: 40, TaskName: "Begin Next Project Planning", StartDate: new Date("08/10/2025"), EndDate: new Date("08/13/2025"), Duration: 4, Progress: 0, Predecessor: "39", resources: [8, 9] }
+    { TaskID: 32, TaskName: "Final walkthrough", StartDate: new Date("07/04/2025"), EndDate: new Date("07/07/2025"), Duration: 2, Progress: 0, Predecessor: "31", resources: [9] },
+    { TaskID: 33, TaskName: "Handover preparation", StartDate: new Date("07/08/2025"), EndDate: new Date("07/10/2025"), Duration: 3, Progress: 0, Predecessor: "32", resources: [10] },
+    { TaskID: 34, TaskName: "Client handover", StartDate: new Date("07/11/2025"), EndDate: new Date("07/12/2025"), Duration: 2, Progress: 0, Predecessor: "33", resources: [11] },
+    { TaskID: 35, TaskName: "Warranty period begins", StartDate: new Date("07/14/2025"), EndDate: new Date("07/15/2025"), Duration: 2, Progress: 0, Predecessor: "34", resources: [12] },
+    { TaskID: 36, TaskName: "Routine maintenance visits", StartDate: new Date("07/16/2025"), EndDate: new Date("07/25/2025"), Duration: 10, Progress: 0, Predecessor: "35", resources: [1, 2] },
+    { TaskID: 37, TaskName: "First year warranty review", StartDate: new Date("07/28/2025"), EndDate: new Date("08/01/2025"), Duration: 5, Progress: 0, Predecessor: "36", resources: [3, 4] },
+    { TaskID: 38, TaskName: "Final project documentation", StartDate: new Date("08/04/2025"), EndDate: new Date("08/06/2025"), Duration: 3, Progress: 0, Predecessor: "37", resources: [5] },
+    { TaskID: 39, TaskName: "Celebrate project completion", StartDate: new Date("08/07/2025"), EndDate: new Date("08/09/2025"), Duration: 3, Progress: 0, Predecessor: "38", resources: [6, 7] },
+    { TaskID: 40, TaskName: "Begin next project planning", StartDate: new Date("08/10/2025"), EndDate: new Date("08/13/2025"), Duration: 4, Progress: 0, Predecessor: "39", resources: [8, 9] }
 ];
 
 export let remoteData: Object[] = [
@@ -1343,14 +1343,14 @@ export let tooltipData: object[] = [
 ];
 
 export let selfData: object[] = [
-    { taskID: 1, taskName: 'Project Schedule', startDate: new Date('02/04/2025'), endDate: new Date('03/10/2025') },
+    { taskID: 1, taskName: 'Project schedule', startDate: new Date('02/04/2025'), endDate: new Date('03/10/2025') },
     { taskID: 2, taskName: 'Planning', startDate: new Date('02/04/2025'), endDate: new Date('02/10/2025'), parentID: 1 },
     { taskID: 3, taskName: 'Plan timeline', startDate: new Date('02/04/2025'), endDate: new Date('02/10/2025'), duration: 6, progress: '60', parentID: 2 },
     { taskID: 4, taskName: 'Plan budget', startDate: new Date('02/04/2025'), endDate: new Date('02/10/2025'), duration: 6, progress: '90', parentID: 2 },
     { taskID: 5, taskName: 'Allocate resources', startDate: new Date('02/04/2025'), endDate: new Date('02/10/2025'), duration: 6, progress: '75', parentID: 2 },
     { taskID: 6, taskName: 'Planning complete', startDate: new Date('02/06/2025'), endDate: new Date('02/10/2025'), duration: 0, predecessor: '3FS,4FS,5FS', parentID: 2 },
     { taskID: 7, taskName: 'Design', startDate: new Date('02/13/2025'), endDate: new Date('02/17/2025'), parentID: 1 },
-    { taskID: 8, taskName: 'Software Specification', startDate: new Date('02/13/2025'), endDate: new Date('02/15/2025'), duration: 3, progress: '60', predecessor: '6FS', parentID: 7 },
+    { taskID: 8, taskName: 'Software specification', startDate: new Date('02/13/2025'), endDate: new Date('02/15/2025'), duration: 3, progress: '60', predecessor: '6FS', parentID: 7 },
     { taskID: 9, taskName: 'Develop prototype', startDate: new Date('02/13/2025'), endDate: new Date('02/15/2025'), duration: 3, progress: '100', predecessor: '6FS', parentID: 7 },
     { taskID: 10, taskName: 'Get approval from customer', startDate: new Date('02/16/2025'), endDate: new Date('02/17/2025'), duration: 2, progress: '100', predecessor: '9FS', parentID: 7 },
     { taskID: 11, taskName: 'Design complete', startDate: new Date('02/17/2025'), endDate: new Date('02/17/2025'), duration: 0, predecessor: '10FS', parentID: 7 },
@@ -1366,8 +1366,8 @@ export let selfData: object[] = [
     { taskID: 21, taskName: 'Configure environment', startDate: new Date('03/03/2025'), endDate: new Date('03/04/2025'), duration: 2, progress: '30', predecessor: '19FS', parentID: 20 },
     { taskID: 22, taskName: 'Deploy application', startDate: new Date('03/04/2025'), endDate: new Date('03/05/2025'), duration: 2, progress: '20', predecessor: '21FS', parentID: 20 },
     { taskID: 23, taskName: 'Deployment verification', startDate: new Date('03/06/2025'), endDate: new Date('03/06/2025'), duration: 0, predecessor: '22FS', parentID: 20 },
-    { taskID: 24, taskName: 'Client Review', startDate: new Date('03/07/2025'), endDate: new Date('03/09/2025'), duration: 3, progress: '10', predecessor: '23FS', parentID: 1 },
-    { taskID: 25, taskName: 'Project Handover', startDate: new Date('03/10/2025'), endDate: new Date('03/10/2025'), duration: 0, predecessor: '24FS', parentID: 1 }
+    { taskID: 24, taskName: 'Client review', startDate: new Date('03/07/2025'), endDate: new Date('03/09/2025'), duration: 3, progress: '10', predecessor: '23FS', parentID: 1 },
+    { taskID: 25, taskName: 'Project handover', startDate: new Date('03/10/2025'), endDate: new Date('03/10/2025'), duration: 0, predecessor: '24FS', parentID: 1 }
 ];
 
 export let labelData: object[] = [
@@ -1519,7 +1519,7 @@ export let labelData: object[] = [
     },
     {
         TaskID: 25,
-        TaskName: 'Exterior Finishing',
+        TaskName: 'Exterior finishing',
         StartDate: new Date('04/22/2025'),
         EndDate: new Date('04/28/2025'),
         subtasks: [
@@ -1536,17 +1536,17 @@ export let labelData: object[] = [
         ]
     },
     {
-        TaskID: 28, TaskName: 'Plumbing Installation', StartDate: new Date('04/26/2025'), Duration: 3, Progress: 0,
+        TaskID: 28, TaskName: 'Plumbing installation', StartDate: new Date('04/26/2025'), Duration: 3, Progress: 0,
         Predecessor: '27', resources: [5, 6], info: 'Install plumbing systems and fixtures',
         BaselineStartDate: new Date('04/26/2025'), BaselineEndDate: new Date('04/29/2025')
     },
     {
-        TaskID: 29, TaskName: 'Electrical Installation', StartDate: new Date('04/27/2025'), Duration: 3, Progress: 0,
+        TaskID: 29, TaskName: 'Electrical installation', StartDate: new Date('04/27/2025'), Duration: 3, Progress: 0,
         Predecessor: '28', resources: [7], info: 'Install electrical wiring and systems',
         BaselineStartDate: new Date('04/27/2025'), BaselineEndDate: new Date('04/30/2025')
     },
     {
-        TaskID: 30, TaskName: 'Final Inspection', StartDate: new Date('04/30/2025'), Duration: 0, Progress: 0,
+        TaskID: 30, TaskName: 'Final inspection', StartDate: new Date('04/30/2025'), Duration: 0, Progress: 0,
         Predecessor: '29', resources: [8], info: 'Conduct final inspection for project completion',
         BaselineStartDate: new Date('04/30/2025'), BaselineEndDate: new Date('04/30/2025')
     }
@@ -1653,7 +1653,7 @@ export let resourceAllocationData: object[] = [
         Progress: 30, resources: [5], work: 24
     },
     {
-        TaskID: 10, TaskName: 'Site Preparation', StartDate: new Date('04/02/2025'), EndDate: new Date('04/07/2025'),
+        TaskID: 10, TaskName: 'Site preparation', StartDate: new Date('04/02/2025'), EndDate: new Date('04/07/2025'),
         subtasks: [
             { TaskID: 11, TaskName: 'Clear site', StartDate: new Date('04/02/2025'), Duration: 2, Progress: 20, resources: [1], work: 16 },
             { TaskID: 12, TaskName: 'Excavate foundation', StartDate: new Date('04/03/2025'), Duration: 3, Progress: 10, resources: [2], work: 24 },
@@ -1661,7 +1661,7 @@ export let resourceAllocationData: object[] = [
         ]
     },
     {
-        TaskID: 14, TaskName: 'Foundation Work', StartDate: new Date('04/08/2025'), EndDate: new Date('04/14/2025'),
+        TaskID: 14, TaskName: 'Foundation work', StartDate: new Date('04/08/2025'), EndDate: new Date('04/14/2025'),
         subtasks: [
             { TaskID: 15, TaskName: 'Pour concrete', StartDate: new Date('04/08/2025'), Duration: 3, Progress: 0, resources: [4], work: 24 },
             { TaskID: 16, TaskName: 'Cure foundation', StartDate: new Date('04/09/2025'), Duration: 2, Progress: 0, resources: [5], work: 16 },
@@ -1680,7 +1680,7 @@ export let resourceAllocationData: object[] = [
         TaskID: 22, TaskName: 'Roofing', StartDate: new Date('04/22/2025'), Duration: 3, Progress: 0, resources: [5], work: 24
     },
     {
-        TaskID: 23, TaskName: 'Exterior Finishing', StartDate: new Date('04/23/2025'), EndDate: new Date('04/28/2025'),
+        TaskID: 23, TaskName: 'Exterior finishing', StartDate: new Date('04/23/2025'), EndDate: new Date('04/28/2025'),
         subtasks: [
             { TaskID: 24, TaskName: 'Install siding', StartDate: new Date('04/23/2025'), Duration: 3, Progress: 0, resources: [1], work: 24 },
             { TaskID: 25, TaskName: 'Exterior painting', StartDate: new Date('04/25/2025'), Duration: 2, Progress: 0, resources: [2], work: 16 },
@@ -1688,16 +1688,16 @@ export let resourceAllocationData: object[] = [
         ]
     },
     {
-        TaskID: 27, TaskName: 'Plumbing Installation', StartDate: new Date('04/25/2025'), Duration: 3, Progress: 0, resources: [4], work: 24
+        TaskID: 27, TaskName: 'Plumbing installation', StartDate: new Date('04/25/2025'), Duration: 3, Progress: 0, resources: [4], work: 24
     },
     {
-        TaskID: 28, TaskName: 'Electrical Installation', StartDate: new Date('04/26/2025'), Duration: 3, Progress: 0, resources: [5], work: 24
+        TaskID: 28, TaskName: 'Electrical installation', StartDate: new Date('04/26/2025'), Duration: 3, Progress: 0, resources: [5], work: 24
     },
     {
-        TaskID: 29, TaskName: 'HVAC Installation', StartDate: new Date('04/27/2025'), Duration: 3, Progress: 0, resources: [1], work: 24
+        TaskID: 29, TaskName: 'HVAC installation', StartDate: new Date('04/27/2025'), Duration: 3, Progress: 0, resources: [1], work: 24
     },
     {
-        TaskID: 30, TaskName: 'Final Inspection', StartDate: new Date('04/29/2025'), Duration: 2, Progress: 0, resources: [2], work: 16
+        TaskID: 30, TaskName: 'Final inspection', StartDate: new Date('04/29/2025'), Duration: 2, Progress: 0, resources: [2], work: 16
     }
 ];
 export let resourceAllocationResources: object[] = [
@@ -1710,43 +1710,43 @@ export let resourceAllocationResources: object[] = [
 export let taskModeData: Object[] = [
     {
         "TaskID": 1,
-        "TaskName": "Parent Task 1",
+        "TaskName": "Parent task 1",
         "StartDate": new Date("02/27/2025"),
         "EndDate": new Date("03/03/2025"),
         "Progress": "40",
         "isManual" : true,
         "Children": [
-             { "TaskID": 2, "TaskName": "Child Task 1", "StartDate": new Date("02/27/2025"), "EndDate": new Date("03/03/2025"), "Progress": "40" },
-             { "TaskID": 3, "TaskName": "Child Task 2", "StartDate": new Date("02/26/2025"), "EndDate": new Date("03/03/2025"), "Progress": "40","isManual": true },
-             { "TaskID": 4, "TaskName": "Child Task 3", "StartDate": new Date("02/27/2025"), "EndDate": new Date("03/03/2025"), "Duration": 5, "Progress": "40", }
+             { "TaskID": 2, "TaskName": "Child task 1", "StartDate": new Date("02/27/2025"), "EndDate": new Date("03/03/2025"), "Progress": "40" },
+             { "TaskID": 3, "TaskName": "Child task 2", "StartDate": new Date("02/26/2025"), "EndDate": new Date("03/03/2025"), "Progress": "40","isManual": true },
+             { "TaskID": 4, "TaskName": "Child task 3", "StartDate": new Date("02/27/2025"), "EndDate": new Date("03/03/2025"), "Duration": 5, "Progress": "40", }
         ]
     },
     {
         "TaskID": 5,
-        "TaskName": "Parent Task 2",
+        "TaskName": "Parent task 2",
         "StartDate": new Date("03/05/2025"),
         "EndDate": new Date("03/09/2025"),
         "Progress": "40",
         "isManual": true,
         "Children": [
-             { "TaskID": 6, "TaskName": "Child Task 1", "StartDate": new Date("03/06/2025"), "EndDate": new Date("03/09/2025"), "Progress": "40" },
-             { "TaskID": 7, "TaskName": "Child Task 2", "StartDate": new Date("03/06/2025"), "EndDate": new Date("03/09/2025"), "Progress": "40", },
-             { "TaskID": 8, "TaskName": "Child Task 3", "StartDate": new Date("02/28/2025"), "EndDate": new Date("03/05/2025"), "Progress": "40","isManual":true },
-             { "TaskID": 9, "TaskName": "Child Task 4", "StartDate": new Date("03/04/2025"), "EndDate": new Date("03/09/2025"), "Progress": "40","isManual":true }
+             { "TaskID": 6, "TaskName": "Child task 1", "StartDate": new Date("03/06/2025"), "EndDate": new Date("03/09/2025"), "Progress": "40" },
+             { "TaskID": 7, "TaskName": "Child task 2", "StartDate": new Date("03/06/2025"), "EndDate": new Date("03/09/2025"), "Progress": "40", },
+             { "TaskID": 8, "TaskName": "Child task 3", "StartDate": new Date("02/28/2025"), "EndDate": new Date("03/05/2025"), "Progress": "40","isManual":true },
+             { "TaskID": 9, "TaskName": "Child task 4", "StartDate": new Date("03/04/2025"), "EndDate": new Date("03/09/2025"), "Progress": "40","isManual":true }
         ]
     },
     {
         "TaskID": 10,
-        "TaskName": "Parent Task 3",
+        "TaskName": "Parent task 3",
         "StartDate": new Date("03/13/2025"),
         "EndDate": new Date("03/17/2025"),
         "Progress": "40",
         "Children": [
-             { "TaskID": 11, "TaskName": "Child Task 1", "StartDate": new Date("03/13/2025"), "EndDate": new Date("03/17/2025"), "Progress": "40" },
-             { "TaskID": 12, "TaskName": "Child Task 2", "StartDate": new Date("03/13/2025"), "EndDate": new Date("03/17/2025"), "Progress": "40", },
-             { "TaskID": 13, "TaskName": "Child Task 3", "StartDate": new Date("03/13/2025"), "EndDate": new Date("03/17/2025"), "Progress": "40", },
-             { "TaskID": 14, "TaskName": "Child Task 4", "StartDate": new Date("03/12/2025"), "EndDate": new Date("03/17/2025"), "Progress": "40","isManual":true },
-             { "TaskID": 15, "TaskName": "Child Task 5", "StartDate": new Date("03/13/2025"), "EndDate": new Date("03/17/2025"), "Progress": "40", }
+             { "TaskID": 11, "TaskName": "Child task 1", "StartDate": new Date("03/13/2025"), "EndDate": new Date("03/17/2025"), "Progress": "40" },
+             { "TaskID": 12, "TaskName": "Child task 2", "StartDate": new Date("03/13/2025"), "EndDate": new Date("03/17/2025"), "Progress": "40", },
+             { "TaskID": 13, "TaskName": "Child task 3", "StartDate": new Date("03/13/2025"), "EndDate": new Date("03/17/2025"), "Progress": "40", },
+             { "TaskID": 14, "TaskName": "Child task 4", "StartDate": new Date("03/12/2025"), "EndDate": new Date("03/17/2025"), "Progress": "40","isManual":true },
+             { "TaskID": 15, "TaskName": "Child task 5", "StartDate": new Date("03/13/2025"), "EndDate": new Date("03/17/2025"), "Progress": "40", }
         ]
     }
 ];
@@ -1931,7 +1931,7 @@ export let multiTaskbarData: Object[] = [
     },
     {
         TaskID: 25,
-        TaskName: 'Exterior Finishing',
+        TaskName: 'Exterior finishing',
         StartDate: new Date('04/22/2025'),
         EndDate: new Date('04/28/2025'),
         subtasks: [
@@ -1942,7 +1942,7 @@ export let multiTaskbarData: Object[] = [
     },
     {
         TaskID: 29,
-        TaskName: 'Interior Finishing',
+        TaskName: 'Interior finishing',
         StartDate: new Date('04/25/2025'),
         EndDate: new Date('04/30/2025'),
         subtasks: [
@@ -1952,13 +1952,13 @@ export let multiTaskbarData: Object[] = [
         ]
     },
     {
-        TaskID: 33, TaskName: 'Plumbing Installation', StartDate: new Date('04/25/2025'), Duration: 3, Progress: 0, resources: [{ resourceId: 5, resourceUnit: 100 }], work: 24, Predecessor: '32FS'
+        TaskID: 33, TaskName: 'Plumbing installation', StartDate: new Date('04/25/2025'), Duration: 3, Progress: 0, resources: [{ resourceId: 5, resourceUnit: 100 }], work: 24, Predecessor: '32FS'
     },
     {
-        TaskID: 34, TaskName: 'Electrical Installation', StartDate: new Date('04/27/2025'), Duration: 3, Progress: 0, resources: [{ resourceId: 1, resourceUnit: 100 }], work: 24, Predecessor: '33FS'
+        TaskID: 34, TaskName: 'Electrical installation', StartDate: new Date('04/27/2025'), Duration: 3, Progress: 0, resources: [{ resourceId: 1, resourceUnit: 100 }], work: 24, Predecessor: '33FS'
     },
     {
-        TaskID: 35, TaskName: 'Final Inspection', StartDate: new Date('04/30/2025'), Duration: 1, Progress: 0, resources: [{ resourceId: 2, resourceUnit: 50 }], work: 8, Predecessor: '34FS'
+        TaskID: 35, TaskName: 'Final inspection', StartDate: new Date('04/30/2025'), Duration: 1, Progress: 0, resources: [{ resourceId: 2, resourceUnit: 50 }], work: 8, Predecessor: '34FS'
     }
 ];
 
@@ -1973,7 +1973,7 @@ export let resources: object[] = [
 export let splitTasksData: object[] = [
     {
         TaskID: 1,
-        TaskName: 'Project Schedule',
+        TaskName: 'Project schedule',
         StartDate: new Date('02/04/2025'),
         EndDate: new Date('03/10/2025'),
         subtasks: [
@@ -2015,7 +2015,7 @@ export let splitTasksData: object[] = [
                 StartDate: new Date('02/25/2025'),
                 subtasks: [
                     {
-                        TaskID: 8, TaskName: 'Software Specification', StartDate: new Date('02/25/2025'), EndDate: new Date('03/02/2025'),
+                        TaskID: 8, TaskName: 'Software specification', StartDate: new Date('02/25/2025'), EndDate: new Date('03/02/2025'),
                         Duration: 5, Progress: '60', Predecessor: '6FS'
                     },
                     {
@@ -2137,11 +2137,11 @@ export let splitTasksData: object[] = [
                 ]
             },
             {
-                TaskID: 29, TaskName: 'Client Review', StartDate: new Date('03/23/2025'), EndDate: new Date('03/23/2025'),
+                TaskID: 29, TaskName: 'Client review', StartDate: new Date('03/23/2025'), EndDate: new Date('03/23/2025'),
                 Duration: 1, Progress: '0', Predecessor: '28FS'
             },
             {
-                TaskID: 30, TaskName: 'Project Handover', StartDate: new Date('03/24/2025'), EndDate: new Date('03/24/2025'),
+                TaskID: 30, TaskName: 'Project handover', StartDate: new Date('03/24/2025'), EndDate: new Date('03/24/2025'),
                 Duration: 0, Predecessor: '29FS'
             }
         ]
@@ -2317,7 +2317,7 @@ for (let i: number = 0; i < 50; i++) {
     let parent: any = {};
     /* tslint:disable:no-string-literal */
     parent['TaskID'] = x;
-    parent['TaskName'] = 'Project' + (projId++);
+    parent['TaskName'] = 'Project ' + (projId++);
     virtualData.push(parent);
     for (let j: number = 0; j < tempData.length; j++) {
         let subtasks: any = {};
@@ -2335,7 +2335,7 @@ for (let i: number = 0; i < 50; i++) {
 export let timezoneData: object[] = [
     {
         taskID: 1,
-        taskName: 'Project Schedule',
+        taskName: 'Project schedule',
         startDate: new Date('02/04/2025 08:00'),
         endDate: new Date('03/10/2025')
     },
@@ -2391,7 +2391,7 @@ export let timezoneData: object[] = [
     },
     {
         taskID: 8,
-        taskName: 'Software Specification',
+        taskName: 'Software specification',
         startDate: new Date('02/13/2025 08:00'),
         endDate: new Date('02/15/2025'),
         duration: 3,
@@ -2431,39 +2431,39 @@ export let timezoneData: object[] = [
 ];
 
 export let overviewData: object[] = [
-    { TaskId: 1, TaskName: "E-commerce Platform Redesign", StartDate: new Date('2025-02-01'), EndDate: new Date('2025-12-20'), Progress: 36, Status: "In Progress", Priority: "Critical", Assignee: "Martin Tamer", resource: [1],
+    { TaskId: 1, TaskName: "E-commerce platform redesign", StartDate: new Date('2025-02-01'), EndDate: new Date('2025-12-20'), Progress: 36, Status: "In Progress", Priority: "Critical", Assignee: "Martin Tamer", resource: [1],
      resourcesImage:'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',
     Department: "IT", Predecessor: "", ConstraintType: 0, ConstraintDate: new Date('2025-02-01') },
-    { TaskId: 2, TaskName: "Project Initiation", ParentId: 1, StartDate: new Date('2025-02-01'), EndDate: new Date('2025-02-20'), Progress: 100, Status: "Completed", Priority: "High", Assignee: "Rose Fuller", resource: [2],
+    { TaskId: 2, TaskName: "Project initiation", ParentId: 1, StartDate: new Date('2025-02-01'), EndDate: new Date('2025-02-20'), Progress: 100, Status: "Completed", Priority: "High", Assignee: "Rose Fuller", resource: [2],
         resourcesImage:'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',
         Department: "Project Management", Predecessor: "", ConstraintType: 1, ConstraintDate: new Date('2025-02-01') },
-    { TaskId: 3, TaskName: "Stakeholder Identification", ParentId: 2, StartDate: new Date('2025-02-01'), EndDate: new Date('2025-02-17'), Progress: 100, Status: "Completed", Priority: "Normal", Assignee: "Margaret Buchanan",
+    { TaskId: 3, TaskName: "Stakeholder identification", ParentId: 2, StartDate: new Date('2025-02-01'), EndDate: new Date('2025-02-17'), Progress: 100, Status: "Completed", Priority: "Normal", Assignee: "Margaret Buchanan",
          resource: [3],
          resourcesImage:
             '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',
          Department: "Project Management", Predecessor: "", ConstraintType: 2, ConstraintDate: new Date('2025-02-01') },
-    { TaskId: 4, TaskName: "Project Charter Creation", ParentId: 2, StartDate: new Date('2025-02-10'), EndDate: new Date('2025-02-27'), Progress: 100, Status: "Open", Priority: "High", Assignee: "Emily Chen", resource: [], Department: "Project Management", Predecessor: "3FS", ConstraintType: 2, ConstraintDate: new Date('2025-02-10') },
-    { TaskId: 5, TaskName: "Kickoff Meeting", ParentId: 2, StartDate: new Date('2025-02-28'), EndDate: new Date('2025-03-10'), Progress: 100, Status: "Completed", Priority: "Normal", Assignee: "Martin Tamer",
+    { TaskId: 4, TaskName: "Project charter creation", ParentId: 2, StartDate: new Date('2025-02-10'), EndDate: new Date('2025-02-27'), Progress: 100, Status: "Open", Priority: "High", Assignee: "Emily Chen", resource: [], Department: "Project Management", Predecessor: "3FS", ConstraintType: 2, ConstraintDate: new Date('2025-02-10') },
+    { TaskId: 5, TaskName: "Kickoff meeting", ParentId: 2, StartDate: new Date('2025-02-28'), EndDate: new Date('2025-03-10'), Progress: 100, Status: "Completed", Priority: "Normal", Assignee: "Martin Tamer",
          resource: [2],
           resourcesImage:'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',
          Department: "Project Management", Predecessor: "4FS", ConstraintType: 4, ConstraintDate: new Date('2025-02-28') },
-    { TaskId: 6, TaskName: "Requirements Gathering", ParentId: 1, StartDate: new Date('2025-03-10'), EndDate: new Date('2025-03-29'), Progress: 100, Status: "Completed", Priority: "High", Assignee: "Margaret Buchanan",
+    { TaskId: 6, TaskName: "Requirements gathering", ParentId: 1, StartDate: new Date('2025-03-10'), EndDate: new Date('2025-03-29'), Progress: 100, Status: "Completed", Priority: "High", Assignee: "Margaret Buchanan",
          resource: [3],
          resourcesImage:
             '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',
          Department: "Business Analysis", Predecessor: "2FS", ConstraintType: 5, ConstraintDate: new Date('2025-03-10') },
-    { TaskId: 7, TaskName: "User Interviews", ParentId: 6, StartDate: new Date('2025-03-10'), EndDate: new Date('2025-03-25'), Progress: 100, Status: "Open", Priority: "Normal", Assignee: "Emily Chen", resource: [], Department: "Business Analysis", Predecessor: "", ConstraintType: 6, ConstraintDate: new Date('2025-03-10') },
-    { TaskId: 8, TaskName: "Competitor Analysis", ParentId: 6, StartDate: new Date('2025-03-25'), EndDate: new Date('2025-04-10'), Progress: 100, Status: "In Progress", Priority: "Low", Assignee: "Fuller King",
+    { TaskId: 7, TaskName: "User interviews", ParentId: 6, StartDate: new Date('2025-03-10'), EndDate: new Date('2025-03-25'), Progress: 100, Status: "Open", Priority: "Normal", Assignee: "Emily Chen", resource: [], Department: "Business Analysis", Predecessor: "", ConstraintType: 6, ConstraintDate: new Date('2025-03-10') },
+    { TaskId: 8, TaskName: "Competitor analysis", ParentId: 6, StartDate: new Date('2025-03-25'), EndDate: new Date('2025-04-10'), Progress: 100, Status: "In Progress", Priority: "Low", Assignee: "Fuller King",
          resource: [4],
           resourcesImage:'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',
          Department: "Business Analysis", Predecessor: "", ConstraintType: 7, ConstraintDate: new Date('2025-03-25') },
-    { TaskId: 9, TaskName: "Requirements Documentation", ParentId: 6, StartDate: new Date('2025-04-01'), EndDate: new Date('2025-04-20'), Progress: 100, Status: "Completed", Priority: "High", Assignee: "Emily Chen", resource: [], Department: "Business Analysis", Predecessor: "7FS,8FS", ConstraintType: 0, ConstraintDate: new Date('2025-04-01') },
-    { TaskId: 10, TaskName: "Design Phase", ParentId: 1, StartDate: new Date('2025-04-15'), EndDate: new Date('2025-05-20'), Progress: 90, Status: "In Progress", Priority: "Critical", Assignee: "Davolio Fuller",
+    { TaskId: 9, TaskName: "Requirements documentation", ParentId: 6, StartDate: new Date('2025-04-01'), EndDate: new Date('2025-04-20'), Progress: 100, Status: "Completed", Priority: "High", Assignee: "Emily Chen", resource: [], Department: "Business Analysis", Predecessor: "7FS,8FS", ConstraintType: 0, ConstraintDate: new Date('2025-04-01') },
+    { TaskId: 10, TaskName: "Design phase", ParentId: 1, StartDate: new Date('2025-04-15'), EndDate: new Date('2025-05-20'), Progress: 90, Status: "In Progress", Priority: "Critical", Assignee: "Davolio Fuller",
          resource: [5],
          resourcesImage:
             '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',
          Department: "UX/UI Design", Predecessor: "6FS", ConstraintType: 1, ConstraintDate: new Date('2025-04-15') },
-    { TaskId: 11, TaskName: "Information Architecture", ParentId: 10, StartDate: new Date('2025-04-22'), EndDate: new Date('2025-05-05'), Progress: 100, Status: "Completed", Priority: "High", Assignee: "Van Jack",
+    { TaskId: 11, TaskName: "Information architecture", ParentId: 10, StartDate: new Date('2025-04-22'), EndDate: new Date('2025-05-05'), Progress: 100, Status: "Completed", Priority: "High", Assignee: "Van Jack",
          resource: [6],
          resourcesImage:
             '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',
@@ -2473,77 +2473,77 @@ export let overviewData: object[] = [
          resourcesImage:
             '/9j/4AAQSkZJRgABAQAAAQABAAD//gAfQ29tcHJlc3NlZCBieSBqcGVnLXJlY29tcHJlc3P/2wCEAAQEBAQEBAQEBAQGBgUGBggHBwcHCAwJCQkJCQwTDA4MDA4MExEUEA8QFBEeFxUVFx4iHRsdIiolJSo0MjRERFwBBAQEBAQEBAQEBAYGBQYGCAcHBwcIDAkJCQkJDBMMDgwMDgwTERQQDxAUER4XFRUXHiIdGx0iKiUlKjQyNEREXP/CABEIADcANwMBIgACEQEDEQH/xAAZAAACAwEAAAAAAAAAAAAAAAAEBwMFCAb/2gAIAQEAAAAA39UUCnct2dVSZMV11tS5G5fmOGS73fU8SeVXNvlpWZ6WVEOtoiTVwgBtW2poSoCztszrv//EABoBAAICAwAAAAAAAAAAAAAAAAUGAAMBAgT/2gAIAQIQAAAA1WTBChM72vCcdKyi+f/EABkBAAIDAQAAAAAAAAAAAAAAAAAGAQMFBP/aAAgBAxAAAACWjF4L3/LTR/WMcvoP/8QAHhAAAgMBAQEBAQEAAAAAAAAABAUCAwYBAAcIFBP/2gAIAQEAAQgA9NkSZZMdLpDUWdEkXoQvreHKL6PcoksbBcYZYVpdSRWvb+YTsYlVpBnDIPOJCzOPgtNuibSb2HzhkuvnfDL6jW4QvhA+cdL9xmRy7k5N8ZkKTUnOWDkMPfTuXV5uu6Fd4ku1i8006qreD+1lkIrbb/fmd1ezzr//AFe2xWkrnPs5OPEKrz2iN6oyEy0QFzWhh0hfI921rv0iT+1UQtt/Pau5PlTed28O8zpEeIu/z9PUyvqjdTbXNgvOGvt7WSFfW9p7SKtt1BxagJEsilSKE0GVMGDEBT1qKRVfQ4XhmDnj1lC6r+jhxXQ24moaF3DA06BJ8S7RodKp2KBzn12lTLA7hoXFG+KTy5fM5V1NolT3QMdC4eQHVkQQL/zZu/oDm3S7/B/OM189WUrkfv/EADMQAAIBAwIDBQYFBQAAAAAAAAECAwAEERIhMUGBBRMyUWEQFCIzYpEGI0JxsVNjc4Kh/9oACAEBAAk/AKRCqMVkvZQTEpHERgeMj7Ve3faM5BKQazlz9EaFVA9TX4TW2USmLL41huWQBsTywa7ZmhXO8eszRBseFo5OHSoFguH2ilQkwTnyUng30n2OyIU728kU4KxE4EYPJn/ioglrZwEhEHEjZUGPM0Gjjc7SsShC8lQKQQBXasrsMACUZ8DBl3HkRV+hhfR30Zj1LIEGNxVqUWZcSR53SRean/qmm1Xdrj8z+rC3gk/fka8V7cSS+vdqdEa9AKUlE7RsTOv9ppgtSvFK65QGJwrfsxGKkd5TvoSJ3PXSDispokXDEEFaZ3WC7iVC3m0e9cIy9vNji0cilh9mUVxFsgPSlJQgA+u+aiBvLfLKwkYthv44UzM07ZUM5DLobPwHl64qUhQqgM7FiApzueJxVsYYJLoiJTzKKFZq3YyxdTqrZrS4coDzhmOtD0yRXBlKnrUg7j4xOipmbXsAyljjAHLFMY7cOXuJp4wjkAfoCnz5mptFxeq0MMh/Qxyxb/UCpmlWys4Ldpn8UpiQKXb1bGay0aK91c45KAUQdSc9KjL3MClJYhxngJyVH1DitSao26EEcQRyIqFJm0g6C2nlyNWJUt4zqyqg+bVete9qTZSGxtyNbIxw2nP3LGrxb22vlU2yQ7yO7D5Wnk44MDwohr+6YST44LgYWMfSg9lx7rdv8zI1Qzf5E8/Ub1Ms3Z1/cLPbe7sCYSI1jMY1EHTtkVaLNd6CIIflqXI21M3rxNdvQRRzPulq+sqnKNCfBVoBoyTK27Fm4nfmfZ//xAAjEQACAQQBAwUAAAAAAAAAAAABAgMABBESEAUiURMjMWKR/9oACAECAQE/AGZUVnY4UDJNTdbLSN6b6R5wO3Oasr+O6ULkb44uRtbzD6GpY4cIjKdfIrouqzKoBz3fnBAIIPwauk0Y2scezByB5rpVmbWD3FxIeY7eGJ3dEGzEknn/xAAjEQACAgEEAQUBAAAAAAAAAAABAgMEEQAFEBIiITFRYnGx/9oACAEDAQE/AFUsyqoySQANQbATEC695CMkdsY1eoS03IYeGeKx62IT911VE3m6MpPwdb/E5rvMWUAdR+kngHBBGqFvNYSysFygJPtrebot2AInzEv95kszSqiO56qAAB6Dn//Z',
          Department: "UX/UI Design", Predecessor: "", ConstraintType: 3, ConstraintDate: new Date('2025-05-06') },
-    { TaskId: 13, TaskName: "Visual Design", ParentId: 10, StartDate: new Date('2025-05-21'), EndDate: new Date('2025-05-31'), Progress: 80, Status: "Open", Priority: "High", Assignee: "Jack Davolio",
+    { TaskId: 13, TaskName: "Visual design", ParentId: 10, StartDate: new Date('2025-05-21'), EndDate: new Date('2025-05-31'), Progress: 80, Status: "Open", Priority: "High", Assignee: "Jack Davolio",
          resource: [8],
          resourcesImage:'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',
          Department: "UX/UI Design", Predecessor: "12FS", ConstraintType: 4, ConstraintDate: new Date('2025-05-21') },
-    { TaskId: 14, TaskName: "Development Phase", ParentId: 1, StartDate: new Date('2025-06-01'), EndDate: new Date('2025-09-01'), Progress: 20, Status: "On Hold", Priority: "Critical", Assignee: "Construction Supervisor",
+    { TaskId: 14, TaskName: "Development phase", ParentId: 1, StartDate: new Date('2025-06-01'), EndDate: new Date('2025-09-01'), Progress: 20, Status: "On Hold", Priority: "Critical", Assignee: "Construction Supervisor",
          resource: [12],
          resourcesImage:
             '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',
          Department: "Engineering", Predecessor: "10FS", ConstraintType: 5, ConstraintDate: new Date('2025-06-01') },
-    { TaskId: 15, TaskName: "Sprint 1: User Authentication", ParentId: 14, StartDate: new Date('2025-06-10'), EndDate: new Date('2025-06-26'), Progress: 100, Status: "Completed", Priority: "High", Assignee: "Rachel Green",
+    { TaskId: 15, TaskName: "Sprint 1: User authentication", ParentId: 14, StartDate: new Date('2025-06-10'), EndDate: new Date('2025-06-26'), Progress: 100, Status: "Completed", Priority: "High", Assignee: "Rachel Green",
          resource: [5],
          resourcesImage:
             '/9j/4AAQSkZJRgABAQAAAQABAAD//gAfQ29tcHJlc3NlZCBieSBqcGVnLXJlY29tcHJlc3P/2wCEAAQEBAQEBAQEBAQGBgUGBggHBwcHCAwJCQkJCQwTDA4MDA4MExEUEA8QFBEeFxUVFx4iHRsdIiolJSo0MjRERFwBBAQEBAQEBAQEBAYGBQYGCAcHBwcIDAkJCQkJDBMMDgwMDgwTERQQDxAUER4XFRUXHiIdGx0iKiUlKjQyNEREXP/CABEIADcANwMBIgACEQEDEQH/xAAdAAACAgIDAQAAAAAAAAAAAAAEBwUIAwYAAQkC/9oACAEBAAAAAL/RKXSL6ch0UrvNI3nqPuPwl9aaldWm688LUdtYd922TOpawDHviJKrZ2W4J00JAp+yjGkf/8QAGgEAAgMBAQAAAAAAAAAAAAAAAAMBBAUCBv/aAAgBAhAAAAAR2yPO2tkxrV8S+P/EABkBAAIDAQAAAAAAAAAAAAAAAAAFAQQGA//aAAgBAxAAAACb9ev01i5AbFIpGC8//8QANBAAAgIBAgMFBgUEAwAAAAAAAQIDBAUABgcREhMhIjFBFDJRYnKBCBAVQqFTYXGRI3Ox/9oACAEBAAE/ANHIW70skGFRCqErJdlHOFCPMRj95/jXEHi/w32HA4zmbl3BmA5Q42pYDujjz60jISID5tVvxT7auTOIOFkIh9Ge6Fcj7Ra4ecUtmb96Ku28xaw+Y6S36bccOj/QGJDj6DqrlJobEePy8CwWH7opUJME5+Ck+TfKfyyDyZG1HhKzsiFO1uSKeRWInkIwfRn/APNceN0vsvhhlxiXNa1cVMZS7LwlDP3Mw/uqAnUXC3dt5Ip6dSSwHTqPQpY6j2LuvFiT23b2TLwqSI46jv8AfuGrWA3ttaLG7nt46xTAkVon6ws0bDxo3h5sp/zrhruJeJfDbb2dycQ7W5Ay2QP68DmIuvwJK8xrD2Z1exibrdVury/5P6sLe5J/n0OsB0tWs5Jh47tmSQep7NT0IPsBr8RWIN/bG1JSoMdbdGMef/rdyh1w8kQ0olji7h5nUzyPA6dIOuL2MsWtp5/2eEuUgEpUeYER6iRr8LmThv8ACbFQiXvp2bUJT4EuX1nZVxtnHZn0jL15uXm0cilh/plGtuOowOK+IrIDrfmHOc2jk6ar41aGwn1VpVmH8rrAVt9YaGfLpmIVhWszmvKhkhceagEKvTrN4e/uGtUavlLtVexR2SvMU5u68+Z5FQwHwOptvLj6EyT2J7HbR9EomIIAI5eQ7tcFtvRbY2ZQxUUaDs1DSunk8rgF21vdCNu2FHexli+56tYI+zm/iW7mqWHKA+sMx60P8kamj7WGaMnkHUr/ALGs5kbuJ2xkaMkDA17TVJH8kVonAKuf2gj11j8hkMpiqlubHSU4Y4lQ8uouXA5c1Ze4aFu1Yov7eJEkUMCsg6SeXkdbf6IsFiliUL1VYj3D4oNZKFMhkaGJPNo0V7Vnl6KAUQfcnWVq2Ip4Mxj4y9mBSksQ854CeZUfMPNdVrte/VSzVk643+xBHmCPQjXGixgsPuPEVhN2VjORTpbjA8DCLpEc31gnlra/tQq169mSvJFCp7Hkh6vCeRKk+Q1JZTK5T9KpsJrTP1OqnmEjT1b4AE6xOQgweMhx83azyIAkCjxPMxPPpX7n7DWMpzVkmtXSGv2mEk5HkvosY+VB+VvDv28l7FWjUuP7/hDRS/Wnx/uNcSeHlzcYpWc7EDLUNns545AwmE/SSPRkKlfDqngt/i3Xw0WYWtiWcq11wkk0UfyovIsx1szaX6NjWqYHHgCWTnNkrsoeawR++QLzJPwXuUaxuGgx7e1TObF4ry7Vx7oPogHuj8v/xAAjEQACAgEDAwUAAAAAAAAAAAABAwIRABAhMQQFYRIyQVFi/9oACAECAQE/AOMHUpn7WA4tsWi4SBHjQ7g4ulxkv1A2Tx5zthK5MT+r1mmKmygRyLGdCqQLZgGtt9Wwi1sJz5oDL+BsPoaf/8QAIhEAAgEDAwUBAAAAAAAAAAAAAQMCAAQREBIhBRMiMWFi/9oACAEDAQE/AIgyIiPZo2D1kdxUqeiSCBIEfDok7WrP6FXEJMYGY2j7XVYhioOzyAI6puZXNpBwwDE811RsT2oGXkSTt+a2l25FuxK8beSMjkZo5lIzkSZH2T70/9k=',
          Department: "Engineering", Predecessor: "", ConstraintType: 6, ConstraintDate: new Date('2025-06-10') },
-    { TaskId: 16, TaskName: "Sprint 2: Product Catalog", ParentId: 14, StartDate: new Date('2025-07-01'), EndDate: new Date('2025-07-15'), Progress: 100, Status: "Completed", Priority: "Normal", Assignee: "Margaret Buchanan",
+    { TaskId: 16, TaskName: "Sprint 2: Product catalog", ParentId: 14, StartDate: new Date('2025-07-01'), EndDate: new Date('2025-07-15'), Progress: 100, Status: "Completed", Priority: "Normal", Assignee: "Margaret Buchanan",
          resource: [3],
          resourcesImage:
             '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',
          Department: "Engineering", Predecessor: "", ConstraintType: 7, ConstraintDate: new Date('2025-07-01') },
-    { TaskId: 17, TaskName: "Sprint 3: Shopping Cart", ParentId: 14, StartDate: new Date('2025-07-16'), EndDate: new Date('2025-07-31'), Progress: 100, Status: "Open", Priority: "High", Assignee: "Jack Davolio",
+    { TaskId: 17, TaskName: "Sprint 3: Shopping cart", ParentId: 14, StartDate: new Date('2025-07-16'), EndDate: new Date('2025-07-31'), Progress: 100, Status: "Open", Priority: "High", Assignee: "Jack Davolio",
          resource: [8],
          resourcesImage:'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',
          Department: "Engineering", Predecessor: "", ConstraintType: 0, ConstraintDate: new Date('2025-07-16') },
-    { TaskId: 18, TaskName: "Sprint 4: Checkout Process", ParentId: 14, StartDate: new Date('2025-08-01'), EndDate: new Date('2025-08-15'), Progress: 90, Status: "In Progress", Priority: "Critical", Assignee: "Rose Fuller",
+    { TaskId: 18, TaskName: "Sprint 4: Checkout process", ParentId: 14, StartDate: new Date('2025-08-01'), EndDate: new Date('2025-08-15'), Progress: 90, Status: "In Progress", Priority: "Critical", Assignee: "Rose Fuller",
          resource: [2],
           resourcesImage:'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',
          Department: "Engineering", Predecessor: "", ConstraintType: 1, ConstraintDate: new Date('2025-08-01') },
-    { TaskId: 19, TaskName: "Sprint 5: User Profile and Orders", ParentId: 14, StartDate: new Date('2025-08-16'), EndDate: new Date('2025-08-30'), Progress: 0, Status: "Open", Priority: "Normal", Assignee: "Van Jack",
+    { TaskId: 19, TaskName: "Sprint 5: User profile and orders", ParentId: 14, StartDate: new Date('2025-08-16'), EndDate: new Date('2025-08-30'), Progress: 0, Status: "Open", Priority: "Normal", Assignee: "Van Jack",
         
         resource: [6],
         resourcesImage:
             '/9j/4AAQSkZJRgABAQAAAQABAAD//gAfQ29tcHJlc3NlZCBieSBqcGVnLXJlY29tcHJlc3P/2wCEAAQEBAQEBAQEBAQGBgUGBggHBwcHCAwJCQkJCQwTDA4MDA4MExEUEA8QFBEeFxUVFx4iHRsdIiolJSo0MjRERFwBBAQEBAQEBAQEBAYGBQYGCAcHBwcIDAkJCQkJDBMMDgwMDgwTERQQDxAUER4XFRUXHiIdGx0iKiUlKjQyNEREXP/CABEIADcANwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAHBAUGCAkDAP/aAAgBAQAAAAC/zUBwvbqWrmiF1b8JtR0XATx1qp9qKq6oxwORrdHzm4ByL1b0QUqVoxErfUzWJSgrRN+kynP/xAAaAQADAAMBAAAAAAAAAAAAAAAAAQUCAwQG/9oACAECEAAAAFLpZ6/MWqJCq9Axf//EABkBAAIDAQAAAAAAAAAAAAAAAAAFAQMGBP/aAAgBAxAAAACW6uu3YoFBo03KET//xAAhEAACAgMBAQACAwAAAAAAAAAEBQMGAQIHAAgRFBMVI//aAAgBAQABCAD2WJR0m46TqXbOdc0KypepvrqhkG6RP6o7q1yU6u+fitJoSI17fzKWQ4nRMN2C1E0LnppaAL54rR+m579txOkBAyQDcyOM5J3CthglhDHDSCEpyZ9dyFJqX/Uclln6Cii3owGksNn2CJDXnW5ztIVKlTdFUNBd1771JscllqaF5O9l1WkrnPq9JrqhVfi3qIGlePCIiwLkLQiRrHCLagXO3XFH96yry5XSkUtXqqZBPd9M4rpGuEWf18nqdvW0Yda32FNt2izdV/KycdM/esa1zHR7ogv1cAsldZQ6MGICnLUUiKeBwvDMHPHjKF6rOlJFTVcsygIileNJ7bRK7ROaWWwbfO1p6Kiu0QVGUATDaTFneNSybSzGKBOdXtF1NbfLaqfgQWQyCTotFZddXLEkNC5pU+cL9QK77//EADAQAAIBAwEGAwgCAwAAAAAAAAECAwAEEQUSEyExQVEiMoEGEBQjQmFicZGhB1Ox/9oACAEBAAk/AKRCiErJfSjMKkcxGPrP9Ve6j7Ra/sbb2Nq42IM8t7gqkdf4xnsLMnG/tZ0uXH3KlIq9qTJanmqSNIiMfolhl8SGoFguH4RSoSYJz2Unk34n3OyIUEl5IhwViJwIwe7/APKjRNRklt9O09cZRJrhtkOR+Ay1XeoX2o3DGS5unnwZHNaXglcbxppHc/yavHGj6xdRafdw58LpcndrtfdHIIqPajb0II5EHoRTbV3a4+Z/thbySfvoa899cyS9zu1OxGPRRROH9oNMAYclzLsEmrBFE5YL8wlwFGQSqqcHHGrfNxFbLcSEwtKzRnogBUFqlk+ITUIty80W5kjkVx2JyvY1Csc95aq8qLnZWQcGxnpmuUZe3mxzaORSw/hlFeYWyA1CZVdMbI557ivlyODtqRgh1GPF9xUMy2S2wiuWcE5PE8AOIIplAvL61ttuTIRTdPiMmp1meyh2C65wxyT1rixli9TtVwa0uHKDvDMdtD/ZHuDxQXswnt5UYr83OWGf3zFTSG0hw7eRQQvHx4AOK06W6sNN1W0v5IoeDPHZMCiAngC1XQmtJ0wykjeQyjzxSr0day0aK91c46KAUQepNRl7mBSksQ5zwE5Kj8hzWpNqNvQgjmCOhFIJL7UppZLZVOHRbWMySSfocqkvp5JBh1mnLAYqwRJINOfcIefxE+Io3fPZmqH4yG8ZRf2c5b4UxZ8748rjoaIa/um25iDkL0WNfso9141jeyA7bKoaOQnq6Hhkd69oV1qwjhuYd6+BIiSQuiqkYwAuWrSroaSpY2tzJLG4LjH0DxYJ8ufWryTTtBW6M98/g3tzsDCIuC2AMknIqwRJMfNnPF3buSfd/8QAIxEAAgEDAwQDAAAAAAAAAAAAAQIDABARBBIxBSJSYSEycf/aAAgBAgEBPwAkAEmm6vAvCOR+VHIsqLIvDDNpsiKTHiaOBjsGBzXT3dox4jN9XEIZWAZgH7vgVo4tkAO3aCcgHnHu7Kku0yIrFfr6osTb/8QAJxEAAgECBQEJAAAAAAAAAAAAAQIDABEFEBIiMQQhIzIzQlJhgZH/2gAIAQMBAT8AALEAcmkwad/Wg+6miaGR4n8Sm2UHnRX9wqIarnWQTxWKpEshIPeEj8tnh/UyPCtlUlNvbXXSiSe2oMwG4ji+avJECI3ZQ53fNAAZf//Z',
         Department: "Engineering", Predecessor: "", ConstraintType: 2, ConstraintDate: new Date('2025-08-16') },
-    { TaskId: 20, TaskName: "Sprint 6: Search and Filtering", ParentId: 14, StartDate: new Date('2025-09-02'), EndDate: new Date('2025-09-15'), Progress: 0, Status: "Open", Priority: "Low", Assignee: "Davolio Fuller",
+    { TaskId: 20, TaskName: "Sprint 6: Search and filtering", ParentId: 14, StartDate: new Date('2025-09-02'), EndDate: new Date('2025-09-15'), Progress: 0, Status: "Open", Priority: "Low", Assignee: "Davolio Fuller",
          resource: [5],
          resourcesImage:
             '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',
          Department: "Engineering", Predecessor: "", ConstraintType: 3, ConstraintDate: new Date('2025-09-02') },
-    { TaskId: 21, TaskName: "Sprint 7: Admin Dashboard", ParentId: 14, StartDate: new Date('2025-09-16'), EndDate: new Date('2025-09-30'), Progress: 0, Status: "Open", Priority: "Normal", Assignee: "Margaret Buchanan",
+    { TaskId: 21, TaskName: "Sprint 7: Admin dashboard", ParentId: 14, StartDate: new Date('2025-09-16'), EndDate: new Date('2025-09-30'), Progress: 0, Status: "Open", Priority: "Normal", Assignee: "Margaret Buchanan",
          resource: [3],
          resourcesImage:
             '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',
          Department: "Engineering", Predecessor: "", ConstraintType: 4, ConstraintDate: new Date('2025-09-16') },
-    { TaskId: 22, TaskName: "Sprint 8: Performance Optimization", ParentId: 14, StartDate: new Date('2025-10-02'), EndDate: new Date('2025-10-15'), Progress: 0, Status: "Completed", Priority: "High", Assignee: "Van Jack",
+    { TaskId: 22, TaskName: "Sprint 8: Performance optimization", ParentId: 14, StartDate: new Date('2025-10-02'), EndDate: new Date('2025-10-15'), Progress: 0, Status: "Completed", Priority: "High", Assignee: "Van Jack",
         
         resource: [6],
         resourcesImage:
             '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',
         Department: "Engineering", Predecessor: "", ConstraintType: 4, ConstraintDate: new Date('2025-10-02') },
-    { TaskId: 23, TaskName: "Quality Assurance", ParentId: 1, StartDate: new Date('2025-09-15'), EndDate: new Date('2025-10-12'), Progress: 40, Status: "In Progress", Priority: "Critical", Assignee: "Emma Watson", resource: [], Department: "Quality Assurance", Predecessor: "14FS", ConstraintType: 6, ConstraintDate: new Date('2025-09-15') },
-    { TaskId: 24, TaskName: "Unit Testing", ParentId: 23, StartDate: new Date('2025-09-20'), EndDate: new Date('2025-10-01'), Progress: 0, Status: "Completed", Priority: "High", Assignee: "Chris Evans", resource: [], Department: "Engineering", Predecessor: "", ConstraintType: 7, ConstraintDate: new Date('2025-09-20') },
-    { TaskId: 25, TaskName: "Integration Testing", ParentId: 23, StartDate: new Date('2025-10-02'), EndDate: new Date('2025-10-14'), Progress: 0, Status: "In Progress", Priority: "Normal", Assignee: "Rose Fuller",
+    { TaskId: 23, TaskName: "Quality assurance", ParentId: 1, StartDate: new Date('2025-09-15'), EndDate: new Date('2025-10-12'), Progress: 40, Status: "In Progress", Priority: "Critical", Assignee: "Emma Watson", resource: [], Department: "Quality Assurance", Predecessor: "14FS", ConstraintType: 6, ConstraintDate: new Date('2025-09-15') },
+    { TaskId: 24, TaskName: "Unit testing", ParentId: 23, StartDate: new Date('2025-09-20'), EndDate: new Date('2025-10-01'), Progress: 0, Status: "Completed", Priority: "High", Assignee: "Chris Evans", resource: [], Department: "Engineering", Predecessor: "", ConstraintType: 7, ConstraintDate: new Date('2025-09-20') },
+    { TaskId: 25, TaskName: "Integration testing", ParentId: 23, StartDate: new Date('2025-10-02'), EndDate: new Date('2025-10-14'), Progress: 0, Status: "In Progress", Priority: "Normal", Assignee: "Rose Fuller",
          resource: [2],
           resourcesImage:'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',
          Department: "Quality Assurance", Predecessor: "24FS", ConstraintType: 0, ConstraintDate: new Date('2025-10-02') },
-    { TaskId: 26, TaskName: "User Acceptance Testing", ParentId: 23, StartDate: new Date('2025-10-15'), EndDate: new Date('2025-10-25'), Progress: 0, Status: "In Progress", Priority: "High", Assignee: "Jack Davolio",
+    { TaskId: 26, TaskName: "User acceptance testing", ParentId: 23, StartDate: new Date('2025-10-15'), EndDate: new Date('2025-10-25'), Progress: 0, Status: "In Progress", Priority: "High", Assignee: "Jack Davolio",
          resource: [8],
          resourcesImage:'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',
          Department: "Quality Assurance", Predecessor: "25FS", ConstraintType: 1, ConstraintDate: new Date('2025-10-15') },
-    { TaskId: 27, TaskName: "Performance Optimization", ParentId: 1, StartDate: new Date('2025-10-06'), EndDate: new Date('2025-10-18'), Progress: 0, Status: "Open", Priority: "Critical", Assignee: "Margaret Buchanan",
+    { TaskId: 27, TaskName: "Performance optimization", ParentId: 1, StartDate: new Date('2025-10-06'), EndDate: new Date('2025-10-18'), Progress: 0, Status: "Open", Priority: "Critical", Assignee: "Margaret Buchanan",
          resource: [3],
          resourcesImage:
             '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',
          Department: "Engineering", Predecessor: "14FS", ConstraintType: 2, ConstraintDate: new Date('2025-10-06') },
-    { TaskId: 28, TaskName: "Frontend Optimization", ParentId: 27, StartDate: new Date('2025-10-07'), EndDate: new Date('2025-10-18'), Progress: 0, Status: "Open", Priority: "High", Assignee: "Emily Chen", resource: [], Department: "Engineering", Predecessor: "", ConstraintType: 3, ConstraintDate: new Date('2025-10-07') },
-    { TaskId: 29, TaskName: "Backend Optimization", ParentId: 27, StartDate: new Date('2025-10-19'), EndDate: new Date('2025-10-30'), Progress: 0, Status: "Completed", Priority: "Normal", Assignee: "Davolio Fuller",
+    { TaskId: 28, TaskName: "Frontend optimization", ParentId: 27, StartDate: new Date('2025-10-07'), EndDate: new Date('2025-10-18'), Progress: 0, Status: "Open", Priority: "High", Assignee: "Emily Chen", resource: [], Department: "Engineering", Predecessor: "", ConstraintType: 3, ConstraintDate: new Date('2025-10-07') },
+    { TaskId: 29, TaskName: "Backend optimization", ParentId: 27, StartDate: new Date('2025-10-19'), EndDate: new Date('2025-10-30'), Progress: 0, Status: "Completed", Priority: "Normal", Assignee: "Davolio Fuller",
          resource: [5],
          resourcesImage:
             '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',
          Department: "Engineering", Predecessor: "28FS", ConstraintType: 4, ConstraintDate: new Date('2025-10-19') },
-    { TaskId: 30, TaskName: "Security Audit", ParentId: 1, StartDate: new Date('2025-11-01'), EndDate: new Date('2025-11-17'), Progress: 0, Status: "Open", Priority: "Critical", Assignee: "Rose Fuller",
+    { TaskId: 30, TaskName: "Security audit", ParentId: 1, StartDate: new Date('2025-11-01'), EndDate: new Date('2025-11-17'), Progress: 0, Status: "Open", Priority: "Critical", Assignee: "Rose Fuller",
          resource: [2],
           resourcesImage:'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',
          Department: "Information Security", Predecessor: "", ConstraintType: 2, ConstraintDate: new Date('2025-11-01') },
@@ -2551,69 +2551,69 @@ export let overviewData: object[] = [
          resource: [8],
          resourcesImage:'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',
          Department: "DevOps", Predecessor: "", ConstraintType: 6, ConstraintDate: new Date('2025-11-20') },
-    { TaskId: 32, TaskName: "Infrastructure Setup", ParentId: 31, StartDate: new Date('2025-12-01'), EndDate: new Date('2025-12-10'), Progress: 0, Status: "On Hold", Priority: "High", Assignee: "Margaret Buchanan",
+    { TaskId: 32, TaskName: "Infrastructure setup", ParentId: 31, StartDate: new Date('2025-12-01'), EndDate: new Date('2025-12-10'), Progress: 0, Status: "On Hold", Priority: "High", Assignee: "Margaret Buchanan",
          resource: [3],
          resourcesImage:
             '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',
          Department: "DevOps", Predecessor: "30FS", ConstraintType: 7, ConstraintDate: new Date('2025-12-01') },
-    { TaskId: 33, TaskName: "Data Migration", ParentId: 31, StartDate: new Date('2025-12-11'), EndDate: new Date('2025-12-20'), Progress: 0, Status: "Completed", Priority: "Normal", Assignee: "Davolio Fuller",
+    { TaskId: 33, TaskName: "Data migration", ParentId: 31, StartDate: new Date('2025-12-11'), EndDate: new Date('2025-12-20'), Progress: 0, Status: "Completed", Priority: "Normal", Assignee: "Davolio Fuller",
          resource: [5],
          resourcesImage:
             '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',
          Department: "Data Management", Predecessor: "32FS", ConstraintType: 0, ConstraintDate: new Date('2025-12-11') },
-    { TaskId: 34, TaskName: "Final Deployment", ParentId: 31, StartDate: new Date('2025-12-21'), EndDate: new Date('2025-12-29'), Progress: 0, Status: "Completed", Priority: "Critical", Assignee: "Jack Davolio",
+    { TaskId: 34, TaskName: "Final deployment", ParentId: 31, StartDate: new Date('2025-12-21'), EndDate: new Date('2025-12-29'), Progress: 0, Status: "Completed", Priority: "Critical", Assignee: "Jack Davolio",
          resource: [8],
          resourcesImage:'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',
          Department: "DevOps", Predecessor: "33FS", ConstraintType: 1, ConstraintDate: new Date('2025-12-21') },
-    { TaskId: 35, TaskName: "Test User Authentication", ParentId: 15, StartDate: new Date('2025-06-25'), EndDate: new Date('2025-07-10'), Progress: 0, Status: "Open", Priority: "High", Assignee: "Rose Fuller",
+    { TaskId: 35, TaskName: "Test user authentication", ParentId: 15, StartDate: new Date('2025-06-25'), EndDate: new Date('2025-07-10'), Progress: 0, Status: "Open", Priority: "High", Assignee: "Rose Fuller",
          resource: [2],
           resourcesImage:'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',
          Department: "QA", Predecessor: "15FS", ConstraintType: 2, ConstraintDate: new Date('2025-06-25') },
-    { TaskId: 36, TaskName: "Enhance Security Measures", ParentId: 15, StartDate: new Date('2025-07-11'), EndDate: new Date('2025-07-21'), Progress: 0, Status: "Open", Priority: "Normal", Assignee: "Margaret Buchanan",
+    { TaskId: 36, TaskName: "Enhance security measures", ParentId: 15, StartDate: new Date('2025-07-11'), EndDate: new Date('2025-07-21'), Progress: 0, Status: "Open", Priority: "Normal", Assignee: "Margaret Buchanan",
          resource: [3],
          resourcesImage:
             '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',
          Department: "Engineering", Predecessor: "35FS", ConstraintType: 3, ConstraintDate: new Date('2025-07-11') },
-    { TaskId: 37, TaskName: "UI Design Review", ParentId: 16, StartDate: new Date('2025-07-15'), EndDate: new Date('2025-07-27'), Progress: 0, Status: "In Progress", Priority: "High", Assignee: "Jack Davolio",
+    { TaskId: 37, TaskName: "UI design review", ParentId: 16, StartDate: new Date('2025-07-15'), EndDate: new Date('2025-07-27'), Progress: 0, Status: "In Progress", Priority: "High", Assignee: "Jack Davolio",
          resource: [8],
          resourcesImage:'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',
          Department: "UX/UI Design", Predecessor: "", ConstraintType: 4, ConstraintDate: new Date('2025-07-15') },
-    { TaskId: 38, TaskName: "Product Page Optimization", ParentId: 16, StartDate: new Date('2025-07-28'), EndDate: new Date('2025-08-08'), Progress: 0, Status: "In Progress", Priority: "Low", Assignee: "Davolio Fuller",
+    { TaskId: 38, TaskName: "Product page optimization", ParentId: 16, StartDate: new Date('2025-07-28'), EndDate: new Date('2025-08-08'), Progress: 0, Status: "In Progress", Priority: "Low", Assignee: "Davolio Fuller",
          resource: [5],
          resourcesImage:
             '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',
          Department: "Frontend Development", Predecessor: "", ConstraintType: 5, ConstraintDate: new Date('2025-07-28') },
-    { TaskId: 39, TaskName: "Cart Functionality Testing", ParentId: 17, StartDate: new Date('2025-07-31'), EndDate: new Date('2025-08-13'), Progress: 0, Status: "Completed", Priority: "High", Assignee: "Margaret Buchanan",
+    { TaskId: 39, TaskName: "Cart functionality testing", ParentId: 17, StartDate: new Date('2025-07-31'), EndDate: new Date('2025-08-13'), Progress: 0, Status: "Completed", Priority: "High", Assignee: "Margaret Buchanan",
          resource: [3],
          resourcesImage:
             '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',
          Department: "QA", Predecessor: "", ConstraintType: 6, ConstraintDate: new Date('2025-07-31') },
-    { TaskId: 40, TaskName: "Cart Performance Optimization", ParentId: 17, StartDate: new Date('2025-08-14'), EndDate: new Date('2025-08-28'), Progress: 0, Status: "In Progress", Priority: "Normal", Assignee: "Rose Fuller",
+    { TaskId: 40, TaskName: "Cart performance optimization", ParentId: 17, StartDate: new Date('2025-08-14'), EndDate: new Date('2025-08-28'), Progress: 0, Status: "In Progress", Priority: "Normal", Assignee: "Rose Fuller",
          resource: [2],
           resourcesImage:'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',
          Department: "Engineering", Predecessor: "", ConstraintType: 7, ConstraintDate: new Date('2025-08-14') },
-    { TaskId: 41, TaskName: "Payment Gateway Integration", ParentId: 18, StartDate: new Date('2025-08-21'), EndDate: new Date('2025-09-06'), Progress: 0, Status: "Open", Priority: "Critical", Assignee: "Emily Chen", resource: [], Department: "QA", Predecessor: "", ConstraintType: 0, ConstraintDate: new Date('2025-08-21') },
-    { TaskId: 42, TaskName: "Secure Payment Integration", ParentId: 18, StartDate: new Date('2025-09-07'), EndDate: new Date('2025-09-20'), Progress: 0, Status: "In Progress", Priority: "High", Assignee: "Davolio Fuller",
+    { TaskId: 41, TaskName: "Payment gateway integration", ParentId: 18, StartDate: new Date('2025-08-21'), EndDate: new Date('2025-09-06'), Progress: 0, Status: "Open", Priority: "Critical", Assignee: "Emily Chen", resource: [], Department: "QA", Predecessor: "", ConstraintType: 0, ConstraintDate: new Date('2025-08-21') },
+    { TaskId: 42, TaskName: "Secure payment integration", ParentId: 18, StartDate: new Date('2025-09-07'), EndDate: new Date('2025-09-20'), Progress: 0, Status: "In Progress", Priority: "High", Assignee: "Davolio Fuller",
          resource: [5],
          resourcesImage:
             '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',
          Department: "Engineering", Predecessor: "", ConstraintType: 1, ConstraintDate: new Date('2025-09-07') },
-    { TaskId: 43, TaskName: "User Profile UI Update", ParentId: 19, StartDate: new Date('2025-09-11'), EndDate: new Date('2025-09-24'), Progress: 0, Status: "Completed", Priority: "Low", Assignee: "Jack Davolio",
+    { TaskId: 43, TaskName: "User profile UI update", ParentId: 19, StartDate: new Date('2025-09-11'), EndDate: new Date('2025-09-24'), Progress: 0, Status: "Completed", Priority: "Low", Assignee: "Jack Davolio",
          resource: [8],
          resourcesImage:'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',
          Department: "UX/UI Design", Predecessor: "", ConstraintType: 2, ConstraintDate: new Date('2025-09-11') },
-    { TaskId: 44, TaskName: "Order History Backend", ParentId: 19, StartDate: new Date('2025-09-25'), EndDate: new Date('2025-10-08'), Progress: 0, Status: "Completed", Priority: "High", Assignee: "Emily Chen", resource: [], Department: "Engineering", Predecessor: "", ConstraintType: 3, ConstraintDate: new Date('2025-09-25') },
-    { TaskId: 45, TaskName: "Advanced Search Testing", ParentId: 20, StartDate: new Date('2025-10-15'), EndDate: new Date('2025-10-28'), Progress: 0, Status: "Open", Priority: "Normal", Assignee: "Emily Chen", resource: [], Department: "QA", Predecessor: "", ConstraintType: 4, ConstraintDate: new Date('2025-10-15') },
-    { TaskId: 46, TaskName: "Filtering Enhancement", ParentId: 20, StartDate: new Date('2025-10-29'), EndDate: new Date('2025-11-11'), Progress: 0, Status: "Completed", Priority: "Low", Assignee: "Emily Chen", resource: [], Department: "Frontend Development", Predecessor: "", ConstraintType: 5, ConstraintDate: new Date('2025-10-29') },
-    { TaskId: 47, TaskName: "Admin Dashboard Design", ParentId: 21, StartDate: new Date('2025-11-15'), EndDate: new Date('2025-11-28'), Progress: 0, Status: "On Hold", Priority: "Normal", Assignee: "Emily Chen", resource: [], Department: "UX/UI Design", Predecessor: "", ConstraintType: 6, ConstraintDate: new Date('2025-11-15') },
-    { TaskId: 48, TaskName: "Dashboard Analytics Module", ParentId: 21, StartDate: new Date('2025-12-01'), EndDate: new Date('2025-12-13'), Progress: 0, Status: "Open", Priority: "High", Assignee: "Emily Chen", resource: [], Department: "Engineering", Predecessor: "", ConstraintType: 7, ConstraintDate: new Date('2025-12-01') },
-    { TaskId: 49, TaskName: "Review Existing Optimizations", ParentId: 22, StartDate: new Date('2025-12-14'), EndDate: new Date('2025-12-22'), Progress: 0, Status: "In Progress", Priority: "Low", Assignee: "Emily Chen", resource: [], Department: "QA", Predecessor: "", ConstraintType: 4, ConstraintDate: new Date('2025-12-10') },
-    { TaskId: 50, TaskName: "Implement New Optimizations", ParentId: 22, StartDate: new Date('2025-12-23'), EndDate: new Date('2025-12-30'), Progress: 0, Status: "Completed", Priority: "Critical", Assignee: "Emily Chen", resource: [], Department: "Engineering", Predecessor: "", ConstraintType: 2, ConstraintDate: new Date('2025-12-18') }
+    { TaskId: 44, TaskName: "Order history backend", ParentId: 19, StartDate: new Date('2025-09-25'), EndDate: new Date('2025-10-08'), Progress: 0, Status: "Completed", Priority: "High", Assignee: "Emily Chen", resource: [], Department: "Engineering", Predecessor: "", ConstraintType: 3, ConstraintDate: new Date('2025-09-25') },
+    { TaskId: 45, TaskName: "Advanced search testing", ParentId: 20, StartDate: new Date('2025-10-15'), EndDate: new Date('2025-10-28'), Progress: 0, Status: "Open", Priority: "Normal", Assignee: "Emily Chen", resource: [], Department: "QA", Predecessor: "", ConstraintType: 4, ConstraintDate: new Date('2025-10-15') },
+    { TaskId: 46, TaskName: "Filtering enhancement", ParentId: 20, StartDate: new Date('2025-10-29'), EndDate: new Date('2025-11-11'), Progress: 0, Status: "Completed", Priority: "Low", Assignee: "Emily Chen", resource: [], Department: "Frontend Development", Predecessor: "", ConstraintType: 5, ConstraintDate: new Date('2025-10-29') },
+    { TaskId: 47, TaskName: "Admin dashboard design", ParentId: 21, StartDate: new Date('2025-11-15'), EndDate: new Date('2025-11-28'), Progress: 0, Status: "On Hold", Priority: "Normal", Assignee: "Emily Chen", resource: [], Department: "UX/UI Design", Predecessor: "", ConstraintType: 6, ConstraintDate: new Date('2025-11-15') },
+    { TaskId: 48, TaskName: "Dashboard analytics module", ParentId: 21, StartDate: new Date('2025-12-01'), EndDate: new Date('2025-12-13'), Progress: 0, Status: "Open", Priority: "High", Assignee: "Emily Chen", resource: [], Department: "Engineering", Predecessor: "", ConstraintType: 7, ConstraintDate: new Date('2025-12-01') },
+    { TaskId: 49, TaskName: "Review existing optimizations", ParentId: 22, StartDate: new Date('2025-12-14'), EndDate: new Date('2025-12-22'), Progress: 0, Status: "In Progress", Priority: "Low", Assignee: "Emily Chen", resource: [], Department: "QA", Predecessor: "", ConstraintType: 4, ConstraintDate: new Date('2025-12-10') },
+    { TaskId: 50, TaskName: "Implement new optimizations", ParentId: 22, StartDate: new Date('2025-12-23'), EndDate: new Date('2025-12-30'), Progress: 0, Status: "Completed", Priority: "Critical", Assignee: "Emily Chen", resource: [], Department: "Engineering", Predecessor: "", ConstraintType: 2, ConstraintDate: new Date('2025-12-18') }
 ];
 export let timelineTemplateData: Object[] = [
     {
         TaskID: 1,
-        TaskName: 'Product Concept',
+        TaskName: 'Product concept',
         StartDate: new Date('03/31/2025'),
         EndDate: new Date('04/21/2025'),
         subtasks: [
@@ -2622,16 +2622,16 @@ export let timelineTemplateData: Object[] = [
             { TaskID: 4, TaskName: 'Prepare product sketch and notes', StartDate: new Date('03/31/2025'), Duration: 3, Predecessor: "2" ,Progress: 30},
         ]
     },
-    { TaskID: 5, TaskName: 'Concept Approval', StartDate: new Date('03/31/2025'), Duration: 0, Predecessor: "3,4" },
+    { TaskID: 5, TaskName: 'Concept approval', StartDate: new Date('03/31/2025'), Duration: 0, Predecessor: "3,4" },
     {
         TaskID: 6,
-        TaskName: 'Market Research',
+        TaskName: 'Market research',
         StartDate: new Date('03/31/2025'),
         EndDate: new Date('04/21/2025'),
         subtasks: [
             {
                 TaskID: 7,
-                TaskName: 'Demand Analysis',
+                TaskName: 'Demand analysis',
                 StartDate: new Date('03/31/2025'),
                 EndDate: new Date('04/21/2025'),
                 subtasks: [
@@ -2639,20 +2639,20 @@ export let timelineTemplateData: Object[] = [
                     { TaskID: 9, TaskName: 'Market opportunity analysis', StartDate: new Date('03/31/2025'), Duration: 4,}
                 ]
             },
-            { TaskID: 10, TaskName: 'Competitor Analysis', StartDate: new Date('03/31/2025'), Duration: 4, Predecessor: "7,8" ,Progress: 30},
+            { TaskID: 10, TaskName: 'Competitor analysis', StartDate: new Date('03/31/2025'), Duration: 4, Predecessor: "7,8" ,Progress: 30},
             { TaskID: 11, TaskName: 'Product strength analysis', StartDate: new Date('03/31/2025'), Duration: 4, Predecessor: "9" },
             { TaskID: 12, TaskName: 'Research complete', StartDate: new Date('03/31/2025'), Duration: 0, Predecessor: "10" }
         ]
     },
     {
         TaskID: 13,
-        TaskName: 'Product Design and Development',
+        TaskName: 'Product design and development',
         StartDate: new Date('03/31/2025'),
         EndDate: new Date('04/21/2025'),
         subtasks: [
             { TaskID: 14, TaskName: 'Functionality design', StartDate: new Date('03/31/2025'), Duration: 7,Progress: 30 },
             { TaskID: 15, TaskName: 'Quality design', StartDate: new Date('03/31/2025'), Duration: 5 },
-            { TaskID: 16, TaskName: 'Define Reliability', StartDate: new Date('03/31/2025'), Duration: 5,Progress: 30 },
+            { TaskID: 16, TaskName: 'Define reliability', StartDate: new Date('03/31/2025'), Duration: 5,Progress: 30 },
             { TaskID: 17, TaskName: 'Identifying raw materials ', StartDate: new Date('03/31/2025'), Duration: 4 },
             {
                 TaskID: 18,
@@ -2675,17 +2675,17 @@ export let timelineTemplateData: Object[] = [
                     { TaskID: 24, TaskName: 'Include all the details', StartDate: new Date('04/04/2025'), Duration: 5 }
                 ]
             },
-            { TaskID: 25, TaskName: 'CAD Computer-aided design', StartDate: new Date('04/04/2025'), Duration: 10,Progress: 30 },
-            { TaskID: 26, TaskName: 'CAM Computer-aided manufacturing', StartDate: new Date('04/04/2025'), Duration: 10 }
+            { TaskID: 25, TaskName: 'CAD computer-aided design', StartDate: new Date('04/04/2025'), Duration: 10,Progress: 30 },
+            { TaskID: 26, TaskName: 'CAM computer-aided manufacturing', StartDate: new Date('04/04/2025'), Duration: 10 }
         ]
     },
-    { TaskID: 27, TaskName: 'Prototype Testing', StartDate: new Date('04/04/2025'), Duration: 12,Progress: 30 },
+    { TaskID: 27, TaskName: 'Prototype testing', StartDate: new Date('04/04/2025'), Duration: 12,Progress: 30 },
     { TaskID: 28, TaskName: 'Include feedback', StartDate: new Date('04/04/2025'), Duration: 5 },
     { TaskID: 29, TaskName: 'Manufacturing', StartDate: new Date('04/04/2025'), Duration: 9 ,Progress: 30},
     { TaskID: 30, TaskName: 'Assembling materials to finished goods', StartDate: new Date('04/04/2025'), Duration: 12 },
     {
         TaskID: 31,
-        TaskName: 'Feedback and Testing',
+        TaskName: 'Feedback and testing',
         StartDate: new Date('04/04/2025'),
         EndDate: new Date('04/21/2025'),
         subtasks: [
@@ -2695,7 +2695,7 @@ export let timelineTemplateData: Object[] = [
     },
     {
         TaskID: 34,
-        TaskName: 'Product Development',
+        TaskName: 'Product development',
         StartDate: new Date('04/04/2025'),
         EndDate: new Date('04/21/2025'),
         subtasks: [
@@ -2705,7 +2705,7 @@ export let timelineTemplateData: Object[] = [
     },
     {
         TaskID: 37,
-        TaskName: 'Final Product',
+        TaskName: 'Final product',
         StartDate: new Date('04/04/2025'),
         EndDate: new Date('04/21/2025'),
         subtasks: [
@@ -2915,7 +2915,7 @@ export let pdfExportData : Object[] = [
     },
     {
         TaskID: 7,
-        TaskName: 'Selling Items',
+        TaskName: 'Selling items',
         StartDate: new Date('04/04/2025'),
         Duration: 2,
         ParentId: 6
@@ -3203,7 +3203,7 @@ export let pdfExportData : Object[] = [
 export let constraintData : Object[] = [
     {
         TaskID: 1,
-        TaskName: "Planning and Permits",
+        TaskName: "Planning and permits",
         StartDate: new Date("04/02/2025"),
         EndDate: new Date("04/10/2025"),
         Duration: 7,
@@ -3212,7 +3212,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 2,
-        TaskName: "Site Evaluation",
+        TaskName: "Site evaluation",
         StartDate: new Date("04/02/2025"),
         EndDate: new Date("04/04/2025"),
         Duration: 2,
@@ -3223,7 +3223,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 3,
-        TaskName: "Obtain Permits",
+        TaskName: "Obtain permits",
         StartDate: new Date("04/07/2025"),
         EndDate: new Date("04/09/2025"),
         Duration: 3,
@@ -3235,7 +3235,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 4,
-        TaskName: "Finalize Planning",
+        TaskName: "Finalize planning",
         StartDate: new Date("04/10/2025"),
         EndDate: new Date("04/11/2025"),
         Duration: 2,
@@ -3247,7 +3247,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 5,
-        TaskName: "Site Preparation",
+        TaskName: "Site preparation",
         StartDate: new Date("04/14/2025"),
         EndDate: new Date("04/18/2025"),
         Duration: 5,
@@ -3256,7 +3256,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 6,
-        TaskName: "Site Clearing",
+        TaskName: "Site clearing",
         StartDate: new Date("04/14/2025"),
         Duration: 0,
         Progress: 100,
@@ -3265,7 +3265,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 7,
-        TaskName: "Grading and Excavation",
+        TaskName: "Grading and excavation",
         StartDate: new Date("04/15/2025"),
         EndDate: new Date("04/17/2025"),
         Duration: 3,
@@ -3276,7 +3276,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 8,
-        TaskName: "Foundation Work",
+        TaskName: "Foundation work",
         StartDate: new Date("04/18/2025"),
         EndDate: new Date("04/21/2025"),
         Duration: 4,
@@ -3288,7 +3288,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 9,
-        TaskName: "Foundation and Basement",
+        TaskName: "Foundation and basement",
         StartDate: new Date("04/22/2025"),
         EndDate: new Date("04/28/2025"),
         Duration: 5,
@@ -3298,7 +3298,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 10,
-        TaskName: "Pour Foundation",
+        TaskName: "Pour foundation",
         StartDate: new Date("04/22/2025"),
         EndDate: new Date("04/23/2025"),
         Duration: 2,
@@ -3310,7 +3310,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 11,
-        TaskName: "Cure Foundation",
+        TaskName: "Cure foundation",
         StartDate: new Date("04/28/2025"),
         EndDate: new Date("04/29/2025"),
         Duration: 2,
@@ -3322,7 +3322,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 12,
-        TaskName: "Basement Walls",
+        TaskName: "Basement walls",
         StartDate: new Date("04/28/2025"),
         EndDate: new Date("04/30/2025"),
         Duration: 3,
@@ -3342,7 +3342,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 14,
-        TaskName: "Frame Floors",
+        TaskName: "Frame floors",
         StartDate: new Date("05/01/2025"),
         EndDate: new Date("05/02/2025"),
         Duration: 2,
@@ -3353,7 +3353,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 15,
-        TaskName: "Frame Walls",
+        TaskName: "Frame walls",
         StartDate: new Date("05/08/2025"),
         EndDate: new Date("05/09/2025"),
         Duration: 2,
@@ -3365,7 +3365,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 16,
-        TaskName: "Install Trusses",
+        TaskName: "Install trusses",
         StartDate: new Date("05/07/2025"),
         EndDate: new Date("05/08/2025"),
         Duration: 2,
@@ -3387,7 +3387,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 18,
-        TaskName: "Mechanical, Electrical, Plumbing",
+        TaskName: "Mechanical, electrical, plumbing",
         StartDate: new Date("05/14/2025"),
         EndDate: new Date("05/24/2025"),
         Duration: 9,
@@ -3396,7 +3396,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 19,
-        TaskName: "HVAC Installation",
+        TaskName: "HVAC installation",
         StartDate: new Date("05/14/2025"),
         EndDate: new Date("05/16/2025"),
         Duration: 3,
@@ -3407,7 +3407,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 20,
-        TaskName: "Plumbing Installation",
+        TaskName: "Plumbing installation",
         StartDate: new Date("05/19/2025"),
         EndDate: new Date("05/21/2025"),
         Duration: 3,
@@ -3419,7 +3419,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 21,
-        TaskName: "Electrical Installation",
+        TaskName: "Electrical installation",
         StartDate: new Date("05/22/2025"),
         EndDate: new Date("05/24/2025"),
         Duration: 3,
@@ -3431,7 +3431,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 22,
-        TaskName: "Interior Finishing",
+        TaskName: "Interior finishing",
         StartDate: new Date("05/26/2025"),
         EndDate: new Date("06/17/2025"),
         Duration: 15,
@@ -3440,7 +3440,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 23,
-        TaskName: "Insulation and Drywall",
+        TaskName: "Insulation and drywall",
         StartDate: new Date("05/26/2025"),
         EndDate: new Date("05/30/2025"),
         Duration: 5,
@@ -3452,7 +3452,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 24,
-        TaskName: "Interior Painting",
+        TaskName: "Interior painting",
         StartDate: new Date("06/03/2025"),
         EndDate: new Date("06/06/2025"),
         Duration: 4,
@@ -3464,7 +3464,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 25,
-        TaskName: "Flooring Installation",
+        TaskName: "Flooring installation",
         StartDate: new Date("06/06/2025"),
         EndDate: new Date("06/09/2025"),
         Duration: 4,
@@ -3476,7 +3476,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 26,
-        TaskName: "Cabinet and Fixture Setup",
+        TaskName: "Cabinet and fixture setup",
         StartDate: new Date("06/10/2025"),
         EndDate: new Date("06/12/2025"),
         Duration: 3,
@@ -3487,7 +3487,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 27,
-        TaskName: "Final Fixture Installation",
+        TaskName: "Final fixture installation",
         StartDate: new Date("06/13/2025"),
         EndDate: new Date("06/15/2025"),
         Duration: 3,
@@ -3498,7 +3498,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 28,
-        TaskName: "Exterior Finishing",
+        TaskName: "Exterior finishing",
         StartDate: new Date("06/23/2025"),
         EndDate: new Date("06/26/2025"),
         Duration: 4,
@@ -3519,7 +3519,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 30,
-        TaskName: "Final Inspection",
+        TaskName: "Final inspection",
         StartDate: new Date("07/07/2025"),
         EndDate: new Date("07/09/2025"),
         Duration: 3,
@@ -3530,7 +3530,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 31,
-        TaskName: "Correction of Issues",
+        TaskName: "Correction of issues",
         StartDate: new Date("07/01/2025"),
         EndDate: new Date("07/03/2025"),
         Duration: 3,
@@ -3540,7 +3540,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 32,
-        TaskName: "Final Walkthrough",
+        TaskName: "Final walkthrough",
         StartDate: new Date("07/04/2025"),
         EndDate: new Date("07/07/2025"),
         Duration: 2,
@@ -3550,7 +3550,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 33,
-        TaskName: "Handover Preparation",
+        TaskName: "Handover preparation",
         StartDate: new Date("07/08/2025"),
         EndDate: new Date("07/10/2025"),
         Duration: 3,
@@ -3561,7 +3561,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 34,
-        TaskName: "Client Handover",
+        TaskName: "Client handover",
         StartDate: new Date("07/11/2025"),
         EndDate: new Date("07/12/2025"),
         Duration: 2,
@@ -3572,7 +3572,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 35,
-        TaskName: "Warranty Period Begins",
+        TaskName: "Warranty period begins",
         StartDate: new Date("07/14/2025"),
         EndDate: new Date("07/15/2025"),
         Duration: 2,
@@ -3582,7 +3582,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 36,
-        TaskName: "Routine Maintenance Visits",
+        TaskName: "Routine maintenance visits",
         StartDate: new Date("07/16/2025"),
         EndDate: new Date("07/25/2025"),
         Duration: 10,
@@ -3592,7 +3592,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 37,
-        TaskName: "First Year Warranty Review",
+        TaskName: "First year warranty review",
         StartDate: new Date("07/28/2025"),
         EndDate: new Date("08/01/2025"),
         Duration: 5,
@@ -3603,7 +3603,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 38,
-        TaskName: "Final Project Documentation",
+        TaskName: "Final project documentation",
         StartDate: new Date("08/04/2025"),
         EndDate: new Date("08/06/2025"),
         Duration: 3,
@@ -3614,7 +3614,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 39,
-        TaskName: "Celebrate Project Completion",
+        TaskName: "Celebrate project completion",
         StartDate: new Date("08/07/2025"),
         EndDate: new Date("08/09/2025"),
         Duration: 3,
@@ -3624,7 +3624,7 @@ export let constraintData : Object[] = [
     },
     {
         TaskID: 40,
-        TaskName: "Begin Next Project Planning",
+        TaskName: "Begin next project planning",
         StartDate: new Date("08/10/2025"),
         EndDate: new Date("08/13/2025"),
         Duration: 4,
@@ -3961,26 +3961,26 @@ export let WorkingTimeRangeData: Object[] = [
 ];
 
 export let criticalPathData: Object[] = [
-    { TaskID: 1, TaskName: "Planning and Permits", StartDate: new Date("03/03/2025"), EndDate: new Date("04/01/2025"), Duration: 20, Progress: 100 },
-    { TaskID: 2, TaskName: "Site Evaluation", StartDate: new Date("04/02/2025"), EndDate: new Date("04/04/2025"), Duration: 2, Progress: 100, ParentId: 1 },
-    { TaskID: 3, TaskName: "Obtain Permits", StartDate: new Date("04/07/2025"), EndDate: new Date("04/09/2025"), Duration: 3, Progress: 100, ParentId: 1, Predecessor: "2" },
-    { TaskID: 4, TaskName: "Site Preparation", StartDate: new Date("04/14/2025"), EndDate: new Date("04/18/2025"), Duration: 5, Progress: 100 },
-    { TaskID: 5, TaskName: "Grading and Excavation", StartDate: new Date("04/15/2025"), EndDate: new Date("04/17/2025"), Duration: 3, Progress: 80, ParentId: 4, Predecessor: "3" },
-    { TaskID: 6, TaskName: "Foundation and Basement", StartDate: new Date("04/22/2025"), EndDate: new Date("04/28/2025"), Duration: 5, Progress: 100, ParentId: 4 },
-    { TaskID: 7, TaskName: "Basement Walls", StartDate: new Date("04/28/2025"), EndDate: new Date("04/30/2025"), Duration: 3, Progress: 50, ParentId: 6, Predecessor: "5" },
+    { TaskID: 1, TaskName: "Planning and permits", StartDate: new Date("03/03/2025"), EndDate: new Date("04/01/2025"), Duration: 20, Progress: 100 },
+    { TaskID: 2, TaskName: "Site evaluation", StartDate: new Date("04/02/2025"), EndDate: new Date("04/04/2025"), Duration: 2, Progress: 100, ParentId: 1 },
+    { TaskID: 3, TaskName: "Obtain permits", StartDate: new Date("04/07/2025"), EndDate: new Date("04/09/2025"), Duration: 3, Progress: 100, ParentId: 1, Predecessor: "2" },
+    { TaskID: 4, TaskName: "Site preparation", StartDate: new Date("04/14/2025"), EndDate: new Date("04/18/2025"), Duration: 5, Progress: 100 },
+    { TaskID: 5, TaskName: "Grading and excavation", StartDate: new Date("04/15/2025"), EndDate: new Date("04/17/2025"), Duration: 3, Progress: 80, ParentId: 4, Predecessor: "3" },
+    { TaskID: 6, TaskName: "Foundation and basement", StartDate: new Date("04/22/2025"), EndDate: new Date("04/28/2025"), Duration: 5, Progress: 100, ParentId: 4 },
+    { TaskID: 7, TaskName: "Basement walls", StartDate: new Date("04/28/2025"), EndDate: new Date("04/30/2025"), Duration: 3, Progress: 50, ParentId: 6, Predecessor: "5" },
     { TaskID: 8, TaskName: "Framing", StartDate: new Date("05/01/2025"), EndDate: new Date("05/07/2025"), Duration: 5, Progress: 0 },
-    { TaskID: 9, TaskName: "Frame Floors", StartDate: new Date("05/01/2025"), EndDate: new Date("05/02/2025"), Duration: 2, Progress: 0, ParentId: 8, Predecessor: "7" },
-    { TaskID: 10, TaskName: "Install Trusses", StartDate: new Date("05/07/2025"), EndDate: new Date("05/08/2025"), Duration: 2, Progress: 0, ParentId: 8, Predecessor: "9" },
+    { TaskID: 9, TaskName: "Frame floors", StartDate: new Date("05/01/2025"), EndDate: new Date("05/02/2025"), Duration: 2, Progress: 0, ParentId: 8, Predecessor: "7" },
+    { TaskID: 10, TaskName: "Install trusses", StartDate: new Date("05/07/2025"), EndDate: new Date("05/08/2025"), Duration: 2, Progress: 0, ParentId: 8, Predecessor: "9" },
     { TaskID: 11, TaskName: "Roofing", StartDate: new Date("05/09/2025"), EndDate: new Date("05/13/2025"), Duration: 3, Progress: 0, Predecessor: "10" },
-    { TaskID: 12, TaskName: "Mechanical, Electrical, Plumbing", StartDate: new Date("05/14/2025"), EndDate: new Date("05/24/2025"), Duration: 9, Progress: 0 },
-    { TaskID: 13, TaskName: "HVAC Installation", StartDate: new Date("05/14/2025"), EndDate: new Date("05/16/2025"), Duration: 3, Progress: 0, ParentId: 12, Predecessor: "11" },
-    { TaskID: 14, TaskName: "Electrical Installation", StartDate: new Date("05/22/2025"), EndDate: new Date("05/24/2025"), Duration: 3, Progress: 0, ParentId: 12, Predecessor: "13" },
-    { TaskID: 15, TaskName: "Interior Finishing", StartDate: new Date("05/26/2025"), EndDate: new Date("06/17/2025"), Duration: 15, Progress: 0, Predecessor: "14" },
-    { TaskID: 16, TaskName: "Insulation and Drywall", StartDate: new Date("05/26/2025"), EndDate: new Date("05/30/2025"), Duration: 5, Progress: 0, ParentId: 15, Predecessor: "14" },
-    { TaskID: 17, TaskName: "Final Fixture Installation", StartDate: new Date("06/13/2025"), EndDate: new Date("06/15/2025"), Duration: 3, Progress: 0, ParentId: 15, Predecessor: "16" },
-    { TaskID: 18, TaskName: "Final Inspection", StartDate: new Date("06/26/2025"), EndDate: new Date("06/30/2025"), Duration: 3, Progress: 0, Predecessor: "17" },
-    { TaskID: 19, TaskName: "Client Handover", StartDate: new Date("07/11/2025"), EndDate: new Date("07/12/2025"), Duration: 2, Progress: 0, Predecessor: "18" },
-    { TaskID: 20, TaskName: "Celebrate Project Completion", StartDate: new Date("08/07/2025"), EndDate: new Date("08/09/2025"), Duration: 3, Progress: 0, Predecessor: "19" }
+    { TaskID: 12, TaskName: "Mechanical, electrical, plumbing", StartDate: new Date("05/14/2025"), EndDate: new Date("05/24/2025"), Duration: 9, Progress: 0 },
+    { TaskID: 13, TaskName: "HVAC installation", StartDate: new Date("05/14/2025"), EndDate: new Date("05/16/2025"), Duration: 3, Progress: 0, ParentId: 12, Predecessor: "11" },
+    { TaskID: 14, TaskName: "Electrical installation", StartDate: new Date("05/22/2025"), EndDate: new Date("05/24/2025"), Duration: 3, Progress: 0, ParentId: 12, Predecessor: "13" },
+    { TaskID: 15, TaskName: "Interior finishing", StartDate: new Date("05/26/2025"), EndDate: new Date("06/17/2025"), Duration: 15, Progress: 0, Predecessor: "14" },
+    { TaskID: 16, TaskName: "Insulation and drywall", StartDate: new Date("05/26/2025"), EndDate: new Date("05/30/2025"), Duration: 5, Progress: 0, ParentId: 15, Predecessor: "14" },
+    { TaskID: 17, TaskName: "Final fixture installation", StartDate: new Date("06/13/2025"), EndDate: new Date("06/15/2025"), Duration: 3, Progress: 0, ParentId: 15, Predecessor: "16" },
+    { TaskID: 18, TaskName: "Final inspection", StartDate: new Date("06/26/2025"), EndDate: new Date("06/30/2025"), Duration: 3, Progress: 0, Predecessor: "17" },
+    { TaskID: 19, TaskName: "Client handover", StartDate: new Date("07/11/2025"), EndDate: new Date("07/12/2025"), Duration: 2, Progress: 0, Predecessor: "18" },
+    { TaskID: 20, TaskName: "Celebrate project completion", StartDate: new Date("08/07/2025"), EndDate: new Date("08/09/2025"), Duration: 3, Progress: 0, Predecessor: "19" }
 ];
 
 export let localData: Object[] = [
@@ -4212,7 +4212,7 @@ export let localData: Object[] = [
       },
       {
         TaskID: 25,
-        TaskName: "CAD - Computer Aided Design",
+        TaskName: "CAD - Computer aided design",
         StartDate: new Date("05/09/2025"),
         EndDate: new Date("05/13/2025"),
         Duration: 3,
@@ -4220,7 +4220,7 @@ export let localData: Object[] = [
       },
       {
         TaskID: 26,
-        TaskName: "CAM - Computer Aided Manufacturing",
+        TaskName: "CAM - Computer aided manufacturing",
         StartDate: new Date("05/14/2025"),
         EndDate: new Date("05/16/2025"),
         Duration: 4,
@@ -5122,7 +5122,7 @@ export let EventmarkerData: any[] = [
   { TaskID: 4, TaskName: "Prepare product sketch and notes", StartDate: new Date("04/05/2025"), Duration: 2, Progress: 30, ParentId: 1, Predecessor: "2" },
       {
           TaskID: 5,
-          TaskName: "Research Kick-off",
+          TaskName: "Research kick-off",
           StartDate: new Date("04/07/2025"),
           EndDate: new Date("04/07/2025"),
           Duration: 0,
@@ -5141,7 +5141,7 @@ export let EventmarkerData: any[] = [
   { TaskID: 11, TaskName: "Product strength analysis", StartDate: new Date("04/15/2025"), EndDate: new Date("04/18/2025"), Duration: 4, Progress: 40, ParentId: 6, Predecessor: "9" },
   {
     TaskID: 12,
-    TaskName: "Design Phase Begins",
+    TaskName: "Design phase begins",
     StartDate: new Date("04/17/2025"),
     EndDate: new Date("04/17/2025"),
     Duration: 0,
@@ -5164,14 +5164,14 @@ export let EventmarkerData: any[] = [
   { TaskID: 22, TaskName: "Develop dimensions and design", StartDate: new Date("04/30/2025"), EndDate: new Date("05/01/2025"), Duration: 4, Progress: 30, ParentId: 21, Predecessor: "19,20" },
   { TaskID: 23, TaskName: "Develop designs to meet industry", StartDate: new Date("05/02/2025"), EndDate: new Date("05/03/2025"), Duration: 3, Progress: 40, ParentId: 21, Predecessor: "22" },
   { TaskID: 24, TaskName: "Include all the details", StartDate: new Date("05/06/2025"), EndDate: new Date("05/08/2025"), Duration: 4, Progress: 30, ParentId: 21, Predecessor: "23" },
-  { TaskID: 25, TaskName: "CAD - Computer Aided Design", StartDate: new Date("05/09/2025"), EndDate: new Date("05/13/2025"), Duration: 3, Predecessor: "24" },
-  { TaskID: 26, TaskName: "CAM - Computer Aided Manufacturing", StartDate: new Date("05/14/2025"), EndDate: new Date("05/16/2025"), Duration: 4, Progress: 30, Predecessor: "25" },
+  { TaskID: 25, TaskName: "CAD - Computer aided design", StartDate: new Date("05/09/2025"), EndDate: new Date("05/13/2025"), Duration: 3, Predecessor: "24" },
+  { TaskID: 26, TaskName: "CAM - Computer aided manufacturing", StartDate: new Date("05/14/2025"), EndDate: new Date("05/16/2025"), Duration: 4, Progress: 30, Predecessor: "25" },
   { TaskID: 27, TaskName: "Finalize the design", StartDate: new Date("04/16/2025"), EndDate: new Date("04/16/2025"), Duration: 0, Progress: 40, Predecessor: "26" },
   { TaskID: 28, TaskName: "Prototype testing", StartDate: new Date("05/17/2025"), EndDate: new Date("05/22/2025"), Duration: 4, Progress: 30, Predecessor: "27" },
   { TaskID: 29, TaskName: "Include feedback", StartDate: new Date("05/17/2025"), EndDate: new Date("05/22/2025"), Duration: 4, Predecessor: "28ss", Indicators: [{ date: new Date("05/30/2025"), name: "Production phase", tooltip: "Production phase completed", iconClass: "okIcon e-icons" }] },
   {
       TaskID: 30,
-      TaskName: "Production Launch",
+      TaskName: "Production launch",
       StartDate: new Date("05/23/2025"),
       EndDate: new Date("05/23/2025"),
       Duration: 0,
@@ -5192,7 +5192,7 @@ export let EventmarkerData: any[] = [
   { TaskID: 39, TaskName: "Branding the product", StartDate: new Date("06/20/2025"), EndDate: new Date("06/25/2025"), Duration: 4, Progress: 30, ParentId: 38, Predecessor: "37" },
   {
       TaskID: 40,
-      TaskName: "Go-to-Market",
+      TaskName: "Go-to-market",
       StartDate: new Date("06/27/2025"),
       EndDate: new Date("06/27/2025"),
       Duration: 0,
@@ -5203,4 +5203,253 @@ export let EventmarkerData: any[] = [
           { date: new Date("06/27/2025"), name: "Press release", tooltip: "Media coverage", iconClass: "e-icons e-press" }
       ]
   }
+];
+export let infiniteTimelineScrollData: Object[] = [
+    {
+        TaskID: 1,
+        TaskName: 'Project kickoff & planning',
+        StartDate: new Date('01/01/2026'),
+        EndDate: new Date('01/10/2026'),
+        subtasks: [
+            { TaskID: 2, TaskName: 'Requirement gathering', StartDate: new Date('01/01/2026'), Duration: 5, Progress: 100 },
+            { TaskID: 3, TaskName: 'Scope finalization', StartDate: new Date('01/06/2026'), Duration: 4, Predecessor: "2" }
+        ]
+    },
+    {
+        TaskID: 4,
+        TaskName: 'Design phase',
+        StartDate: new Date('01/11/2026'),
+        EndDate: new Date('01/31/2026'),
+        subtasks: [
+            { TaskID: 5, TaskName: 'UI/UX design', StartDate: new Date('01/11/2026'), Duration: 10 },
+            { TaskID: 6, TaskName: 'Architecture setup', StartDate: new Date('01/15/2026'), Duration: 12 }
+        ]
+    },
+    {
+        TaskID: 7,
+        TaskName: 'Development phase',
+        StartDate: new Date('02/01/2026'),
+        EndDate: new Date('03/05/2026'),
+        subtasks: [
+            { TaskID: 8, TaskName: 'Frontend development', StartDate: new Date('02/01/2026'), Duration: 20, Progress: 60 },
+            { TaskID: 9, TaskName: 'Backend development', StartDate: new Date('02/02/2026'), Duration: 22, Progress: 55 },
+            { TaskID: 10, TaskName: 'API integration', StartDate: new Date('02/20/2026'), Duration: 10, Predecessor: "8,9" }
+        ]
+    },
+    {
+        TaskID: 11,
+        TaskName: 'Testing & bug fixing',
+        StartDate: new Date('05/06/2026'),
+        EndDate: new Date('05/20/2026'),
+        subtasks: [
+            { TaskID: 12, TaskName: 'Unit testing', StartDate: new Date('05/06/2026'), Duration: 5 },
+            { TaskID: 13, TaskName: 'Integration testing', StartDate: new Date('05/10/2026'), Duration: 7, Predecessor: "12" }
+        ]
+    },
+    {
+        TaskID: 14,
+        TaskName: 'Release',
+        StartDate: new Date('06/21/2026'),
+        EndDate: new Date('06/31/2026'),
+        subtasks: [
+            { TaskID: 15, TaskName: 'Beta release', StartDate: new Date('06/21/2026'), Duration: 3 },
+            { TaskID: 16, TaskName: 'Production deployment', StartDate: new Date('06/28/2026'), Duration: 0, Predecessor: "15" }
+        ]
+    }
+];
+export let baselineTemplateData: Object[] = [
+    {
+        TaskID: 1,
+        TaskName: 'Consumer electronics launch',
+        StartDate: new Date('2024-05-01'),
+        EndDate: new Date('2024-05-14'),
+        Progress: 58,
+        subtasks: [
+          {
+            TaskID: 2,
+            TaskName: 'Design freeze',
+            StartDate: new Date('2024-05-03'),
+            Duration: 3,
+            BaselineStartDate: new Date('2024-05-03'),
+            BaselineDuration: 3,
+            BaselineStartDate1: new Date('2024-05-03'),
+            BaselineDuration1: 5,
+            BaselineStartDate2: new Date('2024-05-03'),
+            BaselineDuration2: 7,
+            Progress: 100
+          },
+          {
+            TaskID: 3,
+            TaskName: 'Prototype development',
+            StartDate: new Date('2024-05-04'),
+            Duration: 4,
+            BaselineStartDate: new Date('2024-05-07'),
+            BaselineDuration: 0,
+            BaselineStartDate1: new Date('2024-05-08'),
+            BaselineDuration1: 1,
+            BaselineStartDate2: new Date('2024-05-09'),
+            BaselineDuration2: 1,
+            Progress: 90,
+            Predecessor: '2FS'
+          },
+          {
+            TaskID: 4,
+            TaskName: 'Tooling & mold setup',
+            StartDate: new Date('2024-05-05'),
+            Duration: 3,
+            BaselineStartDate: new Date('2024-05-06'),
+            BaselineDuration: 3,
+            BaselineStartDate1: new Date('2024-05-06'),
+            BaselineDuration1: 3,
+            BaselineStartDate2: new Date('2024-05-06'),
+            BaselineDuration2: 3,
+            Progress: 70
+          },
+          {
+            TaskID: 5,
+            TaskName: 'Quality certification',
+            StartDate: new Date('2024-05-08'),
+            Duration: 3,
+            BaselineStartDate: new Date('2024-05-13'),
+            BaselineDuration: 3,
+            BaselineStartDate1: new Date('2024-05-14'),
+            BaselineDuration1: 3,
+            BaselineStartDate2: new Date('2024-05-15'),
+            BaselineDuration2: 3,
+            Progress: 60,
+            Predecessor: '3FS'
+          },
+          {
+            TaskID: 6,
+            TaskName: 'Pilot production run',
+            StartDate: new Date('2024-05-10'),
+            Duration: 4,
+            BaselineStartDate: new Date('2024-05-10'),
+            BaselineDuration: 3,
+            BaselineStartDate1: new Date('2024-05-10'),
+            BaselineDuration1: 2,
+            BaselineStartDate2: new Date('2024-05-10'),
+            BaselineDuration2: 1,
+            Progress: 45
+          },
+          {
+            TaskID: 7,
+            TaskName: 'Market launch',
+            StartDate: new Date('2024-05-14'),
+            Duration: 1,
+            Progress: 0,
+            Predecessor: '6FS + 1Day'
+          }
+        ]
+      },
+      {
+        TaskID: 8,
+        TaskName: 'Marketing & sales preparation',
+        StartDate: new Date('2024-05-02'),
+        EndDate: new Date('2024-05-13'),
+        Progress: 50,
+        subtasks: [
+          {
+            TaskID: 9,
+            TaskName: 'Brand messaging',
+            StartDate: new Date('2024-05-02'),
+            Duration: 3,
+            Progress: 100
+          },
+          {
+            TaskID: 10,
+            TaskName: 'Ad creative development',
+            StartDate: new Date('2024-05-05'),
+            Duration: 0,
+            BaselineStartDate: new Date('2024-05-04'),
+            BaselineDuration: 0,
+            BaselineStartDate1: new Date('2024-05-05'),
+            BaselineDuration1: 0,
+            BaselineStartDate2: new Date('2024-05-06'),
+            BaselineDuration2: 0,
+            Progress: 80
+          },
+          {
+            TaskID: 11,
+            TaskName: 'Channel partner onboarding',
+            StartDate: new Date('2024-05-09'),
+            Duration: 4,
+            BaselineStartDate: new Date('2024-05-09'),
+            BaselineDuration: 1,
+            BaselineStartDate1: new Date('2024-05-08'),
+            BaselineDuration1: 3,
+            BaselineStartDate2: new Date('2024-05-09'),
+            BaselineDuration2: 1,
+            Progress: 55,
+            Predecessor: '10FS'
+          }
+        ]
+      },
+      {
+        TaskID: 12,
+        TaskName: 'IT & systems readiness',
+        StartDate: new Date('2024-05-03'),
+        EndDate: new Date('2024-05-14'),
+        Progress: 46,
+        subtasks: [
+          {
+            TaskID: 13,
+            TaskName: 'ERP configuration',
+            StartDate: new Date('2024-05-03'),
+            Duration: 4,
+            Progress: 75
+          },
+          {
+            TaskID: 14,
+            TaskName: 'POS integration',
+            StartDate: new Date('2024-05-07'),
+            Duration: 3,
+            Progress: 50
+          },
+          {
+            TaskID: 15,
+            TaskName: 'System UAT',
+            StartDate: new Date('2024-05-10'),
+            Duration: 4,
+            BaselineStartDate: new Date('2024-05-09'),
+            BaselineDuration: 3,
+            BaselineStartDate1: new Date('2024-05-10'),
+            BaselineDuration1: 3,
+            BaselineStartDate2: new Date('2024-05-11'),
+            BaselineDuration2: 3,
+            Progress: 25,
+            Predecessor: '14FS'
+          }
+        ]
+      },
+      {
+        TaskID: 16,
+        TaskName: 'Post-launch activities',
+        StartDate: new Date('2024-05-15'),
+        EndDate: new Date('2024-05-22'),
+        Progress: 12,
+        subtasks: [
+          {
+            TaskID: 17,
+            TaskName: 'Customer feedback collection',
+            StartDate: new Date('2024-05-15'),
+            Duration: 4,
+            Progress: 10
+          },
+          {
+            TaskID: 18,
+            TaskName: 'Issue fixes & patches',
+            StartDate: new Date('2024-05-20'),
+            Duration: 3,
+            BaselineStartDate: new Date('2024-05-20'),
+            BaselineDuration: 3,
+            BaselineStartDate1: new Date('2024-05-21'),
+            BaselineDuration1: 3,
+            BaselineStartDate2: new Date('2024-05-22'),
+            BaselineDuration2: 3,
+            Progress: 0,
+            Predecessor: '17FS'
+          }
+        ]
+    }
 ];

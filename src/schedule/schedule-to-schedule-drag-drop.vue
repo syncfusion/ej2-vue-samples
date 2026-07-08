@@ -42,6 +42,7 @@
           target Scheduler, and the <code>deleteEvent</code> method is used to remove the dragged event from the source
           Scheduler.
         </p>
+        <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
     </div>
   </div>
 </template>

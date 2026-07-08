@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="control-section" style="padding-top: 0px;">
+    <div class="control-section" style="padding-top: 0px;padding-bottom: 60px">
       <div class="content-wrapper">
-        <div id="ganttsidebar-parent" style="overflow: hidden;">
+        <div id="ganttsidebar-parent">
           <ejs-button id="ganttfilter-btn" @click="toggleSidebar">
             <span class="e-gantt-quickfilter" style="padding: 3px;"></span>
             Advanced Filters
@@ -33,13 +33,11 @@
             @click="applyFilter">Apply</ejs-button>
           <ejs-button type="button" id="clear" class="e-control e-btn clear-btn" @click="clearFilter">Clear</ejs-button>
         </div>
-
       </ejs-sidebar>
     </div>
 
     <div id="action-description">
-      <p>This sample demonstrates the integration of the QueryBuilder component for complex filtering in the Gantt
-        Chart.</p>
+      <p>This sample demonstrates the integration of the QueryBuilder component for complex filtering in the Gantt Chart.</p>
     </div>
 
     <div id="description">
@@ -52,8 +50,12 @@
           href="https://ej2.syncfusion.com/vue/documentation/sidebar/getting-started">SideBar</a> component that appears
         when you click on the toolbar.
       </p>
-      <br>
-      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+      <p style="font-weight: 500">Injecting Module:</p>
+      <p>
+        Gantt component features are segregated into individual feature-wise modules. To use selection and filter features,
+        inject the <code>Selection</code> and <code>Filter</code> modules using the <code>provide</code> section.
+      </p>
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
           href="https://ej2.syncfusion.com/vue/documentation/gantt/filtering/filtering">documentation section</a>.</p>
     </div>
   </div>
@@ -103,7 +105,7 @@ export default {
         rightLabel: "TaskName"
       },
       projectStartDate: new Date('03/30/2025'),
-      projectEndDate: new Date('07/20/2025'),
+      projectEndDate: new Date('06/21/2025'),
       sidebarToggle: false,
       isSideBar: false,
       predicatevalue: null,

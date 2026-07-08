@@ -249,7 +249,7 @@
     </div>
 </div>
 <div id="action-description">
-    <p>This <a aria-label="Vue scheduler example" href="https://www.syncfusion.com/vue-ui-components/vue-scheduler" target="_blank">Vue Scheduler example</a> demonstrates the overview of Vue Scheduler with its overall features. Use the toolbar buttons
+    <p>This <a aria-label="Vue scheduler" href="https://www.syncfusion.com/vue-components/vue-scheduler" target="_blank">Vue Scheduler</a> example demonstrates the overview of Vue Scheduler with its overall features. Use the toolbar buttons
         to play with Scheduler functionalities.</p>
 </div>
 <div id="description">
@@ -259,6 +259,7 @@
     </p>
     <p>In this demo, Vue Scheduler features such as Multiple views, Templates (Date Header, Quick Info),
         Resources, Grouping, Timezone, Timescale, etc... are used along with multiple resources.</p>
+    <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
 </div>
 </div>
 </template>

@@ -8,7 +8,7 @@
     </div>
     <div id="action-description">
       <p>
-        This sample utilizes the Syncfusion<sup>®</sup> EJ2 Vue Diagram to visualize data science classifications through Venn Diagram.
+        This sample utilizes the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> to visualize data science classifications through Venn Diagram.
       </p>
     </div>
     <div id="description">
@@ -159,7 +159,7 @@ export default {
       return connector;
     },
     /**
-     * Creates a node object for the Syncfusion EJ2 Diagram.
+     * Creates a node object for the Vue Diagram.
      * @param id The unique identifier for the node.
      * @param offsetX The x-coordinate of the node's position.
      * @param offsetY The y-coordinate of the node's position.

@@ -2,7 +2,7 @@
 	<div class="control-section">
 		<div align="center">
 			<ejs-chart ref="chartcontainer" id="chartcontainer" :subTitle="subTitle" style="display:block" :theme="theme" :primaryXAxis="primaryXAxis" :primaryYAxis="primaryYAxis"
-				:chartArea="chartArea"  :width='width' :tooltip="tooltip" :series='series' :title="title" :legendSettings="legendSettings" :loaded="loaded" :load="load" :legendRender="legendRender" :legendClick="legendClick">
+				:chartArea="chartArea"  :width='width' :tooltip="tooltip" :series='series' :title="title" :legendSettings="legendSettings" :load="load" :legendRender="legendRender">
 				<e-series-collection>
 					<e-series v-for="(s, idx) in series" :key="idx" :dataSource="s.dataSource" type="Column" :xName="s.xName" :yName="s.yName" :name="s.name" :fill="s.fill" :columnSpacing="s.columnSpacing" :animation="s.animation">
 					</e-series>
@@ -119,16 +119,16 @@ export default {
 		this.series.forEach(s => { s.dataSource = this.MedalData; });
 	},
 	methods: {
-			legendRender(args) {
+		legendRender(args) {
 				const chart = this.$refs.chartcontainer && this.$refs.chartcontainer.ej2Instances;
 				let matchedSeries = chart && chart.series && chart.series.find(function (s) { return s.name === args.text; });
 				let opacity = matchedSeries && !matchedSeries.visible ? '0.5' : '1';
 				args.template = args.template
 					.replace('opacity:1;', 'opacity:' + opacity + ';')
-					.replace('src=""', 'src="' + require('./images/' + args.text.toLowerCase() + '-medal.png') + '"')
+					.replace('src=""', 'src="' + ('src/chart/images/' + args.text.toLowerCase() + '-medal.png') + '"')
 					.replace('font-size:', 'color:' + args.fill + ';font-weight:bold;font-size:')
 					.replace('></span>', '>' + args.text + '</span>');
-			},
+		},
 		load(args) {
 			loadChartTheme(args);
 		}

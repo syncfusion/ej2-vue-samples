@@ -5,7 +5,7 @@
   </div>
   <div id="action-description">
     <p>
-      The funnel diagram is built using the Syncfusion<sup>®</sup> EJ2 Vue Diagram, and it visually represents the conversion flow of users through a marketing campaign. The diagram is structured as a vertically stacked funnel, narrowing from top to bottom to indicate decreasing user counts at each stage of the customer journey.
+      The funnel diagram is built using the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a>, and it visually represents the conversion flow of users through a marketing campaign. The diagram is structured as a vertically stacked funnel, narrowing from top to bottom to indicate decreasing user counts at each stage of the customer journey.
     </p>
   </div>
   <div id="description">

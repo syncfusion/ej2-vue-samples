@@ -37,70 +37,57 @@
     </div>
     <div id="action-description">
       <p>
-        This sample visualizes the manned lunar mission, which landed the first
-        human on the Moon using the Apollo 11 spacecraft in the year 1969. It
-        also demonstrates the filtering feature available in the Gantt Chart.
-        You can filter a particular column using the filter menu available in
-        the columns. This sample is also enabled with the toolbar searching
-        option to filter the Gantt content across all the columns.
+        This sample visualizes the manned lunar mission, which landed the first human on the Moon using the Apollo 11 spacecraft
+        in the year 1969. It also demonstrates the filtering feature available in the Gantt Chart. You can filter a particular
+        column using the filter menu available in the columns. This sample is also enabled with the toolbar searching option to filter
+        the Gantt content across all the columns.
       </p>
     </div>
 
     <div id="description">
       <p>
-        The filtering feature enables the user to view reduced amount of records
-        based on filter criteria. The column menu filtering can be enabled by
-        setting <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowfiltering">allowFiltering</a> property as
-        <code>true</code> and
-        toolbar search box can be enabled by including the search item in the
+        The filtering feature enables the user to view reduced amount of records based on filter criteria. The column menu filtering
+        can be enabled by setting <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowfiltering">
+        allowFiltering</a> property as <code>true</code> and toolbar search box can be enabled by including the search item in the
         <code>toolbar</code> property.
+      </p>
       <p>Gantt supports the following filter types. They are </p>
       <ul>
         <li><code>Menu</code></li>
         <li><code>Excel</code></li>
       </ul>
-      Gantt Chart also provides support for a set of filtering modes with <code>hierarchyMode</code> property.
-      The below are the type of filter mode available in Gantt Chart.
+      <p>
+        Gantt Chart also provides support for a set of filtering modes with <code>hierarchyMode</code> property.
+        The below are the type of filter mode available in Gantt Chart.
+      </p>
       <ul>
         <li>
-          <code>Parent</code> - This is the default filter hierarchy mode in
-          Gantt Chart. The filtered records are displayed with its parent
-          records, if the filtered records not have any parent record then the
-          filtered record alone will be displayed.
+          <code>Parent</code> - This is the default filter hierarchy mode in Gantt Chart. The filtered records are
+          displayed with its parent records, if the filtered records not have any parent record then the filtered record
+          alone will be displayed.
         </li>
         <li>
-          <code>Child</code> - The filtered records are displayed with its child
-          record, if the filtered records do not have any child record then only
-          the filtered records are displayed.
+          <code>Child</code> - The filtered records are displayed with its child record, if the filtered records do not have any
+          child record then only the filtered records are displayed.
         </li>
         <li>
-          <code>Both</code> - The filtered records are displayed with its both
-          parent and child record. If the filtered records do not have any
-          parent and child record then only the filtered records are displayed.
+          <code>Both</code> - The filtered records are displayed with its both parent and child record. If the filtered records
+          do not have any parent and child record then only the filtered records are displayed.
         </li>
         <li><code>None</code> - Only the filtered records are displayed.</li>
       </ul>
-      </p>
-
+      <p style="font-weight: 500">Injecting Module:</p>
       <p>
-        Gantt component features are segregated into individual feature-wise
-        modules. To use filtering feature, we need to inject
-        <code>Filter</code> module, and use the toolbar support we need to
-        inject <code>Toolbar</code> module.
+        Gantt component features are segregated into individual feature-wise modules. To use filtering and selection features,
+        inject the <code>Filter</code> and <code>Selection</code> modules using the <code>provide</code> section.
       </p>
-      <br>
-      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
           href="https://ej2.syncfusion.com/vue/documentation/gantt/filtering/filtering">documentation section</a>.</p>
     </div>
   </div>
 </template>
 <script>
-import {
-  GanttComponent,
-  Filter,
-  Selection
-} from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Filter, Selection } from "@syncfusion/ej2-vue-gantt";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { filteredData } from "./data-source";
 
@@ -115,16 +102,16 @@ export default {
       dateFormat: "MM/dd/yyyy hh:mm:ss",
       durationUnit: "Hour",
       typefields: { text: "type", value: "Id" },
-      filterSettings: { type: "Menu", hierarchyMode: 'Parent' },
+      filterSettings: { type: "Menu", hierarchyMode: "Parent" },
       typedata: [
         { Id: "Menu", type: "Menu" },
-        { Id: "Excel", type: "Excel" },
+        { Id: "Excel", type: "Excel" }
       ],
       modedata: [
         { Id: "Parent", type: "Parent" },
         { Id: "Child", type: "Child" },
         { Id: "Both", type: "Both" },
-        { Id: "None", type: "None" },
+        { Id: "None", type: "None" }
       ],
       taskFields: {
         id: "TaskID",
@@ -133,41 +120,36 @@ export default {
         endDate: "EndDate",
         duration: "Duration",
         dependency: "Predecessor",
-        child: "subtasks",
+        child: "subtasks"
       },
       columns: [
-        {
-          field: "TaskName",
-          headerText: "Task Name",
-          width: "250",
-          clipMode: "EllipsisWithTooltip",
-        },
+        { field: "TaskName", headerText: "Task Name", width: 250, clipMode: "EllipsisWithTooltip" },
         { field: "StartDate", headerText: "Start Date" },
         { field: "Duration", headerText: "Duration" },
         { field: "EndDate", headerText: "End Date" },
-        { field: "Predecessor", headerText: "Predecessor", width:190 },
+        { field: "Predecessor", headerText: "Predecessor", width: 190 }
       ],
       height: "650px",
       timelineSettings: {
         timelineUnitSize: 70,
         topTier: {
           format: "MMM dd, yyyy",
-          unit: "Day",
+          unit: "Day"
         },
         bottomTier: {
           unit: "Hour",
-          format: "h.mm a",
-        },
+          format: "h.mm a"
+        }
       },
       splitterSettings: {
-        columnIndex: 2,
+        columnIndex: 2
       },
       dayWorkingTime: [{ from: 0, to: 24 }],
       labelSettings: {
-        rightLabel: "TaskName",
+        rightLabel: "TaskName"
       },
       projectStartDate: new Date('07/16/2025 02:00:00 AM'),
-      projectEndDate: new Date('07/25/2025'),
+      projectEndDate: new Date('07/25/2025')
     };
   },
   methods: {
@@ -204,7 +186,7 @@ export default {
   },
 
   provide: {
-    gantt: [Filter, Selection],
-  },
+    gantt: [Filter, Selection]
+  }
 }
 </script>

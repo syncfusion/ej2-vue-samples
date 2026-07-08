@@ -177,6 +177,255 @@ export let scheduleData: Object[] = [
     }
 ];
 
+export let overlappingData: Object[] = [
+    {
+        Id: 1,
+        Subject: 'Quantum Computing Summit',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 5, 2, 9, 30),
+        EndTime: new Date(2026, 5, 2, 11, 0),
+        CategoryColor: '#1aaa55'
+    }, {
+        Id: 2,
+        Subject: 'AI Ethics Conference',
+        Location: 'Newyork City',
+        StartTime: new Date(2026, 4, 26, 12, 0),
+        EndTime: new Date(2026, 4, 26, 14, 0),
+        CategoryColor: '#357cd2'
+    }, {
+        Id: 3,
+        Subject: 'Blockchain Revolution',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 4, 19, 9, 30),
+        EndTime: new Date(2026, 4, 19, 11, 0),
+        CategoryColor: '#7fa900'
+    }, {
+        Id: 4,
+        Subject: 'Cybersecurity Forum',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 4, 28, 13, 0),
+        EndTime: new Date(2026, 4, 28, 14, 30),
+        CategoryColor: '#ea7a57'
+    }, {
+        Id: 5,
+        Subject: 'Robotics Expo 2026',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 4, 24, 15, 0),
+        EndTime: new Date(2026, 4, 24, 16, 0),
+        CategoryColor: '#00bdae'
+    }, {
+        Id: 6,
+        Subject: 'IoT Innovation Lab',
+        Location: 'Bermuda',
+        StartTime: new Date(2026, 5, 1, 9, 30),
+        EndTime: new Date(2026, 5, 1, 11, 0),
+        CategoryColor: '#f57f17'
+    }, {
+        Id: 7,
+        Subject: 'Cloud Computing Summit',
+        Location: 'Himalayas',
+        StartTime: new Date(2026, 4, 28, 11, 0),
+        EndTime: new Date(2026, 4, 28, 12, 30),
+        CategoryColor: '#1aaa55'
+    }, {
+        Id: 8,
+        Subject: 'Data Science Workshop',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 4, 29, 9, 0),
+        EndTime: new Date(2026, 4, 29, 10, 0),
+        CategoryColor: '#357cd2'
+    }, {
+        Id: 9,
+        Subject: 'Machine Learning Masterclass',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 4, 29, 11, 0),
+        EndTime: new Date(2026, 4, 29, 13, 0),
+        CategoryColor: '#7fa900'
+    }, {
+        Id: 10,
+        Subject: 'VR Development Conference',
+        Location: 'Africa',
+        StartTime: new Date(2026, 4, 29, 11, 0),
+        EndTime: new Date(2026, 4, 29, 13, 0),
+        CategoryColor: '#ea7a57'
+    }, {
+        Id: 11,
+        Subject: 'Edge Computing Summit',
+        Location: 'London',
+        StartTime: new Date(2026, 4, 18, 9, 30),
+        EndTime: new Date(2026, 4, 18, 11, 0),
+        CategoryColor: '#00bdae'
+    }, {
+        Id: 12,
+        Subject: 'Neural Networks Workshop',
+        Location: 'Sweden',
+        StartTime: new Date(2026, 4, 25, 10, 0),
+        EndTime: new Date(2026, 4, 25, 11, 30),
+        CategoryColor: '#f57f17'
+    }, {
+        Id: 13,
+        Subject: '5G Technology Forum',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 4, 25, 10, 30),
+        EndTime: new Date(2026, 4, 25, 12, 30),
+        CategoryColor: '#1aaa55'
+    }, {
+        Id: 14,
+        Subject: 'Quantum Encryption Lab',
+        Location: 'Research Centre of USA',
+        StartTime: new Date(2026, 4, 20, 10, 0),
+        EndTime: new Date(2026, 4, 20, 11, 30),
+        CategoryColor: '#357cd2'
+    }, {
+        Id: 15,
+        Subject: 'DevOps Best Practices',
+        Location: 'California',
+        StartTime: new Date(2026, 4, 29, 9, 30),
+        EndTime: new Date(2026, 4, 29, 11, 0),
+        CategoryColor: '#7fa900'
+    }, {
+        Id: 16,
+        Subject: 'Agile Methodology Summit',
+        Location: 'Alaska',
+        StartTime: new Date(2026, 4, 29, 11, 0),
+        EndTime: new Date(2026, 4, 29, 13, 0),
+        CategoryColor: '#ea7a57'
+    }, {
+        Id: 17,
+        Subject: 'Microservices Conference',
+        Location: 'Research Centre of USA',
+        StartTime: new Date(2026, 5, 3, 5, 30),
+        EndTime: new Date(2026, 5, 3, 7, 30),
+        CategoryColor: '#00bdae'
+    }, {
+        Id: 18,
+        Subject: 'Serverless Architecture Lab',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 4, 21, 17, 0),
+        EndTime: new Date(2026, 4, 21, 18, 30),
+        CategoryColor: '#f57f17'
+    }, {
+        Id: 19,
+        Subject: 'API Design Workshop',
+        Location: 'San Fransisco',
+        StartTime: new Date(2026, 5, 2, 6, 0),
+        EndTime: new Date(2026, 5, 2, 7, 30),
+        CategoryColor: '#7fa900'
+    }, {
+        Id: 20,
+        Subject: 'Container Orchestration Summit',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 4, 19, 16, 0),
+        EndTime: new Date(2026, 4, 19, 18, 0),
+        CategoryColor: '#ea7a57'
+    }, {
+        Id: 21,
+        Subject: 'CI/CD Pipeline Conference',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 5, 1, 14, 0),
+        EndTime: new Date(2026, 5, 1, 16, 0),
+        CategoryColor: '#ea7a57'
+    }, {
+        Id: 22,
+        Subject: 'Test Automation Summit',
+        Location: 'Research Centre of USA',
+        StartTime: new Date(2026, 4, 22, 14, 30),
+        EndTime: new Date(2026, 4, 22, 16, 0),
+        CategoryColor: '#00bdae'
+    }, {
+        Id: 23,
+        Subject: 'Performance Engineering Lab',
+        Location: 'Greenland',
+        StartTime: new Date(2026, 4, 18, 14, 30),
+        EndTime: new Date(2026, 4, 18, 16, 0),
+        CategoryColor: '#ea7a57'
+    }, {
+        Id: 24,
+        Subject: 'Code Review Workshop',
+        Location: 'California',
+        StartTime: new Date(2026, 4, 23, 10, 0),
+        EndTime: new Date(2026, 4, 23, 11, 30),
+        CategoryColor: '#7fa900'
+    }, {
+        Id: 25,
+        Subject: 'Big Data Analytics Summit',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 4, 27, 10, 0),
+        EndTime: new Date(2026, 4, 27, 11, 30),
+        CategoryColor: '#ff6f61'
+    }, {
+        Id: 26,
+        Subject: 'Digital Transformation Forum',
+        Location: 'Greenland',
+        StartTime: new Date(2026, 4, 20, 6, 30),
+        EndTime: new Date(2026, 4, 20, 8, 0),
+        CategoryColor: '#6b5b95'
+    }, {
+        Id: 27,
+        Subject: 'Tech Leadership Summit',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 4, 27, 10, 0),
+        EndTime: new Date(2026, 4, 27, 11, 30),
+        CategoryColor: '#88b04b'
+    }, {
+        Id: 28,
+        Subject: 'Product Management Workshop',
+        Location: 'NASA Lab',
+        StartTime: new Date(2026, 4, 27, 15, 0),
+        EndTime: new Date(2026, 4, 27, 16, 30),
+        CategoryColor: '#f7cac9'
+    }, {
+        Id: 29,
+        Subject: 'UX Design Conference',
+        Location: 'Pacific Ocean',
+        StartTime: new Date(2026, 4, 28, 13, 30),
+        EndTime: new Date(2026, 4, 28, 15, 0),
+        CategoryColor: '#92a8d1'
+    }, {
+        Id: 30,
+        Subject: 'Security Operations Summit',
+        Location: 'Chile Observatory',
+        StartTime: new Date(2026, 4, 24, 14, 30),
+        EndTime: new Date(2026, 4, 24, 16, 0),
+        CategoryColor: '#955251'
+    }, {
+        Id: 31,
+        Subject: 'Full Stack Development Lab',
+        Location: 'Hawaii',
+        StartTime: new Date(2026, 4, 28, 10, 30),
+        EndTime: new Date(2026, 4, 28, 12, 0),
+        CategoryColor: '#b565a7'
+    }, {
+        Id: 32,
+        Subject: 'Database Architecture Summit',
+        Location: 'Space Centre USA',
+        StartTime: new Date(2026, 4, 28, 15, 30),
+        EndTime: new Date(2026, 4, 28, 17, 30),
+        CategoryColor: '#009b77'
+    }, {
+        Id: 33,
+        Subject: 'Mobile Development Conference',
+        Location: 'Research Centre of USA',
+        StartTime: new Date(2026, 4, 28, 6, 30),
+        EndTime: new Date(2026, 4, 28, 8, 30),
+        CategoryColor: '#dd4124'
+    }, {
+        Id: 34,
+        Subject: 'Tech Innovation Summit',
+        Location: 'Alaska',
+        StartTime: new Date(2026, 4, 28, 10, 30),
+        EndTime: new Date(2026, 4, 28, 12, 0),
+        CategoryColor: '#45b8ac'
+    }, {
+        Id: 35,
+        Subject: 'Software Architecture Lab',
+        Location: 'Himalayas',
+        StartTime: new Date(2026, 4, 28, 11, 15),
+        EndTime: new Date(2026, 4, 28, 13, 0),
+        CategoryColor: '#e94b3c'
+    }
+];
+
 export let timelineData: Object[] = [
     {
         Id: 25,

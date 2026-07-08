@@ -62,6 +62,7 @@
         You can customize these UI elements of the quick popup. You can also customize whether the quick popup is applicable to the cells or events or for both using the
         <code>elementType</code> property.
       </p>
+      <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
     </div>
   </div>
 </template>

@@ -2,8 +2,8 @@
   "name": "Gantt Chart",
   "directory": "gantt",
   "category": "Calendars",
-  "type": "update",
   "ftName": "gantt",
+  "type": "update",
   "samples": [
     {
       "url": "overview",
@@ -487,7 +487,6 @@
       "url": "timeline",
       "name": "Timeline API",
       "category": "Timeline",
-      "type": "update",
       "api": {
         "Gantt": [
           "dataSource",
@@ -524,6 +523,30 @@
         ]
       },
       "description": "This example demonstrates the zooming support of the Gantt chart timeline and ZoomToFit support of the Gantt chart."
+    },
+    {
+      "url": "infinite-timeline-scrolling",
+      "name": "Infinite Timeline Scrolling",
+      "category": "Timeline",
+      "type": "new",
+      "api": {
+        "Gantt": [
+          "dataSource",
+          "height",
+          "taskFields",
+          "rowHeight",
+          "editSettings",
+          "columns",
+          "treeColumnIndex",
+          "allowSelection",
+          "gridLines",
+          "highlightWeekends",
+          "timelineSettings",
+          "labelSettings",
+          "splitterSettings"
+        ]
+      },
+      "description": "This demo demonstrates infinite timeline scrolling, which enables smooth horizontal navigation across timelines without fixed boundaries."
     },
     {
       "url": "column-template",
@@ -934,6 +957,32 @@
         ]
       },
       "description": "This demo explains how to render custom toolbar elements in a toolbar, by which any custom operation can be performed in Syncfusion<sup>®</sup> Essential JS2 Gantt."
+    },
+    {
+      "url": "baseline-template",
+      "name": "Baseline Template",
+      "category": "Templates",
+      "type": "new",
+      "api": {
+        "Gantt": [
+          "dataSource",
+          "renderBaseline",
+          "taskFields",
+          "baselineTemplate",
+          "columns",
+          "treeColumnIndex",
+          "allowSelection",
+          "editSettings",
+          "rowHeight",
+          "taskbarHeight",
+          "splitterSettings",
+          "gridLines",
+          "height",
+          "projectStartDate",
+          "projectEndDate"
+        ]
+      },
+      "description": "This example demonstrates the baseline template rendering in the Gantt Chart. Baselines help compare the planned schedule against the actual task timeline with custom template visualization."
     },
     {
       "url": "filtering",

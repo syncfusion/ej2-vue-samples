@@ -2,13 +2,6 @@
     color: transparent;
 }
 
-.bootstrap5_3-dark .e-samplestatus.new.tree,
-.bootstrap5_3-dark .e-samplestatus.update.tree,
-.bootstrap5_3-dark .e-samplestatus.preview.tree {
-    margin: 6px 0;
-    height: 22px;
-}
-
 .bootstrap5_3-dark #msg {
     color: #F1F1F1 !important;
 }
@@ -94,7 +87,9 @@ body.bootstrap5_3-dark,
 .bootstrap5_3-dark .sb-icon-Hamburger:active,
 .bootstrap5_3-dark .sb-content-tab>.e-tab.e-nested>.e-tab-header>.e-items.e-toolbar-items>.e-toolbar-item>.e-tab-wrap>.e-text-wrap>.e-tab-text,
 .bootstrap5_3-dark .sb-theme-popup li.active .sb-theme-select,
-.bootstrap5_3-dark .sb-theme-popup li:hover.active .sb-theme-select {
+.bootstrap5_3-dark .sb-products-popup li.active .sb-products-select,
+.bootstrap5_3-dark .sb-theme-popup li:hover.active .sb-theme-select,
+.bootstrap5_3-dark .sb-products-popup li:hover.active .sb-products-select {
     color: #0d6efd;
 }
 
@@ -163,15 +158,23 @@ body.bootstrap5_3-dark,
     border: 1px solid #495057;
 }
 
+.bootstrap5_3-dark .sb-products-popup {
+    background-color: #343a40;
+    border: 1px solid #495057;
+}
+
 .bootstrap5_3-dark .sb-search-btn:hover,
 .bootstrap5_3-dark .sb-search-btn.active,
 .bootstrap5_3-dark .sb-setting-btn:hover,
 .bootstrap5_3-dark .sb-setting-btn.active,
 .bootstrap5_3-dark .sb-switch-popup li:hover,
 .bootstrap5_3-dark .theme-wrapper:hover,
+.bootstrap5_3-dark .products-wrapper:hover,
 .bootstrap5_3-dark #themeMode-switch-btn:hover,
 .bootstrap5_3-dark .theme-wrapper.active,
+.bootstrap5_3-dark .products-wrapper.active,
 .bootstrap5_3-dark .sb-theme-popup li:hover,
+.bootstrap5_3-dark .sb-products-popup li:hover,
 .bootstrap5_3-dark .sb-search-result .e-list-item:hover,
 .bootstrap5_3-dark .sb-left-pane .e-listview .e-list-item:hover {
     background-color: #363636;
@@ -258,13 +261,11 @@ body.bootstrap5_3-dark,
     margin-top: 2px;
 }
 
-.bootstrap5_3-dark.e-bigger .e-samplestatus.new.tree,
-.bootstrap5_3-dark.e-bigger .e-samplestatus.update.tree,
-.bootstrap5_3-dark.e-bigger .e-samplestatus.preview.tree {
-    margin-top: 9px;
+.bootstrap5_3-dark .sb-theme-popup li:hover .sb-theme-select {
+    color: transparent;
 }
 
-.bootstrap5_3-dark .sb-theme-popup li:hover .sb-theme-select {
+.bootstrap5_3-dark .sb-products-popup li:hover .sb-products-select {
     color: transparent;
 }
 

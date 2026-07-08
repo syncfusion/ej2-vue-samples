@@ -6,7 +6,7 @@
   </div>
   <div class="control-section">
     <div class="content-wrapper">
-      <ejs-gantt ref='gantt' id="GanttBaseline" :dataSource="data" :renderBaseline="true" :taskFields="taskSettings"
+      <ejs-gantt ref="gantt" id="GanttBaseline" :dataSource="data" :renderBaseline="true" :taskFields="taskSettings"
         :columns="columns" :timelineSettings="timelineSettings" :labelSettings="labelSettings"
         :splitterSettings="splitterSettings" :tooltipSettings="tooltipSettings" :gridLines="gridLines" :height="'650px'"
         :rowHeight="46" :treeColumnIndex="1" :taskbarHeight="25" :allowSelection="true" :includeWeekend="true"
@@ -78,8 +78,12 @@
       property to visually distinguish planned timelines from actual
       task progress.timelines from actual progress.
     </p>
-    <br>
-    <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+    <p style="font-weight: 500">Injecting Module:</p>
+    <p>
+        Gantt component features are segregated into individual feature-wise modules. To use selection feature,
+        inject the <code>Selection</code> module using the <code>provide</code> section.
+    </p>
+    <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
         href="https://ej2.syncfusion.com/vue/documentation/gantt/baseline">documentation section</a>.</p>
   </div>
 </template>
@@ -219,7 +223,6 @@ export default {
       return this.$refs.gantt.getFormatedDate(value);
     },
     queryTaskbarInfo(args) {
-    
       const currentTheme = this.getCurrentTheme();
       const colors = this.themeColors[currentTheme];
       const taskbarColor = !args.data.ganttProperties.baselineStartDate || !args.data.ganttProperties.baselineEndDate || args.data.ganttProperties.startDate <= args.data.ganttProperties.baselineStartDate ? colors.onTime : colors.delayed;

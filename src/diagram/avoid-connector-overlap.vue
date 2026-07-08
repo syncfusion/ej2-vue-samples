@@ -13,7 +13,7 @@
     </div>
     <div id="description">
       <p>
-        This example showcases a circuit diagram created using the Syncfusion<sup>®</sup> Diagram control. It
+        This example showcases a circuit diagram created using the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> control. It
         demonstrates the
         <code><a target="_blank" class="code"
             href="https://ej2.syncfusion.com/vue/documentation/diagram/constraints#diagram-constraints">AvoidLineOverlapping</a></code>

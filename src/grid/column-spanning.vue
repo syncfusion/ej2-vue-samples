@@ -47,6 +47,11 @@
             href="https://ej2.syncfusion.com/vue/documentation/grid/columns/column-spanning">
             documentation section</a>.
         </p>
+        <p>
+            Looking for the full Vue Data Grid component overview, features, pricing, and documentation? Visit our
+            <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-data-grid">
+                Vue Data Grid component</a> page.
+        </p>
     </div>
 
 </div>

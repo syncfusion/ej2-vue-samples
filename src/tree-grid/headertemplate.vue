@@ -51,7 +51,10 @@
     </p> 
     <p>
         More information about Header template can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/columns/headers#header-template">documentation section</a>.
-    </p>   
+    </p>  
+    <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p> 
 </div>
 
 </div>

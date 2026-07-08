@@ -130,14 +130,14 @@ export default {
       const rteValue = contentElement.innerHTML;
       if (rteValue && rteValue.length > 0) {
         if (this.isValidContent(rteValue)) {
-          contentElement.innerHTML = '';
-          this.$refs.rteInstance.dataBind();
-          this.$refs.chatUI.addMessage({
+          this.$refs.rteInstance.ej2Instances.ej2Instances.value = '';
+          this.$refs.rteInstance.ej2Instances.dataBind();
+          this.$refs.chatUI.ej2Instances.addMessage({
             author: this.currentUser[0],
             text: rteValue,
           });
-          this.$refs.rteInstance.clearUndoRedo();
-          this.$refs.rteInstance.focusIn();
+          this.$refs.rteInstance.ej2Instances.clearUndoRedo();
+          this.$refs.rteInstance.ej2Instances.focusIn();
         }
       }
     },
@@ -145,10 +145,10 @@ export default {
       const contentElement = document
         .querySelector('.e-rte-content')
         .querySelector('.e-content');
-      contentElement.innerHTML = '';
-      this.$refs.rteInstance.dataBind();
-      this.$refs.rteInstance.clearUndoRedo();
-      this.$refs.rteInstance.focusIn();
+      this.$refs.rteInstance.ej2Instances.ej2Instances.value = '';
+      this.$refs.rteInstance.ej2Instances.ej2Instances.dataBind();
+      this.$refs.rteInstance.ej2Instances.ej2Instances.clearUndoRedo();
+      this.$refs.rteInstance.ej2Instances.ej2Instances.focusIn();
     },
   },
   provide: {

@@ -2,7 +2,6 @@
     "name": "TimePicker",
     "directory": "timepicker",
     "category": "Calendars",
-    "hideOnDevice": true,
     "samples": [{
             "url": "default",
             "name": "Default Functionalities",

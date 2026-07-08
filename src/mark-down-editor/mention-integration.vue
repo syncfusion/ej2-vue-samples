@@ -56,30 +56,30 @@
   .rte-markdown-overview .e-md-preview::before {
     content: "\e345";
   }
-  .rte-markdown-overview .e-icon-btn.e-active .e-md-preview.e-icons::before {
+  .rte-markdown-overview .e-icon-btn .e-md-codeview.e-icons::before {
     content: "\e350";
   }  
-  .bootstrap4 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before {
+  .bootstrap4 .rte-markdown-overview .e-icon-btn .e-md-codeview::before {
     content: "\e790";
   }  
   .bootstrap4 .rte-markdown-overview .e-icon-btn .e-md-preview::before {
     content: "\e787";
   }  
-  .fluent .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .fluent-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .fluent2 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .fluent2-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .fluent2-highcontrast .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .tailwind .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .tailwind-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .tailwind3 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .tailwind3-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .bootstrap5 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .bootstrap5\.3 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .bootstrap5\.3-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .bootstrap5-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .material3 .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before,
-  .material3-dark .rte-markdown-overview .e-icon-btn.e-active .e-md-preview::before{
+  .fluent .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .fluent-dark .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .fluent2 .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .fluent2-dark .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .fluent2-highcontrast .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .tailwind .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .tailwind-dark .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .tailwind3 .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .tailwind3-dark .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .bootstrap5 .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .bootstrap5\.3 .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .bootstrap5\.3-dark .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .bootstrap5-dark .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .material3 .rte-markdown-overview .e-icon-btn .e-md-codeview::before,
+  .material3-dark .rte-markdown-overview .e-icon-btn .e-md-codeview::before{
       content: '\e80e';
   }
   .tailwind .rte-markdown-overview .e-icon-btn .e-md-preview::before,
@@ -98,6 +98,11 @@
   .material3 .rte-markdown-overview .e-icon-btn .e-md-preview::before,
   .material3-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before {
       content: '\e7de';
+  }
+  .e-rte-content .e-pre-source td,
+  .e-rte-content .e-pre-source th {
+      border: 1px solid;
+      padding: 2px 5px;
   }
 /** Mention template styles **/
 .editor-mention-item-template {
@@ -226,7 +231,7 @@ export default {
       };
       this.mdsource.onclick = (e) => {
         this.fullPreview();
-        if (e.currentTarget.classList.contains('e-active')) {
+        if (e.currentTarget.parentElement.querySelector('.e-md-codeview')) {
          this.$refs.rteInstance.disableToolbarItem(["Bold", "Italic", 'SuperScript', 'SubScript', "StrikeThrough", "Formats", "Blockquote", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
         } else {
           this.$refs.rteInstance.enableToolbarItem(["Bold", "Italic", 'SuperScript', 'SubScript', "StrikeThrough", "Formats", "Blockquote", "OrderedList", "UnorderedList", "CreateLink", "Image", "CreateTable"]);
@@ -234,18 +239,22 @@ export default {
       };
     },
     markDownConversion: function () {
-      if (this.mdsource.classList.contains('e-active')) {
-        this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
+      if (this.mdsource.firstElementChild.classList.contains('e-md-codeview')) {
+        this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value, { lineBreak: true });
       }
     },
     fullPreview: function () {
-      if (this.mdsource.classList.contains('e-active')) {
-        this.mdsource.classList.remove('e-active');
+      if (this.mdsource.firstElementChild.classList.contains('e-md-codeview')) {
+        this.mdsource.parentElement.setAttribute('data-content', 'Preview');
+        this.mdsource.firstElementChild.classList.remove('e-md-codeview');
+        this.mdsource.firstElementChild.classList.add('e-md-preview');
         this.textArea.style.display = 'block';
         this.htmlPreview.style.display = 'none';
         this.previewTextArea.style.overflow = 'hidden';
       } else {
-        this.mdsource.classList.add('e-active');
+        this.mdsource.parentElement.setAttribute('data-content', 'Code View');
+        this.mdsource.firstElementChild.classList.remove('e-md-preview');
+        this.mdsource.firstElementChild.classList.add('e-md-codeview');
         if (!this.htmlPreview) {
           this.htmlPreview = document.createElement('div');
           this.htmlPreview.setAttribute('class', 'e-content e-pre-source');
@@ -258,7 +267,7 @@ export default {
         }
         this.textArea.style.display = 'none';
         this.htmlPreview.style.display = 'block';
-        this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
+        this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value, { lineBreak: true });
         this.mdsource.parentElement.title = 'Code View';
       }
     },

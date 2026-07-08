@@ -42,6 +42,7 @@
                 <code>eventSettings</code> property. Here, the HTML template design is compiled and then the resultant output
                 will be displayed directly on the events.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
 
     </div>

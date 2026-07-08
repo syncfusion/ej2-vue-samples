@@ -19,19 +19,19 @@
             </div>
             <div class="row">
                 <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style" id="left" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_1.png); margin-right: 4px">
+                    <div class="image-pattern-style" id="left" style="background-image: url(src/diagram/Images/annotation/Annotation_1.png); margin-right: 4px">
                     </div>
-                    <div class="image-pattern-style" id="right" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_2.png); margin: 0px 4px">
+                    <div class="image-pattern-style" id="right" style="background-image: url(src/diagram/Images/annotation/Annotation_2.png); margin: 0px 4px">
                     </div>
-                    <div class="image-pattern-style" id="bottomLeft" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_3.png);margin-left: 4px">
+                    <div class="image-pattern-style" id="bottomLeft" style="background-image: url(src/diagram/Images/annotation/Annotation_3.png);margin-left: 4px">
                     </div>
                 </div>
                 <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style" id="bottomRight" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_4.png); margin-right: 4px">
+                    <div class="image-pattern-style" id="bottomRight" style="background-image: url(src/diagram/Images/annotation/Annotation_4.png); margin-right: 4px">
                     </div>
-                    <div class="image-pattern-style" id="center" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_5.png); margin: 0px 4px">
+                    <div class="image-pattern-style" id="center" style="background-image: url(src/diagram/Images/annotation/Annotation_5.png); margin: 0px 4px">
                     </div>
-                    <div class="image-pattern-style" id="bottomCenter" style="background-image: url(https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/Annotation_6.png);margin-left: 4px">
+                    <div class="image-pattern-style" id="bottomCenter" style="background-image: url(src/diagram/Images/annotation/Annotation_6.png);margin-left: 4px">
                     </div>
                 </div>
             </div>
@@ -113,20 +113,22 @@
     </p>
 
     <p>
-        The <code>offset</code>, <code>horizontalAlignment</code>, and<code>verticalAlignment</code> properties of the annotation can be used to customize the position of the descriptions. The <code>bold</code>,<code>italic</code>, <code>fontSize</code>, and <code>fontFamily</code> properties can be used to customize the appearance of the descriptions.
+        The <code>offset</code>, <code>horizontalAlignment</code>, and <code>verticalAlignment</code> properties of the annotation can be used to customize the position of the descriptions. The <code>bold</code>,<code>italic</code>, <code>fontSize</code>, and <code>fontFamily</code> properties can be used to customize the appearance of the descriptions.
     </p>
 
     <p>
         To change the position of the descriptions, select a node and choose the template in the property panel.
     </p>
     <br>
+
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>
 
 <style scoped>
 /* Css for images in property panel  */
-.diagram-annotation .image-pattern-style {
+.diagram-property-annotation .image-pattern-style {
   background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
@@ -138,7 +140,7 @@
   float: left;
 }
 
-.diagram-annotation .image-pattern-style:hover {
+.diagram-property-annotation .image-pattern-style:hover {
   border-color: gray;
   border-width: 2px;
 }
@@ -548,7 +550,7 @@ function changed(value) {
             node.annotations[0].width = 25;
             node.annotations[0].height = 25;
             node.annotations[0].template =
-              '<img src="https://ej2.syncfusion.com/vue/demos/src/diagram/Images/annotation/' + templateData.value.toString() + '.svg" style="width:100%;height:100%" />';
+              '<img src="src/diagram/Images/annotation/' + templateData.value.toString() + '.svg" style="width:100%;height:100%" />';
           }
         } else if (value === 'interaction') {
           // Toggle interaction constraints of the annotation

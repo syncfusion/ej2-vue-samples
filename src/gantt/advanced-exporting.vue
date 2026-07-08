@@ -11,7 +11,7 @@
       </div>
       <div class="content-wrapper">
         <ejs-gantt ref="gantt" id="advanceExport" :dataSource="data" :dateFormat="dateFormat" :taskFields="taskFields"
-          :toolbar="toolbar" :allowSelection="true" :allowExcelExport="true" :gridLines="gridLines" height="height"
+          :toolbar="toolbar" :allowSelection="true" :allowExcelExport="true" :gridLines="gridLines" :height="height"
           :rowHeight="46" :taskbarHeight="25" :treeColumnIndex="1" :toolbarClick="toolbarClick"
           :resourceFields="resourceFields" :resources="resources" :highlightWeekends="true"
           :timelineSettings="timelineSettings" :labelSettings="labelSettings" :projectStartDate="projectStartDate"
@@ -48,9 +48,9 @@
     </div>
 
     <div id="description">
-      <p>In this sample, the Gantt Chart's PDF export functionality is enhanced with various customization options:
+      <p>
+        In this sample, the Gantt Chart's PDF export functionality is enhanced with various customization options:
       </p>
-
       <ul>
         <li>
           <strong>Custom Headers and Footers</strong>: The headers and footers in the exported PDF can be
@@ -72,7 +72,7 @@
           <strong> Event marker and holiday</strong>:Event marker and holiday can be cusotmized in exported PDF
           using
           <a target="_blank"
-            href="https://helpej2.syncfusion.com/documentation/api/gantt/pdfExportProperties/#ganttstyle">ganttstyle</a>
+            href="https://ej2.syncfusion.com/vue/documentation/api/gantt/pdfexportproperties#ganttstyle">ganttstyle</a>
           in <a target="_blank"
             href="https://ej2.syncfusion.com/vue/documentation/api/gantt/pdfExportProperties">pdfExportProperties</a>.
         </li>
@@ -85,30 +85,24 @@
             href="https://ej2.syncfusion.com/vue/documentation/api/gantt/pdfExportProperties">pdfExportProperties</a>.
         </li>
       </ul>
-
-
       <p style="font-weight: 500">Injecting Module:</p>
-      <p>To use PDF export feature, inject the <code>PdfExportService</code> into the
-        <code>&#64;NgModule.providers</code> section.
+      <p>
+        Gantt component features are segregated into individual feature-wise modules. To use PDF export, excel export, selection, toolbar,
+        markers, critical path features, inject the <code>PdfExport</code>, <code>ExcelExport</code>, <code>Selection</code>,
+        <code>Toolbar</code>, <code>DayMarkers</code> and <code>CriticalPath</code> modules using the <code>provide</code> section.
       </p>
-      <br>
-      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started#adding-gantt-component">documentation
-          section</a>.</p>
-
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/pdf-export/customize-pdf-export">documentation
+          section</a>.
+      </p>
     </div>
   </div>
 </template>
 <script>
-import { GanttComponent, Selection, Toolbar, ExcelExport, PdfExport, PdfExportProperties, DayMarkers, CriticalPath } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, Toolbar, ExcelExport, PdfExport, DayMarkers, CriticalPath } from "@syncfusion/ej2-vue-gantt";
 import { editingResources, pdfExport } from "./data-source";
 import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
-import {
-  PdfColor,
-  PdfFontStyle,
-  PdfPen,
-  PdfDashStyle,
-} from '@syncfusion/ej2-pdf-export';
+import { PdfColor, PdfFontStyle, PdfPen, PdfDashStyle } from '@syncfusion/ej2-pdf-export';
 var isFitToWidth;
 export default {
   components: {
@@ -128,7 +122,7 @@ export default {
         progress: "Progress",
         dependency: "Predecessor",
         child: "subtasks",
-        resourceInfo: "resources",
+        resourceInfo: "resources"
       },
       eventMarkers: [
         {
@@ -145,11 +139,13 @@ export default {
           from: new Date('04/04/2025'),
           to: new Date('04/04/2025'),
           label: 'Local Holiday'
-        }, {
+        },
+        {
           from: new Date('04/19/2025'),
           to: new Date('04/19/2025'),
           label: 'Good Friday'
-        }, {
+        },
+        {
           from: new Date('04/30/2025'),
           to: new Date('04/30/2025'),
           label: 'Release Holiday'
@@ -158,20 +154,20 @@ export default {
       toolbar: ["PdfExport"],
       gridLines: "Both",
       height: "650px",
-
       resourceFields: {
         id: "resourceId",
-        name: "resourceName",
+        name: "resourceName"
       },
       resources: editingResources,
       timelineSettings: {
         topTier: {
           unit: "Week",
-          format: "MMM dd, y",
+          format: "MMM dd, y"
         },
         bottomTier: {
-          unit: "Day",
+          unit: "Day"
         },
+        viewEndDate: new Date('05/31/2025')
       },
       labelSettings: {
         leftLabel: "leftLabelTemplate",
@@ -180,14 +176,14 @@ export default {
       projectStartDate: new Date("03/25/2025"),
       columns: [
         { field: "TaskID" },
-        { field: "TaskName", width: "250" },
+        { field: "TaskName", width: "280" },
         { field: 'StartDate' },
         { field: 'EndDate' },
-        { field: 'Progress' },
+        { field: 'Progress' }
       ],
       splitterSettings: {
-        columnIndex: 3,
-      },
+        columnIndex: 3
+      }
     };
   },
   provide: {
@@ -198,8 +194,8 @@ export default {
       if (args.item.id === "advanceExport_pdfexport") {
         var borderWidth = 1;
         var borderColor = new PdfColor(227, 22, 91);
-        var pdfpen = new PdfPen(borderColor, borderWidth);
-        pdfpen.dashStyle = PdfDashStyle.Dash;
+        var pdfPen = new PdfPen(borderColor, borderWidth);
+        pdfPen.dashStyle = PdfDashStyle.Dash;
         var exportProperties = {
           pageSize: 'A2',
           fileName: "Product Development Report.pdf",
@@ -210,12 +206,12 @@ export default {
                 fontStyle: PdfFontStyle.Bold,
                 backgroundColor: new PdfColor(253, 191, 100)
               },
-              lineStyle: pdfpen,
+              lineStyle: pdfPen
             },
             holiday: {
               fontColor: new PdfColor(33, 33, 33),
-              backgroundColor: new PdfColor(243, 244, 246),
-            },
+              backgroundColor: new PdfColor(243, 244, 246)
+            }
           },
           header: {
             fromTop: 0,
@@ -281,12 +277,12 @@ export default {
         args.progressBarBgColor = "#B0008A";
         args.taskbarBgColor = "#FFCEF4";
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
-<style sc>
+<style scoped>
 .fluent2 #export,
 .fluent2-dark #export,
 .fluent2-highcontrast #export {

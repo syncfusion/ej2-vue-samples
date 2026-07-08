@@ -1,51 +1,38 @@
 <template>
-<div class="col-lg-12 control-section">
-<div id="action-description">
-    <p>This sample demonstrates the way of binding self-referential flat data to the Gantt control.</p>
-</div>
-    <div>
-        <ejs-gantt ref='gantt' id="SelfData" 
-        :dataSource= "data"        
-
-:height="height"
-:rowHeight="46"
-:taskbarHeight="25"
-        :highlightWeekends= 'true'  
-        :allowSelection = 'true'       
-        :taskFields= "taskFields"
-        :labelSettings= "labelSettings"
-        :treeColumnIndex= "1"
-        :columns= "columns"
-        :splitterSettings= "splitterSettings"
-        :projectStartDate= "projectStartDate"
-        :projectEndDate= "projectEndDate">
-        </ejs-gantt>
+    <div class="col-lg-12 control-section">
+        <div id="action-description">
+            <p>This sample demonstrates the way of binding self-referential flat data to the Gantt control.</p>
+        </div>
+            <div>
+                <ejs-gantt ref='gantt' id="SelfData" :dataSource= "data" :height="height" :rowHeight="46" :taskbarHeight="25"
+                    :highlightWeekends= 'true' :allowSelection= 'true' :taskFields= "taskFields" :labelSettings= "labelSettings"
+                    :treeColumnIndex= "1" :columns= "columns" :splitterSettings= "splitterSettings"
+                    :projectStartDate= "projectStartDate" :projectEndDate= "projectEndDate">
+                </ejs-gantt>
+            </div>
+        <div id="description">
+            <p>Gantt can be bound either to local or remote data services.
+                The <code>dataSource</code> property can be assigned either with the array of JavaScript objects or an instance of <code>DataManager</code>.</p>
+            <p>In this demo, the array of self-referential flat data with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/taskFieldsModel/#parentid">parentID</a> is assigned as data source to the Gantt.</p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection and markers, inject the
+                <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> method.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/data-binding#self-referential-data-binding-flat-data">documentation section</a>.</p>
+        </div>
     </div>
-<div id="description">
-    <p>Gantt can be bound either to local or remote data services.
-        The <code>dataSource</code> property can be assigned either with the array of JavaScript objects or an instance of <code>DataManager</code>.</p>
-    <p>In this demo, the array of self-referential flat data with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/taskFieldsModel/#parentid">parentID</a> is assigned as data source to the Gantt.</p>
-    
-    <p>
-        Gantt control features are segregated into individual feature-wise modules. To use a selection, inject the
-        <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code> method.To use markers, inject the
-        <code>DayMarkers</code> module using the <code>Gantt.Inject(DayMarkers)</code> method.
-    </p>
-    <br>
-    <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/data-binding#self-referential-data-binding-flat-data">documentation section</a>.</p>
-</div>
-</div>
 </template>
 <script>
 import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { selfData } from './data-source';
 
 export default {
-  components: {
-    'ejs-gantt': GanttComponent
-  },
-  data: function() {
-      return{
+    components: {
+        'ejs-gantt': GanttComponent
+    },
+    data: function() {
+        return{
             data: selfData,
             height: '650px',             
             taskFields: {
@@ -75,10 +62,10 @@ export default {
             },
             projectStartDate: new Date('01/28/2025'),
             projectEndDate: new Date('03/30/2025')
-      };
-  },
-  provide: {
-      gantt: [DayMarkers, Selection]
-  }
+        };
+    },
+    provide: {
+        gantt: [DayMarkers, Selection]
+    }
 }
 </script>

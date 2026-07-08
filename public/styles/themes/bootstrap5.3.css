@@ -1,7 +1,7 @@
 .bootstrap5_3 .e-samplestatus.new.tree,
 .bootstrap5_3 .e-samplestatus.update.tree,
 .bootstrap5_3 .e-samplestatus.preview.tree {
-    margin-top: 6px !important
+    margin-top: 1px !important
 }
 
 .bootstrap5_3 .copycode::before {

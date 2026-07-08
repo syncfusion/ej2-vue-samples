@@ -82,7 +82,7 @@
     </div>
     <div id="action-description">
       <p>
-        This sample implements a functional movie ticket booking interface using the Syncfusion<sup>®</sup> EJ2 Vue Diagram component, providing an intuitive visual representation of a cinema hall's seating arrangement with real-time price updates and a complete booking workflow.
+        This sample implements a functional movie ticket booking interface using the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> component, providing an intuitive visual representation of a cinema hall's seating arrangement with real-time price updates and a complete booking workflow.
       </p>
     </div>
     <div id="description">

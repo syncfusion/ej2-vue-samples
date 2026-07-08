@@ -37,6 +37,9 @@
             To use infinite scrolling feature, we need to inject
             <code> InfiniteScroll </code> using the <code>TreeGrid.Inject(InfiniteScroll)</code> section.
         </p>
+        <p>
+          Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+        </p>
     </div>
 </div>
 </template>

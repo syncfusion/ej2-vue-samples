@@ -263,6 +263,9 @@ export default {
     chart: [DateTime, Tooltip, ChartAnnotation, MultiColoredLineSeries, Highlight]
   },
   methods: {
+    load: function (args) {
+      loadChartTheme(args);
+    }
   },
    
 };

@@ -111,7 +111,7 @@
         <div id="description">
             <p>
                 This example demonstrates how to add shapes to a symbol palette and customize their appearance using the
-                Syncfusion Diagram component. Symbol sizes can be adjusted using the <code>width</code> and
+                <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> component. Symbol sizes can be adjusted using the <code>width</code> and
                 <code>height</code>
                 properties via the <code>getSymbolInfo</code> method.
             </p>
@@ -603,6 +603,8 @@
         fit: true,
         description: {
           text: isItemText  ? symbol.id === 'BugFix'  ? 'Bug Fix'  : symbol.id : '',
+          wrap: 'NoWrap',
+          overflow: 'Ellipsis'
         },
       };
     };

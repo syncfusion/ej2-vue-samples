@@ -136,7 +136,7 @@
         The Gantt Chart provides support for customizing taskbar UI using taskbar template feature. The
         <a target="_blank"
           href="https://ej2.syncfusion.com/vue/documentation/api/gantt#taskbartemplate">taskbarTemplate</a>
-        property accepts either string or HTML element`s ID value, which will be used as the template for the taskbars.
+        property accepts either string or HTML element's ID value, which will be used as the template for the taskbars.
         The summary tasks and the milestone items can also customized using the <a target="_blank"
           href="https://ej2.syncfusion.com/vue/documentation/api/gantt#parenttaskbartemplate">parentTaskbarTemplate</a>
         and
@@ -146,19 +146,19 @@
         In this demo, we have customized the taskbar UI to display the data from custom columns and the taskbarTemplate
         is assigned with the ID of a SCRIPT element whose content is used as the template.
       </p>
+      <p style="font-weight: 500">Injecting Module:</p>
       <p>
-        Gantt component features are segregated into individual feature-wise modules. To use markers, inject the
-        <code>DayMarkers</code> module.
+        Gantt component features are segregated into individual feature-wise modules. To use markers and selection features, inject the
+        <code>DayMarkers</code> and <code>Selection</code> modules using the <code>provide</code> section.
       </p>
-      <br>
-      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/gantt/appearance-customization#taskbar-template">documentation
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/taskbar#taskbar-template">documentation
           section</a>.</p>
     </div>
   </div>
 </template>
 <script>
-import { GanttComponent, Gantt, DayMarkers, Selection } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, DayMarkers, Selection } from "@syncfusion/ej2-vue-gantt";
 import { customizedData } from "./data-source";
 
 export default {

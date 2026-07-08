@@ -29,6 +29,8 @@
           :newReport="newReport"
           :toolbarRender="beforeToolbarRender"
           :chartSettings="chartSettings"
+          :dataBound="dataBound"
+          :load="load"
         ></ejs-pivotview>
       </div>
     </div>
@@ -701,6 +703,8 @@ enableRipple(false);
 
 /* tslint:disable */
 declare let require: any;
+let isInitial = true;
+
 export default {
   components: {
     'ejs-pivotview': PivotViewComponent
@@ -897,6 +901,16 @@ export default {
         type: "Separator",
       });
     },
+    load: function () {
+      isInitial = true;
+    },
+    dataBound: function () {
+      if (isInitial) {
+        isInitial = false;
+        let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+        pivotObj.isModified = false;
+      }
+    }
   },
   provide: {
     pivotview: [

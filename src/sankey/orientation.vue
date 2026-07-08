@@ -7,7 +7,6 @@
       align="center"
       :title="title"
       subTitle="Source: EPA 2022 GHG Inventory"
-      :subTitleStyle="subTitleStyle"
       orientation="Vertical"
       :width="width"
       :height="height"

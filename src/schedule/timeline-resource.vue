@@ -42,6 +42,7 @@
                 <b>Note:</b> The dates which lies beyond the current date set to scheduler through
                 <code>selectedDate</code> property is considered as the past dates here in this sample.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

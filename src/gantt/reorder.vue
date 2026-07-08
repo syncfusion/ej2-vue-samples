@@ -19,7 +19,7 @@
                             value='TaskID' :fields='colfields' :change="onColChange"></ejs-dropdownlist>
                     </td>
                 </tr>
-                <tr id='' style="height: 50px">
+                <tr style="height: 50px">
                     <td style="width: 30%">
                         <div>Column Index</div>
                     </td>
@@ -31,30 +31,32 @@
             </table>
         </div>
 
-
         <div id="action-description">
-            <p>This sample demonstrates the reordering feature of the Gantt columns. Select column name and index from
-                properties panel to reorder the columns.
-                You can also reorder columns by simply dragging and dropping them to the desired position.
+            <p>
+                This sample demonstrates the reordering feature of the Gantt columns. Select column name and index from properties panel to
+                reorder the columns. You can also reorder columns by simply dragging and dropping them to the desired position.
             </p>
         </div>
 
         <div id="description">
-            <p>Reordering can be enabled by setting the <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowreordering">allowReordering</a>
-                property to true.
+            <p>
+                Reordering can be enabled by setting the <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowreordering">allowReordering</a> property to true.
                 Reordering can be done by dragging and dropping the column header from one index to another index within
-                the TreeGrid part.</p>
+                the TreeGrid part.
+            </p>
             <p>The location in which the column to be placed will be indicated by two arrows symbols.</p>
             <p>In this demo, you can either reorder columns by dragging and dropping or by selecting column name and
                 column index from dropdown to reorder the columns.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-reordering">documentation
-                    section</a>.</p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection and column reorder features,
+                inject the <code>Selection</code> and <code>Reorder</code> modules using the <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-reordering">documentation section</a>.</p>
         </div>
-
     </div>
 </template>
 <!-- custom code start -->
@@ -67,7 +69,7 @@
 <script lang="ts">
 import { ActionEventArgs } from "@syncfusion/ej2-grids"
 import { DropDownListComponent, ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";
-import { GanttComponent, Selection, Gantt, Reorder } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, Reorder } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from "./data-source";
 
 export default {
@@ -93,13 +95,13 @@ export default {
                 rightLabel: 'TaskName'
             },
             splitterSettings: {
-                columnIndex: 2
+                columnIndex: 3
             },
             projectStartDate: new Date('03/31/2025'),
             projectEndDate: new Date('07/20/2025'),
             columns: [
                 { field: 'TaskID', headerText: 'ID', width: 100 },
-                { field: 'TaskName', headerText: 'Name', width: 250 },
+                { field: 'TaskName', headerText: 'Name', width: 280 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },
@@ -150,6 +152,5 @@ export default {
             }
         }
     }
-
 };
 </script>

@@ -3,7 +3,7 @@
   <div class="col-lg-8 control-section">
       <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :tool='tool' :layout='layout' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :dataSourceSettings='dataSourceSettings'></ejs-diagram>
   </div>
-  <div class="col-lg-4 property-section">
+  <div class="col-lg-4 property-section diagram-complex-hierarchical">
       <div class="property-panel-header">
           Layout Settings
       </div>
@@ -77,7 +77,9 @@
           <code>provide: { diagram: [ComplexHierarchicalTree] }</code> method.  
       </p>
       <br>
-  </div>
+  
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
+</div>
 </div>
 </template>
 <style scoped>
@@ -179,12 +181,12 @@ export default {
       ],
       patterns: [
         [
-          { id: "topToBottom", url: "https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/toptobottom.png", margin: "0 3px 0 0", selected: true },
-          { id: "bottomToTop", url: "https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/bottomtotop.png", margin: "0 3px" }
+          { id: "topToBottom", url: "src/diagram/Images/common-orientation/toptobottom.png", margin: "0 3px 0 0", selected: true },
+          { id: "bottomToTop", url: "src/diagram/Images/common-orientation/bottomtotop.png", margin: "0 3px" }
         ],
         [
-        { id: "leftToRight", url: "https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/lefttoright.png", margin: "0 3px 0 0" },
-        { id: "rightToLeft", url: "https://ej2.syncfusion.com/vue/demos/src/diagram/Images/common-orientation/righttoleft.png", margin: "0 3px" }
+        { id: "leftToRight", url: "src/diagram/Images/common-orientation/lefttoright.png", margin: "0 3px 0 0" },
+        { id: "rightToLeft", url: "src/diagram/Images/common-orientation/righttoleft.png", margin: "0 3px" }
         ]
       ]
     };

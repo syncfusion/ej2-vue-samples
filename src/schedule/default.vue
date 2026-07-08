@@ -100,6 +100,7 @@
                     <strong> Note:</strong> In case, if the module of active view is not injected from the application end – then
                     the Scheduler is configured to display the first available option in the <code>views</code> property.
                 </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

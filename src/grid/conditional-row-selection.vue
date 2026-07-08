@@ -46,6 +46,12 @@
         <p>
             More information on the conditional row selection can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/selection/row-selection"> documentation section</a>.
         </p>
+           <p>
+                Looking for the full Vue Data Grid component overview, features, pricing, and documentation? Visit our
+                <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-data-grid">
+                    Vue Data Grid component</a> page.
+            </p>
+  
     </div>
 
 </div>
@@ -69,7 +75,7 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     }
     .material3-dark #ConditionalSelection .e-gridcontent .e-status-info img,
-    .bootstrap5\.3-dark #ConditionalSelection .e-gridcontent .e-status-info img,
+    .bootstrap5_3-dark #ConditionalSelection .e-gridcontent .e-status-info img,
     .fluent2-dark #ConditionalSelection .e-gridcontent .e-status-info img,
     .tailwind3-dark #ConditionalSelection .e-gridcontent .e-status-info img,
     .fluent2-highcontrast #ConditionalSelection .e-gridcontent .e-status-info img,

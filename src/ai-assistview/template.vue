@@ -1,7 +1,7 @@
 <template>
     <div class="col-lg-12 control-section">
         <div class="template-aiassistview">
-            <ejs-aiassistview id="aiAssistView" ref="aiassist" bannerTemplate="bannerTemplate" responseItemTemplate="responseItemTemplate" promptSuggestionItemTemplate="promptSuggestionItemTemplate" promptItemTemplate="promptItemTemplate" :promptSuggestionsHeader="promptSuggestionsHeader" :promptSuggestions="suggestion" :promptRequest="onPromptRequest" :toolbarSettings="assistToolbars" :created="onCreated">
+            <ejs-aiassistview id="aiAssistView" ref="aiassist" bannerTemplate="bannerTemplate" responseItemTemplate="responseItemTemplate" promptSuggestionItemTemplate="promptSuggestionItemTemplate" :enableStreaming="true" promptItemTemplate="promptItemTemplate" :promptSuggestionsHeader="promptSuggestionsHeader" :promptSuggestions="suggestion" :promptRequest="onPromptRequest" :toolbarSettings="assistToolbars" :created="onCreated">
                 <template v-slot:bannerTemplate="">
                     <div class="banner-content">
                         <h3><span class="e-icons e-assistview-icon"></span>AI Assistance</h3>

@@ -12,6 +12,7 @@
     <div id="description">
         <p>The File Manager component is used to manage the files and folders in a file system. It supports all the basic file operations such as create, rename, delete, cut, copy, paste, upload, download, and more.</p>
         <p>To load a folder data as an array of JSON objects, use the File Manager component <code><a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/#fileSystemData" target="_blank">fileSystemData</a></code> property.</p>
+        <p>Looking for the full Vue File Manager component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-file-manager">Vue File Manager</a> page.</p>
     </div>
 </div>
 </template>

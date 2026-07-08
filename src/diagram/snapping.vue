@@ -1,11 +1,11 @@
 <template>
 <div>
 <div class="control-section">
-    <div class="db-diagram-container">
+    <div class="col-lg-9">
     <ejs-diagram id="diagram" ref="diagramObj" :width='width' :height='height' :nodes='nodes' :getNodeDefaults='getNodeDefaults' :selectionChange="selectionChange" :snapSettings='snapSettings' :connectors='connectors' :getConnectorDefaults='getConnectorDefaults' :getCustomTool='getCustomTool' :selectedItems='selectedItems' :drawingObject = 'drawingObject'
         ></ejs-diagram>
     </div>
-    <div id="properties_Container">
+    <div class="col-lg-3">
         <span class="property-panel-header">
             Properties
         </span>
@@ -24,7 +24,7 @@
             </div>
             <div class="db-prop-text-style">
                 <span class="db-prop-text-style text-content">Snapping Line Color</span>
-                <div class="db-text-input" style="float: right;margin-right: 10px;width:50%">
+                <div class="db-text-input" style="float: right;margin-right: 22px;width:40%">
                  <ejs-colorpicker id="color-picker" value="#07EDE1" width="100%" type = "color" mode="Palette" :change="colorChange"></ejs-colorpicker>
                 </div>
             </div>
@@ -63,13 +63,14 @@
     <p>The <code>snapAngle</code> property in snapSettings allows you to define the snap angle by which the object needs to be rotated.</p>
     <p>The <code>snapLineColor</code> property is used to set the color of the snap lines that appear when objects snap to a grid or other objects in the control.</p>
     <p>The <code>constraints</code> property controls the visibility of gridlines and enables or disables snapping.</p>
+
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>
 <style scoped>
   
     .db-diagram-container {
-    width:calc(100% - 300px);
     height: 100%;
     float: left;
     }
@@ -103,7 +104,6 @@
     
     #properties_Container{
     /* background: #e3e3e3; */
-    width: 300px;
     float: right;
     /* margin-left: 20px; */
     }
@@ -131,7 +131,7 @@ let drawingNode;
 //Initializes the nodes for the diagram
 let nodes = [
      {
-            id:'node_1',width:100,height:100,offsetX:350,offsetY:250,
+            id:'node_1',width:100,height:100,offsetX:250,offsetY:250,
             ports:[
                 {id:'port1',offset:{x:0.5,y:0.5},visibility: PortVisibility.Visible,
                 style:{fill:'black'},
@@ -140,7 +140,7 @@ let nodes = [
             annotations:[{id:'annot1',content:'Shape 1', offset:{x:0.5,y:1.2},style:{bold:true}}]
         },
         {
-            id:'node_2',width:100,height:100,offsetX:600,offsetY:250,
+            id:'node_2',width:100,height:100,offsetX:500,offsetY:250,
             ports:[
                 {id:'port11', offset:{x:0.5,y:0.5},visibility: PortVisibility.Visible,style:{fill:'black'},
                 constraints:PortConstraints.Default|PortConstraints.Draw
@@ -154,7 +154,7 @@ let nodes = [
     
         },
         {
-            id:'node_3',width:100,height:100,offsetX:500,offsetY:400,
+            id:'node_3',width:100,height:100,offsetX:400,offsetY:400,
             annotations:[{id:'annot1',content:'Shape 3', offset:{x:0.5,y:1.2}, style:{bold:true}}]
     
         },

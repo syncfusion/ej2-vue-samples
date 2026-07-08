@@ -13,8 +13,8 @@
         <div class="col-lg-4 property-section" style="padding-left: 0px;">
             <table id="property" title="Properties" style="width: 100%;">
                 <colgroup>
-                    <col style="width:55%" />
-                    <col style="width:45%" />
+                    <col style="width: 55%" />
+                    <col style="width: 45%" />
                 </colgroup>
                 <tr>
                     <td colspan="2">
@@ -33,10 +33,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width:30%;padding-bottom: 12px">
+                    <td style="width: 30%;padding-bottom: 12px">
                         <div for="WorkEndTime">Work End Time</div>
                     </td>
-                    <td style="width:70%">
+                    <td style="width: 70%">
                         <div style="padding:10px 10px 10px 0px; width: 114%;">
                             <ejs-numerictextbox ref='WorkEndTime' id="WorkEndTime" :min='0' :max='24' :value='17'
                                 :step='0.5' :change="change1" :showSpinButton='true'></ejs-numerictextbox>
@@ -46,8 +46,8 @@
                 <tr>
                     <td colspan="2" style="width: 100%">
                         <div>
-                            <ejs-button id="update" style="margin-top: 10px;" v-on:click="update"><span>Update for all
-                                    days</span></ejs-button>
+                            <ejs-button id="update" style="margin-top: 10px;" v-on:click="update"><span>Update for all days</span>
+                            </ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -57,10 +57,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width:30%;padding-bottom: 12px">
+                    <td style="width: 30%;padding-bottom: 12px">
                         <div>Working Days</div>
                     </td>
-                    <td style="width:70%">
+                    <td style="width: 70%">
                         <div style="padding:10px 10px 10px 0px; width: 114%;">
                             <ejs-dropdownlist ref='dropdownlist' id='Days' :dataSource='workDays' :value='defaultDay'
                                 :fields='workFields' :select="selectDay" :popupHeight='popHeight'></ejs-dropdownlist>
@@ -79,10 +79,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width:30%;padding-bottom: 12px">
+                    <td style="width: 30%;padding-bottom: 12px">
                         <div for="WorkEnd">Work End Time</div>
                     </td>
-                    <td style="width:70%">
+                    <td style="width: 70%">
                         <div style="padding:10px 10px 10px 0px; width: 114%;">
                             <ejs-numerictextbox ref='WorkEnd' id="WorkEnd" :min='0' :max='24' :value='17' :step='0.5'
                                 :change="change2" :showSpinButton='true'></ejs-numerictextbox>
@@ -92,8 +92,8 @@
                 <tr>
                     <td colspan="2" style="width: 100%">
                         <div>
-                            <ejs-button id="perform" style="margin-top: 10px;" v-on:click="perform"><span>Update for
-                                    each day</span></ejs-button>
+                            <ejs-button id="perform" style="margin-top: 10px;" v-on:click="perform"><span>Update for each day</span>
+                            </ejs-button>
                         </div>
                     </td>
                 </tr>
@@ -113,10 +113,12 @@
                     dayWorkingTime</a> property value as array of object collection. Gantt Chart also supports different
                 <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#durationunit">
                     durationUnit</a> values as follows:
+            </p>
+            <ul>
                 <li><code>day</code></li>
                 <li><code>hour</code></li>
                 <li><code>minute</code></li>
-            </p>
+            </ul>
             <p>You can also set different working time range for different working days using <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#weekworkingtime">
                     weekWorkingTime</a> property. The <a target="_blank"
@@ -127,14 +129,17 @@
                 periods, avoiding non-working hours.</p>
             <p>
                 Given duration in dataSource will be considered with this unit. In this demo, the <code>hour</code> unit
-                is used to render taskbars in day hour timeline mode. Gantt Chart supports only 24hours format as of
+                is used to render taskbars in day hour timeline mode. Gantt Chart supports only 24 hours format as of
                 now. The working hours will differ between organizations. This feature will be helpful to keep track of
                 each task and resource task status based on the working time of company.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/task-scheduling#working-time-range">documentation
-                    section</a>.</p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection and markers features,
+                inject the <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/task-scheduling#working-time-range">documentation section</a>.</p>
         </div>
     </div>
 </template>
@@ -167,19 +172,19 @@ export default {
                 child: 'subtasks'
             },
             columns: [
-                { field: 'TaskName', width: 270 },
+                { field: 'TaskName', width: 280 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },
                 { field: 'Predecessor' },
-                { field: 'Progress' },
+                { field: 'Progress' }
             ],
             timelineSettings: {
                 topTier: {
-                    unit: 'Day',
+                    unit: 'Day'
                 },
                 bottomTier: {
-                    unit: 'Hour',
+                    unit: 'Hour'
                 }
             },
             durationUnit: 'hour',
@@ -190,7 +195,7 @@ export default {
                 columnIndex: 1
             },
             projectStartDate: new Date('04/02/2025'),
-            projectEndDate: new Date('04/28/2025'),
+            projectEndDate: new Date('04/15/2025'),
             workFields: { text: 'day', value: 'id' },
             workDays: [
                 { id: 'Monday', day: 'Monday' },
@@ -200,7 +205,7 @@ export default {
                 { id: 'Friday', day: 'Friday' }
             ],
             defaultDay: "Monday",
-            popHeight: '350px',
+            popHeight: '350px'
         };
     },
     provide: {
@@ -272,13 +277,7 @@ export default {
                 workingTime.push({ dayOfWeek: selectedDay, timeRange: [{ from: startTime, to: endTime }] });
             }
             this.$refs.gantt.ej2Instances.weekWorkingTime = workingTime;
-        },
+        }
     }
 }
 </script>
-<style>
-.fluent2-highcontrast #update,
-.fluent2-highcontrast #perform {
-    color: black;
-}
-</style>

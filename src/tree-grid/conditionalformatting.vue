@@ -27,6 +27,9 @@
     <p>
         In this demo, we have customized the column values by adding icons for Priority column and highlighted the cells of Progress column based on certain condition using queryCellInfo event.
     </p>  
+    <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p>
 </div>
 
 

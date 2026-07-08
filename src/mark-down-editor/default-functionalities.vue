@@ -90,6 +90,11 @@
   .material3-dark .rte-markdown-overview .e-icon-btn .e-md-preview::before {
       content: '\e7de';
   }
+  .e-rte-content .e-pre-source td,
+  .e-rte-content .e-pre-source th {
+      border: 1px solid;
+      padding: 2px 5px;
+  }
 </style>
 <script>
   import { RichTextEditorComponent, Toolbar, Link, Image, MarkdownEditor, Table } from "@syncfusion/ej2-vue-richtexteditor";
@@ -163,7 +168,7 @@ This project is licensed under the **MIT License** – see the LICENSE file for 
       },
       markDownConversion: function() {
         if (this.mdsource.classList.contains("e-active")) {
-          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
+          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value, { lineBreak: true });
         }
       },
       fullPreview: function() {
@@ -186,7 +191,7 @@ This project is licensed under the **MIT License** – see the LICENSE file for 
           }
           this.textArea.style.display = "none";
           this.htmlPreview.style.display = "block";
-          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
+          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value, { lineBreak: true });
           this.mdsource.parentElement.title = "Code View";
         }
       }

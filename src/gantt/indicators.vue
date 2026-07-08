@@ -18,16 +18,20 @@
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt/taskFieldsModel/#indicators">indicators</a>
                 are displayed with some custom text in specified day of task, which are defined in dataSource. You can
                 define the indicators with the following properties for tasks:
+            </p>
             <ul>
                 <li><code>date</code>: Defines the date value to where we want to display the indicators.</li>
                 <li><code>iconClass </code>: Defines the icon to highlight the indicator.</li>
                 <li><code>name</code>: Defines text to be displayed in the mentioned date.</li>
                 <li><code>tooltip</code>: The text to be displayed when hover the mouse over the indicator.</li>
             </ul>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection and markers features,
+                inject the <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> section.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started">documentation section</a>.
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/gantt/data-markers">documentation section</a>.
             </p>
         </div>
     </div>
@@ -57,11 +61,11 @@ export default {
             },
             columns: [
                 { field: 'TaskID', width: 75 },
-                { field: 'TaskName', width: 250 },
+                { field: 'TaskName', width: 280 },
                 { field: 'StartDate' },
                 { field: 'Duration' },
                 { field: 'Progress' },
-                { field: 'Predecessor' },
+                { field: 'Predecessor' }
             ],
             labelSettings: {
                 leftLabel: 'TaskName'
@@ -92,111 +96,111 @@ export default {
     font-family: "e-icons"
 }
 
-#Indicators /deep/ .okIcon::before {
+#Indicators ::v-deep .okIcon::before {
     content: '\ea84';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-#Indicators /deep/ .description::before {
+#Indicators ::v-deep .description::before {
     content: '\e30d';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.bootstrap4 #Indicators /deep/ .okIcon::before {
+.bootstrap4 #Indicators ::v-deep .okIcon::before {
     content: '\e7d9';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.bootstrap4 #Indicators /deep/ .description::before {
+.bootstrap4 #Indicators ::v-deep .description::before {
     content: '\e7cb';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.bootstrap5 #Indicators /deep/ .okIcon::before,
-.bootstrap5-dark #Indicators /deep/ .okIcon::before {
+.bootstrap5 #Indicators ::v-deep .okIcon::before,
+.bootstrap5-dark #Indicators ::v-deep .okIcon::before {
     content: '\e72b';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.bootstrap5 #Indicators /deep/ .description::before,
-.bootstrap-dark #Indicators /deep/ .description::before {
+.bootstrap5 #Indicators ::v-deep .description::before,
+.bootstrap-dark #Indicators ::v-deep .description::before {
     content: '\e72b';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.tailwind #Indicators /deep/ .okIcon::before,
-.tailwind-dark #Indicators /deep/ .okIcon::before,
-.material3-dark #Indicators /deep/ .okIcon::before,
-.material3 #Indicators /deep/ .okIcon::before,
-.material3-dark #Indicators /deep/ .description::before,
-.material3 #Indicators /deep/ .description::before,
-.tailwind3 #Indicators /deep/ .okIcon::before,
-.tailwind3-dark #Indicators /deep/ .okIcon::before {
+.tailwind #Indicators ::v-deep .okIcon::before,
+.tailwind-dark #Indicators ::v-deep .okIcon::before,
+.material3-dark #Indicators ::v-deep .okIcon::before,
+.material3 #Indicators ::v-deep .okIcon::before,
+.material3-dark #Indicators ::v-deep .description::before,
+.material3 #Indicators ::v-deep .description::before,
+.tailwind3 #Indicators ::v-deep .okIcon::before,
+.tailwind3-dark #Indicators ::v-deep .okIcon::before {
     content: '\e72b';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.tailwind #Indicators /deep/ .description::before,
-.tailwind-dark #Indicators /deep/ .description::before,
-.tailwind3 #Indicators /deep/ .description::before,
-.tailwind3-dark #Indicators /deep/ .description::before {
+.tailwind #Indicators ::v-deep .description::before,
+.tailwind-dark #Indicators ::v-deep .description::before,
+.tailwind3 #Indicators ::v-deep .description::before,
+.tailwind3-dark #Indicators ::v-deep .description::before {
     content: '\e7c0';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.fabric #Indicators /deep/ .description::before {
+.fabric #Indicators ::v-deep .description::before {
     content: '\e310';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.highcontrast #Indicators /deep/ .description::before {
+.highcontrast #Indicators ::v-deep .description::before {
     content: '\e310';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.fluent #Indicators /deep/ .okIcon::before,
-.fluent2 #Indicators /deep/ .okIcon::before,
-.fluent2-dark #Indicators /deep/ .okIcon::before,
-.fluent2-highcontrast #Indicators /deep/ .okIcon::before,
-.fluent-dark #Indicators /deep/ .okIcon::before {
+.fluent #Indicators ::v-deep .okIcon::before,
+.fluent2 #Indicators ::v-deep .okIcon::before,
+.fluent2-dark #Indicators ::v-deep .okIcon::before,
+.fluent2-highcontrast #Indicators ::v-deep .okIcon::before,
+.fluent-dark #Indicators ::v-deep .okIcon::before {
     content: '\e72b';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.fluent #Indicators /deep/ .description::before,
-.fluent2 #Indicators /deep/ .description::before,
-.fluent2-highcontrast #Indicators /deep/ .description::before,
-.fluent2-dark #Indicators /deep/ .description::before,
-.fluent-dark #Indicators /deep/ .description::before {
+.fluent #Indicators ::v-deep .description::before,
+.fluent2 #Indicators ::v-deep .description::before,
+.fluent2-highcontrast #Indicators ::v-deep .description::before,
+.fluent2-dark #Indicators ::v-deep .description::before,
+.fluent-dark #Indicators ::v-deep .description::before {
     content: '\e7c0';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.bootstrap5_3 #Indicators /deep/ .okIcon::before,
-.bootstrap5_3-dark-lite #Indicators /deep/ .okIcon::before,
-.bootstrap5_3-dark #Indicators /deep/ .okIcon::before,
-.bootstrap5_3-lite #Indicators /deep/ .okIcon::before {
+.bootstrap5_3 #Indicators ::v-deep .okIcon::before,
+.bootstrap5_3-dark-lite #Indicators ::v-deep .okIcon::before,
+.bootstrap5_3-dark #Indicators ::v-deep .okIcon::before,
+.bootstrap5_3-lite #Indicators ::v-deep .okIcon::before {
     content: '\e72b';
     font-size: 16px;
     font-family: "e-icons"
 }
 
-.bootstrap5_3 #Indicators /deep/ .description::before,
-.bootstrap5_3-dark-lite #Indicators /deep/ .description::before,
-.bootstrap5_3-dark #Indicators /deep/ .description::before,
-.bootstrap5_3-lite #Indicators /deep/ .description::before {
+.bootstrap5_3 #Indicators ::v-deep .description::before,
+.bootstrap5_3-dark-lite #Indicators ::v-deep .description::before,
+.bootstrap5_3-dark #Indicators ::v-deep .description::before,
+.bootstrap5_3-lite #Indicators ::v-deep .description::before {
     content: '\e72b';
     font-size: 16px;
     font-family: "e-icons"

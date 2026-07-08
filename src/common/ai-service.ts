@@ -108,6 +108,9 @@ export const serverAIRequest = async (settings: any): Promise<any> => {
         if (error.message.includes('token limit')) {
             showTokenLimitBanner(error.message);
         }
+        else if (error.message.includes('Failed to fetch')) {
+            console.warn("To test these samples locally, configure and use your own API key.");
+        }
         else {
             console.error('There was a problem with your fetch operation:', error);
         }
@@ -138,7 +141,11 @@ export const getOpenAiModelRTE = async (subQuery: string, promptQuery: string): 
     } catch (error: any) {
         if (error.message.includes('token limit')) {
             showTokenLimitBanner(error.message);
-        } else {
+        }
+        else if (error.message.includes('Failed to fetch')) {
+            console.warn("To test these samples locally, configure and use your own API key.");
+        } 
+        else {
             console.error('There was a problem with your fetch operation:', error);
         }  
     }
@@ -166,6 +173,9 @@ export const OpenAiModelKanban = async (promptQuery: string): Promise<any> => {
     } catch (error: any) {
         if (error.message.includes('token limit')) {
             showTokenLimitBanner(error.message);
+        }
+        else if (error.message.includes('Failed to fetch')) {
+            console.warn("To test these samples locally, configure and use your own API key.");
         }
         else {
             console.error('There was a problem with your fetch operation:', error);

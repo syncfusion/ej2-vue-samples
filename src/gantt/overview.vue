@@ -1,8 +1,10 @@
 <template>
     <div id="action-description">
-        <p>This sample provides an overview of the Gantt Chart, showcasing its key features through an e-commerce platform redesign project 
-        timeline. It visualizes task hierarchies, dependencies, milestones, and resource allocations, enabling efficient project tracking from planning to deployment.
-    </p>
+        <p>
+            This sample provides an overview of the Gantt Chart, showcasing its key features through an e-commerce platform
+            redesign project timeline. It visualizes task hierarchies, dependencies, milestones, and resource allocations,
+            enabling efficient project tracking from planning to deployment.
+        </p>
     </div>
     <div class="control-section">
         <div id="gantt-sidebar-parent">
@@ -22,7 +24,7 @@
                     <li class="list-fields">
                         <label for="showGridLines" class="labels">Show Grid Lines :</label>
                         <div class="switch">
-                            <ejs-switch class="checked" :change="gridLinesChange"></ejs-switch>
+                            <ejs-switch class="checked" :checked="true" :change="gridLinesChange"></ejs-switch>
                         </div>
                     </li>
                     <li class="list-fields">
@@ -100,8 +102,8 @@
             <div id="sidebar-gantt">
                 <ejs-gantt ref="gantt" id="overviewSample" :dataSource="data" :height="height" :width="width"
                     :resources="resources" :viewType="viewType" :highlightWeekends="true" :load="load"
-                    :pdfQueryCellInfo="pdfQueryCellInfo" :pdfQueryTaskbarInfo="pdfQueryTaskbarInfo" :allowSelection="true" :treeColumnIndex="1"
-                    :allowSorting="true" :gridLines="gridLines" :renderBaseline="true" :taskFields="taskFields"
+                    :pdfQueryCellInfo="pdfQueryCellInfo" :pdfQueryTaskbarInfo="pdfQueryTaskbarInfo" :allowSelection="true"
+                    :treeColumnIndex="1" :allowSorting="true" :gridLines="gridLines" :renderBaseline="true" :taskFields="taskFields"
                     :resourceFields="resourceFields" :splitterSettings="splitterSettings"
                     :selectionSettings="selectionSettings" :tooltipSettings="tooltipSettings" :enableHover="true"
                     :enableAutoWbsUpdate="true" :enableWBS="true" :filterSettings="filterSettings"
@@ -111,22 +113,20 @@
                     :rowHeight="rowHeight" :allowExcelExport="true" :allowPdfExport="true" :toolbarClick="toolbarClick"
                     :projectStartDate="projectStartDate" :projectEndDate="projectEndDate">
                     <e-columns>
-                        <e-column field="WBSCode" headerText="WBS ID" width="120"></e-column>
-                        <e-column field="TaskName" headerText="Product Release" width="200"></e-column>
-
+                        <e-column field="WBSCode" headerText="WBS ID" width="110"></e-column>
+                        <e-column field="TaskName" headerText="Product Release" width="250"></e-column>
                         <e-column field="Assignee" headerText="Assignee" :template="'columnTemplate'"
-                            :allowSorting="false" width="195">
+                            :allowSorting="false" width="160">
                         </e-column>
                         <e-column field="Status" minWidth="100" width="120" :template="'columnTemplate1'">
                         </e-column>
                         <e-column field="Priority" minWidth="80" width="100" :template="'columnTemplate2'">
                         </e-column>
-
-                        <e-column field="WBSPredecessor" headerText="WBS Predecessor" width="200"></e-column>
-                        <e-column field="ConstraintType" headerText="Constraint Type" width="200"></e-column>
-                        <e-column field="ConstraintDate" headerText="Constraint Date" width="200"></e-column>
-                        <e-column field="Progress" headerText="Completion(%)" width="205"></e-column>
-                        <e-column field="TimeLog" headerText="Work Log" width="150"></e-column>
+                        <e-column field="WBSPredecessor" headerText="WBS Predecessor" width="220"></e-column>
+                        <e-column field="ConstraintType" headerText="Constraint Type" width="170"></e-column>
+                        <e-column field="ConstraintDate" headerText="Constraint Date" width="170"></e-column>
+                        <e-column field="Progress" headerText="Completion(%)" width="160"></e-column>
+                        <e-column field="TimeLog" headerText="Work Log" width="140"></e-column>
                     </e-columns>
 
                     <template v-slot:columnTemplate="{ data }">
@@ -144,7 +144,6 @@
                                     data.taskData.Department }}
                                 </div>
                             </span>
-
                         </div>
                     </template>
 
@@ -168,8 +167,6 @@
                                 data.taskData.Priority
                             }}</span>
                             </div>
-                           
-
                         </div>
                     </template>
                     <template v-slot:rightLabelTemplate="{ data }">
@@ -189,34 +186,55 @@
         </div>
 
         <div id="description">
-             <p>This demo presents an e-commerce platform redesign project, demonstrating key features such as task organization, customizable timeline views, 
-        resource management, and interactive controls. Users can <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/sorting">sort</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/filtering/filtering">filter tasks</a>, <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-resizing"> resize</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-reordering">reorder columns</a>, track progress with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/baseline"> baselines</a>, 
-        and highlight key dates with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/event-markers">event markers</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/holidays"> holidays</a>. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/tool-bar"> toolbar </a> offers intuitive options to add, edit, delete, search, and expand or 
-        collapse tasks. Additionally, users can configure <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#workweek"> working days</a>, <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/scheduling-tasks#weekendnon-working-days"> highlight weekends</a>, set <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#projectstartdate"> project date ranges</a>.
-</p>
-<br>
-<p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started#adding-gantt-component">documentation section</a>.</p>
+             <p>This demo presents an e-commerce platform redesign project, demonstrating key features such as task organization,
+                customizable timeline views, resource management, and interactive controls. Users can <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/sorting">sort</a> and <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/filtering/filtering">filter tasks</a>, <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-resizing">resize</a> and <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-reordering">reorder columns</a>,
+                track progress with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/baseline">baselines</a>,
+                and highlight key dates with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/eventmarkers">
+                event markers</a> and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/holidays">
+                holidays</a>. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/toolbar">toolbar</a> offers
+                intuitive options to add, edit, delete, search, and expand or collapse tasks. Additionally, users can configure
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#workweek"> working days</a>,
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/index-default#highlightweekends">
+                highlight weekends</a>, set <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#projectstartdate">
+                project date ranges</a>.
+            </p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use filter, edit, toolbar, sorting,
+                resize, pdf export, excel and CSV export, column menu, selection and markers features, inject the <code>Filter</code>,
+                <code>Edit</code>, <code>Toolbar</code>, <code>Sort</code>, <code>Resize</code>, <code>PdfExport</code>,
+                <code>ExcelExport</code>, <code>ColumnMenu</code>, <code>Selection</code>, and <code>DayMarkers</code> modules using the
+                <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started#adding-gantt-component">documentation section</a>.</p>
+            <br>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>
 <script>
-import { GanttComponent, ColumnDirective, ColumnsDirective, Selection, Toolbar, DayMarkers, Edit, Filter, Reorder, Resize, ColumnMenu, VirtualScroll, Sort, RowDD, ContextMenu, ExcelExport, PdfExport, CriticalPath } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, ColumnDirective, ColumnsDirective, Selection, Toolbar, DayMarkers, Edit, Filter, Reorder, Resize, ColumnMenu, Sort, RowDD, ContextMenu, ExcelExport, PdfExport, CriticalPath } from "@syncfusion/ej2-vue-gantt";
 import { editingResources, overviewData } from './data-source';
-import { DropDownList } from "@syncfusion/ej2-dropdowns";
-import { SidebarComponent, ToolbarComponent, ItemDirective, ItemsDirective, TreeViewComponent } from '@syncfusion/ej2-vue-navigations';
+import { SidebarComponent } from '@syncfusion/ej2-vue-navigations';
 import { SliderComponent } from "@syncfusion/ej2-vue-inputs";
 import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
 import { extend } from '@syncfusion/ej2-base';
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { NumericTextBoxComponent } from "@syncfusion/ej2-vue-inputs";
-import { MultiSelectComponent, CheckBoxSelection } from "@syncfusion/ej2-vue-dropdowns";
+import { MultiSelectComponent, CheckBoxSelection, MultiSelect } from "@syncfusion/ej2-vue-dropdowns";
 import { CheckBoxComponent } from "@syncfusion/ej2-vue-buttons";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { PdfColor } from "@syncfusion/ej2-pdf-export";
 
+MultiSelect.Inject(CheckBoxSelection);
+
 var theme;
 var style;
-var CurrentTheme;
+var currentTheme;
 var statusStyleColor;
 var priorityStyle;
 var IconClass;
@@ -264,7 +282,7 @@ export default {
             },
             toolbar: ['ExpandAll', 'CollapseAll', 'ZoomIn', 'ZoomOut', 'ZoomToFit', 'ExcelExport', 'CsvExport', 'PdfExport'],
             splitterSettings: {
-                columnIndex: 4,
+                columnIndex: 4
             },
             selectionSettings: {
                 mode: 'Row',
@@ -279,6 +297,7 @@ export default {
             },
             gridLines: "Both",
             timelineSettings: {
+                timelineUnitSize: 60,
                 showTooltip: true,
                 topTier: {
                     unit: 'Month',
@@ -333,7 +352,6 @@ export default {
             projectStartDate: new Date('01/25/2025'),
             projectEndDate: new Date('01/30/2026'),
             isDependencyChecked: true,
-
             // slidebar
             sidebarToggle: false,
             isSideBar: false,
@@ -351,7 +369,6 @@ export default {
             },
             tempEvents: [],
             tempLabels: [],
-
             // work week
             workDays: [
                 { id: 'Sunday', day: 'Sunday' },
@@ -360,14 +377,12 @@ export default {
                 { id: 'Wednesday', day: 'Wednesday' },
                 { id: 'Thursday', day: 'Thursday' },
                 { id: 'Friday', day: 'Friday' },
-                { id: 'Saturday', day: 'Saturday' },
+                { id: 'Saturday', day: 'Saturday' }
             ],
             workWeekFields: { text: 'day', value: 'id' },
             defaultWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             showDropDownIcons: true,
             popHeight: '350px',
-
-
             // duration
             durationUnit: [
                 { id: "Minute", Text: "Minute" },
@@ -376,12 +391,10 @@ export default {
             ],
             workFields: { text: 'Text', value: 'id' },
             Day: 'Day',
-
             // unit width
             numaricvalue: 33,
             numaricmin: 10,
             numaricformat: 'n',
-
             // View Type
             viewTypeData: [
                 { id: "ResourceView", Text: "Resource View" },
@@ -389,23 +402,18 @@ export default {
             ],
             viewFileds: { text: 'Text', value: 'id' },
             ViewTypeValue: 'ProjectView',
-
             // View mode change
             viewModeData: [
                 { ID: "Default", Text: "Default" },
                 { ID: "Grid", Text: "Grid" },
-                { ID: "Chart", Text: "Chart" },
+                { ID: "Chart", Text: "Chart" }
             ],
             modeFields: { value: 'ID', text: 'Text' },
             viewMode: 'View'
-
-
-
         };
     },
     provide: {
-        gantt: [Selection, Toolbar, DayMarkers, Edit, Filter, Reorder, Resize, ColumnMenu, VirtualScroll, Sort, RowDD, ContextMenu, ExcelExport, PdfExport, CriticalPath],
-        multiselect: [CheckBoxSelection]
+        gantt: [Selection, Toolbar, DayMarkers, Edit, Filter, Reorder, Resize, ColumnMenu, Sort, RowDD, ContextMenu, ExcelExport, PdfExport, CriticalPath]
     },
     methods: {
         toolbarClick: function (args) {
@@ -521,14 +529,13 @@ export default {
         load: function (args) {
             let themeCollection = ['bootstrap5', 'bootstrap', 'bootstrap4', 'fluent', 'fabric', 'fusionnew', 'material3', 'material', 'highcontrast', 'tailwind', 'fluent2', 'tailwind3', 'bootstrap5.3'];
              var theme = document.body.className.split(' ').find(function(cls) { return themeCollection.includes(cls); }) || '';
-            CurrentTheme = theme ? true : false;
+            currentTheme = theme ? true : false;
         },
         pdfQueryCellInfo: function (args) {
             if (args.column.headerText === 'Assignee' && args.data.taskData.resourcesImage) {
                 args.image = { height: 30, width: 30, base64: args.data.taskData.resourcesImage};
                 args.value = `${args.data.Assignee}\n${args.data.taskData.Department}`; 
             }
-
             // Set font color for Status or Priority columns
             if (args.column.field === 'Status' || args.column.field === 'Priority') {
                 const style = args.column.field === 'Status' ? this.StatusContent(args.value) : this.PriorityContent(args.value);
@@ -548,43 +555,42 @@ export default {
         Status: function (status) {
             switch (status) {
                 case "In Progress":
-                    statusStyleColor = (CurrentTheme) ? "#006AA6" : "#34B6FF";
+                    statusStyleColor = (currentTheme) ? "#006AA6" : "#34B6FF";
                     style = "display: flex; padding: 2px 10px; gap: 10px; width: 96px; height: 24px; border: solid 1px" + statusStyleColor;
                     break;
                 case "Open":
                     style = "display: flex; justify-content:center; gap: 10px; width: 96px; height: 24px; border: solid 1px red";
                     break;
                 case "On Hold":
-                    statusStyleColor = (CurrentTheme) ? "#766B7C" : "#CDCBD7";
+                    statusStyleColor = (currentTheme) ? "#766B7C" : "#CDCBD7";
                     style = "display: flex; justify-content:center; gap: 10px; width: 96px; height: 24px; border: solid 1px" + statusStyleColor;
                     break;
                 case "Completed":
-                    statusStyleColor = (CurrentTheme) ? "#00A653" : "#92FFC8";
+                    statusStyleColor = (currentTheme) ? "#00A653" : "#92FFC8";
                     style = "display: flex; padding: 2px 10px; gap: 10px; width: 96px; height: 24px; border: solid 1px" + statusStyleColor;
                     break;
             }
             return style;
-
         },
         StatusContent: function (status) {
             switch (status) {
                 case "In Progress":
-                    statusContentstyleColor = (CurrentTheme) ? "rgb(0, 106, 166)" : "rgb(52, 182, 255)";
+                    statusContentstyleColor = (currentTheme) ? "rgb(0, 106, 166)" : "rgb(52, 182, 255)";
                     style = "width: 72px; height: 22px; font-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; text-align: center; color: " + statusContentstyleColor;
                     break;
                 case "Open":
                     style = "width: 54px; height: 22px; font-style: normal;  font-weight: 400; font-size: 14px; line-height: 22px; text-align: center; color: rgb(255, 0, 0); ";
                     break;
                 case "On Hold":
-                    statusContentstyleColor = (CurrentTheme) ? "rgb(118, 107, 124)" : "rgb(205, 203, 215)";
+                    statusContentstyleColor = (currentTheme) ? "rgb(118, 107, 124)" : "rgb(205, 203, 215)";
                     style = "width: 54px; height: 22px; font-style: normal;  font-weight: 400; font-size: 14px; line-height: 22px; text-align: center; color: " + statusContentstyleColor;
                     break;
                 case "Completed":
-                    statusContentstyleColor = (CurrentTheme) ? "rgb(0, 166, 83)" : "rgb(146, 255, 200)";
+                    statusContentstyleColor = (currentTheme) ? "rgb(0, 166, 83)" : "rgb(146, 255, 200)";
                     style = "width: 74px; height: 22px; font-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; text-align: center; color: " + statusContentstyleColor;
                     break;
                 case "High":
-                    statusContentstyleColor = (CurrentTheme) ? "rgb(243, 86, 32)" : "rgb(255, 181, 184)";
+                    statusContentstyleColor = (currentTheme) ? "rgb(243, 86, 32)" : "rgb(255, 181, 184)";
                     style = "width: 31px; height: 22px; font-style: normal; font-weight: 400; font-size: 14px; line-height: 20px; text-align: center; color: " + statusContentstyleColor;
                     break;
             }
@@ -593,41 +599,40 @@ export default {
         PriorityIconStyle: function (priority) {
             switch (priority) {
                 case "Low":
-                    priorityStyle = (CurrentTheme) ? "#00A653" : "#FDFF88";
+                    priorityStyle = (currentTheme) ? "#00A653" : "#FDFF88";
                     style = " margin-top:2px; color: " + priorityStyle + "!important";
                     break;
                 case "Normal":
-                    priorityStyle = (CurrentTheme) ? "#7100A6" : "#E3A9FF";
+                    priorityStyle = (currentTheme) ? "#7100A6" : "#E3A9FF";
                     style = " margin-top:2px; !important; color: " + priorityStyle + "!important";
                     break;
                 case "Critical":
-                    priorityStyle = (CurrentTheme) ? "#FF3740" : "#FFB5B8";
+                    priorityStyle = (currentTheme) ? "#FF3740" : "#FFB5B8";
                     style = "margin-top:2px; color: " + priorityStyle + "!important";
                     break;
                 case "High":
-                    priorityStyle = (CurrentTheme) ? "#f35620" : "#FFB5B8";
+                    priorityStyle = (currentTheme) ? "#f35620" : "#FFB5B8";
                     style = "margin-top:2px; color: " + priorityStyle + "!important";
                     break;
             }
             return style;
-
         },
         PriorityContent: function (priority) {
             switch (priority) {
                 case "Low":
-                    priorityContentStyle = (CurrentTheme) ? "rgb(0, 166, 83)" : "rgb(253, 255, 136)";
+                    priorityContentStyle = (currentTheme) ? "rgb(0, 166, 83)" : "rgb(253, 255, 136)";
                     style = "width: 28px; height: 22px; font-style: normal;  font-size: 14px; margin-left:3px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
                     break;
                 case "Normal":
-                    priorityContentStyle = (CurrentTheme) ? "rgb(113, 0, 166)" : "#rgb(227, 169, 255)";
+                    priorityContentStyle = (currentTheme) ? "rgb(113, 0, 166)" : "#rgb(227, 169, 255)";
                     style = "width: 28px; height: 22px; font-style: normal;  margin-left:3px; font-size: 14px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
                     break;
                 case "Critical":
-                    priorityContentStyle = (CurrentTheme) ? "rgb(255, 55, 64)" : "rgb(255, 181, 184)";
+                    priorityContentStyle = (currentTheme) ? "rgb(255, 55, 64)" : "rgb(255, 181, 184)";
                     style = "width: 48px; height: 22px; font-style: normal;  font-size: 14px; margin-left:3px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
                     break;
                 case "High":
-                    priorityContentStyle = (CurrentTheme) ? "rgb(235, 99, 67)" : "rgb(255, 181, 184)";
+                    priorityContentStyle = (currentTheme) ? "rgb(235, 99, 67)" : "rgb(255, 181, 184)";
                     style = "width: 31px; height: 22px; font-style: normal; font-size: 14px; margin-left:3px; line-height: 20px; text-align: center; color: " + priorityContentStyle;
                     break;
             }

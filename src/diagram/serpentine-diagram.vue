@@ -40,7 +40,7 @@
   </div>
   <div id="action-description">
       <p>
-          This sample visualizes a serpentine layout using the Syncfusion<sup>®</sup> EJ2 Vue Diagram to showcase 20 important medical research breakthroughs that transformed healthcare between 1796 and 1996.
+          This sample visualizes a serpentine layout using the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> to showcase 20 important medical research breakthroughs that transformed healthcare between 1796 and 1996.
       </p>
   </div>
   <div id="description">

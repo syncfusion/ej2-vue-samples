@@ -5,9 +5,9 @@
                 column to open the column menu.</p>
         </div>
         <div>
-            <ejs-gantt ref='gantt' id="ColumnMenu" :dataSource="data" :height="height" :rowHeight="46"
-                :taskbarHeight="25" :showColumnMenu='true' :allowFiltering='true' :allowSorting='true'
-                :allowResizing='true' :highlightWeekends='true' :taskFields="taskFields" :columns="columns"
+            <ejs-gantt ref="gantt" id="ColumnMenu" :dataSource="data" :height="height" :rowHeight="46"
+                :taskbarHeight="25" :showColumnMenu="true" :allowFiltering='true' :allowSorting='true'
+                :allowResizing='true' :highlightWeekends="true" :taskFields="taskFields" :columns="columns"
                 :labelSettings="labelSettings" :splitterSettings="splitterSettings" :treeColumnIndex="1"
                 :projectStartDate="projectStartDate" :projectEndDate="projectEndDate">
             </ejs-gantt>
@@ -16,13 +16,10 @@
         <div id="description">
             <p>
                 Gantt has an option to show column menu while clicking multiple icon of each column. The column menu has
-                an integrated option to interact with the features such as sorting, filtering, column chooser, and
-                autoFit.
+                an integrated option to interact with the features such as sorting, filtering, column chooser, and autoFit.
                 This feature can be enabled by setting <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#showcolumnmenu">showColumnMenu</a> to
-                true.
-                The default items are,
-                <br>
+                true. The default items are,
             </p>
             <ul>
                 <li><code>SortAscending</code> - Sorts the current column in ascending order.</li>
@@ -32,20 +29,19 @@
                 <li><code>ColumnChooser</code> - Chooses the column visibility.</li>
                 <li><code>Filter</code> - Filters the current column.</li>
             </ul>
-            <br />
-
             <p>
                 In this demo, the column menu feature is enabled by setting <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#showcolumnmenu">showColumnMenu</a> to
                 true with sorting, filtering, column chooser, and autoFit options.
             </p>
+            <p style="font-weight: 500">Injecting Module:</p>
             <p>
-                More information about column menu can be found in this documentation section.
+                Gantt component features are segregated into individual feature-wise modules. To use selection, sort, column menu,
+                resize and filter features, inject the <code>Selection</code>, <code>Sort</code>, <code>ColumnMenu</code>,
+                <code>Resize</code> and <code>Filter</code> modules using the <code>provide</code> section.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-menu">documentation
-                    section</a>.</p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-menu">documentation section</a>.</p>
         </div>
     </div>
 </template>
@@ -73,7 +69,7 @@ export default {
             },
             columns: [
                 { field: 'TaskID', headerText: 'ID', width: 110 },
-                { field: 'TaskName', headerText: 'Name', width: 250 },
+                { field: 'TaskName', headerText: 'Name', width: 280 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },
@@ -88,7 +84,6 @@ export default {
             },
             projectStartDate: new Date('03/26/2025'),
             projectEndDate: new Date('07/20/2025')
-
         };
     },
     provide: {

@@ -15,15 +15,17 @@
       <p>
         The sample demonstrates the zooming support in Gantt Chart.
         You can zoom in or zoom out the project timeline dynamically with following toolbar buttons.
+      </p>
       <ul>
         <li><code>ZoomIn</code> - To perform zoom in action on Gantt timeline.</li>
         <li><code>ZoomOut </code> - To perform zoom out action on Gantt timeline.</li>
         <li><code>ZoomToFit </code> - To show all tasks with timeline fit into available chart width.</li>
       </ul>
-      The zooming feature enables you to view the tasks in the project clearly from minute to year timespan. You need to
-      include
-      <code>ZoomIn</code>, <code>ZoomOut </code> and <code>ZoomToFit </code> buttons in the toolbar for performing
-      zooming actions in Gantt Chart.
+      <p>
+        The zooming feature enables you to view the tasks in the project clearly from minute to year timespan. You need to
+        include <code>ZoomIn</code>, <code>ZoomOut </code> and <code>ZoomToFit </code> buttons in the toolbar for performing
+        zooming actions in Gantt Chart.
+      </p>
       <ul>
         <li><code>ZoomIn</code> - If the user clicks on the <code>ZoomIn</code> icon we have increased the timeline cell
           width,
@@ -35,14 +37,13 @@
           clicks on the <code>ZoomToFit</code> icon,
           then all the tasks are rendered within the current viewable chart container width.</li>
       </ul>
-      </p>
+      <p style="font-weight: 500">Injecting Module:</p>
       <p>
-        To use a zoom support related icons, inject the <code>Toolbar</code> module into the <code>provide</code>
-        section.
+        Gantt component features are segregated into individual feature-wise modules. To use zoom support,
+        inject the <code>Toolbar</code> module using the <code>provide</code> section.
       </p>
-      <br>
-      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/gantt/timeline/zooming">documentation section</a>.</p>
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/time-line/zooming">documentation section</a>.</p>
     </div>
   </div>
 </template>
@@ -71,7 +72,7 @@ export default {
       toolbar: ["ZoomIn", "ZoomOut", "ZoomToFit"],
       columns: [
         { field: 'TaskID' },
-        { field: 'TaskName', width: '250' },
+        { field: 'TaskName', width: '280' },
         { field: 'StartDate' },
         { field: 'EndDate' },
         { field: 'Duration' },
@@ -82,7 +83,7 @@ export default {
         columnIndex: 3
       },
       projectStartDate: new Date('03/26/2025'),
-      projectEndDate: new Date('06/01/2025'),
+      projectEndDate: new Date('06/01/2025')
     };
   },
   provide: {

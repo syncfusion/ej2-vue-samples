@@ -16,6 +16,7 @@
         <p>Checkout this <a target="_blank" href="https://github.com/SyncfusionExamples/filemanager-ibm-cos-node-file-provider"> IBM Cloud Object Storage file provider </a> from the GitHub repository.</p>
         
         <p><b>Note: </b>File Manager’s upload functionality is restricted in online demos for security reasons. To work with upload functionality, please download <a target="_blank" href="https://github.com/SyncfusionExamples/filemanager-ibm-cos-node-file-provider">IBM Cloud Object Storage file provider</a> from the GitHub repository.</p>
+        <p>Looking for the full Vue File Manager component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-file-manager">Vue File Manager</a> page.</p>
     </div>
 </div>
 </template>

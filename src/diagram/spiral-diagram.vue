@@ -15,7 +15,7 @@
   </div>
   <div id="action-description">
     <p>
-      This sample visualizes the software development lifecycle using a spiral diagram, implemented with the Syncfusion<sup>®</sup> EJ2 Vue Diagram component. It represents project stages as nodes arranged in a continuously expanding spiral.
+      This sample visualizes the software development lifecycle using a spiral diagram, implemented with the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> component. It represents project stages as nodes arranged in a continuously expanding spiral.
     </p>
   </div>
   <div id="description">

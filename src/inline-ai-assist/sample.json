@@ -18,6 +18,7 @@
         },
         {
             "url": "ai-rich-text-editor",
+            "ignoreOnBuild": true,
             "name": "Rich Text Editor",
             "category": "Integration",
             "api":{ "InlineAIAssist": ["promptRequest", "relateTo", "commandSettings", "responseSettings", "responseMode"] },

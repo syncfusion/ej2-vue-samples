@@ -56,6 +56,11 @@
                 This example uses categories like 'Product' and 'Year' with series data for 'Online', 'Retail' and
                 'Revenue' in the chart visualization.
             </p>
+            <p>
+                Looking for the full Vue Data Grid component overview, features, pricing, and documentation? Visit our
+                <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-data-grid">
+                    Vue Data Grid component</a> page.
+            </p>
         </div>
     </div>
 </template>
@@ -190,7 +195,7 @@ export default {
 }
 
 .material3-dark #GridChart .e-gridcontent .e-category-info path,
-.bootstrap5\.3-dark #GridChart .e-gridcontent .e-category-info path,
+.bootstrap5_3-dark #GridChart .e-gridcontent .e-category-info path,
 .fluent2-dark #GridChart .e-gridcontent .e-category-info path,
 .tailwind3-dark #GridChart .e-gridcontent .e-category-info path,
 .fluent2-highcontrast #GridChart .e-gridcontent .e-category-info path,

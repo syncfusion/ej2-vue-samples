@@ -24,6 +24,8 @@
         particular position of the page. The <code>sourceID</code> property can be used to map the diagram control with overview.
     </p>
     <br>
+
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>

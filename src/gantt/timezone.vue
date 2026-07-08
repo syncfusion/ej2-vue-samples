@@ -47,13 +47,11 @@
         </div>
         <div id="action-description">
             <p>This sample demonstrates how the Vue Gantt Chart schedules project tasks using the UTC timezone,
-                ensuring
-                consistent date and time handling across global teams.</p>
+                ensuring consistent date and time handling across global teams.</p>
         </div>
         <div id="description">
             <p>
-                For example, in this demo, the timezone of Gantt is set to UTC, and the task named
-                <code>Plan timeline</code>
+                For example, in this demo, the timezone of Gantt is set to UTC, and the task named <code>Plan timeline</code>
                 has start time as <code>08:00 am</code> but converted based on UTC and rendered at <code>2.30 am</code>.
             </p>
             <p>
@@ -61,9 +59,13 @@
                 class="code" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#timezone">timezone</a></code>
                 property of Gantt control.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/timezone">documentation section</a>.
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use a selection support, inject the
+                <code>Selection</code> module. To use markers in Gantt, inject the <code>DayMarkers</code> module.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/timezone">documentation section</a>.
             </p>
         </div>
     </div>
@@ -87,14 +89,14 @@ export default {
     data() {
         return {
             data: [
-                { taskID: 1, taskName: 'Project Schedule', startDate: new Date('02/04/2025 08:00'), endDate: new Date('03/10/2025') },
+                { taskID: 1, taskName: 'Project schedule', startDate: new Date('02/04/2025 08:00'), endDate: new Date('03/10/2025') },
                 { taskID: 2, taskName: 'Planning', startDate: new Date('02/04/2025 08:00'), endDate: new Date('02/10/2025'), parentID: 1 },
                 { taskID: 3, taskName: 'Plan timeline', startDate: new Date('02/04/2025 08:00'), endDate: new Date('02/10/2025'), duration: 6, progress: '60', parentID: 2 },
                 { taskID: 4, taskName: 'Plan budget', startDate: new Date('02/04/2025 08:00'), endDate: new Date('02/10/2025'), duration: 6, progress: '90', parentID: 2 },
                 { taskID: 5, taskName: 'Allocate resources', startDate: new Date('02/04/2025 08:00'), endDate: new Date('02/10/2025'), duration: 6, progress: '75', parentID: 2 },
                 { taskID: 6, taskName: 'Planning complete', startDate: new Date('02/06/2025 08:00'), endDate: new Date('02/10/2025'), duration: 0, predecessor: '3FS,4FS,5FS', parentID: 2 },
                 { taskID: 7, taskName: 'Design', startDate: new Date('02/13/2025 08:00'), endDate: new Date('02/17/2025 08:00'), parentID: 1 },
-                { taskID: 8, taskName: 'Software Specification', startDate: new Date('02/13/2025 08:00'), endDate: new Date('02/15/2025'), duration: 3, progress: '60', predecessor: '6FS', parentID: 7 },
+                { taskID: 8, taskName: 'Software specification', startDate: new Date('02/13/2025 08:00'), endDate: new Date('02/15/2025'), duration: 3, progress: '60', predecessor: '6FS', parentID: 7 },
                 { taskID: 9, taskName: 'Develop prototype', startDate: new Date('02/13/2025 08:00'), endDate: new Date('02/15/2025'), duration: 3, progress: '100', predecessor: '6FS', parentID: 7 },
                 { taskID: 10, taskName: 'Get approval from customer', startDate: new Date('02/16/2025 08:00'), endDate: new Date('02/17/2025 08:00'), duration: 2, progress: '100', predecessor: '9FS', parentID: 7 },
                 { taskID: 11, taskName: 'Design complete', startDate: new Date('02/17/2025 08:00'), endDate: new Date('02/17/2025 08:00'), duration: 0, predecessor: '10FS', parentID: 7 },
@@ -114,9 +116,9 @@ export default {
                 { taskID: 25, taskName: 'User training', startDate: new Date('03/07/2025 08:00'), endDate: new Date('03/07/2025'), duration: 1, progress: '10', predecessor: '23FS', parentID: 24 },
                 { taskID: 26, taskName: 'Admin training', startDate: new Date('03/07/2025 08:00'), endDate: new Date('03/08/2025'), duration: 2, progress: '10', predecessor: '23FS', parentID: 24 },
                 { taskID: 27, taskName: 'Training complete', startDate: new Date('03/08/2025 08:00'), endDate: new Date('03/08/2025 08:00'), duration: 0, predecessor: '25FS,26FS', parentID: 24 },
-                { taskID: 28, taskName: 'Client Review', startDate: new Date('03/09/2025 08:00'), endDate: new Date('03/09/2025'), duration: 1, progress: '0', predecessor: '27FS', parentID: 1 },
-                { taskID: 29, taskName: 'Project Handover', startDate: new Date('03/10/2025 08:00'), endDate: new Date('03/10/2025'), duration: 0, predecessor: '28FS', parentID: 1 },
-                { taskID: 30, taskName: 'Post-Project Review', startDate: new Date('03/10/2025 08:00'), endDate: new Date('03/10/2025 08:00'), duration: 0, progress: '0', predecessor: '29FS', parentID: 1 }
+                { taskID: 28, taskName: 'Client review', startDate: new Date('03/09/2025 08:00'), endDate: new Date('03/09/2025'), duration: 1, progress: '0', predecessor: '27FS', parentID: 1 },
+                { taskID: 29, taskName: 'Project handover', startDate: new Date('03/10/2025 08:00'), endDate: new Date('03/10/2025'), duration: 0, predecessor: '28FS', parentID: 1 },
+                { taskID: 30, taskName: 'Post-project review', startDate: new Date('03/10/2025 08:00'), endDate: new Date('03/10/2025 08:00'), duration: 0, progress: '0', predecessor: '29FS', parentID: 1 }
             ],
             taskFields: {
                 id: 'taskID',
@@ -170,7 +172,6 @@ export default {
         this.timezone = 'UTC (UTC+00:00)'
         this.timeZoneData = this.getTimeZonesWithOffsets();
     },
-
     methods: {
         getLocalTimeZoneWithOffset() {
             const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -204,8 +205,6 @@ export default {
             } else {
                 this.$refs.gantt.ej2Instances.timezone = null;
             }
-            
-
         },
         onTimelineChange(args) {
             if (!this.$refs.gantt || !this.$refs.gantt.ej2Instances) {
@@ -226,8 +225,6 @@ export default {
                 gantt.timelineSettings.bottomTier.unit = 'Day';
                 gantt.timelineSettings.bottomTier.format = 'dd';
             }
-           
-
         },
         previousTimespan() {
             if (!this.$refs.gantt || !this.$refs.gantt.ej2Instances) {
@@ -243,7 +240,6 @@ export default {
                 return;
             }
             this.$refs.gantt.ej2Instances.nextTimeSpan();
-
         },
     }
 }

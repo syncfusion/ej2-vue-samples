@@ -1,13 +1,13 @@
 <template>
     <div class="diagram-flowchart-layout">
-        <div class="control-section">
+        <div class="col-lg-9 control-section">
             <div class="content-wrapper" style="width:100%;background: white">
             <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height'
                 :rulerSettings='rulerSettings' :layout='layout' :dataSourceSettings='dataSourceSettings' :tool='tool' :getNodeDefaults='getNodeDefaults'
                 :getConnectorDefaults='getConnectorDefaults' :scrollSettings='scrollSettings'></ejs-diagram>
         </div>
         </div>
-        <div class="flow-property-section diagram-flowchart-property">
+        <div class="col-lg-3 flow-property-section diagram-flowchart-property">
             <div class="property-panel-header">
                 <p>Properties</p>
             </div>
@@ -90,17 +90,14 @@
                 <code>Diagram.Inject(FlowchartLayout)</code> method.
             </p>
             <br>
-        </div>
+        
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
+</div>
     </div>
 </template>
 <style scoped>
 /* Container for diagram and property panel */
-.diagram-flowchart-layout .control-section {
-    width: 75%;
-    float: left;
-    border-right: 1px solid #D5D5D5;
-    /* Keep the diagram section on the left */
-}
+
 
 .diagram-flowchart-property .property-panel-header {
     font-size: larger;
@@ -119,13 +116,7 @@
 }
 
 /* Property panel style */
-.flow-property-section {
-    width: 24%;
-    /* Adjusted to fill the remaining space */
-    float: right;
-    /* Ensure the property panel is on the right */
-    padding: 10px;
-}
+
 
 /* Align labels and inputs within the property panel */
 .diagram-flowchart-property .row {

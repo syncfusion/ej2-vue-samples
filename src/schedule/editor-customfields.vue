@@ -25,6 +25,7 @@
                 Here, the additional field (any of the form elements) is needed to be provided with the common class
                 <code>e-field</code>, so as to handle and process those additional data into the default event object.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

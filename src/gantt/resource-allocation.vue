@@ -12,7 +12,7 @@
                     :queryTaskbarInfo="queryTaskbarInfo">
                     <e-columns>
                         <e-column field='TaskID' headerText='Task ID' width='80'></e-column>
-                        <e-column field='TaskName' headerText='Task Name' width='180'></e-column>
+                        <e-column field='TaskName' headerText='Task Name' width='280'></e-column>
                         <e-column field='resources' headerText='Resources' width='190' :template="'resColumnTemplate'"
                             editType="dropdownedit" :edit="dpParams"></e-column>
                         <e-column field='Duration' width='100'></e-column>
@@ -66,65 +66,50 @@
         </div>
 
         <div id="action-description">
-            <p>This sample demonstrates the options to allocate one or more resources to tasks based on the task
-                requirement.
-                The Work is the total labor hours necessary to complete a task.
-                Work can be mapped from the data source field using the property <code>work</code> and when the work
-                value is
-                mapped from the data source,
-                the end date and duration of the task will be calculated automatically based on the work and resource
-                unit
-                values from the data source.
-                Work can be measured in hours, days and minutes. It is measured in ‘hours’ scale by default and this can
-                be
-                changed by using the <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#workunit">workUnit</a> property.</p>
+            <p>This sample demonstrates the options to allocate one or more resources to tasks based on the task requirement.
+                The Work is the total labor hours necessary to complete a task. Work can be mapped from the data source field using the
+                property <code>work</code> and when the work value is mapped from the data source, the end date and duration of the task
+                will be calculated automatically based on the work and resource unit values from the data source. Work can be measured
+                in hours, days and minutes. It is measured in 'hours' scale by default and this can be changed by using the 
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#workunit">workUnit</a> property.</p>
         </div>
 
         <div id="description">
             <p>In this example, you can see how to allocate single or multiple resources for the task. Based on the task
-                complexity and the resource availability, you can plan and allocate the resources to task in the
-                project. In
-                this demo, there is a set of predefined resources and those IDs are assigned to the task. Resource
-                information
-                can be shown in Gantt Chart by using the <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#labelsettings">labelSetting</a>
-                property.</p>
+                complexity and the resource availability, you can plan and allocate the resources to task in the project. In this demo,
+                there is a set of predefined resources and those IDs are assigned to the task. Resource information can be shown in
+                Gantt Chart by using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#labelsettings">
+                labelSetting</a> property.</p>
             <p>Resources can be mapped using <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#resourcefields">resourceFields:</a>
+                href="https://ej2.syncfusion.com/vue/documentation/api/gantt#resourcefields">resourceFields:</a>
             </p>
-            <p><code>id</code>: To map resource ID</p>
-            <p><code>name</code>: To map resource name</p>
-            <p><code>unit</code>: To map resource unit</p>
-
-            <p>The work, duration and resource unit fields of a task depends upon each other values and will change
-                automatically on editing any one of these fields. But we can also set these field’s values as constant
-                using the
-                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#tasktype">taskType</a>
-                property.
+            <ul>
+                <li><code>id</code>: To map resource ID</li>
+                <li><code>name</code>: To map resource name</li>
+                <li><code>unit</code>: To map resource unit</li>
+            </ul>
+            <p>The work, duration and resource unit fields of a task depends upon each other values and will change automatically on
+                editing any one of these fields. But we can also set these field's values as constant using the <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/api/gantt#tasktype">taskType</a> property.
                 The following values can be set to the type property:
             </p>
-
-            <p><code>FixedDuration</code>: Duration task field will remain constant while updating resource unit or work
-                field.
-            </p>
-            <p><code>FixedWork</code>: Work field will remain constant while updating resource unit or duration fields.
-            </p>
-            <p><code>FixedUnit</code>: Resource units will remain constant while updating duration or work field.</p>
+            <ul>
+                <li><code>FixedDuration</code>: Duration task field will remain constant while updating resource unit or work field.</li>
+                <li><code>FixedWork</code>: Work field will remain constant while updating resource unit or duration fields.</li>
+                <li><code>FixedUnit</code>: Resource units will remain constant while updating duration or work field.</li>
+            </ul>
+            <p style="font-weight: 500">Injecting Module:</p>
             <p>
-                Gantt component features are segregated into individual feature-wise modules. To use a selection, inject
-                the
-                <code>Selection</code> module.To use markers, inject the <code>DayMarkers</code> module.
-                To edit resource unit, task type and duration, inject the <code>Toolbar</code> and <code>Edit</code>
-                module.
+                Gantt component features are segregated into individual feature-wise modules. To use selection, markers, toolbar and
+                editing features, inject the <code>Selection</code>, <code>DayMarkers</code>, <code>Toolbar</code> and <code>Edit</code>
+                modules using the <code>provide</code> section.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started">documentation section</a>.
+            <p>
+                More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/work">documentation section</a>.
             </p>
         </div>
     </div>
-
 </template>
 <script>
 import { GanttComponent, Selection, Edit, DayMarkers, Toolbar, ColumnDirective, ColumnsDirective } from "@syncfusion/ej2-vue-gantt";

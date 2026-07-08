@@ -7,7 +7,7 @@
   </div>
   <div id="action-description">
     <p>
-      This sample showcases a family tree built with the Syncfusion<sup>®</sup> EJ2 Vue Diagram,
+      This sample showcases a family tree built with the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a>,
       illustrating complex hierarchical relationships through customizable node templates, interactive hover details,
       and relation-based highlighting.
     </p>
@@ -303,7 +303,7 @@ export default {
           node.visible = false;
         } else {
           // Build image URL (adjust path as needed)
-          raw.ImageUrl = `https://ej2.syncfusion.com/vue/demos/src/diagram/Images/family-tree/${raw.Name}.png`;
+          raw.ImageUrl = `src/diagram/Images/family-tree/${raw.Name}.png`;
           node.shape = { type: 'HTML' }; // content provided by setNodeTemplate
           node.width = this.NODE_WIDTH;
           node.height = this.NODE_HEIGHT;

@@ -20,6 +20,7 @@
        insert link, insert image, insert list, undo/redo the operation, HTML view, and more.</P>
     <p><b>Injecting Module</b></p>
     <p>The above features built as modules have to be included in your application. For example, to use image and link, we need to inject <code>Toolbar, Link, Image, HtmlEditor, QuickToolbar</code> into the <code>provide</code> section.</p>
+    <blockquote><p>Looking for the full Vue Rich Text Editor component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-wysiwyg-rich-text-editor">Vue Rich Text Editor</a> page.</p></blockquote>
 </div>
 </div>
 </template>

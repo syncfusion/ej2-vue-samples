@@ -26,6 +26,9 @@
     <p>
         In this sample, we have enabled an option in Toolbar to customize the row height of Tree Grid to 20px, 40px and 60px.        
     </p>
+    <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p>
 </div>
 </div>
 </template>

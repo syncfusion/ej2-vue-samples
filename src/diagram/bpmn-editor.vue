@@ -10,7 +10,7 @@
       </div>
       <!-- Symbol Palette component -->
       <div id="palette-space" class="sb-mobile-palette" style="width:240px;height:445px; float:left" ref="paletteSpace">
-        <ejs-symbolpalette id="symbolpalette" :expandMode='expandMode' :palettes='palettes' :width='palettewidth'
+        <ejs-symbolpalette id="symbolpalette-bpmn" :expandMode='expandMode' :palettes='palettes' :width='palettewidth'
           :height='paletteheight' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin'
           :symbolHeight='symbolHeight' :symbolWidth='symbolWidth'
           :getNodeDefaults='palettegetNodeDefaults'></ejs-symbolpalette>
@@ -52,7 +52,9 @@
         <code>(BpmnDiagrams, UndoRedo, DiagramContextMenu)</code>.
       </p>
       <br>
-    </div>
+    
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
+</div>
   </div>
 </template>
 
@@ -913,8 +915,8 @@ export default {
           title: "Connectors"
         }
       ],
-      palettewidth: "400",
-      paletteheight: "550px",
+      palettewidth: "235px",
+      paletteheight: "445px",
       palettegetNodeDefaults: (symbol) => {
         symbol.style = { strokeColor: "#757575" }
       },

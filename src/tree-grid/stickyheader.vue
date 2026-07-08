@@ -22,6 +22,9 @@
     <div id="description">
     <p>The headers can be fixed while scrolling a TreeGrid’s first scrollable parent element. This can be done by setting the<code><a target="_blank" class="code"
         href="https://ej2.syncfusion.com/vue/documentation/api/treegrid/#enablestickyheader">enableStickyHeader</a></code> property. </p>
+    <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p>
    
    
 </div>

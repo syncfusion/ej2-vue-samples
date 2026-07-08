@@ -26,6 +26,7 @@
                 past events. By doing so, the <code>aria-readonly</code> attribute gets added into the event element and differentiate it
                 from the other normal events.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

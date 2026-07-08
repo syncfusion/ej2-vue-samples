@@ -35,9 +35,14 @@
                 When expanding the root parent node or scrolling vertically, the corresponding tasks are dynamically
                 fetched from the remote server and then updated in the DOM based on the current viewport position.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started">documentation section</a>.
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection and virtual scroll features,
+                inject the <code>Selection</code> and <code>VirtualScroll</code> modules using the <code>provide</code> section.
+            </p>
+            <p>
+                More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/data-binding#load-child-on-demand">documentation section</a>.
             </p>
         </div>
     </div>
@@ -77,7 +82,6 @@ export default {
             ],
             projectStartDate: new Date('01/02/2000'),
             projectEndDate: new Date('12/01/2002'),
-
             splitterSettings: {
                 columnIndex: 3
             }

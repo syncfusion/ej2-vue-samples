@@ -45,6 +45,11 @@
                 <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/grid/#querycellinfo">documentation
                     section</a>.
             </p>
+            <p>
+                Looking for the full Vue Data Grid component overview, features, pricing, and documentation? Visit our
+                <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-data-grid">
+                    Vue Data Grid component</a> page.
+            </p>
         </div>
     </div>
 </template>
@@ -299,7 +304,7 @@ function customizeRatingCell(span1, span2, span1_class, span2_class, span2_text)
 .fluent2-dark .e-grid .e-rowcell.e-increase,
 .fluent2-highcontrast .e-grid .e-rowcell.e-increase,
 .bootstrap5-dark .e-grid .e-rowcell.e-increase,
-.bootstrap5\.3-dark .e-grid .e-rowcell.e-increase,
+.bootstrap5_3-dark .e-grid .e-rowcell.e-increase,
 .highcontrast .e-grid .e-rowcell.e-increase,
 .tailwind3-dark .e-grid .e-rowcell.e-increase,
 .tailwind-dark .e-grid .e-rowcell.e-increase,
@@ -310,7 +315,7 @@ function customizeRatingCell(span1, span2, span1_class, span2_class, span2_text)
 .fluent2-dark .e-grid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
 .fluent2-highcontrast .e-grid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
 .bootstrap5-dark .e-grid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
-.bootstrap5\.3-dark .e-grid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
+.bootstrap5_3-dark .e-grid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
 .highcontrast .e-grid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
 .tailwind3-dark .e-grid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
 .tailwind-dark .e-grid .e-rowcell.e-increase:not(.e-editedbatchcell):not(.e-updatedtd),
@@ -359,7 +364,7 @@ function customizeRatingCell(span1, span2, span1_class, span2_class, span2_text)
 .fluent2-dark .e-grid .e-rowcell.e-decrease,
 .fluent2-highcontrast .e-grid .e-rowcell.e-decrease,
 .bootstrap5-dark .e-grid .e-rowcell.e-decrease,
-.bootstrap5\.3-dark .e-grid .e-rowcell.e-decrease,
+.bootstrap5_3-dark .e-grid .e-rowcell.e-decrease,
 .highcontrast .e-grid .e-rowcell.e-decrease,
 .tailwind3-dark .e-grid .e-rowcell.e-decrease,
 .tailwind-dark .e-grid .e-rowcell.e-decrease,
@@ -370,7 +375,7 @@ function customizeRatingCell(span1, span2, span1_class, span2_class, span2_text)
 .fluent2-dark .e-grid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
 .fluent2-highcontrast .e-grid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
 .bootstrap5-dark .e-grid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
-.bootstrap5\.3-dark .e-grid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
+.bootstrap5_3-dark .e-grid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
 .highcontrast .e-grid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
 .tailwind3-dark .e-grid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),
 .tailwind-dark .e-grid .e-rowcell.e-decrease:not(.e-editedbatchcell):not(.e-updatedtd),

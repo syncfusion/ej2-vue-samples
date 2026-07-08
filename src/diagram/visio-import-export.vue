@@ -52,7 +52,7 @@
     </div>
     <div id="action-description">
       <p>
-        This sample demonstrates how to import and export Visio diagrams using the Syncfusion<sup>®</sup> EJ2 Vue Diagram. Any Visio file (.vsdx) can be imported to visualize and edit workflows, and the customized diagram can then be exported back to Visio format (.vsdx) for seamless collaboration and interoperability.
+        This sample demonstrates how to import and export Visio diagrams using the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a>. Any Visio file (.vsdx) can be imported to visualize and edit workflows, and the customized diagram can then be exported back to Visio format (.vsdx) for seamless collaboration and interoperability.
       </p>
       <p>
         <b>NOTE: This feature is currently experimental. Some functionalities may be limited or may not work as expected. We welcome you to try it out and share your <a href="https://www.syncfusion.com/feedback" target="_blank">feedback</a> as we continue to refine and improve it.</b>

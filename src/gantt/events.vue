@@ -51,38 +51,22 @@
                 custom operations.
             </p>
             <p>In this demo, perform Gantt actions such as load, created, dataBound, toolbarClick, beforeTooltipRender,
-                actionBegin, actionComplete, cellEdit,
-                endEdit, taskbarEditing, taskbarEdited, rowSelecting, rowSelected, rowDeselecting, rowDeselected,
-                columnDragStart, columnDrag,
-                columnDrop, expanding, expanded, collapsing, collapsed, columnMenuClick, columnMenuOpen,
-                contextMenuClick, contextMenuOpen, resizeStart,
-                resizing, resizeStop, splitterResizeStart, splitterResizing, splitterResized, recordDoubleClick,
-                onTaskbarClick and
+                actionBegin, actionComplete, cellEdit, endEdit, taskbarEditing, taskbarEdited, rowSelecting, rowSelected,
+                rowDeselecting, rowDeselected, columnDragStart, columnDrag, columnDrop, expanding, expanded, collapsing,
+                collapsed, columnMenuClick, columnMenuOpen, contextMenuClick, contextMenuOpen, resizeStart, resizing,
+                resizeStop, splitterResizeStart, splitterResizing, splitterResized, recordDoubleClick, onTaskbarClick and
                 see the <strong>Event Trace</strong> panel for the events emitted.
             </p>
+            <p style="font-weight: 500">Injecting Module:</p>
             <p>
-                Gantt component features are segregated into individual feature-wise modules. To use a selection, inject
-                the
-                <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code> method.To use a sorting,
-                inject the
-                <code>Sort</code> module using the <code>Gantt.Inject(Sort)</code> method.To reorder column, inject the
-                <code>Reorder</code> module using the <code>Gantt.Inject(Reorder)</code> method.To resize column width,
-                inject
-                the <code>Resize</code> module using the <code>Gantt.Inject(Resize)</code> method.To use a contextmenu,
-                inject the
-                <code>Contextmenu</code> module using the <code>Gantt.Inject(Contextmenu)</code> method.To use a
-                columnmenu,
-                inject the <code>ColumnMenu</code> module using the <code>Gantt.Inject(ColumnMenu)</code> method.To use
-                a toolbar, inject
-                the <code>Toolbar</code> module using the <code>Gantt.Inject(Toolbar)</code> method.To use a edit,
-                inject the
-                <code>Edit</code> module using the <code>Gantt.Inject(Edit)</code> method.To use markers, inject the
-                <code>DayMarkers</code> module using the <code>Gantt.Inject(DayMarkers)</code> method.
+                Gantt component features are segregated into individual feature-wise modules. To use selection, sort, reorder, resize,
+                context menu, columnu menu, toolbar, edit, markers features, inject the <code>Selection</code>, <code>Sort</code>,
+                <code>Reorder</code>, <code>Resize</code>, <code>Contextmenu</code>, <code>Toolbar</code>, <code>Edit</code>, 
+                <code>DayMarkers</code> modules using the <code>provide</code> sections.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/documentation/vue/gantt/getting-started#adding-gantt-component">documentation
-                    section</a>.</p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/documentation/gantt/events">
+                documentation section</a>.</p>
         </div>
     </div>
 </template>
@@ -113,7 +97,7 @@ export default {
             },
             columns: [
                 { field: 'TaskID', width: 100 },
-                { field: 'TaskName', width: 250 },
+                { field: 'TaskName', width: 280 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },

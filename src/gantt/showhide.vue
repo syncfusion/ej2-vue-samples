@@ -4,7 +4,7 @@
             <ejs-gantt ref='gantt' id="ShowHide" :dataSource="data" :height="height" :rowHeight="46" :taskbarHeight="25"
                 :highlightWeekends='true' :taskFields="taskFields" :labelSettings="labelSettings"
                 :splitterSettings="splitterSettings" :treeColumnIndex="1" :projectStartDate="projectStartDate"
-                :projectEndDate="projectEndDate">
+                :columns="columns" :projectEndDate="projectEndDate">
             </ejs-gantt>
         </div>
         <div>
@@ -50,9 +50,8 @@
         </div>
 
         <div id="action-description">
-            <p>This sample demonstrates dynamic show/hide columns feature of Gantt. Select column name from the
-                properties panel,
-                and then click hide/show to toggle visibility.
+            <p>This sample demonstrates dynamic show/hide columns feature of Gantt. Select column name from the properties panel and
+                then click hide/show to toggle visibility.
             </p>
         </div>
 
@@ -64,10 +63,9 @@
                 Show or Hide button to toggle the visibility.
                 The visibility of column is toggled based on the
                 <a target="_blank"
-                    href="hhttps://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#headertext">columns ->
+                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#headertext">columns ->
                     headerText</a> value.
             </p>
-            <br />
             <p>The <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#visible">columns ->
                     visible</a> property specifies the visibility of a column.
@@ -75,14 +73,15 @@
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#visible">columns ->
                     visible</a> property to false.
             </p>
-
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started">documentation section</a>.
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection feature,
+                inject the <code>Selection</code> module using the <code>provide</code> section.
             </p>
-
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/columns#show-or-hide-columns-dynamically">documentation section</a>.
+            </p>
         </div>
-
     </div>
 </template>
 <!-- custom code start -->
@@ -96,7 +95,7 @@
 import { Column } from "@syncfusion/ej2-vue-grids";
 import { DropDownListComponent, ChangeEventArgs } from "@syncfusion/ej2-vue-dropdowns";
 import { ButtonComponent, ClickEventArgs } from '@syncfusion/ej2-vue-buttons';
-import { GanttComponent, Selection, Gantt } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from "./data-source";
 
 export default {
@@ -118,7 +117,6 @@ export default {
                 progress: 'Progress',
                 dependency: 'Predecessor',
                 parentID: 'ParentId'
-
             },
             labelSettings: {
                 leftLabel: 'TaskName'
@@ -137,8 +135,8 @@ export default {
                 { id: 'Progress', name: 'Progress' }
             ],
             columns: [
-                { field: 'TaskID', headerText: 'ID', width: 100 },
-                { field: 'TaskName', headerText: 'Name', width: 250 },
+                { field: 'TaskID', headerText: 'ID', width: 70 },
+                { field: 'TaskName', headerText: 'Name', width: 280 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },

@@ -176,7 +176,9 @@ let operators: string[] = [
   "LessThan",
   "LessThanOrEqualTo",
   "Between",
-  "NotBetween"
+  "NotBetween",
+  "Top",
+  "Bottom"
 ];
 let fields: string[] = ["Country", "Products", "Year"];
 let measures: { [key: string]: Object }[] = [
@@ -320,8 +322,8 @@ export default {
         fieldsddl.value as string,
         measuresddl.value as string,
         operatorddl.value as Operators,
-        (e.value as number).toString(),
-        valueInput2.value.toString()
+        (e?.value as number)?.toString(),
+        valueInput2?.value?.toString()
       );
     },
     onValue2Change: function(e: NumericEventArgs) {
@@ -334,8 +336,8 @@ export default {
         fieldsddl.value as string,
         measuresddl.value as string,
         operatorddl.value as Operators,
-        valueInput1.value.toString(),
-        (e.value as number).toString(),
+        valueInput1?.value?.toString(),
+        (e?.value as number)?.toString(),
       );
     }
   }

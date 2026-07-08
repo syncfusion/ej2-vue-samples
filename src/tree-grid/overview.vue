@@ -4,7 +4,7 @@
         <p>This sample demonstrates the overview of basic Tree Grid features such as sorting, filtering, conditional formatting, column template and scrolling.</p>
     </div>
     <div>
-        <ejs-treegrid :dataSource='data' childMapping='states' :height='400' :allowReordering='true' :allowFiltering='true'
+        <ejs-treegrid id='treegridoverview' :dataSource='data' childMapping='states' :height='400' :allowReordering='true' :allowFiltering='true'
         :allowSorting='true' :filterSettings='filterSettings' :queryCellInfo='queryCellInfo' >
             <e-columns>
                 <e-column field='name' headerText='Province' width='210' :template="flagtemplate" :filter="{ type:'Excel', itemTemplate:flagtemplate }"></e-column>
@@ -33,157 +33,161 @@
                 href="https://ej2.syncfusion.com/vue/documentation/treegrid/getting-started/">
                documentation section</a>.
         </p>
+        <p>
+          Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+        </p>
     </div>
 
 </div>
 </template>
-<style scoped>
- /deep/ .e-treeoverview {
-        height: 13px;
-        width: 14px;
-        vertical-align: middle;
-    }
+<style>
+#treegridoverview .e-treeoverview {
+  height: 13px;
+  width: 14px;
+  vertical-align: middle;
+}
 
-    /deep/ .statustemp {
-        position: relative;
-        border-radius: 15px;
-        text-align: center;
-        background-color: #C3F1D0;
-        color: #00752F;
-        width: 47px;
-        background-color: inherit !important;
-    }
-     /deep/ .material3-dark .rating .star.checked, .material3 .rating .star.checked {
-        color: #6750A4;
-    }
+#treegridoverview .statustemp {
+  position: relative;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #c3f1d0;
+  color: #00752f;
+  width: 47px;
+  background-color: inherit !important;
+}
+.material3-dark #treegridoverview .rating .star.checked,
+.material3 #treegridoverview .rating .star.checked {
+  color: #6750a4;
+}
 
-     /deep/ .material3-dark #myBar, .material3 #myBar {
-        background-color: #53CA17;
-    }
+.material3-dark #treegridoverview #myBar,
+.material3 #treegridoverview #myBar {
+  background-color: #53ca17;
+}
 
-    /deep/ .material3-dark #myBar.progressdisable, .material3 #myBar.progressdisable {
-        background-color: rgba(242, 184, 181, 1);
-    }
-    
-    /deep/ .e-bigger.tailwind3 .e-grid .statustemp, .e-bigger.tailwind3-dark .e-grid .statustemp,
-    .e-bigger.bootstrap5 .e-grid .statustemp, .e-bigger.bootstrap5-dark .e-grid .statustemp{
-        padding-top: 1px;
-    }
+.material3-dark #treegridoverview #myBar.progressdisable,
+.material3 #treegridoverview #myBar.progressdisable {
+  background-color: rgba(242, 184, 181, 1);
+}
 
-    /deep/ .statustemp.e-lowgdp {
-        background-color: #FFDBDB;
-        color: #BD0000;
+.e-bigger.tailwind3 #treegridoverview .e-grid .statustemp,
+.e-bigger.tailwind3-dark #treegridoverview .e-grid .statustemp,
+.e-bigger.bootstrap5 #treegridoverview .e-grid .statustemp,
+.e-bigger.bootstrap5-dark #treegridoverview .e-grid .statustemp {
+  padding-top: 1px;
+}
 
-    }
+#treegridoverview .statustemp.e-lowgdp {
+  background-color: #ffdbdb;
+  color: #bd0000;
+}
 
-    /deep/ td.e-rowcell .statustxt {
-        color: #398120;
-        position: relative;
-    }
+#treegridoverview td.e-rowcell .statustxt {
+  color: #398120;
+  position: relative;
+}
 
-    /deep/ td.e-rowcell .statustxt.e-lowgdp {
-        color: #e60000;
-        position: relative;
-    }
+#treegridoverview td.e-rowcell .statustxt.e-lowgdp {
+  color: #e60000;
+  position: relative;
+}
 
-    /deep/ .rating .star {
-        font-size: 132%;
-        color: lightgrey;
-    }
+#treegridoverview .rating .star {
+  font-size: 132%;
+  color: lightgrey;
+}
 
-    /deep/ .rating .star.checked {
-        color: #EE9E54;
-    }
+#treegridoverview .rating .star.checked {
+  color: #ee9e54;
+}
 
-    /deep/ .rating .star:before {
-        content: '★';
-    }
-    /deep/ .negativeTimeZone {
-        transform: rotate(180deg);
-    }
-    /deep/ #myBar {
-        position: absolute;
-        width: 10%;
-        height: 100%;
-        background-color: #00b300;
-    }
+#treegridoverview .rating .star:before {
+  content: '★';
+}
+#treegridoverview .negativeTimeZone {
+  transform: rotate(180deg);
+}
+#treegridoverview #myBar {
+  position: absolute;
+  width: 10%;
+  height: 100%;
+  background-color: #00b300;
+}
 
-    /deep/ #myBar.progressdisable {
-        background-color: #df2222;
-    }
+#treegridoverview #myBar.progressdisable {
+  background-color: #df2222;
+}
 
-    /deep/ #treegridlabel {
-        position: relative;
-        left: 10px;
-        line-height: 18px;
-        font-size: 10px;
-        color: white;
-    }
-    /deep/ .highcontrast .e-grid #myProgress {
-        background-color: whitesmoke;
-    }
-    /deep/ #myProgress {
-        position: relative;
-        height: 18px;
-        width: 10em;
-        text-align: left;
-        background-color: whitesmoke;
-    }
-    /deep/ #myBar.progressdisable {
-        background-color: #df2222;
-    }
-    /deep/ .tailwind3 .e-grid #coordinates.e-checkbox-wrapper .e-label, .e-css.e-checkbox-wrapper .e-label,
-    .tailwind3-dark .e-grid #coordinates.e-checkbox-wrapper .e-label, .e-css.e-checkbox-wrapper .e-label {
-        display: inline;
-    }
-    /deep/ #coordinates .e-treeoverview {
-        filter: brightness(180%);
-    }
-    /deep/ .e-bigger .e-grid .e-rowcell {
-        line-height: 24px;
-    }
-    /deep/ td.e-rowcell .statustxt {
-        color: #00cc00;
-        position: relative;
-        background: #c3f1d0;
-        border-radius: 18px;
-        padding: 1px 5px 3px 7px;
-    }
-    /deep/ td.e-rowcell .statustxt.e-lowgdp {
-        color: #e60000;
-        position: relative;
-        background: #ffd7cc;
-        border-radius: 18px;
-        padding: 1px 5px 3px 7px;
-    }
-    /deep/ .tailwind3 .statustxt,
-    .tailwind3-dark .statustxt,
-    .material .statustxt,
-    .material3 .statustxt,
-    .material-dark .statustxt,
-    .material3-dark .statustxt,
-    .bootstrap4 .statustxt,
-    .bootstrap .statustxt,
-    .bootstrap-dark .statustxt {
-        color: #00cc00;
-        position: relative;
-        background: #c3f1d0;
-        border-radius: 18px;
-        padding: 2px 5px 2px 7px;
-    }
-    /deep/ .tailwind3 .statustxt.e-lowgdp,
-    .tailwind3-dark .statustxt.e-lowgdp,
-    .material .statustxt.e-lowgdp,
-    .material-dark .statustxt.e-lowgdp,
-    .bootstrap4 .statustxt.e-lowgdp,
-    .bootstrap .statustxt.e-lowgdp,
-    .bootstrap-dark .statustxt.e-lowgdp {
-        color: #e60000;
-        position: relative;
-        background: #ffd7cc;
-        border-radius: 18px;
-        padding: 2px 5px 2px 7px;
-    }
+#treegridoverview #treegridlabel {
+  position: relative;
+  left: 10px;
+  line-height: 18px;
+  font-size: 10px;
+  color: white;
+}
+.highcontrast #treegridoverview .e-grid #myProgress {
+  background-color: whitesmoke;
+}
+#treegridoverview #myProgress {
+  position: relative;
+  height: 18px;
+  width: 10em;
+  text-align: left;
+  background-color: whitesmoke;
+}
+#treegridoverview #myBar.progressdisable {
+  background-color: #df2222;
+}
+
+#treegridoverview #coordinates .e-treeoverview {
+  filter: brightness(180%);
+}
+.e-bigger #treegridoverview .e-grid .e-rowcell {
+  line-height: 24px;
+}
+#treegridoverview td.e-rowcell .statustxt {
+  color: #00cc00;
+  position: relative;
+  background: #c3f1d0;
+  border-radius: 18px;
+  padding: 1px 5px 3px 7px;
+}
+#treegridoverview td.e-rowcell .statustxt.e-lowgdp {
+  color: #e60000;
+  position: relative;
+  background: #ffd7cc;
+  border-radius: 18px;
+  padding: 1px 5px 3px 7px;
+}
+.tailwind3 #treegridoverview .statustxt,
+.tailwind3-dark #treegridoverview .statustxt,
+.material #treegridoverview .statustxt,
+.material3 #treegridoverview .statustxt,
+.material-dark #treegridoverview .statustxt,
+.material3-dark #treegridoverview .statustxt,
+.bootstrap4 #treegridoverview .statustxt,
+.bootstrap #treegridoverview .statustxt,
+.bootstrap-dark #treegridoverview .statustxt {
+  color: #00cc00;
+  position: relative;
+  background: #c3f1d0;
+  border-radius: 18px;
+  padding: 2px 5px 2px 7px;
+}
+.tailwind3 #treegridoverview .statustxt.e-lowgdp,
+.tailwind3-dark #treegridoverview .statustxt.e-lowgdp,
+.material #treegridoverview .statustxt.e-lowgdp,
+.material-dark #treegridoverview .statustxt.e-lowgdp,
+.bootstrap4 #treegridoverview .statustxt.e-lowgdp,
+.bootstrap #treegridoverview .statustxt.e-lowgdp,
+.bootstrap-dark #treegridoverview .statustxt.e-lowgdp {
+  color: #e60000;
+  position: relative;
+  background: #ffd7cc;
+  border-radius: 18px;
+  padding: 2px 5px 2px 7px;
+}
 </style>
 <script lang="ts">
 import { createApp } from "vue";

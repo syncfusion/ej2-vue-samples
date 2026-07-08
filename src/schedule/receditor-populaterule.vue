@@ -25,6 +25,7 @@
                 <code>setRecurrenceRule</code> method is used to populate the fields of recurrence editor based on the static
                 rule options selected from the dropdown list.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

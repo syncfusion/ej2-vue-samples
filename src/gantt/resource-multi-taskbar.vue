@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="content-wrapper">
-                <ejs-gantt ref='gantt' id="ResourceView" :dataSource="data" :viewType="viewType"
+                <ejs-gantt ref="gantt" id="ResourceView" :dataSource="data" :viewType="viewType"
                     :taskFields="taskFields" :allowSelection="true" :allowResizing="true"
                     :resourceFields="resourceFields" :taskType="taskType" :editSettings="editSettings"
                     :toolbar="toolbar" :height="height" :rowHeight="46" :taskbarHeight="25" :treeColumnIndex="1"
@@ -60,24 +60,20 @@
                 following <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt#resourcefields">resourceFields:</a>.
             </p>
-            <p><code>ID</code>: Maps the resource ID.</p>
-            <p><code>Name</code>: Maps the resource name.</p>
-            <p><code>Unit</code>: Maps the resource unit.</p>
-            <p><code>Group</code>: Maps the resource group.</p>
+            <ul>
+                <li><code>ID</code>: Maps the resource ID.</li>
+                <li><code>Name</code>: Maps the resource name.</li>
+                <li><code>Unit</code>: Maps the resource unit.</li>
+                <li><code>Group</code>: Maps the resource group.</li>
+            </ul>
             <p style="font-weight: 500">Injecting module:</p>
             <p>
-                The Gantt control features are segregated into individual feature-wise modules. To use a selection,
-                inject the
-                <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code> method. To use markers,
-                inject the
-                <code>DayMarkers</code> module using the <code>Gantt.Inject(DayMarkers)</code> method.
-                To edit, inject the <code>Toolbar</code> module using the <code>Gantt.Inject(Toolbar)</code> method and
-                <code>Edit</code> module
-                using the <code>Gantt.Inject(Edit)</code> method.
+                The Gantt control features are segregated into individual feature-wise modules. To use a selection, markers, column resize,
+                drag and drop, toolbar and edit features, inject the <code>Selection</code>, <code>DayMarkers</code>, <code>Resize</code>,
+                <code>RowDD</code>, <code>Toolbar</code> and <code>Edit</code> modules using the <code>provide</code> method.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/multi-taskbar">documentation section</a>.
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                    href="https://ej2.syncfusion.com/vue/documentation/gantt/multitaskbar">documentation section</a>.
             </p>
         </div>
     </div>
@@ -121,12 +117,12 @@ export default {
             height: '650px',
             columns: [
                 { field: 'TaskID', visible: false },
-                { field: 'TaskName', headerText: 'Name', width: 250 },
+                { field: 'TaskName', headerText: 'Name', width: 280 },
                 { field: 'work', headerText: 'Work' },
                 { field: 'Progress' },
                 { field: 'resourceGroup', headerText: 'Group' },
                 { field: 'StartDate' },
-                { field: 'Duration' },
+                { field: 'Duration' }
             ],
             editSettings: {
                 allowAdding: true,

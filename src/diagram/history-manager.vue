@@ -77,7 +77,9 @@
         option to group the action as the single entry by the help of the <code>startGroupAction</code> and <code>endGroupAction</code> public Api. Also, we can add the custom entries to the diagram history. method can be used to print the diagrams.
             </p>
             <br>
-        </div>
+        
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
+</div>
     </div>
 </template>
 <style scoped>

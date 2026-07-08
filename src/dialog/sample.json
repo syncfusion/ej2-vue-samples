@@ -62,6 +62,7 @@
             "url": "components-dialog",
             "name": "Components inside Dialog",
             "category": "Dialog",
+            "ignoreOnBuild": true,
             "description":"This example demonstrates how to render other Vue Syncfusion components inside the dialog component."
         }
     ]

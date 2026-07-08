@@ -30,12 +30,16 @@
         },
         {
             "prompt": "What are common mistakes to avoid in e-book covers?",
-            "response": "<p>Here are some common mistakes to avoid when designing an e-book cover:</p> <ol><li><strong>Cluttered design:</strong> Overloading the cover with too many elements can make it look messy and unprofessional. Keep it simple and focused.</li> <li><strong>Poor quality images:</strong> Using low-resolution or generic stock images can detract from the overall appeal. Always opt for high-quality, relevant visuals.</li> <li><strong>Unreadable fonts:</strong> Fancy or overly intricate fonts can be hard to read, especially in thumbnail size. Choose clear, legible fonts for the title and author name.</li> <li><strong>Ignoring genre conventions:</strong> Each genre has its own visual cues. Not adhering to these can confuse potential readers about the book’s content.</li> <li><strong>Inconsistent branding:</strong> If you have a series or multiple books, ensure a consistent style across all covers to build a recognizable brand.</li></ol> <p>Would you like any specific advice on designing your cover?</p>"
+            "response": "<p>Here are some common mistakes to avoid when designing an e-book cover:</p> <ol><li><strong>Cluttered design:</strong> Overloading the cover with too many elements can make it look messy and unprofessional. Keep it simple and focused.</li> <li><strong>Poor quality images:</strong> Using low-resolution or generic stock images can detract from the overall appeal. Always opt for high-quality, relevant visuals.</li> <li><strong>Unreadable fonts:</strong> Fancy or overly intricate fonts can be hard to read, especially in thumbnail size. Choose clear, legible fonts for the title and author name.</li> <li><strong>Ignoring genre conventions:</strong> Each genre has its own visual cues. Not adhering to these can confuse potential readers about the book's content.</li> <li><strong>Inconsistent branding:</strong> If you have a series or multiple books, ensure a consistent style across all covers to build a recognizable brand.</li></ol> <p>Would you like any specific advice on designing your cover?</p>"
         }
     ],
     "defaultSuggestions": [
         "How do I set daily goals in my work day?",
         "Steps to publish a e-book with marketing strategy"
+    ],
+    "overviewSuggestions": [
+        "How do I plan my day for maximum focus?",
+        "Generate content ideas for my website"
     ],
     "streamingSuggestions": [
         "What are the main features of the AI AssistView component?",
@@ -49,12 +53,12 @@
         },
         {
             "prompt": "How can I customize the appearance of AI AssistView?",
-            "response": "Customizing AI AssistView enables you to tailor the look and functionality to suit specific needs:\n\n- **Template Customization:** Modify templates for prompts, responses, and more.\n- **CSS Styling:** Apply custom styles to align with your application’s visual theme.\n- **Theme Support:** Utilize built-in themes or create your own for consistent styling.\n- **Banner and Toolbar Configurations:** Adjust content and tools for personalized UI experiences.",
+            "response": "Customizing AI AssistView enables you to tailor the look and functionality to suit specific needs:\n\n- **Template Customization:** Modify templates for prompts, responses, and more.\n- **CSS Styling:** Apply custom styles to align with your application's visual theme.\n- **Theme Support:** Utilize built-in themes or create your own for consistent styling.\n- **Banner and Toolbar Configurations:** Adjust content and tools for personalized UI experiences.",
             "suggestions": [ "What customization options are available in AI AssistView?", "Prime number checking C# example?" ]
         },
         {
             "prompt": "What is Markdown and how is it used?",
-            "response": "Markdown is a straightforward syntax used primarily for formatting text documents:\n\n- **Headers:** Create headings with `#`, `##`, `###` for different levels.\n- **Emphasis:** Use `*text*` for italic and `**text**` for bold.\n- **Links and Images:** `[Link](URL)`, `![Alt Text](ImageURL)` to include links and images.\n- **Lists and Code Blocks:** Use `-` for lists and triple backticks ``` for code blocks.\n\nMarkdown’s simplicity and readability make it ideal for writing documentation.",
+            "response": "Markdown is a straightforward syntax used primarily for formatting text documents:\n\n- **Headers:** Create headings with `#`, `##`, `###` for different levels.\n- **Emphasis:** Use `*text*` for italic and `**text**` for bold.\n- **Links and Images:** `[Link](URL)`, `![Alt Text](ImageURL)` to include links and images.\n- **Lists and Code Blocks:** Use `-` for lists and triple backticks ``` for code blocks.\n\nMarkdown's simplicity and readability make it ideal for writing documentation.",
             "suggestions": [ "What are the benefits of using Markdown?", "What customization options are available in AI AssistView?" ]
         },
         {
@@ -76,7 +80,153 @@
             "response": "<pre><code class=\"csharp language-csharp\">using System;\n\nclass Program\n{\n    static void Fibonacci(int n)\n    {\n        int a = 0, b = 1, c;\n        for (int i = 0; i < n; i++)\n        {\n            Console.Write(a + \" \");\n            c = a + b;\n            a = b;\n            b = c;\n        }\n    }\n\n    static void Main()\n    {\n        Fibonacci(10); // 0 1 1 2 3 5 8 13 21 34\n    }\n}\n</code></pre>"
         }
     ],
-    
+
+    "generativeSuggestions": [
+        "What is the weather in New York?",
+        "How do smartphone sales perform across regions?"
+    ],
+
+    "weatherBlockData": [
+    {
+        "blockType": "thinking",
+        "title": "Thinking",
+        "collapsible": true,
+        "collapsed": true,
+        "isActive": false,
+        "stages": [
+            {
+                    "id": "step1",
+                    "iconCss": "e-icons e-search",
+                    "status": "completed",
+                    "content": "Searching for weather data from external sources and retrieving weekly forecasts for both Germany and Japan.",
+                    "editableContext": [
+                        { "name": "Query Type", "value": "Weather Analysis", "type": "Variable" }
+                    ]
+                }
+        ]
+    },
+    {
+        "blockType": "text",
+        "content": "**Weekly Weather Overview**<p>The chart below shows temperature variations across the week. The column series represents daily temperature highs, while the spline series reflects a smoother trend of average temperatures.</p>"
+    },
+    {
+        "blockType": "tool",
+        "toolName": "weather-chart",
+        "props": {
+            "columnData": [
+                { "x": "Sun", "y": 35 },
+                { "x": "Mon", "y": 40 },
+                { "x": "Tue", "y": 80 },
+                { "x": "Wed", "y": 70 },
+                { "x": "Thu", "y": 65 },
+                { "x": "Fri", "y": 55 },
+                { "x": "Sat", "y": 50 }
+            ],
+            "splineData": [
+                { "x": "Sun", "y": 30 },
+                { "x": "Mon", "y": 28 },
+                { "x": "Tue", "y": 29 },
+                { "x": "Wed", "y": 30 },
+                { "x": "Thu", "y": 33 },
+                { "x": "Fri", "y": 32 },
+                { "x": "Sat", "y": 34 }
+            ]
+        }
+    },
+    {
+        "blockType": "text",
+        "content": "**Key Insights:** The bar values indicate a sharp temperature spike on Tuesday and Wednesday, suggesting very hot conditions mid-week. Meanwhile, the spline line shows a relatively stable average temperature trend throughout the week. This difference highlights short-term heat surges compared to overall steady climatic conditions."
+    }],
+
+    "cardBlockData": [
+        {
+            "blockType": "text",
+            "content": "Here is the current weather forecast for your location:"
+        },
+        {
+            "blockType": "tool",
+            "toolName": "weather-card"
+        },
+        {
+            "blockType": "text",
+            "content": "**Scattered Showers Expected** with temperatures ranging from **1°C to -4°C**. There is a **100% chance of snow**, so it's recommended to bundle up and exercise caution if traveling. The weather system is expected to continue throughout the day with moderate precipitation."
+        }
+    ],
+
+    "chartBlockData": [
+        {
+            "blockType": "text",
+            "content": "**GDP Growth and Economic Contribution Analysis**\n\nThe chart visualizes how different economic sectors contribute to overall GDP performance. It highlights the variations in consumption, investment, trade, and overall economic growth trends."
+        },
+        {
+            "blockType": "tool",
+            "toolName": "chart-tool",
+            "props": {
+                "privateConsumptionData": [
+                    { "x": "2005", "y": 1.2  }, { "x": "2006", "y": 1.0  }, { "x": "2007", "y": 1.0  },
+                    { "x": "2008", "y": 0.25 }, { "x": "2009", "y": 0.1  }, { "x": "2010", "y": 1.0  },
+                    { "x": "2011", "y": 0.1  }, { "x": "2012", "y": -0.25}, { "x": "2013", "y": 0.25 },
+                    { "x": "2014", "y": 0.6  }, { "x": "2015", "y": 0.9  }
+                ],
+                "governmentConsumptionData": [
+                    { "x": "2005", "y": 0.5  }, { "x": "2006", "y": 0.5  }, { "x": "2007", "y": 0.5  },
+                    { "x": "2008", "y": 0.35 }, { "x": "2009", "y": 0.9  }, { "x": "2010", "y": 0.5  },
+                    { "x": "2011", "y": 0.25 }, { "x": "2012", "y": -0.5 }, { "x": "2013", "y": 0.5  },
+                    { "x": "2014", "y": 0.6  }, { "x": "2015", "y": 0.5  }
+                ],
+                "investmentData": [
+                    { "x": "2005", "y": 0.7  }, { "x": "2006", "y": 1.4  }, { "x": "2007", "y": 1.5  },
+                    { "x": "2008", "y": 0.35 }, { "x": "2009", "y": -2.7 }, { "x": "2010", "y": 0.5  },
+                    { "x": "2011", "y": 0.25 }, { "x": "2012", "y": -0.1 }, { "x": "2013", "y": -0.3 },
+                    { "x": "2014", "y": -0.6 }, { "x": "2015", "y": 0.0  }
+                ],
+                "foreignTradeData": [
+                    { "x": "2005", "y": -0.8 }, { "x": "2006", "y": 0.0  }, { "x": "2007", "y": -1.0 },
+                    { "x": "2008", "y": -0.35}, { "x": "2009", "y": -0.3 }, { "x": "2010", "y": -0.5 },
+                    { "x": "2011", "y": 0.0  }, { "x": "2012", "y": -0.4 }, { "x": "2013", "y": 0.0  },
+                    { "x": "2014", "y": -0.6 }, { "x": "2015", "y": -0.3 }
+                ],
+                "gdpData": [
+                    { "x": "2005", "y": 1.5  }, { "x": "2006", "y": 2.3  }, { "x": "2007", "y": 2.0  },
+                    { "x": "2008", "y": 0.1  }, { "x": "2009", "y": -2.7 }, { "x": "2010", "y": 1.8  },
+                    { "x": "2011", "y": 2.0  }, { "x": "2012", "y": 0.4  }, { "x": "2013", "y": 0.9  },
+                    { "x": "2014", "y": 0.4  }, { "x": "2015", "y": 1.3  }
+                ]
+            }
+        },
+        {
+            "blockType": "text",
+            "content": "The data shows noticeable fluctuations in overall GDP growth, with private and government consumption contributing positively across most periods. Investment displays higher volatility compared to other sectors, while foreign trade remains relatively negative throughout. Overall, the chart indicates periods of slowdown followed by gradual economic recovery and stabilization."
+        }
+    ],
+
+    "gridBlockData": [
+        {
+            "blockType": "text",
+            "content": "**Smartphone Sales Performance Comparison**\n\nSmartphone sales delivery performance shows high variation when compared across different regions."
+        },
+        {
+            "blockType": "tool",
+            "toolName": "sales-grid",
+            "props": {
+                "gridData": [
+                    { "Region": "North America", "Sales": 21, "Growth": "8.5",  "Status": "On Track"     },
+                    { "Region": "Europe",        "Sales": 24, "Growth": "14.2", "Status": "Exceeding"    },
+                    { "Region": "Asia Pacific",  "Sales": 36, "Growth": "50.0", "Status": "Exceeding"    },
+                    { "Region": "Latin America", "Sales": 38, "Growth": "5.5",  "Status": "On Track"     },
+                    { "Region": "Middle East",   "Sales": 54, "Growth": "42.1", "Status": "Exceeding"    },
+                    { "Region": "Africa",        "Sales": 57, "Growth": "5.5",  "Status": "On Track"     },
+                    { "Region": "Oceania",       "Sales": 70, "Growth": "22.8", "Status": "Exceeding"    },
+                    { "Region": "Central Asia",  "Sales": 65, "Growth": "-7.1", "Status": "Below Target" }
+                ]
+            }
+        },
+        {
+            "blockType": "text",
+            "content": "**Key Insights:** The smartphone market analysis identified performance differences across these regions, with high instability in business operations, inconsistent performance results, and a lack of improvement in overall service delivery."
+        }
+    ],
+
     "assistantSuggestions": [
         "How is AI used in everyday life?",
         "C# console app to manage library books"

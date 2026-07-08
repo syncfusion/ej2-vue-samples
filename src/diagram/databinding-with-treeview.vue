@@ -3,7 +3,7 @@
     <div>
         <div style="width: 100%;height: 50px;margin-bottom: 5px;">
             <div style="float:left;width:70%">
-            <ejs-button  :isPrimary = true id="addButton" ref="addButton" :disabled= "true"  v-on:click="addNodeButton"  >Add Node</ejs-button>
+            <ejs-button  :isPrimary ="true" id="addButton" ref="addButton" :disabled= "true"  v-on:click="addNodeButton"  >Add Node</ejs-button>
             <ejs-button :isPrimary="true" id="deleteButton" ref="deleteButton" :disabled= "true"  v-on:click="deleteNodeButton" >Delete Node</ejs-button>
             </div>
             <div class="icon" style="width:30%;float:right;font-size: 16px;">
@@ -29,10 +29,12 @@
 </div>
 <div id="description">
    <p>When a node is added or removed in a Diagram during runtime, the added or removed node is reflected in the tree view component. When an annotation in the diagram is changed it should also be updated in the treeView by using treeview updateNode method. When editing a text in a treeview, use selectedItems to update it in the diagram. You can drag text from the treeview and drop it onto the node in the diagram. Also, you can perform drag and drop operations in the diagram.</p>
+
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>
-<style>
+<style scoped>
 /**To align button */
 #addButton{
     margin-right: 20px;
@@ -142,7 +144,10 @@ export default {
      },
      //click event handler
      click : (args)=>{
-        treeObj.selectedNodes = [args.element.data.Id];
+        if (args.element.propName === "nodes") {
+            treeObj.selectedNodes = [args.element.data.Id];
+        }
+
      },
      //enable or disable the add and delete button
      selectionChange : (args)=>{

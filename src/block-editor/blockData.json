@@ -1825,7 +1825,7 @@
             "content": [
                 {
                     "contentType": "Text",
-                    "content": "pasteCleanupSettings: {\n allowedStyles: ['color', 'font-weight'], // Styles to keep\n deniedTags: ['script', 'iframe'], // Tags to remove\n keepFormat: true, // Keep original formatting\n plainPaste: false // Force plain text paste\n};"
+                    "content": "pasteCleanupSettings: {\n deniedTags: ['script', 'iframe'], // Tags to remove\n keepFormat: true, // Keep original formatting\n plainPaste: false // Force plain text paste\n};"
                 }
             ]
         },
@@ -2097,17 +2097,17 @@
     ],
     "users": [
         {
-            "avatarUrl": "./src/block-editor/images/andrew.png",
+            "avatarUrl": "https://ej2.syncfusion.com/vue/demos/src/block-editor/images/andrew.png",
             "id": "user1",
             "user": "Andrews"
         },
         {
-            "avatarUrl": "./src/block-editor/images/charlie.png",
+            "avatarUrl": "https://ej2.syncfusion.com/vue/demos/src/block-editor/images/charlie.png",
             "id": "user2",
             "user": "Charlie"
         },
         {
-            "avatarUrl": "./src/block-editor/images/laura.png",
+            "avatarUrl": "https://ej2.syncfusion.com/vue/demos/src/block-editor/images/laura.png",
             "id": "user3",
             "user": "Laura"
         }

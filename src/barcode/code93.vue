@@ -20,7 +20,7 @@
           class="allowedText"
           style=" margin-left: 14px;margin-right: 17px;margin-top: 14px;width: auto;height: auto;"
         >
-          <span style="font-weight: 600;"> Allowed Input characters :</span> This bar code support 0-9 , * , -'
+          <span style="font-weight: 600;"> Allowed Input characters :</span> This bar code support 0-9 , -'
         </div>
       </div>
     </div>

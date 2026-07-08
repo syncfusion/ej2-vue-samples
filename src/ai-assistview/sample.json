@@ -6,6 +6,18 @@
     "type": "update",
     "samples": [
         {
+            "url": "overview",
+            "name": "Overview",
+            "category": "AI AssistView",
+            "type": "new",
+            "api":{ "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings", "footerToolbarSettings", "responseToolbarSettings", "attachmentSettings", "enableAttachments", "speechToTextSettings", "enableStreaming"] },
+            "description": "Combines streaming, attachments, speech-to-text, text-to-speech and regenerate functionality in one overview UI.",
+            "sourceFiles": [
+                { "displayName": "overview.vue", "path": "src/ai-assistview/overview.vue" },
+                { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
             "url": "default",
             "name": "Default Functionalities",
             "category": "AI AssistView",
@@ -31,7 +43,6 @@
             "url": "streaming",
             "name": "Streaming Response",
             "category": "AI AssistView",
-            "type": "update",
             "api":{ "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings"]},
             "description": "Showcases the AiAssistView control with its streaming support.",
             "sourceFiles": [
@@ -51,6 +62,30 @@
             ]
         },
         {
+            "url": "generative-ui",
+            "name": "Generative UI Responses",
+            "category": "AI AssistView",
+            "type": "new",
+            "api": { "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings", "enableStreaming", "showClearButton", "registerToolUI"] },
+            "description": "Demonstrates rendering interactive generative UI tools (weather cards, charts, data grids) directly within AI responses using registerToolUI and block-based content structures.",
+            "sourceFiles": [
+                { "displayName": "generative-ui.vue", "path": "src/ai-assistview/generative-ui.vue" },
+                { "displayName": "promptResponseData.json", "path": "src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "thinking",
+            "name": "Chain of Thoughts",
+            "category": "AI AssistView",
+            "type": "new",
+            "api":{ "AIAssitView":["promptRequest", "toolbarSettings", "bannerTemplate", "responseToolbarSettings", "stopRespondingClick"] },
+            "description": "Demonstrates the AI generated thinking UI in the AiAssistView component",
+            "sourceFiles": [
+                { "displayName": "thinking.vue", "path": "src/ai-assistview/thinking.vue" },
+                { "displayName": "promptResponseData.json", "path": "src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
             "url": "template",
             "name": "Template",
             "category": "AI AssistView",
@@ -62,32 +97,9 @@
             ]
         },
         {
-            "url": "dialog",
-            "name": "Notes Assistant",
-            "category": "Use Cases",
-            "api":{ "AIAssitView": ["promptSuggestions", "prompts", "promptRequest", "toolbarSettings", "bannerTemplate", "responseToolbarSettings", "cssClass"] },
-            "description": "Showcases the AiAssistView control with other component integration",
-            "sourceFiles": [
-                { "displayName": "dialog.vue", "path":"src/ai-assistview/dialog.vue" },
-                { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
-            ]
-        },
-        {
-            "url": "ai-model",
-            "name": "Multiple AI Models",
-            "category": "Use Cases",
-            "api":{ "AIAssitView": ["bannerTemplate", "promptSuggestions", "promptRequest", "showHeader", "stopRespondingClick", "closeOnDocumentClick", "showBackdrop", "enableDock"] },
-            "description": "Showcases the AiAssistView control to integrate with Gemini, OpenAI Sample.",
-            "sourceFiles": [
-                { "displayName": "ai-integrations.vue", "path":"src/ai-assistview/ai-model.vue" },
-                { "displayName": "ai-services.js", "path":"src/ai-assistview/service.js" }
-            ]
-        },
-        {
             "url": "ai-speech-To-Text",
             "name": "Speech to Text",
             "category": "Speech",
-            "type": "update",
             "api":{ "AIAssitView": ["promptRequest", "toolbarSettings", "speechToTextSettings", "bannerTemplate", "attachmentSettings", "promptToolbarSettings", "stopRespondingClick"] },
             "description": "Demonstrates the AI AssistView component integrated  the built-in Speech-to-Text functionality, enabling users to interact using voice input transcribed into text.",
             "sourceFiles": [
@@ -98,12 +110,71 @@
         {
             "url": "ai-text-To-Speech",
             "name": "Text to Speech",
+            "type": "update",
             "category": "Speech",
             "api":{ "AIAssitView":["promptRequest", "toolbarSettings", "bannerTemplate", "responseToolbarSettings", "stopRespondingClick"] },
             "description": "Demonstrates the AiAssistView component integrated with Text-to-Speech functionality, allowing AI-generated responses to be vocalized for voice-based interaction.",
             "sourceFiles": [
                 { "displayName": "ai-text-To-Speech.vue", "path":"src/ai-assistview/ai-text-To-Speech.vue" },
                 { "displayName": "ai-services.js", "path":"src/ai-assistview/services.js" }
+            ]
+        },
+        {
+            "url": "notion",
+            "name": "Notion AI-like",
+            "category": "UI Customization",
+            "type": "new",
+            "api": { "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings", "footerToolbarSettings", "enableAttachments", "attachmentSettings", "showHeader"] },
+            "description": "Demonstrates a Notion-inspired AI AssistView with session-based chat management, multiple display modes (Sidebar, Floating, Fullscreen), advanced settings, and model switching.",
+            "sourceFiles": [
+                { "displayName": "notion.vue", "path": "src/ai-assistview/notion.vue" },
+                { "displayName": "promptResponseData.json", "path": "src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "claude-clone",
+            "name": "Claude AI-like",
+            "category": "UI Customization",
+            "type": "new",
+            "api": { "AIAssitView": ["promptRequest", "showHeader", "enableAttachments", "attachmentSettings", "footerToolbarSettings", "bannerTemplate", "promptPlaceholder"] },
+            "description": "Demonstrates a Claude-inspired AI AssistView with branded UI, model switching dropdown, and distraction-free chat experience.",
+            "sourceFiles": [
+                { "displayName": "claude-clone.vue", "path": "src/ai-assistview/claude-clone.vue" },
+                { "displayName": "promptResponseData.json", "path": "src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "gemini-clone",
+            "name": "Gemini AI-like",
+            "category": "UI Customization",
+            "type": "new",
+            "api": { "AIAssitView": ["promptRequest", "promptChanged", "showHeader", "enableAttachments", "attachmentSettings", "footerToolbarSettings", "bannerTemplate", "promptPlaceholder", "speechToTextSettings"] },
+            "description": "Demonstrates a Gemini-inspired AI AssistView with branded UI, model switching dropdown, speech-to-text, and dynamic button toggling.",
+            "sourceFiles": [
+                { "displayName": "gemini-clone.vue", "path": "src/ai-assistview/gemini-clone.vue" },
+                { "displayName": "promptResponseData.json", "path": "src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "dialog",
+            "name": "Notes Assistant",
+            "category": "Use Cases",
+            "api": { "AIAssitView": ["promptSuggestions", "prompts", "promptRequest", "toolbarSettings", "bannerTemplate", "responseToolbarSettings", "cssClass"] },
+            "description": "Showcases the AiAssistView control with other component integration",
+            "sourceFiles": [
+                { "displayName": "dialog.vue", "path": "src/ai-assistview/dialog.vue" },
+                { "displayName": "promptResponseData.json", "path": "src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "ai-model",
+            "name": "Multiple AI Conversation",
+            "category": "Use Cases",
+            "api": { "AIAssitView": ["bannerTemplate", "promptSuggestions", "promptRequest", "showHeader", "stopRespondingClick", "closeOnDocumentClick", "showBackdrop", "enableDock"] },
+            "description": "Showcases the AiAssistView control to integrate with Gemini, OpenAI Sample.",
+            "sourceFiles": [
+                { "displayName": "ai-integrations.vue", "path": "src/ai-assistview/ai-model.vue" },
+                { "displayName": "ai-services.js", "path": "src/ai-assistview/service.js" }
             ]
         }
     ]

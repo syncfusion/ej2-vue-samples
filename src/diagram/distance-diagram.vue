@@ -36,7 +36,7 @@
   </div>
 <div id="action-description">
     <p>
-      This sample uses the Syncfusion<sup>®</sup> EJ2 Vue Diagram component to demonstrate measuring and visualizing distances between elements with interactive connectors.
+      This sample uses the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> component to demonstrate measuring and visualizing distances between elements with interactive connectors.
     </p>
 </div>
 

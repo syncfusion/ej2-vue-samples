@@ -298,6 +298,7 @@ methods: {
       pivot.dataType = 'olap';
       pivot.loadPersistData(JSON.stringify(entireReportSettings));
       pivot.refresh();
+      pivot.engineModule = new PivotEngine();
       (this as any).shouldAutoConfig = false;
     } else {
       this.cleanOlapForRelational();
@@ -326,12 +327,18 @@ methods: {
             (reportSettings as any).dataSource = csvArray;
             (this as any).currentData = csvArray as any;
           } else {
+            if ((reportSettings as any).type === 'JSON' && !(reportSettings as any).url) {
+              reportSettings.dataSource = Pivot_Data;
+            } else {
+              (reportSettings as any).dataSource = (this as any).currentData;
+              (reportSettings as any).type = pivot.dataSourceSettings.type || 'JSON';
+            }
+          }
+        } catch (_e) {
+          if (!((reportSettings as any).url !== '' && (reportSettings as any).type === 'CSV')) {
             (reportSettings as any).dataSource = (this as any).currentData;
             (reportSettings as any).type = pivot.dataSourceSettings.type || 'JSON';
           }
-        } catch (_e) {
-          (reportSettings as any).dataSource = (this as any).currentData;
-          (reportSettings as any).type = pivot.dataSourceSettings.type || 'JSON';
         }
       }
       try {
@@ -376,7 +383,7 @@ methods: {
             if ('record' in obj) return obj.record;
             if ('data' in obj) return obj.data;
             if ('result' in obj) return obj.result;
-            if ('content' in obj) return obj.content;
+            if ('content' in obj) return obj?.content;
             if ('rows' in obj && Array.isArray(obj.rows)) return obj.rows;
             return obj;
           };
@@ -510,7 +517,7 @@ methods: {
     if (itemId === 'remote_report') {
       (this as any).dialogType = 'JSON';
       (this as any).dialogLabel = 'JSON Report';
-      (this as any).remoteUrl = 'https://api.jsonbin.io/v3/b/6912d9ecd0ea881f40e12335';
+      (this as any).remoteUrl = 'https://cdn.syncfusion.com/data/report.json';
       (this as any).isDialogOpen = true;
       return;
     }
@@ -680,10 +687,14 @@ methods: {
         if ('record' in obj) return obj.record;
         if ('data' in obj) return obj.data;
         if ('result' in obj) return obj.result;
-        if ('content' in obj) return obj.content;
+        if ('content' in obj) return obj?.content;
         if ('rows' in obj && Array.isArray(obj.rows)) return obj.rows;
         return obj;
       };
+      if (jsonData?.chartSettings?.zoomSettings) {
+        jsonData.chartSettings.zoomSettings.toolbarPosition = {};
+        jsonData.chartSettings.zoomSettings.accessibility = {};
+      }
       const unwrappedData = unwrap(jsonData);
       const looksLikeReport =
         !Array.isArray(unwrappedData) &&
@@ -696,6 +707,7 @@ methods: {
       if (looksLikeReport) {
         const reportSettings = (unwrappedData as any).dataSourceSettings ?? unwrappedData;
         const isOlapReport = (reportSettings as any)?.providerType === 'SSAS';
+        (reportSettings as any).dataSource = Pivot_Data;
         this.resetPivot();
         const pivot = (this.$refs as any).pivot?.ej2Instances;
         if (pivot) { await this.applyReportSettings(pivot, reportSettings, isOlapReport, unwrappedData); return; }
@@ -760,9 +772,6 @@ methods: {
   },
   async onOlapCubeChange(e: any) {
     const v = e.value; (this as any).selectedCube = v;
-    const pivot: any = (this.$refs as any).pivot?.ej2Instances;
-    const isOlap = pivot && (pivot.dataSourceSettings as any)?.providerType === 'SSAS';
-    if (isOlap && v) { await this.applyOlapBinding({ cube: v }); }
   },
   async onOlapOk() {
     const pivot: any = (this.$refs as any).pivot?.ej2Instances;
@@ -866,5 +875,9 @@ margin: 0 0 20px;
 line-height: 1.4;
 white-space: pre-wrap;
 text-align: left;
+}
+
+#PivotViewcontainerwrapper {
+    height: auto !important;
 }
 </style>

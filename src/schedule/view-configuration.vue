@@ -43,10 +43,10 @@
                 <code>startHour</code> is set to 7 and
                 <code>endHour</code> set to 18 whereas in week view, the same is set as 9 and 19 respectively. Also, the
                 <code>showWeekend</code> property is set to false only on week view along with different timescale interval.
-                The customized template is applied to the events on Agenda view and on month view, the grouping functionality
-                is enabled by setting
-                <code>group</code> property.
+                The customized template is applied to the events on Agenda view and on month
+                view, the grouping functionality is enabled by setting <code>group</code> property.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

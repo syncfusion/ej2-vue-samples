@@ -36,6 +36,7 @@
                 In this demo, the way of manually scrolling to specific time on Scheduler has been demonstrated by making use of the
                 <code>scrollTo</code> method of Schedule.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

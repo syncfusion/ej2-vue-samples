@@ -32,6 +32,9 @@
     <p>
         More information on the paging configuration can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/columns/columns#checkbox-column">documentation section</a>.
     </p>
+    <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p>
 </div>
 
 </div>

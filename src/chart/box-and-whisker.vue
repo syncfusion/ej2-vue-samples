@@ -12,7 +12,7 @@
 </div>
 
 <div id="action-description">
-    <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/box-and-whisker-chart" aria-label="Navigate to explore the Syncfusion Vue Box and Whisker Chart">Vue Box and Whisker</a> example visualizes the employee’s age group in various departments of a company with box and whisker chart.</p>
+    <p>This <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-charts/chart-types/box-and-whisker-chart" aria-label="Navigate to explore the Vue Box and Whisker Chart">Vue Box and Whisker</a> example visualizes the employee's age group in various departments of a company with box and whisker chart.</p>
 </div>
 <div id="description">
     <p>

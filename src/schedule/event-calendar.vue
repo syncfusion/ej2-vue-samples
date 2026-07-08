@@ -26,7 +26,7 @@
             </div>
             <div class="leftside">
                 <ejs-sidebar id="sidebar-left" ref="leftsideObj" width="300px"
-                    :mediaQuery="mediaQuery" target=".main-content" :isOpen="sidebarOpen">
+                    :mediaQuery="mediaQuery" :enableGestures="false" target=".main-content" :isOpen="sidebarOpen">
                     <div class="table-content">
                         <ejs-calendar id="calendar" ref="calendarObj" :cssClass="'selected-date-calendar'"
                             :start="'Month'" :value="sideBarCalendarDate" :change="onCalendarChange"></ejs-calendar>
@@ -84,7 +84,7 @@
                     </div>
                 </ejs-sidebar>
                 <ejs-sidebar id="sidebar-right" ref="rightSidebarObj" class="default-sidebar" width="300px"
-                    target=".main-content" :isOpen="rightSideBarisOpen" position="Right" :created="unplannedSidebarCreated"
+                    target=".main-content" :enableGestures="false" :isOpen="rightSideBarisOpen" position="Right" :created="unplannedSidebarCreated"
                     :close="unplannedSidebarCollapse">
                     <div id="unplanned-events-toolbar">
                         <ejs-toolbar :clicked="unplannedSidebarClicked">
@@ -99,7 +99,7 @@
                         </ejs-toolbar>
                     </div>
                     <div id="unplanned-events-grid">
-                        <ejs-grid id="Grid" ref="gridObj" :dataSource="gridData" :allowPaging="true"
+                        <ejs-grid id="Grid" ref="gridObj" :dataSource="gridData"
                             :toolbar="toolbar" :allowSelection="true">
                             <e-columns>
                                 <e-column field="Subject" headerText="Event" width="120"
@@ -155,6 +155,7 @@
     <p>The Schedule component is configured to show the appointments in colors based on their type to identify
         the appointment type.</p>
     <p>The right sidebar displays the list of unplanned events, which can be useful for the user to plan them later.</p>
+    <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
     </div>
 </div>
 </template>
@@ -406,7 +407,6 @@ export default {
       calendarEditClicked: false,
       listViewFields: { id: 'id', text: 'name', isChecked: 'isSelected' },
       activeCalendarData: { id: '0', name: '', color: '#008000ff' },
-      pageOptions: { pageSize: 7 },
       calendarsList: [],
       calendars: [
         { name: 'My Calendar', id: 1, color: '#c43081', isSelected: true },

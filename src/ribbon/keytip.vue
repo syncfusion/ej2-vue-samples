@@ -517,13 +517,13 @@ export default {
         let cName = e.target.className;
         if (cName !== "section-title" && cName !== "home-wrapper" && cName !== "new-wrapper" && cName !== "block-wrapper" && cName !== "e-ribbon-backstage-content") {
           this.$refs.ribbonKeyTip.ej2Instances.ribbonBackstageModule.hideBackstage();
-          ToastUtility.show({ target: "#ribbonPlaceHolder-default", position: { X: "Right" }, content: 'Backstage content is interacted and closed.' });
+          ToastUtility.show({ target: "#ribbonPlaceHolder-default", position: { X: "Right" }, content: 'Backstage content is interacted and closed.', cssClass: "e-toast-info", showCloseButton: true, width: 'auto', timeOut: 2000, newestOnTop: true });
           this.$refs.ribbonKeyTip.ej2Instances.element.querySelector('.e-ribbon-backstage-content').removeEventListener('click', this.handleClickInsideBackstageContent);
         }
     },
     backstageClickHandler() {
       this.$refs.ribbonKeyTip.ej2Instances.ribbonBackstageModule.hideBackstage();
-      ToastUtility.show({ target: "#ribbonPlaceHolder-default", position: { X: "Right" }, content: 'Print action is selected' });
+      ToastUtility.show({ target: "#ribbonPlaceHolder-default", position: { X: "Right" }, content: 'Print action is selected', cssClass: "e-toast-info", showCloseButton: true, width: 'auto', timeOut: 2000, newestOnTop: true });
     },
     getBackstageContent: function (item) {
       let homeContentTemplate = "<div class='home-wrapper'>{{newSection}}{{recentSection}}</div>";

@@ -19,37 +19,33 @@
         </div>
         <div id="description">
             <p>This sample demonstrates how to fully customize the dialog editing interface in the Vue Gantt
-                Chart using
-                the
-                <code><a target="_blank"
+                Chart using the <code><a target="_blank"
                 href="https://ej2.syncfusion.com/vue/documentation/api/gantt/addDialogFieldSettings/">addDialogFields</a></code>
-                and
-                <code><a target="_blank"
+                and <code><a target="_blank"
                 href="https://ej2.syncfusion.com/vue/documentation/api/gantt/editDialogFieldSettings/">editDialogFields</a></code>
-                properties along with
-                <code><a target="_blank"
+                properties along with <code><a target="_blank"
                 href="https://ej2.syncfusion.com/vue/documentation/api/gantt/editDialogFieldSettings/#additionalparams">additionalParams</a></code>.
                 It showcases how to override default input and grid components within each tab and organize custom
-                fields across
-                multiple tabs for a structured editing experience.
-                The following tab-level customizations are included:
+                fields across multiple tabs for a structured editing experience. The following tab-level customizations are included:
             </p>
             <ul>
                 <li><b>Dependency Tab</b> - Includes additional toolbar items and improved task naming to simplify task
                     relationship management.</li>
                 <li><b>Resource Tab</b> - Combines resource images and names, introduces a Role column, and supports
-                    column menu
-                    options for flexible configuration.</li>
-                <li><b>Segments Tab</b> - Enhanced with extra toolbar options for efficient segment editing and control.
-                </li>
-                <li><b>Advanced Tab</b> - Organizes Work and Task Mode input fields for quick access and improved
-                    clarity.</li>
+                    column menu options for flexible configuration.</li>
+                <li><b>Segments Tab</b> - Enhanced with extra toolbar options for efficient segment editing and control.</li>
+                <li><b>Advanced Tab</b> - Organizes Work and Task Mode input fields for quick access and improved clarity.</li>
             </ul>
-
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/managing-tasks/editing-tasks#dialog-editing">documentation
-                    section</a>.</p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection, sort, column menu,
+                edit, toolbar, column reorder, column resize and filter features, inject the <code>Selection</code>, <code>Sort</code>,
+                <code>ColumnMenu</code>, <code>Edit</code>, <code>Toolbar</code>, <code>Reorder</code>, <code>Resize</code> and
+                <code>Filter</code> modules using the <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/managing-tasks/editing-tasks#dialog-editing">
+                documentation section</a>.</p>
         </div>
     </div>
 </template>
@@ -83,11 +79,11 @@ export default {
                 constraintDate: 'ConstraintDate',
                 resourceInfo: 'Resources',
                 manual: 'isManual',
-                work: 'Work',
+                work: 'Work'
             },
             resourceFields: {
                 id: 'resourceId',
-                name: 'resourceName',
+                name: 'resourceName'
             },
             toolbar: ['Add', 'Edit', 'Update', 'Delete', 'Cancel', 'ExpandAll', 'CollapseAll', 'Indent', 'Outdent'],
             editSettings: {
@@ -108,7 +104,7 @@ export default {
                 { field: 'ConstraintType', width: 173 },
                 { field: 'ConstraintDate', width: 176 },
                 { field: 'isManual', width: 150 },
-                { field: 'Work' },
+                { field: 'Work' }
             ],
             addDialogFields: [
                 { type: 'General', fields: ['TaskID', 'TaskName', 'StartDate', 'Duration', 'EndDate', 'Progress'] },
@@ -134,11 +130,11 @@ export default {
                                 width: 201
                             },
                         ],
-                        filterSettings: { type: 'Menu' },
+                        filterSettings: { type: 'Menu' }
                     }
                 },
                 { type: 'Segments' },
-                { type: 'Advanced', fields: ['ConstraintType', 'ConstraintDate', 'isManual', 'Work'] },
+                { type: 'Advanced', fields: ['ConstraintType', 'ConstraintDate', 'isManual', 'Work'] }
             ],
             editDialogFields: [
                 {
@@ -177,7 +173,7 @@ export default {
                                 width: 201
                             },
                         ],
-                        filterSettings: { type: 'Menu' },
+                        filterSettings: { type: 'Menu' }
                     }
                 },
                 {
@@ -191,10 +187,10 @@ export default {
                         pageSettings: { pageSize: 5, pageCount: 5 },
                         toolbar: ['Add', 'Edit', 'Delete'],
                         editSettings: { allowEditing: true, allowAdding: true, allowDeleting: true },
-                        filterSettings: { type: 'Menu' },
+                        filterSettings: { type: 'Menu' }
                     }
                 },
-                { type: 'Advanced', fields: ['ConstraintType', 'ConstraintDate', 'isManual', 'Work'] },
+                { type: 'Advanced', fields: ['ConstraintType', 'ConstraintDate', 'isManual', 'Work'] }
             ],
             splitterSettings: {
                 position: '50%'
@@ -210,18 +206,11 @@ export default {
                     count: 1
                 }
             },
-            eventMarkers: [
-                {
-                    day: '07/11/2025',
-                    cssClass: 'e-custom-event-marker',
-                    label: 'Project approval and kick-off'
-                }
-            ],
             labelSettings: {
                 rightLabel: 'TaskName'
             },
             projectStartDate: new Date('03/30/2025'),
-            projectEndDate: new Date('08/07/2025')
+            projectEndDate: new Date('07/19/2025')
         };
     },
     provide: {
@@ -244,6 +233,7 @@ export default {
         actionComplete(args) {
             if (args.requestType === 'openAddDialog' || args.requestType === 'openEditDialog') {
                 const tabObj = document.getElementById('GanttDialog_Tab')?.ej2_instances[0];
+                const selectedTab = tabObj.selected;
                 if (tabObj) {
                     tabObj.selected = (selectArgs) => {
                         if (selectArgs.selectedIndex === 1) {
@@ -298,6 +288,9 @@ export default {
                                 gridObj.refresh();
                             }
                         }
+                        if (selectedTab) {
+                            selectedTab.call(tabObj, selectArgs);
+                        }
                     };
                 }
             }
@@ -305,7 +298,3 @@ export default {
     }
 };
 </script>
-
-<style scoped>
-/* Add any necessary scoped styles here */
-</style>

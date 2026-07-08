@@ -13,7 +13,7 @@
 
         <div id="description">
             <p>
-                In this example,<a target="_blank"
+                In this example, <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt#holidays">holidays</a> are displayed
                 with vertical bar with the desired text using the <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt/holidayModel/#label">label</a>
@@ -26,8 +26,12 @@
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt/holidayModel/#cssclass">cssClass</a> to
                 each holiday to change the default color of label and background.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection and markers features,
+                inject the <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/gantt/holidays">documentation section</a>.
             </p>
         </div>
@@ -57,32 +61,35 @@ export default {
             },
             columns: [
                 { field: 'TaskID', visible: false, width: 80 },
-                { field: 'TaskName', width: 250 },
+                { field: 'TaskName', width: 280 },
                 { field: 'StartDate' },
                 { field: 'Duration' },
                 { field: 'Progress' },
-                { field: 'Predecessor' },
+                { field: 'Predecessor' }
             ],
             labelSettings: {
                 rightLabel: 'TaskName'
             },
             splitterSettings: {
-                columnIndex: 2
+                columnIndex: 1
             },
             holidays: [
                 {
                     from: new Date('03/28/2025'),
                     to: new Date('03/28/2025'),
                     label: 'Good Friday'
-                }, {
+                },
+                {
                     from: new Date('03/30/2025'),
                     to: new Date('03/30/2025'),
                     label: 'Easter Sunday'
-                }, {
+                },
+                {
                     from: new Date('05/26/2025'),
                     to: new Date('05/26/2025'),
                     label: 'Memorial Day'
-                }, {
+                },
+                {
                     from: new Date('07/04/2025'),
                     to: new Date('07/04/2025'),
                     label: 'Independence Day'

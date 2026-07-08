@@ -61,8 +61,8 @@
             headerText="Region"
             width="180"
             :template="'regionTemplate'"
-            :validationRules="{ required: true }"
             editType="dropdownedit"
+            :validationRules="{ required: true }"
           />
 
           <e-column
@@ -255,6 +255,9 @@
       <p>
         More information on the Virtual Scrolling can be found in <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/virtual-scroll" aria-label="Navigate to the documentation for virtual-scroll in Vue TreeGrid control">documentation</a> section.
       </p>
+      <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p>
     </div>
   </div>
 </template>
@@ -294,7 +297,7 @@ export default {
   },
   methods: {
     actionBegin(args: any) {
-      if(args.requestType === 'save') {
+      if(args.requestType === 'save' && args.action !== 'edit') {
         args.data.TaskID = 10000 + Math.floor(Math.random() * 10001);
       }
     },

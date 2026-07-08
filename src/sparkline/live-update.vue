@@ -22,7 +22,7 @@
                           <div style="font-size: 12px; position: absolute; margin-top: 10px; margin-left: 12%;">
                         <b>Memory</b>
                     </div>
-                    <div id="memory" style="color: #5bcc8f;position: absolute; margin-top: 25px; margin-left: 12%;">6.5/15.8 GB (41%)</div>
+                    <div id="memory-spark" style="color: #5bcc8f;position: absolute; margin-top: 25px; margin-left: 12%;">6.5/15.8 GB (41%)</div>
                      </div>
                    <div align="center" class="col-lg-3 col-m-3 col-sm-6">
                         <ejs-sparkline ref="spark4" class="spark" :load='load' id='spark-container4' :height='height' :width='width' :lineWidth='lineWidth' :type='type' :valueType='valueType' :fill='fill4' :dataSource='dataSource4' :axisSettings='axisSettings4' :containerArea='containerArea4' :border='border4' xName='x' yName='yval'></ejs-sparkline>                        
@@ -179,7 +179,7 @@ methods:{
                 gauge.dataSource.push({ x: ++temp2, yval: value });
                 gauge.dataSource.shift();
                 gauge.refresh();
-                let memory = document.getElementById('memory');
+                let memory = document.getElementById('memory-spark');
                 let gb = parseFloat(value.toString().replace('0', '')).toFixed(1);
                 if (memory) {
                 memory.innerHTML = gb + '/15.8 GB (' + ((value / 15.8) * 100).toFixed(0) + '%)';

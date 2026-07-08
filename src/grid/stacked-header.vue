@@ -92,6 +92,11 @@
             More information on the stacked header configuration can be found in this 
             <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/grid/columns/column-resizing#resize-stacked-column">documentation section</a>.
         </p>
+        <p>
+            Looking for the full Vue Data Grid component overview, features, pricing, and documentation? Visit our
+            <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-data-grid">
+                Vue Data Grid component</a> page.
+        </p>
     </div>
 
 </div>
@@ -368,7 +373,7 @@ export default {
     .fluent2-dark .e-grid .e-rowcell.e-delivered,
     .fluent2-highcontrast .e-grid .e-rowcell.e-delivered,
     .bootstrap5-dark .e-grid .e-rowcell.e-delivered,
-    .bootstrap5\.3-dark .e-grid .e-rowcell.e-delivered,
+    .bootstrap5_3-dark .e-grid .e-rowcell.e-delivered,
     .highcontrast .e-grid .e-rowcell.e-delivered,
     .tailwind3-dark .e-grid .e-rowcell.e-delivered,
     .tailwind-dark .e-grid .e-rowcell.e-delivered,
@@ -387,7 +392,7 @@ export default {
     .bootstrap5-dark
         .e-grid
         .e-rowcell.e-delivered:not(.e-editedbatchcell):not(.e-updatedtd),
-    .bootstrap5\.3-dark
+    .bootstrap5_3-dark
         .e-grid
         .e-rowcell.e-delivered:not(.e-editedbatchcell):not(.e-updatedtd),
     .highcontrast
@@ -475,7 +480,7 @@ export default {
     .fluent2-dark .e-grid .e-rowcell.e-inprogress,
     .fluent2-highcontrast .e-grid .e-rowcell.e-inprogress,
     .bootstrap5-dark .e-grid .e-rowcell.e-inprogress,
-    .bootstrap5\.3-dark .e-grid .e-rowcell.e-inprogress,
+    .bootstrap5_3-dark .e-grid .e-rowcell.e-inprogress,
     .highcontrast .e-grid .e-rowcell.e-inprogress,
     .tailwind3-dark .e-grid .e-rowcell.e-inprogress,
     .tailwind-dark .e-grid .e-rowcell.e-inprogress,
@@ -494,7 +499,7 @@ export default {
     .bootstrap5-dark
         .e-grid
         .e-rowcell.e-inprogress:not(.e-editedbatchcell):not(.e-updatedtd),
-    .bootstrap5\.3-dark
+    .bootstrap5_3-dark
         .e-grid
         .e-rowcell.e-inprogress:not(.e-editedbatchcell):not(.e-updatedtd),
     .highcontrast

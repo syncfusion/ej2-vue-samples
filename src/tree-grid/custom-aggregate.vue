@@ -30,6 +30,9 @@
           The Tree Grid also supports seamless exports to <b>Excel</b>, <b>PDF</b>, or <b>CSV</b> with a single click. The <code>excelAggregateQueryCellInfo</code> and <code>pdfAggregateQueryCellInfo</code> events ensure that footer aggregate values are accurately preserved in the exported files.
       </p>
       <p>More information about the custom aggregate can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/treegrid/aggregates/aggregates"> documentation</a> section.</p>
+      <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p>
     </div>
 </div>
 </template>

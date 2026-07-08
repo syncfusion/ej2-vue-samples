@@ -161,7 +161,7 @@
       },
       markDownConversion: function() {
         if (this.mdsource.classList.contains("e-active")) {
-          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
+          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value, { lineBreak: true });
         }
       },
       fullPreview: function() {
@@ -186,7 +186,7 @@
           }
           this.textArea.style.display = "none";
           this.htmlPreview.style.display = "block";
-          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value);
+          this.htmlPreview.innerHTML = MarkdownConverter.toHtml(this.textArea.value, { lineBreak: true });
         }
       }
     },

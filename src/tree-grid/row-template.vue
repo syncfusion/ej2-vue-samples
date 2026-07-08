@@ -55,6 +55,9 @@
         In this demo, we have presented Employee Information with Employee Photo and employee details like Name, Address etc.
     </p>
     <p>The template expression should be provided inside <code>${...}</code> interpolation syntax.</p>
+    <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p>
 </div>
 
 </div>
@@ -64,7 +67,7 @@
     .border {
         border-color: #e0e0e0;
         border: 1px solid #e0e0e0;
-        border-width: 1px 0px 0px 0px;
+        border-width: 0px 0px 1px 0px;
     }
 
     img {

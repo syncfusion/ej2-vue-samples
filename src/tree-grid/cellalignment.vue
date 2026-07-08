@@ -60,6 +60,9 @@
     <p>
             More information about Cell Alignment can be found in this documentation section.
         </p>
+    <p>
+      Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p>
 </div>
     
   

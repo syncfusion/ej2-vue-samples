@@ -15,18 +15,24 @@
         <div id="description">
             <p>
                 In this example, <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#eventmarkers">eventMarkers</a> act as visual bookmarks to indicate key milestones or stages in the project life cycle. Each marker can display descriptive text on the corresponding date, making it easier to track progress and deadlines.</p> 
-            <p>The <strong>Event Markers</strong> provides several properties to customize the appearance and behavior of markers:
+                href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#eventmarkers">eventMarkers</a> act as visual bookmarks to
+                indicate key milestones or stages in the project life cycle. Each marker can display descriptive text on the
+                corresponding date, making it easier to track progress and deadlines.</p> 
+            <p>The <strong>Event Markers</strong> provides several properties to customize the appearance and behavior of markers:</p>
             <ul>
                 <li><code>cssClass</code>: Apply custom CSS styles to a specific marker.</li>
                 <li><code>day</code>: Define the exact date for the event marker.</li>
                 <li><code>label</code>: Display text along the vertical line to describe the event.</li>
-                <li><code>top</code>: Adjust the vertical position of the marker from the chart pane's content top to avoid overlap when multiple markers share the same date.</li>
+                <li><code>top</code>: Adjust the vertical position of the marker from the chart pane's content top to avoid overlap
+                    when multiple markers share the same date.</li>
             </ul>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use a selection and markers features,
+                inject the <code>Selection</code>, <code>DayMarkers</code> modules into the <code>provide</code> section.
             </p>
-            <p>The Gantt Chart component is modular, with features separated into individual modules. To enable selection support and event markers, inject the <code>Selection</code> and <code>DayMarkers</code> modules.</p>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/eventmarkers">documentation section</a>.
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/eventmarkers">documentation section</a>.
             </p>
         </div>
     </div>
@@ -55,11 +61,11 @@ export default {
             },
             columns: [
                 { field: 'TaskID', width: 75 },
-                { field: 'TaskName', width: 250 },
+                { field: 'TaskName', width: 280 },
                 { field: 'StartDate' },
                 { field: 'Duration' },
                 { field: 'Progress' },
-                { field: 'Predecessor' },
+                { field: 'Predecessor' }
             ],
             labelSettings: {
                 leftLabel: 'TaskName'

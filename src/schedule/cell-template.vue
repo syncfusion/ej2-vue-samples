@@ -29,6 +29,7 @@
                 <code>cellTemplate</code> option which accepts the template string is used to customize the cell background
                 with specific images and appropriate text on the given date values.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
 
     </div>

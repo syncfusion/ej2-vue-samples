@@ -5,7 +5,8 @@
         <ejs-gantt ref="criticalPath" id="criticalPath" enableCriticalPath="true" :editSettings="editSettings"
           :dataSource="dataSource" :taskFields="taskFields" :toolbar="toolbar" :height="height" :rowHeight="46"
           :taskbarHeight="25" :labelSettings="labelSettings" :projectStartDate="projectStartDate"
-          :columns="columns" :splitterSettings="splitterSettings"></ejs-gantt>
+          :eventMarkers="eventMarkers" :columns="columns" :splitterSettings="splitterSettings" :timelineSettings="timelineSettings">
+        </ejs-gantt>
       </div>
     </div>
     <div id="action-description">
@@ -14,7 +15,7 @@
 
     <div id="description">
       <p>
-        In this example, you can see how to render a Gantt Chart with critical path.The default timeline view week-day
+        In this example, you can see how to render a Gantt Chart with critical path. The default timeline view week-day
         mode is applied to Gantt Chart.
         The dependency lines are enabled in this example to represent the execution order or the hierarchy between the
         phases.
@@ -23,24 +24,18 @@
         The critical path is a series of tasks (or sometimes only a single task) that controls the calculated finish
         date of the project. If a task in a critical path is delayed, then the entire project will be delayed.
       </p>
+      <p style="font-weight: 500">Injecting Module:</p>
       <p>
-        Injecting Module:
+        Gantt component features are segregated into individual feature-wise modules. To use critical path, selection, edit and toolbar,
+        inject the <code>CriticalPath</code>, <code>Selection</code>, <code>Edit</code> and <code>Toolbar</code> modules using the
+        <code>provide</code> section.
       </p>
-      <p>
-        Gantt control features are segregated into individual feature-wise modules. To use a Critical Path, inject the
-        <code>CriticalPath</code> module.
-      </p>
-      <p>
-        More information on the Critical Path feature can be found in this <a
-          href="https://ej2.syncfusion.com/vue/documentation/gantt/critical-path">documentation section</a>.
-      </p>
-      <br>
-    <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/context-menu">documentation section</a>.</p>
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/critical-path">documentation section</a>.</p>
     </div>
   </div>
 </template>
 <script>
-import { GanttComponent, Toolbar, Edit, Selection, CriticalPath } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Toolbar, Edit, Selection, CriticalPath, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { criticalPathData } from "./data-source";
 
 export default {
@@ -70,7 +65,7 @@ export default {
       toolbar: ['Add', 'Edit', 'Delete', 'CriticalPath'],
       height: '650px',
       labelSettings: {
-        leftLabel: 'TaskName'
+        rightLabel: 'TaskName'
       },
       columns: [
         { field: 'TaskID', width: 80 },
@@ -79,17 +74,27 @@ export default {
         { field: 'EndDate' },
         { field: 'Duration' },
         { field: 'Predecessor' },
-        { field: 'Progress' },
+        { field: 'Progress' }
+      ],
+      eventMarkers: [
+        {
+          day: new Date('2025-04-02'),
+          cssClass: 'e-custom-event-marker',
+          label: 'Project planning and kickoff',
+          top: '138px',
+        }
       ],
       splitterSettings: {
-        columnIndex: 3
+        columnIndex: 2,
       },
-      projectStartDate: new Date('03/26/2025')
+      timelineSettings: {
+        viewEndDate: new Date('06/07/2025'),
+      },
+      projectStartDate: new Date('03/30/2025')
     };
   },
   provide: {
-    gantt: [Edit, Toolbar, Selection, CriticalPath]
-  },
-
+    gantt: [Edit, Toolbar, Selection, CriticalPath, DayMarkers]
+  }
 }
 </script>

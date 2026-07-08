@@ -7,7 +7,7 @@
             :promptSuggestions="activeSuggestions"
             :promptRequest="promptRequest"
             :showHeader="showHeader"
-            :stopRespondingClick="handleStopResponse"
+            :enableStreaming="true"
             :enableAttachments="true" 
             :attachmentSettings="attachmentSettings"
             :footerToolbarSettings="footerToolbarSettings"
@@ -61,7 +61,7 @@
 </div>
 <div id="action-description">
 <p>
-  This example demonstrates the <strong>AI AssistView</strong> designed to integrate multiple AI models: 
+  This example demonstrates the <strong>AI AssistView</strong> designed to integrate multiple AI conversation: 
   <code>Azure OpenAI</code>, <code>Gemini</code> and <code>DeepSeek</code>.
 </p>
 </div>
@@ -84,8 +84,6 @@ import { SidebarComponent } from "@syncfusion/ej2-vue-navigations";
 import { ButtonComponent } from "@syncfusion/ej2-vue-buttons";
 import { ListViewComponent } from "@syncfusion/ej2-vue-lists";
 import { ToastComponent } from "@syncfusion/ej2-vue-notifications";
-import { marked } from 'marked';
-import { getOpenAiModelAI, getGeminiAIAssit, getdeepSeekAIAssit} from './service.js';
 
 export default {
     components: {
@@ -100,11 +98,10 @@ export default {
         return {
             suggestions: [
                 'What are the best tools for organizing tasks?',
-                'How can I maintain work-life balance?',
+                'How can I maintain work-life balance?'
             ],
             selectedConvId: '',
             listData: [],
-            stopStreaming: false,
             isMobile: false,
             activePrompts: [], 
             activeSuggestions: [],
@@ -114,17 +111,10 @@ export default {
             enableGesture: false,
             showBackdrop: false,
             type: 'Push',
-            geminiApiKey: '',
-            geminiModel: '',
-            deepseekApiKey: '',
-            azureApiKey: '', // or put a dedicated Azure key here
-            azureEndpoint: '', // REPLACE
-            azureDeployment: '', // REPLACE with your exact deployment name
-            azureApiVersion: '',
             models: [
+                { id: 'openai', name: 'GPT-4o-mini' },
                 { id: 'gemini', name: 'Gemini 2.5 Flash' },
-                { id: 'deepseek', name: 'DeepSeek-R1' },
-                { id: 'openai', name: 'GPT-4o-mini' }
+                { id: 'deepseek', name: 'DeepSeek-R1' }
             ],
             modelFields: { text: 'name', value: 'id' },
             selectedModel: 'openai',
@@ -174,9 +164,6 @@ export default {
                 content: `<div class="toast-content"><span class="e-icons e-magic-wand"> </span> <span>You are using <b>${modelName}</b> with standard access</span></div>`,
             });
         },
-        handleStopResponse() {
-            this.stopStreaming = true;
-        },
         promptRequest(args) {
             if (!args.prompt || !args.prompt.trim()) {
                 return;
@@ -186,15 +173,12 @@ export default {
             }
             this.updateBannerStyle();
             this.updateConversationName(args.prompt);
-            if (this.selectedModel === 'gemini') {
-                this.handleGeminiRequest(args);
-            } 
-            else if(this.selectedModel === 'deepseek') {
-                this.handleDeepSeekRequest(args);
-            }
-            else {
-                this.handleOpenAIRequest(args);
-            }
+            // Integrate your preferred AI model here to generate and return a custom response.
+            setTimeout(() => {
+            let errorMessage = '⚠️ Something went wrong while connecting to the AI service. Please check your API key.';
+            this.$refs.aiAssistViewInst.ej2Instances.addPromptResponse(errorMessage, true);
+            this.checkAndUpdateLocalStorage();
+            }, 1000);
         },
         onItemSelect(item) {
         this.selectedConvId = item.id;
@@ -325,89 +309,6 @@ export default {
     InitializingApp() {
             this.checkInitialLocalStorage();
         },
-        async streamAIResponse(fullResponse) {
-            let streamedResponseText = '';
-            if (fullResponse) {
-                let i = 0;
-                while (i < fullResponse.length && !this.stopStreaming) {
-                    streamedResponseText += fullResponse[i];
-                    i++;
-                    this.$refs.aiAssistViewInst.addPromptResponse(
-                        marked.parse(streamedResponseText),
-                        false
-                    );
-                    await new Promise((resolve) => setTimeout(resolve, 10));
-                }
-            }
-            return streamedResponseText;
-        },
-        
-        async handleGeminiRequest(args) {
-            this.stopStreaming = false;
-            try {
-                this.activeSuggestions = [];
-                const fullResponse = await getGeminiAIAssit(
-                    this.geminiApiKey,
-                    args.prompt
-                );
-                const streamedText = await this.streamAIResponse(fullResponse);
-                if (!this.stopStreaming) {
-                    this.$refs.aiAssistViewInst.addPromptResponse(marked.parse(streamedText), true);
-                    this.activePrompts = this.$refs.aiAssistViewInst.prompts;
-                    this.checkAndUpdateLocalStorage();
-                }
-            } catch (error) {
-                setTimeout(() => {
-                    const errorMessage = '⚠️ Something went wrong while connecting to the Gemini service. Please check your API key.';
-                    this.$refs.aiAssistViewInst.addPromptResponse(marked.parse(errorMessage), true);
-                    this.activePrompts = this.$refs.aiAssistViewInst.prompts;
-                    this.checkAndUpdateLocalStorage();
-                },1000);
-            }
-        },
-        async handleDeepSeekRequest(args) {
-            this.stopStreaming = false;
-            try {
-                 this.activeSuggestions = [];
-                const fullResponse = await getdeepSeekAIAssit(this.deepseekApiKey, args.prompt);
-                const streamedText = await this.streamAIResponse(fullResponse);
-                if (!this.stopStreaming) {
-                    this.$refs.aiAssistViewInst.addPromptResponse(marked.parse(streamedText), true);
-                    this.activePrompts = this.$refs.aiAssistViewInst.prompts;
-                    this.checkAndUpdateLocalStorage();
-                }
-            } catch (error) {
-                setTimeout(() => {
-                    const errorMessage = '⚠️ Something went wrong while connecting to the DeepSeek service. Please check your API key.';
-                    this.$refs.aiAssistViewInst.addPromptResponse(marked.parse(errorMessage), true);
-                    this.activePrompts = this.$refs.aiAssistViewInst.prompts;
-                    this.checkAndUpdateLocalStorage();
-                },1000);
-            }
-        },
-        async handleOpenAIRequest(args) {
-            this.stopStreaming = false;
-            try {
-                 this.activeSuggestions = [];
-                const fullResponse = await getOpenAiModelAI(
-                    this.openaiApiKey,
-                    args.prompt
-                );
-                const streamedText = await this.streamAIResponse(fullResponse);
-                if (!this.stopStreaming) {
-                    this.$refs.aiAssistViewInst.addPromptResponse(marked.parse(streamedText), true);
-                    this.activePrompts = this.$refs.aiAssistViewInst.prompts;
-                    this.checkAndUpdateLocalStorage();
-                }
-            } catch (error) {
-                setTimeout(() => {
-                    const errorMessage = '⚠️ Something went wrong while connecting to the OpenAI service. Please check your API key.';
-                    this.$refs.aiAssistViewInst.addPromptResponse(marked.parse(errorMessage), true);
-                    this.activePrompts = this.$refs.aiAssistViewInst.prompts;
-                    this.checkAndUpdateLocalStorage();
-                },1000);
-            }
-        }
     },
     mounted() {
         this.InitializingApp();
@@ -462,11 +363,11 @@ span.e-input-group.e-control-wrapper.e-ddl.e-lib.e-keyboard.e-valid-input {
   padding-left: 17px;
   border-bottom: 1px solid #dee2e6;
 }
-.header-icon {
+#assistantSidebar .header-icon {
   font-size: 20px;
   margin-right: 10px;
 }
-.header-title {
+#assistantSidebar .header-title {
   font-size: 16px;
   font-weight: 500;
 }

@@ -15,7 +15,8 @@
     </div>
 
     <div id="action-description">
-      <p>This sample demonstrates the various phases involved in constructing a residential house, from testing
+      <p>
+        This sample demonstrates the various phases involved in constructing a residential house, from testing
         the soil to handing over the fully constructed property to the owner. This also demonstrates the usage of
         default and custom context menu in Gantt component.
       </p>
@@ -52,37 +53,31 @@
           </ul>
         </li>
       </ul>
-
       <p>Custom items:</p>
       <p>
         In this demo, custom menu items have been enabled in the context menu to perform expanding and collapsing the
         parent rows,
+      </p>
       <ul>
         <li><code>Expand the Row</code> - Used to expand the parent row and it will render where the row is in a
           collapsed state.</li>
         <li><code>Collapse the Row</code> - Used to collapse the parent row and it will render where the row is in a
           expanded state.</li>
       </ul>
-      To use context menu feature, we need to inject <code>ContextMenu</code> module into the <code>provide</code>
-      section.
+      <p style="font-weight: 500">Injecting Module:</p>
+      <p>
+          Gantt component features are segregated into individual feature-wise modules. To use selection, sort, context menu,
+          edit, toolbar, markers and filter features, inject the <code>Selection</code>, <code>Sort</code>, <code>ColumnMenu</code>,
+          <code>Edit</code>, <code>Toolbar</code>, <code>DayMarkers</code> and <code>Filter</code> modules using the
+          <code>provide</code> section.
       </p>
-      <br>
-      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
           href="https://ej2.syncfusion.com/vue/documentation/gantt/context-menu">documentation section</a>.</p>
     </div>
   </div>
 </template>
 <script>
-import {
-  GanttComponent,
-  Edit,
-  Selection,
-  Toolbar,
-  DayMarkers,
-  ContextMenu,
-  Sort,
-  Resize
-} from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Edit, Selection, Toolbar, DayMarkers, ContextMenu, Sort, Resize } from "@syncfusion/ej2-vue-gantt";
 import { editingData, editingResources } from "./data-source";
 
 export default {
@@ -167,7 +162,6 @@ export default {
         { field: "Progress" },
         { field: "Predecessor" }
       ],
-
       labelSettings: {
         leftLabel: "TaskName",
         rightLabel: "resources"
@@ -179,9 +173,9 @@ export default {
         { type: "Notes" }
       ],
       projectStartDate: new Date('03/25/2025'),
-      projectEndDate: new Date('09/01/2025'),
+      projectEndDate: new Date('09/08/2025'),
       splitterSettings: {
-        position: "35%"
+        columnIndex: 3
       }
     };
   },

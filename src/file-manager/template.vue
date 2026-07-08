@@ -62,6 +62,7 @@
         The detailsViewSettings template shows file information like name, size, and modified date in columns.
         File operations such as Open, Delete, Download, and Refresh are handled through a dropdown menu on each item. Selecting a menu option invokes the corresponding File Manager methods (openFile, downloadFiles, deleteFiles, and refreshFiles).
       </p>
+      <p>Looking for the full Vue File Manager component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-file-manager">Vue File Manager</a> page.</p>
     </div>
   </div>
 </template>
@@ -76,7 +77,7 @@ import {
 import { DropDownButtonComponent as EjsDropDownButton } from '@syncfusion/ej2-vue-splitbuttons';
 import { createApp, ref, onMounted } from 'vue';
 
-const hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
+const hostUrl = 'https://physical-service.syncfusion.com/';
 
 const app = createApp();
 const demoNavigationPaneTemplate = app.component('navigationPaneTemplate', {
@@ -334,7 +335,8 @@ export default {
         mp3: 'background-audio',
         docx: 'background-doc',
         txt: 'background-txt',
-        xlsx: 'background-xlsx'
+        xlsx: 'background-xlsx',
+        zip: 'background-zip'
       };
 
       if (!item.isFile) return 'file-icon background-folder';
@@ -550,6 +552,7 @@ export default {
 .background-video { background-image: url('../../styles/images/video.png'); }
 .background-audio { background-image: url('../../styles/images/music.png'); }
 .background-xlsx { background-image: url('../../styles/images/xlsx.png'); }
+.background-zip { background-image: url('../../styles/images/zip.svg'); }
 
 /* People */
 .background-Adam { background-image: url('../../styles/images/Adam.png'); }

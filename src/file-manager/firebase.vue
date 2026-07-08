@@ -14,6 +14,7 @@
         <p>Checkout this <a target="_blank" href="https://github.com/SyncfusionExamples/firebase-realtime-database-aspcore-file-provider">Firebase Realtime Database file system provider</a> from the GitHub repository to connect with <code>RegisterFirebaseRealtimeDB</code> method.</p>
         
         <b>Note: </b>File Manager's upload functionality is restricted in online demos for security reasons. To work with upload functionality, please download <a target="_blank" href="https://github.com/SyncfusionExamples/firebase-realtime-database-aspcore-file-provider">firebase-realtime-database-aspcore-file-provider</a> from the GitHub repository.
+        <p>Looking for the full Vue File Manager component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-file-manager">Vue File Manager</a> page.</p>
     </div>
 </div>
 </template>
@@ -28,7 +29,7 @@ import { FileManagerComponent, NavigationPane, Toolbar, DetailsView } from "@syn
 /**
  * File Manager sample with firebase realtime database service
  */
-let hostUrl = 'https://realtime-firebase.azurewebsites.net/';
+let hostUrl = 'https://firebase-service.syncfusion.com/';
 
 export default {
      components: {

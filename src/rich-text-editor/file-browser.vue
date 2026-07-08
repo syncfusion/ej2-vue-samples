@@ -38,7 +38,7 @@
 <script>
 import { RichTextEditorComponent, Toolbar, Image, Link, HtmlEditor, QuickToolbar, FileManager, PasteCleanup, Table, Video, Audio, ClipBoardCleanup, AutoFormat } from "@syncfusion/ej2-vue-richtexteditor";
 
-let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
+let hostUrl = 'https://services.syncfusion.com/vue/production/';
 
 export default {
     components: {
@@ -51,12 +51,11 @@ export default {
             },
             fileManagerSettings: {
                 enable: true,
-                path: '/Pictures/Food',
                 ajaxSettings: {
-                    url: hostUrl + 'api/FileManager/FileOperations',
-                    getImageUrl: hostUrl + 'api/FileManager/GetImage',
-                    uploadUrl: hostUrl + 'api/FileManager/Upload',
-                    downloadUrl: hostUrl + 'api/FileManager/Download'
+                    url: hostUrl + 'api/RichTextEditor/FileOperations',
+                    getImageUrl: hostUrl + 'api/RichTextEditor/GetImage',
+                    uploadUrl: hostUrl + 'api/RichTextEditor/Upload',
+                    downloadUrl: hostUrl + 'api/RichTextEditor/Download'
                 }
             }
         };

@@ -40,6 +40,7 @@
             "url": "outlook-style-layout",
             "name": "Outlook-style Layout",
             "category": "Use Case",
+            "ignoreOnBuild": true,
             "hideOnDevice": true,
             "description":"The example explains how to construct an outlook style layout using Vue Splitter, TreeView, ListView, and Rich Text Editor with multiple panes.",
             "sourceFiles":[

@@ -1,7 +1,7 @@
 <template>
     <div class="col-lg-12 control-section">
         <div class="default-aiassistview">
-            <ejs-aiassistview id="aiAssistView" ref="aiassist" :promptSuggestions="suggestion" :promptRequest="onPromptRequest" :toolbarSettings="assistToolbars" bannerTemplate="bannerTemplate">
+            <ejs-aiassistview id="aiAssistView" ref="aiassist" :promptSuggestions="suggestion" :enableStreaming="true" :promptRequest="onPromptRequest" :toolbarSettings="assistToolbars" bannerTemplate="bannerTemplate">
                 <template v-slot:bannerTemplate="{data}">
                     <div class="banner-content">
                         <div class="e-icons e-assistview-icon"></div>

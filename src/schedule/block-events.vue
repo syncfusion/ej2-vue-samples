@@ -38,6 +38,7 @@
                     defined by setting <code>isBlock</code> field to true within the <code>eventSettings</code> and assigned
                     altogether with the events <code>dataSource</code>.
                 </p>
+                <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
             </div>
         </div>
     </div>

@@ -40,6 +40,9 @@
         exceeds its element height and horizontal scrollbar will appear when the
         total column width exceeds the element's width.
     </p>
+    <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p>
 </div>
 
 </div>

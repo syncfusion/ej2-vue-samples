@@ -49,7 +49,7 @@
     <div id="action-description">
       <p>
         This sample provides a visual representation of a streamlined workflow
-        diagram built using the Syncfusion<sup>®</sup> EJ2 Diagram control with
+        diagram built using the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> control with
         BPMN shapes.
       </p>
     </div>
@@ -197,7 +197,7 @@
 </style>
 
 <script>
-// Import necessary components from Syncfusion Vue library
+// Import necessary components from Vue Diagram library
 import {
   DiagramComponent,
   SymbolPaletteComponent,

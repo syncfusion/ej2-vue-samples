@@ -50,6 +50,7 @@
         In this example, the resource appointments are dynamically shown or hidden on the Scheduler, by passing the
         filtered event data of selected resources to the <code>query</code> option of the <code>eventSettings</code>.
     </p>
+    <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
     </div>
 </div>
 </template>

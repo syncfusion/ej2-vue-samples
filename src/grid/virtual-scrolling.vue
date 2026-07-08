@@ -18,7 +18,7 @@
               <e-column field='OrderDate' headerText='Order Date' width='140' format='yMd' textAlign='Right' editType='datepickeredit'></e-column>
               <e-column field='ShipDate' headerText='Ship Date' width='140' format='yMd' textAlign='Right' editType='datepickeredit'></e-column>
               <e-column field='OrderStatus' headerText='Order Status' width='140' textAlign='Center' editType='dropdownedit' :template="'orderStatusTemplate'" :validationRules='validationRule'></e-column>
-              <e-column field='Priority' headerText='Priority' width='120' textAlign='Center' editType='dropdownedit' :template="'priorityTemplate'" :validationRules='validationRule'></e-column>
+              <e-column field='Priority' headerText='Priority' width='120' textAlign='Center' editType='dropdownedit' :template="'priorityTemplate'"></e-column>
               <e-column field='CustomerName' headerText='Customer Name' width='190' :validationRules='validationRule'></e-column>
               <e-column field='CustomerID' headerText='Customer ID' width='110' visible='false'></e-column>
               <e-column field='Email' headerText='Email' width='200'></e-column>
@@ -41,7 +41,7 @@
               <e-column field='TaxAmount' headerText='Tax Amount' width='110' format='C2' textAlign='Right' editType='numericedit' :editParams='{ showSpinButton: false }'></e-column>
               <e-column field='ShipFee' headerText='Ship Fee' width='120' format='C2' textAlign='Right' editType='numericedit' :editParams='{ showSpinButton: false }'></e-column>
               <e-column field='TotalAmount' headerText='Total Amount' width='120' format='C2' textAlign='Right' editType='numericedit' :editParams='{ showSpinButton: false }'></e-column>
-              <e-column field='PaymentMethod' headerText='Payment Method' width='140' editType='dropdownedit' :template="'paymentMethodTemplate'" :validationRules='validationRule'></e-column>
+              <e-column field='PaymentMethod' headerText='Payment Method' width='140' editType='dropdownedit' :validationRules='validationRule' :template="'paymentMethodTemplate'"></e-column>
               <e-column field='PaymentStatus' headerText='Payment Status' width='140' textAlign='Center' editType='dropdownedit' :template="'paymentStatusTemplate'" :validationRules='validationRule'></e-column>
               <e-column field='Rating' headerText='Delivery Rating' width='160' textAlign='Center' editType='dropdownedit' :template="'ratingTemplate'" :visible='false'></e-column>
             </e-columns>
@@ -118,7 +118,7 @@
 
      <div id="description">
        <p>
-        The virtual scrolling feature in the Grid renders only the rows and columns that are currently visible in the viewport, rather than loading the entire dataset into the DOM. This approach significantly improves performance when working with large data sources by reducing the number of DOM elements.
+          The virtual scrolling feature in the Grid renders only the rows and columns that are currently visible in the viewport, rather than loading the entire dataset into the DOM. This approach significantly improves performance when working with large data sources by reducing the number of DOM elements.
       </p>
       <p>
         To enable row virtualization, set the <code><a target="_blank" class="code"
@@ -143,6 +143,11 @@
       href="https://ej2.syncfusion.com/vue/documentation/grid/scrolling/virtual-scrolling">
       documentation</a>.
     </p>
+     <p>
+        Looking for the full Vue Data Grid component overview, features, pricing, and documentation? Visit our
+        <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-data-grid">
+          Vue Data Grid component</a> page.
+      </p>
     </div>
 </div>
 </template>

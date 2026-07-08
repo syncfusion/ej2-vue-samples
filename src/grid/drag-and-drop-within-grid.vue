@@ -6,7 +6,7 @@
     </div>
     <div>
         <div class="control-section">
-        <ejs-grid ref="grid" :dataSource="data" :height="400" :allowRowDragAndDrop="true" :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar' :allowGrouping='true' :selectionSettings="selection" :created='created'>
+        <ejs-grid ref="grid" id='GridDragDrop' :dataSource="data" :height="400" :allowRowDragAndDrop="true" :allowSorting='true' :allowFiltering='true' :filterSettings='filterSettings' :editSettings='editSettings' :toolbar='toolbar' :allowGrouping='true' :selectionSettings="selection" :created='created'>
             <e-columns>
                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                 <e-column field='CustomerName' headerText='Customer Name' width='150' :validationRules='customeridrules'></e-column>
@@ -39,7 +39,13 @@
         <p>
             The row drag and drop functionality is enabled with grouped records in the grid.
             Now, you can drag and drop the records from one group to another group of your choice.
-        </p>     
+        </p>
+        <p>
+            Looking for the full Vue Data Grid component overview, features, pricing, and documentation? Visit our
+            <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-data-grid">
+                Vue Data Grid component</a> page.
+        </p>
+
     </div>
 
 </div>
@@ -61,7 +67,7 @@ export default {
       alertHeader: 'Grouping',
       alertContent: 'Grouping is disabled for this column',
       showCloseIcon: false,
-      target: '.control-section',  
+      target: '#GridDragDrop',  
       alertWidth: '300px',
       animationSettings: { effect: 'None' },
       alertDlgButtons: [{ click: ((<any>this).alertDlgBtnClick as any), buttonModel: { content: 'OK', isPrimary: true } }],

@@ -1,79 +1,62 @@
 <template>
-<div>
-<div class="control-section">
-    <div class="content-wrapper">
-        <ejs-gantt ref='gantt' id="ResourceView"  
-            :dataSource= "data"
-            :viewType="viewType"
-            :taskFields= "taskFields"
-            :allowSelection= "true"
-            :allowResizing= "true"
-            :resourceFields= "resourceFields"
-	    :taskType = "taskType"
-            :editSettings= "editSettings"
-            :toolbar= "toolbar"
+    <div>
+        <div class="control-section">
+            <div class="content-wrapper">
+                <ejs-gantt ref='gantt' id="ResourceView" :dataSource= "data" :viewType="viewType" :taskFields= "taskFields"
+                    :allowSelection= "true" :allowResizing= "true" :resourceFields= "resourceFields" :taskType = "taskType"
+                    :editSettings= "editSettings" :toolbar= "toolbar" :height="height" :rowHeight="46" :taskbarHeight="25"
+                    :treeColumnIndex= "1" :resources= "resources" :highlightWeekends= "true" :columns= "columns"
+                    :labelSettings= "labelSettings" :projectStartDate= "projectStartDate" :projectEndDate= "projectEndDate"
+                    :splitterSettings= "splitterSettings" :showOverAllocation= "true" v-on:toolbarClick= "toolbarClick">
+                </ejs-gantt>
+            </div>
+        </div>
 
-:height="height"
-:rowHeight="46"
-:taskbarHeight="25"
-            :treeColumnIndex= "1"
-            :resources= "resources"
-            :highlightWeekends= "true"
-            :columns= "columns"
-            :labelSettings= "labelSettings"
-            :projectStartDate= "projectStartDate"
-            :projectEndDate= "projectEndDate"
-            :splitterSettings= "splitterSettings"
-			:showOverAllocation= "true"
-			v-on:toolbarClick= "toolbarClick">
-        </ejs-gantt>
+        <div id="action-description">
+            <p>This sample explains the Resource break down view in the Gantt Chart that is 
+                how to visualize the list of tasks assigned to each resource in hierarchy manner and switch the resources as per users need by task
+                editing mode.If the no resources are mapped in a task, then it will come under “unassigned Tasks” category. 
+                This feature can be enabled by setting the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#viewtype">viewType</a> property to “ResourceView”.
+            </p>
+            <p>When a resource is assigned with two or more tasks which is scheduleduling on a same date is termed as over allocation for a resource.
+                The number of over allocation dates ranges are highlighted as with square bracket. The following sample demonstrates the over allocation for a resource.
+                In this sample, over allocation can be hidden by using the CSS 'visibility' property on custom toolbar item action.
+            </p>
+        </div>
+
+        <div id="description">
+            <p>
+                In this example, you can see the resource break down from a bulk of tasks done by mapping the predefined resource IDs to each task and resource information can be shown by using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#labelsettings">labelSetting</a> property. 
+                Using the toolbar action, you can perform CRUD operation for resource allocation based on their availability and task complexity.
+            </p>
+            <p>The resources and tasks assigned to those resources can be grouped into categories. Resources can be mapped using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#resourcefields">resourceFields:</a>.</p>
+            <ul>
+                <li><code>ID</code>: To map resource ID.</li>
+                <li><code>Name</code>: To map resource name.</li>
+                <li><code>Unit</code>: To map resource unit.</li>
+                <li><code>Group</code>: To map resource group.</li>
+            </ul>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                The Gantt control features are segregated into individual feature-wise modules. To use selection, markers, toolbar,
+                editing and resize features, inject the <code>Selection</code>, <code>DayMarkers</code>, <code>Toolbar</code>,
+                <code>Edit</code> and <code>Resize</code> modules using the <code>provide</code> section.
+            </p>   
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/resource-view">documentation section</a>.</p>
+        </div>
     </div>
-</div>
-
-<div id="action-description">
-    <p>This sample explains the Resource break down view in the Gantt Chart that is 
-        how to visualize the list of tasks assigned to each resource in hierarchy manner and switch the resources as per users need by task
-        editing mode.If the no resources are mapped in a task, then it will come under “unassigned Tasks” category. 
-        This feature can be enabled by setting the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#viewtype">viewType</a> property to “ResourceView”.
-    </p>
-    <p>When a resource is assigned with two or more tasks which is scheduleduling on a same date is termed as over allocation for a resource.
-        The number of over allocation dates ranges are highlighted as with square bracket. The following sample demonstrates the over allocation for a resource.
-        In this sample, over allocation can be hidden by using the CSS ‘visibility’ property on custom toolbar item action.
-    </p>
-</div>
-
-<div id="description">
-    <p>
-        In this example, you can see the resource break down from a bulk of tasks done by mapping the predefined resource ID-s to each task and resource information can be shown by using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#labelsettings">labelSetting</a> property. 
-        Using the toolbar action, you can perform CRUD operation for resource allocation based on their availability and task complexity.</p>
-        <p>The resources and tasks assigned to those resources can be grouped into categories. Resources can be mapped using the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#resourcefields">resourceFields:</a>.</p>
-        <p><code>ID</code>: To map resource ID.</p>
-        <p><code>Name</code>: To map resource name.</p>
-        <p><code>Unit</code>: To map resource unit.</p>
-        <p><code>Group</code>: To map resource group.</p>
-    <p>
-        The Gantt control features are segregated into individual feature-wise modules. To use a selection, inject the
-        <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code> method. To use markers, inject the
-        <code>DayMarkers</code> module using the <code>Gantt.Inject(DayMarkers)</code> method.
-        To edit,  inject the <code>Toolbar</code> module using the <code>Gantt.Inject(Toolbar)</code> method and <code>Edit</code> module
-        using the <code>Gantt.Inject(Edit)</code> method.
-    </p>   
-    <br>
-      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started">documentation section</a>.</p>
-    </div>
-</div>
 </template>
 <script>
-import { GanttComponent, Selection, Edit, DayMarkers, Toolbar, Resize  } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, Edit, DayMarkers, Toolbar, Resize } from "@syncfusion/ej2-vue-gantt";
 import { resourcesData, resourceCollection } from './data-source';
 
 export default {
-  components: {
-    'ejs-gantt': GanttComponent
-  },
-  data: function() {
-      return{
+    components: {
+        'ejs-gantt': GanttComponent
+    },
+    data: function() {
+        return{
             data: resourcesData,
             resources: resourceCollection,
             viewType: 'ResourceView',
@@ -89,24 +72,24 @@ export default {
                 work: 'work',
                 child: 'subtasks'
             },
-	    taskType: "FixedWork",
+            taskType: "FixedWork",
             resourceFields: {
                 id: 'resourceId',
                 name: 'resourceName',
                 unit: 'resourceUnit',
                 group: 'resourceGroup'
             },
-           toolbar: ['Add', 'Edit', 'Update', 'Delete', 'Cancel', 'ExpandAll', 'CollapseAll',
-           { text: 'Show/Hide Overallocation', tooltipText: 'Show/Hide Overallocation', id: 'showhidebar' }],
+            toolbar: ['Add', 'Edit', 'Update', 'Delete', 'Cancel', 'ExpandAll', 'CollapseAll',
+            { text: 'Show/Hide Overallocation', tooltipText: 'Show/Hide Overallocation', id: 'showhidebar' }],
             height: '650px',
             columns: [
                 { field: 'TaskID', visible: false },
-                { field: 'TaskName', headerText: 'Name', width: 250 },
+                { field: 'TaskName', headerText: 'Name', width: 280 },
                 { field: 'work', headerText: 'Work' },
                 { field: 'Progress' },
                 { field: 'resourceGroup', headerText: 'Group' },
                 { field: 'StartDate' },
-                { field: 'Duration' },
+                { field: 'Duration' }
             ],
             editSettings: {
                 allowAdding: true,
@@ -124,17 +107,17 @@ export default {
             splitterSettings: {
                 columnIndex: 3
             }
-      };
-  },
-  provide: {
-      gantt: [ Selection, DayMarkers, Toolbar, Edit, Resize]
-  },
-  methods: {
-    toolbarClick: function(args) {
-        if (args.item.id === 'showhidebar') {
-                    this.$refs.gantt.ej2Instances.showOverAllocation =  this.$refs.gantt.ej2Instances.showOverAllocation ? false : true;
-                }
+        };
+    },
+    provide: {
+        gantt: [ Selection, DayMarkers, Toolbar, Edit, Resize]
+    },
+    methods: {
+        toolbarClick: function(args) {
+            if (args.item.id === 'showhidebar') {
+                this.$refs.gantt.ej2Instances.showOverAllocation =  this.$refs.gantt.ej2Instances.showOverAllocation ? false : true;
+            }
+        }
     }
-  }
 }
 </script>

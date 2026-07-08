@@ -145,6 +145,10 @@ body.fluent-dark,
     color: #0d6efd;
 }
 
+.fluent-dark .sb-products-popup li:hover.active .sb-products-select {
+    color: #0d6efd;
+}
+
 .fluent-dark .sb-plnr-section {
     line-height: 30px;
     height: 40px;
@@ -163,6 +167,7 @@ body.fluent-dark,
 .fluent-dark .CodeMirror,
 .fluent-dark .sb-api-section,
 .fluent-dark .sb-theme-popup,
+.fluent-dark .sb-products-popup,
 .fluent-dark .copy-tooltip,
 .fluent-dark .e-icons.copycode,
 .fluent-dark #search-input-wrapper input,
@@ -172,6 +177,12 @@ body.fluent-dark,
 }
 
 .fluent-dark .sb-theme-popup {
+    color: #ffffff;
+    background: #252423;
+    border: 1px solid #484644;
+}
+
+.fluent-dark .sb-products-popup {
     color: #ffffff;
     background: #252423;
     border: 1px solid #484644;
@@ -196,8 +207,11 @@ body.fluent-dark,
 .fluent-dark .sb-setting-btn.active,
 .fluent-dark .sb-switch-popup li:hover,
 .fluent-dark .theme-wrapper:hover,
+.fluent-dark .products-wrapper:hover,
 .fluent-dark .theme-wrapper.active,
+.fluent-dark .products-wrapper.active,
 .fluent-dark .sb-theme-popup li:hover,
+.fluent-dark .sb-products-popup li:hover,
 .fluent-dark .sb-search-result .e-list-item:hover,
 .fluent-dark .sb-left-pane .e-listview .e-list-item:hover,
 .fluent-dark .sb-control-navigation .e-treeview .e-list-item.e-active>.e-fullrow {
@@ -230,6 +244,10 @@ body.fluent-dark,
 }
 
 .fluent-dark .sb-theme-popup li.active .sb-theme-select {
+    color: #0d6efd;
+}
+
+.fluent-dark .sb-products-popup li.active .sb-products-select {
     color: #0d6efd;
 }
 

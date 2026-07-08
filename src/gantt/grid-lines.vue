@@ -12,7 +12,7 @@
         <div class="col-md-3 property-section">
             <table id="property" title="Properties">
                 <tr>
-                    <td style="width: 50%; fontSize: 15px">
+                    <td style="width: 50%; font-size: 15px">
                         Grid Lines
                     </td>
                 </tr>
@@ -30,11 +30,9 @@
         </div>
         <div id="description">
             <p>
-                The <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#gridlines">gridLines</a> property is
-                used to control the visibility of line that separates the rows and
-                columns.
-                Gantt allows us to display the following grid lines:
+                The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#gridlines">gridLines</a> property is
+                used to control the visibility of line that separates the rows and columns. Gantt allows us to
+                display the following grid lines:
             </p>
             <ul>
                 <li><code>None</code> - Shows no line.</li>
@@ -42,17 +40,14 @@
                 <li><code>Horizontal</code> - Shows the horizontal line.</li>
                 <li><code>Vertical</code> - Shows the vertical line.</li>
             </ul>
-            <p> In this demo, you can modify the visibility of gridlines by selecting values in dropdown.</p>
-
-            <p>Gantt component features are segregated into individual feature-wise modules.To use a selection, inject
-                the
-                <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code> method.To use markers,
-                inject the <code>DayMarkers</code> module using the <code>Gantt.Inject(DayMarkers)</code> method.
+            <p>In this demo, you can modify the visibility of gridlines by selecting values in dropdown.</p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection and markers features,
+                inject the <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> section.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started">documentation
-                    section</a>.</p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/style-and-appearance#grid-lines">documentation section</a>.</p>
         </div>
     </div>
 </template>
@@ -82,12 +77,12 @@ export default {
             },
             columns: [
                 { field: 'TaskID', width: 70 },
-                { field: 'TaskName', width: 250 },
+                { field: 'TaskName', width: 280 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },
                 { field: 'Predecessor' },
-                { field: 'Progress' },
+                { field: 'Progress' }
             ],
             labelSettings: {
                 leftLabel: 'TaskName'

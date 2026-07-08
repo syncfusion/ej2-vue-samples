@@ -3,6 +3,7 @@
     "directory": "schedule",
     "category": "Calendars",
     "ftName": "scheduler",
+    "type": "update",
     "samples": [{
             "url": "overview",
             "name": "Overview",
@@ -51,6 +52,7 @@
         },
         {
             "url": "event-calendar",
+            "ignoreOnBuild": true,
             "name": "Event Calendar",
             "category": "Product Use Case",
             "description": "This demo shows the way to organize and filter multiple types of events such as Personal, Birthdays, Work, and Holidays in the scheduler.",
@@ -63,6 +65,29 @@
                     "showHeaderBar",
                     "actionComplete",
                     "created"
+                ]
+            }
+        },
+        {
+            "url": "integration-with-chart",
+            "ignoreOnBuild": true,
+            "name": "Integration with Chart",
+            "category": "Product Use Case",
+            "hideOnDevice": true,
+            "type": "new",
+            "description": "This demo shows driver and truck details in a scheduler, with a chart that toggles to summarize each driver's capacity or trip count.",
+            "api": {
+                "Schedule": [
+                    "actionComplete",
+                    "height",
+                    "width",
+                    "resourceHeaderTemplate",
+                    "eventSettings",
+                    "selectedDate",
+                    "renderCell",
+                    "actionComplete",
+                    "group",
+                    "resources"
                 ]
             }
         },
@@ -147,6 +172,7 @@
         },
         {
             "url": "search-events",
+            "ignoreOnBuild": true,
             "name": "Search Events",
             "category": "Appointments",
             "description": "This example shows how to filter the appointments or events of the Vue Scheduler based on a search string in a particular field or all fields.",
@@ -254,6 +280,7 @@
         },
         {
             "url": "grid-to-schedule",
+            "ignoreOnBuild": true,
             "name": "Drag Events From DataGrid",
             "category": "Drag and Drop",
             "description": "This example illustrates how to drag and drop events between the Vue DataGrid and the Vue Scheduler",
@@ -389,7 +416,7 @@
             "url": "view-configuration",
             "name": "Individual View Settings",
             "category": "Views",
-            "description": "TThis demo shows how to configure different settings for each view in the Vue Scheduler, like applying event templates to the month view alone.",
+            "description": "This demo shows how to configure different settings for each view in the Vue Scheduler, like applying event templates to the month view alone.",
             "api": {
                 "Schedule": [
                     "currentView",
@@ -404,6 +431,21 @@
             "name": "View Intervals",
             "category": "Views",
             "description": "This demo shows how to design own custom views like 3 days, 2 weeks, 4 months apart from the default day, work week, month in Vue Event Scheduler.",
+            "api": {
+                "Schedule": [
+                    "currentView",
+                    "views",
+                    "selectedDate",
+                    "eventSettings"
+                ]
+            }
+        },
+        {
+            "url": "limit-concurrent-events",
+            "name": "Limit Concurrent Event",
+            "category": "Views",
+            "type":"new",
+            "description": "This demo shows how to limit the number of concurrent events displayed in a single time slot on the Schedule.",
             "api": {
                 "Schedule": [
                     "currentView",

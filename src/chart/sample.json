@@ -22,7 +22,6 @@
         "url": "line",
         "name": "Line",
         "category": "Line Charts",
-        "type": "update",
         "description": "This demo for Essential JS2 Chart control shows how to render the line series.",
         "sourceFiles": [
             {"displayName": "line.vue", "path": "./src/chart/line.vue"}
@@ -314,7 +313,6 @@
         "name": "Bar with Gradient",
         "description": "This demo for Essential JS2 Chart control shows how to render bar series with gradient.",
         "category": "Bar Charts",
-        "type": "new",
         "sourceFiles": [
             {"displayName": "bar-with-gradient.vue", "path": "./src/chart/bar-with-gradient.vue"}
         ]
@@ -425,11 +423,20 @@
         "name": "Donut with Gradient",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the doughnut charts with gradient.",
         "category": "Accumulation Charts",
-        "type": "new",
         "sourceFiles": [
             {"displayName": "donut-with-gradient.vue", "path": "./src/chart/donut-with-gradient.vue"}
         ]
 
+    },
+    {
+        "url": "nested-donut",
+        "name": "Nested Donut",
+        "description": "This demo for Essential JS2 Chart control shows how to render and configure the nested donut charts with multiple series.",
+        "category": "Accumulation Charts",
+        "type": "new",
+        "sourceFiles": [
+            {"displayName": "nested-donut.vue", "path": "./src/chart/nested-donut.vue"}
+        ]
     },
     {
         "url": "pyramid",
@@ -463,7 +470,6 @@
         "name": "Pie with Legend Template",
         "description": "This demo for EJ2 Accumulation Chart shows how to customize legend items using a template with icons and descriptions.",
         "category": "Accumulation Charts",
-        "type": "new",
         "sourceFiles": [
             {"displayName": "accumulation-legend-template.vue", "path": "./src/chart/accumulation-legend-template.vue"}
         ]
@@ -1109,7 +1115,6 @@
         "name": "Legend Template",
         "description": "This demo for Essential JS2 Chart control shows how to customize chart legends using a template with icons and styled text.",
         "category": "Chart Customization",
-        "type": "new",
         "sourceFiles": [
             {"displayName": "chart-legend-template.vue", "path": "./src/chart/chart-legend-template.vue"}
         ]

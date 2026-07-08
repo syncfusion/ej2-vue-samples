@@ -22,7 +22,7 @@
 </div>
 <div id="action-description">
     <p>
-      This sample demonstrates an interactive Periodic Table of Elements built using the Syncfusion<sup>®</sup> EJ2 Vue Diagram component, displaying all known elements with categorization by color, detailed hover information, and highlighting by period or group.
+      This sample demonstrates an interactive Periodic Table of Elements built using the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> component, displaying all known elements with categorization by color, detailed hover information, and highlighting by period or group.
     </p>
 </div>
 <div id="description">

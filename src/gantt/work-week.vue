@@ -3,7 +3,7 @@
         <div class="col-md-8 control-section">
             <div class="content-wrapper">
                 <ejs-gantt ref='gantt' id="Workweek" :dataSource="data" :height="height" :rowHeight="46"
-                    :taskbarHeight="25" :highlightWeekends='true' :taskFields="taskFields" :columns="columns"
+                    :taskbarHeight="25" :highlightWeekends="true" :taskFields="taskFields" :columns="columns"
                     :labelSettings="labelSettings" :splitterSettings="splitterSettings" :treeColumnIndex="1"
                     :workWeek="workWeek" :projectStartDate="projectStartDate" :projectEndDate="projectEndDate">
                 </ejs-gantt>
@@ -12,8 +12,8 @@
         <div class="col-md-4 property-section" style="padding-left: 0px;">
             <table id="property" title="Properties" style="width: 100%;">
                 <colgroup>
-                    <col style="width:30%" />
-                    <col style="width:70%" />
+                    <col style="width: 30%" />
+                    <col style="width: 70%" />
                 </colgroup>
                 <tr>
                     <td style="width: 30%">
@@ -21,10 +21,10 @@
                     </td>
                     <td style="width: 70%">
                         <div style="padding-top: 0px; width: 210px;">
-                            <ejs-multiselect ref='multiselect' id='WorkingDays' :dataSource='workDays'
-                                :value='defaultWeek' :fields='workFields' :select="selectWeek" :removed="removeWeek"
-                                mode='CheckBox' :showDropDownIcon='showDropDownIcon'
-                                :popupHeight='popHeight'></ejs-multiselect>
+                            <ejs-multiselect ref="multiselect" id="WorkingDays" :dataSource="workDays"
+                                :value="defaultWeek" :fields="workFields" :select="selectWeek" :removed="removeWeek"
+                                mode="CheckBox" :showDropDownIcon="showDropDownIcon"
+                                :popupHeight="popHeight"></ejs-multiselect>
                         </div>
                     </td>
                 </tr>
@@ -60,25 +60,26 @@
         </div>
         <div id="description">
             <p>
-                In this example, you can customize which days of the week are considered working days using the <a
-                    target="_blank"
-                    href="https://helpej2.syncfusion.com/angular/documentation/api/gantt/#workweek">workWeek</a>
-                property.
+                In this example, you can customize which days of the week are considered working days using the <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#workweek">workWeek</a> property.
                 Simply select your preferred working days from the dropdown list in the property panel, and they will be
                 applied to the Gantt Chart. Weekends can be highlighted using the <a target="_blank"
-                    href="https://helpej2.syncfusion.com/angular/documentation/api/gantt/#highlightweekends">highlightweekends</a>
+                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#highlightweekends">highlightweekends</a>
                 property for easy identification.
             </p>
             <p>
                 Non-working days are visible by default in the Gantt Chart timeline, their visibility can be customized
                 using the <a target="_blank"
-                    href="https://ej2.syncfusion.com/angular/documentation/api/gantt/timelineSettingsModel/#showWeekend">timelineSettings.showWeekend</a>
+                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/timelinesettingsmodel#showweekend">timelineSettings.showWeekend</a>
                 property. Setting this to false will hide non-working days from the timeline.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/task-scheduling#weekendnon-working-days">documentation
-                    section</a>.</p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection and markers features,
+                inject the <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/task-scheduling#weekendnon-working-days">documentation section</a>.</p>
         </div>
     </div>
 </template>
@@ -111,12 +112,12 @@ export default {
             },
             columns: [
                 { field: 'TaskID', visible: false, width: 80 },
-                { field: 'TaskName', width: 250 },
+                { field: 'TaskName', width: 280 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },
                 { field: 'Predecessor' },
-                { field: 'Progress' },
+                { field: 'Progress' }
             ],
             labelSettings: {
                 leftLabel: 'TaskName'
@@ -136,11 +137,11 @@ export default {
                 { id: 'Wednesday', day: 'Wednesday' },
                 { id: 'Thursday', day: 'Thursday' },
                 { id: 'Friday', day: 'Friday' },
-                { id: 'Saturday', day: 'Saturday' },
+                { id: 'Saturday', day: 'Saturday' }
             ],
             defaultWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             showDropDownIcon: true,
-            popHeight: '350px',
+            popHeight: '350px'
         };
     },
     provide: {

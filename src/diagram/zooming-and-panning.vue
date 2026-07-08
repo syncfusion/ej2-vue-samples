@@ -6,7 +6,7 @@
     <div class="col-lg-12 control-section">
 
       <!-- Toolbar Buttons with Icons and Tooltips -->
-      <ejs-toolbar id="toolbar_default" ref="toolbar_default":clicked='onItemClick'>
+      <ejs-toolbar id="toolbar_default" ref="toolbar_default" :clicked='onItemClick'>
         <e-items>
           <e-item id='ZoomIn' prefixIcon='e-icons e-zoom-in' tooltipText='Zoom In' type='Button'></e-item>
           <e-item id='ZoomOut' prefixIcon='e-icons e-zoom-out' tooltipText='Zoom Out' type='Button'></e-item>
@@ -14,7 +14,8 @@
           <e-item id='Select' prefixIcon='e-icons e-mouse-pointer' tooltipText='Select' type='Button'></e-item>
           <e-item id='PanTool' prefixIcon='e-icons e-pan' tooltipText='Pan Tool' type='Button'></e-item>
           <e-item id='Reset' prefixIcon='e-icons e-reset' tooltipText='Reset' type='Button'></e-item>
-          <e-item id='FitToPage' prefixIcon='e-icons e-zoom-to-fit' tooltipText='Fit To Page' type='Button'></e-item>
+          <e-item v-if='!isMobileView' id='Separator2' type="Separator"></e-item>
+          <e-item v-if='!isMobileView' id='FitToPage' prefixIcon='e-icons e-zoom-to-fit' tooltipText='Fit To Page' type='Button'></e-item>
           <e-item id='BringIntoView' prefixIcon='e-icons e-bring-to-view' tooltipText='Bring Into View' type='Button'
             disabled=true></e-item>
           <e-item id='BringIntoCenter' prefixIcon='e-icons e-bring-to-center' tooltipText='Bring Into Center' type='Button'
@@ -53,7 +54,9 @@
         options to pan, reset the zoom and zoomin/out the diagram.</p>
       </p>
       <br>
-    </div>
+    
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
+</div>
   </div>
 </template>
 
@@ -95,6 +98,7 @@ export default {
     return {
       width: "100%",
       height: "590px",
+      isMobileView: window.innerWidth <= 550,
       scrollSettings: { scrollLimit: "Infinity" },
       //Sets the constraints of the SnapSettings
       snapSettings: { constraints: SnapConstraints.None },

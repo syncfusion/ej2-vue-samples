@@ -60,6 +60,7 @@
                 are considered as weekend days and will be hidden from the views as the
                 <code>showWeekend</code> property is set to false.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

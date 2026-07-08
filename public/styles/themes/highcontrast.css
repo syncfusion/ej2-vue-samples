@@ -47,6 +47,7 @@
 .highcontrast .CodeMirror,
 .highcontrast .sb-api-section,
 .highcontrast .sb-theme-popup,
+.highcontrast .sb-products-popup,
 .highcontrast .copy-tooltip,
 .highcontrast .e-icons.copycode,
 .highcontrast #search-input-wrapper input,
@@ -61,6 +62,10 @@
 }
 
 .highcontrast .sb-theme-select {
+    color: #000000;
+}
+
+.highcontrast .sb-products-select {
     color: #000000;
 }
 
@@ -102,7 +107,8 @@ body.highcontrast,
 .highcontrast .sample-navigation>button:hover,
 .highcontrast .sb-switch-popup li:first-child,
 .highcontrast .sb-left-pane .e-listview .e-list-group-item,
-.highcontrast .sb-theme-popup li.active .sb-theme-select {
+.highcontrast .sb-theme-popup li.active .sb-theme-select,
+.highcontrast .sb-products-popup li.active .sb-products-select {
     color: #ffd939;
 }
 
@@ -121,6 +127,10 @@ body.highcontrast,
 }
 
 .highcontrast .sb-theme-popup {
+    background: #000000;
+}
+
+.highcontrast .sb-products-popup {
     background: #000000;
 }
 
@@ -163,9 +173,12 @@ body.highcontrast,
 .highcontrast .sb-setting-btn.active,
 .highcontrast .sb-switch-popup li:hover,
 .highcontrast .theme-wrapper:hover,
+.highcontrast .products-wrapper:hover,
 .highcontrast #themeMode-switch-btn:hover,
 .highcontrast .theme-wrapper.active,
+.highcontrast .products-wrapper.active,
 .highcontrast .sb-theme-popup li:hover,
+.highcontrast .sb-products-popup li:hover,
 .highcontrast .sb-search-result .e-list-item:hover,
 .highcontrast .sb-left-pane .e-listview .e-list-item:hover {
     background-color: #685708;
@@ -251,7 +264,15 @@ body.highcontrast,
     color: transparent;
 }
 
+.highcontrast .sb-products-popup li:hover .sb-products-select {
+    color: transparent;
+}
+
 .highcontrast .sb-theme-popup li:hover.active .sb-theme-select {
+    color: white;
+}
+
+.highcontrast .sb-products-popup li:hover.active .sb-products-select {
     color: white;
 }
 

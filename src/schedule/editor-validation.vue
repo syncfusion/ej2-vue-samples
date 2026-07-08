@@ -37,6 +37,7 @@
                 when the selected end time occurs before the start time, a validation message will be displayed as well as
                 when some unwanted characters are typed into the date fields, the invalid date message will be alerted.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

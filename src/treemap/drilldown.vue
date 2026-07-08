@@ -1,7 +1,7 @@
 <template>
 <main><div>
     <div class="col-lg-9 control-section">
-        <ejs-treemap id='container' ref='treemap' align="center" :load='load' :drillStart='drillStart' :tooltipRendering='tooltipRendering' :palette='palette' :titleSettings='titleSettings' :enableDrillDown='enableDrillDown' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :weightValuePath='weightValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings' :levels='levels'></ejs-treemap>
+        <ejs-treemap id='container' ref='treemap' align="center" :load='load' :drillStart='drillStart' :palette='palette' :titleSettings='titleSettings' :enableDrillDown='enableDrillDown' format='n' :useGroupingSeparator='useGroupingSeparator' :dataSource='dataSource' :weightValuePath='weightValuePath' :tooltipSettings='tooltipSettings' :leafItemSettings='leafItemSettings' :levels='levels'></ejs-treemap>
     <div style="float: right; margin-right: 10px;">Source:
         <a href="https://en.wikipedia.org/wiki/List_of_continents_by_population" target="_blank">en.wikipedia.org</a>
     </div>
@@ -154,11 +154,6 @@ methods:{
                 args.treemap.levels[2].showHeader = true;
             } else {
                 args.treemap.levels[2].showHeader = false;
-        }
-    },
-    tooltipRendering:function(args){
-         if (args.item['groupIndex'] !== 2 ) {
-                args.cancel = true;
         }
     },
     changeHeader: function(args){

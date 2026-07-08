@@ -42,6 +42,7 @@
             </ul>
             <p>The Agenda and MonthAgenda views shares the same layout for both the vertical and timeline views.</p> <br>
             <p>To use any of the timeline views such as day, week and work week in your application, the common <code>TimelineViews</code> module needs to be injected into the <code>provide</code> section. If in case, the timeline month view needs to be utilized, then <code>TimelineMonth</code> module needs to be injected.</p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
     </div>
 </template>

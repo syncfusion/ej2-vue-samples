@@ -49,6 +49,7 @@
         In this case, if all the selected events are in the different resources, 
         then all the events should be moved to the single resource which is related to the target event.
       </p>
+      <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
     </div>
   </div>
 </template>

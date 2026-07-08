@@ -71,11 +71,16 @@
   .highcontrast .markdown-preview .title {
     color: #fff;
   }
+  .splitter-default-content td,
+  .splitter-default-content th {
+      border: 1px solid;
+      padding: 2px 5px;
+  }
 </style>
 
 <script>
   import { Browser, addClass, removeClass, isNullOrUndefined } from "@syncfusion/ej2-base";
-  import { RichTextEditorComponent, Toolbar, Link, Image, MarkdownEditor, Table, Count } from "@syncfusion/ej2-vue-richtexteditor";
+  import { RichTextEditorComponent, Toolbar, Link, Image, MarkdownEditor, Table, Count, MarkdownFormatter } from "@syncfusion/ej2-vue-richtexteditor";
   import { createElement, KeyboardEventArgs } from '@syncfusion/ej2-vue-base';
   import { SplitterComponent, PanesDirective, PaneDirective ,SplitterPlugin} from "@syncfusion/ej2-vue-layouts";
   import { MarkdownConverter } from "@syncfusion/ej2-markdown-converter";
@@ -92,6 +97,7 @@
         textArea: null,
         srcArea: null,
         placeholder : "Enter your text here...",
+        formatter: new MarkdownFormatter({ listTags: { OL: '1., 2., 3.' } }),
         editorMode: 'Markdown',
         toolbarSettings: {
           enableFloating: false,
@@ -187,7 +193,7 @@ Inline code: Use \`npm install @syncfusion/ej2-richtexteditor\``,
         this.updateValue();
       },
       updateValue: function (e) {
-        this.srcArea.innerHTML = MarkdownConverter.toHtml(this.$refs.rteObj.ej2Instances.contentModule.getEditPanel().value);
+        this.srcArea.innerHTML = MarkdownConverter.toHtml(this.$refs.rteObj.ej2Instances.contentModule.getEditPanel().value, { lineBreak: true });
       },
       onRefreshUI: function () {
         this.$refs.rteObj.refreshUI();

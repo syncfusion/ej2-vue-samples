@@ -2,7 +2,6 @@
     "name": "Tree Grid",
     "directory": "tree-grid",
     "category": "Grids",
-    "type":"update",
     "ftName": "treegrid",
     "samples": [
       {  
@@ -204,7 +203,7 @@
          "description": "This demo for Essential<sup>®</sup> JS 2 Tree Grid control shows frozen columns feature of Tree Grid with Freeze direction Left/Right."
         }, 
        {
-        "url": "virtual-scrolling", "name": "Virtual Scrolling", "category":"Scrolling","type":"update","api":{"TreeGrid":["dataSource","enableVirtualization","height","dataBound"] },
+        "url": "virtual-scrolling", "name": "Virtual Scrolling", "category":"Scrolling","api":{"TreeGrid":["dataSource","enableVirtualization","height","dataBound"] },
         "description": "This demo for Essential<sup>®</sup> JS 2 Tree Grid control shows the usage of the horizontal and vertical scrollbars to view Tree Grid content that exceeds the Tree Grid area."
       },
       {

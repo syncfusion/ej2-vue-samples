@@ -2,13 +2,13 @@
     "name": "Diagram",
     "directory": "ai-diagram",
     "category": "Smart AI Solutions",
-    "type": "update",
+    "ignoreOnBuild": true,
     "samples": [
         {
             "url": "text-to-flowchart",
             "name": "Text to Flowchart",
-            "type": "update",
             "category": "Diagram",
+            "ignoreOnBuild": true,
             "sourceFiles": [
                 { "displayName": "text-to-flowchart.vue", "path": "src/ai-diagram/ai-text-to-flowchart.vue" }
             ],
@@ -17,8 +17,8 @@
         {
             "url": "text-to-mindmap",
             "name": "Text to MindMap",
-            "type": "update",
             "category": "Diagram",
+            "ignoreOnBuild": true,
             "sourceFiles": [
                 { "displayName": "text-to-mindmap.vue", "path": "src/ai-diagram/ai-text-to-mindmap.vue" }
             ],
@@ -27,8 +27,8 @@
         {
             "url": "text-to-umlSequenceDiagram",
             "name": "Text to UML Sequence Diagram",
-            "type": "new",
             "category": "Diagram",
+            "ignoreOnBuild": true,
             "sourceFiles": [
                 { "displayName": "text-to-umlSequenceDiagram.vue", "path": "src/ai-diagram/ai-text-to-umlSequenceDiagram.vue" }
             ],

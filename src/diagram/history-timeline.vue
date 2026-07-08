@@ -40,7 +40,7 @@
     </div>
     <div id="action-description">
       <p>
-        This sample visualizes key milestones in Internet history using the interactive Syncfusion<sup>®</sup> EJ2 Vue Diagram component. Events are presented as nodes on a horizontal timeline, with color-coded sections and customizable event details.
+        This sample visualizes key milestones in Internet history using the interactive <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> component. Events are presented as nodes on a horizontal timeline, with color-coded sections and customizable event details.
       </p>
     </div>
     <div id="description">

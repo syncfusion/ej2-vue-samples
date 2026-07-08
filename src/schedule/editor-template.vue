@@ -88,6 +88,7 @@
                 <code>isSlotAvailable</code> method is used. This method returns true, if the underlying cell is available for
                 adding new events by checking whether it already has any events in it.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
 
     </div>

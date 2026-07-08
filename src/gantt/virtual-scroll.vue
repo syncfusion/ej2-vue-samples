@@ -19,27 +19,25 @@
         </div>
 
         <div id="description">
-            <p>Virtualization support is used to render large number tasks in Gantt with effective performance. In this
-                mode all the tasks are
-                fetched from data source initially, then some of the records are rendered in DOM which are compact to
-                the current viewport area.
-                While scrolling tasks are updated in DOM as per current viewport position. This mode can be enabled by
-                setting
-                <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#enablevirtualization">enableVirtualization</a>
-                property as true. Additionally, the Gantt component now includes the timeline virtualization feature by
-                setting the <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#enabletimelinevirtualization">enableTimelineVirtualization</a>
-                to true.
+            <p>Virtualization support is used to render large number tasks in Gantt with effective performance.
+                In this mode all the tasks are fetched from data source initially, then some of the records are
+                rendered in DOM which are compact to the current viewport area. While scrolling tasks are updated in DOM
+                as per current viewport position. This mode can be enabled by setting <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/api/gantt#enablevirtualization">enableVirtualization</a> property
+                as true. Additionally, the Gantt component now includes the timeline virtualization feature by setting the
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#enabletimelinevirtualization">
+                    enableTimelineVirtualization</a> to true.
             </p>
             <p>This demo highlights the utilization of row and timeline virtualization features within the Gantt.</p>
-            <p>By default during Virtual scroll Shimmer effect is enabled you can disable this by changing <a
-                    target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#enablevirtualmaskrow">enableVirtualMaskRow</a>
-                to false</p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com//vue/documentation/gantt/virtual-scroll">documentation section</a>.
+            <p>By default during Virtual scroll Shimmer effect is enabled you can disable this by changing <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/api/gantt#enablevirtualmaskrow">enableVirtualMaskRow</a> to false</p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection and virtual scroll features,
+                inject the <code>Selection</code> and <code>VirtualScroll</code> modules using the <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com//vue/documentation/gantt/virtual-scroll">documentation section</a>.
             </p>
         </div>
     </div>
@@ -66,7 +64,7 @@ export default {
             },
             columns: [
                 { field: 'TaskID' },
-                { field: 'TaskName', width: '200px' },
+                { field: 'TaskName', width: 300 },
                 { field: 'StartDate' },
                 { field: 'Duration' },
                 { field: 'Progress' }
@@ -79,7 +77,7 @@ export default {
                 columnIndex: 2
             },
             projectStartDate: new Date('04/01/2025'),
-            projectEndDate: new Date('12/31/2030')
+            projectEndDate: new Date('12/31/2029')
         };
     },
     provide: {

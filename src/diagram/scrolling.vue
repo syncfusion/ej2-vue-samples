@@ -4,24 +4,24 @@
         <div class="sb-mobile-palette-bar">
           <div id="palette-icon" ref="paletteIcon" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
         </div>
-        <div id="palette-space" ref="paletteSpace" class="sb-mobile-palette" style="width:20%;float:left">
+        <div id="palette-space" ref="paletteSpace" class="sb-mobile-palette" >
           <ejs-symbolpalette id="symbolpalette" :palettes='palettes' :expandMode='expandMode' :width='palettewidth' :height='paletteheight' :getNodeDefaults='palettegetNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :getSymbolInfo='getSymbolInfo' :symbolMargin='symbolMargin' :symbolHeight='symbolHeight'
           :symbolWidth='symbolWidth'></ejs-symbolpalette>
         </div>
   
-        <div class="sb-mobile-diagram" style="width:59%;float:left">
+        <div class="sb-mobile-diagram" >
             <ejs-diagram style='display:block' id="diagram" ref="diagramObject" :width='width' :height='height' :getNodeDefaults='getNodeDefaults' :getConnectorDefaults='getConnectorDefaults' :rulerSettings='rulerSettings' :scrollSettings='scrollSettings' :pageSettings="pageSettings" :created='created' :dragEnter='dragEnter'></ejs-diagram>
         </div>
-        <div id="properties" style="width:20%;float:right">
+        <div id="properties" class="property-section" >
               <div class="property-panel-header">
                   Properties
               </div>
               <div class="row db-prop-row">        
-                  <div class="col-xs-5 db-col-right db-prop-text-style" style="padding-top: 14px">
-                      <span class="db-prop-text-style db-spacing-text">Scroll Limit</span>
+                  <div class="col-xs-5 db-col-right db-diagram-scroll-text">
+                      <span class="db-spacing-text">Scroll Limit</span>
                   </div>
-                  <div class="col-xs-7 db-col-left" style="padding-top: 10px;padding-right: 0px;">
-                      <div class="db-text-input">
+                  <div class="col-xs-7 db-col-left" style="padding-top: 10px;">
+                      <div>
                           <ejs-dropdownlist id='scrollableDiv' ref="scrollableDiv" :dataSource='scrollLimitDatasource' :change='scrollLimitChange' :placeholder='waterMark' ></ejs-dropdownlist>
                       </div>
                   </div>
@@ -32,8 +32,8 @@
                   </div>
                   <div class="row db-prop-row"  style="padding-top: 15px;">
                       <div class="col-xs-6" style="padding-right: 15px;width: 150px;">
-                              <div style="width:40%;float:left;margin-top: 5px;">
-                                  <span class="texstyle" style="display: block;">X</span>
+                              <div class="db-diagram-scroll-textStyle" style="width: 40%; float: left; margin-top: 5px;">
+                                  <span  style="display: block;">X</span>
                               </div>
                               <div style="width:60%;float:right;padding-left: 20px;">
                                   <ejs-textbox :value="10"  :change='scrollableX'></ejs-textbox>
@@ -43,8 +43,8 @@
   
                   <div class="row db-prop-row"  style="padding-top: 15px;">
                       <div class="col-xs-6" style="padding-right: 15px;width: 150px;">
-                          <div style="width:40%;float:left;margin-top: 5px;">
-                              <span class="texstyle" style="width: fit-content;">Y</span>
+                          <div class="db-diagram-scroll-textStyle" style="width: 40%; float: left; margin-top: 5px;">
+                              <span style="width: fit-content;">Y</span>
                           </div>
                           <div style="width:60%;float:right;padding-left: 20px;">
                               <ejs-textbox :value="10" :change='scrollableY'></ejs-textbox>
@@ -54,8 +54,8 @@
                   
                   <div class="row db-prop-row" style="padding-top: 15px;">
                       <div class="col-xs-6 db-col-left" style="width: 150px;">
-                              <div style="width:40%;float:left;margin-top: 5px;">
-                                  <span class="texstyle" >Width</span>
+                              <div class="db-diagram-scroll-textStyle" style="width: 40%; float: left; margin-top: 5px;">
+                                  <span >Width</span>
                               </div>
                               <div style="width:60%;float:right;padding-left: 20px;">
                                   <ejs-textbox :value="1500" :change='scrollableWidth'></ejs-textbox>
@@ -63,9 +63,9 @@
                       </div>
                   </div>
                   <div class="row db-prop-row" style="padding-top: 15px;">    
-                      <div class="col-xs-6 db-col-right" style="width: 150px;">
-                          <div style="width:40%;float:left;margin-top: 5px;">
-                              <span class="texstyle">Height</span>
+                      <div class="col-xs-6 db-col-left" style="width: 150px;">
+                          <div class="db-diagram-scroll-textStyle" style="width: 40%; float: left; margin-top: 5px;">
+                              <span>Height</span>
                           </div>
                           <div style="width:60%;float:right;padding-left: 20px">
                               <ejs-textbox :value="1500" :change='scrollableHeight'></ejs-textbox>
@@ -85,7 +85,7 @@
                   </div>
                   <div class="row db-prop-row"  style="padding-top: 15px;">
                       <div class="col-xs-6 db-col-left" style="width: 150px;">
-                              <div style="width:40%;float:left;margin-top: 5px;">
+                              <div class="db-diagram-scroll-textStyle" style="width: 40%; float: left; margin-top: 5px;">
                                   <span>Left</span>
                               </div>
                               <div style="width:60%;float:right;padding-left: 20px;">
@@ -95,7 +95,7 @@
                   </div>
                   <div class="row db-prop-row"  style="padding-top: 15px;">
                       <div class="col-xs-6 db-col-right" style="width: 150px;">
-                          <div style="width:40%;float:left;margin-top: 5px;">
+                          <div class="db-diagram-scroll-textStyle" style="width: 40%; float: left; margin-top: 5px;">
                               <span>Top</span>
                           </div>
                           <div style="width:60%;float:right;padding-left: 20px;">
@@ -105,7 +105,7 @@
                   </div>
                   <div class="row db-prop-row" style="padding-top: 15px;">
                       <div class="col-xs-6 db-col-left" style="width: 150px;">
-                              <div style="width:40%;float:left;margin-top: 5px;">
+                              <div class="db-diagram-scroll-textStyle" style="width: 40%; float: left; margin-top: 5px;">
                                   <span>Right</span>
                               </div>
                               <div style="width:60%;float:right;padding-left: 20px;">
@@ -114,8 +114,8 @@
                       </div>
                   </div>
                   <div class="row db-prop-row" style="padding-top: 15px;">
-                      <div class="col-xs-6 db-col-right" style="width: 150px;">
-                          <div style="width:40%;float:left;margin-top: 5px;">
+                      <div class="col-xs-6 db-col-left" style="width: 150px;">
+                          <div class="db-diagram-scroll-textStyle" style="width: 40%; float: left; margin-top: 5px;">
                               <span>Bottom</span>
                           </div>
                           <div style="width:60%;float:right;padding-left: 20px;">
@@ -137,13 +137,15 @@
       <p>The scrollSettings <code>scrollLimit</code> property allows you to define the scrollable region of a Diagram. You may scroll inside the designated region if the scrollLimit is set to <code>limited</code>. When the scrollLimit is set to <code>Diagram</code>, you can scroll within the Diagram content. When the scrollLimit is set to <code>Infinity</code>, it allows infinite scrolling.</p>
   
       <p>The scrollSettings <code>autoScrollBorder</code> property is used to specify the distance from the edge of a control at which auto-scrolling should occur.</p>
-    </div>
+    
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
+</div>
   </div>
 </template>
 <style scoped>
 /*To align palette */
  .diagram-scroll .sb-mobile-palette {
-        width:240px;
+        width:20%;
         height:100%;
         float:left;
     }
@@ -153,11 +155,19 @@
     }
     /*To align diagram */
     .diagram-scroll .sb-mobile-diagram {
-        width:calc(100% - 242px);
+        width:59%;
         height: 100%;
         float: left;
     }
-    
+    .diagram-scroll  .property-section {
+        width:21%;
+        height: 100%;
+        float: right;
+    }
+    .db-diagram-scroll-text {
+        padding-top: 14px;
+    }
+
     @media (max-width: 550px) {
     
         .diagram-scroll .sb-mobile-palette {
@@ -165,7 +175,7 @@
             position: absolute;
             display: none;
             transition: transform 300ms linear, visibility 0s linear 300ms;
-            width:39%;
+            width: 39% !important;
             height:100%;
         }
         
@@ -179,12 +189,32 @@
         }
         
         .diagram-scroll .sb-mobile-diagram {
-            width: 100%;
+            width: 100% !important;
             height: 100%;
             float: left;
             left: 0px;
         }
-    
+
+        /* Property panel: hidden by app shell (sb-hide), shown as fixed slide-in panel */
+        .diagram-scroll  .property-section {
+            position: fixed !important;
+            top: 0 !important;
+            right: 0 !important;
+            width: 260px !important;
+            height: 100% !important;
+            background: #fff !important;
+            z-index: 1000 !important;
+            overflow-y: auto !important;
+            box-shadow: -2px 0 6px rgba(0,0,0,0.2) !important;
+            padding: 10px !important;
+            float: none !important;
+        }
+        .db-diagram-scroll-textStyle {	
+            padding-top: 10px !important;
+        }
+        .db-diagram-scroll-text {
+            padding-top: 25px !important;
+        }
         .diagram-scroll #palette-icon {
             font-size: 20px; 
         }
@@ -206,10 +236,10 @@
                 border-color: transparent ;
                 }
                 
-        .diagram-scroll .texstyle {	
+        .diagram-scroll .db-diagram-scroll-textStyle {	
             display: table;	
             /* height: 35px; */	
-            padding-right: 10px;	
+            /* padding-right: 10px;	 */
             padding-left: 0px;	
             width: 50%;	
             padding-top: 5px;	

@@ -49,6 +49,7 @@
                 <code>resource</code> property, will allow the user to select multiple resources from the resource field
                 of editor window, while trying to create appointments.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
 
     </div>

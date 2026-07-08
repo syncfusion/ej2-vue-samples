@@ -2,7 +2,8 @@
     <div class="col-lg-12 control-section">
         <div id="action-description">
             <p>
-                This sample demonstrates the column freezing feature in the Gantt Chart. Frozen columns remain fixed while other columns scroll horizontally, improving readability.
+                This sample demonstrates the column freezing feature in the Gantt Chart.
+                Frozen columns remain fixed while other columns scroll horizontally, improving readability.
             </p>
         </div>
         <div>
@@ -34,9 +35,9 @@
                 </e-items>
             </ejs-toolbar>
             <ejs-gantt ref='gantt' id="frozenColumns" :dataSource="data" :height="height" :rowHeight="46"
-                :taskbarHeight="25" :timelineSettings="timelineSettings" :taskFields="taskFields" :resources="resources" :resourceFields="resourceFields"
-                :labelSettings="labelSettings" :treeColumnIndex="1" :columns="columns" :splitterSettings="splitterSettings" 
-                :projectStartDate="projectStartDate" :projectEndDate="projectEndDate">
+                :taskbarHeight="25" :timelineSettings="timelineSettings" :taskFields="taskFields" :resources="resources"
+                :resourceFields="resourceFields" :labelSettings="labelSettings" :treeColumnIndex="1" :columns="columns"
+                :splitterSettings="splitterSettings" :projectStartDate="projectStartDate" :projectEndDate="projectEndDate">
             </ejs-gantt>
         </div>
 
@@ -46,12 +47,17 @@
                 Additionally, to keep specific columns visible during horizontal scrolling, use the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnmodel#freeze">column.freeze</a> property on the relevant columns to freeze them to the <code>Left</code>, <code>Right</code> or <code>Fixed</code>.
             </p>
             <p>In this example, the <b>Task ID</b> and <b>Task Name</b> columns are frozen on the left, and the <b>Assignee</b>
-                column is frozen on the right using the <code class="code">column.freeze</code> property.
-                Gantt component features are segregated into individual feature-wise modules. To use column freezing, inject the <code
-                    className="code">Freeze</code> module.
+                column is frozen on the right using the <code>column.freeze</code> property.
+                Gantt component features are segregated into individual feature-wise modules. To use column freezing, inject the
+                <code>Freeze</code> module.
             </p>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started#add-syncfusion-vue-component">documentation section</a>.
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use column freezing and toolbar features,
+                inject the <code>Freeze</code> and <code>Toolbar</code> modules using the <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/frozen-column">documentation section</a>.
             </p>
         </div>
     </div>
@@ -62,9 +68,7 @@ import { frozenColumnsData, resourceCollection} from './data-source';
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { ToolbarComponent, ItemDirective, ItemsDirective } from "@syncfusion/ej2-vue-navigations";
 
-
 export default {
-    name: "App",
     components: {
         'ejs-gantt': GanttComponent,
         'ejs-dropdownlist': DropDownListComponent,
@@ -85,13 +89,13 @@ export default {
                 { id: 'Predecessor', name: 'Dependency'},
                 { id: 'Resources', name: 'Assignee' },
                 { id: 'Designation', name: 'Designation' },
-                { id: 'Status', name: 'Status' },
+                { id: 'Status', name: 'Status' }
             ],
             directions: [
                 { id: 'Left', name: 'Left' },
                 { id: 'Right', name: 'Right' },
                 { id: 'Fixed', name: 'Fixed' },
-                { id: 'None', name: 'None' },
+                { id: 'None', name: 'None' }
             ],
             fields: {value: 'id', text: 'name'},
             columnValue: 'TaskID',
@@ -106,27 +110,26 @@ export default {
                 progress: 'Progress',
                 dependency:'Predecessor',
                 parentID: 'ParentID',
-                resourceInfo: 'Resources',
+                resourceInfo: 'Resources'
             },
             resources: resourceCollection,
             resourceFields: {
                 id: 'resourceId',
-                name: 'resourceName',
+                name: 'resourceName'
             },
             columns: [
                 { field: 'TaskID', headerText: 'Task ID', freeze: 'Left', },
-                { field: 'TaskName', headerText: 'Task Name', width: 150, freeze: 'Left'},
+                { field: 'TaskName', headerText: 'Task Name', width: 200, freeze: 'Left'},
                 { field: 'StartDate', headerText: 'Start Date', },
                 { field: 'Duration', headerText: 'Duration',},
                 { field: 'EndDate', headerText: 'End Date', },
                 { field: 'Progress', headerText: 'Progress', },
                 { field: 'Predecessor', headerText: 'Dependency' },
-                { field: 'Resources', headerText: 'Assignee', freeze: 'Right' },
+                { field: 'Resources', headerText: 'Assignee', freeze: 'Right', width: 200 },
                 { field: 'Designation', headerText: 'Designation' },
-                { field: 'Status', headerText: 'Status', },
+                { field: 'Status', headerText: 'Status' }
             ],
             labelSettings: {
-                leftLabel: 'TaskName',
                 taskLabel: 'Progress'
             },
             splitterSettings: {
@@ -144,7 +147,7 @@ export default {
                     unit: 'Day',
                     count: 1
                 }
-            },
+            }
         };
     },
     provide: {
@@ -173,47 +176,47 @@ export default {
 </script>
 
 <style>
-    .tailwind3 #frozenColumns .e-content .e-leftfreeze,
-    .tailwind3 #frozenColumns .e-content .e-rightfreeze,
-    .tailwind3 #frozenColumns .e-content .e-fixedfreeze {
-      background-color: #e0e7ff !important;
-    }
-    .tailwind3 #frozenColumns .e-columnheader .e-leftfreeze,
-    .tailwind3 #frozenColumns .e-columnheader .e-rightfreeze,
-    .tailwind3 #frozenColumns .e-columnheader .e-fixedfreeze {
-      background-color: #d8dfff !important;
-    }
-    /* ==================== TAILWIND3 DARK ==================== */
-    .tailwind3-dark #frozenColumns .e-content .e-leftfreeze,
-    .tailwind3-dark #frozenColumns .e-content .e-rightfreeze,
-    .tailwind3-dark #frozenColumns .e-content .e-fixedfreeze {
-      background-color: #1e1b4b !important;
-    }
-    .tailwind3-dark #frozenColumns .e-columnheader .e-leftfreeze,
-    .tailwind3-dark #frozenColumns .e-columnheader .e-rightfreeze,
-    .tailwind3-dark #frozenColumns .e-columnheader .e-fixedfreeze {
-      background-color: #2d2b55 !important; /* slightly lighter than content for depth */
-    }
-    .fluent2 #frozenColumns .e-content .e-leftfreeze,
-    .fluent2 #frozenColumns .e-content .e-rightfreeze,
-    .fluent2 #frozenColumns .e-content .e-fixedfreeze { 
-      background-color: #ebf3fc !important; 
-    }
-   .fluent2 #frozenColumns .e-columnheader .e-leftfreeze,
-   .fluent2 #frozenColumns .e-columnheader .e-rightfreeze,
-   .fluent2 #frozenColumns .e-columnheader .e-fixedfreeze {
-      background-color: #e5f1ff !important; /* slightly lighter than content for depth */
-    }
-    .fluent2-dark #frozenColumns .e-content .e-leftfreeze,
-    .fluent2-dark #frozenColumns .e-content .e-rightfreeze,
-    .fluent2-dark #frozenColumns .e-content .e-fixedfreeze { 
-      background-color: #082338 !important; 
-    }
-    .fluent2-dark #frozenColumns .e-columnheader .e-leftfreeze,
-    .fluent2-dark #frozenColumns .e-columnheader .e-rightfreeze,
-    .fluent2-dark #frozenColumns .e-columnheader .e-fixedfreeze {
-      background-color: #082338 !important; /* slightly lighter than content for depth */
-    }
+.tailwind3 #frozenColumns .e-content .e-leftfreeze,
+.tailwind3 #frozenColumns .e-content .e-rightfreeze,
+.tailwind3 #frozenColumns .e-content .e-fixedfreeze {
+    background-color: #e0e7ff !important;
+}
+.tailwind3 #frozenColumns .e-columnheader .e-leftfreeze,
+.tailwind3 #frozenColumns .e-columnheader .e-rightfreeze,
+.tailwind3 #frozenColumns .e-columnheader .e-fixedfreeze {
+    background-color: #d8dfff !important;
+}
+/* ==================== TAILWIND3 DARK ==================== */
+.tailwind3-dark #frozenColumns .e-content .e-leftfreeze,
+.tailwind3-dark #frozenColumns .e-content .e-rightfreeze,
+.tailwind3-dark #frozenColumns .e-content .e-fixedfreeze {
+    background-color: #1e1b4b !important;
+}
+.tailwind3-dark #frozenColumns .e-columnheader .e-leftfreeze,
+.tailwind3-dark #frozenColumns .e-columnheader .e-rightfreeze,
+.tailwind3-dark #frozenColumns .e-columnheader .e-fixedfreeze {
+    background-color: #2d2b55 !important; /* slightly lighter than content for depth */
+}
+.fluent2 #frozenColumns .e-content .e-leftfreeze,
+.fluent2 #frozenColumns .e-content .e-rightfreeze,
+.fluent2 #frozenColumns .e-content .e-fixedfreeze { 
+    background-color: #ebf3fc !important; 
+}
+.fluent2 #frozenColumns .e-columnheader .e-leftfreeze,
+.fluent2 #frozenColumns .e-columnheader .e-rightfreeze,
+.fluent2 #frozenColumns .e-columnheader .e-fixedfreeze {
+    background-color: #e5f1ff !important; /* slightly lighter than content for depth */
+}
+.fluent2-dark #frozenColumns .e-content .e-leftfreeze,
+.fluent2-dark #frozenColumns .e-content .e-rightfreeze,
+.fluent2-dark #frozenColumns .e-content .e-fixedfreeze { 
+    background-color: #082338 !important; 
+}
+.fluent2-dark #frozenColumns .e-columnheader .e-leftfreeze,
+.fluent2-dark #frozenColumns .e-columnheader .e-rightfreeze,
+.fluent2-dark #frozenColumns .e-columnheader .e-fixedfreeze {
+    background-color: #082338 !important; /* slightly lighter than content for depth */
+}
 .material3 #frozenColumns .e-content .e-leftfreeze,
 .material3 #frozenColumns .e-content .e-rightfreeze,
 .material3 #frozenColumns .e-content .e-fixedfreeze { background-color: rgba(234, 221, 255) !important; }

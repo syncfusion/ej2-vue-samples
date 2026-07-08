@@ -77,7 +77,8 @@ body.fluent2-highcontrast,
 .fluent2-highcontrast .sample-navigation>button:hover,
 .fluent2-highcontrast .sb-switch-popup li:first-child,
 .fluent2-highcontrast .sb-left-pane .e-listview .e-list-group-item,
-.fluent2-highcontrast .sb-theme-popup li.active .sb-theme-select
+.fluent2-highcontrast .sb-theme-popup li.active .sb-theme-select,
+.fluent2-highcontrast .sb-products-popup li.active .sb-products-select
 {
     color: #ffffff;
 }
@@ -85,6 +86,10 @@ body.fluent2-highcontrast,
     color: #ffffff;
 }
 .fluent2-highcontrast .sb-theme-popup {
+    border: unset;
+}
+
+.fluent2-highcontrast .sb-products-popup {
     border: unset;
 }
 .fluent2-highcontrast .sb-icon-Hamburger,
@@ -117,6 +122,7 @@ color:white;
 .fluent2-highcontrast .sb-src-code,
 .fluent2-highcontrast .sb-api-section,
 .fluent2-highcontrast .sb-theme-popup,
+.fluent2-highcontrast .sb-products-popup,
 .fluent2-highcontrast .copy-tooltip,
 .fluent2-highcontrast .e-icons.copycode,
 .fluent2-highcontrast #search-input-wrapper input,
@@ -130,8 +136,11 @@ color:white;
 .fluent2-highcontrast .sb-setting-btn.active,
 .fluent2-highcontrast .sb-switch-popup li:hover,
 .fluent2-highcontrast .theme-wrapper:hover,
+.fluent2-highcontrast .products-wrapper:hover,
 .fluent2-highcontrast .theme-wrapper.active,
+.fluent2-highcontrast .products-wrapper.active,
 .fluent2-highcontrast .sb-theme-popup li:hover,
+.fluent2-highcontrast .sb-products-popup li:hover,
 .fluent2-highcontrast .sb-search-result .e-list-item:hover,
 .fluent2-highcontrast .sb-left-pane .e-listview .e-list-item:hover {
     background-color: rgba(255, 255, 255, 0.12);
@@ -193,6 +202,10 @@ color:white;
 }
 
 .fluent2-highcontrast .sb-theme-popup li .sb-theme-select {
+    color:transparent;
+}
+
+.fluent2-highcontrast .sb-products-popup li .sb-products-select {
     color:transparent;
 }
 

@@ -13,6 +13,7 @@
     <div id="description">
          <p>The File Manager component is used to explore a file system through a web application, similar to the Windows Explorer for Windows. It supports all the basic file operations such as create, rename, delete, and more.</p>
          <b>Note: </b>File Manager's upload functionality is restricted in online demos for security reasons. To work with upload functionality, please download <a target="_blank" href="https://github.com/SyncfusionExamples/ftp-aspcore-file-provider">ftp-aspcore-file-provider</a> from the GitHub repository.
+         <p>Looking for the full Vue File Manager component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-file-manager">Vue File Manager</a> page.</p>
     </div>
 </div>
 </template>

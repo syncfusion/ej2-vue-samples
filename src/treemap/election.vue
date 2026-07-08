@@ -1,7 +1,7 @@
 <template>
 <main><div>
     <div class="col-lg-9 control-section">
-         <ejs-treemap ref="treemap" id='container' :load='load' :titleSettings='titleSettings' :dataSource='dataSource' :weightValuePath='weightValuePath' :tooltipSettings='tooltipSettings' :legendSettings='legendSettings' format='n' :useGroupingSeparator='useGroupingSeparator' :rangeColorValuePath='rangeColorValuePath' :equalColorValuePath='equalColorValuePath' :leafItemSettings='leafItemSettings'></ejs-treemap>
+         <ejs-treemap ref="treemap" id='container' :load='load' :titleSettings='titleSettings' :dataSource='dataSource' :weightValuePath='weightValuePath' :tooltipSettings='tooltipSettings' :legendSettings='legendSettings' format='n' :useGroupingSeparator='useGroupingSeparator' :equalColorValuePath='equalColorValuePath' :leafItemSettings='leafItemSettings'></ejs-treemap>
 
         <div style="float: right; margin-right: 10px;">Source:
             <a href=" https://en.wikipedia.org/wiki/United_States_presidential_election,_2016" target="_blank">en.wikipedia.org</a>
@@ -106,7 +106,6 @@ return{
             }
         },
         useGroupingSeparator: true,
-        rangeColorValuePath: 'WinPercentage',
         equalColorValuePath: 'Winner',
         leafItemSettings: {
             labelPath: 'State',

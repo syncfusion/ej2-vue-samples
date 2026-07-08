@@ -1,103 +1,86 @@
 <template>
-<div class="col-lg-12 control-section">
-<div id="action-description">
-    <p>This sample explains the way of rendering tooltip template for taskbar and baseline by mapping template
-        elements to the property of taskbar, timeline and baseline in <code>tooltipSettings</code>.</p>
-</div>
-    <div>
-        <ejs-gantt ref='gantt' id="tooltipData" 
-        :dataSource= "data"        
-
-:height="height"
-:rowHeight="46"
-:taskbarHeight="25"
-        :renderBaseline= 'true'     
-        :highlightWeekends= 'true'  
-        :allowSelection = 'true'       
-        :taskFields= "taskFields"
-        :labelSettings= "labelSettings"
-        :treeColumnIndex= "1"
-        :columns= "columns"
-        :splitterSettings= "splitterSettings"
-        :tooltipSettings= "tooltipSettings"
-        :resourceFields= "resourceFields"
-        :resources= "resources"
-        :timelineSettings="timelineSettings"
-        :projectStartDate= "projectStartDate"
-        :projectEndDate= "projectEndDate">
-        <template v-slot:taskbarTooltipTemplate="{data}">
-<div>
-    <table>
-        <template v-if="data.ganttProperties.resourceNames">
-        <tr>
-            <td rowspan="3" style="padding:3px"><img :src="'src/gantt/images/' + data.ganttProperties.resourceNames + '.png'" style="height: 40px;" /></td>
-            <td style="padding:3px">Task done By:</td>
-            <td style="padding:3px">{{data.ganttProperties.resourceNames}}</td>
-        </tr>
-        </template>
-        <tr>
-            <td style="padding:3px">Starts On:</td>
-            <td style="padding:3px">{{format(data.StartDate)}}</td>
-        </tr>
-        <tr>
-            <td style="padding:3px">Ends On:</td>
-            <td style="padding:3px">{{format(data.EndDate)}}</td>
-        </tr>
-    </table>
+    <div class="col-lg-12 control-section">
+        <div id="action-description">
+            <p>This sample explains the way of rendering tooltip template for taskbar and baseline by mapping template
+                elements to the property of taskbar, timeline and baseline in <code>tooltipSettings</code>.</p>
+        </div>
+        <div>
+            <ejs-gantt ref='gantt' id="tooltipData" :dataSource= "data" :height="height" :rowHeight="46" :taskbarHeight="25"
+                :renderBaseline= 'true' :highlightWeekends= 'true' :allowSelection = 'true' :taskFields= "taskFields"
+                :labelSettings= "labelSettings" :treeColumnIndex= "1" :columns= "columns" :splitterSettings= "splitterSettings"
+                :tooltipSettings= "tooltipSettings" :resourceFields= "resourceFields" :resources= "resources" 
+                :timelineSettings="timelineSettings" :projectStartDate= "projectStartDate" :projectEndDate= "projectEndDate">
+                <template v-slot:taskbarTooltipTemplate="{data}">
+                    <div>
+                        <table>
+                            <template v-if="data.ganttProperties.resourceNames">
+                            <tr>
+                                <td rowspan="3" style="padding:3px"><img :src="'src/gantt/images/' + data.ganttProperties.resourceNames + '.png'" style="height: 40px;" /></td>
+                                <td style="padding:3px">Task done By:</td>
+                                <td style="padding:3px">{{data.ganttProperties.resourceNames}}</td>
+                            </tr>
+                            </template>
+                            <tr>
+                                <td style="padding:3px">Starts On:</td>
+                                <td style="padding:3px">{{format(data.StartDate)}}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:3px">Ends On:</td>
+                                <td style="padding:3px">{{format(data.EndDate)}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </template>
+                <template v-slot:baselineTooltipTemplate="{data}">
+                    <div id="tooltip">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Planned Start Date: </td>
+                                    <td>{{format(data.BaselineStartDate)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Planned End Date: </td>
+                                    <td>{{format(data.BaselineEndDate)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Current Start Date: </td>
+                                    <td>{{format(data.StartDate)}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Current End Date: </td>
+                                    <td>{{format(data.EndDate)}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </template>
+                <template v-slot:timelineTooltipTemplate="{ data }">
+                    <div v-if="data.tier == 'topTier'" v-html="topTierTooltip(data.value, data.date, data.tier)"></div>
+                    <div v-if="data.tier == 'bottomTier'" v-html="bottomTierTooltip(data.date, data.tier)"></div>
+                </template>
+            </ejs-gantt>
+        </div>
+        <div id="description">
+            <p>Tooltip can be enabled or disabled using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#showtooltip">tooltipSettings.showTooltip</a> property.In this demo, the
+                tooltip template is rendered for <code>taskbar</code>, <code>timeline</code> and <code>baseline</code> using the
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#taskbar">tooltipSettings.taskbar, </a>
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#timeline">tooltipSettings.timeline</a>
+                and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#baseline">tooltipSettings.baseline</a> properties.
+            </p>
+            <p>
+                The baseline feature enables the user to view the deviation between the planned dates and the actual dates of
+                the tasks in a project. Baselines can be enabled in Gantt Chart by enabling the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#renderbaseline">renderBaseline</a>
+                property along with mapping the data source values for <code>baselineStartDate</code> and <code>baselineEndDate</code> properties.
+            </p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules.To use a selection and markers features,
+                inject the <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> method.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/taskbar#tooltip-template">documentation section</a>.</p>
+        </div>
     </div>
-</template>
-<template v-slot:baselineTooltipTemplate="{data}">
-<div id="tooltip">
-<table>
-    <tbody>
-        <tr>
-            <td>Planned Start Date: </td>
-            <td>{{format(data.BaselineStartDate)}}</td>
-        </tr>
-        <tr>
-            <td>Planned End Date: </td>
-            <td>{{format(data.BaselineEndDate)}}</td>
-        </tr>
-        <tr>
-            <td>Current Start Date: </td>
-            <td>{{format(data.StartDate)}}</td>
-        </tr>
-        <tr>
-            <td>Current End Date: </td>
-            <td>{{format(data.EndDate)}}</td>
-        </tr>
-    </tbody>
-</table>
-</div>
-</template>
-<template v-slot:timelineTooltipTemplate="{ data }">
-    <div v-if="data.tier == 'topTier'" v-html="topTierTooltip(data.value, data.date, data.tier)"></div>
-    <div v-if="data.tier == 'bottomTier'" v-html="bottomTierTooltip(data.date, data.tier)"></div>
-</template>
-        </ejs-gantt>
-    </div>
-<div id="description">
-    <p>Tooltip can be enabled or disabled using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#showtooltip">tooltipSettings.showTooltip</a> property.In this demo, the
-        tooltip template is rendered for <code>taskbar</code>, <code>timeline</code> and <code>baseline</code> using the
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#taskbar">tooltipSettings.taskbar</a>
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#timeline">tooltipSettings.timeline</a>
-         and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#baseline">tooltipSettings.baseline</a> properties.
-    </p>
-    <p>
-        The baseline feature enables the user to view the deviation between the planned dates and the actual dates of
-        the tasks in a project. Baselines can be enabled in Gantt Chart by enabling the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#renderbaseline">renderBaseline</a>
-        property along with mapping the data source values for <code>baselineStartDate</code> and <code>baselineEndDate</code> properties.
-    </p>
-    
-    <p>
-        Gantt control features are segregated into individual feature-wise modules.To use a selection, inject the
-        <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code> method.To use markers, inject the
-        <code>DayMarkers</code> module using the <code>Gantt.Inject(DayMarkers)</code> method.
-    </p>
-    <br>
-    <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/tooltip#enable-tooltip">documentation section</a>.</p>
-</div>
-</div>
 </template>
 <script>
 import { GanttComponent, Selection, DayMarkers } from "@syncfusion/ej2-vue-gantt";
@@ -106,11 +89,11 @@ import BaselineTemplate from "./tooltip-temp-baseline.vue";
 import TaskbarTemplate from "./tooltip-temp-taskbar.vue";
 
 export default {
-  components: {
-    'ejs-gantt': GanttComponent
-  },
-  data: function() {
-      return{
+    components: {
+        'ejs-gantt': GanttComponent
+    },
+    data: function() {
+        return{
             data: tooltipData,
             height: '650px',             
             taskFields: {
@@ -128,7 +111,7 @@ export default {
             },
             columns: [
                 { field: 'TaskID', width: 80 },
-                { field: 'TaskName', width: 250 },
+                { field: 'TaskName', width: 280 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },
@@ -136,7 +119,7 @@ export default {
                 { field: 'Progress' },
                 { field: 'BaselineStartDate', width: 200 },
                 { field: 'BaselineEndDate', width: 200 },
-                { field: 'resources' },
+                { field: 'resources' }
             ],
             resourceFields: {
                 id: 'resourceId',
@@ -153,7 +136,7 @@ export default {
             timelineSettings: {
                 showTooltip: true,
                 topTier: {
-                    unit:'Week',
+                    unit:'Week'
                 },
                 bottomTier: {
                     unit: 'Day',
@@ -166,17 +149,17 @@ export default {
                 baseline: "baselineTooltipTemplate",
                 timeline:"timelineTooltipTemplate"
             },
-              projectStartDate: new Date('03/26/2025'),
+            projectStartDate: new Date('03/26/2025'),
             projectEndDate: new Date('06/01/2025'),
-      };
-  },
-  provide: {
-      gantt: [DayMarkers, Selection]
-  },
-  methods: {
-      format: function(value) {
-                return this.$refs.gantt.getFormatedDate(value, 'd/M/y');
-            },
+        };
+    },
+    provide: {
+        gantt: [DayMarkers, Selection]
+    },
+    methods: {
+        format: function(value) {
+            return this.$refs.gantt.getFormatedDate(value, 'd/M/y');
+        },
         topTierTooltip: function(value, date, tier) {
             var endDate;
             var startDate = new Date(date);
@@ -250,6 +233,6 @@ export default {
                 '</div>'
             );
         }
-  }
+    }
 }
 </script>

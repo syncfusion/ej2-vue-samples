@@ -15,53 +15,42 @@
 
     <div id="action-description">
       <p>
-        This sample demonstrates client-side exporting of the Gantt, which
-        allows you to export Gantt data to Excel, PDF and CSV formats. Using the
-        Gantt toolbar buttons, you can export Gantt data to the desired format.
+        This sample demonstrates client-side exporting of the Gantt, which allows you to export Gantt data to Excel, PDF and CSV formats.
+        Using the Gantt toolbar buttons, you can export Gantt data to the desired format.
       </p>
     </div>
 
     <div id="description">
       <p>
-        Gantt supports client-side exporting, which allows you to export its
-        data to the Excel, PDF and CSV formats.
+        Gantt supports client-side exporting, which allows you to export its data to the Excel, PDF and CSV formats.
       </p>
       <p>
-        In this demo, we have defined actions in the
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#toolbarclick">toolbarClick</a>
-        event to export the Gantt data using the
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#excelexport">excelExport</a>,
-        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#pdfexport">pdfExport</a>
-        and
-        <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#csvexport">csvExport</a>methods.
+        In this demo, we have defined actions in the <a target="_blank"
+        href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#toolbarclick">toolbarClick</a>
+        event to export the Gantt data using the <a target="_blank"
+        href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#excelexport">excelExport</a>,
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#pdfexport">pdfExport</a> and
+        <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#csvexport">csvExport</a> methods.
       </p>
-
       <p style="font-weight: 500">Injecting Module:</p>
       <p>
-        To use Excel and CSV export features, we need to inject
-        <code>ExcelExport</code> into the <code>provide</code> section.
+        Gantt component features are segregated into individual feature-wise modules. To use excel export, pdf export, toolbar,
+        selection and markers features, inject the <code>ExcelExport</code>, <code>PdfExport</code>, <code>Toolbar</code>,
+        <code>Selection</code> and <code>DayMarkers</code> modules into the <code>provide</code> section.
       </p>
-      <p>
-        To use PDF feature, we need to inject <code>PdfExport</code> module using the
-        <code>PdfExport</code> into the <code>provide</code> section.
-      </p>
-      <br>
-      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
           href="https://ej2.syncfusion.com/vue/documentation/gantt/excel-export/excel-export">documentation section</a>.
       </p>
     </div>
   </div>
 </template>
 <script>
-import { GanttComponent, Selection, Toolbar, ExcelExport, PdfExport, PdfExportProperties, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, Toolbar, ExcelExport, PdfExport, DayMarkers } from "@syncfusion/ej2-vue-gantt";
 import { editingData, editingResources } from "./data-source";
-import { SwitchComponent } from "@syncfusion/ej2-vue-buttons";
-var isFitToWidth;
+
 export default {
   components: {
     "ejs-gantt": GanttComponent,
-    "ejs-switch": SwitchComponent,
   },
   data: function () {
     return {
@@ -76,24 +65,23 @@ export default {
         progress: "Progress",
         dependency: "Predecessor",
         parentID: 'ParentId',
-        resourceInfo: "resources",
+        resourceInfo: "resources"
       },
-
       toolbar: ["ExcelExport", "CsvExport", "PdfExport"],
       gridLines: "Both",
       height: "650px",
       resourceFields: {
         id: "resourceId",
-        name: "resourceName",
+        name: "resourceName"
       },
       resources: editingResources,
       timelineSettings: {
         topTier: {
           unit: "Week",
-          format: "MMM dd, y",
+          format: "MMM dd, y"
         },
         bottomTier: {
-          unit: "Day",
+          unit: "Day"
         },
       },
       labelSettings: {
@@ -103,15 +91,15 @@ export default {
       projectEndDate: new Date('09/01/2025'),
       columns: [
         { field: "TaskID" },
-        { field: "TaskName", width: "250" },
+        { field: "TaskName", width: "250" }
       ],
       splitterSettings: {
-        columnIndex: 2,
-      },
+        columnIndex: 2
+      }
     };
   },
   provide: {
-    gantt: [Selection, Toolbar, ExcelExport, PdfExport, DayMarkers],
+    gantt: [Selection, Toolbar, ExcelExport, PdfExport, DayMarkers]
   },
   methods: {
     toolbarClick: function (args) {
@@ -122,14 +110,14 @@ export default {
       } else if (args.item.id === "GanttExport_pdfexport") {
         this.$refs.gantt.ej2Instances.pdfExport();
       }
-    },
+    }
   },
 };
 </script>
 
 <style scoped>
-.fluent2 #gantt-export1 /deep/,
-.fluent2-dark #gantt-export1 /deep/ {
+.fluent2 #gantt-export1 ::v-deep,
+.fluent2-dark #gantt-export1 ::v-deep {
   margin: 6px 5px 0px 0px;
 }
 </style>

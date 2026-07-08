@@ -172,6 +172,10 @@ body.material3-dark,
     color: rgb(208, 188, 255);
 }
 
+.material3-dark .sb-products-popup li:hover.active .sb-products-select {
+    color: rgb(208, 188, 255);
+}
+
 .material3-dark .sb-plnr-section {
     line-height: 30px;
     height: 40px;
@@ -203,6 +207,12 @@ body.material3-dark,
     border: unset;
 }
 
+.material3-dark .sb-products-popup {
+    color: #ffffff;
+    background: #2B2831;
+    border: unset;
+}
+
 .material3-dark .sb-setting-popup {
     border: unset;
 }
@@ -221,9 +231,12 @@ body.material3-dark,
 .material3-dark .sb-setting-btn.active,
 .material3-dark .sb-switch-popup li:hover,
 .material3-dark .theme-wrapper:hover,
+.material3-dark .products-wrapper:hover,
 .material3-dark #themeMode-switch-btn:hover,
 .material3-dark .theme-wrapper.active,
+.material3-dark .products-wrapper.active,
 .material3-dark .sb-theme-popup li:hover,
+.material3-dark .sb-products-popup li:hover,
 .material3-dark .sb-search-result .e-list-item:hover,
 .material3-dark .sb-left-pane .e-listview .e-list-item:hover,
 .material3-dark .sb-control-navigation .e-treeview .e-list-item.e-active>.e-fullrow {
@@ -255,6 +268,11 @@ body.material3-dark,
 }
 
 .material3-dark .sb-theme-popup li.active .sb-theme-select {
+    color: rgb(208, 188, 255);
+    ;
+}
+
+.material3-dark .sb-products-popup li.active .sb-products-select {
     color: rgb(208, 188, 255);
     ;
 }
@@ -331,6 +349,10 @@ body.material3-dark,
 }
 
 .material3-dark .sb-theme-select {
+    color: #212529;
+}
+
+.material3-dark .sb-products-select {
     color: #212529;
 }
 .material3-dark .sb-download-btn  {

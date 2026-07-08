@@ -20,6 +20,9 @@
                 href="https://ej2.syncfusion.com/vue/documentation/treegrid/columns/column-template/">
                documentation section</a>.
         </p>
+        <p>
+            Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+        </p>
 </div>
     <div aria-label="TreeGrid">
         <ejs-treegrid :dataSource='data' childMapping='Children' :treeColumnIndex='0' :height='380' :rowHeight='83' :rowDataBound='rowDataBound'>

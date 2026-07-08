@@ -13,6 +13,7 @@
         <p>This sample explains the Amazon S3 (Simple Storage Service) cloud file provider that allows users to access and manage a server-hosted file system as a collection of objects stored in the Amazon S3 Bucket. To start the service,create an <a target="_blank" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html">Amazon S3 account</a> and a bucket, and then provide your Amazon S3 client account details such as the <code>bucket name</code>, <code>AWS access key ID</code>, <code>AWS secret key ID</code>, and <code>AWS region</code> in the <code>RegisterAmazonS3</code> method to perform file operations.</p>
         <p>Checkout this <a target="_blank" href="https://github.com/SyncfusionExamples/amazon-s3-aspcore-file-provider">Amazon S3 file system provider</a> from the GitHub repository to connect with the <code>RegisterAmazonS3</code> method.</p>
         <p><b>Note: </b>File Manager’s upload functionality is restricted in online demos for security reasons. To work with upload functionality, please download the <a target="_blank" href="https://github.com/SyncfusionExamples/amazon-s3-aspcore-file-provider">Amazon S3 File Provider</a> from the GitHub repository.</p>
+        <p>Looking for the full Vue File Manager component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-file-manager">Vue File Manager</a> page.</p>
     </div>
 </div>
 </template>
@@ -27,7 +28,7 @@ import { FileManagerComponent, NavigationPane, Toolbar, DetailsView } from "@syn
 /**
  * File Manager sample with Amazon S3 service
  */
-let hostUrl = 'https://amazons3.azurewebsites.net/api/AmazonS3Provider/';
+let hostUrl = 'https://amazon-service.syncfusion.com/api/AmazonS3Provider/';
 
 export default {
      components: {

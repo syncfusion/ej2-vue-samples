@@ -31,31 +31,37 @@
     </div>
     <div id="description">
       <p>
-        The Gantt has an option to show a loading indicator in-between the time of fetching the data and binding it to
-        the gantt during initial rendering, refreshing or
-        while performing action like sorting, filtering and more.
+        The Gantt has an option to show a loading indicator in-between the time of fetching the data and binding it to the gantt during
+        initial rendering, refreshing or while performing action like sorting, filtering and more.
+      </p>
       <p>The Gantt support the following loading indicator types</p>
       <ul>
         <li><code>Shimmer</code></li>
         <li><code>Spinner</code></li>
       </ul>
-      Use the loading indicator by setting the <a target="_blank"
+      <p>
+        Use the loading indicator by setting the <a target="_blank"
         href="https://ej2.syncfusion.com/vue/documentation/api/gantt/loadingIndicatorModel/#indicatortype">loadingIndicator.indicatorType</a>
-      property as Spinner or Shimmer. The default value of the indicatorType is Spinner.
+        property as Spinner or Shimmer. The default value of the indicatorType is Spinner.
       </p>
-      <p>By default <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/api/gantt#enablevirtualmaskrow">enableVirtualMaskRow</a> is
-        set to true which renders Shimmer during virtual scrolling.</p>
-      <br>
-      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/gantt/getting-started">documentation section</a>.</p>
+      <p>
+        By default <a target="_blank"
+        href="https://ej2.syncfusion.com/vue/documentation/api/gantt#enablevirtualmaskrow">enableVirtualMaskRow</a> is
+        set to true which renders Shimmer during virtual scrolling.
+      </p>
+      <p style="font-weight: 500">Injecting Module:</p>
+      <p>
+          Gantt component features are segregated into individual feature-wise modules. To use selection, virtual scroll, sort and
+          filter features, inject the <code>Selection</code>, <code>VirtualScroll</code>, <code>Sort</code> and <code>Filter</code>
+          modules using the <code>provide</code> section.
+      </p>
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/loading-animation">documentation section</a>.</p>
     </div>
   </div>
 </template>
 <script>
-import {
-  GanttComponent, Selection, VirtualScroll, Sort, Filter
-} from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Selection, VirtualScroll, Sort, Filter } from "@syncfusion/ej2-vue-gantt";
 import { DropDownListComponent } from "@syncfusion/ej2-vue-dropdowns";
 import { virtualData } from "./data-source";
 
@@ -70,7 +76,7 @@ export default {
       typefields: { text: "type", value: "Id" },
       typedata: [
         { Id: "Shimmer", type: "Shimmer" },
-        { Id: "Spinner", type: "Spinner" },
+        { Id: "Spinner", type: "Spinner" }
       ],
       taskFields: {
         id: 'TaskID',
@@ -83,8 +89,8 @@ export default {
       },
       columns: [
         { field: 'TaskID' },
-        { field: 'TaskName', width: '200px' },
-        { field: 'StartDate',width: 170 },
+        { field: 'TaskName', width: 300 },
+        { field: 'StartDate', width: 170 },
         { field: 'Duration' },
         { field: 'Progress' }
       ],
@@ -95,7 +101,8 @@ export default {
       },
       splitterSettings: {
         columnIndex: 2
-      }
+      },
+      projectEndDate: new Date('09/21/2025')
     };
   },
   methods: {
@@ -112,7 +119,6 @@ export default {
       }
     }
   },
-
   provide: {
     gantt: [Selection, VirtualScroll, Sort, Filter],
   },

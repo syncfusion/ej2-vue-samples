@@ -14,10 +14,9 @@
         </div>
         <div id="description">
             <p>
-                The sorting feature enables you to order data in a particular direction. It can be enabled by setting <a
-                    target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowselection">allowSelection</a> to
-                true.
+                The sorting feature enables you to order data in a particular direction. It can be enabled by setting
+                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/index-default#allowsorting">
+                allowSorting</a> to true.
             </p>
             <p>To sort a Gantt column, click the column header. The icons (ascending) and (descending) specifies the
                 sort direction of a column.
@@ -28,17 +27,13 @@
                 <strong>SHIFT</strong> key, and then click the column header.</p>
             <p>In this demo, multiple sorting enabled on load time by assigning multiple columns into
                 <code>sortSettings</code> property.</p>
-
+            <p style="font-weight: 500">Injecting Module:</p>
             <p>
-                Gantt control features are segregated into individual feature-wise modules.To use a selection, inject
-                the
-                <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code> method. To use sort, inject
-                the
-                <code>Sort</code> module using the <code>Gantt.Inject(Sort)</code> method.To use markers, inject the
-                <code>DayMarkers</code> module using the <code>Gantt.Inject(DayMarkers)</code> method.
+                Gantt component features are segregated into individual feature-wise modules. To use a selection, markers and sort features,
+                inject the <code>Selection</code>, <code>DayMarkers</code> and <code>Sort</code> modules using the
+                <code>provide</code> section.
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/gantt/sorting">documentation section</a>.</p>
         </div>
     </div>
@@ -71,7 +66,7 @@ export default {
                 { field: 'StartDate' },
                 { field: 'EndDate' },
                 { field: 'Duration' },
-                { field: 'Progress' },
+                { field: 'Progress' }
             ],
             labelSettings: {
                 leftLabel: 'TaskName'
@@ -81,7 +76,7 @@ export default {
             },
             sortSettings: { columns: [{ field: 'TaskName', direction: 'Ascending' }, { field: 'TaskID', direction: 'Ascending' }] },
             projectStartDate: new Date('03/26/2025'),
-            projectEndDate: new Date('09/01/2025'),
+            projectEndDate: new Date('09/01/2025')
         };
     },
     provide: {

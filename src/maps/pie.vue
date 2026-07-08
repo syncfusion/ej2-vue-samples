@@ -18,7 +18,7 @@
                 <div id="pieChart5" style="top:-40px;left:85px;height:130px;width:200px;"></div>
             </template>
             <template v-slot:pieSixTemplate="{}">
-                <div id="pieChart6" style="top:35px;left:65px;height:150px;width:200px;"></div>
+                <div id="pieChart6" style="top:35px;left:40px;height:150px;width:200px;"></div>
             </template>
             <e-layers>
                 <e-layer :shapeData='shapeData' :shapeSettings='shapeSettings'>
@@ -148,8 +148,9 @@ export default {
         },
         /* custom code end */
     loaded:function(args){
-                let markers = document.getElementById(args.maps.element.id + '_LayerIndex_0_Markers_Template_Group');
+            let markers = document.getElementById(args.maps.element.id + '_LayerIndex_0_Markers_Template_Group');
             if (markers) {
+                markers.style.overflow = 'visible';
                 for (let i = 0; i < markers.childElementCount; i++) {
                     this.AccumulationChartRender((markers.childNodes[i].childNodes[0]).id);
                 }

@@ -45,6 +45,11 @@
         </a></code> property specifies the visibility of a column. To hide a column at the initial rendering, set the <code><a target="_blank" class="code"
         href="https://ej2.syncfusion.com/vue/documentation/api/grid/column/#visible">columns->visible
         </a></code> property to false.</p>
+        <p>
+            Looking for the full Vue Data Grid component overview, features, pricing, and documentation? Visit our
+            <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-data-grid">
+                Vue Data Grid component</a> page.
+        </p>
     </div>
 </div>
 </template>

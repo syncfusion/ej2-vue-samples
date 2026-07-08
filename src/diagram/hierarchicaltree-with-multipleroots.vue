@@ -12,6 +12,8 @@
 <div id="description">
   <p>This example shows how to create a complex hierarchical layout with multiple root nodes.</p>
   <br />
+
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>

@@ -61,6 +61,8 @@
         <code>saveUrl</code> which will receive the uploaded files and save them on the server and <code>removeUrl</code> which will receive the files information and  handle the removal of files from server.
     </p>
     <br>
+
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>

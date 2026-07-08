@@ -78,7 +78,8 @@
     }
 
     .evtbtn {
-        padding-bottom: 10px
+        padding-bottom: 10px;
+        padding-top: 10px;
     }
 
     #EventLog b {

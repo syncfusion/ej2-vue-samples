@@ -28,6 +28,8 @@
           :toolbarRender="beforeToolbarRender"
           :displayOption="displayOption"
           :chartSettings="chartSettings"
+          :dataBound="dataBound"
+          :load="load"
         ></ejs-pivotview>
       </div>
     </div>
@@ -153,6 +155,7 @@ declare var require: any;
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Material";
 let theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark");
+let isInitial = true;
 
 export default {
   components: {
@@ -352,6 +355,16 @@ export default {
           report.push(args);
         }
         localStorage.pivotviewReports = JSON.stringify(report);
+      }
+    },
+    load: function () {
+      isInitial = true;
+    },
+    dataBound: function () {
+      if (isInitial) {
+        isInitial = false;
+        let pivotObj = ((this as any).$refs.pivotview).ej2Instances;
+        pivotObj.isModified = false;
       }
     }
   },

@@ -13,6 +13,7 @@
 
     <div id="description">
         <p>In this demo, a sequential upload is enabled by setting <a href="https://ej2.syncfusion.com/vue/documentation/api/file-manager/uploadsettingsmodel/#sequentialUpload" target="_blank">sequentialUpload</a> to <code>true</code> in the File Manager's upload settings. When enabled, files are uploaded one after another in the order they were added, helping preserve the intended sequence and manage bandwidth more effectively.</p>
+        <p>Looking for the full Vue File Manager component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-file-manager">Vue File Manager</a> page.</p>
     </div>
   </div>
 </template>
@@ -29,7 +30,7 @@ import { FileManagerComponent, NavigationPane, Toolbar, DetailsView } from "@syn
 /**
  * File Manager Sequential Upload feature sample
  */
-let hostUrl = 'https://ej2-aspcore-service.azurewebsites.net/';
+let hostUrl = 'https://physical-service.syncfusion.com/';
 
 export default {
   components: {

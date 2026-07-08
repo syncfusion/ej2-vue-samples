@@ -94,6 +94,9 @@ export default {
     chart: [ColumnSeries, Legend, Category, Tooltip, Highlight]
   },
   methods: {
+      load: function (args) {
+        loadChartTheme(args);
+      },
       axisLabelRender: function (args) {
         let value = parseInt(args.text.replace(/,/g, ''), 10);
         if (value >= 1000) {

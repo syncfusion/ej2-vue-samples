@@ -31,13 +31,13 @@
             "url": "image",
             "name": "Image",
             "category": "Rich Text Editor",
-            "type": "update",
             "description": "This demo explains how to insert images with a blob or base64 format, link to the images, image upload, rotate left/right, and more in vue WYSIWYG HTML Editor."
         },
         {
             "url": "insert-media",
             "name": "Insert Media",
             "category": "Rich Text Editor",
+            "type": "update",
             "description": "This demo shows how to insert audio and video, Embed video, upload audio and video, and more in Insert Media."
         },
         {
@@ -152,6 +152,7 @@
         {
             "url": "export-document",
             "name": "Export to Word / PDF",
+            "type": "update",
             "description": "This demo explains how to export the content of the Rich Text Editor to Word and PDF document formats using the Syncfusion<sup>®</sup> Document processing libraries.",
             "category": "Export / Import"
         },

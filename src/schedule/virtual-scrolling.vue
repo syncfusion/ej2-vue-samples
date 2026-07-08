@@ -30,6 +30,7 @@
                resources and its associated events. To enable the dynamic loading of events and resources in the
                Scheduler, set the <code>allowVirtualScrolling</code> property to <code>true</code> within the view-specific settings.
             </p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
 
     </div>

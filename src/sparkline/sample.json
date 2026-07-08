@@ -27,6 +27,7 @@
         },
         {
             "url": "spark-grid",
+            "ignoreOnBuild": true,
             "name": "Sparkline in Grid",
             "description": "This demo for Essential JS2 Sparkline control demonstrates rendering sparklines in the data grid control.",
             "category": "Sparkline Charts",
@@ -47,6 +48,7 @@
             "api": {}
         },{
             "url": "range-band",
+            "ignoreOnBuild": true,
             "name": "Range Band",
             "description": "This demo for Essential JS2 Sparkline control depicts the range band feature and its customization options.",
             "category": "Sparkline Charts",

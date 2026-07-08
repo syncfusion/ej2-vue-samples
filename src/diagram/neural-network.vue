@@ -16,7 +16,7 @@
     </div>
     <div id="action-description">
       <p>
-        This sample provides an interactive visualization of a neural network architecture using the Syncfusion<sup>®</sup> EJ2 Vue Diagram component. It displays multi-layered networks with configurable neurons, connections, and data flow patterns.
+        This sample provides an interactive visualization of a neural network architecture using the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> component. It displays multi-layered networks with configurable neurons, connections, and data flow patterns.
       </p>
     </div>
     <div id="description">

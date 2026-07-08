@@ -28,7 +28,9 @@
         Class shapes.
     </p>
     <br />
-  </div>
+  
+    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
+</div>
 </div>
 </template>
 <style scoped>

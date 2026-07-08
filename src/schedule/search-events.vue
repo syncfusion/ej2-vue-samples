@@ -76,6 +76,7 @@
         In this example, the search text value is compared with the event field values of Scheduler DataSource and then
         the filtered resultant event data collection is assigned to the DataSource of Grid.
     </p>
+    <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
     </div>
     </div>
 </template>

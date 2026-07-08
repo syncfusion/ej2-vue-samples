@@ -6,7 +6,7 @@
             </p>
         </div>
         <div>
-            <ejs-gantt ref='gantt' id="ColumnResize" :dataSource="data" :height="height" :rowHeight="46"
+            <ejs-gantt ref="gantt" id="ColumnResize" :dataSource="data" :height="height" :rowHeight="46"
                 :taskbarHeight="25" :allowResizing='true' :highlightWeekends='true' :taskFields="taskFields"
                 :columns="columns" :labelSettings="labelSettings" :splitterSettings="splitterSettings"
                 :treeColumnIndex="1" :projectStartDate="projectStartDate" :projectEndDate="projectEndDate">
@@ -23,7 +23,6 @@
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#allowresizing">columns ->
                     allowResizing</a> to false in columns definition
             </p>
-            <br />
             <p> In this demo, the allowResizing feature has been enabled by setting the <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowresizing">allowResizing</a>
                 property to true.
@@ -31,15 +30,18 @@
                 <code>maxWidth (300 pixels)</code>.
                 The column resizing has been disabled in the <b>Duration</b> column
             </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-resizing">documentation
-                    section</a>.</p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use column resize features,
+                inject the <code>Resize</code> module using the <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-resizing">documentation section</a>.</p>
         </div>
     </div>
 </template>
 <script>
-import { GanttComponent, Selection, Resize } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Resize } from "@syncfusion/ej2-vue-gantt";
 import { projectNewData } from './data-source';
 
 export default {
@@ -62,7 +64,7 @@ export default {
             },
             columns: [
                 { field: 'TaskID', headerText: 'ID', width: 80, minWidth: 8 },
-                { field: 'TaskName', headerText: 'Job Name', width: 250, minWidth: 120, maxWidth: 300 },
+                { field: 'TaskName', headerText: 'Job Name', width: 280, minWidth: 120, maxWidth: 300 },
                 { field: 'StartDate', width: 135, minWidth: 8 },
                 { field: 'EndDate', width: 135, minWidth: 8 },
                 { field: 'Duration', allowResizing: false, width: 120 },
@@ -80,7 +82,7 @@ export default {
         };
     },
     provide: {
-        gantt: [Selection, Resize]
+        gantt: [Resize]
     }
 }
 </script>

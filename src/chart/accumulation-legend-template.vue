@@ -145,7 +145,7 @@ export default {
       args.template = args.template
         .replace('opacity:1;', 'opacity:' + opacity + ';')
         .replace('LABEL_COLOR', args.fill)
-        .replace('src=""', 'src="' + require('./images/' + args.text + '.png') + '"')
+        .replace('src=""', 'src="' + ('src/chart/images/' + args.text + '.png') + '"')
         .replace('></span>', '>' + args.text + '</span>')
         .replace(/<span class="e-legend-desc"([^>]*)><\/span>/, '<span class="e-legend-desc"$1>' + desc + '</span>');
     },

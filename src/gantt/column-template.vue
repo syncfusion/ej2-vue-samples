@@ -1,15 +1,14 @@
 <template>
   <div class="col-lg-12 control-section">
     <div>
-      <ejs-gantt ref='gantt' id="ColumnTemplate" :dataSource="data" :height="height" :rowHeight="46" :taskbarHeight="25"
+      <ejs-gantt ref="gantt" id="ColumnTemplate" :dataSource="data" :height="height" :rowHeight="46" :taskbarHeight="25"
         :highlightWeekends='true' :taskFields="taskFields" :labelSettings="labelSettings"
         :splitterSettings="splitterSettings" :columns="columns" :resourceFields="resourceFields" :resources="resources"
         :projectStartDate="projectStartDate" :projectEndDate="projectEndDate" :queryCellInfo="queryCellInfo">
         <e-columns>
           <e-column field='TaskID' headerText='Task ID' textAlign='Left'></e-column>
           <e-column field='TaskName' headerText='Task Name' width='250'></e-column>
-          <e-column field='resources' :template="'columnTemplate'" width='250'>
-          </e-column>
+          <e-column field='resources' :template="'columnTemplate'" width='250'></e-column>
           <e-column field='StartDate' headerText='Start Date' width='150'></e-column>
           <e-column field='Duration' headerText='Duration' width='150'></e-column>
           <e-column field='Progress' headerText='Progress' width='150'></e-column>
@@ -18,7 +17,7 @@
           <div class="columnTemplate" v-if="data.ganttProperties.resourceNames">
             <img :src="'src/gantt/images/' + data.ganttProperties.resourceNames + '.png'" style="height: 40px;"
               :alt="data.ganttProperties.resourceNames" />
-            <div style="display:inline-block;width:100%;position:relative;">
+            <div style="display: inline-block;width: 100%;position: relative;left: 10px">
               {{ data.ganttProperties.resourceNames }}</div>
           </div>
         </template>
@@ -34,8 +33,12 @@
           target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#template">columns ->
           template</a> property accepts the template for the cell.</p>
       <p>In this demo, using column template, resource column has been presented with employee photo</p>
-      <br>
-      <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+      <p style="font-weight: 500">Injecting Module:</p>
+      <p>
+          Gantt component features are segregated into individual feature-wise modules. To use selection feature,
+          inject the <code>Selection</code> module using the <code>provide</code> section.
+      </p>
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
           href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-template">documentation section</a>.
       </p>
     </div>
@@ -70,13 +73,13 @@ export default {
       },
       columns: [
         { field: 'TaskID', width: 140 },
-        { field: 'TaskName', width: 250 },
+        { field: 'TaskName', width: 280 },
         { field: 'resources' },
         { field: 'StartDate' },
         { field: 'EndDate' },
         { field: 'Duration' },
         { field: 'Predecessor' },
-        { field: 'Progress' },
+        { field: 'Progress' }
       ],
       resourceFields: {
         id: 'resourceId',
@@ -90,7 +93,7 @@ export default {
         columnIndex: 4
       },
       projectStartDate: new Date('03/24/2025'),
-      projectEndDate: new Date('07/06/2025')
+      projectEndDate: new Date('05/31/2025')
     };
   },
   provide: {

@@ -57,6 +57,7 @@
         <code>TimelineYear</code> module into the
         <code>provide</code> section.
       </p>
+      <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
     </div>
   </div>
 </template>

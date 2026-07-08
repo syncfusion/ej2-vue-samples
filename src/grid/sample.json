@@ -167,6 +167,7 @@
         {
             "url": "column-chooser",
             "name": "Column Chooser",
+            "type": "update",
             "category": "Columns",
             "description": "This demo for Essential JS 2 grid component shows how the column chooser feature can be used to show or hide columns dynamically.",
             "hideOnDevice": false,
@@ -204,6 +205,7 @@
             "url": "detail-template",
             "name": "Detail Template",
             "category": "Rows",
+            "ignoreOnBuild": true,
             "description": "This demo for Essential JS 2 grid component shows the usage of the detail template feature.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "rowTemplate"] },
@@ -282,9 +284,27 @@
             "url": "batch-editing",
             "name": "Batch Editing",
             "category": "Editing",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows how to perform bulk changes to the grid content using batch edit mode.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
+        },
+        {
+            "url": "cell-editing",
+            "name": "Cell Editing",
+            "category": "Editing",
+            "type": "new",
+            "description": "This demo for Essential JS 2 grid control shows the cell editing operation. In the below sample, You can perform CRUD operations in grid",
+            "api": {
+                "Grid": [
+                    "dataSource",
+                    "allowPaging",
+                    "pageSettings",
+                    "columns",
+                    "editSettings",
+                    "toolbar"
+                ]
+            }
         },
         {
             "url": "command-column",
@@ -326,6 +346,7 @@
             "url": "filter-menu",
             "name": "Filter Menu",
             "category": "Filtering",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowFiltering", "allowSorting"] },
@@ -341,14 +362,6 @@
             "description": "This demo for Essential JS 2 grid component shows the content searching feature.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "toolbar"] }
-        },
-        {
-            "url": "paging",
-            "name": "Paging",
-            "category": "Paging",
-            "description": "This demo for Essential JS 2 grid component shows how you can display the contents of the grid in page segments using the paging feature.",
-            "hideOnDevice": false,
-            "api": { "Grid": ["columns", "dataSource"] }
         },
         {
             "url": "grouping",
@@ -459,7 +472,7 @@
             "name": "Frozen API",
             "category": "Scrolling",
             "description": "This demo for Essential JS 2 grid component shows how the frozen rows and columns at both sides of the Grid.",
-            "hideOnDevice": false,
+            "hideOnDevice": true,
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
@@ -471,10 +484,21 @@
             "api": { "Grid": ["columns", "dataSource"] }
         },
         {
+            "url": "dom-virtualization",
+            "name": "DOM Virtualization",
+            "category": "Performance",
+            "type": "new",
+            "description": "This demo for Essential JS 2 grid control demonstrates DOM virtualization for high-performance rendering of large datasets with filtering, and sorting.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["dataSource", "enableVirtualization", "enableDomVirtualization", "allowFiltering", "allowSorting", "allowSelection", "selectionSettings", "height", "rowHeight", "columns", "dataBound", "actionComplete"] },
+            "sourceFiles": [
+                { "displayName": "dom-virtualization.vue", "path": "src/grid/dom-virtualization.vue" }
+            ]
+        },
+        {
             "url": "virtual-scrolling",
             "name": "Virtual Scrolling",
-            "category": "Scrolling",
-            "type": "update",
+            "category": "Performance",
             "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows and columns.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "enableVirtualization", "enableColumnVirtualization"] },
@@ -486,13 +510,22 @@
         {
             "url": "infinite-scrolling",
             "name": "Infinite Scrolling",
-            "category": "Scrolling",
+            "category": "Performance",
+            "type": "update",
             "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "enableInfiniteScrolling"] },
             "sourceFiles":[
                 { "displayName": "infinite-scrolling.vue", "path":"src/grid/infinite-scrolling.vue" }
             ]
+        },
+        {
+            "url": "paging",
+            "name": "Pagination",
+            "category": "Performance",
+            "description": "This demo for Essential JS 2 grid component shows how you can display the contents of the grid in page segments using the paging feature.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource"] }
         },
         {
             "url": "lazy-load-grouping-with-paging",

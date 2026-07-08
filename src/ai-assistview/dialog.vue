@@ -51,7 +51,7 @@
         </div>
         <ejs-dialog id="dialogElem" ref="dialog" width="440px" target=".dialog-aiassistview" height="100%" :visible="dialogVisible" cssClass='custom-dialog' content="dialogContent">
             <template v-slot:dialogContent="">
-                <ejs-aiassistview id="aiAssistView" ref="aiassist" :promptSuggestions="suggestion" :promptRequest="onPromptRequest" :toolbarSettings="assistViewToolbarSettings" :responseToolbarSettings="responseToolbarSettings" cssClass='custom-aiassistview' bannerTemplate="bannerTemplate">
+                <ejs-aiassistview id="aiAssistView" ref="aiassist" :promptSuggestions="suggestion" :promptRequest="onPromptRequest" :toolbarSettings="assistViewToolbarSettings" :enableStreaming="true" :responseToolbarSettings="responseToolbarSettings" cssClass='custom-aiassistview' bannerTemplate="bannerTemplate">
                     <template v-slot:bannerTemplate="{data}">
                         <div class="banner-content">
                             <div class="e-icons e-assistview-icon"></div>

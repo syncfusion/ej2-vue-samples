@@ -21,9 +21,9 @@
                 property <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt#taskmode">taskMode</a>.</p>
             <ul>
-                <li>Auto</li>
-                <li>Manual</li>
-                <li>Custom</li>
+                <li><code>Auto</code></li>
+                <li><code>Manual</code></li>
+                <li><code>Custom</code></li>
             </ul>
         </div>
 
@@ -41,13 +41,13 @@
                     href="https://ej2.syncfusion.com/vue/documentation/api/gantt#taskmode">taskMode</a> property is set
                 as <code>Custom</code>, the scheduling mode for each tasks will be mapped form the data source field.
                 The property <code>manual</code> is used to map the scheduling mode field from the data source.</p>
-            <p>Gantt component features are segregated into individual feature-wise modules. To use editing feature,
-                inject the <code>Edit</code> module using the <code>Gantt.Inject(Edit)</code> method. To use a
-                selection, inject the <code>Selection</code> module using the <code>Gantt.Inject(Selection)</code>
-                method, and to use toolbar by injecting the <code>Toolbar</code> module using the
-                <code>Gantt.Inject(Toolbar)</code> method. </p>
-            <br>
-            <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank"
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection, edit, toolbar and
+                markers features, inject the <code>Selection</code>, <code>Edit</code>, <code>Toolbar</code> and
+                <code>DayMarkers</code> modules using the <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
                     href="https://ej2.syncfusion.com/vue/documentation/gantt/task-scheduling">documentation section</a>.
             </p>
         </div>
@@ -79,8 +79,8 @@ export default {
             height: '650px',
             columns: [
                 { field: 'TaskID', visible: false },
-                { field: 'TaskName', headerText: 'Task Name' },
-                { field: 'isManual', headerText: 'Task Mode' }
+                { field: 'TaskName', headerText: 'Task Name', width: 130 },
+                { field: 'isManual', headerText: 'Task Mode', width: 120 }
             ],
             editSettings: {
                 allowAdding: true,

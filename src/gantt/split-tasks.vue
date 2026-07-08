@@ -1,55 +1,53 @@
 <template>
-<div>
-<div class="control-section">
-    <div class="content-wrapper">
-        <ejs-gantt ref='gantt' id="splittasks"  
-            :dataSource= "data"
-            :taskFields= "taskFields"
-            :allowSelection= "true"
-            :enableContextMenu= "true"
-            :editSettings= "editSettings"
-			:labelSettings="labelSettings"
-            :toolbar= "toolbar"
+    <div>
+        <div class="control-section">
+            <div class="content-wrapper">
+                <ejs-gantt ref='gantt' id="splittasks" :dataSource= "data" :taskFields= "taskFields" :allowSelection= "true"
+                    :enableContextMenu= "true" :editSettings= "editSettings" :labelSettings="labelSettings" :toolbar= "toolbar"
+                    :height="height" :rowHeight="46" :taskbarHeight="25" :treeColumnIndex= "1" :highlightWeekends= "true"
+                    :columns= "columns" :projectStartDate= "projectStartDate" :projectEndDate= "projectEndDate"
+                    :splitterSettings= "splitterSettings">
+                </ejs-gantt>
+            </div>
+        </div>
 
-:height="height"
-:rowHeight="46"
-:taskbarHeight="25"
-            :treeColumnIndex= "1"
-            :highlightWeekends= "true"
-            :columns= "columns"
-            :projectStartDate= "projectStartDate"
-            :projectEndDate= "projectEndDate"
-            :splitterSettings= "splitterSettings">
-        </ejs-gantt>
+        <div id="action-description">
+            <p>This sample demonstrates the split tasks support in the Gantt Chart. This support allows an interruption in
+                the task due to circumstances such as the occurrence of an unplanned event or reprioritization of already planned events.
+                Sometimes a task may be interrupted due to unexpected situations. In such situtations, the pending work can be split into
+                segments and the work can be resumed at a different date.</p>
+        </div>
+
+        <div id="description">
+            <p>The split tasks can be called the segments of a task. A task can be split into any number of segments with a
+                minimum of one time unit cell. Segments can be defined in the <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/api/gantt/taskFieldsModel/#segments">taskFields.segments</a> property.
+                Segments can be created or merged by two ways: Using Edit Dialog and Context Menu.
+            </p>
+            <p>A task must have a duration of minimum two time unit cells in order to be split. Similarly,
+                milestone tasks or parent tasks cannot be split into segments.</p>
+            <p style="font-weight: 500">Injecting Module:</p>
+            <p>
+                Gantt component features are segregated into individual feature-wise modules. To use selection, edit, toolbar and
+                context menu features, inject the <code>Selection</code>, <code>Edit</code>, <code>Toolbar</code> and
+                <code>ContextMenu</code> modules using the <code>provide</code> section.
+            </p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/managing-tasks/splitting-and-merging-tasks">
+                documentation section</a>.</p>
+        </div>
     </div>
-</div>
-
-<div id="action-description">
-    <p>This sample demonstrates the split tasks support in the Gantt Chart. This support allows an interruption in
-        the task due to circumstances such as the occurrence of an unplanned event or reprioritization of already planned events.
-        Sometimes a task may be interrupted due to unexpected situations. In such situtations, the pending work can be split into segments
-        and the work can be resumed at a different date.</p>
-</div>
-
-<div id="description">
-    <p>The split tasks can be called the segments of a task. A task can be split into any number of segments with a minimum of one time unit cell. Segments
-        can be defined in the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/taskFieldsModel/#segments">taskFields.segments</a> property. Segments can be created or merged by two ways: Using Edit Dialog and Context Menu.
-    </p>
-    <p>A task must have a duration of minimum two time unit cells in order to be split. Similarly, milestone tasks or parent tasks cannot be split into segments.</p>   
-    <p>More information on the Essential<sup>®</sup> JS2 Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/managing-tasks/splitting-and-merging-tasks">documentation section</a>.</p>
-</div>
-</div>
 </template>
 <script>
 import { GanttComponent, Selection, Edit, Toolbar, ContextMenu } from "@syncfusion/ej2-vue-gantt";
 import { splitTasksData } from './data-source';
 
 export default {
-  components: {
-    'ejs-gantt':GanttComponent
-  },
-  data: function() {
-      return{
+    components: {
+        'ejs-gantt': GanttComponent
+    },
+    data: function() {
+        return{
             data: splitTasksData,
             taskFields: {
                 id: 'TaskID',
@@ -63,7 +61,7 @@ export default {
                 segments: 'Segments'
             },
             columns: [
-               { field: 'TaskID', headerText: 'ID', width: 80 },
+                { field: 'TaskID', headerText: 'ID', width: 80 },
                 { field: 'TaskName', headerText: 'Name', width: 250 },
                 { field: 'StartDate' },
                 { field: 'EndDate' },
@@ -84,15 +82,15 @@ export default {
                leftLabel: 'TaskName',
                taskLabel: '${Progress}%'
             },
-             projectStartDate: new Date('01/29/2025'),
+            projectStartDate: new Date('01/29/2025'),
             projectEndDate: new Date('04/20/2025'),
             splitterSettings: {
                 columnIndex:2
             }
-      };
-  },
-  provide: {
-      gantt: [ Selection, Toolbar, Edit, ContextMenu]
-  }
+        };
+    },
+    provide: {
+        gantt: [ Selection, Toolbar, Edit, ContextMenu]
+    }
 }
 </script>

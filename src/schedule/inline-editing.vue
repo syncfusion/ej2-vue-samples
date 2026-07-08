@@ -28,6 +28,7 @@
         <li>For adding an appointment, the appointment will be created based on the selected time and subject once you focused-out or press ENTER key.</li>
         <li>For editing an appointment, the appointment will be saved based on the modified subject.</li>
       </ul>
+      <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
     </div>
   </div>
 </template>

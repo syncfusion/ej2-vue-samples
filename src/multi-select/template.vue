@@ -73,7 +73,8 @@
             color: #2899F5;
         }
     
-        .bootstrap5-dark .multiselect-template .header {
+        .bootstrap5-dark .multiselect-template .header,
+        .bootstrap5\.3-dark .multiselect-template .header {
             background: #343A40;
             color: #7B848D;
         }

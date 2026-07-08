@@ -81,7 +81,8 @@ body.tailwind-dark,
 .tailwind-dark .sample-navigation>button:hover,
 .tailwind-dark .sb-switch-popup li:first-child,
 .tailwind-dark .sb-left-pane .e-listview .e-list-group-item,
-.tailwind-dark .sb-theme-popup li.active .sb-theme-select {
+.tailwind-dark .sb-theme-popup li.active .sb-theme-select,
+.tailwind-dark .sb-products-popup li.active .sb-products-select {
     color: rgb(34, 211, 238) !important;
 }
 
@@ -123,6 +124,7 @@ body.tailwind-dark,
 .tailwind-dark .CodeMirror,
 .tailwind-dark .sb-api-section,
 .tailwind-dark .sb-theme-popup,
+.tailwind-dark .sb-products-popup,
 .tailwind-dark .copy-tooltip,
 .tailwind-dark .e-icons.copycode,
 .tailwind-dark #search-input-wrapper input,
@@ -137,9 +139,12 @@ body.tailwind-dark,
 .tailwind-dark .sb-setting-btn.active,
 .tailwind-dark .sb-switch-popup li:hover,
 .tailwind-dark .theme-wrapper:hover,
+.tailwind-dark .products-wrapper:hover,
 .tailwind-dark #themeMode-switch-btn:hover,
 .tailwind-dark .theme-wrapper.active,
+.tailwind-dark .products-wrapper.active,
 .tailwind-dark .sb-theme-popup li:hover,
+.tailwind-dark .sb-products-popup li:hover,
 .tailwind-dark .sb-search-result .e-list-item:hover,
 .tailwind-dark .sb-left-pane .e-listview .e-list-item:hover {
     background-color: rgb(107, 114, 128);
@@ -235,10 +240,22 @@ body.tailwind-dark,
     color: rgb(31, 41, 55);
 }
 
+.tailwind-dark .sb-products-select {
+    color: rgb(31, 41, 55);
+}
+
 .tailwind-dark .sb-theme-popup li:hover .sb-theme-select {
     color: transparent;
 }
 
+.tailwind-dark .sb-products-popup li:hover .sb-products-select {
+    color: transparent;
+}
+
 .tailwind-dark .sb-theme-popup li:hover.active .sb-theme-select {
+    color: white;
+}
+
+.tailwind-dark .sb-products-popup li:hover.active .sb-products-select {
     color: white;
 }

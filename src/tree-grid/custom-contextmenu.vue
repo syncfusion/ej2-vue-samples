@@ -17,6 +17,9 @@
     <div id="action-description">
     <p>This sample demonstrates the usage of custom context menu in Tree Grid component. Right click anywhere on a parent row in the Tree Grid to view custom context menu.
     </p>
+    <p>
+        Looking for the full Vue Tree Grid component overview, features, pricing, and documentation? Visit our <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-tree-grid">Vue Tree Grid component</a> page.
+    </p>
 </div>
 
 <div id="description">
