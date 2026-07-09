@@ -41,7 +41,10 @@
     "@syncfusion/ej2-vue-multicolumn-combobox": "*",
     "@syncfusion/ej2-vue-interactive-chat": "*",
     "@syncfusion/ej2-vue-blockeditor": "*",
+    "@xenova/transformers": "^2.6.0",
     "openai": "4.57.3",
+    "turndown": "^7.1.1",
+    "turndown-plugin-gfm": "^1.0.2",
     "vue-router": "4.2.4"
   },
   "devDependencies": {
