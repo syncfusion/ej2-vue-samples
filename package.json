@@ -66,7 +66,10 @@
     "ts-loader": "5.2.0",
     "typescript": "5.1.6",
     "webpack": "5.94.0",
-    "webpack-cli": "5.1.4"
+    "webpack-cli": "5.1.4",
+    "@xenova/transformers": "^2.6.0",
+    "turndown": "^7.1.1",
+    "turndown-plugin-gfm": "^1.0.2"
   },
   "scripts": {
     "serve": "gulp build && node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
