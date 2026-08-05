@@ -141,7 +141,7 @@
                 <div id='products-switcher-popup' class='sb-products-popup'>
                     <ul id="productslist" class="options" role="list">
                         <li class='active' id="pdf-editor" role="listitem">
-                            <span class="switch-text">PDF Viewer</span>
+                            <span class="switch-text">PDF Editor</span>
                         </li>
                         <li class="e-list" id="spreadsheet-editor" role="listitem">
                             <span class="switch-text">Spreadsheet Editor</span>
@@ -232,7 +232,7 @@
                             </div>
                             <div class='setting-content setting-products-change'>
                                 <select id='sb-setting-products' class='sb-setting-products-select'>
-                                    <option value="pdf-editor">PDF Viewer</option>
+                                    <option value="pdf-editor">PDF Editor</option>
                                     <option value="spreadsheet-editor">Spreadsheet Editor</option>
                                     <option value="docx-editor">Docx Editor</option>
                                 </select>
@@ -2181,6 +2181,7 @@ const updatesourceTab = (): void => {
     })
         .catch((reason: any): void => {
             //errorHandler(reason.message);
+            removeOverlay();
         });
 };
 

@@ -2185,6 +2185,7 @@ const updatesourceTab = (): void => {
     })
         .catch((reason: any): void => {
             //errorHandler(reason.message);
+            removeOverlay();
         });
 };
 

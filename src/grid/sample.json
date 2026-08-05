@@ -65,6 +65,18 @@
             "api": { "Grid": ["contextMenuItems", "columns", "dataSource", "allowSelection", "selectionSettings", "contextMenuClick", "enablePropertyPanel", "allowExport", "enableRtl", "locale"] }
         },
         {
+            "url": "product-catalog",
+            "name": "Product Catalog",
+            "type": "new",
+            "category": "Product use case",
+            "description": "This demo demonstrates a product catalog built using the Syncfusion® Vue Data Grid with column templates and a detail template.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "detailTemplate", "allowFiltering", "allowSorting"] },
+            "sourceFiles":[
+                { "displayName": "product-catalog.vue", "path":"src/grid/product-catalog.vue" }
+            ]
+        },
+        {
             "url": "local-data",
             "name": "Local Data",
             "category": "Data Binding",

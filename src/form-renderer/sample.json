@@ -1,0 +1,16 @@
+{
+    "name": "Form Renderer",
+    "directory": "form-renderer",
+    "ftName" :"form-renderer",
+    "category": "Forms",
+    "type": "preview",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Form Renderer",
+            "description": "This example demonstrates the basic form renderer component that renders schema driven form.",
+            "type": "new"
+        }
+    ]
+} 

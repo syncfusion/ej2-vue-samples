@@ -1,6 +1,6 @@
 {
   "name": "ej2-vue-samples",
-  "version": "34.1.29",
+  "version": "34.2.2",
   "description": "Examples of Vue UI Components",
   "keywords": [],
   "dependencies": {
@@ -41,6 +41,7 @@
     "@syncfusion/ej2-vue-multicolumn-combobox": "*",
     "@syncfusion/ej2-vue-interactive-chat": "*",
     "@syncfusion/ej2-vue-blockeditor": "*",
+    "@syncfusion/ej2-vue-form-renderer": "*",
     "openai": "4.57.3",
     "vue-router": "4.2.4"
   },
@@ -51,6 +52,7 @@
     "@vue/cli-service": "5.0.8",
     "@types/codemirror": "5.60.10",
     "@types/node": "20.8.5",
+    "@xenova/transformers": "^2.6.0",
     "codemirror": "5.65.16",
     "browser-sync": "2.29.3",
     "css-loader": "3.6.0",
@@ -65,6 +67,8 @@
     "shelljs": "0.8.5",
     "ts-loader": "5.2.0",
     "typescript": "5.1.6",
+    "turndown": "^7.1.1",
+    "turndown-plugin-gfm": "^1.0.2",
     "webpack": "5.94.0",
     "webpack-cli": "5.1.4"
   },

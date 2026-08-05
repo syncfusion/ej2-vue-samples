@@ -33,7 +33,8 @@
     "Sankey"
   ],
   "Forms": [
-    "Query Builder"
+    "Query Builder",
+    "Form Renderer"
   ],
   "File Viewers & Editors": [
     "Rich Text Editor",
