@@ -94,7 +94,7 @@ import { BlockEditorComponent } from '@syncfusion/ej2-vue-blockeditor';
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
 import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
 import {DialogUtility} from '@syncfusion/ej2-vue-popups';
-import * as data from './blockData.json';
+import * as data from './data/api.json';
 
 let id;
 export default {

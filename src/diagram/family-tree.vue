@@ -7,7 +7,7 @@
   </div>
   <div id="action-description">
     <p>
-      This sample showcases a family tree built with the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a>,
+      This sample showcases a family tree built with the Syncfusion<sup>®</sup> EJ2 Vue Diagram,
       illustrating complex hierarchical relationships through customizable node templates, interactive hover details,
       and relation-based highlighting.
     </p>

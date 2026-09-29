@@ -14,27 +14,27 @@
         </e-columns>
             <template v-slot:nametemplate>
                 <div>
-                    <img src="src/gantt/images/taskname.png" class="e-image" alt="TaskName"/> Task Name
+                    <img :src="'src/gantt/images/taskname.png'" class="e-image" alt="TaskName"/> Task Name
                 </div>
             </template>
             <template v-slot:datetemplate>
                 <div>
-                    <img src="src/gantt/images/startdate.png" class="e-image" alt="StartDate"/> Start Date
+                    <img :src="'src/gantt/images/startdate.png'" class="e-image" alt="StartDate"/> Start Date
                 </div>
             </template>
             <template v-slot:resourcetemplate>
                 <div>
-                    <img src="src/gantt/images/resources.png" class="e-image" alt="Resources"/> Resources
+                    <img :src="'src/gantt/images/resources.png'" class="e-image" alt="Resources"/> Resources
                 </div>
             </template>
             <template v-slot:durationtemplate>
                 <div>
-                    <img src="src/gantt/images/duration.png" class="e-image" alt="Duration"/> Duration
+                    <img :src="'src/gantt/images/duration.png'" class="e-image" alt="Duration"/> Duration
                 </div>
             </template>
             <template v-slot:progresstemplate>
                 <div >
-                    <img src="src/gantt/images/progress.png" class="e-image" alt="Progress"/> Progress
+                    <img :src="'src/gantt/images/progress.png'" class="e-image" alt="Progress"/> Progress
                 </div>
             </template>
     </ejs-gantt>       
@@ -55,7 +55,8 @@
         Gantt component features are segregated into individual feature-wise modules. To use selection features,
         inject the <code>Selection</code> module using the <code>provide</code> section.
     </p>
-    <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/columns#custom-column-header">documentation section</a>.</p>
+    <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/columns#custom-column-header">columns</a> documentation section.</p>
+    <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
 </div>
 
 </div>

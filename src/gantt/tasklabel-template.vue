@@ -26,23 +26,15 @@
       </ejs-gantt>
     </div>
     <div id="description">
-      <p>
-        In this demo, the label template is rendered using the <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/api/gantt/labelSettingsModel/#leftlabel">leftLabel</a>, <a
-          target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/api/gantt/labelSettingsModel/#rightlabel">rightLabel</a>
-        and <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/api/gantt/labelSettingsModel/#tasklabel">taskLabel</a>
-        properties in <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/api/gantt#labelsettings">labelSettings</a>.
-      </p>
+      <p>The Gantt Chart supports custom label templates through the <code>labelSettings</code> property. Labels can be displayed on the left side, right side, and inside taskbars to provide additional task information. In this example, the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/labelSettingsModel/#leftlabel">leftLabel</a> displays the task name and progress, the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/labelSettingsModel/#tasklabel">taskLabel</a> displays the current progress percentage, and the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/labelSettingsModel/#rightlabel">rightLabel</a> displays assigned resource information with custom images and names.</p>
       <p style="font-weight: 500">Injecting Module:</p>
       <p>
         Gantt component features are segregated into individual feature-wise modules. To use markers and selection features, inject the
         <code>DayMarkers</code> and <code>Selection</code> modules using the <code>provide</code> section.
       </p>
       <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/gantt/labels#task-labels">documentation section</a>.</p>
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/labels#task-labels">label template</a> documentation section.</p>
+      <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
     </div>
   </div>
 </template>

@@ -14,7 +14,7 @@
     </div>
     <div align="center">
         <ejs-chart style='display:block;' ref='chart' id='chartLog' align='center' :chartArea='chartArea' :width='width' 
-            :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' height='350' :theme='theme'>
+            :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' height='350' :theme='theme' :load="chartLoad">
             <e-series-collection>
                 <e-series :dataSource='dataSource' type='StepArea' xName='x' yName='y' width='2' :marker='marker' :fill='fill' :border='border'>
                 </e-series>
@@ -284,15 +284,14 @@ export default {
     rangeNavigator: [Logarithmic, StepLineSeries, RangeTooltip],
     chart: [Logarithmic, StepAreaSeries]
   },
-  updated: function() {
-    this.$nextTick(function() {
-        this.$refs.range.ej2Instances.refresh();
-        this.$refs.chart.ej2Instances.refresh();
-      });
-    },
+  
   methods: {
     load: function(args) {
+      loadRangeNavigatorTheme(args);
       args.rangeNavigator.interval = 1;
+    },
+    chartLoad: function(args) {
+        loadRangeNavigatorTheme(args);
     },
     changed: function(args) {
         this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;

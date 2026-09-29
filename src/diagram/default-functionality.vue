@@ -119,13 +119,13 @@
    <div id="action-description">
       <p>
         This sample demonstrates a credit card order-processing workflow created using built-in flow shapes in the
-        <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a>.
+        Syncfusion<sup>®</sup> Vue Diagram.
       </p>
     </div>
     <div id="description">
       <p>
         This sample demonstrates how to create, edit, and manage a credit card order-processing workflow using the
-        <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a>. The workflow is designed with nodes and connectors, where
+        Syncfusion<sup>®</sup> Vue Diagram. The workflow is designed with nodes and connectors, where
         each node represents a specific stage in the order process and each connector defines the flow between stages.
       </p>
       <p>

@@ -811,4 +811,12 @@ body[class*="high"] .section-content:hover {
         padding: 10px;
     }
 }
+
+.bootstrap5\.3.e-bigger #ribbonPlaceHolder .e-toast-content:last-child {
+  padding: 0px;
+}
+
+.bootstrap5\.3.e-bigger #ribbonPlaceHolder .e-toast-content:first-child {
+  padding: 10px;
+}
 </style>

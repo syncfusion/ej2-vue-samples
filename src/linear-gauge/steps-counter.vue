@@ -5,7 +5,7 @@
                 <e-annotations>
                     <e-annotation :axisIndex='axisIndex' :axisValue='axisValue' :x='positionX' zIndex='1' :y='positionY' :zIndex='zIndex' :content="'indicatorTemplate'">
                         <template v-slot:indicatorTemplate="{}">
-                            <div id="pointer" style="width: 70px;"> <p align="center" style="font-size:10px;margin-left:56px;margin-top:18px;font-weight: 400;color:'#000000';">STEPS</p> <p align="center" style="font-size: 23px;margin-top:-15px;margin-left:46px;color: #0DC9AB;font-weight: 600;">8456</p></div>
+                            <div id="pointer" class="steps-pointer" style="width: 70px;"> <p align="center" style="font-size:10px;margin-left:56px;margin-top:18px;font-weight: 400;color:'#000000';">STEPS</p> <p align="center" style="font-size: 23px;margin-top:-15px;margin-left:46px;color: #0DC9AB;font-weight: 600;">8456</p></div>
                         </template>
                     </e-annotation>
                         <e-annotation :axisIndex='axisIndex2' :axisValue='axisValue2' :x='positionX2' zIndex='1' :y='positionY2' :zIndex='zIndex2' :content="'indicatorTemplate1'">
@@ -109,3 +109,11 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+@media only screen and (max-width: 600px) {
+    .steps-pointer {
+        margin-left: -30px;
+    }
+}
+</style>

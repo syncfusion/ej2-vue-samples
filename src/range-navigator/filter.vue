@@ -6,7 +6,7 @@
         <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerFilter' :value='value' height='75'
          labelPosition ='Outside' valueType='DateTime' allowSnapping =true intervalType='Quarter' enableGrouping= true,
             groupBy= 'Years' enableDeferredUpdate=true :dataSource='dataSource' xName='HireDate' yName='yValue' :width='width'
-            :changed='changed' :theme='theme' animationDuration=500>
+            :changed='changed' :theme='theme' animationDuration=500 :load="rangeLoad">
         </ejs-rangenavigator>
     </div>
     <br/>
@@ -76,14 +76,10 @@ export default {
   provide: {
     rangeNavigator: [DateTime]
   },
-  updated: function() {
-    this.$nextTick(function() {
-        this.$refs.range.ej2Instances.refresh();
-        this.$refs.gridref.ej2Instances.refresh();
-      });
-    },
   methods: {
-  
+  rangeLoad: function(args) {
+    loadRangeNavigatorTheme(args);
+  },
     changed: function(args) {
         this.$refs.gridref.ej2Instances.dataSource = employeeData.filter(function(data) {
           return (

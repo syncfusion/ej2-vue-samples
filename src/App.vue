@@ -77,20 +77,21 @@
                         <span id='sb-switcher' role="button" tabindex="0" class='sb-lang-toggler sb-icons sb-icon-Dropdown'
                             aria-label="change the samplebrowser"></span>
                     </div>
-                </div>
-                <div class='sb-header-right sb-right sb-table'>
-                    <div class="sb-header-item sb-table-cell">
-                        <div id="header-products-switcher" role="button" tabindex="0" class="products-wrapper"
-                            title='Choose other products'>
-                            <div id="sb-products-text" class="sb-products-text">
-                                <span class="sb-header-text-left">OTHER PRODUCTS</span>
+                    <div class='sb-header-item sb-table-cell sb-sdk-wrapper'>
+                        <div id="header-sdk-switcher" role="button" tabindex="0" class="sdk-wrapper"
+                            title='Choose SDK samples'>
+                            <div id="sb-sdk-text" class="sb-sdk-text">
+                                <span class="sb-header-text-left">CHOOSE SDK</span>
                             </div>
-                            <div class="sb-products-switcher-wrapper">
-                                <span id="sb-products-switcher" class="sb-products-switch sb-icons sb-icon-Dropdown"
-                                    role="presentation" aria-label="Products selection"></span>
+                            <div class="sb-sdk-switcher-wrapper">
+                                <span id="sb-sdk-switcher" class="sb-sdk-switcher sb-icons sb-icon-Dropdown"
+                                    role="presentation" aria-label="SDK selection"></span>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class='sb-header-right sb-right sb-table'>
+                    
                     <div class="sb-header-item sb-table-cell">
                         <div id="header-theme-switcher" role="button" tabindex="0" class="theme-wrapper"
                             title='Change theme of sample browser'>
@@ -138,17 +139,53 @@
 
 
             <div id='sb-popup-section' class='sb-popups'>
-                <div id='products-switcher-popup' class='sb-products-popup'>
-                    <ul id="productslist" class="options" role="list">
-                        <li class='active' id="pdf-editor" role="listitem">
-                            <span class="switch-text">PDF Editor</span>
+                
+                <div id='sdk-popup' role='navigation' class='sb-sdk-popup'>
+                    <ul id='sdklist' role="list">
+                        <li class='active' data-sdk="all" role="listitem">
+                            <span class='sb-icons sb-sdk-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">All Demos</span>
                         </li>
-                        <li class="e-list" id="spreadsheet-editor" role="listitem">
-                            <span class="switch-text">Spreadsheet Editor</span>
+                        <li data-sdk="grid" role="listitem">
+                            <span class='sb-icons sb-sdk-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Grid SDK</span>
                         </li>
-                        <li class="e-list" id="docx-editor" role="listitem">
-                            <span class="switch-text">Docx Editor</span>
+                        <li data-sdk="chart" role="listitem">
+                            <span class='sb-icons sb-sdk-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Chart SDK</span>
                         </li>
+                        <li data-sdk="schedule" role="listitem">
+                            <span class='sb-icons sb-sdk-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Schedule SDK</span>
+                        </li>
+                        <li data-sdk="gantt" role="listitem">
+                            <span class='sb-icons sb-sdk-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Gantt SDK</span>
+                        </li>
+                        <li data-sdk="rich-text-editor" role="listitem">
+                            <span class='sb-icons sb-sdk-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Rich Text Editor SDK</span>
+                        </li>
+                        <li data-sdk="file-manager" role="listitem">
+                            <span class='sb-icons sb-sdk-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">File Manager SDK</span>
+                        </li>
+                        <li data-sdk="diagram" role="listitem">
+                            <span class='sb-icons sb-sdk-select sb-icon-icon-selection'></span>
+                            <span class="switch-text">Diagram SDK</span>
+                        </li>
+                        <li class="e-list" data-sdk="pdf">
+                        <span class="sb-icons sb-sdk-select sb-icon-icon-selection"></span>
+                        <span class="switch-text">PDF Viewer SDK</span>
+                    </li>
+                    <li class="e-list" data-sdk="spreadsheet">
+                        <span class="sb-icons sb-sdk-select sb-icon-icon-selection"></span>
+                        <span class="switch-text">Spreadsheet Editor SDK</span>
+                    </li>
+                    <li class="e-list" data-sdk="docx">
+                        <span class="sb-icons sb-sdk-select sb-icon-icon-selection"></span>
+                        <span class="switch-text">Docx Editor SDK</span>
+                    </li>
                     </ul>
                 </div>
                 <div id='sb-switcher-popup' role='navigation' class='sb-switch-popup'>
@@ -225,19 +262,28 @@
                         </span>
                     </div>
                     <div class='sb-setting-content'>
-                        <div class='sb-setting-item sb-setting-products-section'>
-                            <div class='setting-label'>
-                                <div class='sb-icons sb-setting-icons sb-icon-Products'></div>
-                                <div class='sb-setting-text'>Other Products</div>
-                            </div>
-                            <div class='setting-content setting-products-change'>
-                                <select id='sb-setting-products' class='sb-setting-products-select'>
-                                    <option value="pdf-editor">PDF Editor</option>
-                                    <option value="spreadsheet-editor">Spreadsheet Editor</option>
-                                    <option value="docx-editor">Docx Editor</option>
-                                </select>
-                            </div>
+                        
+                    <div class='sb-setting-item sb-setting-sdk-section'>
+                        <div class='setting-label'>
+                            <div class='sb-icons sb-setting-icons sb-icon-products'></div>
+                            <div class='sb-setting-text'>CHOOSE SDK</div>
                         </div>
+                        <div class='setting-content'>
+                            <select id='sb-setting-sdk'>
+                                <option value="all">All Samples</option>
+                                <option value="grid">Grid SDK</option>
+                                <option value="rich-text-editor">Rich Text Editor SDK</option>
+                                <option value="schedule">Scheduler SDK</option>
+                                <option value="chart">Chart SDK</option>
+                                <option value="gantt">Gantt SDK</option>
+                                <option value="file-manager">File Manager SDK</option>
+                                <option value="diagram">Diagram SDK</option>
+                                <option value="pdf">PDF Viewer SDK</option>
+                                <option value="spreadsheet">Spreadsheet Editor SDK</option>
+                                <option value="docx">Docx Editor SDK</option>
+                            </select>
+                        </div>
+                    </div>
                         <div class='sb-setting-item sb-setting-theme-section'>
                             <div class='setting-label'>
                                 <div class='sb-icons sb-setting-icons sb-icon-Palette'></div>
@@ -495,6 +541,8 @@ import { Popup, Tooltip } from '@syncfusion/ej2-popups';
 import { AutoComplete } from '@syncfusion/ej2-vue-dropdowns'
 import { Button } from '@syncfusion/ej2-buttons';
 import { Toast } from '@syncfusion/ej2-notifications';
+import { MessageComponent as EjsMessage } from '@syncfusion/ej2-vue-notifications';
+import { ButtonComponent as EjsButton } from '@syncfusion/ej2-vue-buttons';
 import { Grid } from '@syncfusion/ej2-grids';
 import { DropDownList } from '@syncfusion/ej2-dropdowns';
 import { DataManager, Query } from '@syncfusion/ej2-data';
@@ -519,7 +567,9 @@ import 'codemirror/mode/css/css.js';
 import 'codemirror/mode/xml/xml.js';
 import 'codemirror/mode/htmlmixed/htmlmixed.js';
 let searchJson: any = require('./common/search-index.json');
+let canonicalUrlsMap: Record<string, string> = {};
 import { Controls, MyWindow, DestroyMethod, Samples } from './model';
+import { runAxeReport } from './common/accessibility/axe-integration';
 // import { setTimeout } from "timers";
 
 loadCldr(numberingSystems["default"], chinaCultureData["default"], enCultureData["default"], swissCultureDate["default"], currencyData["default"], deCultureData["default"], arCultureData["default"]);
@@ -555,7 +605,8 @@ let controlSampleData: any = {};
 let preventToggle: boolean;
 let samplesTreeList: any = [];
 let themeSwitcherPopup: Popup;
-let productsSwitcherPopup: Popup;
+let sdkPopup: Popup;
+let sdkDropDown: DropDownList;
 let cultureDropDown: DropDownList;
 let searchInstance: any;
 let searchPopup: AutoComplete;
@@ -566,7 +617,6 @@ let switcherPopup: Popup;
 let themeDropDown: DropDownList;
 let themeModeDropDown: DropDownList;
 let currencyDropDown: DropDownList;
-let productsDropDown: DropDownList;
 let settingPopup: Popup;
 let sidebar: Sidebar;
 let sourceTabItems: object[] = [];
@@ -609,7 +659,9 @@ aria-label="Naviagte to previous sample">
 </button>
 </div>`;
 let stackTemplate: string = '<span class="sb-icons sb-icons-plnkr" role="presentation"></span><span class="sb-plnkr-text">Edit in StackBlitz</span>';
-contentToolbarTemplate = '<div class="sb-desktop-setting"><button id="open-plnkr" role="tab" aria-label="Open Edit in StackBlitz" tabindex="0" class="sb-custom-item sb-plnr-section">' +
+let wcagTemplate: string = '<span class="sb-wcag-text">WCAG 2.2</span>';
+contentToolbarTemplate = '<div class="sb-desktop-setting"><button id="sf-wcag-btn" role="tab" aria-label="View WCAG 2.2 Accessibility Report" tabindex="0" class="sb-custom-item sb-plnr-section">' +
+    wcagTemplate + '</button>' + hsplitter + '<button id="open-plnkr" role="tab" aria-label="Open Edit in StackBlitz" tabindex="0" class="sb-custom-item sb-plnr-section">' +
     stackTemplate + '</button>' + hsplitter + openNewTemplate + hsplitter + sampleNavigation + '<div class="sb-icons sb-mobile-setting sb-hide"></div>'
 tabContentToolbar = createElement('div', { className: 'sb-content-toolbar', innerHTML: contentToolbarTemplate });
 
@@ -644,6 +696,8 @@ const urlChange = async () => {
     updateBreadCrumb();
     updateDescription();
     updatesourceTab();
+    updateCanonicalTag();
+    updateAxeSectionVisibility();
 }
 
 onMounted(async () => {
@@ -651,6 +705,8 @@ onMounted(async () => {
     router = useRouter();
     route = useRoute();
     await router.isReady();
+    updateCanonicalTag();
+    updateAxeSectionVisibility();
     sb.vars.controlTree = select('#controlTree', rootEle);
     sb.vars.breadCrumbObject = {};
 
@@ -674,6 +730,7 @@ onMounted(async () => {
     sb.vars.setResponsiveElement = select('.setting-responsive', rootEle);
     sb.vars.leftBack = select('#sb-left-back', rootEle);
     sb.vars.headerThemeSwitch = select('#header-theme-switcher', rootEle);
+    sb.vars.headerSdkSwitch = select('#header-sdk-switcher', rootEle);
     sb.vars.themePoppup = select('#theme-switcher-popup', rootEle);
     sb.vars.switcher = select('#sb-switcher', rootEle);
     sb.vars.sblink = select('#switch-sb', rootEle);
@@ -803,6 +860,17 @@ const updateBreadCrumb = () => {
     });
 };
 
+const canonicalDataLoaded: Promise<void> = fetch('./canonical-urls.json')
+  .then((res) => {
+    if (!res.ok) throw new Error('Failed to fetch canonical-urls.json: ' + res.status);
+    return res.json();
+  })
+  .then((data) => { canonicalUrlsMap = data || {}; })
+  .catch((err) => {
+    console.error('Error loading canonical-urls.json:', err);
+    canonicalUrlsMap = {};
+  });
+
 const renderLeftPaneComponents = () => {
     samplesTreeList = getTreeviewList(samplesList);
     let sampleTreeView: TreeView = new TreeView(
@@ -850,6 +918,62 @@ const getSampleList = (): Controls[] | { [key: string]: Object }[] => {
     }
     return samplesJSON.samplesList;
 };
+
+const updateCanonicalTag = (): void => {
+  const hashParts = window.location.hash.replace('#/', '').split('/');
+  if (hashParts.length < 3) {
+    return;
+  }
+  const componentName = hashParts[1]; // e.g. 'grid', 'pivot-table', 'block-editor'
+  if (aiControlRegex.test(componentName)) {
+        const existingAiLink = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+        if (existingAiLink) {
+          existingAiLink.parentElement?.removeChild(existingAiLink);
+        }
+    return;
+  }
+  const sampleName = (hashParts[2] || '').replace('.html', ''); // e.g. 'grid-overview', 'adaptive-layout', 'default-functionalities'
+  const isOverviewOrDefault = sampleName === 'default'
+    || sampleName === 'overview'
+    || sampleName.endsWith('-overview')
+    || sampleName.startsWith('default-');
+
+  let canonicalUrl: string | undefined;
+  if (isOverviewOrDefault) {
+    // Use the mapped canonical for default/overview samples
+    canonicalUrl = canonicalUrlsMap[componentName];
+  } else {
+    // Self-referencing canonical for specific samples
+    canonicalUrl = `https://ej2.syncfusion.com/vue/demos/${componentName}/${sampleName}/`;
+  }
+
+  const existing = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  const link: HTMLLinkElement = existing ?? Object.assign(document.createElement('link'), {
+    rel: 'canonical'
+  });
+  if (!existing) {
+    document.head.appendChild(link);
+  }
+  if (canonicalUrl) {
+    link.href = canonicalUrl;
+  }
+};
+
+// Ensure canonical tags update after mapping is loaded on initial load
+window.addEventListener('hashchange', () => {
+  canonicalDataLoaded.then(() => updateCanonicalTag()).catch(() => updateCanonicalTag());
+});
+
+// Handle initial load - wait for canonical data to load first
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.location.hash) {
+    canonicalDataLoaded.then(() => {
+      updateCanonicalTag();
+    }).catch(() => {
+      updateCanonicalTag();
+    });
+  }
+});
 
 const getTreeviewList = (list: any[]): Controls[] | { [key: string]: Object }[] => {
     let id: number = 0;
@@ -904,6 +1028,30 @@ const controlSelect = (arg: any): void => {
     sb.vars.contentTab.selectedItem = 0;
     let path: string = (arg.node || arg.item).getAttribute('data-path');
     let curHashCollection: string = '/' + location.hash.split('/').slice(2).join('/');
+
+    // When the 'AI-Powered Samples' (ai-grid) TREE NODE is clicked while an SDK filter
+    // is active, redirect to the first sample of the SDK's ai- control instead of
+    // the default ai-grid/assistive-grid path.
+    // arg.node is set only for TreeView clicks; arg.item is set for ListView clicks.
+    // We must NOT redirect on list item selections (e.g. triggered by next/prev navigation).
+    if (arg.node && path && path.startsWith('/ai-grid/')) {
+        const activeItem: Element | null = document.querySelector('#sdklist li.active');
+        if (activeItem) {
+            const sdkKey: string = activeItem.getAttribute('data-sdk') || 'all';
+            // Map SDK keys to the first sample path of their ai- control
+            const aiSdkFirstSample: { [key: string]: string } = {
+                schedule: '/ai-schedule/smart-window.html',
+                gantt: '/ai-gantt/task-prioritizer.html',
+                grid: '/ai-grid/predictive-entry.html',
+                diagram: '/ai-diagram/text-to-flowchart.html',
+                chart: '/ai-maps/weather-prediction.html'
+            };
+            if (aiSdkFirstSample[sdkKey]) {
+                path = aiSdkFirstSample[sdkKey];
+            }
+        }
+    }
+
     if (path) {
         controlListRefresh(arg.node || arg.item);
         if (path !== curHashCollection) {
@@ -1026,6 +1174,14 @@ const setSelectList = (): void => {
         showHideControlTree();
         list.selectItem(select('[sample-name="grid-overview"]'));
     }
+    // Restore any active SDK filter after list updates
+   var activeItem = document.querySelector('#sdklist li.active');
+    if (activeItem) {
+        var sdkKey = activeItem.getAttribute('data-sdk') || 'all';
+        if (sdkKey !== 'all') {
+            applySdkFilter(sdkKey);
+        }
+    }
 };
 
 const toggleLeftPane = (): void => {
@@ -1081,13 +1237,13 @@ const rendersbPopup = (): void => {
         zIndex: 1001
     });
     switcherPopup.hide();
-    productsSwitcherPopup = new Popup(select('#products-switcher-popup', rootEle), {
+    sdkPopup = new Popup(select('#sdk-popup', rootEle), {
         offsetY: 2,
         zIndex: 10012,
-        relateTo: <HTMLElement>select('.products-wrapper', rootEle), position: { X: 'left', Y: 'bottom' },
+        relateTo: <HTMLElement>select('.sdk-wrapper', rootEle), position: { X: 'left', Y: 'bottom' },
         collision: { X: 'flip', Y: 'flip' }
     });
-    productsSwitcherPopup.hide();
+    sdkPopup.hide();
     themeSwitcherPopup = new Popup(sb.vars.themePoppup, {
         offsetY: 2,
         zIndex: 10012,
@@ -1134,6 +1290,43 @@ const rendersbPopup = (): void => {
                 let hashval: string = '#/' + location.hash.split('/')[1] + '/' + data.dir + '/' + data.url + '.html';
                 searchPopup.hidePopup();
                 searchOverlay.classList.add('e-search-hidden');
+                const selectedControl = data.dir;
+                const activeSdk = document.querySelector('#sdklist li.active')
+                    ?.getAttribute('data-sdk') || 'all';
+                const currentSdkControls = sdkControlMap[activeSdk] || [];
+                if (currentSdkControls.indexOf(selectedControl) === -1) {
+                    let matchedSdk = 'all';
+                    // Find which SDK owns this control
+                    for (const sdkKey in sdkControlMap) {
+                        if (
+                            sdkKey !== 'all' &&
+                            sdkControlMap[sdkKey] &&
+                            sdkControlMap[sdkKey].indexOf(selectedControl) !== -1
+                        ) {
+                            matchedSdk = sdkKey;
+                            break;
+                        }
+                    }
+                    localStorage.setItem('selectedSdk', matchedSdk);
+                    const sdkList = document.getElementById('sdklist');
+                    if (sdkList) {
+                        sdkList.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+                        sdkList.querySelector(`[data-sdk="${matchedSdk}"]`)?.classList.add('active');
+                        const targetLi =sdkList.querySelector(`[data-sdk="${matchedSdk}"]`) ||
+                            sdkList.querySelector('li[data-sdk="all"]');
+                        const sdkTextSpan =document.querySelector('#sb-sdk-text .sb-header-text-left')
+                        if (sdkTextSpan && targetLi) {
+                            const selectedText =(select('.switch-text', targetLi as HTMLElement) as HTMLElement)
+                                    ?.textContent || 'ALL DEMOS';
+                            sdkTextSpan.textContent = matchedSdk === 'all'? 'ALL DEMOS': selectedText.toUpperCase();
+                        }
+                    }
+                    if (sdkDropDown) {
+                        sdkDropDown.value = matchedSdk;
+                    }
+                    applySdkFilter(matchedSdk);
+                }
+
                 if (location.hash !== hashval) {
                     sampleOverlay();
                     window.hashString = hashval;
@@ -1199,11 +1392,11 @@ const rendersbPopup = (): void => {
     });
     cultureDropDown.appendTo('#sb-setting-culture');
     currencyDropDown.appendTo('#sb-setting-currency');
-    productsDropDown = new DropDownList({
-        index: 0,
-        change: (e: any) => { changeProductMobile(e.value); }
-    });
-    productsDropDown.appendTo('#sb-setting-products');
+    sdkDropDown = new DropDownList({
+    value: 'all',
+    select: handleSdkSelectionMobile
+     });
+    sdkDropDown.appendTo('#sb-setting-sdk');
     sb.vars.sourceTab = new Tab({
         items: [],
         cssClass: 'sb-source-code-section',
@@ -1328,13 +1521,22 @@ const eventBinding = (): void => {
     }
     sb.vars.switcher.addEventListener('click', fn)
     sb.vars.switch.addEventListener('click', fn)
-    let headerProductsSwitch = select('#header-products-switcher', rootEle) as HTMLElement;
-    if (headerProductsSwitch) {
-        headerProductsSwitch.addEventListener('click', (e: MouseEvent) => {
+    if (sb.vars.headerSdkSwitch) {
+        sb.vars.headerSdkSwitch.addEventListener('click', (e: MouseEvent) => {
             e.preventDefault();
             e.stopPropagation();
-            headerAction('changeProducts');
+            headerAction('changeSdk');
         });
+        sb.vars.headerSdkSwitch.addEventListener('keydown', (e: any) => {
+            if (e.keyCode === 13 || e.keyCode === 32) {
+                e.preventDefault();
+                headerAction('changeSdk');
+            }
+        });
+    }
+    const sdkList: HTMLElement | null = select('#sdklist', rootEle) as HTMLElement;
+    if (sdkList) {
+        sdkList.addEventListener('click', handleSdkSelection);
     }
     sb.vars.headerThemeSwitch.addEventListener('click', (e: MouseEvent) => {
         e.preventDefault();
@@ -1357,16 +1559,18 @@ const eventBinding = (): void => {
         e.preventDefault();
         e.stopPropagation();
     });
+    const sdkPopupEle = select('#sdk-popup', rootEle) as HTMLElement;
+    if (sdkPopupEle) {
+        sdkPopupEle.addEventListener('click', (e: MouseEvent) => {
+            e.stopPropagation();
+        });
+    }
     inputele.addEventListener('click', (e: MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
     });
     inputele.addEventListener('keyup', onsearchInputChange);
     themeList.addEventListener('click', changeTheme);
-    let productsList: HTMLElement = select('#productslist', rootEle) as HTMLElement;
-    if (productsList) {
-        productsList.addEventListener('click', changeProduct);
-    }
     sb.vars.setResponsiveElement.addEventListener('click', setMouseOrTouch);
     sb.vars.sblink.addEventListener('click', (e: MouseEvent) => {
         let target: Element = closest(<any>e.target, 'li');
@@ -1400,6 +1604,16 @@ const eventBinding = (): void => {
             stackForm.submit();
         }
     });
+        select('#sf-wcag-btn').addEventListener('click', () => {
+        runAxeReport();
+    });
+    let axeTooltip: Tooltip = new Tooltip({
+        content: 'Supports WCAG and Section 508 standards. View the accessibility report for this demo\'s compliance details.',
+        position: 'BottomCenter',
+        width: 280,
+        cssClass: 'sb-axe-tooltip'
+    });
+    axeTooltip.appendTo('#sf-wcag-btn');
     select('#next-sample').addEventListener('click', onNextButtonClick);
 
     select('#prev-sample').addEventListener('click', onPrevButtonClick);
@@ -1439,13 +1653,10 @@ const headerAction = (action: string, preventSearch?: boolean): void => {
         case 'changeSampleBrowser':
             curPopup = switcherPopup;
             break;
-        case 'changeProducts':
-            let headerProductsSwitch = select('#header-products-switcher', rootEle) as HTMLElement;
-            if (headerProductsSwitch) {
-                headerProductsSwitch.classList.toggle('active');
-                setPressedAttribute(headerProductsSwitch);
-            }
-            curPopup = productsSwitcherPopup;
+        case 'changeSdk':
+            sb.vars.headerSdkSwitch.classList.toggle('active');
+            setPressedAttribute(sb.vars.headerSdkSwitch);
+            curPopup = sdkPopup;
             break;
         case 'changeTheme':
             sb.vars.headerThemeSwitch.classList.toggle('active');
@@ -1464,10 +1675,9 @@ const headerAction = (action: string, preventSearch?: boolean): void => {
         sb.vars.headerThemeSwitch.classList.remove('active');
         sb.vars.switcher.classList.remove('active');
         settingElement.classList.remove('active');
-        let headerProductsSwitch = select('#header-products-switcher', rootEle) as HTMLElement;
-        if (headerProductsSwitch) {
-            headerProductsSwitch.classList.remove('active');
-            setPressedAttribute(headerProductsSwitch);
+        if (sb.vars.headerSdkSwitch) {
+            sb.vars.headerSdkSwitch.classList.remove('active');
+            setPressedAttribute(sb.vars.headerSdkSwitch);
         }
         setPressedAttribute(sb.vars.headerThemeSwitch);
         setPressedAttribute(settingElement);
@@ -1546,32 +1756,6 @@ const SbLink = (): void => {
     }
 };
 
-const changeProduct = (e: MouseEvent): void => {
-    let target: Element = <HTMLElement>e.target;
-    target = closest(target, 'li');
-    let productId: string = target.id;
-    openProductUrl(productId);
-};
-
-const changeProductMobile = (productId: string): void => {
-    openProductUrl(productId);
-};
-
-const openProductUrl = (productId: string): void => {
-    let productUrl: string = '';
-    
-    if (productId === 'pdf-editor') {
-        productUrl = 'https://document.syncfusion.com/demos/pdf-viewer/vue/#/tailwind3/pdfviewer/default.html';
-    } else if (productId === 'spreadsheet-editor') {
-        productUrl = 'https://document.syncfusion.com/demos/spreadsheet-editor/vue/#/tailwind3/spreadsheet/default.html';
-    } else if (productId === 'docx-editor') {
-        productUrl = 'https://document.syncfusion.com/demos/docx-editor/vue/#/tailwind3/document-editor/default.html';
-    }
-    
-    if (productUrl) {
-        window.open(productUrl, '_blank');
-    }
-};
 
 const changeTheme = (e: MouseEvent): void => {
     let target: Element = <HTMLElement>e.target;
@@ -1688,13 +1872,15 @@ const loadTheme = (theme: string, softSwitch = false): void => {
 const doControls: string[] = [
   "chart", "three-dimension-chart", "circular-3d-chart", "stock-chart", "arc-gauge", "circular-gauge",
   "diagram", "heatmap", "linear-gauge", "maps", "range-navigator", "smith-chart",
-  "barcode", "sparkline", "treemap", "bullet-chart","kanban", "sankey"
+  "barcode", "sparkline", "treemap", "bullet-chart","kanban", "sankey","ai-chart"
 ];
 
 // components rerendering for every dark/light toggle
 const refreshSamples = () => {
   const currentControl = location.hash.split('/')[2];
-  if (doControls.includes(currentControl)) {
+  const currentSample = (location.hash.split('/')[3] || '').replace('.html', '');
+  const isScheduleChartSample = currentControl === 'schedule' && currentSample === 'integration-with-chart';
+  if (doControls.includes(currentControl) || isScheduleChartSample) {
     const demo = document.querySelector('.sb-demo-section');
     if (demo) {
       const controls = demo.getElementsByClassName('e-control e-lib');
@@ -1777,6 +1963,328 @@ const resetInput = (arg: any): void => {
     searchPopup.hidePopup();
 };
 
+/**
+ * SDK Control Map - Explicit definition of which controls belong to each SDK
+ * All AI samples live under a single 'ai-grid' tree node (AI-Powered Samples).
+ * This map lists individual controls that belong to each SDK.
+ */
+const sdkControlMap: { [key: string]: string[] } = {
+    // 'all' shows everything - no filter applied
+    all: [],
+
+    // Grid SDK: Data Grid, Pivot Table, Tree Grid + AI variants
+    grid: [
+        'grid', 'pivot-table', 'tree-grid',
+        'ai-grid', 'ai-pivot-table', 'ai-tree-grid'
+    ],
+
+    // Chart SDK: all visualization components + AI Maps
+    chart: [
+        'chart', 'three-dimension-chart', 'circular-3d-chart', 'stock-chart',
+        'arc-gauge', 'circular-gauge', 'heatmap', 'linear-gauge', 'maps',
+        'range-navigator', 'smith-chart', 'barcode', 'sparkline', 'treemap',
+        'bullet-chart', 'sankey',
+        'ai-maps'
+    ],
+
+    // Scheduler SDK: calendar & date/time pickers + AI Scheduler
+    schedule: [
+        'schedule', 'calendar', 'datepicker', 'daterangepicker', 'datetimepicker', 'timepicker',
+        'ai-schedule'
+    ],
+
+    // Gantt SDK: Gantt + Kanban + AI variants
+    gantt: [
+        'gantt', 'kanban',
+        'ai-gantt', 'ai-kanban'
+    ],
+
+    // Rich Text Editor SDK
+    'rich-text-editor': [
+        'rich-text-editor'
+    ],
+
+    // File Manager SDK
+    'file-manager': [
+        'file-manager'
+    ],
+
+    // Diagram SDK
+    diagram: [
+        'diagram',
+        'ai-diagram'
+    ]
+};
+
+/**
+ * Returns a filtered sampleOrder array containing only samples belonging to
+ * the currently active SDK. Falls back to the full sampleOrder when no SDK
+ * filter is active (all).
+ */
+const getActiveSdkSampleOrder = (fullOrder: string[]): string[] => {
+    const activeItem: Element | null = document.querySelector('#sdklist li.active');
+    if (!activeItem) return fullOrder;
+
+    const sdkKey: string = activeItem.getAttribute('data-sdk') || 'all';
+    if (sdkKey === 'all') return fullOrder;
+
+    const allowedControls: string[] = sdkControlMap[sdkKey] || [];
+    if (!allowedControls.length) return fullOrder;
+
+    return fullOrder.filter((samplePath: string) => {
+        // samplePath looks like "#/tailwind3/ai-smart-paste/default.html"
+        // control name is always at index [2] (after # and theme)
+        const controlName = samplePath.split('/')[2];
+        return allowedControls.indexOf(controlName) !== -1;
+    });
+};
+
+/**
+ * Apply SDK filter to the left pane tree and list views.
+ * CRITICAL: All AI samples live under ONE tree node with control-name="ai-grid"
+ * (AI-Powered Samples). When an SDK allows any ai-* controls, we show the
+ * ai-grid node (not individual ai-* nodes).
+ */
+const applySdkFilter = (sdkKey: string): void => {
+    const controlTree: HTMLElement = select('#controlTree', rootEle) as HTMLElement;
+    const controlList: HTMLElement = select('#controlList', rootEle) as HTMLElement;
+
+    // 'all' shows everything - remove filter
+    if (sdkKey === 'all') {
+        if (controlTree) {
+            const treeItems = controlTree.querySelectorAll('[control-name]');
+            treeItems.forEach((item: Element) => item.classList.remove('sdk-hidden'));
+            const parentItems = controlTree.querySelectorAll('.e-list-item.e-level-1');
+            parentItems.forEach((item: Element) => item.classList.remove('sdk-parent-hidden'));
+        }
+        if (controlList) {
+            const listItems = controlList.querySelectorAll('.e-list-item, .e-list-group-item');
+            listItems.forEach((item: Element) => {
+                item.classList.remove('sdk-hidden');
+                item.classList.remove('sdk-sample-hidden');
+                item.classList.remove('sdk-group-hidden');
+            });
+        }
+        document.querySelector('.sb-left-pane')?.classList.remove('sdk-filter-active');
+        return;
+    }
+
+    const allowedControls: string[] = sdkControlMap[sdkKey] || [];
+    document.querySelector('.sb-left-pane')?.classList.add('sdk-filter-active');
+
+    // Check if this SDK allows any ai-* controls.
+    // If yes, we must SHOW the 'ai-grid' tree node (which hosts ALL AI samples).
+    const showAiNode: boolean = allowedControls.some((c) => c.startsWith('ai-'));
+
+    // Filter tree view nodes (child items with control-name)
+    if (controlTree) {
+        const treeItems = controlTree.querySelectorAll('[control-name]');
+        treeItems.forEach((item: Element) => {
+            const cn: string = item.getAttribute('control-name') || '';
+            // Special case: 'ai-grid' tree node is a CONTAINER for all AI samples
+            const isVisible: boolean = cn === 'ai-grid' ? showAiNode : allowedControls.indexOf(cn) !== -1;
+            if (!isVisible) {
+                item.classList.add('sdk-hidden');
+            } else {
+                item.classList.remove('sdk-hidden');
+            }
+        });
+
+        // Hide parent category nodes (e-level-1) when all their children are hidden
+        const parentItems = controlTree.querySelectorAll('.e-list-item.e-level-1');
+        parentItems.forEach((parent: Element) => {
+            const children = parent.querySelectorAll('[control-name]');
+            const hasVisible = Array.from(children).some((child) => !child.classList.contains('sdk-hidden'));
+            if (!hasVisible) {
+                parent.classList.add('sdk-parent-hidden');
+            } else {
+                parent.classList.remove('sdk-parent-hidden');
+            }
+        });
+    }
+
+    // Filter list view items using data-path attribute
+    if (controlList) {
+        const listItems = controlList.querySelectorAll('.e-list-item');
+        listItems.forEach((item: Element) => {
+            const dataPath: string = item.getAttribute('data-path') || '';
+            // data-path is like "/grid/overview" or "/ai-gantt/task-prioritize"
+            const controlName = dataPath.replace(/^\//, '').split('/')[0] || '';
+            const isMatch = allowedControls.indexOf(controlName) !== -1;
+            if (!isMatch) {
+                item.classList.add('sdk-sample-hidden');
+            } else {
+                item.classList.remove('sdk-sample-hidden');
+            }
+        });
+
+        // Hide group headers that have no visible list items
+        const groupItems = controlList.querySelectorAll('.e-list-group-item');
+        groupItems.forEach((groupItem: Element) => {
+            let sibling: Element | null = groupItem.nextElementSibling;
+            let hasVisible = false;
+            while (sibling && !sibling.classList.contains('e-list-group-item')) {
+                if (!sibling.classList.contains('sdk-sample-hidden')) {
+                    hasVisible = true;
+                    break;
+                }
+                sibling = sibling.nextElementSibling;
+            }
+            if (!hasVisible) {
+                groupItem.classList.add('sdk-group-hidden');
+            } else {
+                groupItem.classList.remove('sdk-group-hidden');
+            }
+        });
+    }
+};
+// Navigate to default sample
+    const sdkDefaultPaths: { [key: string]: string } = {
+        all: 'grid/grid-overview.html',
+        grid: 'grid/grid-overview.html',
+        chart: 'chart/over-view.html',
+        schedule: 'schedule/overview.html',
+        gantt: 'gantt/overview.html',
+        'rich-text-editor': 'rich-text-editor/tools.html',
+        'file-manager': 'file-manager/overview.html',
+        diagram: 'diagram/default-functionality.html'
+    };
+/**
+ * Product keys appended to the SDK dropdown that open an external demo in a new tab.
+ */
+const productSdkKeys: string[] = ['pdf', 'spreadsheet', 'docx'];
+
+/**
+ * Opens the corresponding external product demo in a new tab.
+ * Used by the SDK dropdown when a product item (PDF / Spreadsheet / Docx) is selected.
+ */
+function openProductSdkInNewTab(key: string): void {
+  let url = '';
+  if (key === 'pdf') {
+    url = `https://document.syncfusion.com/demos/pdf-viewer/vue/#/tailwind3/pdfviewer/default.html`;
+  } else if (key === 'spreadsheet') {
+    url = `https://document.syncfusion.com/demos/spreadsheet-editor/vue/#/tailwind3/spreadsheet/default.html`;
+  } else if (key === 'docx') {
+    url = `https://document.syncfusion.com/demos/docx-editor/vue/#/tailwind3/document-editor/default.html`;
+  }
+  if (url) {
+    window.open(url, '_blank');
+  }
+}
+
+/**
+ * SDK Selection Handler
+ */
+function handleSdkSelection(e: MouseEvent): void {
+    let target: Element = e.target as HTMLElement;
+    target = closest(target, 'li');
+    if (!target) return;
+
+    const sdkKey: string = target.getAttribute('data-sdk') || 'all';
+    // Product items (PDF / Spreadsheet / Docx) open in a new tab and stop here.
+  if (productSdkKeys.indexOf(sdkKey) !== -1) {
+    headerAction('closePopup');
+    openProductSdkInNewTab(sdkKey);
+    return;
+  }
+
+    // Update active highlight
+    const sdkList = document.getElementById('sdklist');
+    if (sdkList) {
+        sdkList.querySelectorAll('li').forEach((li) => li.classList.remove('active'));
+        target.classList.add('active');
+    }
+
+    // Update button text to reflect selection
+    const sdkTextSpan = document.querySelector('#sb-sdk-text .sb-header-text-left');
+    if (sdkTextSpan) {
+        const selectedText = (select('.switch-text', target) as HTMLElement)?.textContent || 'ALL DEMOS';
+        sdkTextSpan.textContent = sdkKey === 'all' ? 'ALL DEMOS' : selectedText.toUpperCase();
+    }
+
+    sampleOverlay();
+    // Shared logic for both desktop & mobile
+    processSdkSelection(sdkKey);
+    setTimeout(() => {
+       removeOverlay();
+      }, 900);
+}
+
+/**
+ * Mobile SDK Selection Handler — invoked by the mobile <select> dropdown
+ * in the settings popup. Keeps the desktop header popup list in sync and
+ * delegates filtering/navigation to processSdkSelection().
+ */
+function handleSdkSelectionMobile(e: any): void {
+  // select event args don't have .value; the value lives in itemData
+  const sdkKey: string = (e.itemData && e.itemData.value) || 'all';
+  // Product items (PDF / Spreadsheet / Docx) open in a new tab and stop here.
+  if (productSdkKeys.indexOf(sdkKey) !== -1) {
+     // Prevent the dropdown from committing the product key as its new value
+        e.cancel = true;
+        if (e.event) {
+            e.event.preventDefault();
+            e.event.stopPropagation();
+        }
+    headerAction('closePopup');
+    openProductSdkInNewTab(sdkKey);
+    return;
+  }
+  localStorage.setItem('selectedSdk', sdkKey);
+  // Update active highlight in the header popup list (keeps desktop & mobile in sync)
+  const sdkList = document.getElementById('sdklist');
+  if (sdkList) {
+    sdkList.querySelectorAll('li').forEach((li) => li.classList.remove('active'));
+    const activeItem = sdkList.querySelector(`[data-sdk="${sdkKey}"]`);
+    if (activeItem) {
+      activeItem.classList.add('active');
+    }
+  }
+  const sdkTextSpan = document.querySelector('#sb-sdk-text .sb-header-text-left') as HTMLElement;
+  if (sdkTextSpan) {
+    const activeItem = sdkList?.querySelector(`[data-sdk="${sdkKey}"]`);
+    const selectedText =activeItem?.querySelector('.switch-text')?.textContent ||'ALL DEMOS';
+    sdkTextSpan.textContent =sdkKey === 'all'? 'ALL DEMOS': selectedText.toUpperCase();}
+  // Apply filter to left pane
+  processSdkSelection(sdkKey);
+}
+
+/**
+ * Shared SDK selection logic — used by both desktop (handleSdkSelection)
+ * and mobile (handleSdkSelectionMobile). Decides whether to just apply the
+ * filter to the left pane (when the current control is already part of the
+ * chosen SDK) or to navigate to the SDK's default sample.
+ */
+function processSdkSelection(sdkKey: string): void {
+    const currentPath = location.hash.replace(/^#\/[^\/]+\//, '');
+    const defaultPath = sdkDefaultPaths[sdkKey];
+    const shouldRedirect = currentPath !== defaultPath;
+    localStorage.setItem('selectedSdk', sdkKey);
+    if (!shouldRedirect) {
+        headerAction('closePopup');
+        applySdkFilter(sdkKey);
+        // If tree view is visible, switch to list view
+        // Only switch if tree is currently VISIBLE (display !== 'none') → switch to list
+        const tree: HTMLElement = select('#controlTree', rootEle) as HTMLElement;
+        if (tree && tree.style.display !== 'none') {
+            showHideControlTree();
+        }
+        headerAction('closePopup'); 
+        return;
+    } else {
+        const newHash = `#/${selectedTheme}/${defaultPath}`;
+        if (location.hash !== newHash) {
+            sampleOverlay();
+            location.hash = newHash;
+            window.hashString = location.hash;
+            applySdkFilter(sdkKey);
+            setSelectList();
+            headerAction('closePopup'); 
+        }
+    }
+}
+
+
 const stackEditor = (results?: any) => {
     let stackFile: any = results;
     let prevForm: Element = select('#stack-form');
@@ -1830,10 +2338,11 @@ const onNextButtonClick = (arg: any): void => {
     sb.vars.contentTab.selectedItem = 0;
     sampleOverlay();
     let curSampleUrl: string = location.hash;
-    let inx: number = samplesAr.indexOf(curSampleUrl);
-    if (inx !== -1) {
-        let prevhref: string = samplesAr[inx];
-        let curhref: string = samplesAr[inx + 1];
+    // Use filtered sample order based on active SDK filter
+    const filteredSamples: string[] = getActiveSdkSampleOrder(samplesAr);
+    let inx: number = filteredSamples.indexOf(curSampleUrl);
+    if (inx !== -1 && filteredSamples[inx + 1]) {
+        let curhref: string = filteredSamples[inx + 1];
         location.href = curhref;
     }
     window.hashString = location.hash;
@@ -1843,10 +2352,11 @@ const onNextButtonClick = (arg: any): void => {
 const onPrevButtonClick = (arg: any): void => {
     sampleOverlay();
     let curSampleUrl: string = location.hash;
-    let inx: number = samplesAr.indexOf(curSampleUrl);
-    if (inx !== -1) {
-        let prevhref: string = samplesAr[inx];
-        let curhref: string = samplesAr[inx - 1];
+    // Use filtered sample order based on active SDK filter
+    const filteredSamples: string[] = getActiveSdkSampleOrder(samplesAr);
+    let inx: number = filteredSamples.indexOf(curSampleUrl);
+    if (inx !== -1 && filteredSamples[inx - 1]) {
+        let curhref: string = filteredSamples[inx - 1];
         location.href = curhref;
     }
     window.hashString = location.hash;
@@ -1935,9 +2445,7 @@ const processResize = (e: any): void => {
     if (switcherPopup) {
         switcherPopup.refreshPosition();
     }
-    if (productsSwitcherPopup) {
-        productsSwitcherPopup.refreshPosition();
-    }
+    updateAxeSectionVisibility();
 };
 
 const processDeviceDependables = (): void => {
@@ -2166,8 +2674,10 @@ const updatesourceTab = (): void => {
                 window.location.hash = "#/tailwind3/grid/grid-overview.html"
             }
         }
-        let curIndex: number = samplesAr.indexOf(location.hash);
-        let samLength: number = samplesAr.length - 1;
+        // Use filtered sample order based on active SDK filter
+        const filteredOrder: string[] = getActiveSdkSampleOrder(samplesAr);
+        let curIndex: number = filteredOrder.indexOf(location.hash);
+        let samLength: number = filteredOrder.length - 1;
         if (curIndex === samLength) {
             toggleButtonState('next-sample', true);
         } else {
@@ -2236,6 +2746,17 @@ const loadJSON = (): void => {
     changeMouseOrTouch(switchText);
     //localStorage.removeItem('ej2-switch');
     enableRipple(selectedTheme.indexOf('material') !== -1 || !selectedTheme);
+};
+
+// Accessibility Assurance message: hide for AI samples and on mobile / touch device views
+const updateAxeSectionVisibility = (): void => {
+    const section: HTMLElement | null = document.querySelector<HTMLElement>('.sf-axe-section');
+    if (!section) {
+        return;
+    }
+    const isAISample: boolean = aiControlRegex.test(window.location.hash);
+    const isMobileOrDevice: boolean = !!isMobile
+    section.style.display = (isAISample || isMobileOrDevice) ? 'none' : '';
 };
 
 const hideBanner = () => {

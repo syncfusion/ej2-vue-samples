@@ -1,8 +1,7 @@
 <template>
     <div class="col-lg-12 control-section">
         <div id="action-description">
-            <p>This sample demonstrates the default functionalities of the column menu. Click on multiple icon of each
-                column to open the column menu.</p>
+            <p>This sample demonstrates the column menu feature in the Gantt Chart. Click the menu icon in a column header to access options such as sorting, filtering, auto-fit, and column visibility.</p>
         </div>
         <div>
             <ejs-gantt ref="gantt" id="ColumnMenu" :dataSource="data" :height="height" :rowHeight="46"
@@ -41,7 +40,8 @@
                 <code>Resize</code> and <code>Filter</code> modules using the <code>provide</code> section.
             </p>
             <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-menu">documentation section</a>.</p>
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-menu">column menu</a> documentation section.</p>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>

@@ -111,7 +111,7 @@
         <div id="description">
             <p>
                 This example demonstrates how to add shapes to a symbol palette and customize their appearance using the
-                <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> component. Symbol sizes can be adjusted using the <code>width</code> and
+                Syncfusion Diagram component. Symbol sizes can be adjusted using the <code>width</code> and
                 <code>height</code>
                 properties via the <code>getSymbolInfo</code> method.
             </p>

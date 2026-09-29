@@ -104,7 +104,7 @@ data:function(){
         mexicoTextDataSource: [{ name: 'Mexico City', latitude: 24.0005, longitude: -101.200 }],
         laSvgDataSource: [{ name: 'Los Angeles', latitude: 34.0522, longitude: -118.2437 }],
         laSvgTooltipSettings: { visible: true, valuePath: 'name' },
-        laBalloonDataSource: [{ name: 'Los Angeles City', latitude: 34.7000, longitude: -121.5000 }],
+        laBalloonDataSource: [{ name: 'Los Angeles City', latitude: 33.8000, longitude: -121.5000 }],
         laTextDataSource: [{ latitude: 28.5, longitude: -110.400 }],
         navigationLineSettings: [{
             width: 8,

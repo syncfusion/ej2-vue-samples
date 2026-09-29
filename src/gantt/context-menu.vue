@@ -10,7 +10,7 @@
           :contextMenuClick="contextMenuClick" :timelineSettings="timelineSettings" :columns="columns"
           :eventMarkers="eventMarkers" :labelSettings="labelSettings" :editDialogFields="editDialogFields"
           :projectStartDate="projectStartDate" :projectEndDate="projectEndDate"
-          :splitterSettings="splitterSettings"></ejs-gantt>
+          :splitterSettings="splitterSettings" :allowUnscheduledTasks="true"></ejs-gantt>
       </div>
     </div>
 
@@ -24,12 +24,9 @@
 
     <div id="description">
       <p>
-        Gantt has an option to show the context menu while performing right click on it. You can configure the default
-        and custom menu items in the context menu using the <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#columnmenuitems">contextMenuItems</a> property.
-        Each menu item will be displayed contextually based on its target. In this demo we have rendered following
-        default and custom menu items
+        The Gantt Chart provides a context menu that offers quick access to commonly used operations. Context menu support can be enabled by setting the <a target="_blank" href="https://ej2.syncfusion.com/react/documentation/api/gantt/index-default#contextmenuitems">contextMenuItems</a> property to <code>true</code>.
       </p>
+      <p>Built-in context menu items are available for operations such as task editing, row addition and deletion, sorting, indentation, dependency management, and column auto-fitting. The displayed menu items are automatically adjusted based on the selected target element.</p>
       <p>Default items:</p>
       <ul>
         <li><code>AutoFitAll</code> - Auto fit all columns.</li>
@@ -43,7 +40,7 @@
         <li><code>SortAscending </code> - Sort the current column in ascending order.</li>
         <li><code>SortDescending </code> - Sort the current column in descending order.</li>
         <li><code>DeleteDependency </code> - Delete the dependency of the current record.</li>
-        <li><code>Convert </code> - Convert the normal task into milestone task and vice versa.</li>
+        <li><code>Convert </code> - Convert the normal task in to milestone task and vice versa.</li>
         <li><code>Add</code>
           <ul>
             <li><code>Above</code> - Add a new row above the selected row </li>
@@ -53,17 +50,12 @@
           </ul>
         </li>
       </ul>
-      <p>Custom items:</p>
-      <p>
-        In this demo, custom menu items have been enabled in the context menu to perform expanding and collapsing the
-        parent rows,
-      </p>
+      <p>This sample also demonstrates how to add custom context menu items using the <code>contextMenuItems</code> property.</p>
       <ul>
-        <li><code>Expand the Row</code> - Used to expand the parent row and it will render where the row is in a
-          collapsed state.</li>
-        <li><code>Collapse the Row</code> - Used to collapse the parent row and it will render where the row is in a
-          expanded state.</li>
+        <li><code>Expand the Row</code> - Used to expand the parent row when it is in a collapsed state.</li>
+        <li><code>Collapse the Row</code> - Used to collapse the parent row when it is in an expanded state.</li>
       </ul>
+      <p>When <code>allowUnscheduledTasks</code> is enabled, tasks without StartDate, EndDate, or Duration are rendered without a taskbar. Enabling the <code>allowTaskbarDraw</code> property allows these tasks to be scheduled by drawing a taskbar directly in the chart area, which automatically updates the task's scheduling values</p>
       <p style="font-weight: 500">Injecting Module:</p>
       <p>
           Gantt component features are segregated into individual feature-wise modules. To use selection, sort, context menu,
@@ -72,13 +64,14 @@
           <code>provide</code> section.
       </p>
       <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/gantt/context-menu">documentation section</a>.</p>
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/context-menu">context menu</a>  documentation section.</p>
+      <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
     </div>
   </div>
 </template>
 <script>
 import { GanttComponent, Edit, Selection, Toolbar, DayMarkers, ContextMenu, Sort, Resize } from "@syncfusion/ej2-vue-gantt";
-import { editingData, editingResources } from "./data-source";
+import { contextMenuData, editingResources } from "./data-source";
 
 export default {
   components: {
@@ -86,7 +79,7 @@ export default {
   },
   data: function () {
     return {
-      data: editingData,
+      data: contextMenuData,
       contextMenuItems: [
         "AutoFitAll",
         "AutoFit",
@@ -122,7 +115,8 @@ export default {
         allowEditing: true,
         allowDeleting: true,
         allowTaskbarEditing: true,
-        showDeleteConfirmDialog: true
+        showDeleteConfirmDialog: true,
+        allowTaskbarDraw: true
       },
       toolbar: [
         "Add",
@@ -150,7 +144,7 @@ export default {
         }
       },
       columns: [
-        { field: "TaskID", width: 80 },
+        { field: "TaskID", width: 80, visible: false },
         {
           field: "TaskName",
           headerText: "Job Name",
@@ -158,6 +152,7 @@ export default {
           clipMode: "EllipsisWithTooltip"
         },
         { field: "StartDate" },
+        { field: "EndDate" },
         { field: "Duration" },
         { field: "Progress" },
         { field: "Predecessor" }

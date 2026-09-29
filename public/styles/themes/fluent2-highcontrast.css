@@ -78,7 +78,7 @@ body.fluent2-highcontrast,
 .fluent2-highcontrast .sb-switch-popup li:first-child,
 .fluent2-highcontrast .sb-left-pane .e-listview .e-list-group-item,
 .fluent2-highcontrast .sb-theme-popup li.active .sb-theme-select,
-.fluent2-highcontrast .sb-products-popup li.active .sb-products-select
+.fluent2-highcontrast .sb-sdk-popup li.active .sb-sdk-select
 {
     color: #ffffff;
 }
@@ -89,7 +89,7 @@ body.fluent2-highcontrast,
     border: unset;
 }
 
-.fluent2-highcontrast .sb-products-popup {
+.fluent2-highcontrast .sb-sdk-popup {
     border: unset;
 }
 .fluent2-highcontrast .sb-icon-Hamburger,
@@ -122,7 +122,7 @@ color:white;
 .fluent2-highcontrast .sb-src-code,
 .fluent2-highcontrast .sb-api-section,
 .fluent2-highcontrast .sb-theme-popup,
-.fluent2-highcontrast .sb-products-popup,
+.fluent2-highcontrast .sb-sdk-popup,
 .fluent2-highcontrast .copy-tooltip,
 .fluent2-highcontrast .e-icons.copycode,
 .fluent2-highcontrast #search-input-wrapper input,
@@ -136,11 +136,11 @@ color:white;
 .fluent2-highcontrast .sb-setting-btn.active,
 .fluent2-highcontrast .sb-switch-popup li:hover,
 .fluent2-highcontrast .theme-wrapper:hover,
-.fluent2-highcontrast .products-wrapper:hover,
+.fluent2-highcontrast .sdk-wrapper:hover,
 .fluent2-highcontrast .theme-wrapper.active,
-.fluent2-highcontrast .products-wrapper.active,
+.fluent2-highcontrast .sdk-wrapper.active,
 .fluent2-highcontrast .sb-theme-popup li:hover,
-.fluent2-highcontrast .sb-products-popup li:hover,
+.fluent2-highcontrast .sb-sdk-popup li:hover,
 .fluent2-highcontrast .sb-search-result .e-list-item:hover,
 .fluent2-highcontrast .sb-left-pane .e-listview .e-list-item:hover {
     background-color: rgba(255, 255, 255, 0.12);
@@ -187,7 +187,7 @@ color:white;
 .fluent2-highcontrast .sb-left-pane .e-treeview .e-list-item.e-hover > .e-fullrow {
     background-color: #1aebff;
 }
-.fluent2-highcontrast .sb-header-text-left,.fluent2-highcontrast .sb-header-text-right,.fluent2-highcontrast .sb-reset-icon {
+.fluent2-highcontrast .sb-header-text-left,.fluent2-highcontrast .sb-header-text-right,.fluent2-highcontrast .sb-reset-icon ,.fluent2-highcontrast #sb-sdk-switcher{
     color:#ffffff;
 }
 .fluent2-highcontrast .e-samplestatus.new.tree, .fluent2-highcontrast .e-samplestatus.update.tree,.fluent2-highcontrast .e-samplestatus.preview.tree {
@@ -205,7 +205,7 @@ color:white;
     color:transparent;
 }
 
-.fluent2-highcontrast .sb-products-popup li .sb-products-select {
+.fluent2-highcontrast .sb-sdk-popup li .sb-sdk-select {
     color:transparent;
 }
 
@@ -233,4 +233,15 @@ color:white;
 .fluent2-highcontrast.e-bigger .e-listview .e-icon-wrapper .e-list-text,
 .fluent2-highcontrast.e-bigger .sb-control-navigation .e-treeview .tree-text {
     width: calc(100% - 75px);
+}
+
+.sdk-wrapper {
+    background:none;
+}
+.fluent2-highcontrast .sf-axe-msg.e-message {
+    background-color: #1C1B1F;
+    border: 1px solid #FFFFFF;
+}
+.fluent2-highcontrast .sf-axe-desc{
+    font-size: 14px !important;
 }

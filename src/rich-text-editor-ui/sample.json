@@ -1,0 +1,93 @@
+{
+    "name": "Modern Rich Text Editor",
+    "directory": "rich-text-editor-ui",
+    "category": "File Viewers & Editors",
+    "ftName": "rich-text-editor-ui",
+    "type": "preview",
+    "samples": [
+        {
+            "url": "basic-editing",
+            "name": "Basic Editing",
+            "description": "This demo shows how to render the Modern Rich Text Editor component with a minimum configuration setting.",
+            "category": "Editor"
+        },
+        {
+            "url": "full-featured-editing",
+            "name": "Full-Featured Editing",
+            "description": "This demo shows how to render the Modern Rich Text Editor component with a minimum configuration setting.",
+            "category": "Editor"
+        },
+        {
+            "url": "inline-editing",
+            "name": "Inline Editing",
+            "description": "An inline Modern Rich Text Editor sample configured for in-place editing with a compact toolbar.",
+            "category": "Editor"
+        },
+        {
+            "url": "toolbar",
+            "name": "Toolbar",
+            "description": "This demo shows how to configure the toolbar type and position of the Modern Rich Text Editor component.",
+            "category": "Features"
+        },
+        {
+            "url": "slash-commands",
+            "name": "Slash Commands",
+            "description": "This demo shows how to enable the Slash Commands feature in the Modern Rich Text Editor component, which lets users open a command palette by typing \"/\" to quickly insert and format content.",
+            "category": "Features"
+        },
+        {
+            "url": "properties",
+            "name": "Properties",
+            "description": "This demo shows how to render the Modern Rich Text Editor component with a minimum configuration setting.",
+            "category": "API"
+        },
+        {
+            "url": "methods",
+            "name": "Methods",
+            "description": "This demo shows how to programmatically interact with the Modern Rich Text Editor component using its public methods such as getHtml, getText, getSelection, selectAll, focus, blur, save, updateToolbarItems and the commands() helper.",
+            "category": "API"
+        },
+        {
+            "url": "events",
+            "name": "Events",
+            "description": "This demo explains client-side events of Modern Rich Text Editor that is triggered on editing and formatting operations with an event tracer.",
+            "category": "API"
+        },
+        {
+            "url": "email-composer",
+            "name": "Email Composer",
+            "description": "This demo showcases a Email Composer built with Modern Rich Text Editor. It allows users to select recipients using MultiSelect components, enter a subject, compose rich email content with formatting tools, insert links, images, and tables, use Slash Commands for quick content creation, and simulate Send and Save Draft actions using the editor content and recipient information.",
+            "category": "Use Cases"
+        },
+        {
+            "url": "forum-discussion",
+            "name": "Forum Post Editor ",
+            "description": "This demo shows a forum discussion component with Modern Rich Text Editor integrated, allowing users to create, view, copy, and delete comments with avatars and timestamps.",
+            "category": "Use Cases"
+        },
+        {
+            "url": "html-preview",
+            "name": "HTML Preview ",
+            "description": "The online HTML editor is a demo that provides LIVE experience for both content and HTML editing with Modern Rich Text Editor features in a real-world scenario.",
+            "category": "Use Cases"
+        },
+        {
+            "url": "editor-in-dialog",
+            "name": "Editor in Dialog",
+            "description": "This demo showcases the Modern Rich Text Editor component integrated inside a Dialog component, allowing users to compose formatted messages in a modal dialog with send and cancel buttons.",
+            "category": "Integration"
+        }, 
+        {
+            "url": "chat-ui",
+            "name": "Chat UI",
+            "description": "This demo demonstrates Chat UI integration with Modern Rich Text Editor for composing and sending rich messages.",
+            "category": "Integration"
+        },
+        {
+            "url": "tab",
+            "name": "Tab",
+            "description": "This demo shows a tab component with Modern Rich Text Editor.",
+            "category": "Integration"
+        }
+    ]
+}

@@ -18,6 +18,7 @@
 <style>
     .panecontent {
         width: auto;
+        margin: 0 0 10px;
     }
 </style>
 

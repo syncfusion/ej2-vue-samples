@@ -189,6 +189,15 @@ methods:{
                                 treemap.legendSettings.height = '';
                                 treemap.legendSettings.width = '';
                         }
+                } else {
+                    treemap.legendSettings.orientation = 'Horizontal';
+                    if (treemap.legendSettings.mode === 'Interactive') {
+                        treemap.legendSettings.height = '10';
+                        treemap.legendSettings.width = '';
+                    } else {
+                        treemap.legendSettings.height = '';
+                        treemap.legendSettings.width = '';
+                    }
                 }
             }
             else {

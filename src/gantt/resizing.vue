@@ -1,9 +1,7 @@
 <template>
     <div class="col-lg-12 control-section">
         <div id="action-description">
-            <p>This sample demonstrates the Gantt column resizing feature. Click and drag at the right corner of each
-                column header to resize the column.
-            </p>
+            <p>This sample demonstrates column resizing in the Gantt Chart. Resize a column by dragging the right edge of its header to adjust the column width.</p>
         </div>
         <div>
             <ejs-gantt ref="gantt" id="ColumnResize" :dataSource="data" :height="height" :rowHeight="46"
@@ -14,29 +12,16 @@
         </div>
 
         <div id="description">
-            <p>The Gantt columns can be resized by clicking and dragging at the right corner of columns header. Set the
-                <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowresizing">allowResizing</a>
-                property to true to enable column resizing behavior in Gantt.
-                You can also prevent the resize of a particular column
-                by setting <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#allowresizing">columns ->
-                    allowResizing</a> to false in columns definition
-            </p>
-            <p> In this demo, the allowResizing feature has been enabled by setting the <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt#allowresizing">allowResizing</a>
-                property to true.
-                Task Name column can be resized between a range of <code>minWidth (120 pixels)</code> and
-                <code>maxWidth (300 pixels)</code>.
-                The column resizing has been disabled in the <b>Duration</b> column
-            </p>
+            <p>Columns can be resized interactively by dragging the right edge of a column header. Individual columns can also define <code>minWidth</code> and <code>maxWidth</code> values to restrict resizing within a specified range. To enable resizing, set the <code><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#allowresizing">allowResizing</a></code> property to <code>true</code>.</p>
+            <p>In this sample, the <code>Task Name</code> column can be resized between 120 and 300 pixels, while resizing is disabled for the <code>Duration</code> column using the column-level <code><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#allowresizing">allowResizing</a></code> property.</p>
             <p style="font-weight: 500">Injecting Module:</p>
             <p>
                 Gantt component features are segregated into individual feature-wise modules. To use column resize features,
                 inject the <code>Resize</code> module using the <code>provide</code> section.
             </p>
             <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-resizing">documentation section</a>.</p>
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/column-resizing">columns resizing</a> documentation section.</p>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>

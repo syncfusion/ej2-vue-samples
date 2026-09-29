@@ -3,7 +3,7 @@
   <div class="control-section" id="pivot-table-section" style="overflow: initial">
     <input ref="connectFile" type="file" id="connectFile" style="display:none" />
 
-    <ejs-dialog :visible="isDialogOpen && dialogLabel !== 'OLAP'" :isModal="true"
+    <ejs-dialog :visible="isDialogOpen && dialogLabel !== 'OLAP'" :isModal="true" :enableRtl="rtlDialog"
       :showCloseIcon="true" width="480px"
       :header="dialogLabel === 'JSON Report' ? 'Load Pivot Report' : ('Connect to ' + (dialogLabel || dialogType))"
       target="body" :closeOnEscape="true"
@@ -19,7 +19,7 @@
       </div>
     </ejs-dialog>
 
-    <ejs-dialog :visible="isErrorDialogOpen" :isModal="true" :showCloseIcon="true"
+    <ejs-dialog :visible="isErrorDialogOpen" :enableRtl="rtlDialog" :isModal="true" :showCloseIcon="true"
       width="420px" header="Error" target="body" :closeOnEscape="true"
       :position="{ X: 'center', Y: 'center' }"
       :animationSettings="{ effect: 'Fade', duration: 120 }" @overlayClick="closeErrorDialog" @close="closeErrorDialog">
@@ -31,7 +31,7 @@
       </div>
     </ejs-dialog>
 
-    <ejs-dialog :visible="isDialogOpen && dialogLabel === 'OLAP'" :isModal="true"
+    <ejs-dialog :visible="isDialogOpen && dialogLabel === 'OLAP'" :isModal="true" :enableRtl="rtlDialog"
       :showCloseIcon="true" width="620px" header="Connect to OLAP(XMLA)" target="body"
       :closeOnEscape="true" :position="{ X: 'center', Y: 'center' }"
       :animationSettings="{ effect: 'Zoom', duration: 150 }" @overlayClick="onCloseDialog" @close="onCloseDialog">
@@ -462,7 +462,6 @@ methods: {
     const pivot: any = (this.$refs as any).pivot?.ej2Instances;
     if ((this as any).shouldAutoConfig && pivot) {
       (this as any).shouldAutoConfig = false;
-      pivot.displayOption = { view: 'Both', primary: 'Table' };
       if (!pivot.dataSourceSettings.values || pivot.dataSourceSettings.values.length === 0) {
         (pivot.pivotFieldListModule.dialogRenderer as any).onShowFieldList();
       }
@@ -486,8 +485,7 @@ methods: {
         parsed = JSON.parse(persisted);
         var isOlapReport = parsed && parsed.dataSourceSettings && parsed.dataSourceSettings.providerType === 'SSAS';
         if (!isOlapReport && parsed && parsed.dataSourceSettings) { 
-          dataSource = parsed.dataSourceSettings.dataSource;
-          parsed.dataSourceSettings.dataSource = []; 
+          dataSource = parsed.dataSourceSettings.dataSource; 
         }
         parsed.pivotValues = [] as any;
       } catch {
@@ -500,6 +498,7 @@ methods: {
     }
   },
   openToolbarClicked(args?: any) {
+    const pivot: any = (this.$refs as any).pivot?.ej2Instances;
     const itemId = args?.item?.id;
     if (!itemId) return;
     if (itemId === 'local_report') {
@@ -519,11 +518,13 @@ methods: {
       (this as any).dialogLabel = 'JSON Report';
       (this as any).remoteUrl = 'https://cdn.syncfusion.com/data/report.json';
       (this as any).isDialogOpen = true;
+      (this as any).rtlDialog = pivot.enableRtl;
       return;
     }
   },
   gridToolbarClicked(args?: any) {
     const itemId = args?.item?.id;
+    const pivot: any = (this.$refs as any).pivot?.ej2Instances;
     if (!itemId) return;
     if (itemId === 'local_csv' || itemId === 'local_json') {
       const ext = itemId === 'local_csv' ? 'CSV' : 'JSON';
@@ -544,6 +545,7 @@ methods: {
       (this as any).dialogLabel = type;
       (this as any).remoteUrl = (this as any).defaultUrls[type as 'CSV' | 'JSON'] || '';
       (this as any).isDialogOpen = true;
+      (this as any).rtlDialog = pivot.enableRtl;
       return;
     }
     if (itemId === 'olap') {
@@ -551,6 +553,7 @@ methods: {
       (this as any).dialogType = 'OLAP';
       (this as any).dialogLabel = 'OLAP';
       (this as any).isDialogOpen = true;
+      (this as any).rtlDialog = pivot.enableRtl;
       (this as any).olapConnected = false;
       (this as any).olapUiMessage = '';
       (this as any).loadingSources = false;
@@ -720,10 +723,12 @@ methods: {
     }
   },
   async handleOpenRemote() {
+    const pivot: any = (this.$refs as any).pivot?.ej2Instances;
     if (!this.remoteUrl.trim()) {
       (this as any).errorMessage = 'Please enter a valid URL.';
       (this as any).isDialogOpen = false;
       (this as any).isErrorDialogOpen = true;
+      (this as any).rtlDialog = pivot.enableRtl;
       return;
     }
     try {
@@ -734,6 +739,7 @@ methods: {
       (this as any).errorMessage = `Failed to load remote ${(this as any).dialogLabel || (this as any).dialogType}: ${err.message}\n\nTip: Ensure the URL is accessible and allows CORS for your origin.`;
       (this as any).isDialogOpen = false;
       (this as any).isErrorDialogOpen = true;
+      (this as any).rtlDialog = pivot.enableRtl;
     }
   },
   async onOlapConnect() {

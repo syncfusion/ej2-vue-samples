@@ -37,7 +37,7 @@
         <p><b>Injectable Modules:</b></p>
         <p> The AI Assistant feature is packaged as a modular, tree-shakable Vue plugin that is included only when needed. Once the plugin is registered, the service can be injected into Vue components using Vue’s <code>inject</code> API. <br/> For example, the <code>AIAssistant</code> service becomes available to components when provided through the plugin’s internal <code>provide</code> configuration. </p>
     </div>
-
+    <AIToast />
 </template>
 
 <script lang="ts">

@@ -295,11 +295,14 @@ export default {
         mirrorView.style.display = "block";
       }
       var srcViewEle = document.querySelector("#src-view");
-      var codeMirrorEle = document.querySelector(".CodeMirror-wrap");
-      if (codeMirrorEle) {
-        codeMirrorEle.remove();
+      if (!this.myCodeMirror) {
+        this.renderCodeMirror(srcViewEle, this.$refs.rteObj.ej2Instances.value);
+      } 
+      else if (!this.myCodeMirror.hasFocus() && this.myCodeMirror.getValue() !== this.$refs.rteObj.ej2Instances.value) {
+        const cursor = this.myCodeMirror.getCursor();
+        this.myCodeMirror.setValue(this.$refs.rteObj.ej2Instances.value);
+        this.myCodeMirror.setCursor(cursor);
       }
-      this.renderCodeMirror(srcViewEle, this.$refs.rteObj.ej2Instances.value);
     },
     renderCodeMirror: function (mirrorView, content) {
       this.myCodeMirror = CodeMirror(mirrorView, {

@@ -58,7 +58,7 @@
     <li><b>Interactive cards:</b> Each card is focusable and clickable, with active styling for the selected template.</li>
     <li>
       <b>Dynamic loading:</b> Clicking a card calls
-      <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/block-editor/how-to/renderblocksfromjson">renderBlocksFromJson</a>
+      <a target="_blank" href="https://help.syncfusion.com/rich-text-editor-sdk/vue/block-editor/methods#rendering-blocks-from-json">renderBlocksFromJson</a>
       to populate the editor with that template’s blocks.
     </li>
     <li><b>Responsive behavior:</b> A ResizeObserver re-evaluates when to enable horizontal scrolling as the viewport changes.</li>
@@ -74,7 +74,7 @@
 
 <script>
 import { BlockEditorComponent } from '@syncfusion/ej2-vue-blockeditor';
-import * as data from './blockData.json';
+import * as data from './data/template-gallery.json';
 
 export default {
   components: {

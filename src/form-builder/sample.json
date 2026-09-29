@@ -1,0 +1,19 @@
+{
+    "name": "Form Builder",
+    "directory": "form-builder",
+    "ftName" :"form-builder",
+    "category": "Forms",
+    "type": "preview",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Form Builder",
+            "description": "This example demonstrates the basic form builder component that builds corresponding form.",
+            "type": "new",
+            "sourceFiles":[
+                { "displayName": "default.vue", "path":"src/form-builder/default.vue" }
+            ]
+        }
+    ]
+} 

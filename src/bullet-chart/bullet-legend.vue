@@ -20,6 +20,7 @@
         height="160"
         labelFormat="{value}K"
         :legendRender="legendRender"
+        :load="load"
       >
         <e-bullet-range-collection>
           <e-bullet-range end="8" color="#CA4218" name="Poor"></e-bullet-range>
@@ -81,6 +82,9 @@ export default {
     bulletChart: [BulletTooltip, BulletChartLegend]
   },
   methods: {
+    load(args) {
+        loadBulletChartTheme(args);
+    },
     legendRender: function(args) {
       if (args.text === "Target_0") {
         args.text = "Previous Target";

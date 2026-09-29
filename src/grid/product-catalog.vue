@@ -146,6 +146,40 @@ data() {
 	};
 },
 	methods: {
+		getProductImage(data: any) {
+			const name = data.Image || data.ProductName || '';
+			const lower = (name + '').toLowerCase();
+			if (
+				lower.indexOf('mac') !== -1 ||
+				lower.indexOf('macbook') !== -1 ||
+				lower.indexOf('laptop') !== -1
+			)
+				return 'src/grid/images/product/MacBook Pro 14.png';
+			if (lower.indexOf('iphone') !== -1)
+				return 'src/grid/images/product/iPhone 15 Pro Max.png';
+			if (lower.indexOf('samsung') !== -1 || lower.indexOf('galaxy') !== -1)
+				return 'src/grid/images/product/Galaxy S24 Ultra.png';
+			if (lower.indexOf('sony') !== -1)
+				return 'src/grid/images/product/Sony WH-1000XM5.png';
+			if (
+				lower.indexOf('air') !== -1 ||
+				lower.indexOf('head') !== -1 ||
+				lower.indexOf('ear') !== -1
+			)
+				return 'src/grid/images/product/AirPods Pro.png';
+			if (lower.indexOf('watch') !== -1)
+				return 'src/grid/images/product/Apple Watch Series 9.png';
+			if (lower.indexOf('tablet') !== -1 || lower.indexOf('ipad') !== -1)
+				return 'src/grid/images/product/iPad Air 5th Gen.png';
+			if (lower.indexOf('monitor') !== -1 || lower.indexOf('lg') !== -1)
+				return 'src/grid/images/product/LG UltraGear 27.png';
+			if (lower.indexOf('keyboard') !== -1)
+				return 'src/grid/images/product/Magic Keyboard.png';
+			if (lower.indexOf('nintendo') !== -1 || lower.indexOf('switch') !== -1)
+				return 'src/grid/images/product/Nintendo Switch.png';
+			return 'src/grid/images/product/MacBook Pro 14.png';
+		},
+
 		getTrend(item: any) {
 			const prev = item.SalesMonth2 || 1;
 			const trend = ((item.Sales - prev) / Math.max(prev, 1)) * 100;
@@ -168,22 +202,7 @@ data() {
 			const margin = Math.round(((item.OriginalPrice - item.CostPrice) / item.OriginalPrice) * 100);
 			return `${margin}%`;
 		},
-	getProductImage(data: any) {
-		const name = data.Image || data.ProductName || '';
-		const lower = (name + '').toLowerCase();
-		if (lower.indexOf('mac') !== -1 || lower.indexOf('macbook') !== -1 || lower.indexOf('laptop') !== -1) return 'src/images/products/MacBook Pro 14.png';
-		if (lower.indexOf('iphone') !== -1) return 'src/images/products/iPhone 15 Pro Max.png';
-		if (lower.indexOf('samsung') !== -1 || lower.indexOf('galaxy') !== -1) return 'src/images/products/Galaxy S24 Ultra.png';
-		if (lower.indexOf('sony') !== -1) return 'src/images/products/Sony WH-1000XM5.png';
-		if (lower.indexOf('air') !== -1 || lower.indexOf('head') !== -1 || lower.indexOf('ear') !== -1) return 'src/images/products/AirPods Pro.png';
-		if (lower.indexOf('watch') !== -1) return 'src/images/products/Apple Watch Series 9.png';
-		if (lower.indexOf('tablet') !== -1 || lower.indexOf('ipad') !== -1) return 'src/images/products/iPad Air 5th Gen.png';
-		if (lower.indexOf('monitor') !== -1 || lower.indexOf('lg') !== -1) return 'src/images/products/LG UltraGear 27.png';
-		if (lower.indexOf('keyboard') !== -1) return 'src/images/products/Magic Keyboard.png';
-		if (lower.indexOf('nintendo') !== -1 || lower.indexOf('switch') !== -1) return 'src/images/products/Nintendo Switch.png';
-		return 'src/images/products/MacBook Pro 14.png';
-	}
-},
+	},
 provide: {
 	grid: [DetailRow, Sort, Filter]
 }

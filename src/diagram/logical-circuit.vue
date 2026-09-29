@@ -23,9 +23,7 @@
       <p>
           This example shows how to create Boolean algebraic laws and theorems using diagram `path` shapes. The `type` property of the `shape` can be used to create `path` nodes. The` data` property of the shape allows you to define path data of the path shape.  
       </p>
- 
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
-</div>
+ </div>
 </div>
 </template>
 <style scoped>

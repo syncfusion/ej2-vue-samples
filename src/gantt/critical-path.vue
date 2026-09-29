@@ -10,27 +10,22 @@
       </div>
     </div>
     <div id="action-description">
-      <p>This sample demonstrates the rendering of critical path to the Gantt control.</p>
+      <p>This sample demonstrates the critical path feature in the Gantt Chart, providing visibility into the sequence of tasks that directly influences project completion.</p>
     </div>
 
     <div id="description">
       <p>
-        In this example, you can see how to render a Gantt Chart with critical path. The default timeline view week-day
-        mode is applied to Gantt Chart.
-        The dependency lines are enabled in this example to represent the execution order or the hierarchy between the
-        phases.
+        The Gantt Chart supports critical path analysis, which identifies the sequence of tasks that determines the overall project completion date. Critical tasks are highlighted to help monitor activities that have a direct impact on project delivery. Any delay in a critical task results in a corresponding delay to the project completion date. Monitoring the critical path helps project managers identify scheduling risks and prioritize key activities.
       </p>
-      <p>
-        The critical path is a series of tasks (or sometimes only a single task) that controls the calculated finish
-        date of the project. If a task in a critical path is delayed, then the entire project will be delayed.
-      </p>
+      <p>In this sample, critical path visualization is enabled using the <code>enableCriticalPath</code> property. The toolbar also provides a built-in <code>CriticalPath</code> option for displaying critical tasks and dependencies</p>
       <p style="font-weight: 500">Injecting Module:</p>
       <p>
         Gantt component features are segregated into individual feature-wise modules. To use critical path, selection, edit and toolbar,
         inject the <code>CriticalPath</code>, <code>Selection</code>, <code>Edit</code> and <code>Toolbar</code> modules using the
         <code>provide</code> section.
       </p>
-      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/critical-path">documentation section</a>.</p>
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/critical-path">critical path</a> documentation section.</p>
+      <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
     </div>
   </div>
 </template>

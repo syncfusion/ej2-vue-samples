@@ -2,8 +2,7 @@
     <div class="col-lg-12 control-section">
         <div id="action-description">
             <p>
-                This sample demonstrates the column freezing feature in the Gantt Chart.
-                Frozen columns remain fixed while other columns scroll horizontally, improving readability.
+                This sample demonstrates column freezing in the Gantt Chart. Use the drop down options to freeze columns on the left, right, or as fixed columns, keeping important information visible during horizontal scrolling.
             </p>
         </div>
         <div>
@@ -57,8 +56,8 @@
                 inject the <code>Freeze</code> and <code>Toolbar</code> modules using the <code>provide</code> section.
             </p>
             <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/frozen-column">documentation section</a>.
-            </p>
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/columns/frozen-column">frozen column</a> documentation section.</p>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>
@@ -176,6 +175,23 @@ export default {
 </script>
 
 <style>
+/* To apply default background color for left freeze content */
+#frozenColumns .e-content .e-leftfreeze {
+  background-color: #e0e7ff !important;
+}
+/* To apply default background color for left freeze columnheader */
+#frozenColumns .e-columnheader .e-leftfreeze {
+  background-color: #e0e7ff !important;
+}
+/* To apply default background color for right freeze content */
+#frozenColumns .e-content .e-rightfreeze {
+  background-color: #e0e7ff !important;
+}
+/* To apply default background color for right freeze columnheader */
+#frozenColumns .e-columnheader .e-rightfreeze {
+  background-color: #e0e7ff !important;
+}
+
 .tailwind3 #frozenColumns .e-content .e-leftfreeze,
 .tailwind3 #frozenColumns .e-content .e-rightfreeze,
 .tailwind3 #frozenColumns .e-content .e-fixedfreeze {

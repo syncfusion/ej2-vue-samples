@@ -1,7 +1,7 @@
 <template>
     <div class="col-lg-12 control-section">
         <div class="template-aiassistview">
-            <ejs-aiassistview id="aiAssistView" ref="aiassist" bannerTemplate="bannerTemplate" responseItemTemplate="responseItemTemplate" promptSuggestionItemTemplate="promptSuggestionItemTemplate" :enableStreaming="true" promptItemTemplate="promptItemTemplate" :promptSuggestionsHeader="promptSuggestionsHeader" :promptSuggestions="suggestion" :promptRequest="onPromptRequest" :toolbarSettings="assistToolbars" :created="onCreated">
+            <ejs-aiassistview id="aiAssistView" ref="aiassist" bannerTemplate="bannerTemplate" responseItemTemplate="responseItemTemplate" responseAnimationTemplate="responseAnimationTemplate" promptSuggestionItemTemplate="promptSuggestionItemTemplate" :enableStreaming="true" promptItemTemplate="promptItemTemplate" :promptSuggestionsHeader="promptSuggestionsHeader" :promptSuggestions="suggestion" :promptRequest="onPromptRequest" :toolbarSettings="assistToolbars" :created="onCreated">
                 <template v-slot:bannerTemplate="">
                     <div class="banner-content">
                         <h3><span class="e-icons e-assistview-icon"></span>AI Assistance</h3>
@@ -31,6 +31,22 @@
                         <div class="assist-suggestion-content">{{data.promptSuggestion}}</div>
                     </div>
                 </template>
+                <template v-slot:responseAnimationTemplate>
+                    <div class="assistview-loading-status">
+                        <div class="assistview-grid-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </div>
+                       <span class="assistview-loading-label">Generating</span>
+                    </div>
+                </template>
             </ejs-aiassistview>
         </div>
     </div>
@@ -38,7 +54,7 @@
         <p>This sample demonstrates the template functionality of the AI AssistView component.</p>
     </div>
     <div id="description">
-        <p>In this example, the AI AssistView component uses customizable templates for the banner, prompts, responses, and suggestions. We have used the  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#bannertemplate">bannerTemplate</a>,  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#promptitemtemplate">promptItemTemplate</a>,  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#responseitemtemplate">responseItemTemplate</a> and  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#promptsuggestionitemtemplate">promptSuggestionItemTemplate</a> to define the structure and appearance of these elements.
+        <p>In this example, the AI AssistView component uses customizable templates for the banner, prompts, responses, loading indicator and suggestions. We have used the  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#bannertemplate">bannerTemplate</a>,  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#promptitemtemplate">promptItemTemplate</a>,  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#responseitemtemplate">responseItemTemplate</a>,  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#promptsuggestionitemtemplate">promptSuggestionItemTemplate</a> and responseAnimationTemplate to define the structure and appearance of these elements.
         </p>
         <p>
             By using the  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#executeprompt">executePrompt</a> method you can trigger the prompt request externally and generate the output based on the  <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/ai-assistview#promptrequest">promptRequest</a> data returned. If found, the response will be displayed and suggestions updated.
@@ -335,4 +351,51 @@ export default {
             width: 100%;
         }
     }
+    .assistview-loading-status {
+    display: flex;
+    gap: 10px;
+    color: #666;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+ 
+ .assistview-grid-icon {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.assistview-grid-icon span {
+    width: 4px;
+    height: 4px;
+    background: #8a8a8a;
+    border-radius: 1px;
+    opacity: 0.25;
+    animation: assistview-pulse 1.8s ease-in-out infinite;
+}
+
+.assistview-grid-icon span:nth-child(1) { animation-delay: 0s; }
+.assistview-grid-icon span:nth-child(2) { animation-delay: 0.1s; }
+.assistview-grid-icon span:nth-child(3) { animation-delay: 0.2s; }
+.assistview-grid-icon span:nth-child(4) { animation-delay: 0.3s; }
+.assistview-grid-icon span:nth-child(5) { animation-delay: 0.4s; }
+.assistview-grid-icon span:nth-child(6) { animation-delay: 0.5s; }
+.assistview-grid-icon span:nth-child(7) { animation-delay: 0.6s; }
+.assistview-grid-icon span:nth-child(8) { animation-delay: 0.7s; }
+.assistview-grid-icon span:nth-child(9) { animation-delay: 0.8s; }
+
+@keyframes assistview-pulse {
+    0%,
+    100% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 1;
+    }
+}
 </style>

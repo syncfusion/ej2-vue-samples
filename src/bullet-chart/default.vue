@@ -18,6 +18,7 @@
         labelFormat="${value}K"
         subtitle="U.S. $"
         :titlePosition="titlePosition"
+        :load="load"
       >
         <e-bullet-range-collection>
           <e-bullet-range end="150"></e-bullet-range>
@@ -45,6 +46,7 @@
         labelFormat="{value}%"
         subtitle="%"
         :titlePosition="titlePosition"
+        :load="load"
       >
         <e-bullet-range-collection>
           <e-bullet-range end="20"></e-bullet-range>
@@ -72,6 +74,7 @@
         labelFormat="${value}"
         subtitle="U.S. $"
         :titlePosition="titlePosition"
+        :load="load"
       >
         <e-bullet-range-collection>
           <e-bullet-range end="350"></e-bullet-range>
@@ -99,6 +102,7 @@
         title="New Customers"
         subtitle="Count"
         :titlePosition="titlePosition"
+        :load="load"
       >
         <e-bullet-range-collection>
           <e-bullet-range end="1700"></e-bullet-range>
@@ -125,6 +129,7 @@
         title="Cust Satisfication"
         subtitle="Top Rating of 5"
         :titlePosition="titlePosition"
+        :load="load"
       >
         <e-bullet-range-collection>
           <e-bullet-range end="3.7"></e-bullet-range>
@@ -194,6 +199,10 @@ export default {
   provide: {
     bulletChart: [BulletTooltip]
   },
-  methods: {}
+  methods: {
+    load(args) {
+        loadBulletChartTheme(args);
+    }
+  }
 };
 </script>

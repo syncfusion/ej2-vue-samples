@@ -16,6 +16,7 @@
         title="Revenue YTD"
         subtitle="US $ in Thousands"
         labelFormat="${value}K"
+        :load="load"
       >
         <template v-slot:TooltipTemplate="{data}">
           <div id="wrap">
@@ -52,6 +53,7 @@
 <script>
 import { Browser } from "@syncfusion/ej2-base";
 import { BulletChartComponent, BulletRangeDirective, BulletRangeCollectionDirective, BulletTooltip } from "@syncfusion/ej2-vue-charts";
+import { loadBulletChartTheme } from "./theme-color";
 
 let selectedTheme = location.hash.split("/")[1];
 selectedTheme = selectedTheme ? selectedTheme : "Fluent2";
@@ -86,6 +88,10 @@ export default {
   provide: {
     bulletChart: [BulletTooltip]
   },
-  methods: {}
+  methods: {
+    load(args) {
+        loadBulletChartTheme(args);
+    }
+  }
 };
 </script>

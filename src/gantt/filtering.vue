@@ -36,12 +36,7 @@
       </div>
     </div>
     <div id="action-description">
-      <p>
-        This sample visualizes the manned lunar mission, which landed the first human on the Moon using the Apollo 11 spacecraft
-        in the year 1969. It also demonstrates the filtering feature available in the Gantt Chart. You can filter a particular
-        column using the filter menu available in the columns. This sample is also enabled with the toolbar searching option to filter
-        the Gantt content across all the columns.
-      </p>
+      <p>This sample demonstrates the filtering feature in the Gantt Chart. Use the filter options available in the column headers to filter task records, and use the property panel to switch between filter types and hierarchy modes.</p>
     </div>
 
     <div id="description">
@@ -82,7 +77,8 @@
         inject the <code>Filter</code> and <code>Selection</code> modules using the <code>provide</code> section.
       </p>
       <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/gantt/filtering/filtering">documentation section</a>.</p>
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/filtering/filtering">filtering</a> documentation section.</p>
+      <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
     </div>
   </div>
 </template>

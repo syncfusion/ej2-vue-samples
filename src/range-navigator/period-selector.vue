@@ -28,7 +28,7 @@
     <div align="center">
       <ejs-rangenavigator style='display:block' ref='top' align='center' id='containerTop' valueType='DateTime'
         labelPosition='Outside' disableRangeSelector=true :width='width' :load='loadPeriodic' :dataSource='dataSource' xName='date' yName='Close'
-        :theme='theme' :changed='changedTop' :loaded='loadedPeriodic' :periodSelectorSettings='periodSelectorSettingsTop' >
+        :theme='theme' :changed='changedTop' :loaded='loadedPeriodic' :periodSelectorSettings='periodSelectorSettingsTop'>
        </ejs-rangenavigator>
    </div>
    <div align="center" style="width: 90%">
@@ -52,7 +52,7 @@
    </div>
     <div align="center">
         <ejs-rangenavigator style='display:block' ref='bottom' align='center' id='containerBottom' valueType='DateTime' :value='valueBottom'
-        labelPosition='Outside' :width='width' :theme='theme' :changed='changedBottom'>
+        labelPosition='Outside' :width='width' :theme='theme' :changed='changedBottom' :load="loadBottom">
            <e-rangenavigator-series-collection>
                <e-rangenavigator-series :dataSource='dataSource' type='Line' xName='date' yName='Close'>
                </e-rangenavigator-series>
@@ -180,7 +180,11 @@ export default {
       }
     },
     loadPeriodic: function(args) {
+      loadRangeNavigatorTheme(args);
       args.rangeNavigator.periodSelectorSettings.height = document.body.className.indexOf("e-bigger") > -1 ? 56 : 42;
+    },
+    loadBottom: function(args) {
+      loadRangeNavigatorTheme(args);
     },
     changedTop: function(args) {
       var chart = document.getElementById("chartPeriod").ej2_instances;
@@ -257,6 +261,7 @@ export default {
       }
     },
     chartLoad: function(args) {
+      loadRangeNavigatorTheme(args);
       args.chart.tooltip.format =
         args.chart.series[0].type === "Candle"
           ? "${point.x}<br/>High : <b>${point.high}</b><br/>Low : <b>${point.low}</b><br/>" +

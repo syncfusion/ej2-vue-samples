@@ -5,7 +5,7 @@
     <div align="center">
          <ejs-rangenavigator style='display:block' align='center' id='containerMulitiLvl' :value='value' animationDuration=500
          labelPosition ='Outside' valueType='DateTime' :tooltip='tooltip' intervalType='Quarter' enableGrouping=true :width='width'
-          groupBy='Years' :dataSource='dataSource' xName='x' yName='y' :theme='theme'>
+          groupBy='Years' :dataSource='dataSource' xName='x' yName='y' :theme='theme' :load="rangeLoad">
          </ejs-rangenavigator>
     </div>
 </div>
@@ -66,6 +66,9 @@ export default {
     rangeNavigator: [DateTime, RangeTooltip]
   },
   methods: {
+    rangeLoad: function(args) {
+      loadRangeNavigatorTheme(args);
+    }
    }
 };
 </script>

@@ -24,9 +24,7 @@
       <p>
         This sample shows how an sales process works with each entity involved in the process assigned a lane that contains all the activities for which they are responsible. The <code>type</code> property of the <code>shape</code> allows us to choose the swimlane shape type. Using the <code>children</code> property of the lane, we can add the nodes inside the lanes. We can also create the swimlane interactively using the swimlane shapes from the symbol palette.
       </p>
-    
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
-</div>
+    </div>
   </div>
 </template>
     <style scoped>

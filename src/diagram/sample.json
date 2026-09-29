@@ -10,7 +10,6 @@
       "name": "Flow Chart",
       "description": "This demo for Essential<sup>®</sup> JS2 Diagram component visualizes the processing of an order placed using credit card with built-in flow shapes.",
       "category": "Getting Started",
-      "type":"update",
       "order": 0
     },
     {
@@ -326,8 +325,7 @@
       "name": "Entity Relationship Diagram",
       "order": 8,
       "description": "This sample demonstrates a healthcare appointment management ER diagram created using the Syncfusion® EJ2 Vue Diagram.",
-      "category": "Use Case Diagram",
-      "type": "new"
+      "category": "Use Case Diagram"
     },
     {
       "url": "uml-activity",
@@ -341,8 +339,7 @@
       "name": "UML Sequence Diagram",
       "order": 8,
       "description": "This sample presents a UML sequence diagram created with the Syncfusion® EJ2 Diagram component to visualize interactions in a secure transaction process involving a user, transaction system, and fraud detection system.",
-      "category": "Use Case Diagram",
-      "type": "update"
+      "category": "Use Case Diagram"
     },
     {
       "url": "uml-class-diagram",
@@ -420,6 +417,14 @@
       "order": 8,
       "description": "Visualizes a custom serpentine layout with the Diagram component, featuring 20 key medical breakthroughs that revolutionized healthcare (1796–1996).",
       "category": "Use Case Diagram"
+    },
+    {
+      "url": "purchase-approval-workflow",
+      "name": "Purchase Approval Workflow",
+      "order": 9,
+      "description": "This sample demonstrates an interactive purchase approval workflow that checks the budget first, then routes requests through manager approval, purchase processing, or rejection.",
+      "type":"new",
+      "category": "Real-time Diagrams"
     },
     {
       "url": "angle-diagram",

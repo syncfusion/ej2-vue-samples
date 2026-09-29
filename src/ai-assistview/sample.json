@@ -9,7 +9,6 @@
             "url": "overview",
             "name": "Overview",
             "category": "AI AssistView",
-            "type": "new",
             "api":{ "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings", "footerToolbarSettings", "responseToolbarSettings", "attachmentSettings", "enableAttachments", "speechToTextSettings", "enableStreaming"] },
             "description": "Combines streaming, attachments, speech-to-text, text-to-speech and regenerate functionality in one overview UI.",
             "sourceFiles": [
@@ -65,7 +64,6 @@
             "url": "generative-ui",
             "name": "Generative UI Responses",
             "category": "AI AssistView",
-            "type": "new",
             "api": { "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings", "enableStreaming", "showClearButton", "registerToolUI"] },
             "description": "Demonstrates rendering interactive generative UI tools (weather cards, charts, data grids) directly within AI responses using registerToolUI and block-based content structures.",
             "sourceFiles": [
@@ -77,7 +75,6 @@
             "url": "thinking",
             "name": "Chain of Thoughts",
             "category": "AI AssistView",
-            "type": "new",
             "api":{ "AIAssitView":["promptRequest", "toolbarSettings", "bannerTemplate", "responseToolbarSettings", "stopRespondingClick"] },
             "description": "Demonstrates the AI generated thinking UI in the AiAssistView component",
             "sourceFiles": [
@@ -86,9 +83,46 @@
             ]
         },
         {
+            "url": "loading-indicator",
+            "name": "Loading Indicator",
+            "category": "AI AssistView",
+            "type": "new",
+            "api": { "AIAssistView": ["responseAnimationTemplate", "promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings", "enableStreaming"], "DropDownList": ["change"] },
+            "description": "Demonstrates different loading indicator styles that are displayed while the AI AssistView component generates a response.",
+            "sourceFiles": [
+                { "displayName": "loading-indicator.vue", "path": "src/ai-assistview/loading-indicator.vue" },
+                { "displayName": "promptResponseData.json", "path": "src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "mention",
+            "name": "Mentions",
+            "category": "AI AssistView",
+            "type": "new",
+            "api": { "AIAssistView": ["mentions", "bannerTemplate", "promptSuggestions", "promptRequest", "toolbarSettings", "registerToolUI" ]},
+              "description": "Demonstrates the AIAssistView component with mention functionality, allowing users to trigger suggestion lists and enhance interactions with relevant references.",
+              "sourceFiles": [
+              { "displayName": "mention.vue", "path": "src/ai-assistview/mention.vue" },
+              { "displayName": "mentionData.json", "path": "src/ai-assistview/mentionData.json" }
+           ]
+        },
+	    {
+            "url": "ai-telemetry",
+            "name": "Telemetry",
+            "category": "AI AssistView",
+            "type": "new",
+            "api":{ "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "telemetrySettings"] },
+            "description": "Showcases the telemetry feature of the AiAssistView control.",
+            "sourceFiles": [
+                { "displayName": "ai-telemetry.js", "path":"src/ai-assistview/ai-telemetry.vue" },
+                { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
             "url": "template",
             "name": "Template",
             "category": "AI AssistView",
+            "type": "update",
             "api":{ "AIAssitView": ["bannerTemplate", "promptItemTemplate", "responseItemTemplate", "promptSuggestionItemTemplate", "promptSuggestions", "promptSuggestionsHeader", "promptRequest"] },
             "description": "Showcases the template properties of the AiAssistView control.",
             "sourceFiles": [
@@ -110,7 +144,6 @@
         {
             "url": "ai-text-To-Speech",
             "name": "Text to Speech",
-            "type": "update",
             "category": "Speech",
             "api":{ "AIAssitView":["promptRequest", "toolbarSettings", "bannerTemplate", "responseToolbarSettings", "stopRespondingClick"] },
             "description": "Demonstrates the AiAssistView component integrated with Text-to-Speech functionality, allowing AI-generated responses to be vocalized for voice-based interaction.",
@@ -123,7 +156,6 @@
             "url": "notion",
             "name": "Notion AI-like",
             "category": "UI Customization",
-            "type": "new",
             "api": { "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings", "footerToolbarSettings", "enableAttachments", "attachmentSettings", "showHeader"] },
             "description": "Demonstrates a Notion-inspired AI AssistView with session-based chat management, multiple display modes (Sidebar, Floating, Fullscreen), advanced settings, and model switching.",
             "sourceFiles": [
@@ -135,7 +167,6 @@
             "url": "claude-clone",
             "name": "Claude AI-like",
             "category": "UI Customization",
-            "type": "new",
             "api": { "AIAssitView": ["promptRequest", "showHeader", "enableAttachments", "attachmentSettings", "footerToolbarSettings", "bannerTemplate", "promptPlaceholder"] },
             "description": "Demonstrates a Claude-inspired AI AssistView with branded UI, model switching dropdown, and distraction-free chat experience.",
             "sourceFiles": [
@@ -147,12 +178,23 @@
             "url": "gemini-clone",
             "name": "Gemini AI-like",
             "category": "UI Customization",
-            "type": "new",
             "api": { "AIAssitView": ["promptRequest", "promptChanged", "showHeader", "enableAttachments", "attachmentSettings", "footerToolbarSettings", "bannerTemplate", "promptPlaceholder", "speechToTextSettings"] },
             "description": "Demonstrates a Gemini-inspired AI AssistView with branded UI, model switching dropdown, speech-to-text, and dynamic button toggling.",
             "sourceFiles": [
                 { "displayName": "gemini-clone.vue", "path": "src/ai-assistview/gemini-clone.vue" },
                 { "displayName": "promptResponseData.json", "path": "src/ai-assistview/promptResponseData.json" }
+            ]
+        },
+        {
+            "url": "chatgpt-clone",
+            "name": "ChatGPT AI-like",
+            "category": "UI Customization",
+            "type": "new",
+            "api":{ "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings", "footerToolbarSettings", "speechToTextSettings", "responseToolbarSettings"] },
+            "description": "Demonstrates a ChatGPT-inspired AI AssistView with a branded UI, pill-shaped input bar, speech-to-text support, and dynamic response interactions.",
+            "sourceFiles": [
+                { "displayName": "chatgpt-clone.vue", "path":"src/ai-assistview/chatgpt-clone.vue" },
+                { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
             ]
         },
         {

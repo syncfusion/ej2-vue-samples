@@ -52,6 +52,7 @@
             "url": "empty-record-template",
             "name": "Empty Record Template",
             "category": "Data Grid",
+            "type": "update",
             "description": "This demo for Essential JS 2 grid component demonstrates usage of template in Grid to shown element or text or image or gif icon instead of displaying the empty record message.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource","allowPaging", "pageSettings"] }
@@ -64,10 +65,9 @@
             "hideOnDevice": true,
             "api": { "Grid": ["contextMenuItems", "columns", "dataSource", "allowSelection", "selectionSettings", "contextMenuClick", "enablePropertyPanel", "allowExport", "enableRtl", "locale"] }
         },
-        {
+          {
             "url": "product-catalog",
             "name": "Product Catalog",
-            "type": "new",
             "category": "Product use case",
             "description": "This demo demonstrates a product catalog built using the Syncfusion® Vue Data Grid with column templates and a detail template.",
             "hideOnDevice": false,
@@ -179,7 +179,6 @@
         {
             "url": "column-chooser",
             "name": "Column Chooser",
-            "type": "update",
             "category": "Columns",
             "description": "This demo for Essential JS 2 grid component shows how the column chooser feature can be used to show or hide columns dynamically.",
             "hideOnDevice": false,
@@ -269,6 +268,18 @@
             "api": { "Grid": ["dataSource","allowTextWrap","columns","gridLines","width","height","allowFiltering","filterSettings","allowSorting", "enableRowSpan", "enableColumnSpan"] }
         },
         {
+            "url": "row-number",
+            "name": "Row Number",
+            "category": "Rows",
+            "type": "new",
+            "description": "This sample demonstrates the Row Number column feature in the Grid. The Row Number column automatically generates and displays sequential row indices, helping users quickly identify and reference records.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["columns", "dataSource", "allowFiltering", "allowSorting", "enableVirtualization", "enableDomVirtualization", "filterSettings", "toolbar", "editSettings", "height", "rowHeight"] },
+            "sourceFiles": [
+                { "displayName": "row-number.vue", "path": "src/grid/row-number.vue" }
+            ]
+        },
+        {
             "url": "inline-editing",
             "name": "Inline Editing",
             "category": "Editing",
@@ -296,7 +307,6 @@
             "url": "batch-editing",
             "name": "Batch Editing",
             "category": "Editing",
-            "type": "update",
             "description": "This demo for Essential JS 2 grid component shows how to perform bulk changes to the grid content using batch edit mode.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource"] }
@@ -305,7 +315,6 @@
             "url": "cell-editing",
             "name": "Cell Editing",
             "category": "Editing",
-            "type": "new",
             "description": "This demo for Essential JS 2 grid control shows the cell editing operation. In the below sample, You can perform CRUD operations in grid",
             "api": {
                 "Grid": [
@@ -317,6 +326,18 @@
                     "toolbar"
                 ]
             }
+        },
+        {
+            "url": "formula-cell",
+            "name": "Formula Cell",
+            "category": "Editing",
+            "type": "new",
+            "description": "This sample demonstrates formula cells in the Grid. Use formulas to calculate values from other columns and update the calculated results automatically.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["dataSource", "editSettings", "toolbar", "enableAutoFill", "allowPaging", "pageSettings", "selectionSettings", "columns"] },
+            "sourceFiles": [
+                { "displayName": "formula-cell.vue", "path": "src/grid/formula-cell.vue" }
+            ]
         },
         {
             "url": "command-column",
@@ -347,6 +368,15 @@
             ]
         },
         {
+            "url": "advanced-filter",
+            "name": "Advanced Filtering",
+            "type": "new",
+            "category": "Filtering",
+            "description": "This sample demonstrates the advanced filtering feature of the Grid.",
+            "hideOnDevice": false,
+            "api": { "Grid": ["dataSource", "enableVirtualization", "enableDomVirtualization", "allowSorting", "height", "allowAdvancedFiltering", "toolbar", "editSettings", "columns"] }
+        },
+        {
             "url": "filter-template",
             "name": "Filter Template",
             "category": "Filtering",
@@ -358,7 +388,6 @@
             "url": "filter-menu",
             "name": "Filter Menu",
             "category": "Filtering",
-            "type": "update",
             "description": "This demo for Essential JS 2 grid component demonstrates a way of filtering rows using a menu, check box, and Excel filter UI.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "allowFiltering", "allowSorting"] },
@@ -499,7 +528,6 @@
             "url": "dom-virtualization",
             "name": "DOM Virtualization",
             "category": "Performance",
-            "type": "new",
             "description": "This demo for Essential JS 2 grid control demonstrates DOM virtualization for high-performance rendering of large datasets with filtering, and sorting.",
             "hideOnDevice": false,
             "api": { "Grid": ["dataSource", "enableVirtualization", "enableDomVirtualization", "allowFiltering", "allowSorting", "allowSelection", "selectionSettings", "height", "rowHeight", "columns", "dataBound", "actionComplete"] },
@@ -523,7 +551,6 @@
             "url": "infinite-scrolling",
             "name": "Infinite Scrolling",
             "category": "Performance",
-            "type": "update",
             "description": "This demo demonstrates how to use Essential JS 2 grid to show a large data view without performance degradation by rendering only the required rows.",
             "hideOnDevice": false,
             "api": { "Grid": ["columns", "dataSource", "enableInfiniteScrolling"] },

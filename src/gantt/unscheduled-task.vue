@@ -24,7 +24,8 @@
         Gantt component features are segregated into individual feature-wise modules. To use selection, toolbar and add support,
         inject the <code>Selection</code>, <code>Toolbar</code> and <code>Edit</code> modules using the <code>provide</code> section.
       </p>
-      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/scheduling-tasks#unscheduled-tasks">documentation section</a>.</p>
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/scheduling-tasks#unscheduled-tasks">scheduling tasks</a> documentation section.</p>
+      <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
     </div>
   </div>
 </template>

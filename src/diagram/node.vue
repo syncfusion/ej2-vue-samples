@@ -73,8 +73,6 @@
         <code>constraints</code> property of the node allows you to enable/disable editing and proportional resizing.
     </p>
     <br>
-
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </template>
 
@@ -210,6 +208,7 @@ export default {
   mounted: function() {
      // Initialize diagram instance and checkbox instances
     diagramInstance = this.$refs.diagramObject.ej2Instances;
+    diagramInstance.fitToPage();
     element = this.$refs.aspectRatioobj.ej2Instances;
     lockElement = this.$refs.lockoobj.ej2Instances;
     //Click event for Appearance of the Property Panel

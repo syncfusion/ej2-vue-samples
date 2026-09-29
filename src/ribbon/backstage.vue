@@ -503,7 +503,7 @@ export default {
         let cName = e.target.className;
         if (cName !== "section-title" && cName !== "home-wrapper" && cName !== "new-wrapper" && cName !== "block-wrapper" && cName !== "e-ribbon-backstage-content") {
           this.$refs.backstageRibbon.ej2Instances.ribbonBackstageModule.hideBackstage();
-          ToastUtility.show({ target: "#ribbonPlaceHolder-default", position: { X: "Right" }, content: 'Backstage content is interacted and closed.', cssClass: "e-toast-info", showCloseButton: true, width: 'auto', timeOut: 2000, newestOnTop: true });
+          ToastUtility.show({ target: "#ribbonPlaceHolder-default", position: { X: "Right" }, content: 'Backstage content is interacted and closed.', cssClass: "e-toast-info", showCloseButton: true, width: 'auto', timeOut: 2000, newestOnTop: true });  
           this.$refs.backstageRibbon.ej2Instances.element.querySelector('.e-ribbon-backstage-content').removeEventListener('click', this.handleClickInsideBackstageContent);
         }
     },
@@ -796,5 +796,13 @@ body[class*="high"] .section-content:hover {
         width: 200px;
         padding: 10px;
     }
+}
+
+.bootstrap5\.3.e-bigger #ribbonPlaceHolder .e-toast-content:last-child {
+  padding: 0px;
+}
+
+.bootstrap5\.3.e-bigger #ribbonPlaceHolder .e-toast-content:first-child {
+  padding: 10px;
 }
 </style>

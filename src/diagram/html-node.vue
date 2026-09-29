@@ -16,9 +16,7 @@
      This example illustrates how an HTML control is hosted inside a node. By setting <code>HTML</code> to the type property of the shape, the template node can be enabled. You can define the content to be hosted by using <code>NodeTemplate</code>.
     </p>
     <br>
-  
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
-</div>
+  </div>
 </div>
 </template>
 <style scoped>

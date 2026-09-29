@@ -42,7 +42,7 @@
         margin-bottom: 15px;
         margin-top: 10px;    
     }
-    .splitter-expand .content {
+    .splitter-expand .expand-content {
         padding: 12px;
     }
     /* styles to hide scroll bars */
@@ -62,7 +62,7 @@ import { SplitterComponent, PanesDirective, PaneDirective } from '@syncfusion/ej
 import rightPaneContent from "./expand-collapse-content.vue";
 
 var leftPaneContent = {
-  template: `<div class="content">
+  template: `<div class="expand-content">
         <a href="https://www.syncfusion.com/ebooks/neuralnetworks" target="_blank">Neural Networks Using C# Succinctly<sup>®</sup></a>
         <p>Neural networks are an exciting field of software development used to calculate outputs from input data. 
         While the idea seems simple enough, the implications of such networks are staggering—think optical character recognition, 

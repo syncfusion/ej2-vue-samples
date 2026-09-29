@@ -29,7 +29,8 @@
         <code>UndoRedo</code>, <code>Filter</code>, <code>Sort</code>, <code>ColumnMenu</code>, <code>Resize</code>, <code>Edit</code>, <code>Reorder</code>, <code>ContextMenu</code>, <code>Toolbar</code>,
         <code>DayMarkers</code> modules using the <code>provide</code> section.
       </p>
-      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/undo-redo">documentation section</a>.</p>
+      <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/undo-redo">undo redo</a> documentation section.</p>
+      <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
     </div>
   </div>
 </template>

@@ -18,7 +18,7 @@
      </div>  
     </div>
     <aside style="height: 100%;">
-        <ejs-sidebar id="defaultSidebar" ref="sideObj" class="default-sidebar" target=".maincontent" type="Auto" isOpen="true" position="Right" enableGestures="false" v-on:change="onChange">
+        <ejs-sidebar id="defaultSidebar" ref="sideObj" class="default-sidebar" target=".maincontent" type="Auto" :isOpen="true" position="Right" :enableGestures="false" v-on:change="onChange">
         <ejs-pivotfieldlist id="PivotFieldList" ref="PivotFieldList" :dataSourceSettings="dataSourceSettings" :enginePopulated="fieldEnginePopulated" :load="load" :dataBound="dataBound" :allowCalculatedField="allowCalculatedField" :enableFieldSearching="enableFieldSearching" :renderMode="renderMode"></ejs-pivotfieldlist>
         </ejs-sidebar>
     </aside>

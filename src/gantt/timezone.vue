@@ -65,8 +65,8 @@
                 <code>Selection</code> module. To use markers in Gantt, inject the <code>DayMarkers</code> module.
             </p>
             <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-                href="https://ej2.syncfusion.com/vue/documentation/gantt/timezone">documentation section</a>.
-            </p>
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/timezone">timezone</a> documentation section.</p>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>

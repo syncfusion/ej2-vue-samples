@@ -10,7 +10,21 @@
             "name": "Default Functionalities",
             "category": "Form Renderer",
             "description": "This example demonstrates the basic form renderer component that renders schema driven form.",
-            "type": "new"
+            "sourceFiles":[
+                { "displayName": "default.vue", "path":"src/form-renderer/default.vue" },
+                { "displayName": "datasource.ts", "path":"src/form-renderer/datasource.ts" }
+            ]
+        },
+        {
+            "url": "custom-components",
+            "name": "Custom Components",
+            "category": "Form Renderer",
+            "type": "new",
+            "description": "This example demonstrates the custom components rendering in the Form Renderer component.",
+            "sourceFiles":[
+                { "displayName": "custom-components.vue", "path":"src/form-renderer/custom-components.vue" },
+                { "displayName": "datasource.ts", "path":"src/form-renderer/datasource.ts" }
+            ]
         }
     ]
 } 

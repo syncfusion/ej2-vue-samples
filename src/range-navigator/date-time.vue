@@ -4,7 +4,7 @@
     <h1 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px; margin-top: 10px;">Exchange Rate USD to EUR</h1>
     <div align="center">
          <ejs-rangenavigator style='display:block' align='center' id='containerDT' valueType='DateTime' :value='value'
-         :majorTickLines='majorTickLines' labelPosition='Outside' :width='width' :changed='changed' :tooltip='tooltip' :theme='theme'>
+         :majorTickLines='majorTickLines' labelPosition='Outside' :width='width' :changed='changed' :tooltip='tooltip' :theme='theme' :load='rangeLoad'>
             <e-rangenavigator-series-collection>
                 <e-rangenavigator-series :dataSource='dataSource' type='Area' xName='x' yName='y' width=2 :animation='animation'
                  :fill='fill' :border='border'>
@@ -15,7 +15,7 @@
     <div align="center">
          <ejs-chart style='display:block;' ref='chart' id='chartDT' align='center' :chartArea='chartArea' :width='width' 
             :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' height='350' :tooltip='chartTooltip' :theme='theme'
-            :legendSettings='legendSettings'>
+            :legendSettings='legendSettings' :load='chartLoad'>
             <e-series-collection>
                 <e-series :dataSource='dataSource' type='Spline' xName='x' yName='y' width='2' name='Rate'>
                 </e-series>
@@ -281,13 +281,13 @@ export default {
     rangeNavigator: [AreaSeries, DateTime, RangeTooltip],
     chart: [DateTime, SplineSeries, Tooltip, Crosshair]
   },
-  updated: function() {
-    this.$nextTick(function() {
-        this.$refs.range.ej2Instances.refresh();
-        this.$refs.chart.ej2Instances.refresh();
-      });
-    },
   methods: {
+    rangeLoad: function(args) {
+      loadRangeNavigatorTheme(args);
+    },
+    chartLoad: function(args) {
+      loadRangeNavigatorTheme(args);
+    },
    changed: function(args) {
        if(document.getElementById('chartDT').children.length && !document.getElementById('chartDT').querySelector('div.e-directive')) {
             this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;

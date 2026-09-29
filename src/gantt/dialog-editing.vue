@@ -1,8 +1,7 @@
 <template>
     <div>
         <div id="action-description">
-            <p>This sample illustrates the phases of a software development project, with tasks like analysis, design, development, testing, and documentation.
-            This also demonstrates CRUD operations in a Gantt Chart.</p>
+            <p>This sample demonstrates dialog editing in the Gantt Chart using a software development project workflow. The add and edit dialogs are customized with dedicated tabs for task details, dependencies, resources, segments, and advanced scheduling options.</p>
         </div>
         <div class="control-section">
             <div class="content-wrapper">
@@ -45,7 +44,8 @@
             </p>
             <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
                 href="https://ej2.syncfusion.com/vue/documentation/gantt/managing-tasks/editing-tasks#dialog-editing">
-                documentation section</a>.</p>
+                editing tasks</a> documentation section.</p>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>

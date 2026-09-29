@@ -3,19 +3,16 @@
     "directory": "block-editor",
     "category": "File Viewers & Editors",
     "ftName": "block-editor",
-    "type": "update",
-    "dataSourcePath": "src/block-editor/blockData.json",
     "samples": [
         {
             "url": "overview",
             "name": "Overview",
             "category": "Block Editor",
-            "type": "update",
             "api":{ "BlockEditor": ["blocks"] },
             "description": "This demo describes basic and advanced features of the Block Editor control with all its tools and functionalities.",
             "sourceFiles": [
                 { "displayName": "overview.vue", "path":"src/block-editor/overview.vue" },
-                { "displayName": "blockData.json", "path":"src/block-editor/blockData.json" }
+                { "displayName": "overview.json", "path":"src/block-editor/data/overview.json" }
             ]
         },
 		{
@@ -25,8 +22,8 @@
             "api":{ "BlockEditor": ["blocks","pasteSettings"] },
             "description": "This demo showcases how to handle and interact pasteSettings actions provided by the Block Editor component.",
             "sourceFiles": [
-                { "displayName": "pasteSettings.vue", "path":"src/block-editor/pasteSettings.vue" },
-                { "displayName": "blockData.json", "path":"src/block-editor/blockData.json" }
+                { "displayName": "paste-settings.vue", "path":"src/block-editor/pasteSettings.vue" },
+                { "displayName": "paste-settings.json", "path":"src/block-editor/data/paste-settings.json" }
             ]
         },
         {
@@ -37,7 +34,7 @@
             "description": "This demo covers important APIs of the JS Block Editor such as HTML encoding, read-only, Drag and Drop, and more.",
             "sourceFiles": [
                 { "displayName": "api.vue", "path":"src/block-editor/api.vue" },
-                { "displayName": "blockData.json", "path":"src/block-editor/blockData.json" }
+                { "displayName": "api.json", "path":"src/block-editor/data/api.json" }
             ]
         },
         {
@@ -48,7 +45,7 @@
             "description": "This demo showcases how to handle and interact with various event actions provided by the Block Editor component.",
             "sourceFiles": [
                 { "displayName": "events.vue", "path":"src/block-editor/events.vue" },
-                { "displayName": "blockData.json", "path":"src/block-editor/blockData.json" }
+                { "displayName": "events.json", "path":"src/block-editor/data/events.json" }
             ]
         },
         {
@@ -58,15 +55,15 @@
             "api":{ "BlockEditor": ["blocks"] },
             "description": "This demo showcases how to render Template gallery blocks and  actions provided by the Block Editor component.",
             "sourceFiles": [
-                { "displayName": "templateGallery.vue", "path":"src/block-editor/templateGallery.vue" },
-                { "displayName": "blockData.json", "path":"src/block-editor/blockData.json" }
+                { "displayName": "template-gallery.vue", "path":"src/block-editor/templateGallery.vue" },
+                { "displayName": "template-gallery.json", "path":"src/block-editor/data/template-gallery.json" }
             ]
         },
         {
             "url": "markdown",
             "name": "Markdown Blocks",
             "category": "Use Cases",
-            "api":{ "BlockEditor": ["blocks"] },
+            "api": { "BlockEditor": ["blocks"] },
             "description": "This demo showcases Markdown-driven documentation viewer with sidebar navigation, breadcrumb, and export to Markdown.",
             "sourceFiles": [
                 { "displayName": "markdown.vue", "path":"src/block-editor/markdown.vue" }

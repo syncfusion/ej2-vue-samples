@@ -3,7 +3,6 @@
   <div class="col-lg-9 control-section">
     <ejs-diagram style='display:block' ref="diagramObj" id="diagram" :width='width' :height='height' :snapSettings='snapSettings' :rulerSettings='rulerSettings' :tool='tool'></ejs-diagram>
   </div>
-  <div class="diagram-drawingTool">
   <div class="col-lg-3 property-section diagram-drawingTool">
     <div class="property-panel-header">
       Properties
@@ -31,9 +30,9 @@
       <div class="row" style="padding-top: 8px">
         <div title="Image" class="image-pattern-style" id="image" style="background-image: url(src/diagram/Images/drawingTool/DrawingTool_7.png); margin-right: 3px">
         </div>
-        <div title="SVG" class="image-pattern-style" id="svg" style="background-image: url(src/diagram/Images/drawingTool/DrawingTool_8.png); margin-right: 3px">
+        <div title="SVG" class="image-pattern-style" id="svg" style="background-image: url(src/diagram/Images/drawingTool/DrawingTool_8.png); margin:0px 3px">
         </div>
-        <div title="Text" class="image-pattern-style" id="text" style="background-image: url(src/diagram/Images/drawingTool/DrawingTool_9.png); margin-right: 3px">
+        <div title="Text" class="image-pattern-style" id="text" style="background-image: url(src/diagram/Images/drawingTool/DrawingTool_9.png);">
         </div>
       </div>
       <div class="row row-header" style="padding-top: 10px">
@@ -56,8 +55,7 @@
                       :change='checkedchange' ref="checkedInstance"></ejs-checkbox>
       </div>
     </div>
-</div>
-</div>
+  </div>
 <div id="action-description">
     <p>
         This sample visualizes how to build a diagram interactively using drawing tools. Continuous draw option, snapping, and undo/redo support are enabled to easily draw diagrams.
@@ -82,8 +80,6 @@
         The diagram component’s features are segregated into individual feature-wise modules. To enable undo and redo support, inject <code>UndoRedo</code> module using <code>provide: { diagram: [UndoRedo] }</code> method.
     </p>
     <br>
-
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>

@@ -5,7 +5,7 @@
     <div align="center">
         <ejs-rangenavigator ref='range' style='display:block' align='center' id='containerDefault' :valueType='valueType'
          :tooltip='tooltip' :value='value' :width='width' :labelFormat='labelFormat' :theme='theme' 
-         :navigatorStyleSettings='navigatorStyleSettings'>
+         :navigatorStyleSettings='navigatorStyleSettings' :load="load">
             <e-rangenavigator-series-collection>
                 <e-rangenavigator-series :dataSource='data' type='Area' :fill='fill' :border='border' xName='x' yName='y' width=2>
                 </e-rangenavigator-series>
@@ -266,13 +266,10 @@ export default {
   provide: {
     rangeNavigator: [DateTime, AreaSeries, RangeTooltip]
   },
-  updated: function() {
-    this.$nextTick(function() {
-        this.$refs.range.ej2Instances.refresh();
-      });
-    },
   methods: {
-  
-  }
+    load: function(args) {
+      loadRangeNavigatorTheme(args);
+   }
+}
 };
 </script>

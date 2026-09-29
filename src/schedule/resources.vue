@@ -99,7 +99,7 @@
                 <code>dataBound</code> event. Also, the tooltip has been enabled with
                 <code>template</code> option to display the flight details in a customized style.
             </p>
-            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/scheduler-sdk/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
 
     </div>

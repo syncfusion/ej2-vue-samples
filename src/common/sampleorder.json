@@ -34,10 +34,12 @@
   ],
   "Forms": [
     "Query Builder",
+    "Form Builder",
     "Form Renderer"
   ],
   "File Viewers & Editors": [
     "Rich Text Editor",
+    "Modern Rich Text Editor",
     "Markdown Editor",
     "Image Editor",
     "Block Editor"

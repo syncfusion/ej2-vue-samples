@@ -7,7 +7,7 @@
             <div align="center" >
                 <ejs-rangenavigator style='display:block' align='center' id='datetimeLW' :valueType='valueType' :intervalType='intervalType'
                  :value='value' :labelFormat='labelFormat' :width='width' :dataSource='dataSource' animationDuration=500
-                 xName='x' yName='y' :changed='changed' :theme='theme' :navigatorStyleSettings='navigatorStyleSettings' >
+                 xName='x' yName='y' :changed='changed' :theme='theme' :navigatorStyleSettings='navigatorStyleSettings' :load="rangeLoad">
                 </ejs-rangenavigator>
             </div>
              <br>
@@ -95,6 +95,9 @@ export default {
     rangeNavigator: [DateTime]
   },
   methods: {
+   rangeLoad: function(args) {
+    loadRangeNavigatorTheme(args);
+  },
    changed: function(args) {
       let currentDate = new Date(+args.start);
       let workingDaysCount = 0;

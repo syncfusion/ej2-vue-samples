@@ -1,8 +1,7 @@
 <template>
     <div class="col-lg-12 control-section">
         <div id="action-description">
-            <p>This sample visualizes how to mention special moment in any mentioned day for a particular task with
-                different icon and label.</p>
+            <p>This sample demonstrates task indicators in the Gantt Chart. Indicators can be used to highlight important events or milestones associated with specific dates in a task timeline.</p>
         </div>
         <div>
             <ejs-gantt ref='gantt' id="Indicators" :dataSource="data" :height="height" :rowHeight="46"
@@ -31,8 +30,8 @@
                 inject the <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> section.
             </p>
             <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/data-markers">documentation section</a>.
-            </p>
+                    href="https://ej2.syncfusion.com/vue/documentation/gantt/data-markers">data markers</a> documentation section.</p>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>

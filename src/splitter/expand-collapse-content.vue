@@ -11,7 +11,7 @@ import { createApp } from "vue";
 import { SplitterComponent, PanesDirective, PaneDirective } from "@syncfusion/ej2-vue-layouts";
 
 var topContent = {
-  template: `<div class="content">
+  template: `<div class="expand-content">
                 <a href="https://www.syncfusion.com/ebooks/data_capture_and_extraction_with_c_sharp_succinctly" target="_blank">Data Capture and Extraction with C# Succinctly<sup>®</sup></a>
                 <p>Capturing and extracting information is one of the most important tasks a developer can perform, and making this task more
                     engaging without relying entirely on specialized tools is an efficient way to improve productivity. 
@@ -28,7 +28,7 @@ var topContent = {
 };
 
 var bottomContent = {
-  template: `<div class="content">
+  template: `<div class="expand-content">
                     <a href="https://www.syncfusion.com/ebooks/spark" target="_blank">Spark Succinctly<sup>®</sup></a>
                     <p>Mastering big data requires an aptitude at every step of information processing. 
                         Post-processing, one of the most important steps, is where you find Apache Spark frequently employed. 

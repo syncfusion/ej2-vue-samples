@@ -19,6 +19,7 @@
         labelFormat="${value}K"
         :enableRtl="enableRtl"
         orientation="Horizontal"
+        :load='load'
       >
         <e-bullet-range-collection>
           <e-bullet-range end="150"></e-bullet-range>
@@ -70,6 +71,10 @@ export default {
   provide: {
     bulletChart: [BulletTooltip]
   },
-  methods: {}
+  methods: {
+    load(args) {
+        loadBulletChartTheme(args);
+    }
+  }
 };
 </script>

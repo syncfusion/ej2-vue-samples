@@ -1,7 +1,7 @@
 <template>
     <div class="col-lg-12 control-section">
         <div id="action-description">
-            <p>This sample demonstrates the way of binding self-referential flat data to the Gantt control.</p>
+            <p>This sample demonstrates binding self-referential data to the Gantt Chart using the <code>parentID</code> field to define parent-child task relationships.</p>
         </div>
             <div>
                 <ejs-gantt ref='gantt' id="SelfData" :dataSource= "data" :height="height" :rowHeight="46" :taskbarHeight="25"
@@ -11,15 +11,15 @@
                 </ejs-gantt>
             </div>
         <div id="description">
-            <p>Gantt can be bound either to local or remote data services.
-                The <code>dataSource</code> property can be assigned either with the array of JavaScript objects or an instance of <code>DataManager</code>.</p>
-            <p>In this demo, the array of self-referential flat data with <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/taskFieldsModel/#parentid">parentID</a> is assigned as data source to the Gantt.</p>
+            <p>In this example, a flat collection of task records is converted into a hierarchical structure by mapping the <code><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/taskFieldsModel/#parentid">parentID</a></code> field. This enables the Gantt Chart to display parent and child tasks without requiring a nested data source.</p>
+            <p>The Gantt Chart supports binding data from local collections or remote services through the <code>dataSource</code> property. Here, a local array of JavaScript objects is used as the data source.</p>
             <p style="font-weight: 500">Injecting Module:</p>
             <p>
                 Gantt component features are segregated into individual feature-wise modules. To use selection and markers, inject the
                 <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> method.
             </p>
-            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/data-binding#self-referential-data-binding-flat-data">documentation section</a>.</p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/data-binding#self-referential-data-binding-flat-data">data binding</a> documentation section.</p>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>

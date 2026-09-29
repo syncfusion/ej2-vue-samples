@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="row" style="padding-top: 8px">
-                    <div class="image-pattern-style" id="rightToLeft" style="background-image: url(src/diagram/Images/common-orientation/righttoleft.png); margin: 0px 3px">
+                    <div class="image-pattern-style" id="rightToLeft" style="background-image: url(src/diagram/Images/common-orientation/righttoleft.png);">
                     </div>
                 </div>
             </div>
@@ -126,8 +126,6 @@
         <code>provide: { diagram: [HierarchicalTree] }</code> method.
     </p>
     <br>
-
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>

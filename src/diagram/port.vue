@@ -116,8 +116,6 @@
     <p>
         In this example, the appearance and visibility of the ports can be customized using the options added to the property panel.
     </p>
-
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>
@@ -497,6 +495,7 @@ function portShapeDropOnChange(args) {
         break;
       case "Custom":
         port[j].shape = "Custom";
+        port[j].pathData = "";
         port[j].pathData = "M6.805,0L13.61,10.703L0,10.703z";
         break;
     }

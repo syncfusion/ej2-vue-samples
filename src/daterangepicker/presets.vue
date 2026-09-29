@@ -32,25 +32,34 @@ import { DateRangePickerComponent, PresetDirective, PresetsDirective } from '@sy
 
 export default {
     data: function(){
-        let year = new Date().getFullYear();
-        let month = new Date().getMonth();
+        const today = new Date();
+
+        const weekStart = new Date(today);
+        weekStart.setDate(today.getDate() - ((today.getDay() + 7) % 7));
+
+        const weekEnd = new Date(weekStart);
+        weekEnd.setDate(weekStart.getDate() + 6);
+
+        const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+        const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+
+        const lastMonthStart = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+        const lastMonthEnd = new Date(today.getFullYear(), today.getMonth(), 0);
+
+        const lastYearStart = new Date(today.getFullYear() - 1, 0, 1);
+        const lastYearEnd = new Date(today.getFullYear() - 1, 11, 31);
+
         return {
            waterMarkText : 'Selct a Range',
            presetLabels: ['This Week', 'This Month', 'Last Month', 'Last Year'],
-           weekStartDate :  new Date(new Date(new Date().setDate(new Date().getDate() - (new Date().getDay() + 7) % 7)).toDateString()),
-
-           weekEndDate : new Date(new Date(new Date().setDate(new Date(new Date().setDate((new Date().getDate()
-           - (new Date().getDay() + 7) % 7))).getDate() + 6)).toDateString()),
-
-           monthStartDate :  new Date(new Date(new Date().setDate(1)).toDateString()),
-
-           monthEndDate : new Date(new Date(new Date(new Date().setMonth(new Date().getMonth() + 1)).setDate(0)).toDateString()),
-
-           lastMonthStartDate : new Date(new Date(new Date(new Date().setMonth(new Date().getMonth() - 1)).setDate(1)).toDateString()),
-
-           lastMonthEndDate : new Date(new Date(new Date().setDate(0)).toDateString()),
-           lastYearStartDate : new Date(year - 1, 1, 1).toDateString(),
-           lastYearEndDate  :  new Date(year - 1, 11, 31).toDateString(),
+           weekStartDate: weekStart,
+           weekEndDate: weekEnd,
+           monthStartDate: monthStart,
+           monthEndDate: monthEnd,
+           lastMonthStartDate: lastMonthStart,
+           lastMonthEndDate: lastMonthEnd,
+           lastYearStartDate: lastYearStart,
+           lastYearEndDate: lastYearEnd,
             labelsByLanguage: {
                 en: ['This Week', 'This Month', 'Last Month', 'Last Year'],
                 de: ['Diese Woche', 'Dieser Monat', 'Letzter Monat', 'Letztes Jahr'],

@@ -607,34 +607,49 @@ export default {
       }
     },
    printCartDialogContent() {
-  const treeGridElement = (document.getElementById('restaurant-sample') as any).ej2_instances[0];
-  if (!treeGridElement.element) {
-    console.error('TreeGrid element not found.');
-    return;
-  }
-  const rect = treeGridElement.element.getBoundingClientRect();
-  const windowWidth = 400;
-  const windowHeight = 600;
-  const leftPosition = rect.left + window.scrollX + (rect.width / 2) - (windowWidth / 2);
-  const topPosition = rect.top + window.scrollY + (rect.height / 2) - (windowHeight / 2);
-  const dialogContent = document.querySelector('#cartDialog .e-dlg-content');
-  if (!dialogContent) {
-    console.error('Cart dialog content not found.');
-    return;
-  }
-  const printContents = dialogContent.innerHTML;
-  const printWindow = window.open('', '', `height=${windowHeight},width=${windowWidth},left=${leftPosition},top=${topPosition}`);
-  if (!printWindow) {
-    console.error('Failed to open print window. It may have been blocked by the browser.');
-    return;
-  }
-  printWindow.document.write(printContents);
-  printWindow.focus();
-  printWindow.addEventListener('afterprint', () => {
-    printWindow.close();
-    this.clearCart();
-  });
-  printWindow.print();
+    const itemsInCart = foodorderDetails.filter(function (item) {
+        return item.count > 0;
+    });
+    if (!itemsInCart.length) {
+        alert('There is no item selected.');
+        return;
+    }
+    var printContentsElement = document.querySelector('#cartDialog .e-dlg-content');
+    
+    var printContents = printContentsElement
+        ? (printContentsElement as HTMLElement).innerHTML
+        : '';
+    var windowWidth = Math.floor(window.screen.availWidth * 0.9);
+    var windowHeight = Math.floor(window.screen.availHeight * 0.9);
+    var leftPosition = Math.floor((window.screen.availWidth - windowWidth) / 2);
+    var topPosition = Math.floor((window.screen.availHeight - windowHeight) / 2);
+    const printWindow = window.open(
+    '',
+    'CartPrintWindow',
+    'width=' + windowWidth +
+    ',height=' + windowHeight +
+    ',left=' + leftPosition +
+    ',top=' + topPosition +
+    ',resizable=yes,scrollbars=yes'
+    );
+    if (printWindow) {
+        const popup = printWindow;
+        popup.document.open();
+        popup.document.write(
+        '<html>' +
+        '<body>' +
+        printContents +
+        '</body>' +
+        '</html>'
+        );
+        popup.document.close();
+        popup.focus();
+        popup.addEventListener('afterprint', () => {
+            popup.close();
+            this.clearCart();
+        });
+        popup.print();
+    }
 },
     getCartTableHtml(cartItems: any[]) {
       if (!cartItems.length) {

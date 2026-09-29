@@ -69,12 +69,76 @@
             }
         },
         {
+            "url": "task-progress-tracker",
+            "ignoreOnBuild": true,
+            "name": "Task Progress Tracker",
+            "hideOnDevice": true,
+            "category": "Product Use Case",
+            "description": "This demo showcases how to track task progress using the Vue Scheduler with visual progress indicators and status management.",
+            "api": {
+                "Schedule": [
+                    "width",
+                    "height",
+                    "cssClass",
+                    "selectedDate",
+                    "currentView",
+                    "views",
+                    "startHour",
+                    "endHour",
+                    "showWeekend",
+                    "allowOverlap",
+                    "popupOpen",
+                    "eventSettings",
+                    "group",
+                    "resources"
+                ]
+            }
+        },
+        {
+            "url": "auto-scheduling",
+            "name": "Auto Scheduling",
+            "category": "Product Use Case",
+            "ignoreOnBuild": true,
+            "hideOnDevice": true,
+            "type": "new",
+            "description": "This demo showcases an intelligent healthcare scheduling solution that automatically assigns unplanned appointments to qualified staff based on required skills, resource availability, workload limits, and schedule conflicts. It supports both automated scheduling and drag-and-drop assignment with built-in validation and workload balancing.",
+            "api": {
+                "Schedule": [
+                    "cssClass",
+                    "width",
+                    "height",
+                    "currentView",
+                    "selectedDate",
+                    "group",
+                    "views",
+                    "resources",
+                    "eventSettings",
+                    "toolbarItems",
+                    "resourceHeaderTemplate",
+                    "allowOverlap",
+                    "allowResizing",
+                    "dragStart",
+                    "dragStop",
+                    "actionComplete",
+                    "cellClick",
+                    "popupOpen",
+                    "dataBound",
+                    "toolbarClick",
+                    "getEvents",
+                    "addEvent",
+                    "refreshTemplates",
+                    "getEventMaxID",
+                    "getCellDetails",
+                    "getResourcesByIndex"
+                ]
+            }
+        },
+        {
             "url": "integration-with-chart",
             "ignoreOnBuild": true,
             "name": "Integration with Chart",
             "category": "Product Use Case",
             "hideOnDevice": true,
-            "type": "new",
             "description": "This demo shows driver and truck details in a scheduler, with a chart that toggles to summarize each driver's capacity or trip count.",
             "api": {
                 "Schedule": [
@@ -88,6 +152,54 @@
                     "actionComplete",
                     "group",
                     "resources"
+                ]
+            }
+        },
+        {
+            "url": "event-action-buttons",
+            "ignoreOnBuild": true,
+            "name": "Event Action Buttons",
+            "category": "Product Use Case",
+            "description": "This demo showcases the event action buttons for editing and deleting events in day and week views. Click the edit or delete icons to manage your events.",
+            "api": {
+                "Schedule": [
+                    "cssClass",
+                    "width",
+                    "height",
+                    "selectedDate",
+                    "views",
+                    "eventSettings",
+                    "eventRendered",
+                    "popupOpen",
+                    "openEditor",
+                    "deleteEvent"
+                ]
+            }
+        },
+        {
+            "url": "cascading-event-editor",
+            "ignoreOnBuild": true,
+            "name": "Cascading Combos",
+            "hideOnDevice": true,
+            "category": "Product Use Case",
+            "description": "This demo showcases a cascading event editor in a scheduler where selections update related fields to improve accuracy and streamline scheduling",           
+            "api": {
+                "Schedule": [
+                    "height",
+                    "selectedDate",
+                    "group",
+                    "eventSettings",
+                    "popupOpen",
+                    "popupClose",
+                    "eventRendered",
+                    "eventCreate",
+                    "eventChange",
+                    "editorTemplate",
+                    "headerIndentTemplate",
+                    "resourceHeaderTemplate",
+                    "views",
+                    "resources",
+                    "cssClass"
                 ]
             }
         },
@@ -444,7 +556,6 @@
             "url": "limit-concurrent-events",
             "name": "Limit Concurrent Event",
             "category": "Views",
-            "type":"new",
             "description": "This demo shows how to limit the number of concurrent events displayed in a single time slot on the Schedule.",
             "api": {
                 "Schedule": [

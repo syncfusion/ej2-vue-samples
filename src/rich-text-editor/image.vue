@@ -158,7 +158,7 @@ export default {
             },
     quickToolbarSettings: {
             image: [
-                'Replace', 'Align', 'Caption', 'WrapText', 'Remove', 'InsertLink', 'OpenImageLink', '|',
+                'Replace', 'Align', 'Caption', 'Remove', 'WrapText', 'InsertLink', 'OpenImageLink', '|',
                 'EditImageLink', 'RemoveImageLink', 'Display', 'AltText', 'Dimension',
                 {
                     tooltipText: 'Rotate Left',
@@ -189,7 +189,7 @@ export default {
                      transform = (imgEle.style.transform === '') ? 0 :
                         Math.abs(parseInt(imgEle.style.transform.split('(')[1].split(')')[0], 10));
                     imgEle.style.transform = 'rotate(-' + (transform + 90) + 'deg)';
-                    this.$refs.rteObj.ej2Instances.tRTE.formatter.saveData();
+                    this.$refs.rteObj.ej2Instances.formatter.saveData();
                     this.$refs.rteObj.ej2Instances.formatter.enableUndo(this.$refs.rteObj.ej2Instances);
                 }
             }

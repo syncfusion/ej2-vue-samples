@@ -90,9 +90,7 @@
                 <code>Diagram.Inject(FlowchartLayout)</code> method.
             </p>
             <br>
-        
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
-</div>
+        </div>
     </div>
 </template>
 <style scoped>
@@ -242,14 +240,25 @@ export default {
         },
         yesBranchDirectionChange: (args) =>{
             let value = args.value;
-            diagramInstance.layout.flowchartLayoutSettings.yesBranchDirection = value === 'Same as flow' ? 'SameAsFlow' : value === 'Right in flow' ? 'RightInFlow' : 'LeftInFlow';
+            let yesValue = value === 'Same as flow' || value === 'SameAsFlow' ? 'SameAsFlow' : value === 'Right in flow' || value === 'RightInFlow' ? 'RightInFlow' : 'LeftInFlow';
+            diagramInstance.layout.flowchartLayoutSettings.yesBranchDirection = yesValue;
+            if (yesValue !== 'SameAsFlow' && diagramInstance.layout.flowchartLayoutSettings.noBranchDirection === yesValue) {
+                let flippedValue = yesValue === 'LeftInFlow' ? 'RightInFlow' : 'LeftInFlow';
+                diagramInstance.layout.flowchartLayoutSettings.noBranchDirection = flippedValue;
+                this.$refs.noBranchDirectionObj.ej2Instances.index = flippedValue === 'LeftInFlow' ? 0 : 1;
+            }
             diagramInstance.doLayout();
         },
         noBranchDirectionChange: (args) => {
             let value = args.value;
-            diagramInstance.layout.flowchartLayoutSettings.noBranchDirection = value === 'Same as flow' ? 'SameAsFlow' : value === 'Right in flow' ? 'RightInFlow' : 'LeftInFlow';
+            let noValue = value === 'Same as flow' || value === 'SameAsFlow' ? 'SameAsFlow' : value === 'Right in flow' || value === 'RightInFlow' ? 'RightInFlow' : 'LeftInFlow';
+            diagramInstance.layout.flowchartLayoutSettings.noBranchDirection = noValue;
+            if (noValue !== 'SameAsFlow' && diagramInstance.layout.flowchartLayoutSettings.yesBranchDirection === noValue) {
+                let flippedValue = noValue === 'LeftInFlow' ? 'RightInFlow' : 'LeftInFlow';
+                diagramInstance.layout.flowchartLayoutSettings.yesBranchDirection = flippedValue;
+                this.$refs.yesBranchDirectionObj.ej2Instances.index = flippedValue === 'LeftInFlow' ? 0 : 1;
+            }
             diagramInstance.doLayout();
-
         },
         horizontalSpacingChange: function (args) {
             let value = args.value;

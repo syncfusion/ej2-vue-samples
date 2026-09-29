@@ -4,7 +4,7 @@
      <h1 id="days" align="center" style="font-family: Segoe UI;font-weight: 500; font-style:normal; font-size:15px; margin-top: 10px;">Score Comparision AUS vs SL</h1>
     <div align="center">
          <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerDouble' :value='value' :tooltipRender='tooltipRender'
-         labelPosition ='Outside' :width='width' :changed='changed' :theme='theme' :tooltip='tooltip' >
+         labelPosition ='Outside' :width='width' :changed='changed' :theme='theme' :tooltip='tooltip' :load="rangeLoad">
             <e-rangenavigator-series-collection >
                 <e-rangenavigator-series :dataSource='ausData' xName='x' type='Line' yName='y' ></e-rangenavigator-series>
                 <e-rangenavigator-series :dataSource='slData' xName='x' type='Line' yName='y' ></e-rangenavigator-series>
@@ -119,13 +119,10 @@ export default {
     rangeNavigator: [RangeTooltip],
     chart: [SplineSeries, ChartAnnotation, Tooltip]
   },
-  updated: function() {
-    this.$nextTick(function() {
-        this.$refs.range.ej2Instances.refresh();
-        this.$refs.chart.ej2Instances.refresh();
-      });
-    },
   methods: {
+     rangeLoad: function(args) {
+      loadRangeNavigatorTheme(args);
+    },
      tooltipRender: function(args){
        args.text[0] = Math.round(parseFloat(args.text[0])).toString();
     },

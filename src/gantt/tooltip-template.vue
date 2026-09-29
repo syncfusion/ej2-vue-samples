@@ -1,8 +1,7 @@
 <template>
     <div class="col-lg-12 control-section">
         <div id="action-description">
-            <p>This sample explains the way of rendering tooltip template for taskbar and baseline by mapping template
-                elements to the property of taskbar, timeline and baseline in <code>tooltipSettings</code>.</p>
+            <p>This sample demonstrates tooltip template customization in the Gantt Chart. Custom tooltips are configured for taskbars, baselines, and timeline cells to display additional contextual information.</p>
         </div>
         <div>
             <ejs-gantt ref='gantt' id="tooltipData" :dataSource= "data" :height="height" :rowHeight="46" :taskbarHeight="25"
@@ -62,23 +61,21 @@
             </ejs-gantt>
         </div>
         <div id="description">
-            <p>Tooltip can be enabled or disabled using <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#showtooltip">tooltipSettings.showTooltip</a> property.In this demo, the
-                tooltip template is rendered for <code>taskbar</code>, <code>timeline</code> and <code>baseline</code> using the
-                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#taskbar">tooltipSettings.taskbar, </a>
-                <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#timeline">tooltipSettings.timeline</a>
-                and <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#baseline">tooltipSettings.baseline</a> properties.
-            </p>
-            <p>
-                The baseline feature enables the user to view the deviation between the planned dates and the actual dates of
-                the tasks in a project. Baselines can be enabled in Gantt Chart by enabling the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#renderbaseline">renderBaseline</a>
-                property along with mapping the data source values for <code>baselineStartDate</code> and <code>baselineEndDate</code> properties.
-            </p>
+            <p>The Gantt Chart provides support for customizing tooltip content through the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/">tooltipSettings</a> property. Tooltips can display rich content such as images, formatted text, task information, and calculated metrics.</p>
+            <p>In this example, custom templates are configured for the following tooltip types:</p>
+            <ul>
+                <li><code>taskbar</code> - Displays resource information, task start date, and task end date.</li>
+                <li><code>baseline</code> - Compares planned dates with the current task schedule.</li> 
+                <li><code>timeline</code> - Displays timeline statistics such as active tasks, milestone count, and overall progress.</li>
+            </ul>
+            <p>Tooltip rendering can be enabled or disabled using the <code><a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/tooltipSettings/#showtooltip">tooltipSettings.showTooltip</a></code> property.</p>
             <p style="font-weight: 500">Injecting Module:</p>
             <p>
                 Gantt component features are segregated into individual feature-wise modules.To use a selection and markers features,
                 inject the <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> method.
             </p>
-            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/taskbar#tooltip-template">documentation section</a>.</p>
+            <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/gantt/taskbar#tooltip-template">tooltip template</a> documentation section.</p>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>

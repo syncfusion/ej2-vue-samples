@@ -80,7 +80,7 @@
 import { BlockEditorComponent } from '@syncfusion/ej2-vue-blockeditor';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { TextBoxComponent } from '@syncfusion/ej2-vue-inputs';
-import * as data from './blockData.json';
+import * as data from './data/paste-settings.json';
 
 export default {
   components: {

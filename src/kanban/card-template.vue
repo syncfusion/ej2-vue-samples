@@ -26,25 +26,32 @@
         </ejs-kanban>
       </div>
     </div>
-    <div id="action-description">
-      <p>
-        This sample demonstrates how to customize the Kanban cards using
-        templates. In this demo, the cards are customized with icons, images,
-        and tags.
-      </p>
-    </div>
-    <div id="description">
-      <p>
-        You can customize the default design of the Kanban cards using
-        templates. This can be achieved using the
-        <code>cardSettings</code> -> <code>template</code> property, which
-        accepts the string or HTML element`s ID value.
-      </p>
-      <p>
-        In this demo, all the cards are customized with templating as text,
-        images, and tags.
-      </p>
-    </div>
+<div id="action-description">
+    <p>
+        This sample demonstrates how to customize the appearance and editing experience of Kanban cards using card and dialog templates.
+    </p>
+</div>
+<div id="description">
+    <p>
+        This sample demonstrates how to customize the appearance of Kanban cards and dialogs using templates. The
+        <a href="https://ej2.syncfusion.com/vue/documentation/kanban/cards#template" target="_blank">cardSettings.template</a>
+        property allows you to define a custom card layout using a string template or an HTML element. In this sample, the card template displays order details such as the pizza image, title, description, status indicators, and tags.
+    </p>
+    <p>
+        The editing dialog is customized using the <a href="https://ej2.syncfusion.com/vue/documentation/kanban/dialog" target="_blank">dialogSettings.template</a> property. The
+        <a href="https://ej2.syncfusion.com/vue/documentation/api/kanban/index-default#dialogopen" target="_blank">dialogOpen</a> and 
+        <a href="https://ej2.syncfusion.com/vue/documentation/api/kanban/index-default#dialogclose" target="_blank">dialogClose</a>
+        events are used to initialize and update the dialog fields during the editing process.
+    </p>
+    <p>
+        More information on the Essential<sup>®</sup> JS2 Kanban board can be found in this
+        <a href="https://ej2.syncfusion.com/vue/documentation/kanban/cards#template" target="_blank">card template </a> documentation section.
+    </p>
+    <p>
+        Looking for the full Vue Kanban component overview, features, pricing and documentation?
+        Visit the <a href="https://www.syncfusion.com/gantt-sdk/vue-kanban-board" target="_blank">Vue Kanban</a> page.
+    </p>
+</div>
   </div>
 </template>
 <style>
@@ -80,13 +87,11 @@
 }
 
 .kanban-card-template .e-card .e-clock::before {
-  content: '\e20c';
   color: #ffa500;
   font-size: 10px;
 }
 
 .kanban-card-template .e-card .e-done::before {
-  content: '\ea84';
   color: #008000;
   font-size: 16px;
 }
@@ -219,11 +224,14 @@ export default {
         },
       },
       dialogClose: function (args) {
-        if (args.element.querySelector("#datepicker")) {
-          args.data.Date = args.element
-            .querySelector("#datepicker")
-            .ej2_instances[0].value.toLocaleString("es-PR")
-            .split(",")[0];
+        const datePicker = args.element.querySelector('#datepicker');
+        if (datePicker) {
+          const selectedDate = datePicker.ej2_instances[0].value;
+          if (selectedDate instanceof Date) {
+            args.data.Date = selectedDate.toLocaleDateString('es-PR');
+          } else {
+            args.data.Date = null;
+          }
         }
       }
     };

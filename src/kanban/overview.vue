@@ -14,23 +14,31 @@
       </div>
     </div>
     <div id="action-description">
-  <p>
-      This example demonstrates the overview functionalities of Kanban component. Enabled most features such as
-      templating, toggle columns, drag-and-drop, swimlane, tooltip, and more in the Kanban board.
-  </p>
+    <p>
+        This sample demonstrates a comprehensive task management solution built with the Kanban component, showcasing key features such as card and header customization, swimlane organization, tooltips, and column visibility management to enhance workflow tracking and collaboration.
+    </p>
 </div>
 <div id="description">
-  <p>
-      The sample is designed by enabling the major features in Kanban. The features enabled in the samples are:
-  </p>
-  <ul>
-      <li>Card template</li>
-      <li>Header template</li>
-      <li>Swimlane</li>
-      <li>Tooltip</li>
-      <li>Toggle columns</li>
-  </ul>
+    <p>
+        This sample demonstrates a comprehensive task management scenario built with the Kanban component. It combines multiple features, including customized card and column header templates, swimlane grouping, tooltips, and column toggling to create an interactive workflow management experience.
+    </p>
+    <p>
+        The board is populated using a predefined task collection bound through the
+        <a href="https://ej2.syncfusion.com/vue/documentation/kanban/data-binding" target="_blank">dataSource</a>
+        property. Tasks are organized into
+        <a href="https://ej2.syncfusion.com/vue/documentation/kanban/columns" target="_blank">columns</a>
+        based on their <code>Status</code> field and grouped into swimlanes according to the assigned resource, providing a clear view of task ownership and progress.
+    </p>
+    <p>
+        More information on the Essential<sup>®</sup> JS2 Kanban board can be found in this
+        <a href="https://ej2.syncfusion.com/vue/documentation/kanban/getting-started/" target="_blank">documentation section</a>.
+    </p>
+    <p>
+      Looking for the full Vue Kanban component overview, features, pricing and documentation?
+      Visit the <a href="https://www.syncfusion.com/gantt-sdk/vue-kanban-board" target="_blank">Vue Kanban</a> page.
+    </p>
 </div>
+
 </div>
 </template>
 <style>

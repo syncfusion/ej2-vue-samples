@@ -32,7 +32,7 @@
 
 <script>
 import { BlockEditorComponent } from '@syncfusion/ej2-vue-blockeditor';
-import * as data from './blockData.json';
+import * as data from './data/overview.json';
 
 export default {
     components: {

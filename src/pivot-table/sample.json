@@ -3,7 +3,6 @@
   "directory": "pivot-table",
   "category": "Grids",
   "ftName": "pivot-table",
-  "type": "update",
   "samples": [{
       "url": "overview",
       "name": "Overview",
@@ -24,7 +23,6 @@
       "url": "classic-layout",
       "name": "Classic Layout",
       "category": "Pivot Table",
-      "type": "update",
       "hideOnDevice": false,
       "description": "This sample demonstrates the classic (also known as tabular) layout view option of the pivot table.",
       "api": {}
@@ -127,7 +125,6 @@
       "url": "field-list",
       "name": "Field List",
       "category": "User Interaction",
-      "type": "update",
       "hideOnDevice": false,
       "description": "This demo for Essential<sup>®</sup> JS2 Pivot Table control demonstrate the field list feature of the pivot table",
       "api": {}
@@ -208,7 +205,6 @@
       "url": "aggregation",
       "name": "Aggregation",
       "category": "Formula",
-      "type": "update",
       "hideOnDevice": false,
       "description": "This demo for Essential<sup>®</sup> JS2 Pivot Table control shows different types of aggregation for value fields",
       "api": {}
@@ -257,7 +253,6 @@
       "url": "value-filtering",
       "name": "Value Filtering",
       "category": "Filtering",
-      "type": "update",
       "hideOnDevice": false,
       "description": "This demo for Essential<sup>®</sup> JS2 Pivot Table control demonstrate the filtering of field headers based on the grand total (value based)",
       "api": {}

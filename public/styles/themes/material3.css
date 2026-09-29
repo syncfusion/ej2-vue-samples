@@ -81,3 +81,6 @@
 .material3 .e-input-group.e-control-wrapper .e-clear-icon:hover {
     background: #fff;
 }
+.material3 .sf-axe-desc{
+    font-size: 14px !important;
+}

@@ -13,9 +13,7 @@
         </div>
 
         <div id="action-description">
-            <p>This sample demonstrates the Gantt component with the row drag and drop feature. You can rearrange the
-                gantt rows by using drag icon in left side of gantt column. Here you can perform drag and drop the gantt
-                rows in to required position.</p>
+            <p>This sample demonstrates the row drag-and-drop feature in the Gantt Chart. Tasks can be reordered by dragging the drag handle displayed in the left side of the Gantt row. Rows can be dropped at the required position to reorganize the task hierarchy and sequence.</p>
         </div>
 
         <div id="description">
@@ -32,8 +30,8 @@
                 <code>provide</code> section.
             </p>
             <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/gantt/drag-and-drop">documentation section</a>.
-            </p>
+                    href="https://ej2.syncfusion.com/vue/documentation/gantt/drag-and-drop">drag and drop</a> documentation section.</p>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>

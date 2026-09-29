@@ -120,8 +120,6 @@
         To change the position of the descriptions, select a node and choose the template in the property panel.
     </p>
     <br>
-
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>

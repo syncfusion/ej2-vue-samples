@@ -51,7 +51,7 @@
 <script>
 import { BlockEditorComponent } from '@syncfusion/ej2-vue-blockeditor';
 import { ButtonComponent } from '@syncfusion/ej2-vue-buttons';
-import * as data from './blockData.json';
+import * as data from './data/events.json';
 
 export default {
     components: {

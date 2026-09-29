@@ -13,14 +13,14 @@
             <div align="center">
                 <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerExport' :value='value' groupBy='Quarter'
                     valueType='DateTime' intervalType='Months' labelFormat='MMM' enableGrouping=true :dataSource='dataSource' xName='xDate'
-                    yName='Close' :width='width' :changed='changed' :theme='themes' animationDuration=500>
+                    yName='Close' :width='width' :changed='changed' :theme='themes' animationDuration=500 :load="rangeLoad">
                 </ejs-rangenavigator>
             </div>
             <br>
             <br>
             <div align="center">
                 <ejs-chart style='display:block;' ref='chart' id='chartExport' align='center' :chartArea='chartArea' :width='width' :primaryXAxis='primaryXAxis'
-                    :primaryYAxis='primaryYAxis' :tooltip='tooltip' :legendSettings='legendSettings' height='350' :theme='themes'>
+                    :primaryYAxis='primaryYAxis' :tooltip='tooltip' :legendSettings='legendSettings' height='350' :theme='themes' :load="chartLoad">
                     <e-series-collection>
                         <e-series :dataSource='dataSource' name='Close' xName='xDate' yName='Close' width='2' type='SplineArea' :border='border' :fill='fill'></e-series>
                     </e-series-collection>
@@ -219,13 +219,14 @@ export default {
     rangeNavigator: [DateTime],
     chart: [SplineAreaSeries, DateTime, Crosshair, Tooltip, Export]
   },
-  updated: function() {
-    this.$nextTick(function() {
-        this.$refs.range.ej2Instances.refresh();
-        this.$refs.chart.ej2Instances.refresh();
-      });
-    },
+  
   methods: {
+    rangeLoad: function(args) {
+      loadRangeNavigatorTheme(args);
+   },
+    chartLoad: function(args) {
+        loadRangeNavigatorTheme(args);
+    },
    changed: function(args) {
      if(document.getElementById('chartExport').children.length && !document.getElementById('chartExport').querySelector('div.e-directive')) {
         this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;

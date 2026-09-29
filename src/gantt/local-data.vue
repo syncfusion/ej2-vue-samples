@@ -1,7 +1,7 @@
 <template>
     <div class="col-lg-12 control-section">
         <div id="action-description">
-            <p>This demo shows the way of binding an array of JavaScript objects (local JSON datasource) to Gantt.</p>
+            <p>This sample demonstrates how to bind local hierarchical data to the Gantt Chart and visualize project tasks with their scheduling, progress, and dependency information.</p>
         </div>
         <div>
             <ejs-gantt ref="gantt" id="LocalData" :dataSource="data" :height="height" :rowHeight="46"
@@ -12,19 +12,16 @@
             </ejs-gantt>
         </div>
         <div id="description">
-            <p>
-                Gantt can be bound either to local or remote data services.The <a target="_blank"
-                href="https://ej2.syncfusion.com/vue/documentation/api/gantt#datasource">dataSource</a> property can
-                be assigned either with the array of JavaScript objects or an instance of <code>DataManager</code>.
-            </p>
-            <p>In this demo, an array of JavaScript objects is assigned as data source to the Gantt.</p>
+            <p>The Gantt Chart supports binding data from local collections as well as remote data services. The <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt#datasource">dataSource</a> property can be assigned either an array of JavaScript objects or a <code>DataManager</code> instance.</p>
+            <p>In this sample, a local JSON data source with a hierarchical task structure is used to populate the Gantt Chart.</p>
             <p style="font-weight: 500">Injecting Module:</p>
             <p>
                 Gantt component features are segregated into individual feature-wise modules. To use selection and markers, inject
                 the <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> section.
             </p>
             <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-                href="https://ej2.syncfusion.com/vue/documentation/gantt/data-binding#local-data">documentation section</a>.</p>
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/data-binding#local-data">data binding</a> documentation section.</p>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>

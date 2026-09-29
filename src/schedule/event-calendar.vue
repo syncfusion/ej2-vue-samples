@@ -33,7 +33,7 @@
                         <br />
                         <div id="container">
                             <ejs-dialog :header="calendarDialogHeaderText" ref="dialogObj" :footerTemplate="'footerTemplate'"
-                                :content="'contentTemplate'" :height="height" :beforeOpen="beforeDialogOpen"
+                                :content="'contentTemplate'" :beforeOpen="beforeDialogOpen"
                                 :animationSettings="animationSettings"
                                 :showCloseIcon="showCloseIcon" :target="target" :width="width" :isModal="true"
                                 :visible="dialogVisible">
@@ -155,7 +155,7 @@
     <p>The Schedule component is configured to show the appointments in colors based on their type to identify
         the appointment type.</p>
     <p>The right sidebar displays the list of unplanned events, which can be useful for the user to plan them later.</p>
-    <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
+    <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/scheduler-sdk/vue-scheduler">Vue Scheduler</a> page.</p>
     </div>
 </div>
 </template>
@@ -299,6 +299,10 @@
         z-index: 1 !important;
     }
 
+    .event-calendar-control-section .e-dialog .e-footer-content {
+      text-align: -webkit-right;
+    }
+
     .e-bigger .e-schedule-dialog.e-device .custom-field-row {
         padding-top: 8px;
     }
@@ -389,7 +393,6 @@ export default {
       mediaQuery: '(min-width: 600px)',
       sideBarCalendarDate: new Date(),
       showCloseIcon: true,
-      height: '35%',
       target: '.control-section',
       animationSettings: { effect: 'None' },
       width: '320px',

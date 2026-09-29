@@ -4,7 +4,7 @@
       <h1 id="days" style="font-family: Segoe UI; font-weight: 500; font-size: 15px; font-style: normal; margin-top: 10px;" align="center">Inflation - Consumer Price</h1>
     <div align="center">
         <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerRtl' valueType='DateTime' :value='value'
-        intervalType='Years' labelPosition='Outside' :width='width'  enableRtl=true :tooltip='tooltip' :theme='themes' :changed='changed' >
+        intervalType='Years' labelPosition='Outside' :width='width'  enableRtl=true :tooltip='tooltip' :theme='themes' :changed='changed' :load="rangeLoad">
            <e-rangenavigator-series-collection>
                <e-rangenavigator-series :dataSource='dataSource' type='Area' xName='xDate' yName='High' :fill='fill' :border='border'>
                </e-rangenavigator-series>
@@ -13,7 +13,7 @@
    </div>
    <div align="center">
         <ejs-chart style='display:block;' ref='chart' id='chartRtl' align='center' :chartArea='chartArea' :width='width' enableRtl=true
-           :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='chartTooltip' height='350' :theme='themes' :legendSettings='legendSettings'>
+           :primaryXAxis='primaryXAxis' :primaryYAxis='primaryYAxis' :tooltip='chartTooltip' height='350' :theme='themes' :legendSettings='legendSettings' :load="chartLoad">
            <e-series-collection>
                <e-series :dataSource='dataSource' type='Area' xName='xDate' name='England' yName='High' width='2'
                 :fill='fill' :border='border'>
@@ -287,13 +287,13 @@ export default {
     rangeNavigator: [DateTime, AreaSeries, RangeTooltip],
     chart: [DateTime, Crosshair, AreaSeries, Tooltip]
   },
-  updated: function() {
-    this.$nextTick(function() {
-        this.$refs.range.ej2Instances.refresh();
-        this.$refs.chart.ej2Instances.refresh();
-      });
-    },
   methods: {
+    rangeLoad: function(args) {
+      loadRangeNavigatorTheme(args);
+    },
+    chartLoad: function(args) {
+      loadRangeNavigatorTheme(args);
+    },
    changed: function(args){
        if(document.getElementById('chartRtl').children.length && !document.getElementById('chartRtl').querySelector('div.e-directive')) {
             this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;

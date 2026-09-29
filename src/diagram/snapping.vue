@@ -63,8 +63,6 @@
     <p>The <code>snapAngle</code> property in snapSettings allows you to define the snap angle by which the object needs to be rotated.</p>
     <p>The <code>snapLineColor</code> property is used to set the color of the snap lines that appear when objects snap to a grid or other objects in the control.</p>
     <p>The <code>constraints</code> property controls the visibility of gridlines and enables or disables snapping.</p>
-
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
 </div>
 </div>
 </template>

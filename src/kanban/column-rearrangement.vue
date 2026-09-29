@@ -13,15 +13,23 @@
         </ejs-kanban>
       </div>
       </div>
-<div id="action-description">
+<<div id="action-description">
     <p>
-     This example demonstrates the column rearrangement of the Kanban control. You can drag and drop the columns to rearrange them across multiple stages of the Kanban board.
+        This sample demonstrates column reordering through drag-and-drop interactions in the Kanban component.
     </p>
 </div>
 <div id="description">
     <p>
-        The Kanban provides an option to enable column drag-and-drop functionality using the allowColumnDragAndDrop property.  
-        allowColumnDragAndDrop: If you set this property to true, the columns can be dragged and dropped to rearrange their order.  
+        This sample demonstrates how to reorder columns in the Kanban component using the <a href="https://ej2.syncfusion.com/vue/documentation/api/kanban/index-default#allowcolumndraganddrop" target="_blank">allowColumnDragAndDrop</a> 
+        property. When enabled, columns can be dragged and dropped to different positions within the board, allowing the workflow layout to be customized while preserving the cards within each column.
+    </p>
+    <p>
+        More information on the Essential<sup>®</sup> JS2 Kanban board can be found in this
+        <a href="https://ej2.syncfusion.com/vue/documentation/kanban/columns#drag-and-drop" target="_blank">column reordering</a> documentation section.
+    </p>
+    <p>
+        Looking for the full Vue Kanban component overview, features, pricing and documentation?
+        Visit the <a href="https://www.syncfusion.com/gantt-sdk/vue-kanban-board" target="_blank">Vue Kanban</a> page.
     </p>
 </div>
 
@@ -72,25 +80,25 @@
         background-image: url(https://syncfusion.atlassian.net/images/icons/priorities/minor.svg);
     }
     .e-kanban.kanban-card-default .e-nancy-davloio {
-        background-image: url(https://ej2.syncfusion.com/demos/src/kanban/images/Nancy%20Davloio.png);
+        background-image: url(https://ej2.syncfusion.com/vue/demos/src/kanban/images/Nancy%20Davloio.png);
     }
     .e-kanban.kanban-card-default .e-andrew-fuller {
-        background-image: url(https://ej2.syncfusion.com/demos/src/kanban/images/Andrew%20Fuller.png);
+        background-image: url(https://ej2.syncfusion.com/vue/demos/src/kanban/images/Andrew%20Fuller.png);
     }
     .e-kanban.kanban-card-default .e-janet-leverling {
-        background-image: url(https://ej2.syncfusion.com/demos/src/kanban/images/Janet%20Leverling.png);
+        background-image: url(https://ej2.syncfusion.com/vue/demos/src/kanban/images/Janet%20Leverling.png);
     }
     .e-kanban.kanban-card-default .e-steven-walker {
-        background-image: url(https://ej2.syncfusion.com/demos/src/kanban/images/Steven%20walker.png);
+        background-image: url(https://ej2.syncfusion.com/vue/demos/src/kanban/images/Steven%20walker.png);
     }
     .e-kanban.kanban-card-default .e-michael-suyama {
-        background-image: url(https://ej2.syncfusion.com/demos/src/kanban/images/Michael%20Suyama.png);
+        background-image: url(https://ej2.syncfusion.com/vue/demos/src/kanban/images/Michael%20Suyama.png);
     }
     .e-kanban.kanban-card-default .e-robert-king {
-        background-image: url(https://ej2.syncfusion.com/demos/src/kanban/images/Robert%20King.png);
+        background-image: url(https://ej2.syncfusion.com/vue/demos/src/kanban/images/Robert%20King.png);
     }
     .e-kanban.kanban-card-default .e-margaret-hamilt {
-        background-image: url(https://ej2.syncfusion.com/demos/src/kanban/images/Margaret%20hamilt.png);
+        background-image: url(https://ej2.syncfusion.com/vue/demos/src/kanban/images/Margaret%20hamilt.png);
     }
   
     .e-kanban.kanban-card-default .e-nancy-davloio, .e-kanban.kanban-card-default .e-andrew-fuller, .e-kanban.kanban-card-default .e-janet-leverling,

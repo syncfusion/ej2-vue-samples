@@ -18,6 +18,7 @@
         subtitle="in Thousands"
         :titlePosition="titlePosition"
         :titleStyle="titleStyle"
+        :load="load"
       >
         <e-bullet-range-collection>
           <e-bullet-range end="150"></e-bullet-range>
@@ -174,6 +175,9 @@ export default {
     bulletChart: [BulletTooltip]
   },
   methods: {
+    load(args) {
+        loadBulletChartTheme(args);
+    },
     actualValueChange: function(args) {
       this.$refs.bulletchart.ej2Instances.dataSource[0].value = args.value;
       this.$refs.bulletchart.ej2Instances.refresh();

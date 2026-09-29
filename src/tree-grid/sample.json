@@ -2,6 +2,7 @@
     "name": "Tree Grid",
     "directory": "tree-grid",
     "category": "Grids",
+    "type": "update",
     "ftName": "treegrid",
     "samples": [
       {  
@@ -100,7 +101,7 @@
         "description": "This demo explains how to hide or show the columns of Tree Grid dynamically using Syncfusion<sup>®</sup> Essential JS2 Tree Grid methods."
      },
      {
-      "url":"checkbox-column", "name": "Checkbox Column", "category":"Columns","api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","treeColumnIndex"] },
+      "url":"checkbox-column", "name": "Checkbox Column", "category":"Columns", "type": "update" , "api":{"TreeGrid":["dataSource","childMapping","allowPaging","columns","treeColumnIndex"] },
       "description": "This demo explains how the hierarchy selection between the records using column checkboxes in Essential<sup>®</sup> TypeScript Tree Grid control."
    },
    {  
@@ -140,6 +141,10 @@
      {
       "url":"batch-edit", "name": "Batch Editing", "category": "Editing","api":{"TreeGrid":["dataSource", "childMapping", "treeColumnIndex","height", "editSettings", "toolbar", "columns"] },
       "description": "This example shows how to add and edit record in the Batch mode using the Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
+     },
+     {
+      "url":"cell-edit", "name": "Cell Editing", "type":"new", "category": "Editing","api":{"TreeGrid":["dataSource", "childMapping", "treeColumnIndex","height", "editSettings", "toolbar", "columns"] },
+      "description": "This example shows how to add and edit record in the Cell mode using the Syncfusion<sup>®</sup> Essential JS2 Tree Grid control."
      },
      {
       "url":"commandcolumn", "name": "Command Column", "category": "Editing","api":{"TreeGrid":["dataSource", "childMapping", "treeColumnIndex", "editSettings", "columns","height"] },
@@ -202,6 +207,10 @@
          "url":"frozen-api", "name": "Freeze Direction", "category":"Scrolling","api":{"TreeGrid":["dataSource","childMapping","columns","treeColumnIndex","frozenColumns"] },
          "description": "This demo for Essential<sup>®</sup> JS 2 Tree Grid control shows frozen columns feature of Tree Grid with Freeze direction Left/Right."
         }, 
+         {
+            "url": "dom-virtualization", "name": "DOM Virtualization", "category":"Scrolling","type":"new","api":{"TreeGrid":["dataSource","enableVirtualization","enableDomVirtualization","enableVirtualMaskRow","domVirtualizationSettings","height"] },
+            "description": "This sample demonstrates DOM virtualization in the Tree Grid component."
+         },
        {
         "url": "virtual-scrolling", "name": "Virtual Scrolling", "category":"Scrolling","api":{"TreeGrid":["dataSource","enableVirtualization","height","dataBound"] },
         "description": "This demo for Essential<sup>®</sup> JS 2 Tree Grid control shows the usage of the horizontal and vertical scrollbars to view Tree Grid content that exceeds the Tree Grid area."

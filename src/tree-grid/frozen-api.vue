@@ -4,7 +4,7 @@
         <p>This sample demonstrates the freeze direction feature of the Tree Grid. Scroll the movable content horizontally to view the frozen columns
         with the content.</p>
     </div>  
-     <div class="control-section">
+     <div>
      <div class="grid-freezeprop">
             <div class="grid-freezecol">
                 <div class="grid-freezecol">

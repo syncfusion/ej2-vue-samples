@@ -15,45 +15,20 @@
         </div>
 
         <div id="action-description">
-            <p>This sample visualizes the various phases involved in constructing a residential house, from testing the soil to
-                handing over the fully constructed property to the owner. This sample also demonstrates CRUD operations in Gantt chart.
-                You can perform CRUD operations as follows,
-            </p>
-            <ul>
-                <li><code>Add</code> - To add new task, click Add toolbar button</li>
-                <li><code>Edit </code>- To edit a task, double click a row or double click a taskbar or click toolbar
-                    Edit button after selected a row</li>
-                <li><code>Indent</code> - To indent a task, click toolbar indent button after selecting a row</li>
-                <li><code>Outdent</code> - To outdent a task, click toolbar outdent button after selecting a row</li>
-                <li><code>Delete</code> - To delete a task, click toolbar Delete button after selected a row</li>
-                <li><code>Update, Cancel</code> - You can save or discard changes by click toolbar Update and Cancel
-                    button respectively</li>
-            </ul>
+            <p>This sample demonstrates task editing and CRUD operations in the Gantt Chart using a residential construction project workflow. You can add, edit, delete, indent, outdent, and update tasks using the toolbar or direct user interactions.</p>
         </div>
 
         <div id="description">
-            <p>
-                This CRUD operations can be configured in Gantt Chart using <a target="_blank"
-                href="https://ej2.syncfusion.com/vue/documentation/api/gantt/editsettingsmodel#allowtaskbarediting">
-                allowTaskbarEditing</a> in <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/index-default#editsettings">editSettings</a>. Gantt
-                Chart has two modes to manipulate the datasource:
-            </p>
+            <p>The Gantt Chart supports built-in CRUD operations through the <code><a target="_blank" rel="noopener noreferrer" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#editsettings">editSettings</a></code> property. In this example, adding, editing, deleting, and taskbar editing are enabled, allowing tasks to be modified directly from both the TreeGrid and chart areas.</p>
             <ul>
-                <li><code>Auto</code></li>
-                <li><code>Dialog</code></li>
+                <li><code>Add</code> - Creates a new task</li>
+                <li><code>Edit </code> - Modifies the selected task.</li>
+                <li><code>Indent</code> - Makes the selected task a child task.</li>
+                <li><code>Outdent</code> - Promotes the selected task to a higher level.</li>
+                <li><code>Delete</code> - Removes the selected task.</li>
+                <li><code>Update</code> / <code>Cancel</code> - Saves or discards the current changes.</li>
             </ul>
-            <p>In this demo, <code>Auto</code> mode is enabled for editing. On the TreeGrid side, you can start editing
-                any row by double clicking on it or clicking on toolbar's Edit button, then the currently selected row
-                will be changed to edited state.
-                On the chart side, you can edit the tasks using edit dialog by double clicking on the taskbars and you
-                can edit the dependency connector lines using drag and drop action with connector line points available
-                on the either side of taskbar.
-                In this sample <a target="_blank"
-                    href="https://ej2.syncfusion.com/vue/documentation/api/gantt/columnModel/#validationrules">column.validation</a>
-                has been enabled for the columns.It uses the Form Validator control and the column validation property
-                to define validation rules, displaying error messages for invalid fields.
-            </p>
+            <p>Tasks can be edited by double-clicking a row, using the toolbar commands, or opening the edit dialog. Taskbars can also be modified through drag-and-drop interactions, including updating task dates, durations, progress, and dependency relationships. This sample demonstrates resource assignment, dependency editing, notes editing, and support for custom duration units through the <code>taskFields.durationUnit</code> mapping such as <code>week</code>, <code>month</code>, <code>days</code>, <code>hours</code> and <code>minutes</code>.</p>
             <p style="font-weight: 500">Injecting Module:</p>
             <p>
                 Gantt component features are segregated into individual feature-wise modules. To use a edit, selection, toolbar,
@@ -61,13 +36,14 @@
                 modules into the <code>provide</code> section.
             </p>
             <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-                href="https://ej2.syncfusion.com/vue/documentation/gantt/managing-tasks/editing-tasks">documentation section</a>.</p>
+                href="https://ej2.syncfusion.com/vue/documentation/gantt/managing-tasks/editing-tasks">editing tasks</a> documentation section.</p>
+            <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
         </div>
     </div>
 </template>
 <script>
 import { GanttComponent, Edit, Selection, Toolbar, DayMarkers } from "@syncfusion/ej2-vue-gantt";
-import { editingData, editingResources } from './data-source';
+import { defaultEditingData, editingResources } from './data-source';
 var startDate;
 function customFn(args) {
     var endDate;
@@ -91,7 +67,7 @@ export default {
     },
     data: function () {
         return {
-            data: editingData,
+            data: defaultEditingData,
             dateFormat: 'MMM dd, y',
             taskFields: {
                 id: 'TaskID',
@@ -99,6 +75,7 @@ export default {
                 startDate: 'StartDate',
                 endDate: 'EndDate',
                 duration: 'Duration',
+                durationUnit: 'DurationUnit',
                 progress: 'Progress',
                 dependency: 'Predecessor',
                 parentID: 'ParentId',
@@ -132,9 +109,9 @@ export default {
             columns: [
                 { field: 'TaskID', width: 80 },
                 { field: 'TaskName', headerText: 'Job Name', width: '260', clipMode: 'EllipsisWithTooltip', validationRules: { required: true, minLength: [5, 'Task name should have a minimum length of 5 characters'] } },
+                { field: 'Duration', validationRules: { required: true } },
                 { field: 'StartDate' },
                 { field: 'EndDate', validationRules: endDateValidation },
-                { field: 'Duration', validationRules: { required: true } },
                 { field: 'Progress', validationRules: { required: true, min: 0, max: 100 } },
                 { field: 'Predecessor' }
             ],

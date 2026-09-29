@@ -1,0 +1,46 @@
+{
+    "name": "Chart",
+    "directory": "ai-chart",
+    "category": "Smart AI Solutions",
+    "type": "update",
+    "ignoreOnBuild": true,
+    "samples": [
+          {
+            "url": "chart-assist",
+            "name": "Chart Assist",
+            "category": "Chart",
+            "type": "new",
+            "ignoreOnBuild": true,
+            "sourceFiles": [
+                { "displayName": "chart-assist.vue", "path": "src/ai-chart/chart-assist.vue" },
+                { "displayName": "change-summary-tool.vue", "path": "src/ai-chart/ai-change-summary-tool.vue" },
+                { "displayName": "chart-tool.vue", "path": "src/ai-chart/ai-chart-tool.vue" },
+                { "displayName": "code-tool.vue", "path": "src/ai-chart/ai-code-tool.vue" }
+            ],
+            "description": "This demo sample for rendering and configuring chart series using natural language prompts."
+          },
+
+          {
+            "url": "data-preprocessing",
+            "name": "Data Preprocessing",
+            "category": "Chart",
+            "type": "new",
+            "ignoreOnBuild": true,
+            "sourceFiles": [
+                { "displayName": "data-preprocessing.vue", "path": "src/ai-chart/data-preprocessing.vue" }
+            ],
+            "description": "This demo for the AI-powered data cleaning and preprocessing for tracking hourly website visitor data."
+          },
+          {
+            "url": "stock-forecasting",
+            "name": "Stock Forecasting",
+            "category": "Chart",
+            "type": "new",
+            "ignoreOnBuild": true,
+            "sourceFiles": [
+                { "displayName": "stock-forecasting.vue", "path": "src/ai-chart/stock-forecasting.vue" }
+            ],
+            "description": "This demo sample demonstrates how to Predict future stock values from historical series using the AI assistant panel."
+        }
+    ]
+}

@@ -345,6 +345,16 @@
         ]
     },
     {
+        "url": "stacked-smart-labels",
+        "name": "Stacked Smart Labels",
+        "type": "new",
+        "description": "This demo for Essential JS2 Chart control shows how to render stacked columns with smart labels.",
+        "category": "Bar Charts",
+        "sourceFiles": [
+            {"displayName": "stacked-smart-labels.vue", "path": "./src/chart/stacked-smart-labels.vue"}
+        ]
+    },
+    {
         "url": "stacked-bar",
         "name": "Stacked Bar",
         "description": "This demo for Essential JS2 Chart control shows how to render the stacking bar series.",
@@ -433,7 +443,6 @@
         "name": "Nested Donut",
         "description": "This demo for Essential JS2 Chart control shows how to render and configure the nested donut charts with multiple series.",
         "category": "Accumulation Charts",
-        "type": "new",
         "sourceFiles": [
             {"displayName": "nested-donut.vue", "path": "./src/chart/nested-donut.vue"}
         ]
@@ -1027,6 +1036,16 @@
         "category": "Chart Axes",
         "sourceFiles": [
             {"displayName": "axes-crossing.vue", "path": "./src/chart/axes-crossing.vue"}
+        ]
+    },
+    {
+        "url": "multi-axis-combination",
+        "name": "Multi Axis Combination",
+        "type": "new",
+        "description": "This demo for Essential JS2 Chart control demonstrates how to render multiple axes in chart.",
+        "category": "Chart Axes",
+        "sourceFiles": [
+            {"displayName": "multi-axis-combination.vue", "path": "./src/chart/multi-axis-combination.vue"}
         ]
     },
     {

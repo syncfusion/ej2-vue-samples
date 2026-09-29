@@ -3503,6 +3503,13 @@ export default {
                   args.node.style.textAlign = 'right';
                   args.node.querySelector('.e-pivotcell-container').appendChild(input);
                   args.node.querySelector('.e-headertext').style.alignSelf = 'unset';
+                  let pivotObj = (document.getElementById('PivotView_sparkline') as any).ej2_instances[0];
+                  if (pivotObj && pivotObj.enableRtl) {
+                     const headerText: HTMLElement = args.node.querySelector('.e-headertext') as HTMLElement;
+                     if (headerText) {
+                        headerText.style.textAlign = 'left';
+                     }
+                  }
                   args.node.querySelector('.e-headertext').innerText = 'Total Sales Comparison';
                   isDropDownExist = true;
               }
@@ -3549,6 +3556,7 @@ export default {
         chartTypeDropDown.appendTo('#grandTotal_dropdown');
       }
       let keys = Object.keys(obj);
+      let pivotObj = ((this as any).$refs.PivotView).ej2Instances;
       for (let i = 0; i < Object.keys(obj).length; i++) {
           sparkline = new Sparkline({
               height: '60px',
@@ -3558,6 +3566,7 @@ export default {
               dataSource: (obj as any)[keys[i]],
               xName: 'xval',
               yName: 'yval',
+              enableRtl: pivotObj ? pivotObj.enableRtl : false,
               markerSettings: {
                   visible: ['High', 'Low'],
                   size: 3,

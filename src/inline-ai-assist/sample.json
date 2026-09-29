@@ -3,7 +3,7 @@
     "directory": "inline-ai-assist",
     "category": "Interactive Chat",
     "ftName": "inline-ai-assist",
-    "type": "preview",
+    "type": "update",
     "samples": [
         {
             "url": "ai-overview",
@@ -14,6 +14,17 @@
             "sourceFiles": [
                 { "displayName": "ai-overview.vue", "path":"src/inline-ai-assist/ai-overview.vue" },
                 { "displayName": "service.ts", "path":"src/inline-ai-assist/service.ts" }
+            ]
+        },
+        {
+            "url": "ai-speech-to-text",
+            "name": "Speech To Text",
+            "category": "Speech",
+            "type": "new",
+            "api":{ "InlineAIAssist": ["promptRequest", "relateTo", "commandSettings", "responseSettings", "speechToTextSettings"] },
+            "description": "Demonstrates the Inline AI Assist component with built-in speech-to-text support for voice input.",
+            "sourceFiles": [
+                { "displayName": "ai-speech-to-text.vue", "path":"src/inline-ai-assist/ai-speech-to-text.vue" }
             ]
         },
         {

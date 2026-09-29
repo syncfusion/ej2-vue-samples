@@ -53,9 +53,7 @@
     how to hook all the diagram events and how to handle its <code>arguments</code>.
       </p>
       <br>
-    
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
-</div>
+    </div>
   </div>
 </template>
 
@@ -124,7 +122,7 @@
 }
 
 #diagramEventsPropertySection .heading {
-  color: #807f7f;
+  font-weight: bold;
   font-size: 15px;
   height: 50px;
   width: 100%;

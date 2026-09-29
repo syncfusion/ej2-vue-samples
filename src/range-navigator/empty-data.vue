@@ -7,7 +7,7 @@
             <div align='center'>
                 <ejs-rangenavigator style='display:block' ref='range' align='center' id='containerEmpty' :value='value'
                     valueType='DateTime' :majorTickLines='majorTickLines' :majorGridLines='majorGridLines' :tooltip='tooltip'
-                    :navigatorBorder:='navigatorBorder' :width='width' :changed='changed' :theme='theme'>
+                    :navigatorBorder='navigatorBorder' :width='width' :changed='changed' :theme='theme' :load="rangeLoad">
                     <e-rangenavigator-series-collection>
                         <e-rangenavigator-series :dataSource='data' xName='x' yName='open' type='Area' width=2 :animation='animation'
                         :fill='fill' :border='border'>
@@ -17,7 +17,7 @@
             </div>
             <div align='center'>
                 <ejs-chart style='display:block;' ref='chart' id='chartEmpty' align='center' :chartArea='chartArea' :width='width'
-                 :primaryXAxis='primaryXAxis' :legendSettings='legendSettings' :primaryYAxis='primaryYAxis' height='350' :theme='theme' :tooltip='chartTooltip'>
+                 :primaryXAxis='primaryXAxis' :legendSettings='legendSettings' :primaryYAxis='primaryYAxis' height='350' :theme='theme' :tooltip='chartTooltip' :load="chartLoad">
                     <e-series-collection>
                         <e-series :dataSource='data' xName='x' yName='open' type='Area' width=2 name='AAPL' :fill='fill' :border='border'></e-series>
                     </e-series-collection>
@@ -258,7 +258,9 @@ let borderColor = ['#FD7E14', '#FD7E14', '#5A61F6', '#8B5CF6', '#00bdae', '#9ECB
 let regionColor = ['rgba(38, 46, 11, 0.3)', 'rgba(94, 203, 155, 0.3)', 'rgba(90, 97, 246, 0.3)', 'rgba(139, 92, 246, 0.3)', 'rgba(0, 189, 174, 0.3)',
     'rgba(158, 203, 8, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(161, 110, 229, 0.3)', 'rgba(68, 114, 196, 0.3)',
     'rgba(68, 114, 196, 0.3)', 'rgba(121, 236, 228, 0.3)', 'rgba(97, 69, 112, 0.3)', 'rgba(138, 177, 19, 0.3)', 'rgba(99, 85, 199, 0.3)', 'rgba(78, 170, 255, 0.3)', 'rgba(98, 0, 238, 0.3)', 'rgba(155, 180, 73, 0.3)', 'rgba(155, 180, 73, 0.3)', 'rgba(47, 64, 116, 0.3)', 'rgba(128, 41, 241, 0.3)'];
-
+let zoomFactor;
+let zoomPosition;
+let chartRendered = false;
 export default {
   components: {
     'ejs-chart': ChartComponent,
@@ -300,13 +302,13 @@ export default {
     rangeNavigator: [AreaSeries, DateTime, RangeTooltip],
     chart: [AreaSeries, DateTime, Crosshair, Tooltip]
   },
-  updated: function() {
-    this.$nextTick(function() {
-        this.$refs.range.ej2Instances.refresh();
-        this.$refs.chart.ej2Instances.refresh();
-      });
+    methods: {
+    rangeLoad: function(args) {
+        loadRangeNavigatorTheme(args);
     },
-  methods: {
+    chartLoad: function(args) {
+        loadRangeNavigatorTheme(args);
+    },
    changed: function(args) {
      if(document.getElementById('chartEmpty').children.length && !document.getElementById('chartEmpty').querySelector('div.e-directive')) {
         this.$refs.chart.ej2Instances.primaryXAxis.zoomFactor = args.zoomFactor;

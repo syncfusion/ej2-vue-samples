@@ -28,7 +28,7 @@
         </template>
         <template v-slot:typeTemplate="{data}">
             <div>
-                <span :class="['type', getTypeClass(data.Type)]">{{ data.Type }}</span>
+                <span :class="['type', getTypeClass(data.Type)]"> {{ data.Type }}</span>
             </div>
         </template>
     </ejs-grid>

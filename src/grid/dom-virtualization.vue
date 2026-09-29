@@ -49,8 +49,6 @@
                         </div>
                     </div>
                 </template>
-
-
             </ejs-grid>
         </div>
 
@@ -264,8 +262,6 @@ export default {
     position: relative;
     top: -2px;
 }
-
-
 
 /* Progress bar */
 #DOMVirtualGrid #myProgress {

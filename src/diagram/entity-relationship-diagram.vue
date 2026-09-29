@@ -48,12 +48,12 @@
   </div>
   <div id="action-description">
     <p>
-        This sample demonstrates a <b>healthcare appointment management ER diagram</b> created using the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a>. It visualizes how core entities such as doctors, patients, appointments, diagnoses, and prescriptions are structured and interconnected in a real-world hospital database system.
+        This sample demonstrates a <b>healthcare appointment management ER diagram</b> created using the Syncfusion<sup>®</sup> EJ2 Vue Diagram. It visualizes how core entities such as doctors, patients, appointments, diagnoses, and prescriptions are structured and interconnected in a real-world hospital database system.
     </p>
 </div>
     <div id="description">
         <p>
-            This sample showcases how to create and interact with an ER diagram using the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a>. The diagram is built using nodes of <code>type: 'Er'</code> to represent database entities and their fields, while connectors define relationships with cardinality between entities.
+            This sample showcases how to create and interact with an ER diagram using the Syncfusion<sup>®</sup> EJ2 Vue Diagram. The diagram is built using nodes of <code>type: 'Er'</code> to represent database entities and their fields, while connectors define relationships with cardinality between entities.
         </p>
         <p>
             <b>User handles</b> allow adding or removing fields within entities. When an entity node is selected, a “+” handle appears, enabling the addition of new fields. These fields can then be interactively reordered using drag‑and‑drop actions. When an individual field is selected, a “−” handle is displayed to remove that specific field. The diagram supports built‑in interactions such as selecting entities and editing their fields.        <br>

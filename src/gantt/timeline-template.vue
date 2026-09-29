@@ -1,9 +1,7 @@
 <template>
   <div class="col-lg-12 control-section">
     <div id="action-description">
-      <p>This sample explains the way of rendering timeline template by mapping template elements to the<a
-          target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/index-default#timelinetemplate">
-          timelineTemplate</a> property.</p>
+      <p>This sample explains the way of rendering timeline template by mapping template elements to the <a target="_blank" href="https://ej2.syncfusion.com/vue/documentation/api/gantt/#timelinetemplate">timelineTemplate</a> property.</p>
     </div>
     <div>
       <ejs-gantt ref='gantt' id="timelinetemplate" :dataSource="data" :height="height" :rowHeight="46"
@@ -47,8 +45,8 @@
         inject the <code>Selection</code> and <code>DayMarkers</code> modules using the <code>provide</code> section.
       </p>
       <p>More information on the Essential<sup>®</sup> Vue Gantt Chart can be found in this <a target="_blank"
-          href="https://ej2.syncfusion.com/vue/documentation/gantt/time-line/time-line#timeline-template">documentation
-          section</a>.</p>
+          href="https://ej2.syncfusion.com/vue/documentation/gantt/time-line/time-line#timeline-template">timeline template</a> documentation section.</p>
+      <p>Looking for the full Vue Gantt Chart component overview, features, pricing, and documentation? Visit the <a target="_blank" href="https://www.syncfusion.com/vue-components/vue-gantt-chart">Vue Gantt Chart</a> page.</p>
     </div>
   </div>
 </template>

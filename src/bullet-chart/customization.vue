@@ -17,6 +17,7 @@
         title="Package Downloads"
         subtitle="in Thousands"
         :minorTickLines="minorTickLines"
+        :load="load"
       >
         <e-bullet-range-collection>
           <e-bullet-range end="1.5" color="#599C20"></e-bullet-range>
@@ -141,6 +142,9 @@ export default {
     bulletChart: [BulletTooltip]
   },
   methods: {
+    load(args) {
+        loadBulletChartTheme(args);
+    },
     colorChange1: function(args) {
       this.$refs.bulletchart.ej2Instances.ranges[0].color =
         args.currentValue.hex;

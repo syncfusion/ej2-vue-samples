@@ -12,7 +12,7 @@
             Orientation
           </div>
           <div class="row" style="padding-top: 8px">
-          <div v-for="(pattern, index) in patterns" :key="index" :style="{ paddingTop: '8px' }">
+          <div class="row" v-for="(pattern, index) in patterns" :key="index" :style="{ paddingTop: '8px' }">
           <div
             v-for="image in pattern"
             :key="image.id"
@@ -77,9 +77,7 @@
           <code>provide: { diagram: [ComplexHierarchicalTree] }</code> method.  
       </p>
       <br>
-  
-    <p>Looking for the full Vue Diagram component overview, features, pricing, and documentation? Visit the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> page.</p>
-</div>
+  </div>
 </div>
 </template>
 <style scoped>
@@ -88,8 +86,8 @@
   background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 50px;
-  width: calc((100% - 18px) / 2);
+  height: 75px;
+  width: calc((100% - 18px) / 3);
   cursor: pointer;
   border: 1px solid #d5d5d5;
   background-position: center;

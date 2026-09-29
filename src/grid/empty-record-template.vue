@@ -5,14 +5,16 @@
         </div>
 
         <div>
-            <ejs-grid :dataSource="data" :emptyRecordTemplate="'emptyRecordTemplate'" :editSettings='editSettings' :toolbar='toolbar' :allowPaging='true'
-                :pageSettings='pageSettings'>
+            <ejs-grid :dataSource="data" :emptyRecordTemplate="'emptyRecordTemplate'" :emptyRecordMode="'Sticky'" :editSettings='editSettings' :toolbar='toolbar' :allowPaging='true'
+                :pageSettings='pageSettings' height='300'>
                 <e-columns>
                     <e-column field='OrderID' headerText='Order ID' width='120' textAlign='Right' :isPrimaryKey='true' :validationRules='orderidrules'></e-column>
                     <e-column field='CustomerID' headerText='Customer ID' width='120' :validationRules='customeridrules'></e-column>
                     <e-column field='Freight' headerText='Freight' width='180' format='C2' textAlign='Right' editType='numericedit' :validationRules='freightrules'></e-column>
                     <e-column field='OrderDate' headerText='Order Date' width='130' editType='datetimepickeredit' :format='formatoptions' textAlign='Right'></e-column>
                     <e-column field='ShipCountry' headerText='Ship Country' width='150' editType='dropdownedit' :edit='editparams'></e-column>
+                    <e-column field='ShipCity' headerText='Ship City' width='150'></e-column>
+                    <e-column field='ShipAddress' headerText='Ship Address' width='180'></e-column>
                 </e-columns>
                 <template v-slot:emptyRecordTemplate>
                     <div class='emptyRecordTemplate'>

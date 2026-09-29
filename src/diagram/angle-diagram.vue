@@ -7,7 +7,8 @@
   </div>
   <div id="action-description">
     <p>
-      This sample demonstrates an interactive solar panel tilt system built with the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a>. Adjust the panel angle to see real-time changes in system efficiency based on the sun's position and
+      This sample demonstrates an interactive solar panel tilt system built with the Syncfusion<sup>®</sup> EJ2 Vue
+      Diagram. Adjust the panel angle to see real-time changes in system efficiency based on the sun's position and
       location.
     </p>
   </div>

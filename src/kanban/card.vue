@@ -54,7 +54,7 @@
                               <td class="e-description e-tooltip-text">
                                 {{ data.OrderID }}
                               </td>
-                              <td class="e-icons e-done"></td>
+                              <td class="e-icons e-circle-check"></td>
                             </tr>
                             <tr>
                               <td>

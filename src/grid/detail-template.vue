@@ -20,12 +20,12 @@
       <template v-slot:detailTemplate>
         <div>
           <p class="report"><b>Sprint</b></p>
-          <ejs-tab ref="tabObj" id="tab">
+          <ejs-tab ref="tabObj" id="tab" :enableRtl="isRtl">
             <e-tabitems>
               <e-tabitem :header='headerText0' :content="'taskTemplate'"></e-tabitem>
               <template v-slot:taskTemplate>
                 <div>
-                  <ejs-kanban id="kanban" cssClass="kanban-swimlane" keyField="Status" :dataSource='taskData' :cardSettings="cardSettings">
+                  <ejs-kanban id="kanban" cssClass="kanban-swimlane" keyField="Status" :dataSource='taskData' :cardSettings="cardSettings" :enableRtl="isRtl">
                     <e-kanbancolumns>
                       <e-kanbancolumn headerText="Open" keyField="Open"></e-kanbancolumn>
                       <e-kanbancolumn headerText="In Progress" keyField="InProgress"></e-kanbancolumn>
@@ -39,7 +39,7 @@
               <template v-slot:chartTemplate>
                 <div>
                   <ejs-chart ref="chart" height='280px' :primaryXAxis="primaryXAxis"
-                    title="Sales" :tooltip="tooltip">
+                    title="Sales" :tooltip="tooltip" :enableRtl="isRtl">
                     <e-series-collection>
                       <e-series type='Line' :dataSource='salesData' xName='taskid' yName='estimatedHours' name='Estimated Hours'
                         :marker="markerOptions"></e-series>
@@ -137,6 +137,7 @@ export default {
       tooltip: true,
       markerOptions: { visible: true, width: 10, height: 10 },
       primaryXAxis: { valueType: 'Category', title: 'Status' },
+      isRtl: false,
       salesData: [],
       taskData: [],
       cardSettings: {
@@ -184,6 +185,7 @@ export default {
   methods: {
     detailDataBound: function (args: any) {
       var rowData = args.data;
+      (this as any).isRtl = (this as any).$refs.grid.ej2Instances.enableRtl;
       (this as any).taskData = taskDetail.filter((task: any) => task.Assignee === rowData.Name);
       (this as any).salesData = this.generateData((this as any).taskData);
     },

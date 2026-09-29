@@ -2,13 +2,11 @@
     "name": "Rich Text Editor",
     "directory": "rich-text-editor",
     "category": "File Viewers & Editors",
-    "type": "update",
     "samples": [
         {
             "url": "tools",
             "name": "Overview",
             "category": "Rich Text Editor",
-            "type": "update",
             "description": "This demo describes basic and advanced features of the vue Rich Text Editor control (WYSIWYG HTML Editor) with all its tools and functionalities."
         },
         {
@@ -37,7 +35,6 @@
             "url": "insert-media",
             "name": "Insert Media",
             "category": "Rich Text Editor",
-            "type": "update",
             "description": "This demo shows how to insert audio and video, Embed video, upload audio and video, and more in Insert Media."
         },
         {
@@ -62,7 +59,6 @@
             "url": "iframe",
             "name": "IFrame",
             "category": "Rich Text Editor",
-            "type": "update",
             "description": "This demo shows how to render a classic vue Rich Text Editor (iframe editor) that was designed by using the iframe element covering all tool functionalities."
         },
         {
@@ -88,6 +84,12 @@
             "name": "API",
             "category": "Rich Text Editor",
             "description": "This demo covers important APIs of the vue Rich Text Editor such as content length, HTML encoding, read-only, retrieve the selected content, and more."
+        },
+        {
+            "url": "form-validation",
+            "name": "Form Validation",
+            "category": "Rich Text Editor",
+            "description": "This sample demonstrates form validation with the Rich Text Editor component. The editor validates that the content has at least 20 characters before allowing form submission."
         },
         {
             "url": "enter-key-configuration",
@@ -152,7 +154,6 @@
         {
             "url": "export-document",
             "name": "Export to Word / PDF",
-            "type": "update",
             "description": "This demo explains how to export the content of the Rich Text Editor to Word and PDF document formats using the Syncfusion<sup>®</sup> Document processing libraries.",
             "category": "Export / Import"
         },
@@ -169,8 +170,8 @@
             "description": "This example shows how to integrate @mention component within Rich Text Editor component. Type `@` character and select a user from the suggestion list."
         },
         {
-            "url": "smart-suggestion",
-            "name": "Smart Suggestion",
+            "url": "slash-commands",
+            "name": "Slash Commands",
             "description": "This example demonstrates how to use the slash menu feature of the Rich Text Editor to apply formats, open dialogs easily.",
             "category": "Mention Integration"
         },

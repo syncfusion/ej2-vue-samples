@@ -116,7 +116,7 @@
                         <e-column field="WBSCode" headerText="WBS ID" width="110"></e-column>
                         <e-column field="TaskName" headerText="Product Release" width="250"></e-column>
                         <e-column field="Assignee" headerText="Assignee" :template="'columnTemplate'"
-                            :allowSorting="false" width="160">
+                            :allowSorting="false" width="180">
                         </e-column>
                         <e-column field="Status" minWidth="100" width="120" :template="'columnTemplate1'">
                         </e-column>
@@ -130,20 +130,23 @@
                     </e-columns>
 
                     <template v-slot:columnTemplate="{ data }">
-                        <div class="columnTemplate" v-if="data.ganttProperties.resourceNames">
-                            <img :src="'src/gantt/images/' +
-                                data.ganttProperties.resourceNames +
-                                '.png'
-                                " style="height: 25px; width: 25px" :alt="data.ganttProperties.resourceNames" />
-                            <span>
-                                <div
-                                    style="display: inline-block;width: 100%;position: relative;font-size: 13px;left: 5px;">
+                        <div
+                            class="columnTemplate"
+                            v-if="data.ganttProperties.resourceNames"
+                            style="display:flex; align-items:center;">
+                            <img
+                                :src="'src/gantt/images/' + data.ganttProperties.resourceNames + '.png'"
+                                style="width:25px;height:25px;"
+                                :alt="data.ganttProperties.resourceNames"
+                            />
+                            <div style="margin-left:6px;">
+                                <div style="font-size:13px;line-height:14px;">
                                     {{ data.taskData.Assignee }}
                                 </div>
-                                <div style=" font-size: 9px; text-align:left; margin-left:31px">{{
-                                    data.taskData.Department }}
+                                <div style="font-size:9px;line-height:12px;">
+                                    {{ data.taskData.Department }}
                                 </div>
-                            </span>
+                            </div>
                         </div>
                     </template>
 
@@ -171,10 +174,8 @@
                     </template>
                     <template v-slot:rightLabelTemplate="{ data }">
                         <div v-if="data.ganttProperties.resourceNames">
-                            <img :src="'src/gantt/images/' +
-                                data.ganttProperties.resourceNames +
-                                '.png'
-                                " style="height: 25px; width: 25px" :alt="data.ganttProperties.resourceNames" />
+                            <img :src="'src/gantt/images/' + data.ganttProperties.resourceNames + '.png'"
+                                style="height: 25px; width: 25px" :alt="data.ganttProperties.resourceNames" />
                             <span style="margin-left:2px ;">
                                 {{ data.taskData.Assignee }}
                             </span>

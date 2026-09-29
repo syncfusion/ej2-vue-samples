@@ -5,8 +5,8 @@
                 <ejs-schedule id="Schedule" ref="ScheduleObj" :cssClass="cssClass" width='100%' height='610px' :selectedDate="selectedDate" :eventSettings='eventSettings'
                     :group='group'>
                     <e-views>
-                        <e-view option="TimelineMonth" :eventTemplate="eventTemplate" :allowVirtualScrolling="virtualScroll"></e-view>
-                        <e-view option="Month" :eventTemplate="eventTemplate" :allowVirtualScrolling="virtualScroll"></e-view>
+                        <e-view option="TimelineMonth" :overscanCount="20" :eventTemplate="eventTemplate" :allowVirtualScrolling="virtualScroll"></e-view>
+                        <e-view option="Month" :overscanCount="20" :eventTemplate="eventTemplate" :allowVirtualScrolling="virtualScroll"></e-view>
                     </e-views>
                     <e-resources>
                         <e-resource field='ResourceId' title='Reosurce' name='Resources' allowMultiple=true :dataSource='resourceData' textField='Text'
@@ -30,7 +30,7 @@
                resources and its associated events. To enable the dynamic loading of events and resources in the
                Scheduler, set the <code>allowVirtualScrolling</code> property to <code>true</code> within the view-specific settings.
             </p>
-            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/vue-components/vue-scheduler">Vue Scheduler</a> page.</p>
+            <p>Looking for the full Vue Scheduler component overview, features, pricing, and documentation? Visit our <a href="https://www.syncfusion.com/scheduler-sdk/vue-scheduler">Vue Scheduler</a> page.</p>
         </div>
 
     </div>

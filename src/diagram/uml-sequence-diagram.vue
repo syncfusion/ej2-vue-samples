@@ -6,7 +6,7 @@
 </div>
 <div id="action-description">
   <p>
-    This sample presents a UML sequence diagram created with the <a href="https://www.syncfusion.com/vue-components/vue-diagram" target="_blank">Vue Diagram</a> to visualize interactions in a secure transaction process involving a user, transaction system, and fraud detection system.
+    This sample presents a UML sequence diagram created with the Syncfusion<sup>®</sup> Vue Diagram to visualize interactions in a secure transaction process involving a user, transaction system, and fraud detection system.
   </p>
 </div>
 <div id="description">
