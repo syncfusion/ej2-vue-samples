@@ -231,11 +231,11 @@ export default {
 
 <style>
 .forum-section {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
-    border: 1px solid #e2e4e8;
+    border: 1px solid var(--color-sf-border, rgb(var(--color-sf-outline-variant, 196, 199, 197)));
     border-radius: 8px;
-    background: #fff;
+    background: var(--color-sf-content-bg-color, rgb(var(--color-sf-surface, 255, 255, 255)));
     padding: 20px;
 }
 
@@ -244,7 +244,7 @@ export default {
     align-items: center;
     gap: 8px;
     padding-bottom: 14px;
-    border-bottom: 1px solid #e2e4e8;
+    border-bottom: 1px solid var(--color-sf-border, rgb(var(--color-sf-outline-variant, 196, 199, 197)));
     margin-bottom: 20px;
 }
 
@@ -255,7 +255,7 @@ export default {
 .forum-title {
     font-size: 17px;
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--color-sf-content-text-color, rgb(var(--color-sf-on-surface, 28, 27, 31)));
 }
 
 .rte-container {
@@ -282,23 +282,22 @@ export default {
 }
 
 .button-group .e-btn {
-    padding: 8px 16px;
     font-size: 14px;
 }
 
 .button-group .e-outline {
-    border: 1px solid #d3d3d3;
-    background: #f9f9f9;
-    color: #333;
+    border: 1px solid var(--color-sf-border-dark, rgb(var(--color-sf-outline-variant, 196, 199, 197)));
+    background: transparent;
+    color: var(--color-sf-content-text-color, rgb(var(--color-sf-on-surface, 28, 27, 31)));
 }
 
 .button-group .e-outline:hover {
-    background: #f0f0f0;
-    border-color: #999;
+    background: var(--color-sf-content-bg-color-hover, transparent);
+    border-color: var(--color-sf-border-dark, rgb(var(--color-sf-outline, 121, 116, 126)));
 }
 
 .comments-container {
-    border-top: 1px solid #e2e4e8;
+    border-top: 1px solid var(--color-sf-border, rgb(var(--color-sf-outline-variant, 196, 199, 197)));
     padding-top: 16px;
 }
 
@@ -307,7 +306,7 @@ export default {
     font-weight: 700;
     display: block;
     margin-bottom: 14px;
-    color: #1a1a1a;
+    color: var(--color-sf-content-text-color, rgb(var(--color-sf-on-surface, 28, 27, 31)));
 }
 
 .comment-avatar {
@@ -328,12 +327,15 @@ export default {
 
 .comment-list-item {
     display: block;
-    padding: 0 0 0 2px;
+    padding: 0 0 16px 2px;
     margin: 0 0 16px 0;
+    border-bottom: 1px solid var(--color-sf-border, rgb(var(--color-sf-outline-variant, 196, 199, 197)));
 }
 
 .comment-list-item:last-child {
     margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .comment-item {
@@ -347,8 +349,6 @@ export default {
 .comment-body {
     flex: 1;
     min-width: 0;
-    border: 1px solid #ebedf0;
-    border-radius: 5px;
     padding: 10px 40px 10px 14px;
     position: relative;
 }
@@ -363,17 +363,17 @@ export default {
 
 .comment-author {
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--color-sf-content-text-color, rgb(var(--color-sf-on-surface, 28, 27, 31)));
     font-size: 13.5px;
 }
 
 .comment-time {
     font-size: 11.5px;
-    color: #8a8a8a;
+    color: var(--color-sf-content-text-color-alt2, rgb(var(--color-sf-on-surface-variant, 73, 69, 78)));
 }
 
 .comment-text {
-    color: #333;
+    color: var(--color-sf-content-text-color, rgb(var(--color-sf-on-surface, 28, 27, 31)));
     line-height: 1.5;
     word-wrap: break-word;
     font-size: 13.5px;
@@ -389,21 +389,21 @@ export default {
 
 .action-btn {
     cursor: pointer;
-    color: #777;
+    color: var(--color-sf-icon-color, rgb(var(--color-sf-on-surface-variant, 73, 69, 78)));
 }
 
 .action-btn:hover {
-    background: #e3eefc !important;
-    color: #2196F3 !important;
+    background: var(--color-sf-content-bg-color-hover, rgb(var(--color-sf-primary-container, 234, 221, 255))) !important;
+    color: var(--color-sf-primary, rgb(var(--color-sf-primary, 103, 80, 164))) !important;
 }
 
 .delete-btn:hover {
-    background: #fdeaea !important;
-    color: #f44336 !important;
+    background: var(--color-sf-error-container, rgb(var(--color-sf-error-container, 249, 222, 220))) !important;
+    color: var(--color-sf-error, rgb(var(--color-sf-error, 179, 38, 30))) !important;
 }
 
 .no-comments {
-    color: #999;
+    color: var(--color-sf-content-text-color-alt2, rgb(var(--color-sf-on-surface-variant, 73, 69, 78)));
     font-size: 13px;
     padding: 10px 0;
 }

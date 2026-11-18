@@ -6,6 +6,7 @@
                     ref="editor"
                     :value="value"
                     :toolbarSettings="toolbarSettings"
+                    :quickToolbarSettings="quickToolbarSettings"
                     :slashCommandSettings="slashCommandSettings"
                     placeholder="Type something...">
                 </ejs-richtexteditor-ui>
@@ -15,30 +16,92 @@
 
     <div id="action-description">
         <p>
-            This sample demonstrates the features of Rich Text Editor UI that includes all the tools and functionalities.
+            This sample demonstrates the rich text editing and formatting features of the Rich Text Editor UI component with a comprehensive toolbar and Slash Command support.
         </p>
     </div>
 
     <div id="description">
         <p>
-            This sample demonstrates the Rich Text Editor UI with Slash Command support enabled.
-            The Slash Command feature allows users to quickly access editing actions and content
-            insertion options by typing / within the editor. The editor provides a rich set of
-            formatting tools through its toolbar, enabling users to create and edit content while
-            generating valid HTML markup.
+            This sample demonstrates the Rich Text Editor UI component with a comprehensive
+            set of editing, formatting, and content insertion features. The following
+            configurations are used:
         </p>
+
         <ul>
-            <li><code>Lists</code> - NumberFormatList and BulletFormatList types.</li>
-            <li><code>Links</code> - A hyperlink can be inserted into the editor for quick access to related information.</li>
-            <li><code>Image</code> - Inserts and manages images.</li>
-            <li><code>Table</code> - Inserts and manages tables.</li>
-            <li><code>Alignment</code> - Aligns the content with left, center, and right margins.</li>
-            <li><code>Undo/Redo</code> - Allows undo and redo operations.</li>
-            <li><code>Font</code> - Provides text styling options such as font family, font size, font color, and background color.</li>
-            <li><code>Formats</code> - Applies predefined text formats such as paragraphs and headings.</li>
-            <li><code>Bold / Italic / Underline / Strikethrough</code> - Applies inline text formatting to the selected content.</li>
-            <li><code>Subscript / Superscript</code> - Formats the selected text as subscript (lower) or superscript (upper).</li>
-            <li><code>Slash Command</code> - Allows users to quickly access editor commands and content insertion options by typing <code>/</code> within the editor.</li>
+            <li>
+                <code>toolbarSettings.items</code> - Configures the toolbar with text
+                formatting, font styling, lists, alignment, indentation, content insertion,
+                and editing tools.
+            </li>
+            <li>
+                <code>quickToolbarSettings.text</code> - Configures the quick toolbar that
+                appears when text is selected.
+            </li>
+            <li>
+                <code>slashCommandSettings.enable</code> - Enables Slash Command support,
+                allowing users to access editor commands by typing <code>/</code> within
+                the editor.
+            </li>
+            <li>
+                <code>imageSettings.uploadUrl</code> - Specifies the server URL used to
+                upload images.
+            </li>
+            <li>
+                <code>imageSettings.removeUrl</code> - Specifies the server URL used to
+                remove uploaded images.
+            </li>
+            <li>
+                <code>imageSettings.imageUrl</code> - Specifies the URL used to access
+                uploaded images.
+            </li>
+            <li>
+                <code>value</code> - Sets the initial content of the Rich Text Editor.
+            </li>
+            <li>
+                <code>placeholder</code> - Displays placeholder text when the editor
+                does not contain any content.
+            </li>
+        </ul>
+
+        <p>
+            The configured toolbar provides the following editing capabilities:
+        </p>
+
+        <ul>
+            <li>
+                <code>Text Formatting</code> - Applies Bold, Italic, Underline,
+                Strikethrough, Inline Code, Subscript, and Superscript formatting.
+            </li>
+            <li>
+                <code>Font</code> - Provides font family, font size, font color,
+                and background color options.
+            </li>
+            <li>
+                <code>Lists</code> - Provides bulleted, numbered, and checklist options.
+            </li>
+            <li>
+                <code>Content Insertion</code> - Allows users to insert links, images,
+                and tables.
+            </li>
+            <li>
+                <code>Alignment and Indentation</code> - Provides alignment and
+                indentation options for content.
+            </li>
+            <li>
+                <code>Formats</code> - Applies predefined formats such as paragraphs
+                and headings.
+            </li>
+            <li>
+                <code>Editing</code> - Provides Undo, Redo, and Clear Format operations.
+            </li>
+            <li>
+                <code>Additional Content</code> - Provides options for inserting
+                horizontal lines, quotes, callouts, and code blocks.
+            </li>
+            <li>
+                <code>Case Conversion</code> - Converts selected text to lowercase
+                or uppercase.
+            </li>
         </ul>
     </div>
 </template>
@@ -64,8 +127,12 @@ export default {
 
             toolbarSettings: {
                 items: [
-                    'Undo', 'Redo', '|', 'Formats', '|', 'Bold', 'Italic', 'Underline', 'Strikethrough', 'InlineCode', '|', 'FontName', 'FontSize', '|', 'LowerCase', 'UpperCase', '|', 'Superscript', 'Subscript' , '|', 'FontColor', 'BackgroundColor', '|', 'BulletFormatList', 'NumberFormatList', '|', 'Link', 'Image', 'Table', '|', 'Indent', 'Outdent', '|', 'Alignment', '|', 'HorizontalLine', 'Quote', 'CodeBlock', '|', 'ClearFormat'
+                    'Undo', 'Redo', '|', 'Bold', 'Italic', 'Underline', 'Strikethrough', 'InlineCode', '|', 'Link', 'Image', 'Table', 'CodeBlock', 'HorizontalLine', 'Quote', '|', 'Formats', 'Alignment', 'Callout', '|', 'BulletFormatList', 'NumberFormatList', 'Checklist', '|', 'Outdent', 'Indent', '|', 'FontColor', 'BackgroundColor', 'FontName', 'FontSize', '|', 'LowerCase', 'UpperCase', '|', 'Superscript', 'Subscript', '|', 'ClearFormat'
                 ]
+            },
+
+            quickToolbarSettings: {
+                text: ['Bold', 'Italic', 'Underline', 'Strikethrough', 'BackgroundColor', 'FontColor', '|', 'Formats', '|', 'Link', 'Table', 'Image', 'ClearFormat']
             },
 
             slashCommandSettings: {

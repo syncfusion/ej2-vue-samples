@@ -70,7 +70,7 @@
   </div>
 </template>
 <script>
-import { GanttComponent, Edit, Selection, Toolbar, DayMarkers, ContextMenu, Sort, Resize } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Edit, Selection, Toolbar, DayMarkers, ContextMenu, Sort, Resize, NotesEditor } from "@syncfusion/ej2-vue-gantt";
 import { contextMenuData, editingResources } from "./data-source";
 
 export default {
@@ -155,7 +155,8 @@ export default {
         { field: "EndDate" },
         { field: "Duration" },
         { field: "Progress" },
-        { field: "Predecessor" }
+        { field: "Predecessor" },
+        { field: 'info', disableHtmlEncode: true }
       ],
       labelSettings: {
         leftLabel: "TaskName",
@@ -175,7 +176,7 @@ export default {
     };
   },
   provide: {
-    gantt: [Edit, Selection, Toolbar, DayMarkers, ContextMenu, Sort, Resize]
+    gantt: [Edit, Selection, Toolbar, DayMarkers, ContextMenu, Sort, Resize, NotesEditor]
   },
   methods: {
     contextMenuOpen: function (args) {

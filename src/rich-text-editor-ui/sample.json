@@ -9,25 +9,41 @@
             "url": "basic-editing",
             "name": "Basic Editing",
             "description": "This demo shows how to render the Modern Rich Text Editor component with a minimum configuration setting.",
-            "category": "Editor"
+            "category": "Editor",
+            "sourceFiles": [
+                { "displayName": "basic-editing.vue", "path": "src/rich-text-editor-ui/basic-editing.vue" },
+                { "displayName": "basic-editing-content.ts", "path": "src/rich-text-editor-ui/basic-editing-content.ts" }
+            ]
         },
         {
             "url": "full-featured-editing",
             "name": "Full-Featured Editing",
             "description": "This demo shows how to render the Modern Rich Text Editor component with a minimum configuration setting.",
-            "category": "Editor"
+            "category": "Editor",
+            "sourceFiles": [
+                { "displayName": "full-featured-editing.vue", "path": "src/rich-text-editor-ui/full-featured-editing.vue" },
+                { "displayName": "full-featured-content.ts", "path": "src/rich-text-editor-ui/full-featured-content.ts" }
+            ]
         },
         {
             "url": "inline-editing",
             "name": "Inline Editing",
             "description": "An inline Modern Rich Text Editor sample configured for in-place editing with a compact toolbar.",
-            "category": "Editor"
+            "category": "Editor",
+            "sourceFiles": [
+                { "displayName": "inline-editing.vue", "path": "src/rich-text-editor-ui/inline-editing.vue" },
+                { "displayName": "inline-editing-content.ts", "path": "src/rich-text-editor-ui/inline-editing-content.ts" }
+            ]
         },
         {
             "url": "toolbar",
             "name": "Toolbar",
             "description": "This demo shows how to configure the toolbar type and position of the Modern Rich Text Editor component.",
-            "category": "Features"
+            "category": "Features",
+            "sourceFiles": [
+                { "displayName": "toolbar.vue", "path": "src/rich-text-editor-ui/toolbar.vue" },
+                { "displayName": "toolbar-content.ts", "path": "src/rich-text-editor-ui/toolbar-content.ts" }
+            ]
         },
         {
             "url": "slash-commands",

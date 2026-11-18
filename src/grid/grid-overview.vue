@@ -42,8 +42,9 @@
                 used along with large data source.
             </p>
             <p>
-                You can follow the guidelines in this documentation to get around the browser height restriction when loading and viewing millions of records. Refer <a target="_blank" aria-label="API link for documentation" href="https://ej2.syncfusion.com/vue/documentation/grid/virtual-scroll/#browser-height-limitation-in-virtual-scrolling-and-solution">
-                here</a> for more details.
+                You can follow the guidelines in this <a target="_blank" aria-label="API link for documentation"
+                    href="https://ej2.syncfusion.com/vue/documentation/grid/scrolling/virtual-scroll#browser-height-limitation-in-virtual-scrolling-and-solution">
+                    documentation</a> to get around the browser height restriction when loading and viewing millions of records.
             </p>
             <p>
             <br/> More information on the Grid instantiation can be found in this

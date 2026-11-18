@@ -98,7 +98,19 @@ export default {
         };
     },
 
+    mounted() {
+        this.applyCodeMirrorHeight();
+    },
+
     methods: {
+        applyCodeMirrorHeight() {
+            const panes = this.$el.querySelectorAll('.e-splitter .CodeMirror');
+
+            panes.forEach(pane => {
+                pane.style.height = '405px';
+            });
+        },
+
         getEditor() {
             return this.$refs.editor.ej2Instances;
         },
@@ -118,7 +130,8 @@ export default {
                         value: rteHtml,
                         mode: 'text/html',
                         lineNumbers: true,
-                        lineWrapping: true
+                        lineWrapping: true,
+                        readOnly: true
                     }
                 );
 

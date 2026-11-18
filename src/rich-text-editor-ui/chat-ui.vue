@@ -166,7 +166,7 @@ export default {
         toolbarSettings: {
           position: 'Bottom',
 
-          items: ['Bold','Italic','Underline','|','FontColor','BackgroundColor','|','BulletFormatList','NumberFormatList','|','Link','Image','|',{
+          items: ['Bold','Italic','Underline','Strikethrough','|','BulletFormatList','NumberFormatList','|','Formats','FontColor','FontSize','BackgroundColor','|','Quote','Link','CodeBlock','Image','|',{
               align: 'Right',
               id: 'send_tbar',
               tooltipText: 'Send Message',
@@ -192,6 +192,10 @@ export default {
       if (!sendBtn) {
         return;
       }
+
+      sendBtn.classList.remove('e-tbar-btn');
+
+      sendBtn.classList.add('e-primary');
 
       sendBtn.onclick = () => {
         this.sendMessage();

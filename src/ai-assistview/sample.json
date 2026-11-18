@@ -153,51 +153,6 @@
             ]
         },
         {
-            "url": "notion",
-            "name": "Notion AI-like",
-            "category": "UI Customization",
-            "api": { "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings", "footerToolbarSettings", "enableAttachments", "attachmentSettings", "showHeader"] },
-            "description": "Demonstrates a Notion-inspired AI AssistView with session-based chat management, multiple display modes (Sidebar, Floating, Fullscreen), advanced settings, and model switching.",
-            "sourceFiles": [
-                { "displayName": "notion.vue", "path": "src/ai-assistview/notion.vue" },
-                { "displayName": "promptResponseData.json", "path": "src/ai-assistview/promptResponseData.json" }
-            ]
-        },
-        {
-            "url": "claude-clone",
-            "name": "Claude AI-like",
-            "category": "UI Customization",
-            "api": { "AIAssitView": ["promptRequest", "showHeader", "enableAttachments", "attachmentSettings", "footerToolbarSettings", "bannerTemplate", "promptPlaceholder"] },
-            "description": "Demonstrates a Claude-inspired AI AssistView with branded UI, model switching dropdown, and distraction-free chat experience.",
-            "sourceFiles": [
-                { "displayName": "claude-clone.vue", "path": "src/ai-assistview/claude-clone.vue" },
-                { "displayName": "promptResponseData.json", "path": "src/ai-assistview/promptResponseData.json" }
-            ]
-        },
-        {
-            "url": "gemini-clone",
-            "name": "Gemini AI-like",
-            "category": "UI Customization",
-            "api": { "AIAssitView": ["promptRequest", "promptChanged", "showHeader", "enableAttachments", "attachmentSettings", "footerToolbarSettings", "bannerTemplate", "promptPlaceholder", "speechToTextSettings"] },
-            "description": "Demonstrates a Gemini-inspired AI AssistView with branded UI, model switching dropdown, speech-to-text, and dynamic button toggling.",
-            "sourceFiles": [
-                { "displayName": "gemini-clone.vue", "path": "src/ai-assistview/gemini-clone.vue" },
-                { "displayName": "promptResponseData.json", "path": "src/ai-assistview/promptResponseData.json" }
-            ]
-        },
-        {
-            "url": "chatgpt-clone",
-            "name": "ChatGPT AI-like",
-            "category": "UI Customization",
-            "type": "new",
-            "api":{ "AIAssitView": ["promptRequest", "promptSuggestions", "bannerTemplate", "toolbarSettings", "footerToolbarSettings", "speechToTextSettings", "responseToolbarSettings"] },
-            "description": "Demonstrates a ChatGPT-inspired AI AssistView with a branded UI, pill-shaped input bar, speech-to-text support, and dynamic response interactions.",
-            "sourceFiles": [
-                { "displayName": "chatgpt-clone.vue", "path":"src/ai-assistview/chatgpt-clone.vue" },
-                { "displayName": "promptResponseData.json", "path":"src/ai-assistview/promptResponseData.json" }
-            ]
-        },
-        {
             "url": "dialog",
             "name": "Notes Assistant",
             "category": "Use Cases",

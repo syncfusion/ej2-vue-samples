@@ -29,7 +29,6 @@
                   :dataSource="mode"
                   :width="width"
                   index="0"
-                  floatLabelType="Auto"
                   :fields="fields"
                 ></ejs-dropdownlist>
               </div>
@@ -47,7 +46,6 @@
                   :dataSource="type"
                   index="0"
                   :width="width"
-                  floatLabelType="Auto"
                   :fields="fields"
                 ></ejs-dropdownlist>
               </div>

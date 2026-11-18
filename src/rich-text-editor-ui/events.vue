@@ -82,7 +82,6 @@ export default {
             toolbarSettings: {
                 items: ['Bold','Italic','Underline','|','FontColor','BackgroundColor','|','FontName','FontSize','|','Table','Image','Link','|','Formats','Alignment','NumberFormatList','BulletFormatList','|','Undo','Redo'
                 ],
-                updatedToolbarStatus: this.onUpdatedToolbarStatus,
                 itemClicked: this.onItemClick
             },
 
@@ -151,12 +150,6 @@ export default {
         onItemClick(args) {
             this.appendLog(
                 `Rich Text Editor UI <b>toolbar click</b> event called`
-            );
-        },
-
-        onUpdatedToolbarStatus() {
-            this.appendLog(
-                'Rich Text Editor UI <b>updatedToolbarStatus</b> event called'
             );
         },
 

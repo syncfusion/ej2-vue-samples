@@ -42,7 +42,7 @@
     </div>
 </template>
 <script>
-import { GanttComponent, Edit, Selection, Toolbar, DayMarkers } from "@syncfusion/ej2-vue-gantt";
+import { GanttComponent, Edit, Selection, Toolbar, DayMarkers, NotesEditor } from "@syncfusion/ej2-vue-gantt";
 import { defaultEditingData, editingResources } from './data-source';
 var startDate;
 function customFn(args) {
@@ -113,7 +113,8 @@ export default {
                 { field: 'StartDate' },
                 { field: 'EndDate', validationRules: endDateValidation },
                 { field: 'Progress', validationRules: { required: true, min: 0, max: 100 } },
-                { field: 'Predecessor' }
+                { field: 'Predecessor' },
+                { field: 'info', disableHtmlEncode: true }
             ],
             labelSettings: {
                 leftLabel: 'TaskName',
@@ -133,7 +134,7 @@ export default {
         };
     },
     provide: {
-        gantt: [Edit, Selection, Toolbar, DayMarkers]
+        gantt: [Edit, Selection, Toolbar, DayMarkers, NotesEditor]
     },
     methods: {
         actionBegin(args) {

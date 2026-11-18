@@ -40,7 +40,7 @@
                                                     <td>
                                                         <img
                                                             class="mail-item-img"
-                                                            :src="`src/rich-text-editor-ui/images/${data.Eimg}.png`"
+                                                            :src="`src/rich-text-editor-ui/images/${data.Eimg || 'dp'}.png`"
                                                             :alt="data.Name">
                                                     </td>
 
@@ -61,7 +61,7 @@
                                         <div class="mail-value">
                                             <img
                                                 class="mail-value-img"
-                                                :src="`src/rich-text-editor-ui/images/${data.Eimg}.png`"
+                                                :src="`src/rich-text-editor-ui/images/${data.Eimg || 'dp'}.png`"
                                                 :alt="data.Name">
 
                                             <span class="mail-value-name">
@@ -96,7 +96,7 @@
                                                     <td>
                                                         <img
                                                             class="mail-item-img"
-                                                            :src="`src/rich-text-editor-ui/images/${data.Eimg}.png`"
+                                                            :src="`src/rich-text-editor-ui/images/${data.Eimg || 'dp'}.png`"
                                                             :alt="data.Name">
                                                     </td>
 
@@ -118,7 +118,7 @@
                                         <div class="mail-value">
                                             <img
                                                 class="mail-value-img"
-                                                :src="`src/rich-text-editor-ui/images/${data.Eimg}.png`"
+                                                :src="`src/rich-text-editor-ui/images/${data.Eimg || 'dp'}.png`"
                                                 :alt="data.Name">
 
                                             <span class="mail-value-name">
@@ -272,6 +272,8 @@ export default {
 .mail-composer {
     max-width: 1000px;
     margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 16px;
 }
 
 /* Send / Discard */
@@ -351,10 +353,12 @@ export default {
 
 /* Selected recipient */
 .mail-value {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
     max-width: 200px;
+    height: 100%;
     line-height: 1.1;
 }
 

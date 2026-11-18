@@ -10,8 +10,15 @@
                         :enable="enable"
                         :readonly="readonly"
                         :enableRtl="enableRtl"
-                        :enablePersistence="enablePersistence">
+                        :enablePersistence="enablePersistence"
+                        :saveInterval="100"
+                        :change="onEditorChange">
                     </ejs-richtexteditor-ui>
+
+                    <div id="value-format-output-panel" class="e-rte-api-methods">
+                        <h4>Value Format Result</h4>
+                        <pre id="value-format-output" aria-live="polite">{{ valueFormatOutput }}</pre>
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,6 +105,8 @@ export default {
         return {
             value: '<p>Welcome to Rich Text Editor</p>',
 
+            valueFormatOutput: '',
+
             valueFormat: 'html',
 
             enable: true,
@@ -106,7 +115,7 @@ export default {
 
             enableRtl: false,
 
-            enablePersistence: false,
+            enablePersistence: true,
 
             fields: {
                 text: 'text',
@@ -120,9 +129,26 @@ export default {
         };
     },
 
+    mounted() {
+        this.log(this.getEditor().value);
+    },
+
     methods: {
         getEditor() {
             return this.$refs.editor.ej2Instances;
+        },
+
+        log(value) {
+            this.valueFormatOutput =
+                value === undefined || value === null
+                    ? String(value)
+                    : typeof value === 'string'
+                        ? value
+                        : JSON.stringify(value, null, 2);
+        },
+
+        onEditorChange() {
+            this.log(this.getEditor().value);
         },
 
         onValueFormatChange(args) {
@@ -136,6 +162,8 @@ export default {
             editor.dataBind();
 
             this.valueFormat = args.value;
+
+            this.log(editor.value);
         },
 
         onEnableChange(args) {
@@ -180,5 +208,31 @@ export default {
 <style>
 .editor-properties div {
     padding-left: 0;
+}
+
+#value-format-output-panel {
+    margin-top: 16px;
+}
+
+#value-format-output-panel h4 {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+#value-format-output {
+    margin: 0;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.5;
+    min-height: 200px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    box-sizing: border-box;
+    background: transparent;
 }
 </style>

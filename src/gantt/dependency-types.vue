@@ -170,7 +170,7 @@ export default {
 
     provide: {
         gantt: [Edit, Selection, Toolbar],
-        dropdowns: [CheckBoxSelection]
+        multiselect: [CheckBoxSelection]
     }
 };
 </script>

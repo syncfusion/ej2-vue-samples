@@ -7,6 +7,7 @@
                         <ejs-richtexteditor-ui
                             ref="editor"
                             height="350px"
+                            :value="value"
                             :toolbarSettings="toolbarSettings">
                         </ejs-richtexteditor-ui>
                     </div>
@@ -66,8 +67,47 @@
         <div id="description">
             <p>
                 The Rich Text Editor UI toolbar can be configured using the
-                <code>toolbarSettings</code> property.
+                <code>toolbarSettings</code> property. The toolbar supports different
+                types and positions:
             </p>
+
+            <ul>
+                <li>
+                    <code>Toolbar Type</code> - Controls how toolbar items are displayed:
+                    <ul>
+                        <li>
+                            <code>Expanded</code>: Hides overflowing items in the next
+                            row, with an expand arrow to view them.
+                        </li>
+                        <li>
+                            <code>MultiRow</code>: Automatically wraps items to the next row.
+                        </li>
+                        <li>
+                            <code>Scrollable</code>: Displays all items in a single row
+                            with horizontal scrolling.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <code>Toolbar Position</code> - Controls where the toolbar is placed:
+                    <ul>
+                        <li>
+                            <code>Top</code>: Toolbar appears above the editor (default).
+                        </li>
+                        <li>
+                            <code>Bottom</code>: Toolbar appears below the editor.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <code>Enable Floating</code> - The
+                    <code>enableFloating</code> property enables floating mode for the
+                    toolbar, allowing the toolbar to remain accessible while scrolling
+                    through the editor content.
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -76,6 +116,8 @@
 import { RichTextEditorUIComponent } from '@syncfusion/ej2-vue-richtexteditor-ui';
 import { DropDownListComponent } from '@syncfusion/ej2-vue-dropdowns';
 import { CheckBoxComponent } from '@syncfusion/ej2-vue-buttons';
+
+import { TOOLBAR_CONTENT } from './toolbar-content';
 
 export default {
     components: {
@@ -86,13 +128,15 @@ export default {
 
     data() {
         return {
+            value: TOOLBAR_CONTENT,
+
             fields: {
                 text: 'text',
                 value: 'value'
             },
 
             toolbarSettings: {
-                items: ['Undo','Redo','|','Bold','Italic','Underline','Strikethrough','|','FontColor','BackgroundColor','|','Formats','Alignment','|','Table','Image','Link','|','FontName','FontSize','|','NumberFormatList','BulletFormatList','|','Subscript','Superscript'
+                items: ['Undo','Redo','|','Bold','Italic','Underline','Strikethrough','|','FontColor','BackgroundColor','|','Formats','Alignment','|','Table','Image','Link','|','FontName','FontSize','|','NumberFormatList','BulletFormatList','|','Subscript','Superscript','|','ClearFormat'
                 ],
                 type: 'Expanded',
                 position: 'Top',

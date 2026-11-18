@@ -20,7 +20,7 @@
           class="allowedText"
           style=" margin-left: 14px;margin-right: 17px;margin-top: 14px;width: auto;height: auto;"
         >
-          <span style="font-weight: 600;"> Allowed Input characters :</span> support 0-9 A-Z a-z and special character
+          <span style="font-weight: 600;"> Allowed Input characters :</span> support 0-9 A-Z a-z and special character.
         </div>
       </div>
     </div>

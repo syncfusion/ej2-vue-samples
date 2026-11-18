@@ -283,6 +283,34 @@
             }
         },
         {
+            "url": "event-buffer",
+            "name": "Event Buffer",
+            "type": "new",
+            "category": "Appointments",
+            "description": "This demo shows how to render bufferBefore and bufferAfter alongside each appointment using a custom template on the Vue Scheduler.",
+            "api": {
+                "Schedule": [
+                    "width",
+                    "height",
+                    "cssClass",
+                    "currentView",
+                    "selectedDate",
+                    "navigating",
+                    "group",
+                    "workHours",
+                    "views",
+                    "headerIndentTemplate",
+                    "resourceHeaderTemplate",
+                    "resources",
+                    "eventSettings",
+                    "allowOverlap",
+                    "timeScale",
+                    "dragStop",
+                    "actionBegin"
+                ]
+            }
+        },
+        {
             "url": "search-events",
             "ignoreOnBuild": true,
             "name": "Search Events",
